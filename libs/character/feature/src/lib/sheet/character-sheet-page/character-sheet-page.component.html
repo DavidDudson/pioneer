@@ -16,6 +16,7 @@
           </fr-async-region>
           <pio-sheet-header-actions />
         </fr-stack>
+        <pio-sheet-form />
         <pio-sheet-hit-points />
         <pio-sheet-death-track />
         <pio-sheet-resources />
@@ -50,10 +51,6 @@
       }
     </fr-stack>
   </fr-page-body>
-  @if (sidePanel.panel(); as panel) {
-    <fr-drawer [title]="'character.sheet.sidePanel.title' | transloco">
-      <ng-container [ngComponentOutlet]="panel" />
-    </fr-drawer>
-  }
+  <pio-sheet-drawers ngProjectAs="fr-drawer" />
 </fr-page>
 <pio-sheet-side-panel />

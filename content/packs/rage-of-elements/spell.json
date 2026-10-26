@@ -1056,7 +1056,8 @@
             "formula": "2d6"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -4217,7 +4218,8 @@
             }
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -4338,7 +4340,8 @@
         "unit": "hour"
       },
       "traditions": ["arcane", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -5225,7 +5228,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -7283,7 +7287,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "divine", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -8851,7 +8856,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -10668,7 +10674,8 @@
             "formula": "1d10"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -14764,7 +14771,8 @@
             "formula": "2d6"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {

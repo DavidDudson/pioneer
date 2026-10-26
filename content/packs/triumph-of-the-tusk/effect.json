@@ -1,0 +1,1165 @@
+[
+  {
+    "id": "5a32bfca-b76c-5ded-8635-e49d0dea6a7a",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-aurochs-endurance",
+    "name": "Effect: Aurochs' Endurance",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b4a29c4b-55c6-525b-b7cc-719c5afba8c6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You suppress the fatigued condition and you gain a +2 item bonus to saving throws against effects that would fatigue you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all"],
+        "suppress": true,
+        "predicate": ["penalty:slug:fatigued"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["inflicts:fatigued"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.mIZVE5kyzxScpaS5"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f6fa229e-6a5a-5ac0-9414-350854f6ba8e",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-aurochs-jerky",
+    "name": "Effect: Aurochs Jerky",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b4a29c4b-55c6-525b-b7cc-719c5afba8c6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to Fortitude saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.4p6rOPyQ5ziKp1VP"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6ea9a89d-fa2f-5f81-841f-256ec15d1915",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-bark-orders-hold-sergeant",
+    "name": "Effect: Bark Orders (Hold Sergeant)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "damage"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.PvOaRjOnUrPkfbxe"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fc07070f-09be-5afc-a408-4edf376c43a9",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-biggest-fan",
+    "name": "Effect: Biggest Fan!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 1d6 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.GGxPoUu7tcASRY0G"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "1d6"
+      }
+    }
+  },
+  {
+    "id": "8a90f02e-9dda-5afd-8431-9226d0470291",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-circle-of-horns",
+    "name": "Effect: Circle of Horns",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The herd gains a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.KOLOAj7EYHkoNmlY"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e73a55e8-20e9-585e-9dc8-d5f113bc2169",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-destructive-vengeance",
+    "name": "Effect: Destructive Vengeance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The champion deals 2 extra spirit or void damage with their Strikes against the triggering creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6pLYKcDawL5JUBkK"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "ccf911c3-1d53-5e6f-a3e4-4f0141809b5f",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-drain-life-wight-spell-sniper",
+    "name": "Effect: Drain Life (Wight Spell Sniper)",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 2d6 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7EBdAHY7y06Bk4un"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "2d6"
+      }
+    }
+  },
+  {
+    "id": "7e99549d-f017-58c8-aa0b-2c786e33c3ce",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-field-of-slaughter-bleed",
+    "name": "Effect: Field of Slaughter (Bleed)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical hits within the aura deal 3d6 persistent bleed damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 3,
+        "dieSize": "d6",
+        "damageType": "bleed",
+        "critical": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.EhEXb0arrl2tc1HB"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "6aea2d9d-835e-571f-9df0-5e81a6eac377",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-field-of-slaughter-keen",
+    "name": "Effect: Field of Slaughter (Keen)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weapons and unarmed strikes gain the "
+          },
+          {
+            "type": "text",
+            "text": "keen",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "property": "property-runes",
+        "mode": "add",
+        "value": "keen"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.LFJppLCe4JAWrzPs"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "23b85c4c-6f66-5241-829f-c0faeef60d09",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-infused-with-belkzens-might",
+    "name": "Effect: Infused with Belkzen's Might",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d8ebfb92-3fa9-5075-8a5b-3dfcccb7fe36"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You deal additional spirit damage with weapons and unarmed attacks equal to 1 plus half the number of Tattooed Historian feats you have."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.yKFV294LeXzrvF8K"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "de121568-dd1b-5939-9a7a-377bcb39ee25",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-ironblood-stance",
+    "name": "Effect: Ironblood Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nakasha enters a stance of impenetrable iron. As long as she's in this stance, Nakasha can make iron sweep Strikes with her fists and gains resistance 2 to all damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.nAHRwy8agswzdgFh"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "87982198-b591-5347-8f80-f36eb401b37b",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-lunar-blaze",
+    "name": "Effect: Lunar Blaze",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Diskah becomes immune to fire damage and her melee Strikes deal an additional 1d6 persistent fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Immunity",
+        "type": ["fire"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "category": "persistent"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.SWngTPtwUi0aOHcH"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "aed7aea2-4a90-57fe-924d-1c7234466f93",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-my-turn",
+    "name": "Effect: My Turn!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kar gains a +1 status bonus to attack rolls, saving throws, and skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "saving-throw", "skill-check"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.tvVFra3BqfyATahM"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3211e39d-59d0-587e-bea3-c87980766876",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-partial-armor",
+    "name": "Effect: Partial Armor",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ephemeral effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Strikes made with ranged or reach weapons gain a +1 circumstance bonus to attack rolls against Marguk."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:ranged", "item:trait:reach"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.QlgqJXCQkpCzpJZG"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "da2b5437-617b-54b2-8f2f-414c05eb9077",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-purple-pepper-powder",
+    "name": "Effect: Purple Pepper Powder",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "73679770-abb4-59e2-8db4-c5ff67df2dbf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 10 to fire and resistance 5 to poison."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 10
+      },
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.G2QC7QCEsPth2pUd"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "10d09810-b53b-5a88-9a05-17606c196ec8",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-shed-cinders",
+    "name": "Effect: Shed Cinders",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f1680b83-8740-5ae0-8629-b9629224364e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The cloak's resistance to fire increases to 15 against the triggering effect. Your flat check to remove persistent fire damage is 10 instead of 15."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:shed-cinders",
+        "toggleable": true,
+        "value": true
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 15,
+        "predicate": ["option:shed-cinders"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.2Cdf49eccdwBh40X"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "6510e822-17cb-5c7d-b141-8c4be232e0db",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-shift-scales",
+    "name": "Effect: Shift Scales",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1dae2026-c37e-5a88-8077-09d8aa05a7bc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 5 to bludgeoning, piercing, and slashing damage, but your Speeds are reduced by 10 feet (minimum 5 feet)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "piercing", "slashing"],
+        "value": 5
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "untyped",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ImGkGl9OeK1zyxYJ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "25fecea8-0d17-561d-81c3-3d76149950fc",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-skin-net",
+    "name": "Effect: Skin Net",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –10-foot circumstance penalty to your Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.2tOVDTjCZVx4uEjP"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0d0c5b25-64c3-5948-a37d-a50a2ed778c3",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-stubborn-skin",
+    "name": "Effect: Stubborn Skin",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fa064799-52f7-5aaa-aaa5-0a5eab0bd458"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a –1 penalty to Reflex saves and a +2 item bonus to Fortitude saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "untyped",
+        "value": -1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.bbZkyKT6MzaX4FHI"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "ca9e84e3-f236-5fc8-85e3-ca9c02843ed9",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:effect-wallow",
+    "name": "Effect: Wallow",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The war pig gains temporary hit points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.x95cRqu4JjgCO0xQ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "1d8"
+      }
+    }
+  },
+  {
+    "id": "24fe8c9e-ce29-5b6a-a827-249ea1396be5",
+    "pack": "triumph-of-the-tusk",
+    "kind": "effect",
+    "slug": "effect:spell-effect-strength-of-mind",
+    "name": "Spell Effect: Strength of Mind",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f79d32ac-c89d-5e7b-b699-5a16c490efdf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to saving throws against mental effects and against effects that hinder movement (including those that reduce Speed or apply the "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " conditions). This bonus increases to +2 if the source of the effect has the fear trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["itemtrait:mental", "inflicts:grabbed", "inflicts:immobilized", "inflicts:restrained"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "spell-effect-strength-of-mind",
+        "mode": "add",
+        "value": 1,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.pW1jauNjZ1owaciQ"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-end"
+      }
+    }
+  }
+]

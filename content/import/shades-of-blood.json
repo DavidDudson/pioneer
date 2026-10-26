@@ -1,0 +1,5198 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "action:vampire-strigoi-drink-essence",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.rBc9fJlMXhzvn05L",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Vampire.DrinkEssence.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "action:vampire-strigoi-levitation",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.zehifmU1fTeGs2ev",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Vampire.Levitation.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "action:vampire-strigoi-progenitor-create-servitor",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.8IQqWkLqzvWA1JRJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Vampire.CreateServitor.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "action:vampire-strigoi-progenitor-domain-of-dusk",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.AzvCvgx9SUAB2blo",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Vampire.DomainOfDusk.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "action:vampire-strigoi-progenitor-drink-essence",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.fh7ar6QrFT8YWgQ9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Vampire.DrinkEssence.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "action:vampire-strigoi-progenitor-shadow-escape",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.R5VgwNbwc3QbqVXC",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Vampire.ShadowEscape.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "action:vampire-strigoi-shadow-form",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.eQLGYrJhu787pEwc",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Vampire.ShadowForm.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "action:vampire-strigoi-strigoi-weaknesses",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.qjgrMhwz78T31kLU",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Vampire.StrigoiWeaknesses.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "background:hunted-by-the-night",
+      "foundry": "Compendium.pf2e.backgrounds.Item.N0CRYmDCw8bgNxLl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.equipment-srd.Item.Religious Symbol (Wooden)"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.equipment-srd.Item.Holy Water"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "background:stargazer",
+      "foundry": "Compendium.pf2e.backgrounds.Item.HWOGbaRGXazklBMT",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "preselectChoices": {
+              "assurance": "{item|flags.system.rulesSelections.skill}"
+            },
+            "uuid": "Compendium.pf2e.feats-srd.Item.Assurance"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:aeon-stone-swarm",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.FyW3TEgHPqM9eDcN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["aeon-resonance:defensive"],
+            "type": "{item|flags.system.rulesSelections.defensiveResonance}",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.AeonStoneSwarm.AeonResonance.IlluminationColor",
+            "option": "illumination",
+            "predicate": ["aeon-resonance:illumination"],
+            "suboptions": [
+              {
+                "label": "PF2E.Color.Blue",
+                "value": "#0000FF"
+              },
+              {
+                "label": "PF2E.Color.Cyan",
+                "value": "#43D6D6"
+              },
+              {
+                "label": "PF2E.Color.Green",
+                "value": "#00FF00"
+              },
+              {
+                "label": "PF2E.Color.Indigo",
+                "value": "#4B0082"
+              },
+              {
+                "label": "PF2E.Color.Magenta",
+                "value": "#FF00FF"
+              },
+              {
+                "label": "PF2E.Color.Orange",
+                "value": "#FFA400"
+              },
+              {
+                "label": "PF2E.Color.Red",
+                "value": "#FF0000"
+              },
+              {
+                "label": "PF2E.Color.Violet",
+                "value": "#9400D3"
+              },
+              {
+                "label": "PF2E.Color.White",
+                "value": "#AAAAAA"
+              },
+              {
+                "label": "PF2E.Color.Yellow",
+                "value": "#FAFA00"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:alzira-mustanir",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.EgVCDx5HEUs7e0th",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "humanoid",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Humanoid",
+                "value": "humanoid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Hybrid",
+                "value": "hybrid"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 7,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d4"
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Jaws",
+            "predicate": ["change-shape:hybrid"],
+            "slug": "jaws",
+            "traits": ["agile", "finesse", "unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageDice",
+          "raw": {
+            "key": "DamageDice",
+            "override": {
+              "dieSize": "d10"
+            },
+            "predicate": ["item:slug:harm"],
+            "selector": ["spell-damage", "spell-healing"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Intake Skeleton Key"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:amphibious-chupacabra",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.lv37YXdRoPLyR90O",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:animated-treasure-swarm",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.j6JGWiMMFMeBV7Bz",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(21 when broken), construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:anoreth-zorillen",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.UrRajhTDwYg40Rms",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Handkerchief (Impeccably Embroidered with Orange, Red, and Yellow Tulips)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Pocket Watch Containing a Lock of Black Hair Tied in a Pink Ribbon"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Spellbook (Grand Schematica)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:anvaca",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.kTTnDtBuAnfdJwoW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "type": [
+              "bleed",
+              "death-effects",
+              "disease",
+              "doomed",
+              "drained",
+              "fatigued",
+              "healing",
+              "nonlethal-attacks",
+              "paralyzed",
+              "poison",
+              "sickened",
+              "spirit",
+              "unconscious",
+              "vitality",
+              "void"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:auzmere",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.aX9sC59BYbnUg9Tb",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ancient Iron Key Ring"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:batkin-guard",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.RtNr5A739WpvpEEG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "humanoid",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Humanoid",
+                "value": "humanoid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Hybrid",
+                "value": "hybrid"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 7,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d4",
+                "modifier": 4
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Jaws",
+            "predicate": ["change-shape:hybrid"],
+            "slug": "jaws",
+            "traits": ["agile", "finesse", "unarmed"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:bulbous-blood-ooze",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.CKm5mJeZJwRlOu27",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Pseudopod.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:camazotz-cultist",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.5BdcWUKNe0Y8Jiaq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol of Camazotz"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:clockwork-corpse",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.to8imCECPsArwlE2",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "type": ["spirit", "vitality", "void"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "orichalcum"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:clockwork-sentry",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.n7NcIxT3kfhZjDL1",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "orichalcum"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:conductor",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.Y1uFZHLnPjMyLvHS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 10 (deactivated by holy or silver"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "painsight"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": ["holy", "silver"],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Conductor's Baton"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "silver"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:creeping-clot",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.UuXREGQxhDv8KQFq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "amphibious motion sense (precise) 60 feet,"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:danva",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.vu6NVlTlomKNghZM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. auditory and visual"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Mayor's Uniform"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Key"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:deg",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.nq70qRFWZOyJkmDC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Aerosol Canister (Three Doses of Concentrated Cytillesh Gas)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Engineer's Toolkit"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "vulnerable-to-sunlight"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:dero-punk",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.7xaJIYGhyJD31lfG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:dero-sentry",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.exHroW4CMNK2pnKv",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "vulnerable-to-sunlight"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:desmohund",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.wWG6YZdae68YNR3E",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "Glide"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:erissa",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.zsLGLqVmxIcRFMpU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing, rejuvenation"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Telekinetic Object.damage",
+          "raw": {
+            "damage": "2d12",
+            "damageType": "untyped"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:firitula",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.n27nM6GoGJT7OrtR",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Explosive Arrow"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Sighting Shot Arrow"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:fogfisher",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.tRD9nT9535e4p1oH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "mist vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "silver"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[howl-of-the-wild-bestiary]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:freileth",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.YSSDO5sjftfy90gk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 10, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "plus one regional language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": [
+                  "item:magical",
+                  {
+                    "or": ["damage:material:dawnsilver", "damage:material:silver"]
+                  }
+                ],
+                "label": "PF2E.IWR.Custom.MagicalSilver"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "vampire",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Vampire",
+                "value": "vampire"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.BatGiant",
+                "value": "bat-giant"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 19,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 2,
+                "die": "d8",
+                "modifier": 9
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Fangs",
+            "predicate": ["change-shape:bat-giant"],
+            "replaceAll": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Dominate (At Will) (See Dominate)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Signet Ring"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Spellbook (Blood and Brilliance)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Shardstorm (Rank 3)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Paralytic Shock (Rank 3)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:fulthrethu",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.9AbM3vYxqnbOKMXL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Jaws.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:geff",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.nAnpWKPONGmbe5jp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Bonesaw"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scalpel"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:glormungost",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.OUnOwGyGysTtnVqG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 7, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. auditory and visual"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Blood Bomb.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:grusk-the-pusk",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.o5TPuCVrjk5WeIEb",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 16
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:idebilor",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.2CTbUmwKQUL2Wlqm",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(void healing)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["item:slug:harm"],
+            "selector": "spell-damage",
+            "text": "PF2E.SpecificRule.Cleric.SapLife.Note",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Key"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Crisis of Faith (Rank 3)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:ilnaphrae",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.0uwWDU01Ox58SysJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 7, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "plus one regional language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": [
+                  "item:magical",
+                  {
+                    "or": ["damage:material:dawnsilver", "damage:material:silver"]
+                  }
+                ],
+                "label": "PF2E.IWR.Custom.MagicalSilver"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 7
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "vampire",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Vampire",
+                "value": "vampire"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.BatGiant",
+                "value": "bat-giant"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 15,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d8",
+                "modifier": 9
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Fangs",
+            "predicate": ["change-shape:bat-giant"],
+            "replaceAll": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Dominate (At Will) (See Dominate)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Repeating Crossbow"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Magazine with 5 Bolts"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:inizkar",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.DIJlAQAUQ6N5PwRO",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 circumstance to all saves vs. inhaled threats"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Astronomy Scholarly Journal"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:kaba",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.AXllRfXjM0MXErIL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 7, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "plus one regional language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": [
+                  "item:magical",
+                  {
+                    "or": ["damage:material:dawnsilver", "damage:material:silver"]
+                  }
+                ],
+                "label": "PF2E.IWR.Custom.MagicalSilver"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 7
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "vampire",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Vampire",
+                "value": "vampire"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.BatGiant",
+                "value": "bat-giant"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 15,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d8",
+                "modifier": 9
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Fangs",
+            "predicate": ["change-shape:bat-giant"],
+            "replaceAll": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Dominate (At Will) (See Dominate)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Silver Arrows"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:kalakaigh",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.RopMrASCznNypjlK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "fear scent (precise) 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:keeper-of-ancorato",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.6wYXYSOVgLZo7Mlm",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "doubleVs": ["non-magical"],
+            "exceptions": ["force", "ghost-touch", "vitality", "spirit"],
+            "key": "Resistance",
+            "predicate": [
+              {
+                "not": "bonded-with-mortal"
+              }
+            ],
+            "type": "all-damage",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:lesser-shadow-scamp",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.tX6i3kDDxV14T5uk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 2 (in shadow)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "details": "PF2E.NPCAbility.Scamp.FastHealing.ShadowLabel",
+            "key": "FastHealing",
+            "predicate": ["fast-healing"],
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:living-guard",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.eynyUDgJhj1kbcTR",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "(+16 when rolling initiative)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Chain Mail with Nin's Sigil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:losko",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.vJAoejqZeIlf27Mw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.trigger",
+          "raw": "Frustrated Rage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:miranette",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.obnOPigZBszDZu77",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 26
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet, Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Bladed Scarf.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "succubus",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Demon.Succubus",
+                "value": "succubus"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Small",
+                "value": "humanoid-small"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Medium",
+                "value": "humanoid-medium"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:morlock-thrall",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.vUpWo3El3a3xfzdF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 5"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. disease and poison"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:nalushae-meronis",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.zzEDrDtpiwCaUfym",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 10, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": [
+                  "item:magical",
+                  {
+                    "or": ["damage:material:dawnsilver", "damage:material:silver"]
+                  }
+                ],
+                "label": "PF2E.IWR.Custom.MagicalSilver"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Key"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:netherworld-sprigjack",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.08mgjiQYW93wV8bw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:netherworld-vampire-bat-swarm",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.SRejMgmVr7JxZ9F5",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:nizca-iricol",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.qzhjVB9Pp4sV2mNu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 10, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "fly on manifested batlike wings of shadow"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Chilling Darkness (Rank 5)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:okoa",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.mqrzYkPJxLv4pFGD",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 10, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Beaded Earrings"
+        },
+        {
+          "type": "field",
+          "reason": "invalid-data",
+          "field": "attributes.str",
+          "raw": {
+            "role": "monster",
+            "size": "medium",
+            "perception": 16,
+            "attributes": {
+              "str": 19,
+              "dex": 6,
+              "con": 5,
+              "int": 2,
+              "wis": 3,
+              "cha": 4
+            },
+            "armorClass": 28,
+            "saves": {
+              "fortitude": 18,
+              "reflex": 21,
+              "will": 15
+            },
+            "hitPoints": 120,
+            "immunities": ["death-effects", "disease", "paralyzed", "poison", "sleep"],
+            "weaknesses": [],
+            "resistances": [
+              {
+                "type": "physical",
+                "value": 10,
+                "exceptions": ["silver", "weapons-shedding-bright-light"]
+              }
+            ],
+            "speed": 25,
+            "skills": [
+              {
+                "skill": "acrobatics",
+                "modifier": 19
+              },
+              {
+                "skill": "athletics",
+                "modifier": 21
+              },
+              {
+                "skill": "intimidation",
+                "modifier": 17
+              },
+              {
+                "skill": "society",
+                "modifier": 13
+              },
+              {
+                "skill": "stealth",
+                "modifier": 19
+              },
+              {
+                "skill": "survival",
+                "modifier": 16
+              },
+              {
+                "skill": "netherworld-lore",
+                "modifier": 13
+              },
+              {
+                "skill": "nin-lore",
+                "modifier": 13
+              }
+            ],
+            "senses": [
+              {
+                "sense": "greater-darkvision"
+              }
+            ],
+            "languages": ["azlanti", "common", "necril", "shadowtongue"],
+            "speeds": [
+              {
+                "movement": "fly",
+                "speed": 25
+              }
+            ],
+            "strikes": [
+              {
+                "name": "Claw",
+                "range": "melee",
+                "bonus": 21,
+                "damage": [
+                  {
+                    "dice": 2,
+                    "die": "d10",
+                    "bonus": 10,
+                    "damageType": "slashing"
+                  }
+                ],
+                "traits": ["agile", "magical", "unarmed"],
+                "effects": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Grab"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Shortbow",
+                "range": "melee",
+                "bonus": 19,
+                "damage": [
+                  {
+                    "dice": 1,
+                    "die": "d6",
+                    "bonus": 4,
+                    "damageType": "piercing"
+                  }
+                ],
+                "traits": ["deadly-d10", "reload-0"]
+              }
+            ],
+            "abilities": [
+              {
+                "name": "Fast Healing 10",
+                "traits": [],
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "A monster with this ability regains the given number of Hit Points each round at the beginning of its turn."
+                      }
+                    ]
+                  }
+                ],
+                "rules": [
+                  {
+                    "key": "FastHealing",
+                    "value": 10
+                  }
+                ]
+              },
+              {
+                "name": "Coffin Restoration",
+                "traits": ["divine", "void"],
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Unlike other undead, a vampire isn't destroyed at 0 HP. Instead, it falls Unconscious. If its body rests in its coffin for 1 hour, the vampire gains 1 HP, after which its fast healing begins to function normally."
+                      }
+                    ]
+                  }
+                ],
+                "rules": []
+              },
+              {
+                "name": "Shadow Form",
+                "cost": "one",
+                "traits": ["concentrate", "divine", "shadow"],
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Okoa reverts to pure shadow and absorbs her body and her gear into the darkness, or it shifts back to her physical form. In shadow form, Okoa gains a climb Speed equal to her land Speed and can more through any gap that isn't airtight. However, she can only move along solid surfaces that aren't highly reflective, not liquid or mirrored surfaces. If the surface she's on is destroyed, Okoa returns to physical form and is Stunned 1. She loses fast healing while in shadow form but can remain in shadow form indefinitely."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "If Okoa is exposed to sunlight while in shadow form, she becomes Slowed 2 and must attempt a "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "flat",
+                        "dc": 16
+                      },
+                      {
+                        "type": "text",
+                        "text": " at the end of each of her turns. If she fails, she is destroyed, the shadow vanishing with a blood-curdling wail."
+                      }
+                    ]
+                  }
+                ],
+                "rules": []
+              },
+              {
+                "name": "Strigoi Weaknesses",
+                "traits": [],
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "All strigoi possess the following weaknesses:"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "list",
+                    "ordered": false,
+                    "items": [
+                      [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Revulsion",
+                              "marks": ["strong"]
+                            },
+                            {
+                              "type": "text",
+                              "text": " Strigoi are uncomfortable near mirrors or sources of bright light. Only a strigoi's shadow reflects in a mirror, and this often compels them to cover or destroy mirrors in their presence rather than risk their true nature being displayed. A strigoi can't voluntarily come within 10 feet of a brandished mirror or source of bright light. To brandish a mirror or light source, a creature must Interact to do so for 1 round (similar to Raising a Shield). If the strigoi involuntarily comes within 10 feet of a brandished mirror or light source, they gain the Fleeing condition, running from the brandished object until they end an action beyond 10 feet. After 1 round of being exposed to the subject of their revulsion, a strigoi can attempt a "
+                            },
+                            {
+                              "type": "check",
+                              "statistic": "save:will",
+                              "dc": 25
+                            },
+                            {
+                              "type": "text",
+                              "text": " save as a single action, which has the concentrate trait. On a success, they overcome their revulsions for 1d6 rounds (or 1 hour on a critical success). A strigoi can move normally around mirrors or bright light sources that are not brandished, although doing so causes them discomfort that can be noticed with a successful Perception check to Sense Motive."
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Sunlight",
+                              "marks": ["strong"]
+                            },
+                            {
+                              "type": "text",
+                              "text": " When exposed to direct sunlight, a strigoi immediately becomes Unconscious and falls to the ground. They appear to be dead: they don't breathe, their body temperature matches their surroundings, and they don't react to pain or other stimuli. A successful "
+                            },
+                            {
+                              "type": "check",
+                              "statistic": "perception"
+                            },
+                            {
+                              "type": "text",
+                              "text": " check against the strigoi's Reflex DC is enough to note one anomaly: the shadow cast by their \"dead\" body shifts and moves slightly, its edges twisting and active. Certain detection spells, senses like lifesense, and the \"corpse\" taking damage from vitality energy still function normally and could reveal the truth without a successful Perception check. Viewing the \"corpse\" in a mirror's reflection can also reveal the truth, for only the body's shadow reflects. While in sunlight and unconscious, the strigoi loses their resistance to physical damage. If the strigoi takes enough damage that they would be reduced to 0 Hit Points, their body quickly decomposes, and the strigoi is destroyed."
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Water Revulsion",
+                              "marks": ["strong"]
+                            },
+                            {
+                              "type": "text",
+                              "text": " A strigoi cannot cross a significant source of running water (such as a creek, river, or waves on a seashore). A strigoi capable of flight can cross running water provided they approach no closer than 10 feet to the liquid's surface. If forced into running water against their will, the strigoi becomes Slowed 2 and gains the fleeing condition as long as they remain in the water. At the end of any turn in which the strigoi remains in running water, they must succeed at a "
+                            },
+                            {
+                              "type": "check",
+                              "statistic": "flat",
+                              "dc": 5
+                            },
+                            {
+                              "type": "text",
+                              "text": " or be destroyed."
+                            }
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ],
+                "rules": []
+              },
+              {
+                "name": "Void Healing",
+                "traits": [],
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "A creature with void healing draws health from void energy rather than vitality energy. It is damaged by vitality damage and is not healed by vitality healing effects. It does not take void damage, and it is healed by void effects that heal undead."
+                      }
+                    ]
+                  }
+                ],
+                "rules": []
+              },
+              {
+                "name": "Drink Essence",
+                "cost": "one",
+                "requirements": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the strigoi's reach"
+                      }
+                    ]
+                  }
+                ],
+                "traits": ["divine"],
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Requirements",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the strigoi's reach"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "rule"
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Effect",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The strigoi sinks their fangs into the targeted creature to drink its blood and draw out its vital essence. This requires an "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "skill:athletics"
+                      },
+                      {
+                        "type": "text",
+                        "text": " check against the creature's Fortitude DC if the creature is grabbed and is automatic for any of the other conditions. The creature becomes Drained 1 and Stupefied 1, and Okoa regains "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "13"
+                          }
+                        ],
+                        "healing": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " HP, gaining any excess HP as temporary Hit Points. Drinking Essence from a creature that's already drained or stupefied doesn't restore any HP but increases either the creature's drained condition value or its stupefied condition value by 1 (whichever value is lesser is increased; if both values are equal, then the strigoi chooses which condition to increase the value of)."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "A victim's drained condition decreases by 1 per week. A blood transfusion, which requires a successful "
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "skill:medicine",
+                        "dc": 20
+                      },
+                      {
+                        "type": "text",
+                        "text": " check and sufficient blood or a blood donor, reduces the drained value by 1 after 10 minutes."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "A victim's stupefied condition decreases by 1 per day after performing daily preparations. If the daily preparations are done in full sunlight, the stupefied condition is removed entirely."
+                      }
+                    ]
+                  }
+                ],
+                "rules": []
+              },
+              {
+                "name": "Strafing Strike",
+                "cost": "two",
+                "traits": [],
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Okoa becomes a semi-incorporeal shade, then Strides or Flies up to twice her Speed in a straight line, dealing "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "8d8",
+                            "damageType": "slashing"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage to all creatures in that line or adjacent to that line ("
+                      },
+                      {
+                        "type": "check",
+                        "statistic": "save:reflex",
+                        "dc": 28,
+                        "basic": true
+                      },
+                      {
+                        "type": "text",
+                        "text": " save). She can move through enemies and solid objects during this movement. At the end of this movement, she returns to her fully corporeal form. She can't use Strafing Strike again for 1d4 rounds."
+                      }
+                    ]
+                  }
+                ],
+                "rules": []
+              },
+              {
+                "name": "Vicious Flurry",
+                "cost": "one",
+                "traits": ["flourish"],
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Okoa makes two claw Strikes at the same target, each using her current multiple attack penalty. If both attacks hit, the target is also dealt "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "1d8",
+                            "damageType": "bleed",
+                            "category": "persistent"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage."
+                      }
+                    ]
+                  }
+                ],
+                "rules": []
+              },
+              {
+                "name": "Grab",
+                "cost": "one",
+                "requirements": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature Grabbed or Restrained"
+                      }
+                    ]
+                  }
+                ],
+                "traits": [],
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Requirements",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature Grabbed or Restrained"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "rule"
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Effect",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " If used after a Strike, the monster attempts to Grapple the creature using the body part it attacked with. This attempt neither applies nor counts toward the creature's multiple attack penalty."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "The monster can instead use Grab and choose one creature it's grabbing or restraining with an appendage that has Grab to automatically extend that condition to the end of the monster's next turn."
+                      }
+                    ]
+                  }
+                ],
+                "rules": []
+              }
+            ],
+            "spellcasting": [
+              {
+                "name": "Divine Innate Spells",
+                "tradition": "divine",
+                "preparation": "innate",
+                "dc": 25,
+                "attack": 17,
+                "spells": [
+                  {
+                    "spell": "daa245e0-fdd6-582d-888d-f47865223c52",
+                    "rank": 5
+                  }
+                ]
+              }
+            ],
+            "items": [
+              {
+                "item": "30f44d19-1eec-5808-ae18-11a7bb4d8a59"
+              },
+              {
+                "item": "22033d3f-8f51-58ca-9fc4-4eccb68055dd"
+              },
+              {
+                "item": "3966e322-a2d1-57e9-a938-eb314e1948b8"
+              }
+            ]
+          }
+        }
+      ],
+      "document": {
+        "_id": "mqrzYkPJxLv4pFGD",
+        "name": "Okoa",
+        "type": "npc",
+        "system": {
+          "details": {
+            "publication": {
+              "title": "Pathfinder #215: To Blot Out the Sun",
+              "license": "ORC",
+              "remaster": true
+            },
+            "level": {
+              "value": 9
+            },
+            "blurb": "Female strix strigoi",
+            "languages": {
+              "details": "",
+              "value": ["azlanti", "common", "necril", "shadowtongue"]
+            },
+            "privateNotes": "",
+            "publicNotes": ""
+          },
+          "traits": {
+            "value": ["shadow", "strix", "undead", "vampire"],
+            "rarity": "unique",
+            "size": {
+              "value": "med"
+            }
+          },
+          "abilities": {
+            "cha": {
+              "mod": 4
+            },
+            "con": {
+              "mod": 5
+            },
+            "dex": {
+              "mod": 6
+            },
+            "int": {
+              "mod": 2
+            },
+            "str": {
+              "mod": 19
+            },
+            "wis": {
+              "mod": 3
+            }
+          },
+          "attributes": {
+            "ac": {
+              "details": "",
+              "value": 28
+            },
+            "adjustment": null,
+            "allSaves": {
+              "value": ""
+            },
+            "hp": {
+              "details": "coffin restoration, fast healing 10, void healing",
+              "max": 120,
+              "temp": 0,
+              "value": 120
+            },
+            "immunities": [
+              {
+                "exceptions": [],
+                "type": "death-effects"
+              },
+              {
+                "exceptions": [],
+                "type": "disease"
+              },
+              {
+                "exceptions": [],
+                "type": "paralyzed"
+              },
+              {
+                "exceptions": [],
+                "type": "poison"
+              },
+              {
+                "exceptions": [],
+                "type": "sleep"
+              }
+            ],
+            "resistances": [
+              {
+                "doubleVs": [],
+                "exceptions": ["silver", "weapons-shedding-bright-light"],
+                "type": "physical",
+                "value": 10
+              }
+            ],
+            "speed": {
+              "otherSpeeds": [
+                {
+                  "type": "fly",
+                  "value": 25
+                }
+              ],
+              "value": 25
+            }
+          },
+          "initiative": {
+            "statistic": "perception"
+          },
+          "perception": {
+            "details": "",
+            "mod": 16,
+            "senses": [
+              {
+                "type": "greater-darkvision"
+              }
+            ]
+          },
+          "resources": {},
+          "saves": {
+            "fortitude": {
+              "saveDetail": "",
+              "value": 18
+            },
+            "reflex": {
+              "saveDetail": "",
+              "value": 21
+            },
+            "will": {
+              "saveDetail": "",
+              "value": 15
+            }
+          },
+          "skills": {
+            "acrobatics": {
+              "base": 19
+            },
+            "athletics": {
+              "base": 21
+            },
+            "intimidation": {
+              "base": 17
+            },
+            "society": {
+              "base": 13
+            },
+            "stealth": {
+              "base": 19
+            },
+            "survival": {
+              "base": 16
+            }
+          },
+          "publication": {
+            "title": "Pathfinder #215: To Blot Out the Sun",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 9
+          },
+          "description": {
+            "value": ""
+          },
+          "rules": []
+        },
+        "items": [
+          {
+            "_id": "dAql5pcnyCzryoRP",
+            "name": "Divine Innate Spells",
+            "type": "spellcastingEntry",
+            "sort": 100000,
+            "system": {
+              "autoHeightenLevel": {
+                "value": null
+              },
+              "description": {
+                "value": ""
+              },
+              "prepared": {
+                "value": "innate"
+              },
+              "proficiency": {
+                "value": 1
+              },
+              "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": ""
+              },
+              "rules": [],
+              "showSlotlessLevels": {
+                "value": false
+              },
+              "slots": {},
+              "slug": null,
+              "spelldc": {
+                "dc": 25,
+                "value": 17
+              },
+              "tradition": {
+                "value": "divine"
+              },
+              "traits": {}
+            }
+          },
+          {
+            "_id": "Qi4aJhbQtGeaKymb",
+            "name": "Levitate (At Will)",
+            "type": "spell",
+            "_stats": {
+              "compendiumSource": "Compendium.pf2e.spells-srd.Item.fI20AVwOzJMHXRdo"
+            },
+            "folder": "4fJHnYFqH0VjZXPv",
+            "sort": 200000,
+            "system": {
+              "area": null,
+              "cost": {
+                "value": ""
+              },
+              "counteraction": false,
+              "damage": {},
+              "defense": null,
+              "description": {
+                "value": "<p>You defy gravity and levitate the target 5 feet off the ground. You can Sustain the spell to move the target up or down 10 feet. A creature floating in the air from levitate takes a –2 circumstance penalty to attack rolls. A floating creature can spend an Interact action to stabilize itself and negate this penalty for the remainder of its turn. If the target is adjacent to a fixed object or terrain of suitable stability, it can move across the surface by climbing (if the surface is vertical, like a wall) or crawling (if the surface is horizontal, such as a ceiling). The GM determines which surfaces can be climbed or crawled across.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Levitate]</p>"
+              },
+              "duration": {
+                "sustained": false,
+                "value": "5 minutes"
+              },
+              "level": {
+                "value": 3
+              },
+              "location": {
+                "heightenedLevel": 5,
+                "value": "dAql5pcnyCzryoRP"
+              },
+              "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Player Core"
+              },
+              "range": {
+                "value": "touch"
+              },
+              "requirements": "",
+              "rules": [],
+              "slug": "levitate",
+              "target": {
+                "value": "1 unattended object or willing creature"
+              },
+              "time": {
+                "value": "2"
+              },
+              "traits": {
+                "rarity": "common",
+                "traditions": ["arcane", "occult"],
+                "value": ["concentrate", "manipulate"]
+              }
+            }
+          },
+          {
+            "_id": "9WuY3s51T7S7lf1b",
+            "name": "Handwraps of Mighty Blows",
+            "type": "weapon",
+            "_stats": {
+              "compendiumSource": "Compendium.pf2e.equipment-srd.Item.FNDq4NFSN0g2HKWO"
+            },
+            "sort": 300000,
+            "system": {
+              "baseItem": null,
+              "bonus": {
+                "value": 1
+              },
+              "bonusDamage": {
+                "value": 0
+              },
+              "bulk": {
+                "value": 0
+              },
+              "category": "unarmed",
+              "containerId": null,
+              "damage": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d4"
+              },
+              "description": {
+                "value": "<p>As you invest these embroidered strips of cloth, you must meditate and slowly wrap them around your hands. These handwraps have weapon runes etched into them to give your unarmed attacks the benefits of those runes, making your unarmed attacks work like magic weapons. For example, <em>+1 striking handwraps of mighty blows</em> would give you a +1 item bonus to attack rolls with your unarmed attacks and increase the damage of your unarmed attacks from one weapon die to two (normally 2d4 instead of 1d4, but if your fists have a different weapon damage die or you have other unarmed attacks, use two of that die size instead).</p>\n<p>You can upgrade, add, and transfer runes to and from the handwraps just as you would for a weapon, and you can attach talismans to the handwraps. Treat the handwraps as melee weapons of the brawling group with light Bulk for these purposes. Property runes apply only when they would be applicable to the unarmed attack you're using. For example, a property that must be applied to a slashing weapon wouldn't function when you attacked with a fist, but you would gain its benefits if you attacked with a claw or some other slashing unarmed attack.</p>"
+              },
+              "equipped": {
+                "carryType": "worn",
+                "handsHeld": 0,
+                "invested": null
+              },
+              "expend": null,
+              "group": "brawling",
+              "hardness": 0,
+              "hp": {
+                "max": 0,
+                "value": 0
+              },
+              "level": {
+                "value": 2
+              },
+              "material": {
+                "grade": null,
+                "type": null
+              },
+              "price": {
+                "value": {
+                  "gp": 35
+                }
+              },
+              "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder GM Core"
+              },
+              "quantity": 1,
+              "range": null,
+              "reload": {
+                "value": null
+              },
+              "rules": [],
+              "runes": {
+                "potency": 2,
+                "property": [],
+                "striking": 1
+              },
+              "size": "med",
+              "slug": "handwraps-of-mighty-blows",
+              "splashDamage": {
+                "value": 0
+              },
+              "traits": {
+                "otherTags": ["handwraps-of-mighty-blows"],
+                "rarity": "common",
+                "value": ["invested", "magical"]
+              },
+              "usage": {
+                "value": "worngloves"
+              }
+            }
+          },
+          {
+            "_id": "pqxyi8f3N2uZcOSb",
+            "name": "Shortbow",
+            "type": "weapon",
+            "_stats": {
+              "compendiumSource": "Compendium.pf2e.equipment-srd.Item.hIgqLgH3YcLZBeoT"
+            },
+            "sort": 400000,
+            "system": {
+              "ammo": {
+                "baseType": "arrows",
+                "builtIn": false,
+                "capacity": null
+              },
+              "baseItem": "shortbow",
+              "bonus": {
+                "value": 0
+              },
+              "bonusDamage": {
+                "value": 0
+              },
+              "bulk": {
+                "value": 1
+              },
+              "category": "martial",
+              "containerId": null,
+              "damage": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d6"
+              },
+              "description": {
+                "value": "<p>This smaller bow is made of a single piece of wood and favored by skirmishers and cavalry.</p>"
+              },
+              "equipped": {
+                "carryType": "worn",
+                "handsHeld": 0,
+                "invested": null
+              },
+              "expend": 1,
+              "group": "bow",
+              "hardness": 0,
+              "hp": {
+                "max": 0,
+                "value": 0
+              },
+              "level": {
+                "value": 0
+              },
+              "material": {
+                "grade": null,
+                "type": null
+              },
+              "price": {
+                "value": {
+                  "gp": 3
+                }
+              },
+              "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Player Core"
+              },
+              "quantity": 1,
+              "range": 60,
+              "reload": {
+                "value": "0"
+              },
+              "rules": [],
+              "runes": {
+                "potency": 0,
+                "property": [],
+                "striking": 0
+              },
+              "size": "med",
+              "slug": "shortbow",
+              "splashDamage": {
+                "value": 0
+              },
+              "traits": {
+                "rarity": "common",
+                "value": ["deadly-d10"]
+              },
+              "usage": {
+                "value": "held-in-one-plus-hands"
+              }
+            }
+          },
+          {
+            "_id": "pQAglZdVnj7u8eWT",
+            "name": "Leather Armor",
+            "type": "armor",
+            "_stats": {
+              "compendiumSource": "Compendium.pf2e.equipment-srd.Item.4tIVTg9wj56RrveA"
+            },
+            "sort": 500000,
+            "system": {
+              "acBonus": 1,
+              "baseItem": "leather-armor",
+              "bulk": {
+                "value": 1
+              },
+              "category": "light",
+              "checkPenalty": -1,
+              "containerId": null,
+              "description": {
+                "value": "<p>A mix of flexible and molded boiled leather, a suit of this type of armor provides some protection with maximum flexibility.</p>"
+              },
+              "dexCap": 4,
+              "equipped": {
+                "carryType": "worn",
+                "invested": null
+              },
+              "group": "leather",
+              "hardness": 0,
+              "hp": {
+                "max": 0,
+                "value": 0
+              },
+              "level": {
+                "value": 0
+              },
+              "material": {
+                "grade": null,
+                "type": null
+              },
+              "price": {
+                "value": {
+                  "gp": 2
+                }
+              },
+              "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Player Core"
+              },
+              "quantity": 1,
+              "rules": [],
+              "runes": {
+                "potency": 1,
+                "property": [],
+                "resilient": 1
+              },
+              "size": "med",
+              "slug": "leather-armor",
+              "speedPenalty": 0,
+              "strength": 0,
+              "traits": {
+                "rarity": "common",
+                "value": []
+              }
+            }
+          },
+          {
+            "_id": "clcBXuY5I7HmG2D6",
+            "name": "Beaded Earrings",
+            "type": "treasure",
+            "sort": 600000,
+            "system": {
+              "baseItem": null,
+              "bulk": {
+                "value": 0.1
+              },
+              "containerId": null,
+              "description": {
+                "value": ""
+              },
+              "equipped": {
+                "carryType": "worn"
+              },
+              "hardness": 0,
+              "hp": {
+                "max": 0,
+                "value": 0
+              },
+              "level": {
+                "value": 0
+              },
+              "material": {
+                "grade": null,
+                "type": null
+              },
+              "price": {
+                "value": {
+                  "gp": 20
+                }
+              },
+              "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": ""
+              },
+              "quantity": 1,
+              "rules": [],
+              "size": "med",
+              "slug": null,
+              "traits": {
+                "rarity": "common",
+                "value": []
+              }
+            }
+          },
+          {
+            "_id": "7Tl6fw29y8oM1OEu",
+            "name": "Claw",
+            "type": "melee",
+            "sort": 700000,
+            "system": {
+              "attackEffects": {
+                "value": ["grab"]
+              },
+              "bonus": {
+                "value": 21
+              },
+              "damageRolls": {
+                "zMTY2Rbgu1uJiBB3": {
+                  "damage": "2d10+10",
+                  "damageType": "slashing"
+                }
+              },
+              "description": {
+                "value": ""
+              },
+              "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": ""
+              },
+              "range": null,
+              "rules": [],
+              "slug": null,
+              "traits": {
+                "value": ["agile", "magical", "unarmed"]
+              }
+            }
+          },
+          {
+            "_id": "5GioFmuA8qfKyCNw",
+            "name": "Shortbow",
+            "type": "melee",
+            "flags": {
+              "pf2e": {
+                "linkedWeapon": "pqxyi8f3N2uZcOSb"
+              }
+            },
+            "sort": 800000,
+            "system": {
+              "attackEffects": {
+                "value": []
+              },
+              "bonus": {
+                "value": 19
+              },
+              "damageRolls": {
+                "IzUbwXEla8xgBhgw": {
+                  "damage": "1d6+4",
+                  "damageType": "piercing"
+                }
+              },
+              "description": {
+                "value": ""
+              },
+              "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": ""
+              },
+              "range": {
+                "increment": 60,
+                "max": null
+              },
+              "rules": [],
+              "slug": "shortbow",
+              "traits": {
+                "value": ["deadly-d10", "reload-0"]
+              }
+            }
+          },
+          {
+            "_id": "AkXS62YTAYOPqg6G",
+            "name": "Fast Healing 10",
+            "type": "action",
+            "_stats": {
+              "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.fJSNOw4zHGbIm4bZ"
+            },
+            "sort": 900000,
+            "system": {
+              "actionType": {
+                "value": "passive"
+              },
+              "actions": {
+                "value": null
+              },
+              "category": "defensive",
+              "description": {
+                "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.FastHealing]</p>"
+              },
+              "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Monster Core"
+              },
+              "rules": [
+                {
+                  "key": "FastHealing",
+                  "value": 10
+                }
+              ],
+              "slug": "fast-healing",
+              "traits": {
+                "value": []
+              }
+            }
+          },
+          {
+            "_id": "1nTecCfw8mCHs7pF",
+            "name": "Coffin Restoration",
+            "type": "action",
+            "_stats": {
+              "compendiumSource": "Compendium.pf2e.bestiary-family-ability-glossary.Item.FXHjmH1oce7Z3tZb"
+            },
+            "folder": "Pycs65tqRMBiiARd",
+            "sort": 1000000,
+            "system": {
+              "actionType": {
+                "value": "passive"
+              },
+              "actions": {
+                "value": null
+              },
+              "category": "defensive",
+              "deathNote": true,
+              "description": {
+                "value": "<p>Unlike other undead, a vampire isn't destroyed at 0 HP. Instead, it falls @UUID[Compendium.pf2e.conditionitems.Item.Unconscious]. If its body rests in its coffin for 1 hour, the vampire gains 1 HP, after which its fast healing begins to function normally.</p>"
+              },
+              "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Monster Core"
+              },
+              "rules": [],
+              "slug": "vampire-basic-coffin-restoration",
+              "traits": {
+                "value": ["divine", "void"]
+              }
+            }
+          },
+          {
+            "_id": "KK3OJR7cHs7JClcB",
+            "name": "Shadow Form",
+            "type": "action",
+            "_stats": {
+              "compendiumSource": "Compendium.pf2e.bestiary-family-ability-glossary.Item.eQLGYrJhu787pEwc"
+            },
+            "folder": "Pycs65tqRMBiiARd",
+            "sort": 1100000,
+            "system": {
+              "actionType": {
+                "value": "action"
+              },
+              "actions": {
+                "value": 1
+              },
+              "category": "defensive",
+              "description": {
+                "value": "<p>Okoa reverts to pure shadow and absorbs her body and her gear into the darkness, or it shifts back to her physical form. In shadow form, Okoa gains a climb Speed equal to her land Speed and can more through any gap that isn't airtight. However, she can only move along solid surfaces that aren't highly reflective, not liquid or mirrored surfaces. If the surface she's on is destroyed, Okoa returns to physical form and is @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1}. She loses fast healing while in shadow form but can remain in shadow form indefinitely.</p>\n<p>If Okoa is exposed to sunlight while in shadow form, she becomes @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 2} and must attempt a @Check[flat|dc:16] at the end of each of her turns. If she fails, she is destroyed, the shadow vanishing with a blood-curdling wail.</p>"
+              },
+              "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #215: To Blot Out the Sun"
+              },
+              "rules": [],
+              "slug": "vampire-strigoi-shadow-form",
+              "traits": {
+                "value": ["concentrate", "divine", "shadow"]
+              }
+            }
+          },
+          {
+            "_id": "qAmIcePvvY6ixAmy",
+            "name": "Strigoi Weaknesses",
+            "type": "action",
+            "_stats": {
+              "compendiumSource": "Compendium.pf2e.bestiary-family-ability-glossary.Item.qjgrMhwz78T31kLU"
+            },
+            "folder": "Pycs65tqRMBiiARd",
+            "sort": 1200000,
+            "system": {
+              "actionType": {
+                "value": "passive"
+              },
+              "actions": {
+                "value": null
+              },
+              "category": "defensive",
+              "description": {
+                "value": "<p>All strigoi possess the following weaknesses:</p><ul><li><p><strong>Revulsion</strong> Strigoi are uncomfortable near mirrors or sources of bright light. Only a strigoi's shadow reflects in a mirror, and this often compels them to cover or destroy mirrors in their presence rather than risk their true nature being displayed. A strigoi can't voluntarily come within 10 feet of a brandished mirror or source of bright light. To brandish a mirror or light source, a creature must Interact to do so for 1 round (similar to Raising a Shield). If the strigoi involuntarily comes within 10 feet of a brandished mirror or light source, they gain the @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] condition, running from the brandished object until they end an action beyond 10 feet. After 1 round of being exposed to the subject of their revulsion, a strigoi can attempt a @Check[will|dc:25] save as a single action, which has the concentrate trait. On a success, they overcome their revulsions for [[/gmr 1d6 #Overcome Revulsions Duration]]{1d6 rounds} (or 1 hour on a critical success). A strigoi can move normally around mirrors or bright light sources that are not brandished, although doing so causes them discomfort that can be noticed with a successful Perception check to [[/act sense-motive]].</p></li><li><p><strong>Sunlight</strong> When exposed to direct sunlight, a strigoi immediately becomes @UUID[Compendium.pf2e.conditionitems.Item.Unconscious] and falls to the ground. They appear to be dead: they don't breathe, their body temperature matches their surroundings, and they don't react to pain or other stimuli. A successful @Check[perception|against:reflex] check against the strigoi's Reflex DC is enough to note one anomaly: the shadow cast by their \"dead\" body shifts and moves slightly, its edges twisting and active. Certain detection spells, senses like lifesense, and the \"corpse\" taking damage from vitality energy still function normally and could reveal the truth without a successful Perception check. Viewing the \"corpse\" in a mirror's reflection can also reveal the truth, for only the body's shadow reflects. While in sunlight and unconscious, the strigoi loses their resistance to physical damage. If the strigoi takes enough damage that they would be reduced to 0 Hit Points, their body quickly decomposes, and the strigoi is destroyed.</p></li><li><p><strong>Water Revulsion</strong> A strigoi cannot cross a significant source of running water (such as a creek, river, or waves on a seashore). A strigoi capable of flight can cross running water provided they approach no closer than 10 feet to the liquid's surface. If forced into running water against their will, the strigoi becomes @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 2} and gains the fleeing condition as long as they remain in the water. At the end of any turn in which the strigoi remains in running water, they must succeed at a @Check[flat|dc:5] or be destroyed.</p>\n</li></ul>"
+              },
+              "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #215: To Blot Out the Sun"
+              },
+              "rules": [],
+              "slug": "vampire-strigoi-strigoi-weaknesses",
+              "traits": {
+                "value": []
+              }
+            }
+          },
+          {
+            "_id": "vIM3DcBR4xmwYbxr",
+            "name": "Void Healing",
+            "type": "action",
+            "_stats": {
+              "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.TTCw5NusiSSkJU1x"
+            },
+            "sort": 1300000,
+            "system": {
+              "actionType": {
+                "value": "passive"
+              },
+              "actions": {
+                "value": null
+              },
+              "category": "defensive",
+              "description": {
+                "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.NegativeHealing]</p>"
+              },
+              "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Monster Core"
+              },
+              "rules": [
+                {
+                  "key": "ActiveEffectLike",
+                  "mode": "override",
+                  "path": "system.attributes.hp.negativeHealing",
+                  "value": true
+                }
+              ],
+              "slug": "void-healing",
+              "traits": {
+                "value": []
+              }
+            }
+          },
+          {
+            "_id": "9hemE5bYIpubSQrc",
+            "name": "Drink Essence",
+            "type": "action",
+            "_stats": {
+              "compendiumSource": "Compendium.pf2e.bestiary-family-ability-glossary.Item.rBc9fJlMXhzvn05L"
+            },
+            "folder": "Pycs65tqRMBiiARd",
+            "sort": 1400000,
+            "system": {
+              "actionType": {
+                "value": "action"
+              },
+              "actions": {
+                "value": 1
+              },
+              "category": "offensive",
+              "description": {
+                "value": "<p><strong>Requirements</strong> A @UUID[Compendium.pf2e.conditionitems.Item.Grabbed], @UUID[Compendium.pf2e.conditionitems.Item.Paralyzed], @UUID[Compendium.pf2e.conditionitems.Item.Restrained], @UUID[Compendium.pf2e.conditionitems.Item.Unconscious], or willing creature is within the strigoi's reach</p><hr /><p><strong>Effect</strong> The strigoi sinks their fangs into the targeted creature to drink its blood and draw out its vital essence. This requires an @Check[athletics|against:fortitude] check against the creature's Fortitude DC if the creature is grabbed and is automatic for any of the other conditions. The creature becomes @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 1} and @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 1}, and Okoa regains @Damage[13[healing]] HP, gaining any excess HP as temporary Hit Points. Drinking Essence from a creature that's already drained or stupefied doesn't restore any HP but increases either the creature's drained condition value or its stupefied condition value by 1 (whichever value is lesser is increased; if both values are equal, then the strigoi chooses which condition to increase the value of).</p>\n<p>A victim's drained condition decreases by 1 per week. A blood transfusion, which requires a successful @Check[medicine|dc:20] check and sufficient blood or a blood donor, reduces the drained value by 1 after 10 minutes.</p>\n<p>A victim's stupefied condition decreases by 1 per day after performing daily preparations. If the daily preparations are done in full sunlight, the stupefied condition is removed entirely.</p>"
+              },
+              "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #215: To Blot Out the Sun"
+              },
+              "rules": [],
+              "slug": "vampire-strigoi-drink-essence",
+              "traits": {
+                "value": ["divine"]
+              }
+            }
+          },
+          {
+            "_id": "rDrZT4IDo1LIXt22",
+            "name": "Strafing Strike",
+            "type": "action",
+            "sort": 1500000,
+            "system": {
+              "actionType": {
+                "value": "action"
+              },
+              "actions": {
+                "value": 2
+              },
+              "category": "offensive",
+              "description": {
+                "value": "<p>Okoa becomes a semi-incorporeal shade, then Strides or Flies up to twice her Speed in a straight line, dealing @Damage[8d8[slashing]|options:area-damage] damage to all creatures in that line or adjacent to that line (@Check[reflex|dc:28|basic] save). She can move through enemies and solid objects during this movement. At the end of this movement, she returns to her fully corporeal form. She can't use Strafing Strike again for [[/gmr 1d4 #Recharge Strafing Strike]]{1d4 rounds}.</p>"
+              },
+              "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": ""
+              },
+              "rules": [],
+              "slug": null,
+              "traits": {
+                "value": []
+              }
+            }
+          },
+          {
+            "_id": "hNYanj2AZ3B8MkLd",
+            "name": "Vicious Flurry",
+            "type": "action",
+            "sort": 1600000,
+            "system": {
+              "actionType": {
+                "value": "action"
+              },
+              "actions": {
+                "value": 1
+              },
+              "category": "offensive",
+              "description": {
+                "value": "<p>Okoa makes two claw Strikes at the same target, each using her current multiple attack penalty. If both attacks hit, the target is also dealt @Damage[1d8[persistent,bleed]] damage.</p>"
+              },
+              "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": ""
+              },
+              "rules": [],
+              "slug": null,
+              "traits": {
+                "value": ["flourish"]
+              }
+            }
+          },
+          {
+            "_id": "4yAlXXefTCLPkR1Z",
+            "name": "Grab",
+            "type": "action",
+            "_stats": {
+              "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.Tkd8sH4pwFIPzqTr"
+            },
+            "sort": 1700000,
+            "system": {
+              "actionType": {
+                "value": "action"
+              },
+              "actions": {
+                "value": 1
+              },
+              "category": "offensive",
+              "description": {
+                "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Grab]</p>"
+              },
+              "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Monster Core"
+              },
+              "rules": [],
+              "slug": "grab",
+              "traits": {
+                "value": []
+              }
+            }
+          },
+          {
+            "_id": "vbeiMvrJRvbxVuY2",
+            "name": "Netherworld Lore",
+            "type": "lore",
+            "sort": 1800000,
+            "system": {
+              "description": {
+                "value": ""
+              },
+              "mod": {
+                "value": 13
+              },
+              "proficient": {
+                "value": 0
+              },
+              "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": ""
+              },
+              "rules": [],
+              "slug": null,
+              "traits": {}
+            }
+          },
+          {
+            "_id": "jvDJ9LAWgptMy3ZR",
+            "name": "Nin Lore",
+            "type": "lore",
+            "sort": 1900000,
+            "system": {
+              "description": {
+                "value": ""
+              },
+              "mod": {
+                "value": 13
+              },
+              "proficient": {
+                "value": 0
+              },
+              "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": ""
+              },
+              "rules": [],
+              "slug": null,
+              "traits": {}
+            }
+          }
+        ],
+        "folder": "q8RRA15OWs6kMBwB"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:onak",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.x6s8rksF5BhZS2zs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Bottled Lightning (Moderate).damage",
+          "raw": {
+            "damage": "2d6-2",
+            "damageType": "electricity"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:romi-bracken",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.fna0PpG2G6wEZA2m",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Bat empathy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": [
+              "encounter:round:1",
+              {
+                "lt": ["self:participant:initiative:rank", "target:participant:initiative:rank"]
+              },
+              {
+                "or": ["self:participant:initiative:stat:deception", "self:participant:initiative:stat:stealth"]
+              }
+            ],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "hybrid",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Hybrid",
+                "value": "hybrid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Humanoid",
+                "value": "humanoid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Animal",
+                "value": "animal"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 10,
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d6",
+                "modifier": 4
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.Strike.Fist.Label",
+            "predicate": ["change-shape:humanoid"],
+            "slug": "fist",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 10,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d8",
+                "modifier": 4
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Fangs",
+            "predicate": [
+              {
+                "not": "change-shape:humanoid"
+              }
+            ],
+            "slug": "jaws",
+            "traits": ["finesse"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 11,
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d6",
+                "modifier": 4
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Claw",
+            "predicate": [
+              {
+                "not": "change-shape:humanoid"
+              }
+            ],
+            "slug": "claw",
+            "traits": ["agile", "finesse"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "fangs-attack",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.offGuardable",
+            "value": "@actor.level"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "strike-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Intake Skeleton Key"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "silver"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:rukh",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.CklGXXDkGeo1sHpZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 10, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Grim Tendrils (Scroll Robe, Rank 4)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Beaded Amulet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:runt-retriever",
+      "foundry": "Compendium.pf2e.pfs-season-6-bestiary.Actor.nsiwnhZNFBmkK3Ws",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "cannot speak"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:shankfingers",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.VP6HU7O12njtQ0Id",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 10"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Weakness",
+          "raw": {
+            "definition": ["{item|name}"],
+            "key": "Weakness",
+            "type": "custom",
+            "value": 1
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Iron Boots"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Red Cap"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Keys"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:strigoi-progenitor",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.wCztuDEePLs9ZsEl",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 33
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 10, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": [
+                  "item:magical",
+                  {
+                    "or": ["damage:material:dawnsilver", "damage:material:silver"]
+                  },
+                  {
+                    "or": ["item:type:melee", "item:type:weapon"]
+                  },
+                  {
+                    "not": "item:category:unarmed"
+                  }
+                ],
+                "label": "PF2E.IWR.Custom.MagicalSilverWeapons"
+              },
+              {
+                "definition": [
+                  "item:magical",
+                  "item:weapons-shedding-bright-light",
+                  {
+                    "or": ["item:type:melee", "item:type:weapon"]
+                  }
+                ],
+                "label": "PF2E.IWR.Custom.StrikesCreatureSheddingBrightLight"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 15
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:strigoi-servant",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.OsRWaQVTonZBmZo1",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 10, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": [
+                  {
+                    "or": ["damage:material:dawnsilver", "damage:material:silver"]
+                  },
+                  {
+                    "or": ["item:type:melee", "item:type:weapon"]
+                  },
+                  {
+                    "not": "item:category:unarmed"
+                  }
+                ],
+                "label": "PF2E.Damage.IWR.Type.silver"
+              },
+              {
+                "definition": [
+                  "item:weapons-shedding-bright-light",
+                  {
+                    "or": ["item:type:melee", "item:type:weapon"]
+                  }
+                ],
+                "label": "PF2E.IWR.Custom.StrikesCreatureSheddingBrightLight"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:tokainen",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.gmtDRDr7C0IzYtrY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 circumstance to all saves vs. disease"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol (Nin)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol (Scal)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:tormonshild-swarm",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.hm8wMZHRewfFdZFy",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:vampire-nettle",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.pc4ZQaxSYoHWxYTP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Vine.damage",
+          "raw": {
+            "damage": "1d4",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:vampire-servant",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.JJhhgVfwpHetVD8m",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 5, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:vampire-servitor",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.6Pdx3Ouodx6FzVn9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 5, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "plus one regional language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:vikandian",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.PdbSy7QbpzOL6TaZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 10, void healing, plagued coffin restoration"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": ["item:magical", "damage:material:wood"],
+                "label": "PF2E.IWR.Custom.MagicalWood"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Dominate (At Will) (See Dominate)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Charm of Electricity Resistance"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Key"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:vinn-karskell",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.ow29BvvTX38mYIdU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 16,
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 2,
+                "die": "d8",
+                "modifier": 5
+              }
+            },
+            "group": "brawling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Stance.Attack.WolfJaws",
+            "predicate": ["wolf-stance"],
+            "range": null,
+            "slug": "wolf-jaws",
+            "traits": ["agile", "backstabber", "finesse", "unarmed", "nonlethal"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Prisoner's Rags"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:viper-bat",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.qlm7EK85hTcHbSCc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:vool",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.NDX3PsmoxgHuLdVN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. disease and poison"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "+1 Wooden Stake Pick"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:vye",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.5iDn7TxzmnOT21hZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Hooded Robe"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Spellbook (Rites Of Rot)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of False Vitality (Rank 3)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Web (Rank 2)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Rouse Skeletons (Rank 3)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "vulnerable-to-sunlight"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:werebat-warrior",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.aZrvsgKfSkitGMVk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Bat empathy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "hybrid",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Hybrid",
+                "value": "hybrid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Humanoid",
+                "value": "humanoid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Animal",
+                "value": "animal"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 11,
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d4",
+                "modifier": 2
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.Strike.Fist.Label",
+            "predicate": ["change-shape:humanoid"],
+            "slug": "fist",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 11,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d8",
+                "modifier": 4
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Fangs",
+            "predicate": [
+              {
+                "not": "change-shape:humanoid"
+              }
+            ],
+            "slug": "fangs",
+            "traits": ["finesse"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 11,
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d6",
+                "modifier": 4
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Wing",
+            "predicate": [
+              {
+                "not": "change-shape:humanoid"
+              }
+            ],
+            "slug": "wing",
+            "traits": ["agile", "finesse"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "fangs-attack",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol of Camazotz"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "silver"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:xarbaene",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.3W3H81R5UtM4C9jv",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 7, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "plus one regional language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": [
+                  "item:magical",
+                  {
+                    "or": ["damage:material:dawnsilver", "damage:material:silver"]
+                  }
+                ],
+                "label": "PF2E.IWR.Custom.MagicalSilver"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 7
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "vampire",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Vampire",
+                "value": "vampire"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.BatGiant",
+                "value": "bat-giant"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 15,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d8",
+                "modifier": 9
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Fangs",
+            "predicate": ["change-shape:bat-giant"],
+            "replaceAll": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Dominate (At Will) (See Dominate)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Repeating Crossbow"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Aeon Stone (Agate Ellipsoid)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Magazine with 5 Bolts"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:yobnobby",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.H9OOwT4rgim5axPk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Yobnobby's Armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:zer",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.LJFUAEP9BA2SCc7J",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. poison"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Alchemical Grenade.damage",
+          "raw": {
+            "damage": "2",
+            "damageType": "untyped",
+            "category": "splash"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Alchemical Grenade.damage",
+          "raw": {
+            "damage": "2",
+            "damageType": "untyped",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Alchemical Grenade.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "untyped"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "option": "unstable-collection",
+            "selection": "acid",
+            "suboptions": [
+              {
+                "label": "PF2E.TraitAcid",
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.TraitCold",
+                "value": "cold"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": "fire"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["alchemical-grenade-damage"],
+            "slug": "base",
+            "value": "{item|flags.system.rulesSelections.unstableCollection}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Work Coat"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "vulnerable-to-sunlight"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "creature:zovi",
+      "foundry": "Compendium.pf2e.shades-of-blood-bestiary.Actor.VVDuJAwbwUjKZ5SD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "vulnerable-to-sunlight"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "effect:effect-align-the-stars",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.MLwB5v5DffmfUTWe",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "EphemeralEffect",
+          "raw": {
+            "affects": "origin",
+            "key": "EphemeralEffect",
+            "selectors": ["damage"],
+            "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Align the Stars (Ephemeral)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "effect:effect-yobnobby-overdrive",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.EIERHL5oo4OlBkAZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
+                "value": 5
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.success",
+                "value": 3
+              }
+            ],
+            "flag": "damage",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "hideIfDisabled": true,
+            "key": "FlatModifier",
+            "selector": "strike-damage",
+            "slug": "overdrive",
+            "value": "@item.flags.system.rulesSelections.damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "effect:spell-effect-augmented-body",
+      "foundry": "Compendium.pf2e.spell-effects.Item.CVR6mkf5bVIK9KjU",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "predicate": ["augmented-body:clockwork-arm"],
+            "property": "runes-striking",
+            "value": "ternary(gte(@item.level,9),3,ternary(gte(@item.level,7),2,ternary(gte(@item.level,3),1,0)))"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "predicate": ["augmented-body:clockwork-arm"],
+            "property": "runes-potency",
+            "value": "ternary(gte(@item.level,9),3,ternary(gte(@item.level,5),2,ternary(gte(@item.level,3),1,0)))"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "equipment:aeon-stone-crescent",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sPvip91GX8TYvr8Q",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "equipment:essence-charm",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6BGWlWFEX3gRRnWa",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "config": "skills"
+            },
+            "flag": "skill",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "{item|flags.system.rulesSelections.skill}",
+            "type": "item",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "equipment:essence-forge-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MIBPJ73gjQ17kweK",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "equipment:essence-forge-lesser",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LmksnUQdwRu0SPCK",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "equipment:essence-forge-moderate",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tjxoE6w85Hlg2To4",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "equipment:farlight-stone",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AQBJX5RnI1YIMLmm",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.LitItem",
+            "option": "farlight-stone-lit",
+            "suboptions": [
+              {
+                "label": "PF2E.Color.Blue",
+                "value": "#0000FF"
+              },
+              {
+                "label": "PF2E.Color.Cyan",
+                "value": "#43D6D6"
+              },
+              {
+                "label": "PF2E.Color.Green",
+                "value": "#00FF00"
+              },
+              {
+                "label": "PF2E.Color.Indigo",
+                "value": "#4B0082"
+              },
+              {
+                "label": "PF2E.Color.Magenta",
+                "value": "#FF00FF"
+              },
+              {
+                "label": "PF2E.Color.Orange",
+                "value": "#FFA400"
+              },
+              {
+                "label": "PF2E.Color.Red",
+                "value": "#FF0000"
+              },
+              {
+                "label": "PF2E.Color.Violet",
+                "value": "#9400D3"
+              },
+              {
+                "label": "PF2E.Color.White",
+                "value": "#AAAAAA"
+              },
+              {
+                "label": "PF2E.Color.Yellow",
+                "value": "#FAFA00"
+              }
+            ],
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "feat:sanguimancer-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.HASFgAZ7spYleeaq",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "feat:sanguine-tenacity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.2KVllUXqgWq7jCmX",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "condition",
+            "key": "ItemAlteration",
+            "mode": "downgrade",
+            "predicate": ["item:damage:type:bleed"],
+            "property": "pd-recovery-dc",
+            "value": 11
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "weapon:blood-drinker-blade",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.V9e6G1ZolN7Ncg7g",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "bleed",
+            "diceNumber": 1,
+            "dieSize": "d8",
+            "key": "DamageDice",
+            "predicate": ["drink-life"],
+            "selector": "{item|id}-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shades-of-blood",
+      "slug": "weapon:blood-drinker-blade-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vtPf23T4O6fPIF4P",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "bleed",
+            "diceNumber": 1,
+            "dieSize": "d8",
+            "key": "DamageDice",
+            "predicate": ["drink-life"],
+            "selector": "{item|id}-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

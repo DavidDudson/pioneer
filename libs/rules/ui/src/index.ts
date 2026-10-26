@@ -13,6 +13,8 @@ export {
   type EntryPreview,
   type EntryPreviews,
   type PreviewEffect,
+  type PreviewRanks,
+  type StatisticLink,
   provideEntryPreviews,
 } from './lib/entry-preview/entry-preview';
 export { RichTextView } from './lib/rich-text/rich-text.component';
@@ -93,6 +95,7 @@ export {
   type RunedNamer,
 } from './lib/inventory/rune-name';
 export { ProficiencyRankView } from './lib/proficiency-rank/proficiency-rank.component';
+export { FormBanner, type FormDetail, type FormSummary } from './lib/form-banner/form-banner.component';
 export { type Vital, type VitalBasis, VitalBasisKind } from './lib/vitals/vital';
 export { VitalsView } from './lib/vitals/vitals.component';
 export { ActionCostCell } from './lib/picker-cells/action-cost-cell/action-cost-cell.component';
@@ -125,7 +128,12 @@ export type {
   SpellFieldsLine,
   SpellVariantLine,
 } from './lib/spell-list/spell-detail-line';
-export { type SpellIdentity, spellDetailLine } from './lib/spell-list/spell-detail-line-of';
+export {
+  type SpellCastLine,
+  type SpellIdentity,
+  spellCastLine,
+  spellDetailLine,
+} from './lib/spell-list/spell-detail-line-of';
 export { SpellDetails } from './lib/spell-list/spell-details.component';
 export { SpellListMessage } from './lib/spell-list/spell-list-messages';
 export type { Translate } from './lib/spell-list/spell-text';

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "13009b76-b08c-560f-9de0-fba2c2b7500a",
+    "pack": "claws-of-the-tyrant",
+    "kind": "action",
+    "slug": "action:spirit-sanctification",
+    "name": "Spirit Sanctification",
+    "rarity": "common",
+    "traits": ["concentrate", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 spirit wisp"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You immediately purify a spirit, which grants you a protective blessing before it departs. If your next action is to cast a halcyon spell, you gain a +1 status bonus to saving throws as well as resistance to void damage equal to the rank of the halcyon spell. These effects last for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.am7GMqh4t7m7bbaW"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  }
+]

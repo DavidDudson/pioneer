@@ -1,7 +1,8 @@
 import { InjectionToken } from '@angular/core';
 import type { Provider } from '@angular/core';
+import type { Params } from '@angular/router';
 import type { LinkTarget } from '@pioneer/frontier';
-import type { EffectLine } from '@pioneer/rules/engine';
+import type { EffectLine, SpellAtRank } from '@pioneer/rules/engine';
 import { slugName } from '@pioneer/rules/sdk';
 import type {
   ConditionValue,
@@ -11,7 +12,9 @@ import type {
   ContentText,
   Level,
   RichText,
+  Selector,
   SourceRef,
+  SpellRank,
 } from '@pioneer/rules/sdk';
 
 import type { StatBlockCreature } from '../creature-stat-block/creature-stat-block';
@@ -25,6 +28,19 @@ export interface PreviewEffect {
   readonly sense?: string;
   /** The names of the traits a weakness or resistance makes exceptions for, in the line's order. */
   readonly exceptions?: readonly string[];
+}
+
+/** A spell across the ranks it can be cast at: the card offers a pick and shows the spell as cast at that rank. */
+export interface PreviewRanks {
+  /** The spell's own rank, which the card starts at and the picker starts from. */
+  readonly from: SpellRank;
+  /** The spell cast at `rank`, heightening applied. */
+  readonly cast: (rank: SpellRank) => SpellAtRank;
+  /**
+   * What the spell would do to the character cast at `rank`; absent when the preview is not for a character, as
+   * `effects` is.
+   */
+  readonly effects?: (rank: SpellRank) => readonly PreviewEffect[];
 }
 
 /** What a preview shows of an entry: enough to recognise it without leaving the page. */
@@ -44,8 +60,16 @@ export interface EntryPreview {
    * for a character (the public browser); empty when it changes nothing.
    */
   readonly effects?: readonly PreviewEffect[];
+  /** A spell's ranks, shown as a pick of the rank to cast it at in place of `effects`. */
+  readonly ranks?: PreviewRanks;
   /** A creature's stat block, shown in place of the generic card. */
   readonly creature?: StatBlockCreature;
+}
+
+/** Where a statistic's breakdown opens: a router target and the query parameters that select it. */
+export interface StatisticLink {
+  readonly to: LinkTarget;
+  readonly queryParams?: Params;
 }
 
 /** How a preview finds an entry. The page that shows it knows which content is loaded, so it provides this. */
@@ -60,6 +84,11 @@ export interface EntryPreviews {
   readonly load?: (id: ContentId) => Promise<EntryPreview | undefined>;
   /** Where the entry opens in full (its page or panel), for the card's link; none when the page can't open it. */
   readonly target?: (id: ContentId) => LinkTarget | undefined;
+  /**
+   * Where the breakdown of the statistic `selector` opens, for the name in an effect line; none when the page shows
+   * no breakdown, and the name is then plain text.
+   */
+  readonly statistic?: (selector: Selector) => StatisticLink | undefined;
 }
 
 const NO_PREVIEWS: EntryPreviews = { preview: (): undefined => undefined };

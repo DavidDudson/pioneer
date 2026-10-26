@@ -1,0 +1,19 @@
+@if (form(); as shown) {
+  <fr-surface padding="sm">
+    <fr-stack gap="xs">
+      <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+        <fr-text weight="semibold">{{ Message.Active | transloco: { name: shown.name } }}</fr-text>
+        @for (detail of shown.details; track detail.key) {
+          <fr-text tone="muted">{{ detail.key | transloco: detail.params }}</fr-text>
+        }
+        <fr-toggle-button size="sm" [(value)]="baseView">{{ Message.BaseView | transloco }}</fr-toggle-button>
+        <fr-async-button size="sm" [action]="dismiss()" [describeError]="describeError()">
+          {{ Message.Dismiss | transloco }}
+        </fr-async-button>
+      </fr-stack>
+      @if (baseView()) {
+        <fr-message [tone]="info">{{ Message.Reference | transloco }}</fr-message>
+      }
+    </fr-stack>
+  </fr-surface>
+}

@@ -1,0 +1,771 @@
+[
+  {
+    "id": "aa74ee41-287d-52bb-b376-541e9e87f420",
+    "pack": "tian-xia-world-guide",
+    "kind": "ritual",
+    "slug": "ritual:perfection-of-essence",
+    "name": "Perfection of Essence",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["trial"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-world-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many have pursued alchemical means to immortality, and most haven't survived the attempt. The most common manner of purifying one's essence requires ingesting the following poison, and surviving the effects unassisted for at least a day."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 43
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 5 days"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "7d12",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage plus "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 hour)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d12",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute once every 1d4 minutes, plus "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 hour)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d12",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 3"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema for this ritual is determined at the time of the ritual. You choose 1 anathema, and the GM chooses 2 anathema. You're aware of all of your anathema. Appropriate anathema might include avoiding physical contact with a certain creature or substance (such as members of your bloodline or jade), eating certain foods (such as meat or grains), or wearing certain items or materials (such as silk or cotton). If the ritual is ended in this way, you must conduct an Atone ritual before attempting this ritual again."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except you choose 1 anathema and your GM chooses 1 anathema."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You've purified your body enough to attempt to attain immortality. You're bound by the ritual's anathema and must ingest the final potion to complete your apotheosis. Once you've withstood the effects of the poison for 1 day or completely recovered from the poison's effects without outside assistance, you gain immortality as follows: you don't age unless you wish to. You can't die except due to old age; if your dying or doomed condition would increase to a high enough value to kill you, it doesn't increase, and any effect that would instantly kill you instead just reduces you to 0 Hit Points. If you ever truly die and aren't returned to life within 1 year, you descend from the Heavens as an adult into a new mortal body somewhere in the world."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your actions don't achieve immortality, and you automatically fail the first save against the poison."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except the poison is also virulent."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.kExRMPVI07iIFCaa"
+    },
+    "data": {
+      "rank": 10,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "special foods, herbs, and minerals worth a total value of 45,000 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:crafting"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:medicine"]
+          },
+          {
+            "skills": ["skill:religion"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "6c55d493-2b38-5cc0-a9cf-774e3f9a6dfe",
+    "pack": "tian-xia-world-guide",
+    "kind": "ritual",
+    "slug": "ritual:power-of-the-beasts",
+    "name": "Power of the Beasts",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["trial"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-world-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To simply kill the magical beasts who populate Tian Xia is needless and wasteful. The gods reward a hunter who seeks to truly understand their prey, approaching the creatures on their own level and seeking to gain their strength. Powdering the bones of strong beasts, for use in a soup or wine, is often the first step in the process of capturing part of their power."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Using weapons is anathema to this ritual and immediately ends its benefits. If the ritual is ended in this way, you must conduct an Atone ritual before attempting this ritual again."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except you can defeat three enemies that are only one size larger than you instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The power begins to take root. Once you've defeated an enemy two or more sizes larger than you in single combat, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "60f109bd-d3e9-52d7-b081-85d51399020d"
+          },
+          {
+            "type": "text",
+            "text": " feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You drink the soup or wine, but the understanding eludes you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The drink contains shards of bone you didn't grind down properly. You're "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 week, during which the condition can't be reduced."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.otdzpPYzWMJt76Rh"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "bones, teeth, or claws of beasts worth 150 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:athletics"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore:cooking"]
+          },
+          {
+            "skills": ["skill:crafting"]
+          },
+          {
+            "skills": ["skill:religion"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "066064db-b5b9-5cd1-b94d-c86672f68a3d",
+    "pack": "tian-xia-world-guide",
+    "kind": "ritual",
+    "slug": "ritual:seed-of-mercy",
+    "name": "Seed of Mercy",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["trial"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-world-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The gods who value benevolence and the caretaking of small and vulnerable beings also value those qualities in the mortal adventurers who journey through the lands of Tian Xia. You demonstrate your willingness to aid even the most helpless of life by nursing a small, injured bird to health and allowing it to fly away to freedom, earning in return the protection of the natural world. If you're able to nurse the bird to health, it will return to you with a seed, which will grow into a sprout bearing a single flower."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The sprout withers if you don't personally water it with at least 1 Bulk of pure spring water a day or if it's left unattended in dangerous circumstances. It's anathema to this ritual to let the sprout wither, and doing so immediately ends its benefits. If the ritual is ended in this way, you must conduct an Atone ritual before attempting this ritual again."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except the sprout also grows a single fruit after you've cared for it for a week. Removing the fruit causes the sapling to wither, but the fruit can be eaten as a "
+          },
+          {
+            "type": "ref",
+            "id": "afe38f9f-9558-511f-8f33-724d5c8c5718",
+            "label": "Moderate Healing Potion"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You nurse the bird to health. It returns to you with a seed that, when planted and watered, grows into a sprout with a single flower. Once you've cared for it for a week, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d21fd9b4-22f0-5dd9-980e-fd02482e0bcf"
+          },
+          {
+            "type": "text",
+            "text": " feat. If you lose Toughness due to violating the ritual's anathema, you lose a number of Hit Points equal to the decrease in your maximum Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aren't able to heal the bird, but you help its passing to be as painless as possible."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your attempt to heal the bird causes greater suffering. Another bird brings you a seed that, if planted, will grow into a gourd that releases a small demon to attack you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.opXqASAY37ltENB8"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "potent medicine valued at 200 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:medicine"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:nature"]
+          },
+          {
+            "skills": ["skill:religion"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "cd95fa35-3552-58ed-9ebd-4131165963d0",
+    "pack": "tian-xia-world-guide",
+    "kind": "ritual",
+    "slug": "ritual:wild-allegiance",
+    "name": "Wild Allegiance",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["trial"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-world-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To many, the animals of Tian Xia are simply beasts to be conquered or harvested, but this isn't how all of the gods intended it. You approach, feed, and commune with the most notably hostile beasts in an effort to forge a true friendship and allegiance with the natural world."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wantonly attacking or killing animals is anathema to this ritual and immediately ends its benefits. If the ritual is ended in this way, you must conduct an Atone ritual before attempting this ritual again."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except you can instead resolve a conflict with one animal of level 15 or higher."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You declare your allegiance to the wild and are bound by the ritual's anathema, but you still must prove yourself. Once you've nonviolently resolved conflicts with three different animals of a higher level than yours, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "e6799b06-142e-5f77-8d25-4f7c94a3fad6"
+          },
+          {
+            "type": "text",
+            "text": " feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your actions don't impress the gods of the wilds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You deeply offend the gods you were trying to impress, and they send a sign of displeasure, often an animal attack. You must conduct an "
+          },
+          {
+            "type": "text",
+            "text": "atone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ritual before attempting this ritual again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.BBw5oGFvoQc3gg52"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "animal food worth a total value of 150 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:diplomacy"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:nature"]
+          },
+          {
+            "skills": ["skill:religion"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  }
+]

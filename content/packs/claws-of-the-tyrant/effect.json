@@ -1,0 +1,880 @@
+[
+  {
+    "id": "f05bbd77-9620-544f-8054-426828bf9cd3",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-righteousness",
+    "name": "Effect: Aura of Righteousness",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to AC against unholy creatures and a +2 status bonus to damage rolls against unholy creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["origin:trait:unholy"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["target:trait:unholy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.I5Fd4TkIKRJT6WXf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0b38e7cb-92c1-5d9e-a605-949c24956441",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-belief-fortification",
+    "name": "Effect: Belief Fortification",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Members of the garrholdion's faction gain a +1 status bonus to saving throws against emotion effects while within the aura."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6wyzhmElDV8IP0qM"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "54e0624d-6183-59a1-80c7-d7a5dce9fca3",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-belief-fortification-mark",
+    "name": "Effect: Belief Fortification (Mark)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mark members of the garrholdion's faction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:belief-fortification-faction"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.tnIjFwv55sDPZxlb"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d3d95b76-37b2-5b72-a09a-b75bc29552e4",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-burned-fingers",
+    "name": "Effect: Burned Fingers",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take –1 circumstance penalty to Thievery checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "circumstance",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6E8blr21VWk0L4sv"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "019ddf19-faa8-5b22-8490-a057fcec301c",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-embolden",
+    "name": "Effect: Embolden",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "43db0ef8-76b8-52c7-b39b-4bf4401761b0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.RiplRZUwR6vq5A5A"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c40f996d-ef63-51ff-b6fc-2b4a46cf76bc",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-hunt-will",
+    "name": "Effect: Hunt Will",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The steed gains a +2 circumstance bonus to Perception checks to Seek the prey and to Survival checks to Track the prey. The first time the steed hits its designated prey in a round, it deals an additional 1d8 precision damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "target:mark:hunt-will",
+        "toggleable": true,
+        "display": {
+          "label": "Target is your Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:seek", "target:mark:hunt-will"],
+        "display": {
+          "label": "To Seek Hunted Prey"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:track", "target:mark:hunt-will"],
+        "display": {
+          "label": "To Track Hunted Prey"
+        }
+      },
+      {
+        "key": "RollOption",
+        "option": "option:first-attack",
+        "toggleable": true,
+        "display": {
+          "label": "First attack on hunted prey this round"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d8",
+        "category": "precision",
+        "predicate": ["option:first-attack"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.9Uwt9cfXOKAl8cD5"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "165cb7c8-6923-55db-90c9-768614d243e1",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-iron-command-extra-damage",
+    "name": "Effect: Iron Command (Extra Damage)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Seldeg's Strikes against the triggering creature deal an additional 3 damage until the end of his next turn. Seldeg chooses whether the additional damage is spirit or void each time he uses this reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.upPUhhjz3stTWRsy"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b0857dfd-44cd-54dc-ad8a-83401b0f926f",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-proclaim-resilience",
+    "name": "Effect: Proclaim Resilience",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "340fad85-352d-513d-b852-70683dadce44"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to void damage equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.w4EdnGI8i4UIkzWp"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5984ef38-8d29-5ac9-9415-a5c587d1a068",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-raise-jar",
+    "name": "Effect: Raise Jar",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "340fad85-352d-513d-b852-70683dadce44"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.DKCoW3A6Tz799Uq9"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b22c3f22-cc2e-5320-90fb-b05412d5740c",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-siphon-will",
+    "name": "Effect: Siphon Will",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The steed gains 20 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.unwNPDLmReEQy700"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "324d0c50-85e8-51d4-9194-a3d0e609e0e0",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-slithering-vine",
+    "name": "Effect: Slithering Vine",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The stelemora increases the reach of their vine Strike by 10 feet until the end of their turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:melee", "item:slug:vine"],
+        "property": "traits",
+        "mode": "add",
+        "value": "reach-20"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:melee", "item:slug:vine"],
+        "property": "traits",
+        "mode": "remove",
+        "value": "reach-10"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.CqMaZrZfU3Qtf3MI"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "b3dc9f45-6a05-57d7-ab9f-1854df9f2df8",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-strength-through-pain",
+    "name": "Effect: Strength Through Pain",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a412efdb-664e-5085-8f10-356dc09f9025"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to your next Strike or spell attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.0bwavSwP7XUMO9J1"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9c38e4c6-9755-5aea-ad67-2928375df809",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-terrain-attunement-gravelands",
+    "name": "Effect: Terrain Attunement (Gravelands)",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b6908df3-48c8-50fe-84c4-153f7a5ef675"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to saving throws against spells and abilities of haunts and undead creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["origin:trait:haunt", "origin:trait:undead"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ag1Ix1cnhcV4k9iu"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "35d7fb53-0131-5824-8d17-d9f4134150ac",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-tripartite-omen",
+    "name": "Effect: Tripartite Omen",
+    "level": 18,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8fa4318b-0951-5a34-a279-2fab370f544c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.q2t1ZtSPP1p0lz3R"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "afb710eb-b425-5970-a7e0-283a23d92cff",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:effect-vellumis-excision",
+    "name": "Effect: Vellumis Excision",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "63891e00-6968-50b5-879c-fe853f72cc3b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to saving throws against curses, diseases, and poisons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["item:trait:curse", "item:trait:disease", "item:trait:poison"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.KHxkVwXSFsN3eATu"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "008c178e-b1ba-5f11-86b8-6f71e7ba22ef",
+    "pack": "claws-of-the-tyrant",
+    "kind": "effect",
+    "slug": "effect:stance-cenotaph-stance",
+    "name": "Stance: Cenotaph Stance",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "476f8b4a-aab3-540b-b012-8bbad449fc03"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At the beginning of each of your turns, you gain 10 temporary Hit Points. You're treated as always having your shield raised."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.KoHUnnrrcCHRkmJQ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  }
+]

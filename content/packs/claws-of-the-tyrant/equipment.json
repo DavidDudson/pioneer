@@ -1,0 +1,1322 @@
+[
+  {
+    "id": "87d2385a-591f-5dda-8a2c-6c67cdca050a",
+    "pack": "claws-of-the-tyrant",
+    "kind": "equipment",
+    "slug": "equipment:chalice-of-ozem",
+    "name": "Chalice of Ozem",
+    "level": 11,
+    "rarity": "unique",
+    "traits": ["artifact", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ruby-studded dawnsilver chalice can't be harmed by any substance it holds, no matter how caustic. Furthermore, liquid placed within the "
+          },
+          {
+            "type": "text",
+            "text": "Chalice of Ozem",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " never spills unless its carrier chooses to do so (using a single action with the concentrate trait)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Iomedae's Blessing",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold the chalice and call out Iomedae's name. The chalice casts "
+          },
+          {
+            "type": "ref",
+            "id": "25a3d838-3162-5afd-a28e-bccf51fbd742"
+          },
+          {
+            "type": "text",
+            "text": " with a +19 modifier to its counteract check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If the "
+          },
+          {
+            "type": "text",
+            "text": "Chalice of Ozem",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is filled with Iomedae's blood and Arazni drinks from it, it shatters."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.53GW1hwgeub8MqZv"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "iomedaes-blessing",
+          "name": "Iomedae's Blessing",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "340fad85-352d-513d-b852-70683dadce44",
+    "pack": "claws-of-the-tyrant",
+    "kind": "equipment",
+    "slug": "equipment:heart-bloodstone-of-arazni",
+    "name": "Heart Bloodstone of Arazni",
+    "level": 11,
+    "rarity": "unique",
+    "traits": ["artifact", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Heart Bloodstone of Arazni",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " represents protection. While holding the Heart Bloodstone, you can feel the gentle rhythm of a beating heart within the jar."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Raise Jar",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold the jar aloft, and a nimbus of crimson energy surrounds your body. You gain a +2 circumstance bonus to AC until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5984ef38-8d29-5ac9-9415-a5c587d1a068"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Proclaim Resilience",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You worship Arazni or are favored by her"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make a loud and clear proclamation of your resilience (such as \"I will not fall to the hands of my enemies!\"). You gain resistance to void damage equal to your level until the beginning of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b0857dfd-44cd-54dc-ad8a-83401b0f926f"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "Heart Bloodstone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " turns to dust if a worshipper of Arazni is slain while holding the "
+          },
+          {
+            "type": "text",
+            "text": "Bloodstone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and cursing her name. Any breathing creature within 10 feet of the jar inhales the choking dust, taking "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). On a failure, the creature also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4",
+                "damageType": "void",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8",
+                "damageType": "void",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xI3obWctqdVBLzSX"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "proclaim-resilience",
+          "name": "Proclaim Resilience",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "43db0ef8-76b8-52c7-b39b-4bf4401761b0",
+    "pack": "claws-of-the-tyrant",
+    "kind": "equipment",
+    "slug": "equipment:liver-bloodstone-of-arazni",
+    "name": "Liver Bloodstone of Arazni",
+    "level": 11,
+    "rarity": "unique",
+    "traits": ["artifact", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Liver Bloodstone of Arazni",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " represents confidence. While holding the Liver Bloodstone, you feel more certain in your abilities."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Embolden",
+            "marks": ["strong"]
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically succeed on an attack roll, saving throw, or skill check while in encounter mode"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain temporary Hit Points equal to your level for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "019ddf19-faa8-5b22-8490-a057fcec301c"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Arazni's Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You worship Arazni or are favored by her"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold the Liver Bloodstone aloft, and the Bloodstone glows with crimson light, filling you and your allies with Arazni's wrath. The Liver Bloodstone casts "
+          },
+          {
+            "type": "ref",
+            "id": "bd1e2643-132f-5c7c-8b60-b97e26a01266"
+          },
+          {
+            "type": "text",
+            "text": ". For the next minute, you can use a free action at the beginning of each of your turns to increase the spell's emanation radius by 10 feet. You can't increase the emanation's radius in any other way."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Liver Bloodstone melts into a puddle of poison if a worshipper of Arazni willingly submerges the Bloodstone in a lethal contact or consumed poison, then licks the Bloodstone clean. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " is exposed to the poison that destroyed the "
+          },
+          {
+            "type": "text",
+            "text": "Bloodstone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", as if they'd touched or consumed that poison."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LpYBTsYCEjqY3yek"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "embolden",
+          "name": "Embolden",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "araznis-fervor",
+          "name": "Arazni's Fervor",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a412efdb-664e-5085-8f10-356dc09f9025",
+    "pack": "claws-of-the-tyrant",
+    "kind": "equipment",
+    "slug": "equipment:lung-bloodstone-of-arazni",
+    "name": "Lung Bloodstone of Arazni",
+    "level": 11,
+    "rarity": "unique",
+    "traits": ["artifact", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Lung Bloodstone of Arazni",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " represents suffering. While you carry the Lung Bloodstone, you gain the ability to turn your pain into a weapon against your enemies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Strength Through Pain",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You allow the pain to resonate within you, making you stronger. You gain a +1 status bonus to your next Strike or spell attack before the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b3dc9f45-6a05-57d7-ab9f-1854df9f2df8"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Admonish",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, emotion, incapacitation, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You worship Arazni or are favored by her"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You point your finger at a creature within 60 feet that has wronged you, and you verbally admonish them. The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage for every level you have ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC). On a failed save, the creature is also "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 3"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " To destroy the "
+          },
+          {
+            "type": "text",
+            "text": "Lung Bloodstone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", a worshipper of Arazni must willingly impale themself with the Bloodstone's horned figurehead, dealing themselves "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "piercing"
+              },
+              {
+                "formula": "3d6",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ],
+            "label": "3d6 piercing damage and 3d6 persistent bleed"
+          },
+          {
+            "type": "text",
+            "text": " damage. The "
+          },
+          {
+            "type": "text",
+            "text": "Lung Bloodstone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " then evaporates into a cloud of noxious vapors, as "
+          },
+          {
+            "type": "ref",
+            "id": "f3141756-1e05-510a-b997-772d9ada7ecd"
+          },
+          {
+            "type": "text",
+            "text": " (DC 28), that follows the creature that destroyed the "
+          },
+          {
+            "type": "text",
+            "text": "Bloodstone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for its duration."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ykNkCIv2P3dfeMlR"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "strength-through-pain",
+          "name": "Strength Through Pain",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "admonish",
+          "name": "Admonish",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e93aebee-ad97-5f22-ac02-4e1f973a19c1",
+    "pack": "claws-of-the-tyrant",
+    "kind": "equipment",
+    "slug": "equipment:spleen-bloodstone-of-arazni",
+    "name": "Spleen Bloodstone of Arazni",
+    "level": 11,
+    "rarity": "unique",
+    "traits": ["artifact", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Spleen Bloodstone of Arazni",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " represents freedom. Holding the "
+          },
+          {
+            "type": "text",
+            "text": "Spleen Bloodstone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " makes you feel as if no bonds can contain you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sure Footing",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aren't "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Step or Stride, treating both difficult and greater difficult terrain as normal terrain during the movement. For each additional action you spend, you can Step or Stride again with the same benefits. If you have a climb or fly Speed, you can instead Climb or Fly respectively."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Break Bonds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You worship Arazni or are favored by her"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3f5dc8b4-dcc0-5a99-8501-aff382e8d341"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " conditions, as well as any Speed penalties affecting you, immediately end unless the effect is magical and of 12th level or higher. You can use this ability even if your actions are restricted or otherwise decided for you (such as being confused or controlled)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If a worshipper of Arazni willingly gains the controlled condition or becomes undead while holding the "
+          },
+          {
+            "type": "text",
+            "text": "Spleen Bloodstone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the "
+          },
+          {
+            "type": "text",
+            "text": "Bloodstone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " explodes, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 28,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ci9SM1RcrbR2aIoG"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "sure-footing",
+          "name": "Sure Footing",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "break-bonds",
+          "name": "Break Bonds",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

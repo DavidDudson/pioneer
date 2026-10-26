@@ -1,0 +1,50 @@
+[
+  {
+    "id": "51a59d96-92b0-5950-8511-7fcb716afe0c",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:goblin-lore",
+    "name": "Goblin Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:goblin",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.goblin",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "72e5d4fb-71f9-5755-8cbe-e69d18aca8e1",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:isger-lore",
+    "name": "Isger Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:isger",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.isger",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

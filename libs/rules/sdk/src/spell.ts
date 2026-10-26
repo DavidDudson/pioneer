@@ -7,7 +7,7 @@ import { ContentText } from './content-text';
 import { DamageTypeSchema } from './damage';
 import { DamageFormula, SpellDamageFormula } from './damage-formula';
 import { RulesMessage } from './messages';
-import { DamageCategorySchema } from './rich-text';
+import { DamageCategorySchema, RichText } from './rich-text';
 import { CastTime, castingFields, SpellArea, SpellDefense, SpellDuration, SpellRange } from './spell-casting';
 import { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 import { SpellTargets } from './spell-targets';
@@ -147,6 +147,8 @@ type SpellCheck = z.core.ParsePayload<{
   readonly damage: readonly SpellDamage[];
   readonly heightening?: Heightening | undefined;
   readonly variants?: readonly SpellVariant[] | undefined;
+  readonly dismiss?: true | undefined;
+  readonly dismissNote?: RichText | undefined;
 }>;
 
 function pushIssue(context: SpellCheck, path: readonly PropertyKey[], descriptor: MessageDescriptor): void {
@@ -210,6 +212,14 @@ function checkHeightenedRanks(context: SpellCheck): void {
   }
 }
 
+/** A note on ending a spell early is for a spell that does not take the Dismiss action. */
+function checkDismiss(context: SpellCheck): void {
+  const { dismiss, dismissNote } = context.value;
+  if (dismiss === true && dismissNote !== undefined) {
+    pushIssue(context, ['dismissNote'], message(RulesMessage.SpellDismissBoth));
+  }
+}
+
 /**
  * A spell's `data` on the `ContentEntry` envelope, cantrips and focus spells included: they are spells with the
  * `cantrip` or `focus` trait, as in Foundry pf2e. What it does beyond its damage is its description, and the effects
@@ -224,11 +234,14 @@ export const SpellData = z
     variants: z.array(SpellVariant).min(1).max(VARIANTS_MAX).readonly().optional(),
     /** Ending it takes the Dismiss action, 1 action when done during a turn (Mirror Image); otherwise it ends at will. */
     dismiss: z.literal(true).optional(),
+    /** Ending it early has a condition or a cost of its own (a free action or reaction, with a trigger), which a Dismiss button shows. */
+    dismissNote: RichText.optional(),
     /** It counteracts (Dispel Magic). */
     counteraction: z.boolean().optional(),
   })
   .check((context) => {
     checkIncreases(context);
     checkHeightenedRanks(context);
+    checkDismiss(context);
   });
 export type SpellData = z.infer<typeof SpellData>;

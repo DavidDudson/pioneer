@@ -1,0 +1,129 @@
+[
+  {
+    "id": "b8002528-daa6-566e-ba54-18b45041c301",
+    "pack": "prey-for-death",
+    "kind": "archetype",
+    "slug": "archetype:red-mantis-assassin",
+    "name": "Red Mantis Assassin",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a Red Mantis assassin, inducted by Achaekek, He Who Walks in Blood, and sworn to chase your prey to the end of the world and beyond. While many Red Mantis assassins hail from the city of Ilizmagorti and regard it as their hometown, the Red Mantis has agents throughout the world, some of whom have yet to visit their so-called capital city. Still, those who have never been to Ilizmagorti eventually realize that they should at least pay a the city visit at some point in their lives."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a Red Mantis assassin, you'll periodically be asked to perform assassinations—but the organization is not without rules. The information presented on the previous page is important to understand if you choose to play a Red Mantis assassin as a result. This, plus the fact that the pursuit of murder-for-hire is generally seen as a criminal act that draws the interest of society's less-reputable and more sadistic members, means that this archetype may not be appropriate for all groups. More than most archetypes, this one requires the consent and permission of not just the GM, but of your fellow players."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The rare feats presented in the archetype are typically available only for assassins who have received permission from the Blood Mistress to undergo the appropriate training."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "2nd",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Twin Feint; "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Quick Draw, Underhanded Assault; "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Poison Weapon, Twin Distraction; "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Gang Up; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Advanced School Spell; Improved Poison Weapon, Opportune Backstab"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.CB9YE4P7A2Wty1IX"
+    },
+    "data": {
+      "dedication": "a687d446-ce59-5ee9-a553-f8726ec7b4c2"
+    }
+  }
+]

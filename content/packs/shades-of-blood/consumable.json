@@ -1,0 +1,893 @@
+[
+  {
+    "id": "3fa1d6fb-c946-5acc-98bb-2221f13baab5",
+    "pack": "shades-of-blood",
+    "kind": "consumable",
+    "slug": "consumable:bitterblood-elixir",
+    "name": "Bitterblood Elixir",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bitterblood elixir is a pale pink color, like that of water tinted by a few drops of blood. After you drink this elixir, your blood becomes dangerous for other creatures to consume. For the next hour, whenever a creature drinks your blood, the elixir changes your blood into a foul-tasting acid as it mixes with the drinker's saliva. You're unharmed by this transformation, but the blood drinker must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "acid"
+              },
+              {
+                "formula": "2d6",
+                "damageType": "acid",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, and is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BmQKGejPtbgL8qwT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "98b0957d-68f5-5316-94d6-661e35c4b85e",
+    "pack": "shades-of-blood",
+    "kind": "consumable",
+    "slug": "consumable:gravity-inverter",
+    "name": "Gravity Inverter",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Activate a gravity inverter, you can either place it in an adjacent space or toss it up to 30 feet away. Once you've done so, this metallic device implodes, creating a "
+          },
+          {
+            "type": "template",
+            "shape": "cylinder",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " of unstable gravity that lasts for 4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All creatures and objects in the area when a gravity inverter is activated, who enter the area, or who begin their turn in the area float upward 10 feet, stopping harmlessly if they collide with a solid object or reach the top of the cylinder. While floating, a creature is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " and can't move unless they Push Off a surface or Fly. Pushing Off is a single action that has the move trait, allowing the creature to move half its Speed in a straight line through the area (if the creature remains in the area, this momentum will be disrupted by the gravity inverter at the beginning of the creature's next turn, as noted above). At the end of the duration, this gravity well fades—all creatures floating fall to the ground, taking falling damage as appropriate. Creatures who can fly are immune to this fall damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.A7tMFLBkzhU0I0WN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "011c9cec-aa46-5b26-ad11-44a663f7c86f",
+    "pack": "shades-of-blood",
+    "kind": "consumable",
+    "slug": "consumable:moonkeep-hyacinth",
+    "name": "Moonkeep Hyacinth",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These magical flowers are infused with the power to counteract the curse of the werecreature. Intentionally growing these flowers is nearly impossible, as they don't produce seeds, and the primal magic required to produce them has been lost to time. They occasionally grow in places where a particular powerful werecreature is buried, though if an exact process to guarantee their growth exists, it remains a mystery."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long hyacinth features round buds that bloom into brilliant white petals. When you eat the flower, you immediately become cured of the curse of the werecreature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fmoxVHQAAdkWCiK3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dfdb21d6-8b26-5569-a931-9c4fd5bbe720",
+    "pack": "shades-of-blood",
+    "kind": "consumable",
+    "slug": "consumable:moonkeep-lily",
+    "name": "Moonkeep Lily",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These magical flowers are infused with the power to counteract the curse of the werecreature. Intentionally growing these flowers is nearly impossible, as they don't produce seeds, and the primal magic required to produce them has been lost to time. They occasionally grow in places where a particular powerful werecreature is buried, though if an exact process to guarantee their growth exists, it remains a mystery."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thin, white lily has stamens that end in small, round portions resembling the moon. When you eat the flower, you gain the flower's protection for 1 week. During this time, your curse of the werecreature becomes partially inert. Your jaws Strike doesn't inflict the curse of the werecreature during this time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1jE0ICfi75fh5PZy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d90255e2-62bd-5334-9f73-5f8b35399052",
+    "pack": "shades-of-blood",
+    "kind": "consumable",
+    "slug": "consumable:moonkeep-orchid",
+    "name": "Moonkeep Orchid",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These magical flowers are infused with the power to counteract the curse of the werecreature. Intentionally growing these flowers is nearly impossible, as they don't produce seeds, and the primal magic required to produce them has been lost to time. They occasionally grow in places where a particular powerful werecreature is buried, though if an exact process to guarantee their growth exists, it remains a mystery."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pale orchid glows nearly white when exposed to moonlight. When you eat the flower, you gain its protection for 3 days. During this time, your curse of the werecreature and moon frenzy don't cause you to automatically transform during a full moon, and you retain full control of your faculties during a full moon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FRDafjyewsEsUuTP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "50208f22-14fa-589e-99e2-5cb77b155aad",
+    "pack": "shades-of-blood",
+    "kind": "consumable",
+    "slug": "consumable:nap-gas-dispenser",
+    "name": "Nap Gas Dispenser",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["consumable", "gadget", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Activate a "
+          },
+          {
+            "type": "text",
+            "text": "nap gas dispenser",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you can either place it in an adjacent space or toss it up to 30 feet away. Once you've done so, the metallic canister instantly disperses knockout gas in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 23
+          },
+          {
+            "type": "text",
+            "text": " save, with the following results. This is a poison and incapacitation effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes a –2 status penalty to Perception checks and is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is slowed 1 for 1 minute. At the end of their next turn, they fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " and fall "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute. A creature can Interact to shake the creature awake as normal, but this doesn't shorten the duration of the slowed condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature is slowed 1 for 1 hour and it takes three Interact actions to wake them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rpyBAmS3jeJdYsbz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2b91ed9b-a5d1-5e0c-a79a-11f15aaff1ba",
+    "pack": "shades-of-blood",
+    "kind": "consumable",
+    "slug": "consumable:psyche-salts-greater",
+    "name": "Psyche Salts (Greater)",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A dose of psyche salts is kept in a small, corked vial. When you activate psyche salts, you uncork and pass the open end of the vial near the head of an adjacent creature. The salts within fizz and evaporate, creating a sour-smelling cloud that envelops the creature's head before fading. As they do, the vapors attempt to clear harmful influences from the creature's mind. The creature gains the effect of a 8th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": " spell with a +27 counteract check modifier and a +3 item bonus to saving throws against mental effects for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eOUZqtwBKdXagplE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7f26ce98-d40f-5b05-ac2b-15386a230887",
+    "pack": "shades-of-blood",
+    "kind": "consumable",
+    "slug": "consumable:psyche-salts-lesser",
+    "name": "Psyche Salts (Lesser)",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A dose of psyche salts is kept in a small, corked vial. When you activate psyche salts, you uncork and pass the open end of the vial near the head of an adjacent creature. The salts within fizz and evaporate, creating a sour-smelling cloud that envelops the creature's head before fading. As they do, the vapors attempt to clear harmful influences from the creature's mind. The creature gains the effect of a 2nd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": " spell with a +11 counteract check modifier and a +1 item bonus to saving throws against mental effects for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ue0MB4HnIQ9iCwWb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "51b57925-8ba9-5b90-9107-40fc9a252085",
+    "pack": "shades-of-blood",
+    "kind": "consumable",
+    "slug": "consumable:psyche-salts-moderate",
+    "name": "Psyche Salts (Moderate)",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A dose of psyche salts is kept in a small, corked vial. When you activate psyche salts, you uncork and pass the open end of the vial near the head of an adjacent creature. The salts within fizz and evaporate, creating a sour-smelling cloud that envelops the creature's head before fading. As they do, the vapors attempt to clear harmful influences from the creature's mind. The creature gains the effect of a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": " spell with a +17 counteract check modifier and a +2 item bonus to saving throws against mental effects for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aQ2PgxzGbqU5rKx9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

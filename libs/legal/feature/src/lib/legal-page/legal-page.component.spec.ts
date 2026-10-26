@@ -1,8 +1,11 @@
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { provideI18n } from '@pioneer/shared/web';
+import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it } from 'vitest';
 
 import { legalRoutes } from '../legal.routes';
@@ -25,6 +28,9 @@ async function renderLegalPage(): Promise<HTMLElement> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'legal', children: legalRoutes }]),
+      provideHttpClient(),
+      provideHttpClientTesting(),
+      provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
       provideI18n({ en: async () => frontierMessages }),
     ],
   });
@@ -45,6 +51,7 @@ describe('LegalPage', () => {
       'Open Game License',
       'Books',
       'Foundry VTT pf2e system',
+      'Content caches',
     ]);
     expect(root.textContent).toContain('We are expressly prohibited from charging you to use or access this content.');
     // ORC License section III(a), verbatim.
@@ -67,12 +74,24 @@ describe('LegalPage', () => {
 
   it("links the Community Use Policy, Paizo, the ORC License, each pack's Foundry release and the repository", async () => {
     const root = await renderLegalPage();
-    const links = [...root.querySelectorAll('a')].map((link) => link.getAttribute('href'));
+    const links = [...root.querySelectorAll('a')]
+      .filter((link) => link.closest('pio-content-caches') === null)
+      .map((link) => link.getAttribute('href'));
     expect(links).toStrictEqual([
       'https://paizo.com/licenses/communityuse',
       'https://paizo.com',
       'https://paizo.com/orclicense',
       'https://github.com/foundryvtt/pf2e/blob/pf2e-8.6.0/static/licenses/OpenGameLicense.md',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
@@ -153,6 +172,16 @@ describe('LegalPage', () => {
       "Hell's Destiny",
       'Bastion of Blasphemies',
       "The Dead God's Hand",
+      'Wardens of Wildwood',
+      'Curtain Call',
+      'Triumph of the Tusk',
+      'Spore War',
+      'Shades of Blood',
+      'Prey for Death',
+      'Claws of the Tyrant',
+      'Pathfinder Society Clockwork Mystery',
+      'Lost Omens Tian Xia World Guide',
+      'Foolish Housekeeping and Other Articles',
     ]);
     const licenses = books.map((book) => /Paizo · (?<license>.+)$/u.exec(book.textContent.trim())?.groups?.['license']);
     expect(licenses).toStrictEqual([
@@ -162,6 +191,16 @@ describe('LegalPage', () => {
       'ORC License',
       'Open Game License 1.0a',
       'Open Game License 1.0a',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
+      'ORC License',
       'ORC License',
       'ORC License',
       'ORC License',
@@ -225,6 +264,16 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Hell's Destiny\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Bastion of Blasphemies\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^The Dead God's Hand\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Wardens of Wildwood\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Curtain Call\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Triumph of the Tusk\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Spore War\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Shades of Blood\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Prey for Death\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Claws of the Tyrant\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Pathfinder Society Clockwork Mystery\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens Tian Xia World Guide\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Foolish Housekeeping and Other Articles\s*Foundry release pf2e-8\.6\.0$/u),
     ]);
     expect(foundry.textContent).toContain('then corrected and enriched by Pioneer contributors');
   });

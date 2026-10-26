@@ -20,6 +20,19 @@ import { HoverCard } from './hover-card.component';
 })
 class Host {}
 
+@Component({
+  selector: 'fr-hover-card-tap-host',
+  imports: [HoverCard, HoverCardContent],
+  // oxlint-disable-next-line @angular-eslint/component-max-inline-declarations
+  template: `
+    <fr-hover-card [tapOpens]="false">
+      <button id="trigger" type="button">Dismiss</button>
+      <ng-template frHoverCardContent>Ends early</ng-template>
+    </fr-hover-card>
+  `,
+})
+class TapHost {}
+
 function render(): ComponentFixture<Host> {
   TestBed.configureTestingModule({});
   const fixture = TestBed.createComponent(Host);
@@ -31,7 +44,7 @@ function card(): HTMLElement | null {
   return document.querySelector<HTMLElement>('[role="tooltip"]');
 }
 
-function trigger(fixture: ComponentFixture<Host>): HTMLElement {
+function trigger(fixture: ComponentFixture<unknown>): HTMLElement {
   const element = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('#trigger');
   if (element === null) {
     throw new Error('No trigger');
@@ -97,6 +110,15 @@ describe(HoverCard, () => {
       expect(card()).not.toBeNull();
     });
     expect(tap().defaultPrevented).toBe(false);
+  });
+
+  it('lets a touch tap through to the trigger when tapOpens is off, leaving the card closed', () => {
+    TestBed.configureTestingModule({});
+    const fixture = TestBed.createComponent(TapHost);
+    fixture.detectChanges();
+    expect(click(trigger(fixture), 'touch').defaultPrevented).toBe(false);
+    fixture.detectChanges();
+    expect(card()).toBeNull();
   });
 
   it('does not swallow a keyboard Enter after a touch that scrolled instead of tapping', () => {

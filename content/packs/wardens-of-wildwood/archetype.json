@@ -1,0 +1,102 @@
+[
+  {
+    "id": "33e8d9f5-bbda-59a4-b2ac-34a22cb425c5",
+    "pack": "wardens-of-wildwood",
+    "kind": "archetype",
+    "slug": "archetype:verduran-shadow",
+    "name": "Verduran Shadow",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Primal energy exists for far more than being gathered, shaped, and directed by druids; like air currents, it flows naturally through an environment. With the proper training, an explorer can perceive these currents, sensing cues carried on them like airborne scents. With further work, they can drift with these energies like a leaf on a river, or even hide themselves in the primal eddies to evade their foes' senses. Too much exposure can erode the practitioner's higher thoughts, leaving behind a predatory cunning that augments their combat abilities at the risk of wearing away their sense of self."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These techniques have developed independently, spread, and then faded to obscurity countless times, with the Verduran Forest boasting the largest population of practitioners, who are known as Verduran shadows. Developed by the hunter Treyinca centuries ago, Verduran shadow techniques are widespread among the region's guardians but rarely taught to outsiders. Treyinca's fate is unknown, and some speculate she transformed into a primal spirit that mentors woodland warriors to this day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "6th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Fleeting Shadow, Sneak Attacker; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Scout's Pounce; "
+          },
+          {
+            "type": "text",
+            "text": "12th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Camouflage, Sneak Adept"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.ANj1KgIvIvNDmBSR"
+    },
+    "data": {
+      "dedication": "bb948b6b-dbb6-5d62-9b2a-64133876de5c"
+    }
+  }
+]

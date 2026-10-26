@@ -1,0 +1,947 @@
+[
+  {
+    "id": "6a6761e3-1c39-5615-9463-565f150db6d8",
+    "pack": "triumph-of-the-tusk",
+    "kind": "weapon",
+    "slug": "weapon:faultline-hammer",
+    "name": "Faultline Hammer",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["magical", "razing", "shove", "two-hand-d10", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The steel head of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking earthbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a large crack that zigzags down its center, making it look like it could crack in half with any swing. This belies the hammer's strength; its strikes can shatter stone with ease."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Create Faultline",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Strike an object or raised shield with the faultline hammer and would deal piercing damage to that object"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Until the end of your next turn, any weapon that Strikes the object deals additional damage as though the weapon had the razing trait. The triggering Strike also deals this additional damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CIglJOSgO3HsBqUP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "create-faultline",
+          "name": "Create Faultline",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "earthbreaker",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "abc7d5e6-b94e-5a76-9ab9-80ca1a2ddeae",
+    "pack": "triumph-of-the-tusk",
+    "kind": "weapon",
+    "slug": "weapon:kinetic-club",
+    "name": "Kinetic Club",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["backswing", "earth", "magical", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Embedded along the length of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking greatclub",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are the teeth and scales of a zetogeki, a giant lizard that can absorb and then release bursts of kinetic energy. The more momentum a wielder builds up while swinging the weapon, the more forceful the impact when it finally makes contact."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Store Kinetic Energy",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You add a circumstance bonus to your attack with the "
+          },
+          {
+            "type": "text",
+            "text": "kinetic club's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " backswing trait and successfully Strike your target"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You channel the club's stored energy into the Strike, dealing 1d6 additional damage. If the club has a "
+          },
+          {
+            "type": "text",
+            "text": "greater striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune, increase the additional damage to 2d6. If the club has a "
+          },
+          {
+            "type": "text",
+            "text": "major striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune, increase the additional damage to 3d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TgP5Rwzrampv1sDU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 325
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "store-kinetic-energy",
+          "name": "Store Kinetic Energy",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "club",
+      "baseItem": "greatclub",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "476ef1fc-9ce2-5378-89e9-c56380397e3e",
+    "pack": "triumph-of-the-tusk",
+    "kind": "weapon",
+    "slug": "weapon:orc-skewermaul",
+    "name": "Orc Skewermaul",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["brace", "orc", "two-hand-d10", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As dwarves poured out of the Darklands following their Quest for Sky, the orcs driven before them adapted to their tactics—including dwarves' heavily armored infantry charges. Surviving orcs developed a response: a weapon that combines a spear and maul to crush heavy armor and skewer charging foes. Although rarely seen today, the weapon is remarkably effective in the right situation."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IbHZE47vul6Mohz6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "orc-skewermaul",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1597d6f6-baf2-5f30-8378-e1d618cb670a",
+    "pack": "triumph-of-the-tusk",
+    "kind": "weapon",
+    "slug": "weapon:returning-starknife",
+    "name": "Returning Starknife",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["agile", "finesse", "magical", "thrown-20"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "returning throwing knife",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is specially made for Lyrune-Quah hunters, and its blade is carved with constellations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ribbon Wrap",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You deal damage to a target with the starknife"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Silver ribbons of starlight entangle the target, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. This is silver damage for the purposes of weaknesses, resistances, and the like. The target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " with an "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " DC of 24."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lGALlZL2Gs2duyp5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 430
+        }
+      },
+      "bulk": "light",
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "throwing-knife",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "property": ["55822cf6-140a-55d9-9015-60f75cd52e5a"]
+      }
+    }
+  },
+  {
+    "id": "ad15bdaf-febd-540f-93d4-7f807a7b5b0e",
+    "pack": "triumph-of-the-tusk",
+    "kind": "weapon",
+    "slug": "weapon:shadefield-knife",
+    "name": "Shadefield Knife",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["agile", "finesse", "magical", "thrown-10", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " made of black stone is carved from the bloodstained earth of the Shadefields and carries the grudge of the Shoanti who perished on that battlefield."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Vengeful Blood",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, emotion, fear, mental, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Blood seeps out of the knife, coating your hand. Enemies within 30 feet who can see this must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 26
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": " (frightened 1 and "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure). The knife continues to bleed for 1 minute or until you make a successful Strike with it, which deals an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Pzqgbtp3iVpW0pLY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 650
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "vengeful-blood",
+          "name": "Vengeful Blood",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "dagger",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "15c43b83-cbd5-5f35-bef8-e55fbf30135b",
+    "pack": "triumph-of-the-tusk",
+    "kind": "weapon",
+    "slug": "weapon:venom-lash",
+    "name": "Venom Lash",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["disarm", "magical", "poison", "sweep", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With careful alchemical treatments, orc weaponsmiths can enhance the durability and flexibility of giant scorpion tails to create multi-headed "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking flails",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Additional enchantments allow the stingers to generate their own venom. When you would apply this flail's critical specialization, you can instead deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the target. You gain an item bonus to the persistent poison damage equal to the weapon's item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Envenom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, poison)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You temporarily fill the flail's stingers with venom. The next successful Strike you make with it before the end of your next turn deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the target. If the Strike critically succeeds and if you would apply persistent poison damage with this weapon's alternate critical specialization, you combine the two effects to deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the target."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xeCh83loMuW7Aeqj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "envenom",
+          "name": "Envenom",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "flail",
+      "baseItem": "flail",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  }
+]

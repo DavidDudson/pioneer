@@ -459,7 +459,8 @@
         "unit": "hour"
       },
       "traditions": ["arcane", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {

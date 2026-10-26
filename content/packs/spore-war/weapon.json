@@ -1,0 +1,3690 @@
+[
+  {
+    "id": "df80ba71-609c-5b09-af23-a760d8c59cdb",
+    "pack": "spore-war",
+    "kind": "weapon",
+    "slug": "weapon:apotheosis-knife",
+    "name": "Apotheosis Knife",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["agile", "finesse", "magical", "thrown-10", "unholy", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This slim "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking unholy wounding dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a curved blade akin to that of a peeling knife. Soft elf-leather strips adorn the handle. If you are a demon, it amplifies any auras you have by granting a +1 item bonus to your aura's DCs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Burrowing Splinter",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " one per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was a successful Strike with the "
+          },
+          {
+            "type": "text",
+            "text": "apotheosis knife",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You twist the blade, causing a sliver of the dagger to break off inside the body of the creature you damaged with the "
+          },
+          {
+            "type": "text",
+            "text": "apotheosis knife",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on your prior action. Just as the blade itself cuts away flesh, this splinter slices away at the target's mind. The target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 43
+          },
+          {
+            "type": "text",
+            "text": " save. If the target is a demon, the burrowing splinter automatically triggers the effects of their sin vulnerability, regardless of their saving throw result."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes no additional damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of their next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "mental",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is stupefied 1 with an unlimited duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "mental",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, is stupefied 1 with an unlimited duration, and is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MlKNR5Q784mgmU0C"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "burrowing-splinter",
+          "name": "Burrowing Splinter",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "dagger",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 3,
+        "property": ["ad239acc-57b4-5fc9-9f6a-6794eb470637", "2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"]
+      }
+    }
+  },
+  {
+    "id": "4cced32f-ee0e-5899-853a-5a7f1d5473b2",
+    "pack": "spore-war",
+    "kind": "weapon",
+    "slug": "weapon:castrovels-beacon",
+    "name": "Castrovel's Beacon",
+    "level": 14,
+    "rarity": "unique",
+    "traits": ["deadly-d8", "disarm", "finesse", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The tip of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking brilliant standard-grade cold iron rapier",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " shines with a flickering sheen of green light that mimics the glittering appearance of Castrovel in the night sky. The carrier of "
+          },
+          {
+            "type": "text",
+            "text": "Castrovel's Beacon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " instinctively knows Castrovel's position in the sky even if it hasn't actually yet risen into view, which grants the wielder a +2 item bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "d0498569-a787-5708-8a5f-39c521dd3df4"
+          },
+          {
+            "type": "text",
+            "text": " when using the stars to orient themself. Additionally, the weapon grants a +2 item bonus to all saving throws against effects that cause the "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " conditions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When its "
+          },
+          {
+            "type": "text",
+            "text": "brilliant",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune is activated, the counteract rank is 6 and the counteract modifier is +21."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Starlight Burst",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "95b8cc6f-1faa-5469-af73-854d269ffcde"
+          },
+          {
+            "type": "text",
+            "text": " from "
+          },
+          {
+            "type": "text",
+            "text": "Castrovel's Beacon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as a 6th-rank arcane spell with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 31,
+            "options": ["item:spell"]
+          },
+          {
+            "type": "text",
+            "text": " save. Creatures with the elf trait are immune to Starlight Burst, and creatures with the demon trait take a –2 item penalty on all Will saves against the effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival", "saving-throw"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": [
+              "inflicts:dazzled",
+              "inflicts:blinded",
+              {
+                "and": ["action:sense-direction", "option:using-stars"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.y5ibQXac9BbzrYoT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "cold-iron",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "starlight-burst",
+          "name": "Starlight Burst",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "rapier",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["0af67a8b-4d59-58f2-b654-41260e48df22"]
+      }
+    }
+  },
+  {
+    "id": "820fb861-b0d5-53f5-bfa1-79bb78433538",
+    "pack": "spore-war",
+    "kind": "weapon",
+    "slug": "weapon:fiendbreaker",
+    "name": "Fiendbreaker",
+    "level": 15,
+    "rarity": "unique",
+    "traits": ["divine", "monk", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After she led her people through the Darklands to the far side of the world, the elven oracle Jininsiel established the nation of Jinin in the heart of the continent of Tian Xia. As she sought to forge alliances with other lands surrounding her own, Jininsiel crafted potent magic items as gifts. For the people of Tianjing, she created this staff, which served the people of that nation well for many years. They returned it to Jinin as a token of condolence when that nation's leader passed into the Great Beyond. Many centuries later, when the people of Jinin learned that their kin had returned to Kyonin from Castrovel only to face fiendish threats in their homeland, a group of priests from Jinin traveled across the world to help. They brought with them "
+          },
+          {
+            "type": "text",
+            "text": "Fiendbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and chose to leave it in Kyonin to help protect them in the future from demonic foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fiendbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " functions as a "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking holy standard-grade cold iron staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". While wielding the staff, you gain a +2 circumstance bonus to checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about fiends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a593a292-4fca-5280-9857-56a2178b1618"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "599db52f-69e4-5aa2-9cb6-f3c8a5339144"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3603c26e-3dad-51c9-a7c9-07a82f7b0e5d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "67633206-076f-520c-b8a2-8d30d756fa26"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "c116ade1-041d-5bc1-a428-dcd37ab4e61e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b2355f5f-2795-58d8-a713-df34a0257e46"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "c9f296d5-7325-5ec8-be5d-eb9502269e2f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "67633206-076f-520c-b8a2-8d30d756fa26"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b8c1200d-0dd9-594c-8caf-d3550e4a150b"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:recall-knowledge", "target:trait:fiend"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ICreMLiKizKZkype"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "cold-iron",
+        "grade": "standard"
+      },
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["1c942139-39ff-5ab6-bccc-88a68a1ec2e6"]
+      }
+    }
+  },
+  {
+    "id": "554f442b-65b5-5050-bed6-fae11c40ef7e",
+    "pack": "spore-war",
+    "kind": "weapon",
+    "slug": "weapon:fiendbreaker-heroic",
+    "name": "Fiendbreaker (Heroic)",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["apex", "artifact", "divine", "intelligent", "invested", "magical", "monk", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +35; precise low-light vision and hearing within 30 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " telepathy (partner only)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Demon Lore +33, Diplomacy +34, Religion +35"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +5, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +7, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +35"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The stately echo of Jininsiel, the woman who guided her people through the Darklands to escape the devastation of Earthfall, causes "
+          },
+          {
+            "type": "text",
+            "text": "Fiendbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to softly shimmer with a silvery radiance equivalent to that of candlelight. "
+          },
+          {
+            "type": "text",
+            "text": "Fiendbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can activate or deactivate this radiance as a free action once per round on her partner's turn. "
+          },
+          {
+            "type": "text",
+            "text": "Fiendbreaker's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " telepathic voice is calm and soothing, seeking to support her partner's decisions with compliments or warnings against overconfidence as needed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fiendbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " functions as a "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking holy high-grade cold iron staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". While wielding the staff, you gain a +3 circumstance bonus to checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about any sort of fiend."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from her list. "
+          },
+          {
+            "type": "text",
+            "text": "Fiendbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can use this activation only if you're holding the staff and only if you haven't used "
+          },
+          {
+            "type": "text",
+            "text": "Fiendbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to Cast a Spell this round. Likewise, if "
+          },
+          {
+            "type": "text",
+            "text": "Fiendbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Casts a Spell from the staff, you can't activate the staff to Cast a Spell this round."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a593a292-4fca-5280-9857-56a2178b1618"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "599db52f-69e4-5aa2-9cb6-f3c8a5339144"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3603c26e-3dad-51c9-a7c9-07a82f7b0e5d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "67633206-076f-520c-b8a2-8d30d756fa26"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "c116ade1-041d-5bc1-a428-dcd37ab4e61e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b2355f5f-2795-58d8-a713-df34a0257e46"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "c9f296d5-7325-5ec8-be5d-eb9502269e2f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "67633206-076f-520c-b8a2-8d30d756fa26"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b8c1200d-0dd9-594c-8caf-d3550e4a150b"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "148379ea-e80f-56a6-b8cd-6032862ad2c1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "8845ac04-b934-5119-92b8-e7831092fe04"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c9f296d5-7325-5ec8-be5d-eb9502269e2f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "67633206-076f-520c-b8a2-8d30d756fa26"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b2355f5f-2795-58d8-a713-df34a0257e46"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "148379ea-e80f-56a6-b8cd-6032862ad2c1"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Restore Mind",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Fiendbreaker",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attempts to counteract an ongoing mental affect you're suffering from, with a counteract rank of 9th and a +25 modifier to the roll (or a +30 modifier if the source of the mental effect on you was created by a fiend)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 3,
+        "predicate": ["action:recall-knowledge", "target:trait:fiend"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wu50pzerLWnVrHG8"
+    },
+    "data": {
+      "bulk": 1,
+      "material": {
+        "type": "cold-iron",
+        "grade": "high"
+      },
+      "activations": [
+        {
+          "slug": "fiendbreaker-heroic",
+          "name": "Fiendbreaker (Heroic)",
+          "frequency": {
+            "max": 1,
+            "per": "round"
+          }
+        },
+        {
+          "slug": "restore-mind",
+          "name": "Restore Mind",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 3,
+        "property": ["1c942139-39ff-5ab6-bccc-88a68a1ec2e6"]
+      }
+    }
+  },
+  {
+    "id": "43f10f99-c54a-5eca-a1d1-0ba06b084d1d",
+    "pack": "spore-war",
+    "kind": "weapon",
+    "slug": "weapon:morning-glow",
+    "name": "Morning Glow",
+    "level": 14,
+    "rarity": "unique",
+    "traits": ["elf", "finesse", "forceful"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blade of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking holy standard-grade cold iron elven curve blade",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " shines with a pale fire that illuminates the wielder's face in a grim visage and produces dim light in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". The wielder can suppress or reactivate this light as a single action with the concentrate trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reveal Demons",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You brandish "
+          },
+          {
+            "type": "text",
+            "text": "Morning Glow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and focus on its gleaming light, boosting its illumination so that it produces bright light in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " (and dim light for another 30 feet) for 10 minutes. All creatures in this area that have the demon trait must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 31
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6a321c66-653b-5f62-bf96-1b1951210ef0"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The demon is unaffected by the glow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The demon becomes outlined with a shimmering aura of dim light that causes it to become "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": ". If the demon was "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": ", it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " instead. If it was already concealed for any other reason, it is no longer concealed. This light affects the demon for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but with a duration of 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:lit-morning-glow",
+        "toggleable": true,
+        "predicate": [
+          {
+            "not": "self:effect:morning-glow"
+          }
+        ],
+        "display": {
+          "label": "Morning Glow is lit"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JosogwNGybTSrH03"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": 2,
+      "material": {
+        "type": "cold-iron",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "reveal-demons",
+          "name": "Reveal Demons",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "elven-curve-blade",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["1c942139-39ff-5ab6-bccc-88a68a1ec2e6"]
+      }
+    }
+  },
+  {
+    "id": "abc4067b-b036-556e-bad4-d3367ef93914",
+    "pack": "spore-war",
+    "kind": "weapon",
+    "slug": "weapon:snowcasters-staff",
+    "name": "Snowcaster's Staff",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["magical", "monk", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking frost staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is an heirloom that was gifted to Alzarius by his mother when he made his choice to remain in Xer. It is a gift he claims has been handed down through generations of spellcasters in his family."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "4564025d-51b0-541a-a554-662ea3883cda"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3ba6f69-8785-5856-b8d7-fe33dff806d6"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d54ee3a3-6742-53c8-9070-17edcb0cae19"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3ba6f69-8785-5856-b8d7-fe33dff806d6"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "cfa1a3f3-2450-52eb-95d6-875232fd5219"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ad0650c3-31d5-51c2-8226-045ac8442ae8"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f8d9bba2-3061-5beb-aff8-57dc839a5583"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d54ee3a3-6742-53c8-9070-17edcb0cae19"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1bf15f4b-9369-5136-b3f1-cd18d01b9233"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3ba6f69-8785-5856-b8d7-fe33dff806d6"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "03bdda38-13a1-546c-a4e9-871558602823"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "bb0c1c4f-f273-5089-90d5-cde27bd1b122"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed ranks of all listed spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.G2BURoV8luj39suH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": ["b1439a9d-7374-5ad3-9cf7-9dfe7936e106"]
+      }
+    }
+  },
+  {
+    "id": "2bfd4878-b9fc-525d-8ebb-4e008240e236",
+    "pack": "spore-war",
+    "kind": "weapon",
+    "slug": "weapon:soulcutter",
+    "name": "Soulcutter",
+    "level": 15,
+    "rarity": "unique",
+    "traits": ["elf", "finesse", "forceful", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking astral elven curve blade",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " was the treasured weapon of the Calistrian witch Silisifex, who played several key roles in reclaiming Kyonin from Tanglebriar when the elves returned to Golarion. Although a witch, her mesmerizing skill with the curved blade rivaled that of many soldiers. Her reasons for leaving "
+          },
+          {
+            "type": "text",
+            "text": "Soulcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " behind in Kyonin before her final mission into Tanglebriar in an attempt to purify Deathstalk Tower are unknown."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as you carry "
+          },
+          {
+            "type": "text",
+            "text": "Soulcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain its potency bonus as an item bonus to all saving throws against mental effects. This bonus increases by 2 against possession effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Soothe Souls",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, healing, manipulate, primal, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You whirl "
+          },
+          {
+            "type": "text",
+            "text": "Soulcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in the air around you, rejuvenating the living within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " around you while castigating those in that area who have no place in nature. You can Sustain this activation for up to 1 minute. Living creatures that start their turn in the area regain 1d8 Hit Points, and any fiend or undead creature that starts its turn in the area takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Soulcutting Storm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, primal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You swing "
+          },
+          {
+            "type": "text",
+            "text": "Soulcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and cast a 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b0ec9594-b2b6-5d97-99b8-41cc7ffab5d0"
+          },
+          {
+            "type": "text",
+            "text": " to your specifications, but all damage caused by the spell is spirit damage. If used to damage a creature that's possessing another creature, this spell does no damage to the possessed creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "soulcutter",
+        "mode": "add",
+        "value": 2,
+        "predicate": ["item:trait:possession"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wtyyxv0ffoMAGV8I"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "soothe-souls",
+          "name": "Soothe Souls",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "soulcutting-storm",
+          "name": "Soulcutting Storm",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "elven-curve-blade",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["b9d62e90-8419-502f-854f-121a45b1d1e0"]
+      }
+    }
+  },
+  {
+    "id": "890e2b4d-2fe6-5864-9b9a-7db4c14044f8",
+    "pack": "spore-war",
+    "kind": "weapon",
+    "slug": "weapon:soulcutter-heroic",
+    "name": "Soulcutter (Heroic)",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["apex", "artifact", "elf", "finesse", "forceful", "intelligent", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +34; precise low-light vision and hearing within 30 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " telepathy (partner only)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nature +34, Religion +34, Survival +34"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +7, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +6, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +34"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The echo of the Calistrian witch Silisifex imbues her legendary blade with a shimmering pale-green glow equivalent to that of candlelight; "
+          },
+          {
+            "type": "text",
+            "text": "Soulcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can activate or deactivate this radiance as a free action once per round on her partner's turn. "
+          },
+          {
+            "type": "text",
+            "text": "Soulcutter's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " telepathic voice is a sultry whisper that often infuses her observations with a flirtatious edge or a biting sense of dark humor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Soulcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking greater astral holy elven curve blade",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". As long as you carry "
+          },
+          {
+            "type": "text",
+            "text": "Soulcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain her potency bonus as an item bonus to all saving throws against mental effects. This bonus increases by 2 to +5 against possession effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Soothe Souls",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, healing, manipulate, vitality)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Soulcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " creates a pulse of restorative energy, rejuvenating those within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " around you while castigating those in that area who have no place in nature. "
+          },
+          {
+            "type": "text",
+            "text": "Soulcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can Sustain this activation for up to 1 minute. Living creatures that start their turn in the area regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points, and any fiend or undead creature that starts their turn in the area takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 38,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Soulcutting Storm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate, spirit)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Soulcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts a 9th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b0ec9594-b2b6-5d97-99b8-41cc7ffab5d0"
+          },
+          {
+            "type": "text",
+            "text": " to your specification, but all damage caused by the spell is spirit damage. If used to damage a creature that's possessing another creature, this spell does no damage to the possessed creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shame Demon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Soulcutter",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " targets a demon she can see or hear within 30 feet, causing the blade's green light to well up around the demon for a moment. The demon suffers the effects of its sin vulnerability, if it has any, and is then temporarily immune to Shame Demon for 24 hours. If "
+          },
+          {
+            "type": "text",
+            "text": "Soulcutter's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " partner wasn't aware of the normal effects that trigger that demon's sin vulnerability, they learn it at this time."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "soulcutter",
+        "mode": "add",
+        "value": 2,
+        "predicate": ["item:trait:possession"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xczDHCiBANMuC87u"
+    },
+    "data": {
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "soothe-souls",
+          "name": "Soothe Souls",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "soulcutting-storm",
+          "name": "Soulcutting Storm",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "elven-curve-blade",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 3,
+        "property": ["b9d62e90-8419-502f-854f-121a45b1d1e0", "1c942139-39ff-5ab6-bccc-88a68a1ec2e6"]
+      }
+    }
+  },
+  {
+    "id": "23abff49-d540-55b8-9185-39436ac2f29f",
+    "pack": "spore-war",
+    "kind": "weapon",
+    "slug": "weapon:wintershot",
+    "name": "Wintershot",
+    "level": 15,
+    "rarity": "unique",
+    "traits": ["deadly-d10", "magical", "propulsive"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking frost composite shortbow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " belonged to a legendary scout, Jelarial, who found herself in command of a company of elves fleeing Mierani north into the Crown of the World to escape the doom of Earthfall thousands of years ago. "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " resurfaced during the war to reclaim Kyonin from Tanglebriar several thousand years later, wielded by a succession of mysterious snipers whose movements through the woodland confounded the demons, so much so that it gave rise to rumors that Jelarial's ghost had returned to the south to aid her kin in a time of need."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When making a Strike with "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", targets do not gain "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1",
+            "label": "Concealment"
+          },
+          {
+            "type": "text",
+            "text": " from the effects of mist or precipitation, and circumstance penalties to attacks of up to –2 imparted from strong winds are negated."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Auroral Shine",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (cold, concentrate, light, primal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Fire an arrow at a target. If you hit, instead of dealing damage with the arrow, the creature struck must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 34
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is surrounded by shimmering lights akin to an aurora, causing it to become "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 2 rounds. If the creature was "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": ", it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " instead. If the creature was already concealed for any other reason, it is no longer concealed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "cold",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, and the light affects the creature for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "cold",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, and the light affects the creature for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Signal Flare",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (light, manipulate, primal)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pull back "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " string and fire an arrow straight upward. The arrow soars to a height of 500 feet, or until it strikes a solid surface like a ceiling. When it reaches its apex, it explodes in a brilliant burst, creating a 100-foot radius area of bright light and dim light in the next 100 feet. In the night sky, this beacon can be seen clearly for miles. The beacon remains lit for up to 1 minute in a color of your choice. Alternately, you can fire a Signal Flare like a normal arrow to attempt to strike a Target—if it hits, the arrow inflicts normal damage and attempts to counteract one darkness effect of your choice that affects the area you hit with a counteract rank of 7th and a counteract modifier of +26."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3tspCIcL3mjcCBD2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "auroral-shine",
+          "name": "Auroral Shine",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          }
+        },
+        {
+          "slug": "signal-flare",
+          "name": "Signal Flare",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "composite-shortbow",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 60,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["b1439a9d-7374-5ad3-9cf7-9dfe7936e106"]
+      }
+    }
+  },
+  {
+    "id": "0f2298ad-1851-53a7-b3b3-4d3e4ef48ab7",
+    "pack": "spore-war",
+    "kind": "weapon",
+    "slug": "weapon:wintershot-heroic",
+    "name": "Wintershot (Heroic)",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["apex", "artifact", "deadly-d10", "illusion", "intelligent", "invested", "magical", "propulsive"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +35; precise low-light vision and hearing within 30 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " telepathy (partner only)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Diplomacy +33, Intimidation +35, Survival +35"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +6, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +7, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +35"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The echo of the snowcaster Jelarial causes "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to become chill to the touch, yet despite feeling as cold as ice, she never causes harm or discomfort to her partner. "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " string issues a soft hissing sound, as of snow softly falling, and snowflakes drift down from the string and swiftly melt each time the bow is fired. "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " voice is eager and excitable, often waxing poetic on a nearby object or creature of beauty or offering compliments to her partner."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wintershot",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking greater frost holy composite shortbow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". When making a Strike with "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", targets don't gain concealment from the effects of mist or precipitation, and circumstance penalties to attacks imparted from strong winds are negated."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Auroral Shine",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (cold, concentrate, light)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can't use this activation. When you activate Auroral Shine, fire an arrow at a target. If you hit, instead of dealing damage with the arrow, the creature struck must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 43
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is surrounded by shimmering lights akin to the aurora, causing it to become "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 2 rounds. If the creature was "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": ", it becomes "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " instead. If the creature was already concealed for any other reason, it's no longer concealed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "cold",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, and the lights affect the creature for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "cold",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, and the lights affect the creature for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Signal Flare",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (light, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " fires an arrow-shaped construct of ice straight upward. The arrow soars to a height of 500 feet, or until it strikes a solid surface like a ceiling. When it reaches its apex, it explodes in a brilliant burst, creating a 100-foot radius area of bright light and dim light in the next 100 feet. In the night sky, this beacon can be seen clearly for miles. The beacon remains lit for up to 1 minute in a color of "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " choice. Alternatively, "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can fire this Signal Flare like a normal arrow to attempt to Strike a target her partner can see—if it hits, the arrow inflicts normal damage and attempts to counteract one darkness effect of "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " choice that affects the creature struck, with a counteract rank of 9th and a +25 modifier to the roll (+30 modifier if the source of the darkness effect was created by a fiend)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rimecrust",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (cold, concentrate, incapacitation)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Wintershot",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " causes the deep chill of winter to settle upon a single creature she can see or hear within 30 feet. That creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 43
+          },
+          {
+            "type": "text",
+            "text": " save, after which point they're temporarily immune to Rimecrust for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's discomfort and shivering from the sudden drop in temperature causes it to become "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of its next turn. Creatures that are immune to cold are immune to this effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes encrusted with ice. It becomes "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " and off-guard for 1 minute, or until it Escapes from the crusting ice (DC 43)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xEVWp9oaeF0yPseK"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "auroral-shine",
+          "name": "Auroral Shine",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        },
+        {
+          "slug": "signal-flare",
+          "name": "Signal Flare",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "composite-shortbow",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 60,
+      "reload": 0,
+      "ammunition": {
+        "type": "arrows"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 3,
+        "property": ["c9077442-2c05-5df9-b213-d3fad04dc2c8", "1c942139-39ff-5ab6-bccc-88a68a1ec2e6"]
+      }
+    }
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "2c999ad6-4e84-54e2-acc3-065458ccfc80",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:astronomy-lore",
+    "name": "Astronomy Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:astronomy",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.astronomy",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "ce4007e1-db0b-5176-b3e8-71cbc4976aad",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:azlanti-lore",
+    "name": "Azlanti Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:azlanti",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.azlanti",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "51753a7e-49a3-56a3-b014-22ff58350dbf",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:island-lore",
+    "name": "Island Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:island",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.island",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

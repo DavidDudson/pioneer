@@ -1,0 +1,357 @@
+[
+  {
+    "id": "78bc00fe-86fb-5e3b-b5b5-7044b43badfe",
+    "pack": "prey-for-death",
+    "kind": "armor",
+    "slug": "armor:assassins-skin",
+    "name": "Assassin's Skin",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient leather armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " was made from the flayed hide of an Elysian pegasus, then dyed a bright crimson so that it appears slick with fresh blood. The wearer of "
+          },
+          {
+            "type": "text",
+            "text": "assassin's skin",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains a +3 item bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Blood Revitalization",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would take persistent bleed damage"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't take the persistent bleed damage and instead regain Hit Points equal to the bleed damage. The persistent bleed damage ends."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics", "skill:athletics", "unarmed-strike-attack"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["action:escape"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.txBx1I37esf3IgqM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "blood-revitalization",
+          "name": "Blood Revitalization",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "leather",
+      "baseItem": "leather-armor",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "6542332f-0e43-5ba0-b111-efa3605f3e16",
+    "pack": "prey-for-death",
+    "kind": "armor",
+    "slug": "armor:vernai-shell",
+    "name": "Vernai Shell",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["adjusted", "extradimensional", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Made from the finest plates of monstrous insect chitin, this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient mantis shell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " offers superior protection from Mediogalti's hot weather while also allowing the wearer to blend into almost any situation and strike with hidden blades. While wearing this armor, you are protected from extreme heat and severe heat effects. "
+          },
+          {
+            "type": "text",
+            "text": "Vernai shell",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " armor includes two extradimensional spaces built into each of the armor's gloves, granting the wearer two places to store items. Each glove can hold one item of 1 Bulk or less. While an item is stored in one of the two gloves, there is nothing to indicate that an item is being held inside it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Store Item",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " At least one of the "
+          },
+          {
+            "type": "text",
+            "text": "Vernai shell's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " two extradimensional spaces is empty"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " One item you're holding with a Bulk of 1 or less vanishes into one of the armor's extradimensional spaces."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Retrieve Item",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An item is stored in at least one of the "
+          },
+          {
+            "type": "text",
+            "text": "Vernai shell's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " extradimensional spaces, and you have a free hand"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " One item of your choice in either extradimensional space appears in your hand. You can't Retrieve Item again for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bjTM1SvFvFyJLkuI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8000
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "skeletal",
+      "baseItem": "mantis-shell",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  }
+]

@@ -1,7 +1,17 @@
 import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { contentId, ContentId, ContentKind, entrySlug, PackId, RollOption, Selector, Slug } from '@pioneer/rules/sdk';
+import {
+  contentId,
+  ContentId,
+  ContentKind,
+  entrySlug,
+  PackId,
+  RollOption,
+  Selector,
+  Slug,
+  SpellRank,
+} from '@pioneer/rules/sdk';
 import type { RuleElements } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
@@ -172,5 +182,16 @@ describe('summariseEffects', () => {
     expect(summary(['lens', elements], others, EffectMode.WouldApply)).toStrictEqual(
       summary(['lens', elements], others, EffectMode.Applying),
     );
+  });
+
+  test.each([
+    [3, 1],
+    [5, 2],
+    [7, 3],
+  ])('a spell cast at rank %i reads @item.level as that rank when it would apply', (rank, expected) => {
+    const element = flatModifier('status', 'floor(@item.level / 2)', ['perception']);
+    const entry = { ...entryOf('heroism', [element]), rank: SpellRank.parse(rank) };
+    const lines = summariseEffects(scopeOf([]), entry, EffectMode.WouldApply);
+    expect(lines).toMatchObject([{ change: EffectChange.Bonus, value: expected }]);
   });
 });

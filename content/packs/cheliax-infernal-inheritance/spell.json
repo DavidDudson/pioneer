@@ -107,7 +107,8 @@
             "formula": "1d6"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -164,7 +165,8 @@
         "unit": "minute"
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -1912,7 +1914,8 @@
             "formula": "1d6"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {

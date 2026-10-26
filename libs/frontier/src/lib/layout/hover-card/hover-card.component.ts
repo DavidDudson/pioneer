@@ -2,12 +2,14 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { NgTemplateOutlet } from '@angular/common';
 import {
   ChangeDetectionStrategy,
+  booleanAttribute,
   Component,
   contentChild,
   DestroyRef,
   effect,
   ElementRef,
   inject,
+  input,
   output,
   signal,
 } from '@angular/core';
@@ -27,7 +29,8 @@ const cardClasses = cva('z-overlay mt-2xs max-w-prose border border-line-default
 /**
  * A preview that opens beside what it describes while the pointer rests on it or focus is inside it, and closes
  * when both leave or on Escape. It never takes focus or blocks the page, so it is a description, not a dialog.
- * Touch has no hover: a first tap on the trigger opens the card and does not follow the link, a second tap follows it.
+ * Touch has no hover: a first tap on the trigger opens the card and does not follow the link, a second tap follows it,
+ * unless `tapOpens` is off, when the tap goes through to the trigger and the card stays closed.
  * Project the trigger; the first focusable child (a link) is what a keyboard reaches. Give the preview as an
  * `<ng-template frHoverCardContent>`, created only while open.
  *
@@ -47,6 +50,8 @@ const cardClasses = cva('z-overlay mt-2xs max-w-prose border border-line-default
 })
 export class HoverCard {
   protected readonly content = contentChild(HoverCardContent);
+  /** Whether a touch tap on the trigger opens the card first; off for a trigger a tap must act on, like a button. */
+  public readonly tapOpens = input(true, { transform: booleanAttribute });
   /** Fires each time the card opens, so a page can load what the card shows. */
   public readonly opened = output();
 
@@ -91,7 +96,7 @@ export class HoverCard {
    */
   readonly #tap = (event: MouseEvent): void => {
     const touch = event instanceof PointerEvent && event.pointerType === 'touch';
-    if (touch && !this.open() && this.content() !== undefined) {
+    if (touch && this.tapOpens() && !this.open() && this.content() !== undefined) {
       event.preventDefault();
       event.stopPropagation();
       this.#clear();

@@ -45,9 +45,11 @@ describe(sheetConditionPreviews, () => {
 
   it('previews a condition the character has with its value and the penalties it applies', async () => {
     const held = await registry();
-    const previews = sheetConditionPreviews(
-      () => held,
-      () => clumsyCharacter(true),
+    const previews = TestBed.runInInjectionContext(() =>
+      sheetConditionPreviews(
+        () => held,
+        () => clumsyCharacter(true),
+      ),
     );
     const preview = previews.preview(clumsyFixtureId());
 
@@ -58,9 +60,11 @@ describe(sheetConditionPreviews, () => {
 
   it('previews a condition the character lacks as its entry alone', async () => {
     const held = await registry();
-    const previews = sheetConditionPreviews(
-      () => held,
-      () => clumsyCharacter(false),
+    const previews = TestBed.runInInjectionContext(() =>
+      sheetConditionPreviews(
+        () => held,
+        () => clumsyCharacter(false),
+      ),
     );
     const preview = previews.preview(clumsyFixtureId());
 

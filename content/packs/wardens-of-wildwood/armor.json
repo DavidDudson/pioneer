@@ -1,0 +1,439 @@
+[
+  {
+    "id": "0e9bdced-011c-58e9-9006-73136990eb85",
+    "pack": "wardens-of-wildwood",
+    "kind": "armor",
+    "slug": "armor:canopy-bulwark",
+    "name": "Canopy Bulwark",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["invested", "laminar", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This suit of "
+          },
+          {
+            "type": "text",
+            "text": "+1 assisting leaf weave",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is composed entirely of primal-infused leaves bestowed by a dying arboreal. The leaves display the vibrant greens of summer, as if full of life, regardless of the time that has passed since the arboreal gifted them. The armor is constantly drawing in imperceptible amounts of primal energy to help bear its wearer's burdens. You can draw deeply upon the untapped reserves of primal magic within it and infuse yourself with these energies to a limited extent, giving you a burst of quickness."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
+          },
+          {
+            "type": "text",
+            "text": " targeting yourself. In addition to the effects of the spell, visible primal energy surges over the armor for the duration. This has no mechanical impact."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial raw materials must include leaves freely given by an arboreal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tCys8Qwo2zs3ZDCY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 550
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "canopy-bulwark",
+          "name": "Canopy Bulwark",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "wood",
+      "baseItem": "leaf-weave",
+      "acBonus": 1,
+      "dexCap": 4,
+      "checkPenalty": 1,
+      "strength": 0,
+      "runes": {
+        "potency": 1,
+        "property": ["6669c966-30ed-5f84-affe-8fd97f73ab9f"]
+      }
+    }
+  },
+  {
+    "id": "9924de21-47fc-5879-a6f1-5caab2954991",
+    "pack": "wardens-of-wildwood",
+    "kind": "armor",
+    "slug": "armor:heros-plate",
+    "name": "Hero's Plate",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["bulwark"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Golden images of heroic deeds decorate the black plates of this "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient full plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". You gain resistance 5 to mental damage and a +1 status bonus to saves against fear."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Personal Legend",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentration)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The scenes depicted on your armor shift and change, making room to accommodate your current heroic feats. You cast "
+          },
+          {
+            "type": "ref",
+            "id": "749d15ad-5bf7-53bd-a646-cbbec6452867"
+          },
+          {
+            "type": "text",
+            "text": " on yourself."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 5
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qiRJhMvDnuorQZ62"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 4,
+      "activations": [
+        {
+          "slug": "personal-legend",
+          "name": "Personal Legend",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "673ff5dc-53a1-5a0f-96dc-8e64f50d4be2",
+    "pack": "wardens-of-wildwood",
+    "kind": "armor",
+    "slug": "armor:heros-plate-greater",
+    "name": "Hero's Plate (Greater)",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["bulwark"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Golden images of heroic deeds decorate the black plates of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient full plate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". You gain resistance 10 to mental damage and a +2 status bonus to saves against fear."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Personal Legend",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentration)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The scenes depicted on your armor shift and change, making room to accommodate your current heroic feats. You cast 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "749d15ad-5bf7-53bd-a646-cbbec6452867"
+          },
+          {
+            "type": "text",
+            "text": " on yourself."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 10
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ziESwPW9EostyeQn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 22500
+        }
+      },
+      "bulk": 4,
+      "activations": [
+        {
+          "slug": "personal-legend",
+          "name": "Personal Legend",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "plate",
+      "baseItem": "full-plate",
+      "acBonus": 6,
+      "dexCap": 0,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 4,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  }
+]

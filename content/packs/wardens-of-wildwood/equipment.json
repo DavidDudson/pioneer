@@ -1,0 +1,2491 @@
+[
+  {
+    "id": "bb4a9c9b-9cb5-55ce-958b-ffe69bd087e8",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:beekeepers-smoker",
+    "name": "Beekeeper's Smoker",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This device resembles a teapot with a trigger. When filled with cloth fuel (worth 1 cp) and lit, it smolders and gradually fills with smoke for 10 minutes, during which time you can squeeze the trigger to spray smoke."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spray Smoke",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expel smoke into an adjacent 5-foot square. All creatures in that area are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ", and other creatures are concealed to them. The smoke lasts for 1d4 rounds or until dispersed by strong wind."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jNwkyXQtJwelQWgX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "beekeepers-smoker",
+          "name": "Beekeeper's Smoker",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "17e75e93-b9d7-5f4c-81ff-a74997817a90",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:clay-sphere",
+    "name": "Clay Sphere",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["magical", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This dry clay ball becomes malleable when activated, shifting into a variety of forms. The spell attack roll of any spell cast by Activating this item is +7 and the spell DC 17."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 2 to precision damage and a +1 item bonus to saving throws against effects with the morph or polymorph traits."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a morph or polymorph spell by activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "clay sphere",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", the weapon becomes malleable, shifting its form to your whims. Your Strikes with the affixed weapon have the versatile bludgeoning, versatile piercing, and versatile slashing trait for 1 minute. Until the end of your next turn, Strikes with the affixed weapon have their damage dice increase by one step."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "cc79dcc0-73c1-5fe9-8b29-c694f8ad0cf2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e65672c0-d53c-5d1e-ad2d-5f287ae98d72"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "411dc034-1932-5468-960c-2c3f40ec20ec"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WuSXfv87YBSzqJ66"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "970b4b7e-6b7f-586c-a54d-700159629ce2",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:clay-sphere-greater",
+    "name": "Clay Sphere (Greater)",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["magical", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This dry clay ball becomes malleable when activated, shifting into a variety of forms. The spell attack roll of any spell cast by Activating this item is +10 and the spell DC 20."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 5 to precision damage and a +2 item bonus to saving throws against effects with the morph or polymorph traits."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a morph or polymorph spell by activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "clay sphere",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", the weapon becomes malleable, shifting its form to your whims. Your Strikes with the affixed weapon have the versatile bludgeoning, versatile piercing, and versatile slashing trait for 1 minute. Until the end of your next turn, Strikes with the affixed weapon have their damage dice increase by one step."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "cc79dcc0-73c1-5fe9-8b29-c694f8ad0cf2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e65672c0-d53c-5d1e-ad2d-5f287ae98d72"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "411dc034-1932-5468-960c-2c3f40ec20ec"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OksiiEBiiGatAM9e"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 225
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "clay-sphere-greater",
+          "name": "Clay Sphere (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "dcc19d30-2db5-5f9a-ae7b-7b70c2a99c78",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:clay-sphere-major",
+    "name": "Clay Sphere (Major)",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["magical", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This dry clay ball becomes malleable when activated, shifting into a variety of forms. The spell attack roll of any spell cast by Activating this item is +21 and the spell DC 31."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 10 to precision damage and a +3 item bonus to saving throws against effects with the morph or polymorph traits."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a morph or polymorph spell by activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "clay sphere",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", the weapon becomes malleable, shifting its form to your whims. Your Strikes with the affixed weapon have the versatile bludgeoning, versatile piercing, and versatile slashing trait for 1 minute. Until the end of your next turn, Strikes with the affixed weapon have their damage dice increase by one step."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "cc79dcc0-73c1-5fe9-8b29-c694f8ad0cf2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e65672c0-d53c-5d1e-ad2d-5f287ae98d72"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "411dc034-1932-5468-960c-2c3f40ec20ec"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "9a703ca8-ffd2-5cfd-82c2-b323c835ac03"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "813db347-48b2-5dec-bbda-70e18cbe1719"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BdLtvg3zUKypgYdS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4200
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "clay-sphere-major",
+          "name": "Clay Sphere (Major)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "cdb33564-a199-5a55-bfc7-e6616c0c8d00",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:crushing-bough-bracers",
+    "name": "Crushing Bough Bracers",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Carved from the heartwood of some impossibly large tree on the Plane of Wood or First World, "
+          },
+          {
+            "type": "text",
+            "text": "crushing bough bracers",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " enable wearers to cling to and shape plant material with ease. The pine cone designs appear to open and bare their seeds when the bracers are in especially verdant areas."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bracers grant you a 20-foot climb Speed while climbing plants or fungi. Your Strikes deal damage to fungus, plant, and wood creatures as though their resistances were 5 lower (minimum 0). In addition, the bracers allow you to cast "
+          },
+          {
+            "type": "ref",
+            "id": "16413e09-040a-521f-b5fa-6329981f41b4"
+          },
+          {
+            "type": "text",
+            "text": " as an innate primal cantrip. When you cast "
+          },
+          {
+            "type": "text",
+            "text": "timber",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on a plane with the wood planar essence trait (or a supernaturally verdant area, at the GM's discretion), you can modify the spell in one of the following two ways: increase the spell's area to 20 feet, to 25 feet if your proficiency rank for spell attack modifier and spell DC is expert, or to 30 feet if your proficiency is legendary; or increase the cantrip's damage die size to d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tF3DzH1vOBEC8syP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2500
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "bracers"
+      }
+    }
+  },
+  {
+    "id": "9ee7c1b8-3399-5b39-8d28-0bf6b9ec83c1",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:foxglove-token",
+    "name": "Foxglove Token",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["magical", "poison", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small piece of wood is finely carved to depict a foxglove. The spell DC of any spell cast by Activating this item is 17."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 2 to poison damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a plant spell by activating the foxglove token, your Strikes with the weapon it's attached to deal an additional 1d4 poison damage until the end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "0ab09bd7-3636-56c8-872d-c9d75380c5db"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Wh9kusgVXera0bXh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "0cdc6455-a328-5b3f-9486-3eb8f9dca15b",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:foxglove-token-greater",
+    "name": "Foxglove Token (Greater)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["magical", "poison", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small piece of wood is finely carved to depict a foxglove. The spell DC of any spell cast by Activating this item is 24."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 5 to poison damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a plant spell by activating the foxglove token, your Strikes with the weapon it's attached to deal an additional 1d6 poison damage until the end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "0ab09bd7-3636-56c8-872d-c9d75380c5db"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "3bc22793-19ba-589a-8d2e-5befd5ef2659"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1qlc8Jxb9DM63O0y"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 425
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "foxglove-token-greater",
+          "name": "Foxglove Token (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "57f6d930-f6a1-5d89-a903-0f66b2672a88",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:foxglove-token-major",
+    "name": "Foxglove Token (Major)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["magical", "poison", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small piece of wood is finely carved to depict a foxglove. The spell DC of any spell cast by Activating this item is 29."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 10 to poison damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a plant spell by activating the foxglove token, your Strikes with the weapon it's attached to deal an additional 1d8 poison damage until the end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "0ab09bd7-3636-56c8-872d-c9d75380c5db"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "3bc22793-19ba-589a-8d2e-5befd5ef2659"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "7e67a7f6-1a53-5197-9d95-dca6c71afa8d"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "9dfded9c-826b-57e9-989b-6b4ea568d4b8"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GakendMciczlPLHQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1750
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "foxglove-token-major",
+          "name": "Foxglove Token (Major)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "1151d5b2-284a-525c-adc9-28dd5fb84071",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:heartmoss",
+    "name": "Heartmoss",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["healing", "magical", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This burgundy moss grows in heart-shaped clumps and releases a pleasant, calming scent. The spell DC of any spell cast by Activating this item is 17."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 2 to mental damage and a +1 item bonus to saving throws against effects with the emotion trait."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a healing spell by activating the heartmoss, the weapon exudes a soothing scent. Your Strikes with the affixed weapon have the nonlethal trait for 1 minute. Until the end of your next turn, Strikes with the affixed weapon cause the target to be "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round if it hits (or for 3 rounds on a critical hit)."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "831dfab1-0c8e-592f-9a9d-5d8b27b69014"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.t21l7ssk3fntP1xU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "fb0b1cca-0336-58c7-937f-805eb2653666",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:heartmoss-greater",
+    "name": "Heartmoss (Greater)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["healing", "magical", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This burgundy moss grows in heart-shaped clumps and releases a pleasant, calming scent. The spell DC of any spell cast by Activating this item is 24."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 5 to mental damage and a +1 item bonus to saving throws against effects with the emotion trait."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a healing spell by activating the heartmoss, the weapon exudes a soothing scent. Your Strikes with the affixed weapon have the nonlethal trait for 1 minute. Until the end of your next turn, Strikes with the affixed weapon cause the target to be "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 2"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round if it hits (or for 3 rounds on a critical hit)."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "831dfab1-0c8e-592f-9a9d-5d8b27b69014"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.W2rxVEIVJoBWO7j6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "heartmoss-greater",
+          "name": "Heartmoss (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "4853cc6f-95de-52b4-a00d-a0074384202c",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:heartmoss-major",
+    "name": "Heartmoss (Major)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["healing", "magical", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This burgundy moss grows in heart-shaped clumps and releases a pleasant, calming scent. The spell DC of any spell cast by Activating this item is 29."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 10 to mental damage and a +1 item bonus to saving throws against effects with the emotion trait."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a healing spell by activating the heartmoss, the weapon exudes a soothing scent. Your Strikes with the affixed weapon have the nonlethal trait for 1 minute. Until the end of your next turn, Strikes with the affixed weapon cause the target to be "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 3"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round if it hits (or for 3 rounds on a critical hit)."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "831dfab1-0c8e-592f-9a9d-5d8b27b69014"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "674398f3-e121-59fe-a086-423c20002dd1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "4a78151f-2873-5fbc-9628-ca56ede6c836"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OQXIw3Htf0Rb14dK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1750
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "heartmoss-major",
+          "name": "Heartmoss (Major)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "27857913-4d5a-5760-8238-e311d1392662",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:paradise-light",
+    "name": "Paradise Light",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["invested", "light", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This crystal phial was created from Brilliance, a condensed planar fragment of the plane of Nirvana which is trapped within Gloaming Arbor. A "
+          },
+          {
+            "type": "text",
+            "text": "paradise light",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " glows brightly, shedding bright light in a 30-foot radius and dim light to a further 30 feet. A PC that looks into the "
+          },
+          {
+            "type": "text",
+            "text": "paradise light",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sees images of Nirvana, an idyllic pastoral paradise. A "
+          },
+          {
+            "type": "text",
+            "text": "paradise light",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is required to navigate the heart of the forest in Gloaming Arbor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "paradise light",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " automatically attempts to counteract any magical darkness that it's light enters. When the "
+          },
+          {
+            "type": "text",
+            "text": "paradise light",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " successfully counteracts an area of magical darkness, that area becomes overlain by a reflection of Nirvana, changing the appearance of the area. This illusory transformation lasts for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sanctum",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You conjure a shard of Nirvana in a 30 foot emanation, temporarily altering the landscape into an soothing meadow for 1 minute. Creatures in the area gain a +1 item bonus to Will saves and Wisdom-based skill checks, and have fast healing 2. A creature in the area that attempts to take a hostile action must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 28
+          },
+          {
+            "type": "text",
+            "text": " save or the hostile action is prevented and the actions they would've spent are wasted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qXeHBe1gAJ6WbL7F"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1100
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "sanctum",
+          "name": "Sanctum",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dd909095-a1b0-5350-bb20-2feb99c944c2",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:passage-charm",
+    "name": "Passage Charm",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This glossy black brooch is made of solidified shadows and is a gift, given by Avathrael Realmshaper to their allies to allow them to navigate the heart of the forest within Gloaming Arbor. While wearing a "
+          },
+          {
+            "type": "text",
+            "text": "passage charm",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you can cast "
+          },
+          {
+            "type": "ref",
+            "id": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9"
+          },
+          {
+            "type": "text",
+            "text": " as an innate occult spell twice per day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shape the Shadows",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in an area that's dark or dim light"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You command the shadows to do your bidding, forming a path, a ramp, a wall, or stairs. The "
+          },
+          {
+            "type": "text",
+            "text": "passage charm",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "1516123c-bc37-5053-be15-24201abb1d02"
+          },
+          {
+            "type": "text",
+            "text": ", except the spell loses the earth trait, gains the shadow trait, and has a duration of 24 hours, and the wall is created from solid shadows, rather than stone. If any section of the wall is exposed to bright light, that portion of the wall has its Hardness temporarily reduced by half (to Hardness 7)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PAPA06Oe9TgKqh4B"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "shape-the-shadows",
+          "name": "Shape the Shadows",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "269e569b-33ba-5c3f-bd3c-e72607cdf4e1",
+    "pack": "wardens-of-wildwood",
+    "kind": "equipment",
+    "slug": "equipment:unfolding-tree-house",
+    "name": "Unfolding Tree House",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["magical", "structure", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though it looks like a simple profile of a bird's wing and body carved into a flat triangle of wood, this magical object can transform into a tree house."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unfold",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unfold the triangle on near-invisible seams and the bird animates, flying up to perch in a tree you designate within 300 feet of you. The bird's perch can be as high as 200 feet off the ground or the top of the trees, whichever is lower. The bird then alights, expands, and reshapes into an elegantly crafted tree house over the course of 10 minutes. Unlike typical items with the structure trait, this tree house attaches to the tree instead of needing to be on solid ground."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once the tree house is in place, a ladder made of intricately woven vines attached to the tree house unfurls all the way to the ground. It can be manually pulled up by inhabitants of the tree house for safety. The tree house has a small veranda, circular windows, a door with a simple lock, and six bedrolls inside. Atop a small cushion sits a wooden whistle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As an action, you can blow the whistle to create a soft bird call. At this signal, the tree house gradually folds back into a bird over the course of 1 minute, gently ejecting any occupants toward the ladder. Afterward, the bird flies to you, seizes the whistle, and then folds back into the wooden triangle. Unless commanded to dismantle, the tree house stays in place indefinitely, though it's subject to normal wear and damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NYgt3535CdDF9WJs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 340
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "unfold",
+          "name": "Unfold",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

@@ -1,4 +1,5 @@
 import type { ConditionRecovery } from '../condition';
+import type { RichText } from '../rich-text';
 
 /** A deity's `data` as tests give it: any field left out is empty, and the category is `deity`. */
 export type DeityFields = Partial<
@@ -36,6 +37,8 @@ export interface SpellFields {
   readonly duration?: object;
   /** Whether ending it takes the Dismiss action. */
   readonly dismiss?: true;
+  /** What ending it early needs, when it is not the Dismiss action. */
+  readonly dismissNote?: RichText;
 }
 
 /** What a test class has beyond its key attribute. */

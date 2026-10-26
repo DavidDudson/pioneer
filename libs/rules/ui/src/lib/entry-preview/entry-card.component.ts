@@ -8,11 +8,12 @@ import { SourceLineView } from '../source-line/source-line.component';
 import { EntryEffectsView } from './entry-effects.component';
 import type { EntryPreview } from './entry-preview';
 import { EntryPreviewMessage } from './entry-preview-messages';
+import { EntryRanksView } from './entry-ranks.component';
 
 /** The generic card of an entry: name, level, traits, `summary` and sources. `pio-entry-preview` picks it. */
 @Component({
   selector: 'pio-entry-card',
-  imports: [Badge, EntryEffectsView, Heading, RichTextView, SourceLineView, Stack, Text, TranslocoPipe],
+  imports: [Badge, EntryEffectsView, EntryRanksView, Heading, RichTextView, SourceLineView, Stack, Text, TranslocoPipe],
   templateUrl: './entry-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

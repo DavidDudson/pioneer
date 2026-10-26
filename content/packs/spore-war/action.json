@@ -1,0 +1,550 @@
+[
+  {
+    "id": "c07aefd0-77b0-52e6-a2cb-d43cbc015346",
+    "pack": "spore-war",
+    "kind": "action",
+    "slug": "action:blight-blight-domination",
+    "name": "(Blight) Blight Domination",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All blights can cast "
+          },
+          {
+            "type": "ref",
+            "id": "54bcf730-ab6d-5ba7-9747-86a6debbd00c"
+          },
+          {
+            "type": "text",
+            "text": " as an innate primal spell but can target only animals, beasts, fungi, oozes, or plants that are located inside their cursed domain. If a creature dominated by this spell leaves the cursed domain, the effects of "
+          },
+          {
+            "type": "text",
+            "text": "dominate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " immediately end, but as long as the dominated creature remains in the cursed domain, the duration is unlimited. When a blight targets a mindless fungi, ooze, or plant, its "
+          },
+          {
+            "type": "text",
+            "text": "dominate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell loses the mental trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.LZsABXwRruB99A0k"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "809d61b5-80c3-5c28-bf55-2d52853639e4",
+    "pack": "spore-war",
+    "kind": "action",
+    "slug": "action:blight-cursed-domain",
+    "name": "(Blight) Cursed Domain",
+    "rarity": "common",
+    "traits": ["curse", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once per year, when in a terrain that is compatible with its type (such as a swamp for a swamp blight), the blight can infuse the land around it with its corrupted essence by performing a rite that takes one day. The region in a 5-mile radius becomes its cursed domain; this effect does not extend into incompatible terrain and does not move with the blight. The point at which the blight cursed the domain becomes its epicenter."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Within their cursed domain, a blight ignores all non-magical difficult terrain and always gains the benefits of the "
+          },
+          {
+            "type": "ref",
+            "id": "1c678b1d-a165-51e0-b936-1769b16a5955"
+          },
+          {
+            "type": "text",
+            "text": " action. Blights also have an imprecise sense for the locations of all creatures within their domain and can communicate with all sapient creatures they detect within their domain using telepathy. Each blight's cursed domain has additional properties specific to the blight's type. A blight outside of a cursed domain becomes "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " until it returns to its own or another blight's cursed domain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Removing this curse requires a character with the "
+          },
+          {
+            "type": "ref",
+            "id": "36f19b8e-8242-5707-9cbb-5785601e83e5"
+          },
+          {
+            "type": "text",
+            "text": " feat (or a similar ability); this activity must be performed at the cursed domain's epicenter. If the blight that cursed the domain is dead, checks to counteract a cursed domain gain a +4 circumstance bonus."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.h6rf7Z7Vy1OD1YFw"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "45b3991b-9ac8-5fdf-b89f-28d65dc48eb5",
+    "pack": "spore-war",
+    "kind": "action",
+    "slug": "action:blight-oversee-domain",
+    "name": "(Blight) Oversee Domain",
+    "rarity": "common",
+    "traits": ["concentrate", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blight projects its senses to any point in its cursed domain, gaining a precise sense of its surroundings with a 500-foot radius until the end of its next turn. A blight can cast "
+          },
+          {
+            "type": "ref",
+            "id": "54bcf730-ab6d-5ba7-9747-86a6debbd00c"
+          },
+          {
+            "type": "text",
+            "text": " through this sensory link. A blight can Sustain this ability, but cannot use it to extend its senses beyond the edges of its domain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Sx3uEPB6AD1iGbDp"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "06d385c7-dc82-5fd2-8ae5-76b40538da7f",
+    "pack": "spore-war",
+    "kind": "action",
+    "slug": "action:blight-rejuvenation",
+    "name": "(Blight) Rejuvenation",
+    "rarity": "common",
+    "traits": ["primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If a blight is slain within its cursed domain, its body melts into the surrounding environment and a new blight of the same type spontaneously forms in 1d10 days at the cursed domain's epicenter unless the curse is removed before then. The new blight retains all the memories of the previous blight."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.xGwpAMVb1UGFJqf9"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "d1c50200-6ed0-5efa-bad6-5ca4578ac3e2",
+    "pack": "spore-war",
+    "kind": "action",
+    "slug": "action:hunt-the-razers-pawn",
+    "name": "Hunt the Razer's Pawn",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Designate a single creature that you can see or hear, or whom you've spent a significant amount of time studying and reading about from afar (subject to the GM's approval), and who you know to be an agent of Treerazer. You gain a +2 circumstance bonus to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa",
+            "label": "Sense the Motive"
+          },
+          {
+            "type": "text",
+            "text": " of this creature. This creature takes a –1 circumstance penalty to saving throws against spells or effects you create; this penalty increases to –2 against effects that have the holy trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can have only one creature designated by Hunt the Razer's Pawn at a time. If you use this ability against a creature when you already have one designated, the prior creature loses the designation and the new creature gains the designation. This lasts until your next daily preparations."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Yrc21SgKRWOMNo7C"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "selfEffect": "ea7081ac-bbe7-550d-b64b-bca85f4b0115"
+    }
+  },
+  {
+    "id": "47799988-d89a-53ed-b91a-fd37af791c02",
+    "pack": "spore-war",
+    "kind": "action",
+    "slug": "action:opportunistic-accusation",
+    "name": "Opportunistic Accusation",
+    "rarity": "common",
+    "traits": ["auditory", "linguistic", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A demon you're aware of within 30 feet of you suffers from its sin vulnerability or critical fails at a saving throw against a mental effect"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You make a quick cutting remark against the demon that takes advantage of the fiend's momentary disadvantage. The demon must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The demon is unaffected and likely to focus its attention on you in combat from this point forward."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The demon takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The demon takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the off-guard condition lasts until the end of the next round. The demon also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "mental",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.bUgSKcdHyEKbtXhl"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A demon you're aware of within 30 feet of you suffers from its sin vulnerability or critical fails at a saving throw against a mental effect"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d3dc5806-5938-5ca2-b4d0-a320dab3d62e",
+    "pack": "spore-war",
+    "kind": "action",
+    "slug": "action:restorative-teleportation",
+    "name": "Restorative Teleportation",
+    "rarity": "common",
+    "traits": ["healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You arrive at a location via a teleportation effect"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When you reappear after the teleportation, your body takes advantage of the teleportation to put itself back together in a healthier state, and you restore a number of Hit Points equal to 1d6 plus your level plus your Intelligence modifier ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6 + @level + @attr.int"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.jjxxWxnlEqWjTUur"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You arrive at a location via a teleportation effect"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "minute"
+      }
+    }
+  }
+]

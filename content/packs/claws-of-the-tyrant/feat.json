@@ -1,0 +1,1460 @@
+[
+  {
+    "id": "e17344d1-3795-54a7-ba82-33d5532a3ba2",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:adept-storyteller",
+    "name": "Adept Storyteller",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ability to tell stories rivals those of the finest bards. You can use your proficiency rank in any skill that can be used to Recall Knowledge to meet the requirements of skill feats that require a particular rank in Performance. You gain two Performance skill feats of 7th level or lower that you meet the prerequisites for."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Lj39KxIDs7irpOHs"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Uzunjati Storytelling; master in a Recall Knowledge skill"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "fbfd90a2-32b2-5a0f-bf9f-c489c18f457f",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:body-barrier",
+    "name": "Body Barrier",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You and at least one ally are in the area of an effect that requires a Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When your allies are in danger, you don't hesitate to take the brunt of the blow for them. You grant all allies in the area standard cover against the triggering effect, and you gain weakness to all damage against the triggering effect equal to twice the number of allies that gain cover in this way."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.w32WGAkrgXw5N7yL"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You and at least one ally are in the area of an effect that requires a Reflex save."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "7de5cdcb-eb4e-53ff-bba6-9fee049b6905",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:cautious-word",
+    "name": "Cautious Word",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy hits you with a Strike."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're currently unable to cast "
+          },
+          {
+            "type": "ref",
+            "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          },
+          {
+            "type": "text",
+            "text": " because you used "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " with it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You let your words defend you, just as your allies in the Vellumis Scholars defend through knowledge. You immediately cast "
+          },
+          {
+            "type": "text",
+            "text": "shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and gain its bonus to AC even though you normally couldn't cast it, and you become "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2i6sEZ4rQm1Pd5nD"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Uzunjati Storytelling; ability to cast shield"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're currently unable to cast Shield because you used Shield Block with it."
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An enemy hits you with a Strike."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "round"
+        }
+      }
+    }
+  },
+  {
+    "id": "476f8b4a-aab3-540b-b012-8bbad449fc03",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:cenotaph-stance",
+    "name": "Cenotaph Stance",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wielding a shield."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take on a stance that marks your location as a place where none will fall. When you enter this stance and at the beginning of each of your turns while in Cenotaph Stance, you gain 10 temporary Hit Points that last until the start of your next turn. If you move or are forced to move, you automatically leave Cenotaph Stance. While in Cenotaph Stance, you're treated as always having the required shield raised. In addition, you can use your "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " reaction when an ally within 15 feet of you takes physical damage, in addition to its normal trigger, thus preventing the ally from taking damage instead of you. Finally, you gain an additional reaction at the start of each of your turns that can be used only for Shield Block."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you can use Shield Block to reduce damage that isn't physical damage (for instance, if you have the Bless Shield or Necromantic Bulwark feat), you can use your Shield Block reaction when an ally within 15 feet of you takes damage that you could prevent with Shield Block."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.oP7xcBm4BfctDMHW"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Warden"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're wielding a shield."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "008c178e-b1ba-5f11-86b8-6f71e7ba22ef"
+      }
+    }
+  },
+  {
+    "id": "6f4c30c0-0c0d-5c04-9d7e-38ab8bb09734",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:crusaders-masquerade",
+    "name": "Crusader's Masquerade",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're wearing your "
+          },
+          {
+            "type": "ref",
+            "id": "94bc9800-8c59-5a78-8093-b6b2f9fa1b0b"
+          },
+          {
+            "type": "text",
+            "text": " in its mask form, and it has the "
+          },
+          {
+            "type": "ref",
+            "id": "26d9310e-aee0-57fa-beba-d1f1a0c9ba4b"
+          },
+          {
+            "type": "text",
+            "text": " (Religion) familiar ability."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mask can hide you from the undead. You become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " to undead using vision or lifesense, allowing you to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": " without other sources of cover or concealment. This effect lasts only as long as you continue to take no actions other than to Hide, Sneak, "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "dde5ff41-57b6-5d31-adf1-ef6cc8d92b87"
+          },
+          {
+            "type": "text",
+            "text": " to direct your mask familiar, or other surreptitious actions. The GM determines which actions end the effect, but attacking, casting spells, activating items, and the like always do."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.IxgBnW2L8MpJBUG2"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mask Familiar; expert in Stealth"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're wearing your Mask Familiar in its mask form, and it has the Skilled (Religion) familiar ability."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "d3c542d1-1951-57cc-b047-9efa2f6dcb83",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:cut-them-down-burn-them-out",
+    "name": "Cut them Down, Burn them Out",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Inspired by the sixth line of the Crimson Oath, when you oppose the enemies of Lastwall, you aim to excise the rot from the land itself. Make a Strike against an undead creature using a weapon with which you have master proficiency. On a success, in addition to the attack's other effects, the creature takes a –2 status penalty to the DC of any curses, diseases, or poisons it can inflict for 1 round. On a critical success, the undead creature takes the –2 status penalty for 1 round, then a –1 status penalty for an additional round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.O8mfeWtUogB74J9E"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Reclaimant Dedication; master proficiency in a weapon"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "2d3573cd-0256-5caf-8b01-3f6b21d4f2ce",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:faith-in-the-fallen",
+    "name": "Faith in the Fallen",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a member of the Vellumis Scholars."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Gravelands are full of fallen spirits seeking to move on, and you consider it your obligation to assist in that regard. You gain the ability to store spirit wisps in your body, becoming a living "
+          },
+          {
+            "type": "text",
+            "text": "spirit dwelling",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " (see the Exorcist archetype). Each day during your daily preparations, your "
+          },
+          {
+            "type": "text",
+            "text": "spirit dwelling",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attracts a spirit wisp who comes to dwell inside. If your "
+          },
+          {
+            "type": "text",
+            "text": "spirit dwelling",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " contains no wisps, you can spend 10 minutes in a minor ritual to cast your "
+          },
+          {
+            "type": "text",
+            "text": "spirit dwelling",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " around an area and attract another wisp. Additionally, you gain a spirit wisp when a haunt or incorporeal undead creature is destroyed within 30 feet of you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "13009b76-b08c-560f-9de0-fba2c2b7500a"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Every day before your daily preparations, any spirit wisps remaining within your "
+          },
+          {
+            "type": "text",
+            "text": "spirit dwelling",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " from the previous day are purified and can continue along the River of Souls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "13009b76-b08c-560f-9de0-fba2c2b7500a"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7w8SOlLlFYOBYC5Y"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Magaambyan Attendant Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "8fe6774b-53ad-5266-a1f3-56a7b519e629",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:grave-threat",
+    "name": "Grave Threat",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use your imposing demeanor to set up the undead for defeat. Make a Strike against an undead creature using a weapon with which you have master proficiency. If you hit, all Strikes against that creature gain the benefits of "
+          },
+          {
+            "type": "ref",
+            "id": "d8fc2d72-b756-53b6-b32e-6884f737a28a"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RPN5wXkXpP8ky3jo"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reaper of Repose"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "e79a4c80-dac1-596c-9f52-924fe1f21636",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:i-knew-the-heroes",
+    "name": "I Knew the Heroes",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your stories aren't mere tales passed down from elder to youth or teacher to student. They're the lived experiences of those you've met, and they're the stuff of legend. When you use "
+          },
+          {
+            "type": "ref",
+            "id": "89da1f15-6113-565d-8892-74d2f8e339fc"
+          },
+          {
+            "type": "text",
+            "text": ", if you're legendary in the skill you use to Recall Knowledge, you gain a +1 circumstance bonus to the Recall Knowledge check, and the circumstance bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "df66f15d-d0e9-5899-a39b-ac77ed973e9d"
+          },
+          {
+            "type": "text",
+            "text": " increases to +2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.mbmjj0LKVuI4Zl81"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Uzunjati Recollection; legendary in a Recall Knowledge Skill"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "033ab3e5-a500-591d-9d7c-ca67fa2ac027",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:may-death-itself-reconsider",
+    "name": "May Death Itself Reconsider",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your will is so steadfast that even death can't stop you. You gain the ability to cast "
+          },
+          {
+            "type": "ref",
+            "id": "4a5766e0-5406-55a9-8b98-36cc6238824d"
+          },
+          {
+            "type": "text",
+            "text": " up to three times per day as a 5th-rank divine innate spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bO5ULM0yxTZVydtn"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reclaimant Plea"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "75638434-5912-5cb5-85df-c3c1dbe62c8d",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:preternatural-polish",
+    "name": "Preternatural Polish",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype", "exploration", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Armor you polish shines with righteous grace. You can take 10 minutes to recite prayers or oaths while polishing a suit of heavy armor that you or a willing creature is wearing. If you do, attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:crafting",
+            "dc": 35
+          },
+          {
+            "type": "text",
+            "text": " check with the following results. The armor then becomes temporarily immune to this ability until your next daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once in the next hour, the creature wearing the polished armor can use a reaction to shine majestically. This reaction is triggered when they would be affected by a spell or ability with the darkness trait. The creature attempts a counteract check against the triggering effect using your Crafting modifier. Additionally, the creature wearing the polished armor gains an additional reaction at the start of each of their turns that can be only used for this reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the creature wearing the polished armor doesn't gain an additional reaction at the start of each of their turns."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.xuZFUOkkjHg9mrcI"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication; legendary in Crafting"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "db7e46a0-ea96-53d5-bbad-0153dfcca7bb",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:rallying-charge-knight-vigilant",
+    "name": "Rallying Charge (Knight Vigilant)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you lead your allies to the front lines, you leave no one behind. When you Lead the Way, instead of choosing one ally that has a reaction available, you can choose any number of allies within 10 feet of you. Any chosen allies that use their reaction to immediately Stride as part of you Leading the Way can end their Stride anywhere within 10 feet of you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.xsyiCcJ2YKhn6tOF"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight Vigilant Dedication; Lead the Way"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "59c7aa0c-36b1-5abd-8e14-90f9d646b443",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:shattered-sacrament",
+    "name": "Shattered Sacrament",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When Vigil fell to Tar-Baphon's Radiant Fire, that lost innocence brought you a deeper understanding of what faith means in the context of your own magic. When you cast a halcyon spell, you can choose for it to be a divine spell instead of arcane or primal. You gain a halcyon cantrip and a 1st-rank halcyon spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Dthd23nBhnKZaMlP"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Halcyon Speaker Dedication; Cascade Bearer's Spellcasting"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b6908df3-48c8-50fe-84c4-153f7a5ef675",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:speak-for-the-gravelands",
+    "name": "Speak for the Gravelands",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a member of the Vellumis Scholars."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have learned much of what the Gravelands need and are confident in your ability to speak for them. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "b14bc078-c689-57e5-b54d-9a11486ec899"
+          },
+          {
+            "type": "text",
+            "text": " archetype feat, even if you normally couldn't take another dedication feat until you take more feats from your current archetype. You can benefit from the following Gravelands terrain attunement when in the Gravelands."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Gravelands",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (vitality) You gain a +1 status bonus to saving throws against the spells and abilities of haunts and undead creatures for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9c38e4c6-9755-5aea-ad67-2928375df809"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "b14bc078-c689-57e5-b54d-9a11486ec899"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Ogso0WqodeFG27L1"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Halcyon Speaker Dedication; trained in Nature; can cast at least one spell with the vitality trait"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "456e33f5-9ba3-508e-a876-7fdb44310291",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:spirit-of-vigil",
+    "name": "Spirit of Vigil",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though the city of Vigil itself has been destroyed, you will carry on its warrior spirit to the end of your days. The value of your "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": " condition at which you die increases by 1 (normally to dying 5, or dying 6 if you have "
+          },
+          {
+            "type": "ref",
+            "id": "730b86b0-c740-5759-ba8b-82ae1fede883"
+          },
+          {
+            "type": "text",
+            "text": "), and the reduction to your maximum dying value from the "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": " condition is 1 less severe (to a minimum of 0)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.dwILRnGUQArJvfa4"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No Stranger to Death"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "8fa4318b-0951-5a34-a279-2fab370f544c",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:tripartite-omen",
+    "name": "Tripartite Omen",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You invoke religious portents to ward yourself against danger without losing sight of the history that led to this point. When you use "
+          },
+          {
+            "type": "ref",
+            "id": "66135826-3054-5e64-9da8-838dd2a2bb43"
+          },
+          {
+            "type": "text",
+            "text": ", if your next action is to Cast a Spell from your spell slots and that spell is divine, you gain a +1 status bonus to AC for 1 round. If the spell is a halcyon spell, you gain this benefit in addition to the benefits described in Dualistic Synergy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "35d7fb53-0131-5824-8d17-d9f4134150ac"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.4mDk8SQyx9dRxy9y"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dualistic Synergy; Shattered Sacrament; master in Religion"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "0f4a6d3b-bc7a-5fd6-b85f-17e94da3055c",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:uncanny-vitae",
+    "name": "Uncanny Vitae",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your warrior spirit is infused with a potent vital essence that imbues your gear. Any shield you wield treats its Hardness as 5 higher against damage dealt by undead creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.NzE3QK3P6U1t142f"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lastwall Sentry Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "63891e00-6968-50b5-879c-fe853f72cc3b",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:vellumis-excision",
+    "name": "Vellumis Excision",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a member of the Vellumis Scholars."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You seek to excise the rot from the Gravelands and have made progress to do so. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "9e74612a-5951-5a86-b13d-31d1a2609c4c"
+          },
+          {
+            "type": "text",
+            "text": " as a 6th-rank halcyon spell, and you gain a 6th-rank halcyon spell slot. When you cast your halcyon "
+          },
+          {
+            "type": "text",
+            "text": "field of life",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as a primal spell, any living creatures in the area when you Sustain the spell gain a +2 status bonus to saving throws against curses, diseases, and poisons for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "afb710eb-b425-5970-a7e0-283a23d92cff"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you have the Halcyon Spellcasting Sage feat, you treat the "
+          },
+          {
+            "type": "text",
+            "text": "field of life",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " halcyon spell gained from this feat as a signature spell, even though halcyon spells normally can't be signature spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.EPqhCeCo1uOvJSTZ"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Halcyon Spellcasting Adept"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a96e2879-5ba7-54a4-a89a-a36da0c347fa",
+    "pack": "claws-of-the-tyrant",
+    "kind": "feat",
+    "slug": "feat:vigils-palisades",
+    "name": "Vigil's Palisades",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "claws-of-the-tyrant"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Persistent Creation, you can create up to three special wooden shields that provide a +2 circumstance bonus to AC and have Hardness 15, 120 HP, and BT 60. A creature that Raises a Shield made with your Persistent Creation also gains a +2 item bonus to saving throws while the shield is raised."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.S3rPkukk46SHntai"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Persistent Creation"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

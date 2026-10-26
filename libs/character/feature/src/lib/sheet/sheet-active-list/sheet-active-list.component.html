@@ -42,14 +42,12 @@
                   {{ 'character.sheet.active.sustain' | transloco }}
                 </fr-async-button>
               }
-              <fr-async-button
-                size="sm"
+              <pio-sheet-dismiss-button
                 [action]="dismiss(row)"
                 [disabled]="cannotDismiss(row)"
                 [describeError]="describeError"
-              >
-                {{ 'character.sheet.active.dismiss' | transloco }}
-              </fr-async-button>
+                [note]="row.dismissNote"
+              />
             </fr-stack>
           } @empty {
             <fr-text tone="muted">{{ 'character.sheet.active.none' | transloco }}</fr-text>

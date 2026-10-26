@@ -1,0 +1,98 @@
+[
+  {
+    "id": "0309702a-7001-52b3-a2c1-90db46f47498",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:demon-lore",
+    "name": "Demon Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:demon",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.demon",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "568711eb-2dca-5925-b68d-48ca1f69be66",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:fungus-lore",
+    "name": "Fungus Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:fungus",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.fungus",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "e18cdee4-6d52-5ef3-bc2e-f29fae23f384",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:tanglebriar-lore",
+    "name": "Tanglebriar Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:tanglebriar",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.tanglebriar",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "023e5cf2-db4b-5373-95a2-3334ab903c60",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:treerazer-lore",
+    "name": "Treerazer Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:treerazer",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.treerazer",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

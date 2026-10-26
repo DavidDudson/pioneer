@@ -54,7 +54,17 @@
         "troublesInGrayce": "Troubles in Grayce",
         "hellsDestiny": "Hell's Destiny",
         "bastionOfBlasphemies": "Bastion of Blasphemies",
-        "theDeadGodsHand": "The Dead God's Hand"
+        "theDeadGodsHand": "The Dead God's Hand",
+        "wardensOfWildwood": "Wardens of Wildwood",
+        "curtainCall": "Curtain Call",
+        "triumphOfTheTusk": "Triumph of the Tusk",
+        "sporeWar": "Spore War",
+        "shadesOfBlood": "Shades of Blood",
+        "preyForDeath": "Prey for Death",
+        "clawsOfTheTyrant": "Claws of the Tyrant",
+        "clockworkMystery": "Pathfinder Society Clockwork Mystery",
+        "tianXiaWorldGuide": "Lost Omens Tian Xia World Guide",
+        "foolishHousekeeping": "Foolish Housekeeping and Other Articles"
       },
       "publisher": {
         "paizo": "Paizo"
@@ -103,6 +113,8 @@
       "level": "Level {level}",
       "effects": "Changes for this character",
       "noEffects": "Changes no statistic.",
+      "castAt": "Cast at",
+      "rank": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
       "effect": "{statistic} {value}",
       "effectMarked": "{words} ({status})",
       "effectSet": "{statistic} set to {value}",
@@ -442,6 +454,7 @@
       "defenseEmpty": "Give a save, the statistic the spell is against, or both; leave defense out when the spell has none.",
       "damageKey": "The spell has no damage part {key} to heighten.",
       "heightenAbove": "A heightened entry is for a rank above the spell’s own, {rank}.",
+      "dismissBoth": "A spell that takes the Dismiss action has no dismiss note: the note is for a spell that ends early some other way.",
       "heightenEmpty": "A heightened entry changes at least one of damage, range, area, targets, duration, casting time or traits; describe other changes in the text.",
       "variantEmpty": "A spell variant changes at least one of casting time, range, area, targets, duration, defense, damage or heightening.",
       "against": "A spell is against AC or a save’s DC, like ac or save:will.",
@@ -1174,6 +1187,12 @@
     },
     "vitals": {
       "unarmored": "Unarmored"
+    },
+    "form": {
+      "active": "In form: {name}",
+      "dismiss": "Dismiss",
+      "baseView": "Show base sheet",
+      "reference": "Base sheet, for reference only. The form is still active."
     },
     "spellList": {
       "castAt": "Cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",

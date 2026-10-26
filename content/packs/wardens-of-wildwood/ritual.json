@@ -1,0 +1,148 @@
+[
+  {
+    "id": "00153d44-c610-5118-a959-7fe85ccf4c5a",
+    "pack": "wardens-of-wildwood",
+    "kind": "ritual",
+    "slug": "ritual:drain-planar-connection",
+    "name": "Drain Planar Connection",
+    "level": 5,
+    "rarity": "unique",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw the planar energy from Idyllis, through the ley lines, and into the six latticework spheres."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You sever Idyllis's connection to the Plane of Wood permanently."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You sever Idyllis's connection to the Plane of Wood for 10 years."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You sever Idyllis's connection to the Plane of Wood for 1 year, but the ritual backfires, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d12+26",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all secondary casters ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 26,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual backfires as a failure but doesn't sever Idyllis's connection."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Jte2jlX59a1yQPp8"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "six sets of rare herbs, each worth a total of 50 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:nature"],
+        "proficiency": "master",
+        "dc": 31
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:diplomacy", "skill:nature", "skill:occultism"],
+            "dc": 26
+          }
+        ],
+        "casters": 5
+      }
+    }
+  }
+]

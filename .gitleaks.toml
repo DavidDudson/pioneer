@@ -1,0 +1,9 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Foundry's 16-character rule and note keys in imported pack content: ids, not credentials."
+condition = "AND"
+paths = ['''content/packs/[a-z0-9-]+/[a-z-]+\.json''']
+regexTarget = "line"
+regexes = ['''"key": "[A-Za-z0-9]{16}",?$''']

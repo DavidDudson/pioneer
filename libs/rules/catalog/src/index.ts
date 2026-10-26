@@ -20,6 +20,18 @@ import {
   treasureVaultPack,
   warOfImmortalsPack,
 } from './json-packs';
+import {
+  wardensOfWildwoodPack,
+  curtainCallPack,
+  triumphOfTheTuskPack,
+  sporeWarPack,
+  shadesOfBloodPack,
+  preyForDeathPack,
+  clawsOfTheTyrantPack,
+  clockworkMysteryPack,
+  tianXiaWorldGuidePack,
+  foolishHousekeepingPack,
+} from './more-orc-packs';
 import { characterGuidePack, impossibleLandsPack } from './ogl-packs';
 import {
   bastionOfBlasphemiesPack,
@@ -125,6 +137,16 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('hells-destiny', hellsDestinyPack),
   checkedLoader('bastion-of-blasphemies', bastionOfBlasphemiesPack),
   checkedLoader('the-dead-gods-hand', theDeadGodsHandPack),
+  checkedLoader('wardens-of-wildwood', wardensOfWildwoodPack),
+  checkedLoader('curtain-call', curtainCallPack),
+  checkedLoader('triumph-of-the-tusk', triumphOfTheTuskPack),
+  checkedLoader('spore-war', sporeWarPack),
+  checkedLoader('shades-of-blood', shadesOfBloodPack),
+  checkedLoader('prey-for-death', preyForDeathPack),
+  checkedLoader('claws-of-the-tyrant', clawsOfTheTyrantPack),
+  checkedLoader('clockwork-mystery', clockworkMysteryPack),
+  checkedLoader('tian-xia-world-guide', tianXiaWorldGuidePack),
+  checkedLoader('foolish-housekeeping', foolishHousekeepingPack),
   checkedLoader('gm-core', gmCorePack),
 ];
 

@@ -1,0 +1,139 @@
+[
+  {
+    "id": "33ff3b0d-57b3-5ef2-b7b3-f721fcb9de09",
+    "pack": "curtain-call",
+    "kind": "deity",
+    "slug": "deity:the-curtain-call",
+    "name": "The Curtain Call",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The deities associated with this pantheon are "
+          },
+          {
+            "type": "ref",
+            "id": "ba1c279f-5ab6-5034-aebd-12ef0b07fd55"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "d9f53af3-97a3-5e68-a3fa-6c269c05d5de"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5e66a72b-43c9-52e0-ba0a-bf5e32fd2557"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "251c84f3-602a-555e-8e77-47a3658c0779"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "470cd3af-86a8-56f9-8a8d-40c6910a6caa"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " acting, directing, orchestral music, set building"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " help to create public works of art, encourage creativity in others, fight against propaganda and weaponized art meant to spread harm, support fellow creatives as you would your own family"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " censor or destroy legitimate works of art, leave those who depend on you to fend for themselves at the last minute, use phrases like \"good luck\" that might tempt the fickle forces of fate to ensure the opposite comes to pass"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.HR563VdVbW8aUdqM"
+    },
+    "data": {
+      "category": "pantheon",
+      "domains": {
+        "primary": ["creation", "family", "indulgence", "passion"],
+        "alternate": ["change"]
+      },
+      "font": ["heal"],
+      "attributes": ["cha", "con"],
+      "skills": ["skill:performance"],
+      "weapons": ["sword-cane"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+        },
+        {
+          "rank": 3,
+          "spell": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+        },
+        {
+          "rank": 5,
+          "spell": "d894e516-941a-5425-aad2-92f58eeaccac"
+        }
+      ]
+    }
+  }
+]

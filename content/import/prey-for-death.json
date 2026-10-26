@@ -1,0 +1,2239 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "action:valkyrie-tempest-mounted-troop",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.RJkRiqoxU1xMdZ81",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.ValkyrieTempest.MountedTroop.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:agent-of-taraksun",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.40uSe7QRh13lfQUj",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "detect alignment"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:alktherisa-and-omprisgor",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.HY9CxgBtWQv7nYob",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 15"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "unfettered movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "entropy sense (imprecise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet, Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "flags.system.proteanResistance",
+            "value": 25
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "protean-anatomy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:berserker-ordulf",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.tKqmm3jB9aZBJYHN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:bloodfog",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.WauAMtDTNY9fxlER",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "Sense Blood (precise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Misty Tendril.damage",
+          "raw": {
+            "damage": "3d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:bloody-hands",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.JuL2zaUaQLWhCzdY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Claw.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:celasik",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.R4joDeUkjhfQQzL5",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "tongues"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:divine-living-rune",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.3j34FTWLjUIE5lCV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truescript"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "initiative.statistic",
+          "raw": "stealth"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:dronuk",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.HGjUK9tbspkWVkYs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.MultipleAttackPenalty",
+          "raw": {
+            "key": "MultipleAttackPenalty",
+            "selector": "sawtooth-saber-attack",
+            "value": -2
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Note From Saviya"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:einherji-host",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.3M9iQI58v6znvwuh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "37 with shields raised"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Thresholds 180 (3 segments), 90 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+4 to will vs. fear"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:frostripper",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.EId3hG8apXxXXKd4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "trackless step"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:gorumite-infantry",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.VUnzeDyz7gkJbS15",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "troop defenses"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:gorumite-veteran",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.rlnxG2z11YJY6bbt",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 circumstance vs. fear"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Greatsword.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "greatsword-damage",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:gorumite-warpriest",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.cdLWZaBUpy8N1xcV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.trigger",
+          "raw": "Fervent Casting"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Iron Religious Symbol of Gorum"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Key"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:mantis-keeper",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.p6ybCIixFTDnjS57",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status vs. poison"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Verdant Scythe"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:niesha",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.KQxkuDXkMv4JueTd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 15 (deactivated by acid)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "polyglot"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:ordulf-bladecaller",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.aCMI3wIUpJ3DxhSY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Greataxe.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:rage-rider",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.ou2jlElpMdz63bM7",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.rageTempHP",
+            "value": 0
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Exquisite Kokogiak Harness"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:red-mantis-assassin",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.9MkqNYpvYvuBEDOA",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Sawtooth Saber.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": [
+              "encounter:round:1",
+              {
+                "lt": ["self:participant:initiative:rank", "target:participant:initiative:rank"]
+              }
+            ],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Shuriken (With Blightburn Resin)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:red-mantis-conspirator",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.4Fn8PNUU5ClaenZ9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Sawtooth Saber.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Shuriken (With Blightburn Resin)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:rhysaphine",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.CYCW0cTo1Ycgy44F",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "smoke vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["success"],
+            "selector": "scimitar-damage",
+            "text": "PF2E.WeaponPropertyRune.greaterFlaming.Note.success",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "scimitar-damage",
+            "text": "PF2E.WeaponPropertyRune.greaterFlaming.Note.criticalSuccess",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "unholy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:roc-rider",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.ll6U1Rcxz6LBLfId",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Jaws.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "cold",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Spear.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Spear.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:saint-fang",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.sCXNeaJBoVUqvjG0",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "forge vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Claw.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "strike-attack-roll",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:saviya",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.O0RkhEkF2Ba7lBBo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "+37 to Seek"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:shirota",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.iuXHPFyiSVV9F1fG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Alchemist's Fire.damage",
+          "raw": {
+            "damage": "3",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Claw.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:silver-saber",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.x96ZPVfaaamn0gjg",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Leg.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "condition",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:granter:id:{item|id}"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:sister-maeri",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.MWO2vF8WchOdQl7s",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "sawtooth-saber-damage",
+            "text": "PF2E.Item.Weapon.CriticalSpecialization.sword",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Shuriken (With Blightburn Resin)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Sisters in Serenity"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Letter From Mantis Keeper"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:talaro",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.7IMAsoCGLJo9r8kK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Wounding Sawtooth Saber.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": [
+              "encounter:round:1",
+              {
+                "lt": ["self:participant:initiative:rank", "target:participant:initiative:rank"]
+              }
+            ],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Shuriken (With Blightburn Resin)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Assassination Contract"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:the-first-blade",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.TUIJIAnhjA3Hz2jn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "battle sense (precise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Greatsword.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "option": "conjure-weapon-material",
+            "selection": "cold-iron",
+            "suboptions": [
+              {
+                "label": "PF2E.PreciousMaterialColdIron",
+                "value": "cold-iron"
+              },
+              {
+                "label": "PF2E.PreciousMaterialSilver",
+                "value": "silver"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.AdjustStrike",
+          "raw": {
+            "definition": [
+              {
+                "not": "item:category:unarmed"
+              }
+            ],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["conjure-weapon-material"],
+            "property": "materials",
+            "value": "{item|flags.system.rulesSelections.conjureWeaponMaterial}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "greatsword-damage",
+            "text": "PF2E.Item.Weapon.CriticalSpecialization.sword",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "light-hammer-damage",
+            "text": "PF2E.Item.Weapon.CriticalSpecialization.hammer",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:the-promised-one",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.zKEvKKRpQUc5xtVa",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing, rejuvenation"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:valkyrie-of-gorum",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.JONtxbGJqM0Vpake",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "ravenspeaker, tongues"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:valkyrie-tempest",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.l85t2fmSY9WF5lby",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Thresholds 208 (3 segments), 104 (2 segments);"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Ravenspeaker, Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:area:type:burst",
+              "item:duration:0",
+              {
+                "gte": ["item:area:size", 10]
+              }
+            ],
+            "property": "area-size",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": ["item:area:type:cone", "item:area:type:line"]
+              },
+              {
+                "lte": ["item:area:size", 15]
+              }
+            ],
+            "priority": 110,
+            "property": "area-size",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": ["item:area:type:cone", "item:area:type:line"]
+              },
+              {
+                "gt": ["item:area:size", 15]
+              }
+            ],
+            "priority": 100,
+            "property": "area-size",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:vatumledor",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.kPZZQwWPQo9QBPjM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. occult"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "(+32 to Sense Motive)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "humanoid-medium",
+            "suboptions": [
+              {
+                "label": "PF2E.Dragon.Conspirator",
+                "value": "dragon"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Small",
+                "value": "humanoid-small"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Medium",
+                "value": "humanoid-medium"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "strike-attack-roll",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:vofnir",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.hu3uoNg2dgUsl81R",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.trigger",
+          "raw": "Fervent Casting"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Iron Religious Symbol of Gorum"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Key"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "creature:zaiho",
+      "foundry": "Compendium.pf2e.prey-for-death-bestiary.Actor.HYb2Rjl1PaYqFKn0",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Zaiho's Gun Sword.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Zaiho's Gun Sword"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "effect:effect-crimson-shroud",
+      "foundry": "Compendium.pf2e.feat-effects.Item.6YhbQmOmbmy84W1C",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FastHealing",
+          "raw": {
+            "details": "",
+            "key": "FastHealing",
+            "type": "fast-healing",
+            "value": "floor(@actor.level/2)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "effect:effect-focus-on-the-doomed",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.AFwm9Q3R3WT0rw5z",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              "target:mark:focus-on-the-doomed",
+              {
+                "or": ["action:demoralize", "action:feint"]
+              }
+            ],
+            "selector": "skill-check",
+            "type": "item",
+            "value": "@item.origin.flags.system.assassinsBracersBonus"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "effect:effect-focus-on-the-doomed-fear-penalty",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ofEoHZzaVmpKrMVH",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.SpecificRule.BonusLabel.NegativeOne",
+                "value": -1
+              },
+              {
+                "label": "PF2E.SpecificRule.BonusLabel.NegativeTwo",
+                "value": -2
+              },
+              {
+                "label": "PF2E.SpecificRule.BonusLabel.NegativeThree",
+                "value": -3
+              }
+            ],
+            "flag": "penalty",
+            "key": "ChoiceSet",
+            "predicate": [
+              {
+                "not": "parent:origin:item"
+              }
+            ],
+            "prompt": "PF2E.SpecificRule.Prompt.Penalty"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "mode": "override",
+            "predicate": [
+              {
+                "not": "parent:origin:item"
+              }
+            ],
+            "selector": "saving-throw",
+            "slug": "focus-on-the-doomed-fear",
+            "value": "@item.flags.system.rulesSelections.penalty"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "mode": "override",
+            "predicate": ["parent:origin:item"],
+            "selector": "saving-throw",
+            "slug": "focus-on-the-doomed-fear",
+            "value": "-@item.origin.flags.system.assassinsBracersBonus"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "effect:spell-effect-bone-flense-damage",
+      "foundry": "Compendium.pf2e.spell-effects.Item.P6f6UnvYSF5zATyu",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "bleed",
+            "diceNumber": "(floor((@item.level - 1)/2))",
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "label": "PF2E.SpecificRule.SpellEffectBoneFlense.Label",
+            "predicate": ["item:id:{item|flags.system.rulesSelections.weapon}", "bone-flense"],
+            "selector": "strike-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "effect:spell-effect-debilitating-terror",
+      "foundry": "Compendium.pf2e.spell-effects.Item.sipLHLOyS7sQ0KQV",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["target:signature:{item|origin.signature}"],
+            "selector": ["attack", "damage"],
+            "type": "circumstance",
+            "value": -1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "equipment:assassins-bracers-type-i",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LWMlDUCdDGo1wJnF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DexterityModifierCap",
+          "raw": {
+            "key": "DexterityModifierCap",
+            "value": 5
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.assassinsBracersBonus",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "equipment:assassins-bracers-type-ii",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dtiYqfBG2BcLHX92",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DexterityModifierCap",
+          "raw": {
+            "key": "DexterityModifierCap",
+            "value": 5
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.assassinsBracersBonus",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "equipment:assassins-bracers-type-iii",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9pUwExXYzndCJFYj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DexterityModifierCap",
+          "raw": {
+            "key": "DexterityModifierCap",
+            "value": 5
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.assassinsBracersBonus",
+            "value": 3
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "equipment:eye-of-the-mantis",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cVnLTzWdaFljFkdb",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "feat:achaekek-major-boon",
+      "foundry": "Compendium.pf2e.boons-and-curses.Item.eFwCopyvVam6GiCT",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "eFwCopyvVam6GiCT",
+        "name": "Achaekek - Major Boon",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Adventure: Prey for Death",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": [],
+            "rarity": "common"
+          },
+          "description": {
+            "value": "<p>You gain the @UUID[Compendium.pf2e.classfeatures.Item.Sneak Attack] rogue class feature, dealing 3d6 precision damage. If you already have that class feature, you increase your sneak attack damage by 3d6.</p>"
+          },
+          "rules": [
+            {
+              "category": "precision",
+              "diceNumber": 3,
+              "dieSize": "d6",
+              "key": "DamageDice",
+              "predicate": [
+                "target:condition:off-guard",
+                {
+                  "or": [
+                    "item:trait:finesse",
+                    "item:trait:agile",
+                    {
+                      "and": [
+                        "item:ranged",
+                        {
+                          "not": "item:thrown"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "selector": "strike-damage"
+            }
+          ],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "feat:achaekek-major-curse",
+      "foundry": "Compendium.pf2e.boons-and-curses.Item.GJdHcY56q2c3kSiA",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "curse"
+        }
+      ],
+      "document": {
+        "_id": "GJdHcY56q2c3kSiA",
+        "name": "Achaekek - Major Curse",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Adventure: Prey for Death",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": [],
+            "rarity": "common"
+          },
+          "description": {
+            "value": "<p>The Mantis God doesn't waste his time toying with or tormenting those who truly anger him or those who dare to consider themselves divine. He rips open a portal to your location, kills you, drags your soul to judgment in a way that prevents resurrection magic, and then leaves.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "curse",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "feat:achaekek-minor-boon",
+      "foundry": "Compendium.pf2e.boons-and-curses.Item.bvBzvLDKM5sAJm9s",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["failure"],
+            "selector": "stealth",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "gm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "bvBzvLDKM5sAJm9s",
+        "name": "Achaekek - Minor Boon",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Adventure: Prey for Death",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": [],
+            "rarity": "common"
+          },
+          "description": {
+            "value": "<p>Once, when you would fail a Stealth check, you critically succeed instead.</p>\n<p>Achaekek typically grants this boon for an extremely consequential Stealth check that could lead to an assassination, such as one that could get you into position to kill an important target, but rarely on a Stealth check to help you escape.</p>"
+          },
+          "rules": [
+            {
+              "key": "Note",
+              "outcome": ["failure"],
+              "selector": "stealth",
+              "text": "{item|system.description.value}",
+              "title": "{item|name}",
+              "visibility": "gm"
+            }
+          ],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "feat:achaekek-minor-curse",
+      "foundry": "Compendium.pf2e.boons-and-curses.Item.1QtjogbV1MsJp7x5",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "curse"
+        }
+      ],
+      "document": {
+        "_id": "1QtjogbV1MsJp7x5",
+        "name": "Achaekek - Minor Curse",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Adventure: Prey for Death",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": [],
+            "rarity": "common"
+          },
+          "description": {
+            "value": "<p>Non-sapient insects (especially mantises) become hostile against you.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "curse",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "feat:achaekek-moderate-boon",
+      "foundry": "Compendium.pf2e.boons-and-curses.Item.xwhPzOXxX1fON3j4",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "xwhPzOXxX1fON3j4",
+        "name": "Achaekek - Moderate Boon",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Adventure: Prey for Death",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": [],
+            "rarity": "common"
+          },
+          "description": {
+            "value": "<p>You can cast @UUID[Compendium.pf2e.spells-srd.Item.Blood Vendetta] once per day as an innate divine spell; this spell automatically heightens to a rank equal to your half your level.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "feat:achaekek-moderate-curse",
+      "foundry": "Compendium.pf2e.boons-and-curses.Item.wXAVESzPURB1iBWW",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "curse"
+        }
+      ],
+      "document": {
+        "_id": "wXAVESzPURB1iBWW",
+        "name": "Achaekek - Moderate Curse",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Adventure: Prey for Death",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 0
+          },
+          "traits": {
+            "value": [],
+            "rarity": "common"
+          },
+          "description": {
+            "value": "<p>Hubris brings death. Your name and location are projected into the mind of a Red Mantis assassin, who is tasked with eliminating you.</p>"
+          },
+          "rules": [],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "curse",
+          "prerequisites": {
+            "value": []
+          }
+        }
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "feat:basic-red-mantis-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.6RjilN93bgy34y3H",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "identified",
+          "raw": {
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "feat:crimson-shroud",
+      "foundry": "Compendium.pf2e.feats-srd.Item.M2V1vqAziOkWV30B",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "predicate": [
+              {
+                "gte": ["self:level", 10]
+              }
+            ],
+            "property": "frequency-per",
+            "value": "PT1H"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "feat:red-mantis-assassin-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UuPZ7drPBnSmI8Eo",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Skill.Stealth",
+                "predicate": ["skill:stealth:rank:0"],
+                "value": 1
+              },
+              {
+                "label": "PF2E.Skill.Diplomacy",
+                "predicate": [
+                  {
+                    "gte": ["skill:stealth:rank", 1]
+                  }
+                ],
+                "value": 2
+              }
+            ],
+            "flag": "rank",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.stealth.rank",
+            "value": "@item.flags.system.rulesSelections.rank"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "spell:bone-flense",
+      "foundry": "Compendium.pf2e.spells-srd.Item.V4IpjSlefultlOuY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 weapon that is either wielded by a member of the Red Mantis or is a praying mantis's leg Strike"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "spell:mark-of-blood",
+      "foundry": "Compendium.pf2e.spells-srd.Item.Oy6qBhzayCnqOiEO",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 piercing or slashing weapon you're wielding"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "weapon:bloody-fang",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jEYl5VuFa2JslZbY",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "weapon:crimson-bluff",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TD44V3u77AMbOnTo",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][variant]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "prey-for-death",
+      "slug": "weapon:fleshrender",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PTTB9orSB4RelXF3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "runes.property",
+          "raw": "dancing"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "language",
+      "slug": "wildsong",
+      "reason": "unmapped-value",
+      "detail": "secret"
+    }
+  ]
+}

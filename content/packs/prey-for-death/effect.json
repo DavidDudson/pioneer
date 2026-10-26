@@ -1,0 +1,709 @@
+[
+  {
+    "id": "348c9a67-0e1a-5d6a-bb82-68f945556e84",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:effect-battle-reek",
+    "name": "Effect: Battle Reek",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 circumstance penalty to saves against fear and to recover from the sickened condition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          {
+            "or": ["item:trait:fear", "action:retch"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.kHZd9NWwctrZEhFD"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c02122e1-0649-5b20-9bb9-c57f1a5b69f9",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:effect-commanding-shout",
+    "name": "Effect: Commanding Shout",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Gorumite infantry's save DCs for their Fire Crossbows! and Raise Swords! actions increase to DC 33 and they gain a +2 status bonus to their saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["raise-swords-inline-dc", "fire-crossbows-inline-dc"],
+        "type": "untyped",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.F1JHRa75KBAjHOs1"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b0758645-3845-54ba-8e86-82c9cf84b2c1",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:effect-crimson-shroud",
+    "name": "Effect: Crimson Shroud",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6ff19deb-bbff-5554-b213-e51e5bb76236"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing equal to half your level. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "27372868-5ce5-5379-b25d-da2bd2903481"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "27372868-5ce5-5379-b25d-da2bd2903481"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.6YhbQmOmbmy84W1C"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "dcd15b6e-68ee-57e5-a6ee-b2060ca350b6",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:effect-crimson-shroud-ac",
+    "name": "Effect: Crimson Shroud (AC)",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6ff19deb-bbff-5554-b213-e51e5bb76236"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.gvE0iQ7h6263Mkhi"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "72160995-5fcb-5e63-8a19-1e49966cb8d9",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:effect-crownhold-consecration",
+    "name": "Effect: Crownhold Consecration",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Worshippers of Gorum get a +1 status bonus to attack rolls, skill checks, saving throws, and Perception checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, the underhanded nature of the PCs causes them to take a –1 status penalty to attack rolls, skill checks, saving throws, and Perception."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "skill-check", "saving-throw", "perception"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["self:deity:slug:gorum"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "skill-check", "saving-throw", "perception"],
+        "type": "status",
+        "value": -1,
+        "slug": "crownhold-consecration-not-gorum",
+        "predicate": ["self:type:character"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.dZT1w2EciqaR2NRz"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0d4122c1-2671-5826-8b06-c046a0fe714b",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:effect-divine-weapon",
+    "name": "Effect: Divine Weapon",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sister Maeri's sawtooth saber deals an additional 1d4 spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["sawtooth-saber-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "spirit"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.K1brBNe37GzceN0N"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "6348ea92-9175-566a-b6e1-db0f1e832e58",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:effect-focus-on-the-doomed",
+    "name": "Effect: Focus on the Doomed",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "17cc45a3-99bc-5576-a423-90f1c6d4d01c"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "1470bd7a-9465-5bf8-bc47-772feac4df3e"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7159c863-89ea-5af8-be68-9354fe8d0dd1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to attempts to Feint or Demoralize the designated creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.AFwm9Q3R3WT0rw5z"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "93f68659-9e9f-5594-9094-4ab4383a5893",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:effect-focus-on-the-doomed-fear-penalty",
+    "name": "Effect: Focus on the Doomed (Fear Penalty)",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "17cc45a3-99bc-5576-a423-90f1c6d4d01c"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "1470bd7a-9465-5bf8-bc47-772feac4df3e"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7159c863-89ea-5af8-be68-9354fe8d0dd1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take an item penalty to saving throws against fear effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": -1,
+        "slug": "focus-on-the-doomed-fear",
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.ofEoHZzaVmpKrMVH"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0b68ac4e-a937-5179-9b98-accfd8eb6bf2",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:effect-song-of-freedom",
+    "name": "Effect: Song of Freedom",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The troop's Will saves increase to +29 against all mental effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "untyped",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["item:trait:mental", "item:trait:fear"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ATeiWcHcjoTvIbkk"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fa3eeb37-0979-5a10-b265-acc25d05791f",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:spell-effect-bone-flense-damage",
+    "name": "Spell Effect: Bone Flense (Damage)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f09aaa6d-97bb-52ab-84b1-dba67c40472d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target takes an additional d6 persistent bleed damage from the Strike of the imbued weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.P6f6UnvYSF5zATyu"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "722b1e33-0fd0-564c-85e7-c8f28b6ad665",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:spell-effect-bone-flense-reaction",
+    "name": "Spell Effect: Bone Flense (Reaction)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f09aaa6d-97bb-52ab-84b1-dba67c40472d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use the Erupting Spurs reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "4ef517cb-0ad7-5af4-a943-875a590ce35e"
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["inline-damage"],
+        "property": "dice-number",
+        "mode": "override",
+        "value": "6 + 4 * floor((@item.level - 3) / 2)",
+        "predicate": ["item:slug:erupting-spurs"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.5Zof6sC46ms4JLIl"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "eeba8edc-1b39-502b-9f75-00865a9c5fab",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:spell-effect-debilitating-terror",
+    "name": "Spell Effect: Debilitating Terror",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2c1aae9d-150f-519e-bdc9-95d8394cb4e4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 circumstance penalty to attack and damage rolls against the origin."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.sipLHLOyS7sQ0KQV"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

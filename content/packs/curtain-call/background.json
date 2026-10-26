@@ -1,0 +1,826 @@
+[
+  {
+    "id": "6e9c410c-849f-58b3-b1f5-48d80225abc5",
+    "pack": "curtain-call",
+    "kind": "background",
+    "slug": "background:always-chosen-last",
+    "name": "Always Chosen Last",
+    "rarity": "rare",
+    "traits": ["persona-underdog"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you were young, for whatever reason, you were always the last pick when it came to choosing teammates for a game, selecting someone for an important job, or the final person in your social circle to achieve an important milestone. As a result, you've come to expect being overlooked, and that's helped to shape your worldview. Maybe you take advantage of this to get away with things that no one would suspect you of, or perhaps it has encouraged you to focus on your training and become even better at what you do. Nothing's worked, exactly, but that's just left you with more time to watch and learn how everyone else behaves, which has given you greater insights into the societies that always seem to forget about you. You've studied the rules of countless games and competitions so that you're always ready to capitalize on a technicality to make up for being regarded as a weak link. When you do succeed at a task, it's often to the surprise of observers, and it's happened enough by now that there are those who, perhaps as a result of also always being chosen last, have come to view you as an inspiration to look up to."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and the Games Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7f7011f1-61c2-5cbd-8d5a-29a2b81efc13"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the Underdog persona trait, you also become trained in the Scouting Lore skill."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:games",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7f7011f1-61c2-5cbd-8d5a-29a2b81efc13"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.8Mej6lV95XkJgdHY"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "d671cf50-6b54-5b9c-992f-6d9cbed4ac9d",
+    "pack": "curtain-call",
+    "kind": "background",
+    "slug": "background:amateur-director",
+    "name": "Amateur Director",
+    "rarity": "rare",
+    "traits": ["persona-leader"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grew up a child of the theater. Perhaps your parents were actors or directors, or maybe you fell in with a theater crowd at a young age. Perhaps you and your siblings shared a tradition of putting on plays for your parents or, if you were an only child, maybe you directed your toys and stuffed animals in elaborate productions that played out in your mind. Whatever the case, as you grew older, you found that you were most comfortable helping to organize and facilitate the goals and dreams of others—and not just in the role of being a director for a stage production. You've always derived satisfaction from being the one in charge of something and helping others get organized so as to accomplish something significant. Yet for whatever reason, this never quite grew into your job; you've never actually made money directing, or if you have, it was never enough to allow you to abandon your other responsibilities. Still, the experience you've gained at this amateur work has given you some impressive skills and self-confidence."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Diplomacy skill and the Theater Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8e689441-f2b0-591d-93f7-18070fbb7d67"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the Leader persona trait, you also become trained in the Scribing Lore skill."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:diplomacy",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:theater",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "8e689441-f2b0-591d-93f7-18070fbb7d67"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.LH2xktS54P9aa2uY"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "bfe33cda-ccc4-5085-8cb2-c0c18b89e845",
+    "pack": "curtain-call",
+    "kind": "background",
+    "slug": "background:art-tutor",
+    "name": "Art Tutor",
+    "rarity": "rare",
+    "traits": ["persona-scholar"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Art has always been important to you. It's likely that you've got a significant talent for creating artwork yourself, but at the very least, you grew up in a home, neighborhood, or city where artwork was freely available for you to enjoy. The first time you met someone who hadn't had this luxury was a shock, and you promised yourself that you would do whatever you could to bring the joy of artwork to places and people unfortunate enough to be bereft of it. Of course, original art isn't always something that can be transported, so you've settled on the next best thing—teaching others about art, art history, and artistic theory. Whether you've made money by teaching others about art or taken it upon yourself to altruistically educate others, the only thing that approaches the feeling of euphoria you receive from admiring or creating a new piece of art is what you gain by spreading this appreciation to others."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and the Art Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "14dfa44b-741c-58ed-8b61-651062a946ff"
+          },
+          {
+            "type": "text",
+            "text": " feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the Scholar persona trait, you also become trained in the Academia Lore skill."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:art",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "14dfa44b-741c-58ed-8b61-651062a946ff"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.VW8YNoIFhYD3UuyX"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "28665f80-c657-534d-adcd-d90ddc696795",
+    "pack": "curtain-call",
+    "kind": "background",
+    "slug": "background:bully-or-baiter",
+    "name": "Bully or Baiter?",
+    "rarity": "rare",
+    "traits": ["persona-warrior"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Force, be it as a physical presence or as a strength of personality, has long given bullies power over others in their groups. Whether it's the threat of a physical beating or the actual assault itself, the bully's methods are usually efficient at establishing a network full of fearful followers and social power. You may have been a bully yourself, and if so, you've never faced any significant comeuppance or retribution for your nefarious actions, and the skills you developed as a youth while bullying others serve you very well today. Yet maybe you weren't the bully—maybe you were a baiter of bullies instead? Someone who put on an irresistible-to-bullies appearance only to turn their tactics back upon them with threats and violence. Were you a champion of the picked-upon and downtrodden in schoolyard and back alley alike, who lured the local bullies into traps that taught them lessons writ in blood and pain?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Intimidation skill and the Underworld Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the Warrior persona trait, you also become trained in the Warfare Lore skill."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:underworld",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.jN3Ww8tBsTaOVX4t"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "bd82893b-22d0-5b58-a7f5-1043c139623f",
+    "pack": "curtain-call",
+    "kind": "background",
+    "slug": "background:sideshow-scion",
+    "name": "Sideshow Scion",
+    "rarity": "rare",
+    "traits": ["persona-wildcard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ah, the circus! What child didn't at some point fantasize about running away to join a troupe of clowns and daredevils and live a life on the road sharing living quarters with strange animals and even stranger coworkers? In your case, though, there was no need for fantasy, for you were born into the life. Your parents or extended family have a long tradition in the sideshow, be it as part of a traveling circus or as part of a more localized, year-round performance on a city boardwalk or marketplace. Even if you were the inverse of the youth who dreamed of running away, your childhood instead filled with visions of a sedentary aristocratic life or the rough upbringing of the working class, the sideshow skills and circus tricks you were exposed to seeped into your psyche. Now and then, a turn of phrase that spills from your lips or an unexpected little motion or act catches even your closest friends off guard. After all, what seems normal to you is anything but to someone who didn't grow up in a sideshow!"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Acrobatics skill and the Games Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d003cf7d-b8b8-58cc-b78a-c02e0b7587de"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the Wildcard persona trait, you also become trained in the Circus Lore skill."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:acrobatics",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:games",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "d003cf7d-b8b8-58cc-b78a-c02e0b7587de"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.CFyrlDzkSXgI1OAI"
+    },
+    "data": {
+      "boosts": [
+        ["con", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "721de282-814f-5e1e-99a0-6bb918a1e856",
+    "pack": "curtain-call",
+    "kind": "background",
+    "slug": "background:supportive-sponsor",
+    "name": "Supportive Sponsor",
+    "rarity": "rare",
+    "traits": ["persona-guardian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were responsible for caring for someone's needs, be it a sibling or other familial relation, a friend fallen on hard times, or someone who just needed a helping hand at a time when you were there to offer assistance. The satisfaction you get from protecting another, from helping them course-correct from a self-destructive habit, or from assisting them in their recovery from a disaster is more than enough for you, and the idea of being paid for such a service is unsettling and unsavory. When presented with a problem that's beyond your immediate ability to address or resolve, you'll spend days researching methods to provide what help the person needs, either educating yourself on how to provide the aid yourself or by arranging for others to step in to support the person in question."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Medicine skill and the Herbalism Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9848970b-02f3-562b-9a64-29e42647bbc1"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the Guardian persona trait, you also become trained in the Library Lore skill."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:medicine",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:herbalism",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "9848970b-02f3-562b-9a64-29e42647bbc1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.EdkfixYpKyX3KPCL"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "28c6c4af-f959-5167-9f68-8129ca73451e",
+    "pack": "curtain-call",
+    "kind": "background",
+    "slug": "background:town-troublemaker",
+    "name": "Town Troublemaker",
+    "rarity": "rare",
+    "traits": ["persona-scoundrel"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Every town has at least one of them: the person that everyone \"knows\" is a bad apple, a rascal, a mixer, or a fly in the ointment—the troublemaker. Your hometown was no exception, because you were that town's troublemaker, or at least one of its more notorious ones! This reputation may not have been warranted—perhaps you took the rap to protect a friend or family member caught in a scandal, or maybe you were tricked or cajoled into a tricky situation by so-called \"friends.\" Or the reputation could be spot-on. Being a town troublemaker doesn't mean you had malice in your heart, of course, especially if the town in question was one ruled by villains or governed by cruelty. One society's troublemaker is, after all, another society's freedom fighter! Regardless of the truth that lies at the heart of your personal situation, your legacy as the town troublemaker has given you great insights into society's seamy underbelly."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Thievery skill and the Underworld Lore skill. You gain the Dirty Trick skill feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the Scoundrel persona trait, you also become trained in the Norgorber Lore skill."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:thievery",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:underworld",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "88af3edf-2b57-5a2f-9a0d-4e7f540fc2ef"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.pMntBDuzRu5dTeJQ"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "6130327d-eb17-578a-ae21-16e2b6f93723",
+    "pack": "curtain-call",
+    "kind": "background",
+    "slug": "background:wandering-libertine",
+    "name": "Wandering Libertine",
+    "rarity": "rare",
+    "traits": ["persona-flirt"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Receiving attention has always come easily to you, be it because of your good looks, your charming personality, your way with words, or something else entirely, yet you've never really settled down. You spent much of your life up to this point on the road or at sea, traveling from town to town and never staying long enough in one place to ever have a proper home. The reasons for this itinerant lifestyle aren't important, but what is important is that it never took you long to find someone to hold after arriving in a new town. Whether your inevitable departure was heralded by false promises to return or tearful goodbyes, you've left in your wake a mix of pining admirers and jilted lovers. One of these days, you might actually settle down. One of these days, you might find someone you'll want to spend the rest of your life with. One of these days, you might find a place to call home. But today is not that day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Deception skill and the Shelyn Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d1ff4227-7dc1-57d9-a3d8-1f16ad627b61"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the Flirt persona trait, you also become trained in the Sailing Lore skill."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:deception",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:shelyn",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "d1ff4227-7dc1-57d9-a3d8-1f16ad627b61"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.5L2EYBOziW9Fqyav"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]

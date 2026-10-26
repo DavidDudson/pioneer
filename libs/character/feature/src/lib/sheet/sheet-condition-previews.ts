@@ -4,6 +4,7 @@ import { ConditionValue } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 
+import { injectStatisticLink } from './sheet-breakdown/sheet-breakdown';
 import { sheetEntryEffects } from './sheet-entry-effects';
 import { sheetEntry, sheetEntryPreview } from './sheet-entry-previews';
 
@@ -44,5 +45,5 @@ export function sheetConditionPreviews(
   registry: () => ContentRegistry | undefined,
   character: () => Character | undefined,
 ): EntryPreviews {
-  return { preview: (id) => sheetConditionPreview(registry(), character(), id) };
+  return { preview: (id) => sheetConditionPreview(registry(), character(), id), statistic: injectStatisticLink() };
 }

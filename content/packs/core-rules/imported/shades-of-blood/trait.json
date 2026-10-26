@@ -1,0 +1,32 @@
+[
+  {
+    "id": "9d826366-d630-5ca9-91ca-f7d3699c8208",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:beastkin",
+    "name": "Beastkin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  }
+]

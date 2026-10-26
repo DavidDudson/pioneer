@@ -1,0 +1,3189 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:nemesis-additional-damage",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.2kgvmo7z0nRQVNGy",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Nemesis.AdditionalDamage.Name"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "{item|flags.system.rulesSelections.damage}",
+            "diceNumber": 1,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "selector": "strike-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:nemesis-enhanced-sense",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.hrX8wChrtscSGkkN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Nemesis.EnhancedSense.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:nemesis-explosive-blast",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.v8DDA7RFIt7ayv3z",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Nemesis.ExplosiveBlast.Name"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.damage}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[type:@item.flags.system.rulesSelections.damage]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:nemesis-fast-healing",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.95GtEVW0qI1h9oPq",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Nemesis.FastHealing.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:nemesis-ghostly-flicker",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.glb03wxLyMzzeH13",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Nemesis.GhostlyFlicker.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:nemesis-immunity",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.dYDrrBn5sNgoo4Au",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Nemesis.Immunity.Name"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitAcid",
+                "predicate": [
+                  {
+                    "not": "nemesis-immunity:acid"
+                  }
+                ],
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.TraitBleed",
+                "value": "bleed"
+              },
+              {
+                "label": "PF2E.TraitCold",
+                "predicate": [
+                  {
+                    "not": "nemesis-immunity:cold"
+                  }
+                ],
+                "value": "cold"
+              },
+              {
+                "label": "PF2E.TraitElectricity",
+                "predicate": [
+                  {
+                    "not": "nemesis-immunity:electricity"
+                  }
+                ],
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitEmotion",
+                "value": "emotion"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "predicate": [
+                  {
+                    "not": "nemesis-immunity:fire"
+                  }
+                ],
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitForce",
+                "value": "force"
+              },
+              {
+                "label": "PF2E.ConditionTypeParalyzed",
+                "value": "paralyzed"
+              },
+              {
+                "label": "PF2E.TraitPoison",
+                "value": "poison"
+              },
+              {
+                "label": "PF2E.Damage.Precision",
+                "value": "precision"
+              },
+              {
+                "label": "PF2E.TraitSonic",
+                "predicate": [
+                  {
+                    "not": "nemesis-immunity:sonic"
+                  }
+                ],
+                "value": "sonic"
+              },
+              {
+                "label": "PF2E.TraitSpirit",
+                "value": "spirit"
+              },
+              {
+                "label": "PF2E.TraitVoid",
+                "value": "void"
+              }
+            ],
+            "flag": "immunityTwo",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Immunity"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Immunity",
+          "raw": {
+            "key": "Immunity",
+            "type": "{item|flags.system.rulesSelections.immunityOne}"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Immunity",
+          "raw": {
+            "key": "Immunity",
+            "type": "{item|flags.system.rulesSelections.immunityTwo}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:nemesis-ravage-mind",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.N6OADmxP3Y1qUZKv",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Nemesis.RavageMind.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:nemesis-resilient",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.nq282ijl9aKm2JST",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Nemesis.Resilient.Name"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustDegreeOfSuccess",
+          "raw": {
+            "adjustment": {
+              "success": "one-degree-better"
+            },
+            "key": "AdjustDegreeOfSuccess",
+            "selector": "{item|flags.system.rulesSelections.resilient}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:pitch-perfect-projection",
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ri6ZVR7nhFOvZfVa",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:trait:auditory", "spellshape:pitch-perfect-projection"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Spellshape.PitchPerfectProjection"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.TraitSpellshape",
+            "mergeable": true,
+            "option": "spellshape",
+            "placement": "spellcasting",
+            "suboptions": [
+              {
+                "label": "{item|name}",
+                "value": "pitch-perfect-projection"
+              }
+            ],
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:risen-nemesis-euphoric-cackle",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.d5gy2aWgkM95fTN4",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.RisenNemesis.EuphoricCackle.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:risen-nemesis-fixated-obsession",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.sLhidNrdrlnBpIcH",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.RisenNemesis.FixatedObsession.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:risen-nemesis-indignant-curse",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.JrDcRygSLTr6IekW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.RisenNemesis.IndignantCurse.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "action:risen-nemesis-pained-retribution",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.w4RUMCiHixgqJiy7",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.RisenNemesis.PainedRetribution.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "background:always-chosen-last",
+      "foundry": "Compendium.pf2e.backgrounds.Item.8Mej6lV95XkJgdHY",
+      "gaps": [
+        {
+          "type": "reference",
+          "entry": "curtain-call/feat:persona-trait",
+          "element": {
+            "key": "GrantItem",
+            "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+            "predicate": [
+              {
+                "not": "feature:persona-trait"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "background:amateur-director",
+      "foundry": "Compendium.pf2e.backgrounds.Item.LH2xktS54P9aa2uY",
+      "gaps": [
+        {
+          "type": "reference",
+          "entry": "curtain-call/feat:persona-trait",
+          "element": {
+            "key": "GrantItem",
+            "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+            "predicate": [
+              {
+                "not": "feature:persona-trait"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "background:art-tutor",
+      "foundry": "Compendium.pf2e.backgrounds.Item.VW8YNoIFhYD3UuyX",
+      "gaps": [
+        {
+          "type": "reference",
+          "entry": "curtain-call/feat:persona-trait",
+          "element": {
+            "key": "GrantItem",
+            "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+            "predicate": [
+              {
+                "not": "feature:persona-trait"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "background:bully-or-baiter",
+      "foundry": "Compendium.pf2e.backgrounds.Item.jN3Ww8tBsTaOVX4t",
+      "gaps": [
+        {
+          "type": "reference",
+          "entry": "curtain-call/feat:persona-trait",
+          "element": {
+            "key": "GrantItem",
+            "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+            "predicate": [
+              {
+                "not": "feature:persona-trait"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "background:sideshow-scion",
+      "foundry": "Compendium.pf2e.backgrounds.Item.CFyrlDzkSXgI1OAI",
+      "gaps": [
+        {
+          "type": "reference",
+          "entry": "curtain-call/feat:persona-trait",
+          "element": {
+            "key": "GrantItem",
+            "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+            "predicate": [
+              {
+                "not": "feature:persona-trait"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "background:supportive-sponsor",
+      "foundry": "Compendium.pf2e.backgrounds.Item.EdkfixYpKyX3KPCL",
+      "gaps": [
+        {
+          "type": "reference",
+          "entry": "curtain-call/feat:persona-trait",
+          "element": {
+            "key": "GrantItem",
+            "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+            "predicate": [
+              {
+                "not": "feature:persona-trait"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "background:town-troublemaker",
+      "foundry": "Compendium.pf2e.backgrounds.Item.pMntBDuzRu5dTeJQ",
+      "gaps": [
+        {
+          "type": "reference",
+          "entry": "curtain-call/feat:persona-trait",
+          "element": {
+            "key": "GrantItem",
+            "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+            "predicate": [
+              {
+                "not": "feature:persona-trait"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "background:wandering-libertine",
+      "foundry": "Compendium.pf2e.backgrounds.Item.5L2EYBOziW9Fqyav",
+      "gaps": [
+        {
+          "type": "reference",
+          "entry": "curtain-call/feat:persona-trait",
+          "element": {
+            "key": "GrantItem",
+            "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+            "predicate": [
+              {
+                "not": "feature:persona-trait"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:agadaz",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.mNrZV72eUg7lfmqc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "double-down",
+            "selection": "bonus",
+            "suboptions": [
+              {
+                "label": "PF2E.SpecificRule.Modifier.Bonus",
+                "value": "bonus"
+              },
+              {
+                "label": "PF2E.SpecificRule.Modifier.Penalty",
+                "value": "penalty"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:anguish-siktempora",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.A1MdmLZnbanM5CZi",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 40 (deactivated by mental, orichalcum, or spirit)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language), telepathy 300 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": ["mental", "orichalcum", "spirit"],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 40
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["target:condition:frightened"],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["check:statistic:base:dimension-of-time-lore"],
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:animated-boiler",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.SGWcXt1bqMh09qab",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(40 when broken); construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:arshean-warden",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.oWXuMRAy2BP0z0uO",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:azarpal",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.yNkLAeHXYRtrPdz5",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "definition": ["item:slug:azarpal-poison"],
+            "key": "Immunity",
+            "label": "{item|name}",
+            "type": "custom"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Skeptical Fury Cocktail (Moderate)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Regional Meals"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:blackfingers",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.VOtMQkKzvL7nMGcX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "poison sense (precise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Key Ring"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:delaraius-solzakarr",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.ar9K6cpiG6G3v2wZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Shortsword.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "A History of Secrets"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Skinsaw Eye"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Massacre (Rank 9)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "vulnerable-to-sunlight"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:echopsyvne",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.RB1DZPTjSC0mnw95",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:egarhowl",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.NmzB37eKJpmflJIl",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:emriss",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.XZLHAUd4Yce1t6O7",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:facade",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.0ynDv96qQZpZc0J8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 vs. death effects, disease, poison, and effects causing the fatigued or sickened conditions"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "condition",
+            "key": "ItemAlteration",
+            "mode": "downgrade",
+            "predicate": ["item:damage:type:bleed"],
+            "property": "pd-recovery-dc",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:fallenta",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.LIxnoH1iC1vEP5xq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Maestro's Violin (Moderate)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Sending (Rank 5)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:father-skinsaw",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.m3VQLbUy5rKWJOyA",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet, Universal language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Retribution.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:fenton-vilorgo",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.N5sypiEac4BKyeQb",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.War Razor.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ring of Keys"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Planar Seal (Rank 7)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Translocate (Rank 5)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:fentons-faithful",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.ZaT4rd3bTIfECkCd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Regeneration 10 (deactivated by piercing)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:furnerico",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.3tYqfg9qhrtyTbvq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Acidic Slime.damage",
+          "raw": {
+            "damage": "3d6",
+            "damageType": "acid",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "acidic-slime-damage",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:grandmama",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.aMPcSiJMjxnqqvgT",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "entropy sense (imprecise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "tongues"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "flags.system.proteanResistance",
+            "value": 15
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "protean-anatomy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:graverobber",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.ylAEACovrsq8XaOa",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "critical": true,
+            "key": "FlatModifier",
+            "selector": "light-pick-damage",
+            "value": 4
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:gray-master",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.1eX4Csnv3psAsfLf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:hellshadow",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.58QVgNXmRsI7p8xq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:honor-guard",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.aYilwFsxQZkdqv6z",
+      "gaps": [
+        {
+          "type": "trait",
+          "trait": "lawful"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:izhkarial",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.HGCOaH2EJ2AyVYJO",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "strike-attack-roll",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:jorogumo-disciple",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.qsXi69M1nGMOLZC5",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "tongues"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:karumzek-priest-dispel-magic",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.BgPshRvqaBvy4ulr",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "poison sense (precise) 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Planar Keys"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Dispel Magic (Rank 7)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:karumzek-priest-divine-immolation",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.9qFTRSaEYnrYDVHH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "poison sense (precise) 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Planar Keys"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Divine Immolation (Rank 7)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:karumzek-priest-eclipse-burst",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.REOHdavtL7k20KQc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "poison sense (precise) 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Planar Keys"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Eclipse Burst (Rank 7)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:kimingio",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.jyKGV1HeXcLF1E5f",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Shortsword.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "raja-krodha",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Rakshasa.RajaKrodha",
+                "value": "raja-krodha"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Medium",
+                "value": "humanoid-medium"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Silver Key Set With Black Rubies"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:living-nightmare",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.WFZpAABKj85MK8y8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:mask-of-blackfingers",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.WS3KRvmJMbftLbdV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["target:condition:persistent-damage:poison"],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:mask-of-father-skinsaw",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.NWgVQNeDHnjSxOiK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["target:condition:persistent-damage:bleed"],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:mask-of-gray-master",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.6s7h25mjQAsVEkcY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["target:condition:persistent-damage:void"],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:mask-of-the-reaper",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.AIcxTXQjR0Y70oNE",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["target:condition:persistent-damage:mental"],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:masque-mannequin",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.AOCjBM0drUBjGUIE",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "one spoken in life (typically Common; can't speak any language)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:miavri",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.Co5OLOIXjbsWxsiy",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Charm of Acid Resistance (Major)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:nemesis",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.d4uqDeZ03CKl43zF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet, universal language"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:niallana",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.XlEHPOxIIvne6oxe",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "sense murderer"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Can't Speak"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "all",
+                "events": ["enter"],
+                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Silent Aura"
+              }
+            ],
+            "key": "Aura",
+            "radius": 10,
+            "slug": "silent-aura",
+            "traits": ["illusion", "occult"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:ockomlire",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.tf3SNBb3jkrgVPLL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs emotion effects"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "detect magic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:operatic-emissary",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.nR3CaOtmBVFTekO3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 36
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "unholy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:operatic-stone-bulwark",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.iaQrKM85V4hWWmxw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "spells"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:oriole",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.NpIoefm1VZTTnR8h",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 vs. effects granting the controlled condition"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "option": "ganzi-resistance",
+            "selection": "acid",
+            "suboptions": [
+              {
+                "label": "PF2E.TraitAcid",
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.TraitElectricity",
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitSonic",
+                "value": "sonic"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.ganziResistance}",
+            "value": "15"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Establish Ward"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Blinding Beauty"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Nymph's Token"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Planar Keys"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:prince-of-propaganda",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.8VjUGaYgDutmaYjk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:razorbones",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.RPE2rcJvkcGwM5r6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Claw.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:reaper-of-reputation",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.HiJBqmjbRp7MmPUW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 26
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status vs. magical effects"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Rapier.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:rezzelki",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.Jakh8SGsZvj9oaRW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "glutton scent (imprecise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Can't Speak"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["target:trait:{item|flags.system.rulesSelections.favoredMeal}"],
+            "selector": ["strike-attack-roll", "athletics"],
+            "type": "circumstance",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:risen-nemesis",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.RUuUJtm8jAJ66z0Q",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:rooftop-guardian",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.q7jRJq8kl9JXDPWY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(fast healing 10)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "detect magic, greater web sense"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "tongues"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:rusalka",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.JYE1gsB9D12crx5C",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:shanty-chanter",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.xUGrCX72cv1BO49f",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:silverhand-salvo",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.ftKv0WsRlX7uasez",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "double-down",
+            "selection": "bonus",
+            "suboptions": [
+              {
+                "label": "PF2E.SpecificRule.Modifier.Bonus",
+                "value": "bonus"
+              },
+              {
+                "label": "PF2E.SpecificRule.Modifier.Penalty",
+                "value": "penalty"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Jewelry"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:simandu",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.6guVWljIlk02aam7",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Shortsword.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:skinsaw-trophy",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.Mmg3SDdcpcgX311I",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Silver Scissors"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        },
+        {
+          "type": "trait",
+          "trait": "lawful"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:the-final-herald",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.yBd3PYNJoUTrJVgM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to will vs. controlled"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:venomfist",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.gkRngSHpJl1I2MFf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet, Truespeech"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "creature:waxen-effigy",
+      "foundry": "Compendium.pf2e.curtain-call-bestiary.Actor.DBr25IAKQHwz69YD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "one language known in life (can't speak any language)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Fist.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Wax Spray.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "effect:effect-look-at-me",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.hhW265JTxuLr1EP5",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "not": "origin:signature:{item|origin.signature}"
+              }
+            ],
+            "selector": "perception",
+            "type": "status",
+            "value": -1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["origin:signature:{item|origin.signature}", "item:trait:visual"],
+            "selector": "saving-throw",
+            "slug": "look-at-me-visual-penalty",
+            "type": "status",
+            "value": -1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "not": "origin:signature:{item|origin.signature}"
+              },
+              "item:trait:visual"
+            ],
+            "selector": "saving-throw",
+            "slug": "look-at-me-visual-bonus",
+            "type": "status",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "effect:effect-venomous-aura",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6fPk2jOEp7LOsV7J",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.Check.Result.Degree.Check.failure",
+                "value": 10
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalFailure",
+                "value": 15
+              }
+            ],
+            "flag": "weakness",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "type": "poison",
+            "value": "@item.flags.system.rulesSelections.weakness"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "equipment:angelic-opera-cloak",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OsUMak2bLZ5H3lTY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Immunity",
+          "raw": {
+            "definition": ["fall-damage"],
+            "key": "Immunity",
+            "label": "PF2E.IWR.Custom.FallDamage",
+            "type": "custom"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "equipment:crooners-cravat",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.R5llqYr6ruAiq4EU",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "mode": "add",
+            "predicate": ["action:perform:singing"],
+            "slug": "crooners-cravat",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "equipment:soulfeeding-mask",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nYrOmi22AN0XDtCO",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "equipment:stage-magicians-cloak",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.N5jtL8lLKW0Yzd8e",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "{item|flags.system.rulesSelections.stageMagiciansCloak}",
+            "type": "item",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:costume-change",
+      "foundry": "Compendium.pf2e.feats-srd.Item.t0ZmwquWfSX2rNUd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:fight-choreography",
+      "foundry": "Compendium.pf2e.feats-srd.Item.8xb66hZXbVIu7HWG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:fit-for-the-role",
+      "foundry": "Compendium.pf2e.feats-srd.Item.9mpjAbkfQD59RIpn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:gladiators-roar",
+      "foundry": "Compendium.pf2e.feats-srd.Item.YK7PLPoLGYGBivEt",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:its-not-over",
+      "foundry": "Compendium.pf2e.feats-srd.Item.37l9SEvS7X1jHtpD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:more-real-than-real",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Bf5rqe6tJyR6GoS3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:operatic-adventurer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.d86XC1EmGQ7erkul",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.performance.rank",
+            "value": "match(when(gte(@actor.level, 1), 3), when(gte(@actor.level, 15), 4))"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:perfect-pitch",
+      "foundry": "Compendium.pf2e.feats-srd.Item.31V4Qo4Vd0ghN0IY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:persona-trait",
+      "foundry": "Compendium.pf2e.campaign-effects.Item.mHsp4jGurcemml59",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitPersonaFlirt",
+                "value": "persona-flirt"
+              },
+              {
+                "label": "PF2E.TraitPersonaGuardian",
+                "value": "persona-guardian"
+              },
+              {
+                "label": "PF2E.TraitPersonaLeader",
+                "value": "persona-leader"
+              },
+              {
+                "label": "PF2E.TraitPersonaScholar",
+                "value": "persona-scholar"
+              },
+              {
+                "label": "PF2E.TraitPersonaScoundrel",
+                "value": "persona-scoundrel"
+              },
+              {
+                "label": "PF2E.TraitPersonaUnderdog",
+                "value": "persona-underdog"
+              },
+              {
+                "label": "PF2E.TraitPersonaWarrior",
+                "value": "persona-warrior"
+              },
+              {
+                "label": "PF2E.TraitPersonaWildcard",
+                "value": "persona-wildcard"
+              }
+            ],
+            "flag": "persona",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Persona"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActorTraits",
+          "raw": {
+            "add": ["{item|flags.system.rulesSelections.persona}"],
+            "key": "ActorTraits"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "category",
+          "raw": "deityboon"
+        }
+      ],
+      "document": {
+        "_id": "mHsp4jGurcemml59",
+        "name": "Persona Trait",
+        "type": "feat",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Curtain Call Player's Guide",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 1
+          },
+          "traits": {
+            "value": [],
+            "rarity": "common"
+          },
+          "description": {
+            "value": "<p>Celebrities, including famous adventurers like your PCs, don't always present themselves to the public in a way that accurately reflects who they are. In Curtain Call, each PC will select a persona trait. Regardless of your character's personality, motives, and goals, the public's perception of their legend may be quite different as a result of rumors, misinterpreted events, fanciful imaginings, or even deliberate attempts by a character to foster a different persona.</p>\n<p>There are eight persona traits you can choose from for your PC. The trait you adopt doesn't have to match your character's actual personality or role, but if you pick one that's off the mark, be prepared for NPCs you encounter to make some curious assumptions about your character! Note that while each persona trait has a positive and negative aspect to it, both of these elements are strictly narrative and have no mechanical effects on your character's abilities. Think of them as roleplaying tools that you can use to help guide your PC's actions during the campaign. These traits do, however, have an impact on the adventures: in certain parts of Curtain Call, characters with specific persona traits will be particularly well-suited to face certain challenges and will gain one-time boons and bonuses that help them navigate the encounter in question. Your GM has all of this information and will inform the party whenever persona traits come into play.</p>\n<p>The eight persona traits are:</p>\n<p><strong>Flirt</strong>: The public perceives you as the most romantic of the group, and you may be thought of as a seducer or vapid pretender who gets by on their looks and brings nothing of value to the party.</p>\n<p><strong>Guardian</strong>: The public perceives you as the healer and protector of the group, but some may also consider you too soft-hearted and meek to be a \"true hero.\"</p>\n<p><strong>Leader</strong>: The public perceives you as the leader of the group, but some likewise consider you too brash or even pompous.</p>\n<p><strong>Scholar</strong>: The public considers you the problem-solver and brains of the group, though some also perceive you as arrogant or incapable of physical tasks.</p>\n<p><strong>Scoundrel</strong>: The public is convinced you are the \"bad boy/bad girl\" of the group who gets the distasteful but necessary things done, but who is at times thought of as a criminal or potential traitor to the party.</p>\n<p><strong>Underdog</strong>: The public perceives you as a \"fish out of water\"—someone who accidently got swept up by the group and still manages to triumph, but who is sometimes thought of as a weak link or loser.</p>\n<p><strong>Warrior</strong>: The public believes you are the strong-arm of the group, the person who excels in a fight but is also at times considered cruel, uncouth, or even a bully.</p>\n<p><strong>Wildcard</strong>: The public perceives you as a source of whimsy, outlandish ideas, and comedy in the group, but that reputation is a double-edged sword, as some also consider you a liability or unreliable.</p>"
+          },
+          "rules": [
+            {
+              "adjustName": false,
+              "choices": [
+                {
+                  "label": "PF2E.TraitPersonaFlirt",
+                  "value": "persona-flirt"
+                },
+                {
+                  "label": "PF2E.TraitPersonaGuardian",
+                  "value": "persona-guardian"
+                },
+                {
+                  "label": "PF2E.TraitPersonaLeader",
+                  "value": "persona-leader"
+                },
+                {
+                  "label": "PF2E.TraitPersonaScholar",
+                  "value": "persona-scholar"
+                },
+                {
+                  "label": "PF2E.TraitPersonaScoundrel",
+                  "value": "persona-scoundrel"
+                },
+                {
+                  "label": "PF2E.TraitPersonaUnderdog",
+                  "value": "persona-underdog"
+                },
+                {
+                  "label": "PF2E.TraitPersonaWarrior",
+                  "value": "persona-warrior"
+                },
+                {
+                  "label": "PF2E.TraitPersonaWildcard",
+                  "value": "persona-wildcard"
+                }
+              ],
+              "flag": "persona",
+              "key": "ChoiceSet",
+              "prompt": "PF2E.SpecificRule.Prompt.Persona"
+            },
+            {
+              "add": ["{item|flags.system.rulesSelections.persona}"],
+              "key": "ActorTraits"
+            }
+          ],
+          "actionType": {
+            "value": "passive"
+          },
+          "actions": {
+            "value": null
+          },
+          "category": "deityboon",
+          "prerequisites": {
+            "value": []
+          }
+        },
+        "folder": "8aTEGG8Cq1wG6qI5"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:play-to-the-crowd-dandy",
+      "foundry": "Compendium.pf2e.feats-srd.Item.uiEoY3uGSEOCaftX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:primadonna",
+      "foundry": "Compendium.pf2e.feats-srd.Item.pBP8KL1yPU3W1Kmh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:tempo-shift",
+      "foundry": "Compendium.pf2e.feats-srd.Item.uMnXk55zlwx26zeW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:tragic-lament",
+      "foundry": "Compendium.pf2e.feats-srd.Item.qq7QHfysWzBn4z36",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "curtain-call",
+      "slug": "feat:virtuosic-dancer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.W9Eizd4k0UKO2nT0",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

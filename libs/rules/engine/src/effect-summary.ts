@@ -1,5 +1,5 @@
 import { Level, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
-import type { ContentId, ContentLevel, Origin, RuleElements, Selector } from '@pioneer/rules/sdk';
+import type { ContentId, ContentLevel, Origin, RuleElements, Selector, SpellRank } from '@pioneer/rules/sdk';
 
 import { deriveDefences } from './defences';
 import type { Defences } from './defences';
@@ -40,11 +40,13 @@ export interface SummarisedEntry {
   readonly rules: RuleElements;
   readonly sources: Origin['sources'];
   readonly level?: ContentLevel | undefined;
+  /** The rank a spell is cast at, which `@item.level` reads in place of `level`. */
+  readonly rank?: SpellRank | undefined;
 }
 
 /** The entry's rules as they would be in play when it is taken, equipped, cast or gained. */
 function candidates(entry: SummarisedEntry): readonly RuleInPlay[] {
-  const itemLevel = Level.safeParse(entry.level).data;
+  const itemLevel = Level.safeParse(entry.rank ?? entry.level).data;
   return entry.rules.map((element, rule) =>
     RuleInPlay.parse({
       element,

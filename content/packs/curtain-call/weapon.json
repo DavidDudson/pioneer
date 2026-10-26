@@ -1,0 +1,706 @@
+[
+  {
+    "id": "e900157e-1b1d-596a-be14-34cbabf7095c",
+    "pack": "curtain-call",
+    "kind": "weapon",
+    "slug": "weapon:retribution",
+    "name": "Retribution",
+    "level": 21,
+    "rarity": "unique",
+    "traits": ["agile", "artifact", "backstabber", "deadly-d8", "divine", "finesse"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Retribution is a "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking keen shifting wounding war razor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Vengeful Slice",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make a Strike with Retribution against a target within 120 feet that you can see and who damaged you within the last minute, as if they were within reach."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CHYfP0gm2AiBfk7b"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "vengeful-slice",
+          "name": "Vengeful Slice",
+          "frequency": {
+            "max": 1,
+            "per": "round"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "war-razor",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": [
+          "bc974552-c0c5-57ac-9924-d474d2bdf9a0",
+          "ef5cd06c-2a43-5c3b-bb92-137af16e574e",
+          "2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"
+        ]
+      }
+    }
+  },
+  {
+    "id": "d54087c8-51ca-5792-ad66-4e05483dadfd",
+    "pack": "curtain-call",
+    "kind": "weapon",
+    "slug": "weapon:sinew-song",
+    "name": "Sinew-Song",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["agile", "finesse", "magical", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "sinew-song",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is an ivory violin bow that bears an odd string, one that vibrates on its own, creating the soft sound of violin music whenever it's swung through the air. When used to play a violin, this ivory bow functions normally but grants a +3 item bonus to any Performance check attempted as a result. It can also be used to mime playing a violin when no instrument is at hand, but in this case, it grants no item bonus to resulting Performance checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "sinew-song's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " primary use is as a weapon—it can be wielded as if it were a "
+          },
+          {
+            "type": "text",
+            "text": "+3 keen greater thundering greater striking sickle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Cutting Cadenza",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, sonic)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Stride once and then swipe the weapon through the air three times. Shimmering waves of sound slice out in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 37
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes damage as if you successfully hit it with a Strike using a "
+          },
+          {
+            "type": "text",
+            "text": "sinew-song",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", but all of the damage is sonic damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but double the damage and the creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ctmmhe5ZOYx57gTt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cutting-cadenza",
+          "name": "Cutting Cadenza",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "sickle",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["bc974552-c0c5-57ac-9924-d474d2bdf9a0", "c664b0a6-72e7-5dd0-ae00-7c7bd0fa933f"]
+      }
+    }
+  },
+  {
+    "id": "ed6e8bf4-1a73-5b37-a51c-231bac5ef4bc",
+    "pack": "curtain-call",
+    "kind": "weapon",
+    "slug": "weapon:thorn-brush",
+    "name": "Thorn Brush",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["holy", "magical", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking holy shifting morningstar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a head that appears to be a deep crimson metal rose with thorny petals. When you activate a "
+          },
+          {
+            "type": "text",
+            "text": "thorn brush",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to Shift Weapon, you can cause it to take the shape of a painter's brush. While in this shape, it can't be used as a weapon (it can still be activated to Shift Weapon back into a morningstar), but it does grant a +2 item bonus to Crafting checks to paint or otherwise use the tool while creating artwork."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Splatter Paint",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You swing the weapon in an arc, causing a spray of paint of a color of your choice (chosen from black, blue, green, orange, white, or yellow) to splatter all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". Each creature takes 14d6 energy damage based on the color of the paint ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "14d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for black, "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "14d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for blue, "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "14d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for green, "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "14d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for orange, "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "14d6",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for white, or "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "14d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for yellow) and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 34
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " by paint in its eyes for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " by paint in its eyes for 1 round and then dazzled for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BXaVkD10z45VCXvl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "splatter-paint",
+          "name": "Splatter Paint",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "club",
+      "baseItem": "morningstar",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["1c942139-39ff-5ab6-bccc-88a68a1ec2e6", "ef5cd06c-2a43-5c3b-bb92-137af16e574e"]
+      }
+    }
+  }
+]

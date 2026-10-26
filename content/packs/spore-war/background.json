@@ -1,0 +1,668 @@
+[
+  {
+    "id": "2c2a12d3-f661-58f3-ad63-305085663d07",
+    "pack": "spore-war",
+    "kind": "background",
+    "slug": "background:blight-survivor",
+    "name": "Blight Survivor",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Centuries ago, the elven witch Silisifex played an important role in the fight against Treerazer. With her deep knowledge, power over primal magic, and abiding faith in Calistria, she was one of the first elves to directly fight against the encroaching fiendish blight that was Tanglebriar. Her discoveries, teachings, and lore have continued to protect and inspire elves to this very day, centuries after she vanished mysteriously on a mission into Tanglebriar back in 3050 ar."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether you're a primal spellcaster or merely someone whose life was impacted by Tanglebriar's blight, Silisifex's discoveries and methods for combating the demonic corruption of nature has benefited you significantly over the course of your life and may even have saved you from being corrupted yourself. Alternately, you could have had close friends or family members who became corrupted only to have been restored before that corruption could become permanent. Many have succumbed to the influence of Tanglebriar over the ages, but you count yourself as one of the survivors of this corruption. Using your hard-earned experience to help others survive their encounter with the blight has, in part, defined your role in Kyonin or abroad."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Nature skill and the Fungus Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "856964c2-d154-5fe7-afe4-6e4bac163989"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. In addition, once you're 4th level, you gain the ability to cast "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": " as an innate primal spell once per day. This spell automatically heightens to a rank equal to half your level, rounded up. If you're cleansing an affliction with the fungus trait, you gain a +4 status bonus to your counteract check."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:fungus",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "856964c2-d154-5fe7-afe4-6e4bac163989"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.TaIF4CqKl8ffT3Lo"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "820916b7-de8e-582d-bb93-ae32c0618b1d",
+    "pack": "spore-war",
+    "kind": "background",
+    "slug": "background:demon-hunted",
+    "name": "Demon Hunted",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During the first war against Tanglebriar, when the elves returned to Kyonin to fight against Treerazer, many heroes rose to prominence while reclaiming their ancestral homeland from demonic occupation. Some of those heroes' tales are still told today. The legend Kyloss Syndar in particular, whose bravery against Treerazer's minions came to a glorious end as he single-handedly slew the demonic hydra Slithermaw and died of his wounds, has always loomed large in your mind, as you can trace your lineage back through the generations to this storied hero. Whether you carry that link with pride and strive to live up to his legacy or instead have felt hounded by a family history you'd rather leave behind in hopes of building something of your own, the demonic armies of Tanglebriar don't care. Demons live longer than elves, and many who clashed against Kyloss still live today. They have at times made your life difficult, to say the least. Whether you've lived life on the run, lost a family member to demonic attack, or simply endured the frightening sensation of being stalked, Treerazer and his agents believe your bloodline should be wiped out. Your focus in honing your skills in combat, the force of your personality, or simply remaining ready to fight for your life at a moment's notice, have shaped you into an increasingly dangerous foe against demonkind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Intimidation skill and the Warfare Lore skill. You gain the Intimidating Glare skill feat. In addition, you gain a +1 circumstance bonus to all saving throws against mental effects. For 1 minute after you witness a demon suffer from having its sin vulnerability triggered, this increases to a +2 circumstance bonus."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "929a79ff-9bd7-5ee6-b2c6-6d2c52346b56"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:mental"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:warfare",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.QoLKbkrudnJmhq9y"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "7d3ef6c5-a41e-5177-9c12-f65a2fbdcb4c",
+    "pack": "spore-war",
+    "kind": "background",
+    "slug": "background:fiendbreaking-pilgrim",
+    "name": "Fiendbreaking Pilgrim",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Soon after the elves returned to stop Treerazer's corruption of Kyonin, word spread across the globe, reaching the distant elven nation of Jinin in the heart of Tian Xia. No strangers to the fight against evil, a group of Jinin priests and oracles made a desperate pilgrimage across the world to join the fight against Tanglebriar. With them they brought one of their greatest treasures, the legendary staff Fiendbreaker. Created by Jininsiel, founder of Jinin, to serve as a gift to aid the nation's neighbors in Tianjing against their own fiendish invasion, Fiendbreaker's role in helping to defeat Tanglebriar's forces in that ancient war is well known."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Today, with Tanglebriar relatively contained, the need for powerful weapons like Fiendbreaker may be lessened, but this treasured gift's legendary journey across the world is honored still by pilgrimages, during which a group of priests and worshippers from a wide range of faiths gather and carry Fiendbreaker out from Kyonin and back again to honor that legacy. The goal of these journeys isn't to deliver the staff where it's needed. Instead, it's a journey of self-discovery, where the petitioners meditates on Fiendbreaker, the legacy of its creator Jininsiel, and a promise among all pilgrims to stand against the demonic evil."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have been on at least one of these pilgrimages, and the journey has touched you deeply. You focused your studies on Treerazer, his cult, and his methods, and your long hours studying Fiendbreaker have resulted in a knack for understanding the inner workings of other magic items."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Religion skill and the Treerazer Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8f60468d-7f71-56d5-8296-a9b16622e2e3"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, can use Treerazer Lore checks in place of Perception when you attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa",
+            "label": "Sense the Motive"
+          },
+          {
+            "type": "text",
+            "text": " of a creature you suspect of being an agent of Treerazer. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d1c50200-6ed0-5efa-bad6-5ca4578ac3e2"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "d1c50200-6ed0-5efa-bad6-5ca4578ac3e2"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:treerazer",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "8f60468d-7f71-56d5-8296-a9b16622e2e3"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.O8iPkxpWxUZHmE7j"
+    },
+    "data": {
+      "boosts": [
+        ["str", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "b4e7d51c-924d-5876-96a3-b8607146f274",
+    "pack": "spore-war",
+    "kind": "background",
+    "slug": "background:portal-scholar",
+    "name": "Portal Scholar",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Candlaron's legacy is one of the strongest elven legacies on Golarion and beyond, for it was he who first created the aiudara—the network of magical portals that link Kyonin to Castrovel and so many other locations across Golarion. Most of these portals are located in the Inner Sea region, where Candlaron spent the majority of his time. Now that he's long gone, the particulars of how to create new aiudara has eluded discovery, causing some elven scholars to believe that there was something unique to Candlaron's mind or soul that allowed for his ability to craft and enchant so many portals throughout different regions and worlds. Even Treerazer himself hasn't cracked that magical code, although not for lack of trying. At least one aiudara, the remote archway known now as Tanglegate, lies deep in his territory. As one of countless scholars of these portals, you've spent much of your time studying Candlaron's techniques, as well as the complex fundamentals of a wide range of teleportation magics and effects. Whether you seek to find a way to build portals of your own, hope to bolster the aiudara network from further tampering from Treerazer, or are simply enthralled by the supernatural rush of vanishing from reality only to reappear in the same instant somewhere else, portals have long fascinated you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Arcana skill and the Architecture Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "2e7a3f2a-4cb5-59ab-a713-07b8f1076bae"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, and also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d3dc5806-5938-5ca2-b4d0-a320dab3d62e"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "d3dc5806-5938-5ca2-b4d0-a320dab3d62e"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:arcana",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:architecture",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "2e7a3f2a-4cb5-59ab-a713-07b8f1076bae"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.f0YEqRFDdrWmfTj1"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "eff89efd-7a2f-597e-b798-3388fb3c5eda",
+    "pack": "spore-war",
+    "kind": "background",
+    "slug": "background:story-collector",
+    "name": "Story Collector",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The power stories exude over the world has long fascinated you. No matter if they're accurate historical accounts, distorted parables, or completely fictional constructions, the way tales can shape society is a kind of magic. In some cases, literal, occult magic! One tale that's come back to modern lips of late is an ancient one indeed, the story of the elven hero Iyalirrin, an Ekujae bard who helped to create a ritual known as the anima invocation in his people's pursuit against the devastations caused by Dahak in the aftermath of Earthfall. Other heroes rediscovered Iyalirrin's story and the ritual a few short years ago, but it was Iyalirrin's admiration of the art of storytelling that spoke more to you. Whether you came to this realization recently or if you've long known about the ancient elven hero's admiration of spoken tales, you've devoted much of your adult life to the gathering and crafting of stories of your own. The way in which occult magic can manipulate the power of story is a particular obsession of yours, especially with a handy little trick you've learned that allows you to access power locked away in magic items you'd otherwise struggle to use. Simply by adjusting your story, the item's story, or both... and then giving the tiniest little push of occult magic, you can unlock a wide range of magical tools. These same tricks, you've come to discover, also work well on demons—particularly when used to remind them of their sins and the shame their once-mortal souls may have held eons ago."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Occultism skill and the Demon Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "84668477-281c-5d8d-915d-41b10d9658f7"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, as well as the "
+          },
+          {
+            "type": "ref",
+            "id": "47799988-d89a-53ed-b91a-fd37af791c02"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "47799988-d89a-53ed-b91a-fd37af791c02"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:demon",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "84668477-281c-5d8d-915d-41b10d9658f7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.9IZNPa577ZyKB0la"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "0a6ebef3-b2f3-5c87-b9cc-c92ecff7656e",
+    "pack": "spore-war",
+    "kind": "background",
+    "slug": "background:student-of-archery",
+    "name": "Student of Archery",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Elves are known to be talented and gifted archers. Whether you grew up in elven society or sought one out for training, you've studied the secrets of ranged combat with some of the best teachers elves have to offer. While traditionally these secrets are focused on the practice of archery, you may have instead focused your studies in a different way to maximize and enhance your skills with any number of diverse ranged weapons, from simple ones like slings or javelins to less common weapons like pistols or rifles—or any ranged weapon in between. You didn't stop at learning these secrets for yourself, though—you've spent time traveling the world to bring this lore to other worthy students across the Inner Sea region and beyond. A big part of your lectures and lessons involves stories of famous archers from the past, and one of your favorites is the legendary elven archer Jelarial, who (with her magical bow Wintershot) helped lead a group of elves north into the Crown of the World to escape the coming devastation of Earthfall eons ago. During your travels, you've often had to resort to stealth when traveling through dangerous areas, a skill that also greatly aids your ability to find a hiding spot to lie in wait when hunting prey for food or sniping foes from afar—these tactics too have influenced how you teach your students. Now, though, you've come to Kyonin, be it a return home after your travels or to offer your skills to new students."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Stealth skill and the Warfare Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "64a7812f-3d66-543f-92ba-09b830326f80"
+          },
+          {
+            "type": "text",
+            "text": " skill feat and have focused your abilities on a specific type of ranged weapon. Choose a ranged weapon (subject to GM approval). For the purposes of proficiency, if your choice is a martial weapon, you treat it as a simple weapon; if it's an advanced weapon, you treat it as a martial weapon. With this weapon, you ignore the penalty for making ranged attacks within your second range increment, and at 5th level, whenever you get a critical hit with this weapon, you get its critical specialization effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:warfare",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "64a7812f-3d66-543f-92ba-09b830326f80"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.qzzGLtQCPBTgKYAk"
+    },
+    "data": {
+      "boosts": [
+        ["con", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]

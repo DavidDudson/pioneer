@@ -51,6 +51,7 @@ export const RulesMessage = {
   SpellDamageKey: 'rules.spell.damageKey',
   SpellHeightenAbove: 'rules.spell.heightenAbove',
   SpellHeightenEmpty: 'rules.spell.heightenEmpty',
+  SpellDismissBoth: 'rules.spell.dismissBoth',
   SpellVariantEmpty: 'rules.spell.variantEmpty',
   SpellAgainst: 'rules.spell.against',
   SpellDurationOwner: 'rules.spell.durationOwner',

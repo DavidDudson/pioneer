@@ -1,0 +1,630 @@
+[
+  {
+    "id": "3e2986bc-c771-50dc-9c20-0a15693e676a",
+    "pack": "shades-of-blood",
+    "kind": "feat",
+    "slug": "feat:blood-shield",
+    "name": "Blood Shield",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 or more sanguimancy Hit Points"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You raise a defensive barrier of your own blood to protect you. You gain a +1 circumstance bonus to AC until the start of your next turn, increasing to a +2 bonus if you spend 10 or more sanguimancy Hit Points. While this bonus is in effect, you can use the Shield Block reaction with your blood shield. The blood shield has Hardness equal to four times the number of sanguimancy Hit Points you spent. After you use Shield Block, the blood shield dissipates, ending the circumstance bonus to AC early."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.oTEidzP2UmYowhud"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sanguimancer Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      },
+      "archetype": "8e7b80ff-5666-5182-82d9-e03eef04b77c"
+    }
+  },
+  {
+    "id": "1ee311aa-55d2-5bf7-b6e9-e83ae3a22ba6",
+    "pack": "shades-of-blood",
+    "kind": "feat",
+    "slug": "feat:bloodsense",
+    "name": "Bloodsense",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're extraordinarily sensitive to the presence of blood. You gain bloodsense as an imprecise sense with a range of 15 feet. This allows you to sense the presence of creatures, living or dead, that have blood (this includes most creatures that aren't immune to bleed). You're similarly able to detect the presence of fresh blood in volumes of one pint or more, so long as it's no more than 24 hours old."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "f14d179a-1584-59f0-a180-c4c668d3780c",
+        "acuity": "imprecise",
+        "range": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.QRL79whClQDHljoi"
+    },
+    "data": {
+      "category": "general",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in Perception"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b8cfa641-5a4c-52bd-b8f5-8d7ebc441cde",
+    "pack": "shades-of-blood",
+    "kind": "feat",
+    "slug": "feat:exsanguinate",
+    "name": "Exsanguinate",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " On your last action, you dealt damage to a creature that isn't immune to bleed damage and is within 10 feet. The damage must have come from a piercing or slashing Strike. You must have succeeded at your attack roll, or the creature must have failed its saving throw, as applicable."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After one of your attacks, you direct your foe's blood to spray upon you, infusing you with life energy. You gain a number of sanguimancy HP equal to half your level that last only until the end of your next turn. Exsanguinate works only against active foes who are able to act and aren't "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.d7qKSoYixczsD5nL"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sanguimancer Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "On your last action, you dealt damage to a creature that isn't immune to bleed damage and is within 10 feet. The damage must have come from a piercing or slashing Strike. You must have succeeded at your attack roll, or the creature must have failed its saving throw, as applicable."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "8e7b80ff-5666-5182-82d9-e03eef04b77c"
+    }
+  },
+  {
+    "id": "1f859c89-bc4d-5278-86a9-a9e7db7e1f8d",
+    "pack": "shades-of-blood",
+    "kind": "feat",
+    "slug": "feat:sanguimancer-dedication",
+    "name": "Sanguimancer Dedication",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The life essence in your blood recovers naturally over time. You gain a special type of temporary Hit Points called sanguimancy Hit Points that follow the normal rules for temporary Hit Points with two exceptions: you can spend them to power some sanguimancy feats, and you can never have a greater number of sanguimancy Hit Points than double your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After a full 8-hour rest, you gain sanguimancy HP equal to your level that last for 8 hours. If someone successfully restores HP to you with "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44"
+          },
+          {
+            "type": "text",
+            "text": ", you also gain 1 sanguimancy HP for every 10 Hit Points recovered (minimum 1 sanguimancy HP)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Sanguimancer actions have the trait matching your spellcasting tradition; if you don't have one, choose divine or occult when you select the Sanguimancer Dedication."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sanguimancer"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.HASFgAZ7spYleeaq"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "474f351b-9601-523a-a352-714b5db84a07",
+    "pack": "shades-of-blood",
+    "kind": "feat",
+    "slug": "feat:sanguine-tenacity",
+    "name": "Sanguine Tenacity",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your blood carries permanent regenerative properties. The penalties from "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+          },
+          {
+            "type": "text",
+            "text": " and the penalties and lost HP from "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": " both affect you as if the condition values were 1 lower than they actually are. You also gain resistance 5 to persistent bleed damage and reduce the DC of checks to recover from persistent bleed damage to 11, or 6 if you have particularly effective assistance."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["bleed"],
+        "value": 5
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["con-based", "str-based", "str-damage"],
+        "mode": "add",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["penalty:slug:drained", "penalty:slug:enfeebled"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["hp"],
+        "type": "untyped",
+        "value": "@level",
+        "predicate": ["self:condition:drained"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2KVllUXqgWq7jCmX"
+    },
+    "data": {
+      "category": "general",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Constitution +4"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "211f92a6-f66f-5a2b-a661-3737a65a8b9b",
+    "pack": "shades-of-blood",
+    "kind": "feat",
+    "slug": "feat:transfusion",
+    "name": "Transfusion",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 5 or more sanguimancy Hit Points"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bring forth the regenerative properties of blood on behalf of an ally or yourself. You touch a willing creature and grant them fast healing 1 for 5 rounds. You can spend an additional 5 sanguimancy Hit Points to increase the fast healing by 1, to a maximum of 8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.q4wFELOV4BQO4cDd"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sanguimancer Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "8e7b80ff-5666-5182-82d9-e03eef04b77c"
+    }
+  },
+  {
+    "id": "bfb5876c-18de-5dcf-a2d4-fad4814ec06b",
+    "pack": "shades-of-blood",
+    "kind": "feat",
+    "slug": "feat:vasodilation",
+    "name": "Vasodilation",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Using the power of your own blood, you encourage increased blood flow to nourish damaged tissue or stifle the flow to clot wounds or prevent the spread of poison and disease. You no longer require a healer's toolkit to "
+          },
+          {
+            "type": "ref",
+            "id": "e03baa02-2fea-552f-9996-c41bfa074713"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "07fc0cb2-53f2-5552-82e6-5e43003875eb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "1a89ca53-58a9-5dc9-913e-3dfa46e5e1b0"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44"
+          },
+          {
+            "type": "text",
+            "text": ", though you take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage each time you take one of these actions without the proper tools from the expenditure of your blood. You can't reduce or prevent this damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus when performing these actions using your blood, which increases to +2 if you're a master in Medicine and +3 if you're legendary."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "item",
+        "value": "ternary(gte(@rank.skill.medicine, 4), 3, ternary(gte(@rank.skill.medicine, 3), 2, 1))",
+        "predicate": [
+          {
+            "or": ["action:administer-first-aid", "action:treat-disease", "action:treat-poison", "action:treat-wounds"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.X4T7pO25YgW5lHWJ"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Medicine"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "7ac3feab-f6ee-5ea1-a399-82f2ded89494",
+    "pack": "shades-of-blood",
+    "kind": "feat",
+    "slug": "feat:venipuncture",
+    "name": "Venipuncture",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " all your remaining sanguimancy Hit Points (minimum 3)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A shell made up of hundreds of razor-thin needles of blood forms around you before exploding outward, lacerating foes in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". The needles deal piercing damage equal to double the number of sanguimancy Hit Points you spent, to a maximum of 80 damage. Creatures caught in the blast must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. The DC for this save is your class DC or spell DC, whichever is higher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.KgyJw7fmcUWymYyb"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sanguimancer Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "8e7b80ff-5666-5182-82d9-e03eef04b77c"
+    }
+  }
+]

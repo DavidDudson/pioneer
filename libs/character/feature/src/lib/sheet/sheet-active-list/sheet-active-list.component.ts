@@ -21,6 +21,7 @@ import { ACTIVE_CONTENT_KINDS, activeRows, ActiveKind } from '../sheet-active-li
 import type { ActiveRow } from '../sheet-active-list';
 import { describeSaveError } from '../sheet-field';
 import { SheetSpender } from '../sheet-spender';
+import { SheetDismissButton } from './sheet-dismiss-button.component';
 
 /** How each source of an active spell or effect is worded, spelled out so the key check sees them. */
 const SOURCE_KEYS: Readonly<Record<EffectSourceKind, string>> = {
@@ -52,7 +53,18 @@ function takesAction(row: ActiveRow, turn: TurnState | undefined): boolean {
  */
 @Component({
   selector: 'pio-sheet-active-list',
-  imports: [AsyncButton, AsyncData, AsyncPending, AsyncRegion, Badge, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [
+    AsyncButton,
+    AsyncData,
+    AsyncPending,
+    AsyncRegion,
+    Badge,
+    SheetDismissButton,
+    Skeleton,
+    Stack,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './sheet-active-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

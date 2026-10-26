@@ -1,0 +1,26 @@
+[
+  {
+    "id": "3ba99a00-7062-57c2-869c-81a33695d190",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:shelyn-lore",
+    "name": "Shelyn Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:shelyn",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.shelyn",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

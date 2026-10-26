@@ -44,7 +44,7 @@ const elementVariants = cva('', {
       [TextElement.Span]: '',
       [TextElement.Paragraph]: '',
       [TextElement.Preformatted]: 'whitespace-pre-wrap break-words font-mono',
-      [TextElement.Code]: 'break-words font-mono',
+      [TextElement.Code]: 'wrap-anywhere font-mono',
       [TextElement.Keyboard]: 'border border-line-default bg-surface-sunken px-3xs font-mono',
       [TextElement.Abbreviation]: '',
       [TextElement.Quotation]: '',

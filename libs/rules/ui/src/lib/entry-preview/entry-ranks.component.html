@@ -1,0 +1,21 @@
+<fr-stack gap="xs">
+  <fr-stack gap="3xs">
+    <fr-text weight="medium">{{ Message.CastAt | transloco }}</fr-text>
+    <fr-select
+      [options]="options()"
+      [value]="rank().toString()"
+      [ariaLabel]="Message.CastAt | transloco"
+      (valueChange)="pick($event)"
+    />
+  </fr-stack>
+  <pio-spell-fields [fields]="cast()" />
+  @for (variant of cast().variants; track variant.name) {
+    <fr-stack gap="3xs">
+      <fr-text variant="caption" tone="muted">{{ variant.name }}</fr-text>
+      <pio-spell-fields [fields]="variant" />
+    </fr-stack>
+  }
+  @if (effects(); as lines) {
+    <pio-entry-effects [effects]="lines" />
+  }
+</fr-stack>

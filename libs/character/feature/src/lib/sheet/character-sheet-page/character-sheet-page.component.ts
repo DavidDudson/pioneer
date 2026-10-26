@@ -1,4 +1,3 @@
-import { NgComponentOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
@@ -8,7 +7,6 @@ import {
   AsyncPending,
   AsyncRegion,
   DateDisplay,
-  Drawer,
   Page,
   PageBody,
   PageHeader,
@@ -25,6 +23,8 @@ import { CHARACTER_CONTENT_PROVIDERS } from '../../data/source-packs';
 import { SheetConditions } from '../sheet-conditions/sheet-conditions.component';
 import { SheetCounted } from '../sheet-counted/sheet-counted.component';
 import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
+import { SheetDrawers } from '../sheet-drawers/sheet-drawers.component';
+import { SheetForm } from '../sheet-form/sheet-form.component';
 import { SheetHeaderActions } from '../sheet-header-actions/sheet-header-actions.component';
 import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
@@ -32,8 +32,8 @@ import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
 import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
-import { SheetSidePanelHost } from '../sheet-side-panel/sheet-side-panel.component';
 // oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
+import { SheetSidePanelHost } from '../sheet-side-panel/sheet-side-panel.component';
 import { SHEET_PLAY_PROVIDERS } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
 
@@ -50,8 +50,6 @@ import { SheetState } from '../sheet-state';
     AsyncPending,
     AsyncRegion,
     DateDisplay,
-    Drawer,
-    NgComponentOutlet,
     Page,
     PageBody,
     PageHeader,
@@ -59,10 +57,12 @@ import { SheetState } from '../sheet-state';
     SheetDeathTrack,
     SheetConditions,
     SheetCounted,
+    SheetForm,
     SheetHeaderActions,
     SheetResources,
     SheetHitPoints,
     SheetLastRoll,
+    SheetDrawers,
     SheetSidePanelHost,
     Skeleton,
     Stack,
@@ -88,7 +88,6 @@ export class CharacterSheetPage {
   public readonly id = input.required({ transform: (id: string): CharacterId => CharacterId.parse(id) });
 
   protected readonly sheet = inject(SheetState);
-  protected readonly sidePanel = inject(SheetSidePanelState);
   protected readonly character = this.sheet.character;
   protected readonly tabs = SHEET_TABS;
   protected readonly title = computed(() => this.character()?.name);

@@ -1,23 +1,30 @@
 import { ActiveSpellId, EffectRounds, SlotCountKey } from '@pioneer/character/domain';
 import type { ActiveSpell } from '@pioneer/character/domain';
-import { ContentId, ContentKind, ContentRegistry, SpellRank } from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, ContentRegistry, RichTextString, SpellRank } from '@pioneer/rules/sdk';
+import type { RichText } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { newId } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
 import { ActiveKind, activeCount, activeRows, sustainedCast } from './sheet-active-list';
 
+const NOTE: RichText = [
+  { type: 'paragraph', content: [{ type: 'text', text: RichTextString.parse('A reaction when an ally hits.') }] },
+];
+
 const pack = new ContentPackBuilder()
   .withId('player-core')
   .withSpell('barrier', { rank: 2, traditions: [], duration: { type: 'sustained' } })
   .withSpell('mirror', { rank: 3, traditions: [], duration: { type: 'sustained' }, dismiss: true })
-  .withSpell('fireball', { rank: 3, traditions: [] });
+  .withSpell('fireball', { rank: 3, traditions: [] })
+  .withSpell('mark', { rank: 3, traditions: [], dismissNote: NOTE });
 const registry = new ContentRegistry();
 registry.register(pack.build());
 
 const BARRIER = ContentId.parse(pack.idOf(ContentKind.Spell, 'barrier'));
 const MIRROR = ContentId.parse(pack.idOf(ContentKind.Spell, 'mirror'));
 const FIREBALL = ContentId.parse(pack.idOf(ContentKind.Spell, 'fireball'));
+const MARK = ContentId.parse(pack.idOf(ContentKind.Spell, 'mark'));
 
 function active(spell: ContentId, remaining: number, sustainedThisTurn: boolean): ActiveSpell {
   return {
@@ -41,8 +48,14 @@ describe(activeRows, () => {
       sustainedThisTurn: true,
       canSustain: true,
       dismissAction: false,
+      dismissNote: undefined,
       editable: false,
     });
+  });
+
+  it('carries the note on how a spell is dismissed early, which costs no Dismiss action', () => {
+    const [row] = activeRows(registry, { activeSpells: [active(MARK, 9, false)], effects: [] });
+    expect(row).toMatchObject({ dismissAction: false, dismissNote: NOTE });
   });
 
   it('cannot sustain a spell on its last round', () => {

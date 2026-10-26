@@ -708,3 +708,5 @@ export {
   environmentRoots,
   isEnvironmentCommand,
 } from './environments';
+export { type Generated, type GenerateInput, generateCharacter } from './generate-character';
+export { slotCandidates } from './slot-candidates';

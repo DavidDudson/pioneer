@@ -1,0 +1,4832 @@
+[
+  {
+    "id": "f1d5f9cf-b638-5afa-9ad3-622c79a3906d",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:arboreal-wand-rank-2",
+    "name": "Arboreal Wand (Rank 2)",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["healing", "magical", "vitality", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gnarled wand is made from the branch of an arboreal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " at the indicated rank. After you cast the spell, the raw primal energy stored within the arboreal from which the wand was made washes over one target you choose and tries to purify its essence. The wand attempts to counteract the lowest level affliction affecting your target. It uses your casting modifier and a counteract rank of half the wand's item level rounded up."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank and a branch freely given by an arboreal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MXK38neBJmy2n2AE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "arboreal-wand-rank-2",
+          "name": "Arboreal Wand (Rank 2)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "category": "wand",
+      "kept": true,
+      "spell": {
+        "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e",
+        "rank": 2
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "855a1a3b-00f3-568a-a1e7-7f3ad910c817",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:arboreal-wand-rank-3",
+    "name": "Arboreal Wand (Rank 3)",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["healing", "magical", "vitality", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gnarled wand is made from the branch of an arboreal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " at the indicated rank. After you cast the spell, the raw primal energy stored within the arboreal from which the wand was made washes over one target you choose and tries to purify its essence. The wand attempts to counteract the lowest level affliction affecting your target. It uses your casting modifier and a counteract rank of half the wand's item level rounded up."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank and a branch freely given by an arboreal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.x6Yc3ig6qCYw5cMj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "arboreal-wand-rank-3",
+          "name": "Arboreal Wand (Rank 3)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "category": "wand",
+      "kept": true,
+      "spell": {
+        "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e",
+        "rank": 3
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1d87a890-3d31-5ca9-b780-743d0d22a3b4",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:arboreal-wand-rank-4",
+    "name": "Arboreal Wand (Rank 4)",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["healing", "magical", "vitality", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gnarled wand is made from the branch of an arboreal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " at the indicated rank. After you cast the spell, the raw primal energy stored within the arboreal from which the wand was made washes over one target you choose and tries to purify its essence. The wand attempts to counteract the lowest level affliction affecting your target. It uses your casting modifier and a counteract rank of half the wand's item level rounded up."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank and a branch freely given by an arboreal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eOtQtVRLeGH39dNx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "arboreal-wand-rank-4",
+          "name": "Arboreal Wand (Rank 4)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "category": "wand",
+      "kept": true,
+      "spell": {
+        "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e",
+        "rank": 4
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2101ccfd-1861-56c3-8487-04e71bf49e9b",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:arboreal-wand-rank-5",
+    "name": "Arboreal Wand (Rank 5)",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["healing", "magical", "vitality", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gnarled wand is made from the branch of an arboreal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " at the indicated rank. After you cast the spell, the raw primal energy stored within the arboreal from which the wand was made washes over one target you choose and tries to purify its essence. The wand attempts to counteract the lowest level affliction affecting your target. It uses your casting modifier and a counteract rank of half the wand's item level rounded up."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank and a branch freely given by an arboreal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YynRLFPm1yt6nDAQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "arboreal-wand-rank-5",
+          "name": "Arboreal Wand (Rank 5)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "category": "wand",
+      "kept": true,
+      "spell": {
+        "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e",
+        "rank": 5
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0e1d2c16-269b-549f-9fc2-4299363ed3ad",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:arboreal-wand-rank-6",
+    "name": "Arboreal Wand (Rank 6)",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["healing", "magical", "vitality", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gnarled wand is made from the branch of an arboreal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " at the indicated rank. After you cast the spell, the raw primal energy stored within the arboreal from which the wand was made washes over one target you choose and tries to purify its essence. The wand attempts to counteract the lowest level affliction affecting your target. It uses your casting modifier and a counteract rank of half the wand's item level rounded up."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank and a branch freely given by an arboreal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gSstSNe0sxB2mIKW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "arboreal-wand-rank-6",
+          "name": "Arboreal Wand (Rank 6)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "category": "wand",
+      "kept": true,
+      "spell": {
+        "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e",
+        "rank": 6
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a192a8d6-05f9-504e-9ebf-11a55f7586b6",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:arboreal-wand-rank-7",
+    "name": "Arboreal Wand (Rank 7)",
+    "level": 19,
+    "rarity": "rare",
+    "traits": ["healing", "magical", "vitality", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gnarled wand is made from the branch of an arboreal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " at the indicated rank. After you cast the spell, the raw primal energy stored within the arboreal from which the wand was made washes over one target you choose and tries to purify its essence. The wand attempts to counteract the lowest level affliction affecting your target. It uses your casting modifier and a counteract rank of half the wand's item level rounded up."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "heal",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank and a branch freely given by an arboreal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CMcUibNLDN9xhqJO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "arboreal-wand-rank-7",
+          "name": "Arboreal Wand (Rank 7)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "category": "wand",
+      "kept": true,
+      "spell": {
+        "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e",
+        "rank": 7
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "35c5c75c-05c8-5578-ac2b-0eb29cc2e7ba",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:bogeyman-breath",
+    "name": "Bogeyman Breath",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "fear", "inhaled", "mental", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This dust is created from the powdered bones of ensnared rabbits and other woodland creatures that died from fright. When inhaled, it pollutes the victim's mind with fear, awakening an unshakable prey response that sees danger lurking in every shadow."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": ", and can't reduce frightened value for 1 round (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": ", and can't reduce frightened value for 1 round (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, frightened 2, "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " the poison cloud for 1 round, and can't reduce frightened value for 1 round (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nn9X4cswWWo2QTwL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "41d9d66c-0a78-5dec-a073-21273a151bd3",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:bougainvillea-blossom-greater",
+    "name": "Bougainvillea Blossom (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pink flower has long, slender thorns along the stem. The flower can be used as a catalyst when casting an "
+          },
+          {
+            "type": "ref",
+            "id": "72db3961-ed8d-5546-8104-1f7aad2fb3e9"
+          },
+          {
+            "type": "text",
+            "text": " spell, which causes the affected plants to sprout long thorns and vibrant pink blossoms. The area becomes hazardous terrain, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to an enemy each time it enters an affected square."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7VNwyrkZS8ui4HmF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "92afa04d-c6e9-50ae-a43a-18e34e611e97",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:bougainvillea-blossom-lesser",
+    "name": "Bougainvillea Blossom (Lesser)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pink flower has long, slender thorns along the stem. The flower can be used as a catalyst when casting an "
+          },
+          {
+            "type": "ref",
+            "id": "72db3961-ed8d-5546-8104-1f7aad2fb3e9"
+          },
+          {
+            "type": "text",
+            "text": " spell, which causes the affected plants to sprout long thorns and vibrant pink blossoms. The area becomes hazardous terrain, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to an enemy each time it enters an affected square."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gEDLO9RQ1Qs6x5aO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "db543fda-361e-554a-839b-c6e71112a6df",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:bougainvillea-blossom-major",
+    "name": "Bougainvillea Blossom (Major)",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pink flower has long, slender thorns along the stem. The flower can be used as a catalyst when casting an "
+          },
+          {
+            "type": "ref",
+            "id": "72db3961-ed8d-5546-8104-1f7aad2fb3e9"
+          },
+          {
+            "type": "text",
+            "text": " spell, which causes the affected plants to sprout long thorns and vibrant pink blossoms. The area becomes hazardous terrain, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to an enemy each time it enters an affected square."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Tm1MfO24oe8NsxbY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "94fec3d0-3317-52a6-8fb1-04bb78618429",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:bougainvillea-blossom-moderate",
+    "name": "Bougainvillea Blossom (Moderate)",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pink flower has long, slender thorns along the stem. The flower can be used as a catalyst when casting an "
+          },
+          {
+            "type": "ref",
+            "id": "72db3961-ed8d-5546-8104-1f7aad2fb3e9"
+          },
+          {
+            "type": "text",
+            "text": " spell, which causes the affected plants to sprout long thorns and vibrant pink blossoms. The area becomes hazardous terrain, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to an enemy each time it enters an affected square."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kaYxmbz5arHnCkLn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "86c707a5-d4a5-5ad8-829a-d5252c48174e",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:burglars-rosebud",
+    "name": "Burglar's Rosebud",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["consumable", "emotion", "mental", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though originally intended to protect a green man's favorite agents against predation by pesky herbivores, thieves have adapted the design to help them disperse guard animals. The soft flower bud belies the horrible perfume contained within. Activated by cracking open the petals, the rosebud exudes a noxious cloud that has the olfactory trait for 10 minutes. If dropped, it fills a 10-foot-burst. If you carry it in one hand and periodically waft it as a free action, the rosebud instead gives you a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". Creatures that enter or start their turn in the cloud must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 18
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": ". Animals and beasts that critically fail are also "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. A creature that successfully saves against the burglar's rosebud becomes temporarily immune to the effects for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CvrP46hl92nk8OxF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f6cb31c3-c8b4-5042-9b48-bb0b031e7c27",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:burglars-rosebud-greater",
+    "name": "Burglar's Rosebud (Greater)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["consumable", "emotion", "mental", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though originally intended to protect a green man's favorite agents against predation by pesky herbivores, thieves have adapted the design to help them disperse guard animals. The soft flower bud belies the horrible perfume contained within. Activated by cracking open the petals, the rosebud exudes a noxious cloud that has the olfactory trait for 10 minutes. If dropped, it fills a 10-foot-burst. If you carry it in one hand and periodically waft it as a free action, the rosebud instead gives you a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". Creatures that enter or start their turn in the cloud must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": ". Animals and beasts that critically fail are also "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. A creature that successfully saves against the burglar's rosebud becomes temporarily immune to the effects for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.o5bvKVQbeFD0nBBL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "27b5723e-7334-5883-ba40-0c14105977ad",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:creeping-death",
+    "name": "Creeping Death",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "contact", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 22
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": " (2 rounds)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and controlled (2 days)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " dead. A creature that dies while infected with creeping death immediately releases a burst of spores in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ", exposing creatures in the area to creeping death. If the corpse of a creature killed by creeping death isn't burned, it rises as the host of a cythnophorian 12 hours later."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lExsX8c5VUxiu05y"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 45
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "95b4e86d-e5d3-521a-b0c3-8b3c4c4affe4",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:feral-linguist",
+    "name": "Feral Linguist",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden whistle is stuffed with cotton and carved with images of bellowing stags, howling wolves, and chirping birds. You can blow on this whistle to use it as a catalyst when casting an "
+          },
+          {
+            "type": "ref",
+            "id": "cd4bcdfa-81d7-5e23-a964-0230a0f6cc94"
+          },
+          {
+            "type": "text",
+            "text": " spell. When you do, you retain the ability to speak, though this doesn't allow you to cast spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FO2QKhTLyjbwrCrZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e0472caf-6fc1-5805-a01b-837d4ecc937f",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:feral-linguist-greater",
+    "name": "Feral Linguist (Greater)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden whistle is stuffed with cotton and carved with images of bellowing stags, howling wolves, and chirping birds. You can blow on this whistle to use it as a catalyst when casting an "
+          },
+          {
+            "type": "ref",
+            "id": "cd4bcdfa-81d7-5e23-a964-0230a0f6cc94"
+          },
+          {
+            "type": "text",
+            "text": " spell. When you do, you retain the ability to speak."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once during the spell's duration, you can cast either a spell of 4th-rank or lower or a cantrip of any level, ignoring the inability to cast spells while in your battle form."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iUwss4XHPassdhV3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 85
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4ff56ba2-c5ba-5206-9772-0bd6ce2b5e71",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:irritating-seedpod",
+    "name": "Irritating Seedpod",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you crack open this soft, spongy seedpod, you can use it as a catalyst when casting a "
+          },
+          {
+            "type": "ref",
+            "id": "1871511d-f694-5e6b-b49d-1e7388909900"
+          },
+          {
+            "type": "text",
+            "text": " spell. When you do, irritating pollen fills the area for the spell's duration. Creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 21
+          },
+          {
+            "type": "text",
+            "text": " saving throw to avoid sneezing uncontrollably. On a failed save, the creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. A creature that succeeds at this saving throw becomes temporarily immune to the irritating seedpod's pollen for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9jUxAAt0hj9luWKK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c7c7d12d-21ba-5630-b1ba-f8745546275c",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:irritating-seedpod-greater",
+    "name": "Irritating Seedpod (Greater)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you crack open this soft, spongy seedpod, you can use it as a catalyst when casting a "
+          },
+          {
+            "type": "ref",
+            "id": "1871511d-f694-5e6b-b49d-1e7388909900"
+          },
+          {
+            "type": "text",
+            "text": " spell. When you do, irritating pollen fills the area for the spell's duration. Creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " saving throw to avoid sneezing uncontrollably. On a failed save, the creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 3 rounds. A creature that succeeds at this saving throw becomes temporarily immune to the irritating seedpod's pollen for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Lq823hDvDNP5321d"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 190
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "574b91b3-8b00-5e93-9983-a0309e69046a",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:irritating-seedpod-lesser",
+    "name": "Irritating Seedpod (Lesser)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you crack open this soft, spongy seedpod, you can use it as a catalyst when casting a "
+          },
+          {
+            "type": "ref",
+            "id": "1871511d-f694-5e6b-b49d-1e7388909900"
+          },
+          {
+            "type": "text",
+            "text": " spell. When you do, irritating pollen fills the area for the spell's duration. Creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " saving throw to avoid sneezing uncontrollably. On a failed save, the creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. Rather than last for the duration of the spell, the irritating pollen only remains in the area for 1 round. A creature that succeeds at this saving throw becomes temporarily immune to the irritating seedpod's pollen for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.a7apCVmrBGGIK3fZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 11
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9c5f0b01-3e11-5474-8a11-26604cb0a990",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:irritating-seedpod-major",
+    "name": "Irritating Seedpod (Major)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you crack open this soft, spongy seedpod, you can use it as a catalyst when casting a "
+          },
+          {
+            "type": "ref",
+            "id": "1871511d-f694-5e6b-b49d-1e7388909900"
+          },
+          {
+            "type": "text",
+            "text": " spell. When you do, irritating pollen fills the area for the spell's duration. Creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 29
+          },
+          {
+            "type": "text",
+            "text": " saving throw to avoid sneezing uncontrollably. On a failed save, the creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round, then "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 3 rounds. A creature that succeeds at this saving throw becomes temporarily immune to the irritating seedpod's pollen for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iXKdE5ZdENm6a1ig"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 800
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8f8774e1-6906-540b-9dea-d383270cf76f",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:navigators-feather",
+    "name": "Navigator's Feather",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would roll a Survival check to "
+          },
+          {
+            "type": "ref",
+            "id": "d0498569-a787-5708-8a5f-39c521dd3df4"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": " but haven't rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're trained in Survival."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This jaunty feather is affixed to headgear and can guide you in times of trouble, twisting to point in different directions. When you activate the talisman, you roll the triggering Survival check to Sense Direction or Track twice, and use the higher result."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 24 hours, you gain a +1 circumstance bonus to Survival checks to Sense Direction, so long as you're navigating toward the same destination as when you activated the talisman, and a +1 circumstance bonus to Survival checks to Track, so long as you continue to Track the same creature as when you activated the talisman. After 24 hours, the feather disintegrates, becoming mundane dust that blows away on the breeze."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KG3sg9YF3sQL8lsP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "light",
+      "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "headgear"
+      }
+    }
+  },
+  {
+    "id": "75aad1f7-3e9c-5d10-be5d-822330df94f9",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:necrotic-cap-greater",
+    "name": "Necrotic Cap (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use this slimy, rotting mushroom as a spell catalyst when you cast an "
+          },
+          {
+            "type": "ref",
+            "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+          },
+          {
+            "type": "text",
+            "text": " spell by tapping it against the target, causing the mushroom to release a cloud of necrotic spores. When you do, "
+          },
+          {
+            "type": "text",
+            "text": "acid grip",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " loses the acid trait, gains the fungus trait, and all acid damage the spell deals becomes void damage. On a hit, the target additionally gains the "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 3"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 3"
+          },
+          {
+            "type": "text",
+            "text": " conditions as the spores consume their flesh. As long as the target is taking persistent void damage, they can't reduce the value of their sickened condition below 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ad6bd2fa-f2fd-56e3-abe5-555453024029"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cDyoBhYeAMkCmjiP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "effect": "ad6bd2fa-f2fd-56e3-abe5-555453024029",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d8395cd4-9481-56f7-944b-e45491841e9a",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:necrotic-cap-lesser",
+    "name": "Necrotic Cap (Lesser)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use this slimy, rotting mushroom as a spell catalyst when you cast an "
+          },
+          {
+            "type": "ref",
+            "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+          },
+          {
+            "type": "text",
+            "text": " spell by tapping it against the target, causing the mushroom to release a cloud of necrotic spores. When you do, "
+          },
+          {
+            "type": "text",
+            "text": "acid grip",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " loses the acid trait, gains the fungus trait, and all acid damage the spell deals becomes void damage. On a hit, the target additionally gains the "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " conditions as the spores consume their flesh. As long as the target is taking persistent void damage, they can't reduce the value of their sickened condition below 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ad6bd2fa-f2fd-56e3-abe5-555453024029"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sUZxDEiwCKiMpN7T"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 18
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "effect": "ad6bd2fa-f2fd-56e3-abe5-555453024029",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "153196ae-1079-5071-8721-4241d43896da",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:necrotic-cap-major",
+    "name": "Necrotic Cap (Major)",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use this slimy, rotting mushroom as a spell catalyst when you cast an "
+          },
+          {
+            "type": "ref",
+            "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+          },
+          {
+            "type": "text",
+            "text": " spell by tapping it against the target, causing the mushroom to release a cloud of necrotic spores. When you do, "
+          },
+          {
+            "type": "text",
+            "text": "acid grip",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " loses the acid trait, gains the fungus trait, and all acid damage the spell deals becomes void damage. On a hit, the target additionally gains the "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 4"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 4"
+          },
+          {
+            "type": "text",
+            "text": " conditions as the spores consume their flesh. As long as the target is taking persistent void damage, they can't reduce the value of their sickened condition below 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ad6bd2fa-f2fd-56e3-abe5-555453024029"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CM3GrNvvZBdPmxe5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "effect": "ad6bd2fa-f2fd-56e3-abe5-555453024029",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a81b516c-c53d-5404-b7d7-422969621ea3",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:necrotic-cap-moderate",
+    "name": "Necrotic Cap (Moderate)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use this slimy, rotting mushroom as a spell catalyst when you cast an "
+          },
+          {
+            "type": "ref",
+            "id": "bacc25dc-fc88-5b92-9a69-14c56e2e8c04"
+          },
+          {
+            "type": "text",
+            "text": " spell by tapping it against the target, causing the mushroom to release a cloud of necrotic spores. When you do, "
+          },
+          {
+            "type": "text",
+            "text": "acid grip",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " loses the acid trait, gains the fungus trait, and all acid damage the spell deals becomes void damage. On a hit, the target additionally gains the "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " conditions as the spores consume their flesh. As long as the target is taking persistent void damage, they can't reduce the value of their sickened condition below 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ad6bd2fa-f2fd-56e3-abe5-555453024029"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Oxai9zyjeocPNUzO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "effect": "ad6bd2fa-f2fd-56e3-abe5-555453024029",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "edf7b91e-e160-5491-b488-03f0ce3e1d99",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:primal-pollen",
+    "name": "Primal Pollen",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "inhaled", "magical", "poison", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magical flower immediately grows and blooms when planted, showering the area with intoxicating pollen. Insects take a –4 penalty on Fortitude saves to resist this poison."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 20
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " and slowed 1 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " confused (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xKVtAqqVUPWjKFBJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ed90eaf3-52b7-5c10-9567-45e4d8251a34",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:reapers-shadow",
+    "name": "Reaper's Shadow",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "injury", "poison", "virulent", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Derived from duskwood sap tapped during the winter solstice, this toxin erodes the connection between body and soul, tricking the latter into assuming the former has already died. Survivors of this near-death experience report ominous tunnel vision, as if the Grim Reaper lurks in their peripheral vision and awaits their final breath."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 30
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d12",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d12",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and doomed 1 for 1 round (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d12",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and doomed 1 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d12",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ehd8FIXgo4S24TKV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 525
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "f091068e-5952-518b-82b9-22171e33e9d5",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:sages-bloom",
+    "name": "Sage's Bloom",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a Nature check to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " but haven't rolled"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're trained in Nature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This simple white flower is placed into a hat or worn braided into your hair. When activated, it releases a soothing scent, which helps you focus your mind. When you activate the talisman, you Recall Knowledge three times, rather than once. If you use Nature for any of these checks and get a critical failure, that check is instead a failure."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wXFSigsdLO8zjgXo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "headgear"
+      }
+    }
+  },
+  {
+    "id": "98f618b5-5f41-503b-88b1-dfd0cefbfdc6",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:skitter-knot-greater",
+    "name": "Skitter Knot (Greater)",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": " at the beginning of your turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Carved from an arboreal's knuckle, this wooden torus can be activated despite your being "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ". The knot then sprouts several roots that arch over your body like a spider's legs. These lift you a few inches off the ground before Striding and carrying you with them. The roots prioritize taking you away from obvious harm, though as a reaction, an ally who speaks Arboreal can command the roots to carry you to a particular point within range."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After moving, the roots continue protecting you; this counts as Raising a Shield, giving you a +1 circumstance bonus to AC until the beginning of your next turn. The roots use the "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " reaction against the first physical attack against you, after which the roots crumble."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The roots carry you up to 15 feet and have Hardness 10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1GT08roPjKBbJ5lG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 275
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "99f9fb4a-bc05-57d8-bf57-d427aea67205",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:skitter-knot-lesser",
+    "name": "Skitter Knot (Lesser)",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": " at the beginning of your turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Carved from an arboreal's knuckle, this wooden torus can be activated despite your being "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ". The knot then sprouts several roots that arch over your body like a spider's legs. These lift you a few inches off the ground before Striding and carrying you with them. The roots prioritize taking you away from obvious harm, though as a reaction, an ally who speaks Arboreal can command the roots to carry you to a particular point within range."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After moving, the roots continue protecting you; this counts as Raising a Shield, giving you a +1 circumstance bonus to AC until the beginning of your next turn. The roots use the "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " reaction against the first physical attack against you, after which the roots crumble."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The roots carry you up to 10 feet and have Hardness 5."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JZvkPv1Vj6mpSA9P"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "30049606-59d7-5bb9-be9b-7f8c291370af",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:skitter-knot-major",
+    "name": "Skitter Knot (Major)",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": " at the beginning of your turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Carved from an arboreal's knuckle, this wooden torus can be activated despite your being "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ". The knot then sprouts several roots that arch over your body like a spider's legs. These lift you a few inches off the ground before Striding and carrying you with them. The roots prioritize taking you away from obvious harm, though as a reaction, an ally who speaks Arboreal can command the roots to carry you to a particular point within range."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After moving, the roots continue protecting you; this counts as Raising a Shield, giving you a +1 circumstance bonus to AC until the beginning of your next turn. The roots use the "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " reaction against the first physical attack against you, after which the roots crumble."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The roots carry you up to 20 feet and have Hardness 20."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.R0CLbiSu4sst4Hf9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "b164e18e-3ba5-57b8-94a6-59bc106c5d03",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:wand-of-splintered-sorrows-rank-2",
+    "name": "Wand Of Splintered Sorrows (Rank 2)",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["attack", "concentrate", "magical", "manipulate", "wand", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden wand is roughly cut, as if it had been crudely chopped from a tree and left forgotten. When held, the wand imparts feelings of deep sorrow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "6bfaa8ef-6ef0-5e68-9da4-d04bb80b39c7"
+          },
+          {
+            "type": "text",
+            "text": " of the indicated rank. Each splinter contains some of the despair felt by cruelly harvested trees, causing any creature damaged by this spell to become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for a number of rounds equal to the spell rank. On a critical success on the attack roll, the target also weeps, becoming "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for the same duration."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "splinter volley",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.epES0Dpk4FqRmZEz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-splintered-sorrows-rank-2",
+          "name": "Wand Of Splintered Sorrows (Rank 2)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "category": "wand",
+      "kept": true,
+      "spell": {
+        "spell": "6bfaa8ef-6ef0-5e68-9da4-d04bb80b39c7",
+        "rank": 2
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ec28ef2e-64d8-5bec-a475-7f4e01cd0515",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:wand-of-splintered-sorrows-rank-4",
+    "name": "Wand Of Splintered Sorrows (Rank 4)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["attack", "concentrate", "magical", "manipulate", "wand", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden wand is roughly cut, as if it had been crudely chopped from a tree and left forgotten. When held, the wand imparts feelings of deep sorrow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "6bfaa8ef-6ef0-5e68-9da4-d04bb80b39c7"
+          },
+          {
+            "type": "text",
+            "text": " of the indicated rank. Each splinter contains some of the despair felt by cruelly harvested trees, causing any creature damaged by this spell to become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for a number of rounds equal to the spell rank. On a critical success on the attack roll, the target also weeps, becoming "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for the same duration."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "splinter volley",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6VLzI3shCnzDb5aG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-splintered-sorrows-rank-4",
+          "name": "Wand Of Splintered Sorrows (Rank 4)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "category": "wand",
+      "kept": true,
+      "spell": {
+        "spell": "6bfaa8ef-6ef0-5e68-9da4-d04bb80b39c7",
+        "rank": 2
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9aab6ae7-c82d-54f7-93e6-a734b7b5c520",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:wand-of-splintered-sorrows-rank-6",
+    "name": "Wand Of Splintered Sorrows (Rank 6)",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["attack", "concentrate", "magical", "manipulate", "wand", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden wand is roughly cut, as if it had been crudely chopped from a tree and left forgotten. When held, the wand imparts feelings of deep sorrow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "6bfaa8ef-6ef0-5e68-9da4-d04bb80b39c7"
+          },
+          {
+            "type": "text",
+            "text": " of the indicated rank. Each splinter contains some of the despair felt by cruelly harvested trees, causing any creature damaged by this spell to become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for a number of rounds equal to the spell rank. On a critical success on the attack roll, the target also weeps, becoming "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for the same duration."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "splinter volley",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.105IJO0JyDdj22xA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-splintered-sorrows-rank-6",
+          "name": "Wand Of Splintered Sorrows (Rank 6)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "category": "wand",
+      "kept": true,
+      "spell": {
+        "spell": "6bfaa8ef-6ef0-5e68-9da4-d04bb80b39c7",
+        "rank": 2
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2550eb9b-e493-5f1d-8ff6-4e3a84b5cfa4",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:wand-of-splintered-sorrows-rank-8",
+    "name": "Wand Of Splintered Sorrows (Rank 8)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["attack", "concentrate", "magical", "manipulate", "wand", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden wand is roughly cut, as if it had been crudely chopped from a tree and left forgotten. When held, the wand imparts feelings of deep sorrow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "6bfaa8ef-6ef0-5e68-9da4-d04bb80b39c7"
+          },
+          {
+            "type": "text",
+            "text": " of the indicated rank. Each splinter contains some of the despair felt by cruelly harvested trees, causing any creature damaged by this spell to become "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for a number of rounds equal to the spell rank. On a critical success on the attack roll, the target also weeps, becoming "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for the same duration."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "splinter volley",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the appropriate rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ktWJ6Xx4B2AgPQ6n"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-splintered-sorrows-rank-8",
+          "name": "Wand Of Splintered Sorrows (Rank 8)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "category": "wand",
+      "kept": true,
+      "spell": {
+        "spell": "6bfaa8ef-6ef0-5e68-9da4-d04bb80b39c7",
+        "rank": 2
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9c025eaa-031a-5451-9e7a-15a987001c72",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:wood-rotted-root-greater",
+    "name": "Wood-Rotted Root (Greater)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This palm-sized chunk of wood it rotting, and riddled with mold and fungi. You can crush this wood to use it as a spell catalyst when you cast a "
+          },
+          {
+            "type": "ref",
+            "id": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          },
+          {
+            "type": "text",
+            "text": ". When you do, the bark that covers your skin is rotting, and emits a small cloud of spores whenever your hurt. For the duration, whenever you take physical damage, your rotting bark skin emits a cloud of spores in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " save to avoid taking "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1PG9vWx48TWopxpm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 190
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "32dfc09a-ace5-588c-8011-e4a031b22f75",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:wood-rotted-root-lesser",
+    "name": "Wood-Rotted Root (Lesser)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This palm-sized chunk of wood it rotting, and riddled with mold and fungi. You can crush this wood to use it as a spell catalyst when you cast a "
+          },
+          {
+            "type": "ref",
+            "id": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          },
+          {
+            "type": "text",
+            "text": ". When you do, the bark that covers your skin is rotting, and emits a small cloud of spores whenever your hurt. For the duration, whenever you take physical damage, your rotting bark skin emits a cloud of spores in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " save to avoid taking "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JQqtNuiMQrU3DW11"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 11
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e4d904c0-24dc-5e75-a5a3-789e1255c9fe",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:wood-rotted-root-major",
+    "name": "Wood-Rotted Root (Major)",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This palm-sized chunk of wood it rotting, and riddled with mold and fungi. You can crush this wood to use it as a spell catalyst when you cast a "
+          },
+          {
+            "type": "ref",
+            "id": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          },
+          {
+            "type": "text",
+            "text": ". When you do, the bark that covers your skin is rotting, and emits a small cloud of spores whenever your hurt. For the duration, whenever you take physical damage, your rotting bark skin emits a cloud of spores in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 29
+          },
+          {
+            "type": "text",
+            "text": " save to avoid taking "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vIMax5wxd9zS1MpW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1ae1dd88-66eb-52ec-912a-d15f36b38e0b",
+    "pack": "wardens-of-wildwood",
+    "kind": "consumable",
+    "slug": "consumable:wood-rotted-root-moderate",
+    "name": "Wood-Rotted Root (Moderate)",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This palm-sized chunk of wood it rotting, and riddled with mold and fungi. You can crush this wood to use it as a spell catalyst when you cast a "
+          },
+          {
+            "type": "ref",
+            "id": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+          },
+          {
+            "type": "text",
+            "text": ". When you do, the bark that covers your skin is rotting, and emits a small cloud of spores whenever your hurt. For the duration, whenever you take physical damage, your rotting bark skin emits a cloud of spores in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 21
+          },
+          {
+            "type": "text",
+            "text": " save to avoid taking "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dFHJyZV5Kx6IRbWC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

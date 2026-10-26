@@ -267,7 +267,10 @@ export class ContentPackBuilder {
   }
 
   /** A spell slugged `spell:<name>`, cast with two actions, its level its rank. */
-  public withSpell(name: string, { rank, traditions, traits = [], rarity, duration, dismiss }: SpellFields): this {
+  public withSpell(
+    name: string,
+    { rank, traditions, traits = [], rarity, duration, dismiss, dismissNote }: SpellFields,
+  ): this {
     const data = {
       rank,
       traditions,
@@ -275,6 +278,7 @@ export class ContentPackBuilder {
       damage: [],
       ...(duration === undefined ? {} : { duration }),
       ...(dismiss === undefined ? {} : { dismiss }),
+      ...(dismissNote === undefined ? {} : { dismissNote }),
     };
     this.#entries.push({
       kind: ContentKind.Spell,

@@ -1,0 +1,910 @@
+[
+  {
+    "id": "71116b54-7ee5-5ea9-8595-e3fe23c78423",
+    "pack": "spore-war",
+    "kind": "feat",
+    "slug": "feat:anchoring-arrow",
+    "name": "Anchoring Arrow",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["arcane", "elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can prevent demonic foes from fleeing your wrath via teleportation. Make a bow Strike against a demon. In addition to the normal effects of the Strike, the target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target avoids any additional effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes a –5 circumstance penalty to all their movement Speeds for 1 round as arcane coils of magic meddle with their mobility."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but a –5 foot circumstance penalty for 1 minute. While the target is affected by this, Anchoring Arrow attempts to counteract any teleportation effect that would move the target, or any effect that would transport the target to a different plane. The arrow has a counteract rank of 7th and a +20 modifier to the roll."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except a –10 foot circumstance penalty, and the duration is 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.kin3aIJssaI6VFoD"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      }
+    }
+  },
+  {
+    "id": "66db4941-ad32-5c8d-8c45-0eb9fd5ca696",
+    "pack": "spore-war",
+    "kind": "feat",
+    "slug": "feat:cold-iron-stomach",
+    "name": "Cold Iron Stomach",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have steeled yourself against potent odors. Whenever you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": " condition, you reduce the value of that condition by 1; if this reduces the value to 0, you avoid becoming sickened entirely. You gain a +2 circumstance bonus to all saving throws against olfactory and poison effects created by demons or environmental hazards associated with the Outer Rifts (including all environmental hazards found in Tanglebriar)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["item:trait:olfactory", "item:trait:poison"]
+          },
+          {
+            "or": [
+              "origin:trait:demon",
+              {
+                "and": ["origin:trait:environmental", "origin:tag:outer-rifts"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.o8DJyu5JJLppnDCS"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "4ddbec1f-bb0f-50fe-8063-51296b293194",
+    "pack": "spore-war",
+    "kind": "feat",
+    "slug": "feat:demon-hunter",
+    "name": "Demon Hunter",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The demons of Tanglebriar have long haunted your dreams, just as they have long threatened Kyonin. You have not only studied these fiendish foes well, but have trained extensively to battle the hordes of demons that serve Treerazer and are particularly adept at striking desperate melee blows against them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you make your daily preparations, choose one kind of demon, such as succubus, omox, shemhazian, or Treerazer. For the remainder of the day, the first time you hit one of those specific demons in a round with a melee Strike, you also deal 1d6 additional spirit damage. At 13th level, the extra damage increases to 2d6 additional spirit damage, and at 17th level, the extra damage increases to 3d6 spirit damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:demon-hunter",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": "ternary(gte(@level, 17), 3, ternary(gte(@level, 13), 2, 1))",
+        "dieSize": "d6",
+        "damageType": "spirit",
+        "predicate": ["option:demon-hunter"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.7Jc5gVUNcEBriL9G"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "expert in Religion or Demon Lore"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "850c1bad-8ecd-5525-afaa-8984f2784304",
+    "pack": "spore-war",
+    "kind": "feat",
+    "slug": "feat:demon-slayer",
+    "name": "Demon Slayer",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["elf", "holy", "light"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can deliver a melee blow to a demon that creates an explosion of holy light to try to finish the demon off. In addition to the normal damage from your melee Strike, you also inflict "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the demon. The demon can resist this additional damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC. If the demon is slain by this strike, it explodes in a blast of holy light that fills a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". All creatures in this area that have the demon trait take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The demon takes no damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The demon takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The demon takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The demon takes full damage and is permanently "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.OLa87RacjBfMIVEQ"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Demon Hunter"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "b5853c3d-e519-5046-9b13-d31734d1ea58",
+    "pack": "spore-war",
+    "kind": "feat",
+    "slug": "feat:political-acumen",
+    "name": "Political Acumen",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have spent years following the political maneuvering and secret alliances of elves in Iadara. You gain a +2 circumstance bonus to Perception checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": " against other elves and to your Perception DC against Lies spoken by agents of Tanglebriar."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": ["target:trait:elf", "action:sense-motive"]
+              },
+              {
+                "and": ["origin:tag:agent-of-tanglebriar", "action:lie"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.h3h6QWv1m3MOpx66"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Perception"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "871af79d-f5ff-5601-af6f-b750a28f8639",
+    "pack": "spore-war",
+    "kind": "feat",
+    "slug": "feat:political-virtuoso",
+    "name": "Political Virtuoso",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mastery of the politics of your home nation is profound. Your circumstance bonus from "
+          },
+          {
+            "type": "ref",
+            "id": "b5853c3d-e519-5046-9b13-d31734d1ea58"
+          },
+          {
+            "type": "text",
+            "text": " becomes +4 instead of +2."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["perception"],
+        "slug": "political-acumen",
+        "mode": "upgrade",
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.S4rYzJqW3tbdXS1Z"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Political Acumen"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "996c2e78-5826-5c08-9290-07c5be2155e9",
+    "pack": "spore-war",
+    "kind": "feat",
+    "slug": "feat:shame-the-sin",
+    "name": "Shame the Sin",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically hit a demon with a Strike."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your conviction against the sins that all demons grow from is so strong that you can force a demon to suffer from its sins when you strike a sound blow against them. In addition to doing the normal damage for your critical hit, the demon also suffers the effects of its special vulnerability. If the demon has no special vulnerability, it instead takes an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ternary(gte(@level,17),3,ternary(gte(@level,13),2,1)))d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. This increases to 2d6 mental damage at 13th level and to 3d6 mental damage at 17th level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.q0SPmS77pNgiQk93"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "one",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You critically hit a demon with a Strike."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      }
+    }
+  },
+  {
+    "id": "56f0d2c5-08d8-54e4-a390-aece05f2e596",
+    "pack": "spore-war",
+    "kind": "feat",
+    "slug": "feat:swamp-stealth",
+    "name": "Swamp Stealth",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are in a swamp environment near an environmental feature that would allow you to "
+          },
+          {
+            "type": "ref",
+            "id": "ef51d835-6ab6-513d-b582-80753efde13b"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In swamplands, you are particularly skilled at quickly hiding behind bits of underbrush or foliage, or moving quietly through murky water. You Take Cover and then use that cover to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qz2gKNsHDMITpGPH"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "expert in Stealth"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are in a swamp environment near an environmental feature that would allow you to Take Cover."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "77e263ba-31e8-54db-8594-5fc0e5f59930",
+    "pack": "spore-war",
+    "kind": "feat",
+    "slug": "feat:traditional-ways",
+    "name": "Traditional Ways",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["elf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a fervent follower of the long-standing elven traditions established when your people returned to Kyonin. You gain a +2 circumstance bonus to Nature, Society, and Lore skill checks related to Kyonin or the elves that live there, as well as a +1 circumstance bonus to saves against enchantment effects that would force you to act against your will."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature", "skill:society", "lore"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:recall-knowledge", "option:kyonin-elves"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:act-against-will"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.XMPUFhCUC9OILIJH"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "2b86d033-3a7c-5213-a7bc-2167ed80bd83",
+    "pack": "spore-war",
+    "kind": "feat",
+    "slug": "feat:treehealer",
+    "name": "Treehealer",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["elf", "exploration", "healing", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can undo the effect of demonic corruption in plants. By spending 10 minutes in contact with a tree that's been corrupted by demonic presence, you can restore the tree to its original health. This does not prevent that tree from becoming corrupted again in the future. Alternatively, you can spend 10 minutes in contact with a creature with the plant trait. At the end of this time, you restore "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "7d8+56"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points to that creature and heal half that amount of your own Hit Points. Additionally, you can attempt to counteract any one curse or disease afflicting that plant creature as if you had cast "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": " heightened to 7th rank. Your counteract rank for this is 7, and your counteract check is equal to your Will save or your spell attack modifier, whichever is higher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qfeyJVAMyYKXmCvx"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  }
+]

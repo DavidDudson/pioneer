@@ -148,7 +148,8 @@ skipped; nothing about it is stored.
   spells not sustained this turn and ends them on confirm, so none lapses unnoticed.
 - **Dismiss**: any active spell or effect can be dismissed from the list at any time, which removes it and its
   effects. A spell that needs the Dismiss action spends 1 action when dismissed during the turn; elsewhere removal
-  is free.
+  is free. A spell that ends early under a trigger of its own (a free action or reaction) costs no Dismiss action
+  and carries a `dismissNote`, which the Dismiss button shows while hovered or focused.
 
 The **active list** shows every active spell and effect: name, source (cast by this character, applied by an ally,
 a GM's boon), remaining duration or "sustained", and its Sustain and Dismiss buttons. It sits on the Encounter tab
@@ -344,6 +345,10 @@ by all four:
   exploration activities, Perception, social and Recall Knowledge skills, languages and lore, inventory and notes.
 - **Downtime**: daily preparations, rituals, crafting, earn income, retraining and the shop.
 
+While a character is in a form, the shared header names it in words (its name, the form chosen, the spell rank and the
+rounds left) with Dismiss, on every tab. A toggle shows the base sheet, the character without its polymorph effects, marked
+as a reference view; it is a display choice, kept in the open sheet and not saved, and it does not end the form.
+
 Encounter, Exploration and Downtime filter actions by the content's `modes`, so no list is hand-maintained. The
 last tab is remembered per character, as a display preference (ADR-0013). On a narrow screen the tabs stay one
 row and each tab's sections stack.
@@ -380,6 +385,12 @@ ones grant nothing. The derivation lists them as replaced effects so play can en
 before it in the same edit, together with the temporary Hit Points it gave (an effect with a `BattleForm` rule counts
 as polymorph even when its content lacks the trait). An active form keeps the form chosen, the spell rank it was cast
 at and the temporary Hit Points it raised, so Dismiss, expiry and replacement all end it the same way.
+
+A polymorph effect need not be a battle form. One with the trait and ordinary rule elements (`CreatureSize`,
+`RollOption`, `FlatModifier`) and no `BattleForm` changes size, roll options and modifiers, replaces no statistic and
+restricts no section; it is exclusive with every other polymorph effect, battle form or not. The header names it like
+any form, and the Exploration tab says the appearance there is the character's own, not the form's. Only a polymorph
+effect is cast at a rank; the server refuses a rank on any other.
 
 End-of-turn bookkeeping (frightened decreasing, persistent damage flat checks, effect expiry) is a pure function
 over play state and the turn event, so it can run in the browser and on the server identically.

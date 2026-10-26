@@ -177,12 +177,12 @@ structures, and the importer reports a spell whose text doesn't map
 ([ADR-0021](../adr/0021-structured-spell-casting-fields.md)). Rule elements on a spell are rare: what it does beyond
 its damage is its description, and the effects it applies are `effect` entries.
 
-| Kind                     | `data`                                                                                                                                                         |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `spell`                  | casting fields; `traditions`; `damage`; `heightening?`; `counteraction?`                                                                                       |
-| `ritual`                 | casting fields; `primary` check; `secondary` checks and `casters`                                                                                              |
-| `spellcasting-tradition` | `skill`, the skill that recalls and identifies its magic (`skill:arcana`)                                                                                      |
-| `effect`                 | `category`, `spell`, `feat`, `equipment` or `other` (a GM's); `duration`; `badge?`; `triggerEvent?` and `autoApply?`, as on an action; level is the envelope's |
+| Kind                     | `data`                                                                                                                                                                                                                              |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `spell`                  | casting fields; `traditions`; `damage`; `heightening?`; `counteraction?`; `dismiss?` (ending it takes the Dismiss action); `dismissNote?` (rich text on how it ends early otherwise, a free action or reaction; not with `dismiss`) |
+| `ritual`                 | casting fields; `primary` check; `secondary` checks and `casters`                                                                                                                                                                   |
+| `spellcasting-tradition` | `skill`, the skill that recalls and identifies its magic (`skill:arcana`)                                                                                                                                                           |
+| `effect`                 | `category`, `spell`, `feat`, `equipment` or `other` (a GM's); `duration`; `badge?`; `triggerEvent?` and `autoApply?`, as on an action; level is the envelope's                                                                      |
 
 - **Casting fields.** `rank` 1 to 10. `time` is `actions` with a glyph `cost`, and `upTo` for a range ("one to
   three actions", Heal), or `time` with a `count` of rounds to years ("3 days"). `range?` is feet, `miles` (whole
@@ -489,8 +489,9 @@ there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`,
 `tian-xia-character-guide`, `dark-archive-remastered`, `character-guide`, `impossible-lands`, `impossible-magic`,
 `guns-and-gears`, `battlecry`, `cheliax-infernal-inheritance`, `rival-academies`, `shining-kingdoms`, `draconic-codex`,
 `hellfire-dispatches`, `high-seas`, `season-of-ghosts`, `hellbreakers`, `gatewalkers`, `myth-speakers`,
-`revenge-of-the-runelords`, `secrets-of-the-unlit-star`, `troubles-in-grayce`, `hells-destiny`, `bastion-of-blasphemies`
-and `the-dead-gods-hand`
+`revenge-of-the-runelords`, `secrets-of-the-unlit-star`, `troubles-in-grayce`, `hells-destiny`, `bastion-of-blasphemies`,
+`the-dead-gods-hand`, `wardens-of-wildwood`, `curtain-call`, `triumph-of-the-tusk`, `spore-war`, `shades-of-blood`,
+`prey-for-death`, `claws-of-the-tyrant`, `clockwork-mystery`, `tian-xia-world-guide` and `foolish-housekeeping`
 (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
 and OGL, for content the remaster books point at, such as the Goloma ancestry; `OGL_BOOKS` in the importer lists the
 books it takes that way).
@@ -527,7 +528,9 @@ when idle. Content browser search is server-side through per-locale `tsvector` (
   as `StoredContentSource` does its registry.
 - **Served publicly** (ADR-0007): `GET /api/content/manifest` (`public, max-age=10`) lists each pack's bundle files
   by kind, and `GET /api/content/bundles/<pack>/<file>` (`public, max-age=31536000, immutable`) serves one. A file
-  no current manifest names is a 404, which the edge Worker does not cache.
+  no current manifest names is a 404, which the edge Worker does not cache. A pack in the manifest also carries `sizes`,
+  the byte size of each file it names, which is optional so a manifest an older build kept in the browser still
+  reads. The Legal page lists the caches from it, with each pack's Foundry release from `FOUNDRY_IMPORTS`.
 - **Kept in the browser.** `ContentBundleCache` (`libs/rules/data-access`) reads the manifest once a session,
   keeps every bundle in IndexedDB by path, and evicts the paths a new manifest no longer names. Offline, the last
   manifest read stands in, so every kind kept still loads. `ContentLoader` builds a `ContentRegistry` of every

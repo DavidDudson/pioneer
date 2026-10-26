@@ -1,0 +1,1212 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:animated-bamboo-figurine",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.8AANjQtU703ghIsR",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "16 when broken; construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:animated-kite",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.fXlmbjtV3spZlmGS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "13 when broken; construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:animated-wine-vessel",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.0J8xJV4NXaphEWgM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "17 when broken; construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:aoyin",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.Lhcwzt64Do7afrbF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "mountain stride"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "bloodsense (precise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Horn.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:aso-berang",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.zrx1qjf1WbSYllvz",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 25,
+            "damage": {
+              "base": {
+                "damageType": "slashing",
+                "dice": 2,
+                "die": "d4",
+                "modifier": 10
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Claw",
+            "predicate": [
+              {
+                "not": "change-shape:hybrid"
+              }
+            ],
+            "slug": "claw",
+            "traits": ["agile", "reach-10", "magical"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 25,
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 2,
+                "die": "d4",
+                "modifier": 10
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Fist",
+            "predicate": ["change-shape:hybrid"],
+            "slug": "fist",
+            "traits": ["agile", "reach-10", "magical"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 25,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 3,
+                "die": "d12",
+                "modifier": 10
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Tusk",
+            "predicate": [
+              {
+                "not": "change-shape:hybrid"
+              }
+            ],
+            "slug": "tusk",
+            "traits": ["reach-10", "magical"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "{item|name}",
+            "option": "phantom-flames",
+            "selection": "fire",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.AsoBerang.PhantomFlames.Fire",
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.NPCAbility.AsoBerang.PhantomFlames.Spirit",
+                "value": "spirit"
+              },
+              {
+                "label": "PF2E.NPCAbility.AsoBerang.PhantomFlames.None",
+                "value": "none"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 23,
+            "damage": {
+              "base": {
+                "damageType": "fire",
+                "dice": 7,
+                "die": "d6"
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.NPCAbility.AsoBerang.SpectralFlame",
+            "predicate": ["phantom-flames:fire"],
+            "range": {
+              "max": 60
+            },
+            "slug": "phantom-flames"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 23,
+            "damage": {
+              "base": {
+                "damageType": "spirit",
+                "dice": 7,
+                "die": "d6"
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.NPCAbility.AsoBerang.SpectralFlame",
+            "predicate": ["phantom-flames:spirit"],
+            "range": {
+              "max": 60
+            },
+            "slug": "phantom-flames"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:bul-gae",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.374PRwbW4i4Xw1Fe",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageDice",
+          "raw": {
+            "key": "DamageDice",
+            "override": {
+              "damageType": "fire",
+              "dieSize": "d6"
+            },
+            "selector": "jaws-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:caterpillar-carriage",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.AKYrUoUmunt46Vy8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "orichalcum"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:five-color-orchid-mantis",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.2hQmiIASF1pvbWhX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "{item|name}",
+            "option": "color-shift",
+            "selection": "none",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.FiveColorOrchidMantis.ColorShift.None",
+                "value": "none"
+              },
+              {
+                "label": "PF2E.NPCAbility.FiveColorOrchidMantis.ColorShift.Black",
+                "value": "water"
+              },
+              {
+                "label": "PF2E.NPCAbility.FiveColorOrchidMantis.ColorShift.Green",
+                "value": "wood"
+              },
+              {
+                "label": "PF2E.NPCAbility.FiveColorOrchidMantis.ColorShift.Red",
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.NPCAbility.FiveColorOrchidMantis.ColorShift.White",
+                "value": "metal"
+              },
+              {
+                "label": "PF2E.NPCAbility.FiveColorOrchidMantis.ColorShift.Yellow",
+                "value": "earth"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:gau-cho-rong",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.KcwFM5tI2R4jDalx",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "{item|name}",
+            "option": "subsumed-trait",
+            "selection": "noneOrOther",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.GauChoRong.SubsumedTrait.Amphibious",
+                "value": "amphibious"
+              },
+              {
+                "label": "PF2E.NPCAbility.GauChoRong.SubsumedTrait.Animal",
+                "value": "animal"
+              },
+              {
+                "label": "PF2E.NPCAbility.GauChoRong.SubsumedTrait.Aquatic",
+                "value": "aquatic"
+              },
+              {
+                "label": "PF2E.NPCAbility.GauChoRong.SubsumedTrait.Humanoid",
+                "value": "humanoid"
+              },
+              {
+                "label": "PF2E.NPCAbility.GauChoRong.SubsumedTrait.NoneOrOther",
+                "value": "noneOrOther"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["ambush"],
+            "selectors": ["strike-attack-roll", "strike-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:hopping-head",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.mu36UlW90zHYuzww",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "orichalcum"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:ijhyeojin",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.6v2HzHeT1mNLaqg9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet, truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:jiidon",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.n9LLGRKgPI8fDRBk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:joseung-saja",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.7ZSjqT2yiJB5OKgk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:kun",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.DkQWhW0CelytSWAV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "light blindness"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any languages)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:manananggal",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.GP61YtH3RvicMTkf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "light blindness"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:nue",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.9jvXTVcMNTx3kGfU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 24,
+            "damage": {
+              "base": {
+                "damageType": "slashing",
+                "dice": 3,
+                "die": "d8",
+                "modifier": 7
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Claw",
+            "predicate": [
+              {
+                "not": "cloud-form"
+              }
+            ],
+            "traits": ["agile", "disarm", "finesse", "reach-10"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 24,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 3,
+                "die": "d10",
+                "modifier": 7
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Tail",
+            "predicate": [
+              {
+                "not": "cloud-form"
+              }
+            ],
+            "traits": ["agile", "finesse", "reach-15"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 24,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 3,
+                "die": "d10",
+                "modifier": 7
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Jaws",
+            "predicate": [
+              {
+                "not": "cloud-form"
+              }
+            ],
+            "traits": ["finesse", "reach-10"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "non-magical"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:orchid-mantis-swarm",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.pcs9Shzxhu62xL4V",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:peng",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.0yF82Lo495lKarLS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "windslice"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "unholy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:pixiu",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.7RTjMCDWQVc6MKNI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "goldsense (precise) 120 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:shui-gui",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.k5f4vITTc7mclQzH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing, rejuvenation"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:the-great-flood",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.3utPtrLWLyNO1hxt",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.TheGreatFlood.LeadingHead",
+            "option": "leading-head",
+            "selection": "none",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadName.NoHeadSelected",
+                "value": "none"
+              },
+              {
+                "label": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadName.Aloof",
+                "value": "aloof"
+              },
+              {
+                "label": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadName.Ambitious",
+                "value": "ambitious"
+              },
+              {
+                "label": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadName.Assertive",
+                "value": "assertive"
+              },
+              {
+                "label": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadName.Capricious",
+                "value": "capricious"
+              },
+              {
+                "label": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadName.PeoplePleaser",
+                "value": "people-pleaser"
+              },
+              {
+                "label": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadName.Perfectionist",
+                "value": "perfectionist"
+              },
+              {
+                "label": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadName.Playful",
+                "value": "playful"
+              },
+              {
+                "label": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadName.Secretive",
+                "value": "secretive"
+              },
+              {
+                "label": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadName.Suspicious",
+                "value": "suspicious"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["leading-head:none", "item:id:{item|id}"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadDescription.NoHeadSelected"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["leading-head:aloof", "item:id:{item|id}"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadDescription.Aloof"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["leading-head:ambitious", "item:id:{item|id}"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadDescription.Ambitious"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["leading-head:assertive", "item:id:{item|id}"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadDescription.Assertive"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["leading-head:capricious", "item:id:{item|id}"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadDescription.Capricious"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["leading-head:people-pleaser", "item:id:{item|id}"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadDescription.PeoplePleaser"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["leading-head:perfectionist", "item:id:{item|id}"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadDescription.Perfectionist"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["leading-head:playful", "item:id:{item|id}"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadDescription.Playful"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["leading-head:secretive", "item:id:{item|id}"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadDescription.Secretive"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["leading-head:suspicious", "item:id:{item|id}"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.TheGreatFlood.LeadingHeadDescription.Suspicious"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:id:{item|id}",
+              {
+                "or": [
+                  "leading-head:capricious",
+                  "leading-head:people-pleaser",
+                  "leading-head:perfectionist",
+                  "leading-head:secretive",
+                  "leading-head:suspicious"
+                ]
+              }
+            ],
+            "property": "traits",
+            "value": "concentrate"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:id:{item|id}",
+              {
+                "or": ["leading-head:aloof", "leading-head:ambitious", "leading-head:secretive"]
+              }
+            ],
+            "property": "traits",
+            "value": "divine"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:id:{item|id}", "leading-head:secretive"],
+            "property": "traits",
+            "value": "teleportation"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:id:{item|id}", "leading-head:perfectionist"],
+            "property": "traits",
+            "value": "auditory"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:id:{item|id}", "leading-head:perfectionist"],
+            "property": "traits",
+            "value": "emotion"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:id:{item|id}", "leading-head:perfectionist"],
+            "property": "traits",
+            "value": "linguistic"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:id:{item|id}", "leading-head:perfectionist"],
+            "property": "traits",
+            "value": "mental"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "creature:yeongno",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.Mu3obsMXZ0OYlQpo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "goldvision (precise) 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wooden Pipe"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "ritual:perfection-of-essence",
+      "foundry": "Compendium.pf2e.spells-srd.Item.kExRMPVI07iIFCaa",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "ritual:power-of-the-beasts",
+      "foundry": "Compendium.pf2e.spells-srd.Item.otdzpPYzWMJt76Rh",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "ritual:seed-of-mercy",
+      "foundry": "Compendium.pf2e.spells-srd.Item.opXqASAY37ltENB8",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "ritual:the-unseeing-blade-master",
+      "foundry": "Compendium.pf2e.spells-srd.Item.5xf9wK9xyAeGFPw7",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.primary.check",
+          "raw": "Perception (master)"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
+        }
+      ],
+      "document": {
+        "_id": "5xf9wK9xyAeGFPw7",
+        "name": "The Unseeing Blade Master",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder Lost Omens Tian Xia World Guide",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 6
+          },
+          "traits": {
+            "value": ["trial"],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>There are many legends of blade masters who, not wanting to rely on flawed mortal eyes, learned to fight through reliance on both their other keen senses and knowledge from the universe itself. Those who intentionally seek out the path often do so by running through forms in thick clouds of incense.</p>\n<p>Making a Strike against an enemy you can see is anathema to this ritual and immediately ends its benefits. If the ritual is ended in this way, you must conduct an @UUID[Compendium.pf2e.spells-srd.Item.Atone] ritual before attempting this ritual again.</p>\n<hr />\n<p><strong>Critical Success</strong> As success, except you can instead defeat an enemy in single combat that both uses a sword and is higher level than you.</p>\n<p><strong>Success</strong> You call a blessing into your sword to guide you on the path and are bound by the ritual's anathema. Once you've used that sword against 20 enemies, each significant enough to grant XP, you gain the @UUID[Compendium.pf2e.feats-srd.Item.Blind-Fight] feat.</p>\n<p><strong>Failure</strong> The incense is dispersed by a strange gust of wind and you learn nothing.</p>\n<p><strong>Critical Failure</strong> The sword you're intending to use for the ritual becomes broken. If you aren't permanently blind, you're instead @UUID[Compendium.pf2e.conditionitems.Item.Blinded] for 1 month and can't repeat this ritual during that time.</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": "rare incense worth 1,500 gp"
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": ""
+          },
+          "range": {
+            "value": ""
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "Perception (master)"
+            },
+            "secondary": {
+              "casters": 1,
+              "checks": "Religion or Warfare Lore"
+            }
+          },
+          "target": {
+            "value": ""
+          },
+          "time": {
+            "value": "1 day"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "tian-xia-world-guide",
+      "slug": "ritual:wild-allegiance",
+      "foundry": "Compendium.pf2e.spells-srd.Item.BBw5oGFvoQc3gg52",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

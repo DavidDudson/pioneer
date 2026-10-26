@@ -1,0 +1,3413 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "action:blight-blight-domination",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.LZsABXwRruB99A0k",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Blight.BlightDomination.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "action:blight-cursed-domain",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.h6rf7Z7Vy1OD1YFw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Blight.CursedDomain.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "action:blight-oversee-domain",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Sx3uEPB6AD1iGbDp",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Blight.OverseeDomain.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "action:blight-rejuvenation",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.xGwpAMVb1UGFJqf9",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Blight.Rejuvenation.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "armor:slithermaws-bane-heroic",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2IRTceMDqmHfEwcf",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Skill.Intimidation",
+                "value": "intimidation"
+              },
+              {
+                "label": "PF2E.Skill.Society",
+                "value": "society"
+              },
+              {
+                "label": "PF2E.SpecificLore.Warfare",
+                "value": "warfare-lore"
+              }
+            ],
+            "flag": "skill",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "{item|flags.system.rulesSelections.skill}",
+            "type": "item",
+            "value": 4
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.abilities.{item|system.apex.attribute}.mod",
+            "value": 1
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "apex",
+          "raw": {
+            "attribute": "con"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "background:student-of-archery",
+      "foundry": "Compendium.pf2e.backgrounds.Item.qzzGLtQCPBTgKYAk",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": {
+              "filter": [
+                "item:ranged",
+                {
+                  "nor": [
+                    "item:magical",
+                    "item:trait:consumable",
+                    "item:base:composite-shortbow",
+                    "item:base:composite-longbow"
+                  ]
+                }
+              ],
+              "itemType": "weapon",
+              "slugsAsValues": true
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.RangedWeapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "MartialProficiency",
+          "raw": {
+            "definition": [
+              {
+                "or": ["item:base:{item|flags.system.rulesSelections.weapon}", "item:category:martial"]
+              }
+            ],
+            "key": "MartialProficiency",
+            "label": "PF2E.SpecificRule.MartialProficiency.MartialStudentOfArchery",
+            "sameAs": "simple",
+            "slug": "martial-student-of-archery-weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "MartialProficiency",
+          "raw": {
+            "definition": [
+              {
+                "or": ["item:base:{item|flags.system.rulesSelections.weapon}", "item:category:advanced"]
+              }
+            ],
+            "key": "MartialProficiency",
+            "label": "PF2E.SpecificRule.MartialProficiency.AdvancedStudentOfArchery",
+            "sameAs": "advanced",
+            "slug": "advanced-student-of-archery-weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              {
+                "gte": ["self:level", 5]
+              },
+              "item:base:{item|flags.system.rulesSelections.weapon}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:alzarius",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.9QYCWXVN2B9ssayl",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "phase": "afterDerived",
+            "predicate": ["item:damage:type:cold"],
+            "selector": ["spell-damage"],
+            "value": "@spell.level"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Razmir mask and robes"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:bhuta-servant",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.y9G71AEujaRmcjlu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Speak with plants"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Fangs.damage",
+          "raw": {
+            "damage": "1d8",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:boggard-cultist",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.E976If3eDLtsZfdB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "swamp passage"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ring of Keys"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:briargeist",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.y2EhtiAUEfUZNQH8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Speak with plants"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:captain-talymir",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.d8N7y33UQ5jwLnR7",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:crowded-veil",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.CFgNOjwPo1o5ChPg",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "one mind"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "cannot speak, Spore telepathy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:degholau",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.gBVxdkJbuxR0dxt4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet, Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:delvarnis",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.9iIj6SLuJplNBGlQ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "strike-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "+2 Striking Staff of Control (Greater)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Demon Mask (Greater, Appears as a Mask of Razmir)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Black Razmir Robes"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Iron Key"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:devasance",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.ixH0iXbdlCjGat2V",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:eshmok",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.F3cUooitFUS4nX1e",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "wasp",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Plant.Fungus",
+                "value": "fungus"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.Wasp",
+                "value": "wasp"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 21,
+            "damage": {
+              "base": {
+                "damageType": "slashing",
+                "dice": 2,
+                "die": "d8",
+                "modifier": 9
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Tendril",
+            "predicate": ["change-shape:fungus"],
+            "slug": "tendril",
+            "traits": ["agile", "magical", "reach-10", "unholy"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 21,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 2,
+                "die": "d8",
+                "modifier": 9
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Stinger",
+            "predicate": ["change-shape:wasp"],
+            "slug": "stinger",
+            "traits": ["magical", "unholy"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "tendril-attack",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:forger-of-tanglebriar",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.QbzfloiHZrxBLYDK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "vilderavn",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Vilderavn",
+                "value": "vilderavn"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Hybrid",
+                "value": "hybrid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Medium",
+                "value": "humanoid-medium"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Small",
+                "value": "humanoid-small"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.Wolf",
+                "value": "wolf"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.WolfDire",
+                "value": "wolf-dire"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "jaws-attack",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:fungal-abomination",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.bwU58Qns7TzR43Jj",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 20"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:fungal-amalgamite",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.DS74YwOb9IOJPsF3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Regeneration 10 (deactivated by piercing)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:fungal-marsh-giant",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.bytRrCmVh2g5FoQE",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:grizzer",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.THRmSpcf3FvVDXhj",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Can't Speak Any Language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:gruddunk",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.cHOXZyToRuM6gmGE",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Wind's whispers"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Heal (Rank 7)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:gruntch",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.XE9emvoqU0B3LT7k",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "unfettered movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:imvath",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.uND9uwnPoBVOU7jd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet, Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Claw.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "invalid-data",
+          "field": "items.spell",
+          "raw": "Charm"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Charm"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:invidiak",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.hy1VNv553PryLGbu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 26
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:iravalinn-morgethai",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.j4Ge5IoJkVai7N2g",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "+2 Greater Striking Staff of Elemental Power (Major)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:irshandi",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.oD67tHbrjCnWFHMA",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing, rejuvenation"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "earth glide"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": ["item:magical", "damage:type:bludgeoning"],
+                "label": "PF2E.IWR.Custom.MagicalBludgeoning"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 15
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:klacktel",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.U3J9rWvfdkgv9agr",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:lukarazyll",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.nxXj4V7pFVXuRvre",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 20
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:miastrilek",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.91y5Jhr5sePXKdLX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Plus one additional regional language, Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "miastrilek",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Demon.Miastrilek",
+                "value": "miastrilek"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Medium",
+                "value": "humanoid-medium"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Small",
+                "value": "humanoid-small"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:mugrisant-qlippoth",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.1XvwOmLR49yRe1Ae",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:pukwudgie-scribe",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.lXy7rMV1QMT37xTp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "pukwudgie",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Pukwudgie",
+                "value": "pukwudgie"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.PorcupineGiant",
+                "value": "porcupine-giant"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 27,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 3,
+                "die": "d10",
+                "modifier": 11
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Quill",
+            "predicate": ["change-shape:porcupine-giant"],
+            "replaceAll": true,
+            "slug": "quill",
+            "traits": []
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:queen-telandia-edasseril",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.SxcJlOBouEOuH0AJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+4 status to saves vs. mental effects"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "+3 Greater Striking Major Staff of Protection"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Musings from Below the Crown"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Falling Stars (Rank 9)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Teleport (Rank 7)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Sending (Rank 5)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Quandary (Rank 8)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:rancorous-priesthood",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.BnlWZqGoniFXnDnk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 27
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "troop defenses"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:area:type:burst",
+              "item:duration:0",
+              {
+                "gte": ["item:area:size", 10]
+              }
+            ],
+            "property": "area-size",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": ["item:area:type:cone", "item:area:type:line"]
+              },
+              {
+                "lte": ["item:area:size", 15]
+              }
+            ],
+            "priority": 110,
+            "property": "area-size",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": ["item:area:type:cone", "item:area:type:line"]
+              },
+              {
+                "gt": ["item:area:size", 15]
+              }
+            ],
+            "priority": 100,
+            "property": "area-size",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:razmiri-blade-assassin",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.eRDf6xNphDUQ1Gox",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": [
+              "encounter:round:1",
+              {
+                "lt": ["self:participant:initiative:rank", "target:participant:initiative:rank"]
+              }
+            ],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Mask"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Gray Razmir Robes"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:rift-pulper",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.dxJWRhwtdwxBI9Gn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Stinger.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:riftweasel",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.Yxsgcou341wjS8st",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Jaws.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:root-rotter",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.blWhrVgjP5rIqb3q",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "fungus sense 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 30 feet fungi only"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:rotting-cultist",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.WJwsn0t40hD8UvGe",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": [
+              "encounter:round:1",
+              {
+                "lt": ["self:participant:initiative:rank", "target:participant:initiative:rank"]
+              }
+            ],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Mask"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Razmir Robes"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:second-spawn",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.0Ky23VSAdJO4izI0",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:shalelu-andosana",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.zcW1w3ftmzL3XCuq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "(climb in forests)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:shroud-moss",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.4VNR5BjSTspzsVYC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Spore telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "key": "Aura",
+            "radius": "@item.flags.system.rulesSelections.sporecloudRadius",
+            "slug": "sporecloud",
+            "traits": ["primal"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:sinmold",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.YsgZ2gFGBLVnmdCc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:spawn-of-jeharlu",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.akkpxUPNsOTHcvSH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "scent purity (precise) 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:spore-queen-quilindra",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.rdh4wcn2nAKGGQIc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Fungaltongue, Telepathy 100 feet, Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Dagger.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["target:trait:elf"],
+            "selector": "dagger-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Phantasmal Calamity (Rank 8)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:spore-tyrannosaurus",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.dJTwrxDR5cRySxvH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "fungalsense (imprecise) 120 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:sporescout",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.iTT2eNlWdFIBeJr4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol of Treerazer"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:sporespawn-of-treerazer",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.rJ7yZpv0nUWMYEOF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 49
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 40 (deactivated by holy)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "unfettered movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 300 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": [],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 40
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:swamp-blight",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.Gu4ItQtKIgtQ7ZRB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 30, rejuvenation"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy (within cursed domain)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Stinger.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "acid",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:tangle-khravgodon",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.ygVqLjDmjXaDq8xh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "unfettered movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 circumstance to all saves vs. disease"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Spell Effect: Unfettered Movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:tanglebriar-bhuta",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.B1jjtLZy9B7iEaGw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with animals"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:tanglebriar-creeper",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.DBJgwqVDuM44Wd7Z",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 15"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "detect magic, greater web sense"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:tanglebriar-isqulug",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.e2qgJzVf0FpBXfBd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 10 (deactivated by cold)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "swamp stride"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:tanglebriar-regent",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.yfmlWu7g3sk1svyc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Speak with plants"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:the-putrid",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.lUiOpNnV9Dd44T3n",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:the-python",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.ebdfXxEWYOCjgbb0",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 40 (deactivated by holy), consuming resurrection"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet, Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": ["holy"],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 40
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": [
+                  "item:magical",
+                  {
+                    "or": ["damage:material:dawnsilver", "damage:material:silver"]
+                  }
+                ],
+                "label": "PF2E.IWR.Custom.MagicalSilver"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 20
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:ulugurnix",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.mp4ovsYcXGRncFCR",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "forest passage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["twisting-tail"],
+            "selector": "tail-attack",
+            "text": "PF2E.AttackEffects.InterruptAction",
+            "title": "{item|name}",
+            "visibility": "gm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "strike-attack-roll",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:unrisen-slithermaw",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.rIoJXbPU9sqw9lm5",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "meant to live, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["item:damage:type:vitality"],
+            "selector": "damage-received",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Weakness",
+          "raw": {
+            "definition": ["resurrection-vulnerability"],
+            "key": "Weakness",
+            "label": "{item|name}",
+            "type": "custom",
+            "value": 1
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Weakness",
+          "raw": {
+            "definition": ["damage:tag:calistrias-sting"],
+            "key": "Weakness",
+            "label": "PF2E.IWR.Custom.CalistriasBane",
+            "type": "custom",
+            "value": 15
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "definition": [
+              {
+                "or": ["item:trait:poison", "damage:type:poison"]
+              },
+              {
+                "not": "damage:tag:calistrias-sting"
+              }
+            ],
+            "key": "Immunity",
+            "label": "PF2E.Damage.RollFlavor.poison",
+            "type": "custom"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:vamollaroth",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.q4Hwhap275qpm2iq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 27
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 30 (deactivated by acid, cold, or fire)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "swamp stride, unfettered movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:vansidieth",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.WQRJdpOzcnBsgbnp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:vintalax-the-rotting-god",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.fxx3YStNyNBdT1sw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 30 (while attached to throne)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "(25 feet when not attached to the throne)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "tremorsense (precise, areas B1–B10)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Healing Potion (Greater) (Stored in Retrieval Belt)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Potion of Fire Resistance (Moderate) (Stored in Retrieval Belt)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Lightning Bolt (Rank 5) (Stored in Retrieval Belt)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:vixivax",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.phwez1DJLJcAVrG6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 26
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:zauglagaul",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.au8S1DLC5osnGgoX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "forest passage, trackless journey"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. primal"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "mist vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "spore-breath-inline-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["twisting-tail"],
+            "selector": "tail-attack",
+            "text": "PF2E.AttackEffects.InterruptAction",
+            "title": "{item|name}",
+            "visibility": "gm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "creature:ziberae",
+      "foundry": "Compendium.pf2e.spore-war-bestiary.Actor.RwO6fC7hIap6cKoM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 43
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Apotheosis Knife.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "effect:effect-antifungal-salve",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.MN7OSIN1oeRfV0h6",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:antifungal-salve-lesser",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Antifungal Salve (Lesser)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:antifungal-salve-moderate",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Antifungal Salve (Moderate)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:antifungal-salve-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Antifungal Salve (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:antifungal-salve-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Antifungal Salve (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "antifungal"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "effect:effect-call-upon-the-ancients",
+      "foundry": "Compendium.pf2e.campaign-effects.Item.6ReMiLTAc70nbzAC",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "definition": ["origin:treerazer"],
+            "key": "Resistance",
+            "label": "PF2E.IWR.Custom.Treerazer",
+            "type": "custom",
+            "value": 5
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "effect:effect-cloak-of-subversion",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.v4furpS1e0hiey4R",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "predicate": [
+              {
+                "not": "item:trait:reach"
+              },
+              {
+                "or": ["item:trait:unarmed", "item:melee"]
+              }
+            ],
+            "selector": "damage-received",
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "effect:effect-hunt-the-razers-pawn",
+      "foundry": "Compendium.pf2e.feat-effects.Item.PYyJjl5EEXs0IswY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["target:mark:hunt-the-razers-pawn"],
+            "selectors": ["saving-throw"],
+            "uuid": "Compendium.pf2e.feat-effects.Item.Effect: Hunt the Razer's Pawn (Ephemeral)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "effect:effect-spore-feedback",
+      "foundry": "Compendium.pf2e.campaign-effects.Item.nTTqHZGSub9kmpOr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FastHealing",
+          "raw": {
+            "deactivatedBy": ["holy"],
+            "key": "FastHealing",
+            "predicate": ["self:effect:spore-feedback"],
+            "type": "regeneration",
+            "value": 30
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "effect:spell-effect-purify-tanglebriar",
+      "foundry": "Compendium.pf2e.spell-effects.Item.4ne9K5IQm2whokHP",
+      "gaps": [
+        {
+          "type": "link",
+          "entry": "spore-war/ritual:purify-tanglebriar",
+          "element": {
+            "type": "ref",
+            "id": "def20299-ab80-5214-a827-3f5f80c7bb49"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "equipment:anima-robe-heroic",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jVBXBsulk4ZlvRs4",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Skill.Deception",
+                "value": "deception"
+              },
+              {
+                "label": "PF2E.Skill.Occultism",
+                "value": "occultism"
+              },
+              {
+                "label": "PF2E.Skill.Performance",
+                "value": "performance"
+              }
+            ],
+            "flag": "skill",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "{item|flags.system.rulesSelections.skill}",
+            "type": "item",
+            "value": 4
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.abilities.{item|system.apex.attribute}.mod",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "equipment:guiding-star-orb-heroic",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.F5dQEQTyOpSBeXDJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Skill.Arcana",
+                "value": "arcana"
+              },
+              {
+                "label": "PF2E.SpecificLore.Architecture",
+                "value": "architecture-lore"
+              },
+              {
+                "label": "PF2E.Skill.Society",
+                "value": "society"
+              }
+            ],
+            "flag": "skill",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "{item|flags.system.rulesSelections.skill}",
+            "type": "item",
+            "value": 4
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.abilities.{item|system.apex.attribute}.mod",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "equipment:viridian-crown",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LxTtq31HIP8KjBH3",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "feat:demon-slayer",
+      "foundry": "Compendium.pf2e.feats-srd.Item.OLa87RacjBfMIVEQ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "ritual:purify-tanglebriar",
+      "foundry": "Compendium.pf2e.spells-srd.Item.ZVdKM0HkgpWykrqf",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "range.value",
+          "raw": "1-mile-radius circle centered on you"
+        },
+        {
+          "type": "field",
+          "reason": "invalid-data",
+          "field": "secondary.checks",
+          "raw": {
+            "rank": 9,
+            "time": {
+              "type": "time",
+              "count": 8,
+              "unit": "hour"
+            },
+            "duration": {
+              "type": "varies"
+            },
+            "cost": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "rare incense and offerings worth a total value of 2,000 gp"
+                  }
+                ]
+              }
+            ],
+            "primary": {
+              "skills": ["skill:nature", "skill:religion"]
+            },
+            "secondary": {
+              "checks": [
+                {
+                  "skills": ["skill:arcana"]
+                },
+                {
+                  "skills": ["skill:nature"]
+                },
+                {
+                  "skills": ["skill:religion"]
+                },
+                {
+                  "skills": ["skill:survival"]
+                },
+                {
+                  "skills": ["skill:lore:or-tanglebriar"]
+                }
+              ],
+              "casters": 3
+            }
+          }
+        }
+      ],
+      "document": {
+        "_id": "ZVdKM0HkgpWykrqf",
+        "name": "Purify Tanglebriar",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder #212: A Voice in the Blight",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 9
+          },
+          "traits": {
+            "value": ["consecration"],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>You call upon the primal presence of the Fierani Forest and the elven legacy of Kyonin in an attempt to purify a portion of the blighted realm of Tanglebriar. Initially created by the elven wizard Aelthian in hopes of banishing Treerazer himself, this revision to that faulty ritual focuses instead upon the region he blighted rather than the nascent demon lord himself. Thus avoiding the catastrophic repercussions Aelthian experienced when he attempted to direct this magic against a foe too powerful to directly harm.</p>\n<p>This version draws upon the ancient legacy of the forest itself by calling upon the remnants of primal spirits that remain locked away in Tanglebriar, bolstering them with elven magic. Successfully performing the ritual in an area in which Treerazer is currently located is more difficult, but the ritual's effects can weaken and distract him. If Treerazer is slain or banished, the effects of this ritual are longer lasting and less expensive—see \"Cleansing Tanglebriar\" on page 67 of this volume for more details.</p>\n<p><em>Purify Tanglebriar's</em> primary caster must succeed at a DC 41 check, while the secondary casters must succeed at a DC 36 check. If Treerazer is present in the ritual's targeted area, these checks increase to DC 43 for the primary caster and DC 38 for the secondary casters, but if the primary caster wears the Viridian Crown, all checks for the primary and secondary casters are reduced by 5.</p><hr /><p><strong>Critical Success</strong> The region within the area grows less blighted for 1 month (during which time additional purify Tanglebriar attempts in this area have no additional effect). Greater difficult terrain becomes difficult terrain; difficult terrain becomes regular terrain, and hazardous terrain becomes non-hazardous. All DCs to @UUID[Compendium.pf2e.actionspf2e.Item.Sense Direction], @UUID[Compendium.pf2e.actionspf2e.Item.Subsist], and to resist environmental afflictions in the area are reduced by 4. Creatures allied with Treerazer take a –2 status penalty to Initiative checks within this region. If Treerazer is in the area when the ritual is performed, the party gains 2 Torment points toward weakening the demon lord and 2 Triumph Points.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Purify Tanglebriar]</p>\n<p><strong>Success</strong> As critical success, but for 1 week (during which time additional purify Tanglebriar attempts in this area have no additional effect). Creatures allied with Treerazer take no penalty to Initiative checks. If Treerazer is in the area when the ritual is performed, the party gains 1 Torment Point and 1 Triumph Point.</p>\n<p><strong>Failure</strong> The region is unaffected.</p>\n<p><strong>Critical Failure</strong> The region is unaffected, and the magic itself becomes corrupted and backfires on the casters. Each caster takes @Damage[20d6[void]] damage (@Check[fortitude|dc:38|basic] save) as the purification energies sap away life itself. For 1 month, any attempt by that same primary caster to perform purify Tanglebriar increases its DCs by 5.</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": "rare incense and offerings worth a total value of 2,000 gp"
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": "see text"
+          },
+          "range": {
+            "value": "1-mile-radius circle centered on you"
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "Nature or Religion"
+            },
+            "secondary": {
+              "casters": 3,
+              "checks": "Arcana, Nature, Religion, Survival, or Tanglebriar Lore"
+            }
+          },
+          "target": {
+            "value": ""
+          },
+          "time": {
+            "value": "8 hours"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "weapon:castrovels-beacon",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.y5ibQXac9BbzrYoT",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "weapon:fiendbreaker-heroic",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wu50pzerLWnVrHG8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.SpecificLore.Demon",
+                "value": "demon-lore"
+              },
+              {
+                "label": "PF2E.Skill.Diplomacy",
+                "value": "diplomacy"
+              },
+              {
+                "label": "PF2E.Skill.Religion",
+                "value": "religion"
+              }
+            ],
+            "flag": "skill",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "{item|flags.system.rulesSelections.skill}",
+            "type": "item",
+            "value": 4
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.abilities.{item|system.apex.attribute}.mod",
+            "value": 1
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "apex",
+          "raw": {
+            "attribute": "wis"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "weapon:soulcutter",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wtyyxv0ffoMAGV8I",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["item:trait:mental"],
+            "selector": "saving-throw",
+            "type": "item",
+            "value": "@item.system.runes.potency"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "weapon:soulcutter-heroic",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xczDHCiBANMuC87u",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["item:trait:mental"],
+            "selector": "saving-throw",
+            "type": "item",
+            "value": "@item.system.runes.potency"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Skill.Nature",
+                "value": "nature"
+              },
+              {
+                "label": "PF2E.Skill.Religion",
+                "value": "religion"
+              },
+              {
+                "label": "PF2E.Skill.Survival",
+                "value": "survival"
+              }
+            ],
+            "flag": "skill",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "{item|flags.system.rulesSelections.skill}",
+            "type": "item",
+            "value": 4
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.abilities.{item|system.apex.attribute}.mod",
+            "value": 1
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "apex",
+          "raw": {
+            "attribute": "str"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "spore-war",
+      "slug": "weapon:wintershot-heroic",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xEVWp9oaeF0yPseK",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.Skill.Diplomacy",
+                "value": "diplomacy"
+              },
+              {
+                "label": "PF2E.Skill.Intimidation",
+                "value": "intimidation"
+              },
+              {
+                "label": "PF2E.Skill.Survival",
+                "value": "survival"
+              }
+            ],
+            "flag": "skill",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "{item|flags.system.rulesSelections.skill}",
+            "type": "item",
+            "value": 4
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.abilities.{item|system.apex.attribute}.mod",
+            "value": 1
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "apex",
+          "raw": {
+            "attribute": "dex"
+          }
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

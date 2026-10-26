@@ -1,0 +1,2855 @@
+[
+  {
+    "id": "4d679f80-7866-56c3-80cd-126e2f45bdcc",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:born-to-the-trees",
+    "name": "Born to the Trees",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["impulse", "kineticist", "morph", "primal", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You adapt a creature to live among the trees, improving its ability to climb, balance, and leap. Target a willing creature within 30 feet. For 10 minutes, it gains a climb Speed equal to its Speed and a +1 circumstance bonus to Acrobatics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": " and Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9b3d9121-5da3-57fe-a5d0-e0ff20210c41"
+          },
+          {
+            "type": "text",
+            "text": ". When it Leaps, it increases the distance it can "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": " horizontally by 5 feet and vertically by 2 feet. If you use Born to the Trees again, any existing one ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ebaea108-9be8-568f-8d16-e35274c4ffe6"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Level (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target up to 5 willing creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6dpBiQ9lhgrAQzCd"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "f2b3f2ae-889e-5220-8fbc-13e2f17bdf29",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:canopy-predator",
+    "name": "Canopy Predator",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are as at home in the treetops as you are beneath their branches. You gain a climb Speed of 15 feet when moving through trees, vines, and other foliage. Whenever you succeed at an Athletics check to Climb a tree or an Acrobatics check to "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": " on a branch, you get a critical success instead. You aren't "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " while Climbing or Balancing on a tree."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:canopy-predator",
+        "toggleable": true
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "success": "to-critical-success"
+        },
+        "predicate": ["action:climb", "option:canopy-predator"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:acrobatics"],
+        "adjustment": {
+          "success": "to-critical-success"
+        },
+        "predicate": ["action:balance", "option:canopy-predator"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 15,
+        "predicate": [
+          {
+            "or": ["option:canopy-predator", "terrain:foliage"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lzCObPONWqrcmt30"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Verduran Shadow Dedication; trained in Athletics"
+            }
+          ]
+        }
+      ],
+      "archetype": "33e8d9f5-bbda-59a4-b2ac-34a22cb425c5"
+    }
+  },
+  {
+    "id": "2c6af742-7510-54f1-ac38-cabd8acfaf28",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:caustic-nectar",
+    "name": "Caustic Nectar",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have specialized glands inside your throat, which produce acidic nectar that you can spit long distances. You gain a nectar ranged unarmed attack with a range increment of 20 feet that deals 1d4 acid damage. On a critical hit, the target is additionally "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": ". Your nectar doesn't add critical specialization effects. You're immune to your own nectar."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat gains the trait for your ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "nectar",
+        "category": "unarmed",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "acid"
+        },
+        "range": 20,
+        "display": {
+          "label": "Nectar"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.3wYqZuyaIredjSZ6"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ardande trait, plant trait, or wood trait"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5f8612e9-ad87-5097-9be9-bf64c0ad1dcc",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:death-from-above",
+    "name": "Death from Above",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are standing, climbing, or balancing on a surface at least 10 feet above your target."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You leap down on your target, using their body to cushion your fall and your momentum to empower your attack. Attempt an Athletics check to "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": " to a space adjacent to the target. If you land adjacent to the target, compare the "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics"
+          },
+          {
+            "type": "text",
+            "text": " check result against your target's Reflex DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you leap onto a creature in this way, you do not also deal damage for falling on a creature. Regardless of your result, the target is temporarily immune to your Death from Above for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target falls and lands "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ", reducing the falling damage you take by an amount equal to twice your level. You then can make a melee Strike against the target. The Strike gains the deadly d8 weapon property and deals an additional 1d6 bludgeoning damage. This additional damage increases to 2d6 if you are a master in Athletics, and to 3d6 if you are legendary in Athletics."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of your next turn, reducing the falling damage you take by an amount equal to your level. You can then make a melee Strike against the target, adding the deadly d8 weapon property to the attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can make a Strike against the target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fall prone, whether you take falling damage or not."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:death-from-above",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "critical-success",
+            "label": "Critical Success"
+          },
+          {
+            "value": "success",
+            "label": "Success"
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:melee"],
+        "property": "traits",
+        "mode": "add",
+        "value": "deadly-d8",
+        "predicate": ["option:death-from-above"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": "ternary(gte(@rank.skill.athletics, 4), 3, ternary(gte(@rank.skill.athletics, 3), 2, 1))",
+        "dieSize": "d8",
+        "damageType": "bludgeoning",
+        "predicate": ["death-from-above:critical-success"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.j8CLa6RoohfKCWoO"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Canopy Predator; expert in Athletics"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are standing, climbing, or balancing on a surface at least 10 feet above your target."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "33e8d9f5-bbda-59a4-b2ac-34a22cb425c5"
+    }
+  },
+  {
+    "id": "252b4d99-648a-5f8f-90f0-161d63b3d673",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:defensive-growth",
+    "name": "Defensive Growth",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["deviant", "magical", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're the target of a physical attack."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grow a shield of woven flowers and branches, then Raise that Shield to defend yourself from the triggering attack. If you would take damage from the attack, you immediately "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": ". This is a "
+          },
+          {
+            "type": "ref",
+            "id": "907186ca-80cf-5c5e-96c6-e2ded2388851"
+          },
+          {
+            "type": "text",
+            "text": " (Hardness 3, HP 12, BT 6). The shield remains in your possession for a number of rounds equal to your level, or until it's destroyed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield becomes stronger. It has Hardness 5, HP 40, BT 20."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shield takes on a mind of its own and lashes out vengefully when destroyed. When the shield is destroyed, is explodes, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to your attacker, with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pGjSh6qk9kQLznKn"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're the target of a physical attack."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "679888bc-238b-553f-a46e-8bf5c3046bea",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:disperse-into-petals",
+    "name": "Disperse Into Petals",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["deviant", "magical", "plant", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You merge with the blossoms sprouting from you and disperse, becoming a visible cloud of blossoms and petals. You're amorphous. You lose any item bonus to AC and all other effects and bonuses from armor, and you use your proficiency modifier for unarmored defense. You gain resistance to physical damage equal to half your level and are immune to precision damage. You can't cast spells, activate items, or use actions that have the attack or manipulate trait. You gain a fly Speed of 10 feet. You can remain in this form for up to 1 minute. You can Dismiss this effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can maintain your form for a longer time. You can remain in this form for up to 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You've learned to harm others, even while in your blossom state. You can occupy the same space as someone else. While occupying someone else's space, you can spend 1 action to spin around in a vortex of blossoms, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(@level/5)d4",
+                "damageType": "slashing"
+              }
+            ],
+            "label": "1d4 slashing"
+          },
+          {
+            "type": "text",
+            "text": " damage for every 5 levels you have to the creature, with a basic Reflex save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vUHDuKLKKZHzAqvZ"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "879eb6fc-1c97-5596-a446-308537cee505",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:fungal-exhalation",
+    "name": "Fungal Exhalation",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["druid", "focus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can conjure toxic spores to infect enemies. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "1b6e4d44-521c-598b-bff1-cba1ce410227"
+          },
+          {
+            "type": "text",
+            "text": " order spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6y2rSSlCXUpk8DMY"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "spore order"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d3f761dc-328f-559f-b23a-b81ced90c5cc",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:grow-tool",
+    "name": "Grow Tool",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["plant", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grow a simple tool from your own body, coaxing flowers, vines, roots, and wood to grow and sprout from your flesh into the desired shape. You create a one level 0 common simple tool with no intricate parts or written text, such as a crowbar, rope, or shovel. You can't replicate a tool kit or weapon with this ability. This item lasts for 1 minute, or until you create another tool with this ability, whichever comes first. When duration runs out, the item crumbles to mulch."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat gains the trait for your ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Rf8md5eIOxV2m4nJ"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ardande trait, plant trait, or wood trait"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "three"
+      }
+    }
+  },
+  {
+    "id": "f0c5c6eb-35db-529a-8eae-6dd9b005dcda",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:hedge-prison",
+    "name": "Hedge Prison",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["druid", "focus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cultivate plants to entrap your foes. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9e8c7312-a596-5197-b805-b85e1177334a"
+          },
+          {
+            "type": "text",
+            "text": " order spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Uuvu1TojhHcDm7EV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "cultivation order"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2605fc2c-683f-5e4d-aba8-bff1f3446ede",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:irradiate",
+    "name": "Irradiate",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["deviant", "magical", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You exude an aura of radiation, making everyone around you ill. All creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": ". On a critical failure, they're also "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute. You're immune to your own radiation. The value of this sickened condition increases by 1 for every 5 levels you have beyond 6th."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become more efficient at exuding this aura of radiation. The radius of the emanation becomes "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your radiation becomes more potent. Creatures in the area take an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(floor(@level/2))d4",
+                "damageType": "poison"
+              }
+            ],
+            "label": "1d4 poison"
+          },
+          {
+            "type": "text",
+            "text": " damage for every 2 levels you have, with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save (roll this Fortitude save once and apply it to both the damage and the sickened condition)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.79GUhBznFfYqdwgO"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "11802de7-9016-5ba5-81ab-1c5fba41931f",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:irresistible-bloom",
+    "name": "Irresistible Bloom",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["emotion", "incapacitation", "mental", "olfactory", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bloom, sprouting flowers and releasing a pleasant smell, becoming irresistible. All creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save with a DC equal to your Class DC or Spell DC, whichever is higher. On a failure, a creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " with you, and must spend at least one of its actions on its next turn moving toward you. On a critical failure, you acting hostile to that creature allows them to attempt another save, rather than automatically ending the fascination."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These effects last until the beginning of your next turn. You can spend one action at the beginning of your turn to Sustain the effects for an additional round. You can Sustain it in this way for a maximum of 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat gains the trait for your ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.gltXysTfoyF1Ywoc"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ardande trait, plant trait, or wood trait"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "02a603a2-a0ed-5427-a69f-f857fcc9b326",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:one-with-the-wild",
+    "name": "One with the Wild",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You naturally blend in with the wilderness, becoming camouflaged. In natural terrain, you can "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": " even without cover or being "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat gains the trait for your ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pHPRIPMsoVkB6njQ"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wilderness Born"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a861d31e-ff2d-55b1-a107-1f0f8b0d724c",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:pollinate",
+    "name": "Pollinate",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take bludgeoning damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As you're hit, you emit a dense cloud of pollen, obscuring you from sight. You become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat gains the trait for your ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.JDH1AIUF0XpmXpYt"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ardande trait, plant trait, or wood trait"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You take bludgeoning damage."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "d4e1e8c2-f84c-5ed1-96a0-152d7f01ddd4",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:potent-nectar",
+    "name": "Potent Nectar",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your nectar becomes particularly dangerous. Select one of the following benefits when you gain this feat. This choice is permanent and can't be changed."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your nectar is sticky, and clings to your target. Your nectar unarmed attack deals an additional 1d4 persistent acid damage to the target. This persistent damage isn't multiplied on a critical hit."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your nectar is shot at a high velocity, and splashes upon contact. Your nectar unarmed attack additionally deals 1d4 acid splash damage. This splash damage isn't multiplied on a critical hit."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat gains the trait for your ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "potent-nectar",
+        "choices": [
+          {
+            "value": "splash",
+            "label": "Acid Splash Damage"
+          },
+          {
+            "value": "persistent",
+            "label": "Persistent Acid Damage"
+          }
+        ],
+        "prompt": "Select a benefit.",
+        "rollOption": "potent-nectar"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["nectar-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "acid",
+        "category": "persistent",
+        "critical": false,
+        "predicate": ["potent-nectar:persistent"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["nectar-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "acid",
+        "category": "splash",
+        "critical": false,
+        "predicate": ["potent-nectar:splash"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Pqk5ED2YU5O8nKLX"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Caustic Nectar"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "7c366c98-e8f9-5409-8e76-7cd896a00923",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:quick-root",
+    "name": "Quick Root",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature successfully Shoves or Trips you, or you fail a saving throw against an effect that would move you or knock you "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You react instinctively, sprouting roots from your legs and plunging them deep into the ground to keep your footing. If a force would move you, you move half that distance, to a minimum of 5 feet. If you would be knocked prone, resolve the effect, then you Stand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat gains the trait for your ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.it5yM6sbwJJysm9U"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ardande trait, plant trait, or wood trait"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature successfully Shoves or Trips you, or you fail a saving throw against an effect that would move you or knock you Prone."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "a012cb9e-3f2b-5c2c-a6e6-faf6161981ff",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:release-spores",
+    "name": "Release Spores",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["deviant", "fungus", "magical", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a miasma of spores. These spores fill a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " within 100 feet and remain for 1 round per level you have. All creatures within the spores become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ", and all creatures outside the spores become concealed to creatures within it. You can see through the spores without difficulty. You can Dismiss the spores."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spores smell disgusting. Creatures in the area are "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " for as long as they remain in the area, plus 2 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spores are toxic. The miasma deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(@level/2)",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage per 2 levels you have to creatures in the area when you Release Spores, to creatures who begin their turn in the area, and to creatures who enter the area."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YePPw9Oc4JlDAmYD"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "6f9bb5e3-8aed-5f83-a794-648ed05e1b1d",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:rotten-slurry",
+    "name": "Rotten Slurry",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["attack", "deviant", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You expel a glob of rotten, foul-smelling slurry from your torso, hand, or mouth at a foe. Make a ranged attack roll against a creature within 30 feet. If you succeed, the slurry deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(@level/2)d4",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the target for every two levels you have, or double damage on a critical success. A creature that's damaged by the attack is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical success)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The slurry bursts, showering bystanders. The attack deals an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(@level/4)d4",
+                "damageType": "poison",
+                "category": "splash"
+              }
+            ],
+            "label": "1d4 poison splash"
+          },
+          {
+            "type": "text",
+            "text": " damage for every four levels you have."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The slurry is caustic, and bores into the flesh of those it touches. The attack deals an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "acid",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZJSkCrud1FZ7PMFk"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "0c7ce66f-3f0c-5698-a96e-c4b961f426ee",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:sense-the-strike",
+    "name": "Sense the Strike",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature targets you with an attack and you can see the attacker."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You sense how an incoming attack moves through ambient primal energy, predicting how best to dodge. The triggering attack targets your Survival DC instead of your AC. Though this allows you to avoid taking penalties to your AC, it doesn't remove any conditions or other effects causing such penalties. For example, an enemy with sneak attack would still deal extra damage to you for being "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": ", even though you wouldn't take the –2 circumstance penalty when defending against the attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.h85DAkAPGjRFwIuf"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Verduran Shadow Dedication; master in Survival"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature targets you with an attack and you can see the attacker."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "33e8d9f5-bbda-59a4-b2ac-34a22cb425c5"
+    }
+  },
+  {
+    "id": "76983c70-2791-5c70-b813-42e6812104f8",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:sprout-fruit",
+    "name": "Sprout Fruit",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["deviant", "healing", "magical", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The plants covering your body sprout a single, ripe fruit. A creature other than you who eats this fruit as a three-action activity (1 Interact action to pluck the fruit and 2 Interact actions to eat it) is healed "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(@level/2)d4"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points for every 2 levels you have."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The fruit is more potent. Increase the healing from d4s to d6s ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(@level/2)d6"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The fruit is plentiful. You sprout one additional fruit for every 5 levels you have beyond 2. Also, those who eat a fruit may reduce a condition affecting them by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.WxnCYjr02usmMN1q"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "b7168200-b294-530b-8f88-31a7279e8b8e",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:the-thousand-lashes-of-the-weeping-willow",
+    "name": "The Thousand Lashes of the Weeping Willow",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["impulse", "kineticist", "overflow", "plant", "primal", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a massive willow tree, which lashes your foes with a thousand branches. The trunk of the weeping willow tree is 10-feet in diameter and appears in an unoccupied space within 500 feet. The tree whips its branches at all your enemies within a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " centered on the willow's trunk, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(10 + floor(@level/20)*4)d8",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-dc"
+            },
+            "basic": true,
+            "options": ["inflicts:slowed"]
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC. A creature that fails its save is also overcome with sorrow, becoming "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for as long as the willow remains, as it weeps uncontrollably. The willow doesn't target you or your allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The willow tree remains until the end of your next turn, but you can Sustain it up to 1 minute. The first time you Sustain the impulse each round, the weeping willow attacks again, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(@level/4)d8",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all enemies in the area with a basic reflex save. If you use this impulse again, the previous one ends."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Level (20th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial damage is 14d8, and the Sustained damage is 5d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.PYRx4lCIQXyW8tz8"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "three"
+      }
+    }
+  },
+  {
+    "id": "dc201c0a-b1a7-5616-abd7-431e97a34621",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:unbowed-unbroken",
+    "name": "Unbowed, Unbroken",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["ardande", "lineage"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection to elemental wood manifests as resilience—towering trees, rough bark, deep roots, and patient determination. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "e8aa30ac-32d7-5a5d-84bf-2dff82f64b24"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "e8aa30ac-32d7-5a5d-84bf-2dff82f64b24"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.TZQUhuEjSPSVe0oS"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "69ec0407-6b18-5878-b7bb-2f3804bdd6d5",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:underbrush-trailblazer",
+    "name": "Underbrush Trailblazer",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "64a7812f-3d66-543f-92ba-09b830326f80"
+          },
+          {
+            "type": "text",
+            "text": " feat, selecting the underbrush terrain; if you already have Terrain Stalker for underbrush, you can select a different type of difficult terrain. If you "
+          },
+          {
+            "type": "ref",
+            "id": "c51e323a-8364-5dc1-89f7-4f3216a699a8"
+          },
+          {
+            "type": "text",
+            "text": " while exploring, and if any allies use "
+          },
+          {
+            "type": "ref",
+            "id": "0dcd6834-0107-5e85-84df-373202d45e0e"
+          },
+          {
+            "type": "text",
+            "text": " to follow you as you do so, you can extend your Terrain Stalker feat's benefits to one ally so long as they remain within 10 feet of you. If you have master proficiency in Stealth, you can extend the effect to two allies. If you have legendary proficiency in Stealth, you can extend it to four allies."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "64a7812f-3d66-543f-92ba-09b830326f80",
+        "choices": {
+          "terrain-stalker": "underbrush"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qJzQUD3rCcWiuofd"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Verduran Shadow Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "33e8d9f5-bbda-59a4-b2ac-34a22cb425c5"
+    }
+  },
+  {
+    "id": "da6678a2-c8f4-510f-98c7-58b58bf5685e",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:unfettered-growth",
+    "name": "Unfettered Growth",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "By tapping into the limitless power of the Plane of Wood, you can experience sudden, dramatic growth for a short time. Select one of the following benefits when you gain this feat. This choice is permanent and can't be changed."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You gain 2nd-rank "
+                },
+                {
+                  "type": "ref",
+                  "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+                },
+                {
+                  "type": "text",
+                  "text": " as a primal innate spell. You can cast this spell twice per day and must target yourself. The spell's duration is 30 minutes."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You gain 4th-rank "
+                },
+                {
+                  "type": "text",
+                  "text": "enlarge",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " as a primal innate spell. You can cast this spell once per day and must target yourself."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat gains the trait for your ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.CFNjlHpVUit4ygaf"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ardande trait, plant trait, or wood trait"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d36c893b-cf7b-5250-995c-5130858e7d43",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:unleash-the-blight",
+    "name": "Unleash the Blight",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["deviant", "magical", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You unleash the rot infecting you, spreading the blight to those nearby. All living creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(@level/2)d6",
+                "damageType": "void"
+              }
+            ],
+            "label": "1d6 void"
+          },
+          {
+            "type": "text",
+            "text": " damage for every 2 levels you have, with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The blight is infectious. Creatures damaged by your blight take an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "void",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, as they begin to decompose."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The blight is debilitating. Creatures damaged become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " for one round on a success, drained 1 for 1 minute on a failure, and "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute on a critical failure."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.PycaQsgfgOQc86UX"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
+    "id": "03f6a77a-ab61-5351-a146-12b5cc7ac4ac",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:verduran-ambush",
+    "name": "Verduran Ambush",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You prepare to ambush a foe. You Ready an activity that takes 2 actions, though that activity must either be Death from Above or an activity with the requirement that you be "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " by all your opponents (such as "
+          },
+          {
+            "type": "ref",
+            "id": "72841e60-53a2-5c5d-92b1-f3e9c0548427"
+          },
+          {
+            "type": "text",
+            "text": "). After using the reaction, you cannot use this feat again for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.u2LGS5SNvnLiXpgx"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Verduran Shadow Dedication; expert in Stealth"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "three"
+      },
+      "archetype": "33e8d9f5-bbda-59a4-b2ac-34a22cb425c5"
+    }
+  },
+  {
+    "id": "bb948b6b-dbb6-5d62-9b2a-64133876de5c",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:verduran-shadow-dedication",
+    "name": "Verduran Shadow Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your awareness of primal energies allows you to explore forests with preternatural ease. You become an expert in Survival. You can substitute your proficiency in Survival for your proficiency in Stealth when meeting feat prerequisites and gaining additional benefits from feats for being an expert, master, or legendary in Stealth; however, unless you also fulfill the Stealth prerequisite, you can only use those feats in forest terrain. While in forests, you can use your Survival modifier in place of your Stealth modifier when you "
+          },
+          {
+            "type": "ref",
+            "id": "c51e323a-8364-5dc1-89f7-4f3216a699a8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": ", or would use Stealth to roll initiative."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Verduran Shadow"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.i2H0iiGYRr0fhzgz"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Stealth; trained in Survival"
+            }
+          ]
+        }
+      ],
+      "archetype": "33e8d9f5-bbda-59a4-b2ac-34a22cb425c5"
+    }
+  },
+  {
+    "id": "dc5b51f6-3961-5584-b291-56de34863c31",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:vine-lash",
+    "name": "Vine Lash",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["attack", "deviant", "magical", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a free hand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A long vine sprouts from your arm, which you can temporarily wield like a whip. Make a melee attack roll against a creature within 30 feet. If you succeed, the vine deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(@level/2)d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage for every 2 levels you have to the target, or double damage on a success."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The vine coils around your foes, squeezing them lifeless. On a successful hit, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " by the vine. The DC to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " the vine is equal to your Class DC or Spell DC, whichever is higher. Each round on your turn, if the target is still grabbed, the vine squeezes them, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(@level/2)d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage for every 2 levels you have."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Awakening",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Rather than lash at your foes with a single vine, dozens of writhing vines emerge from your hands, lashing all creatures in a large area. You can use Vine Lash as a 2-action activity to damage all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.fYD0SrZhMyJVQgvl"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You have a free hand."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "e0f1a3fa-6410-56a3-8d5a-63972a091a30",
+    "pack": "wardens-of-wildwood",
+    "kind": "feat",
+    "slug": "feat:wilderness-born",
+    "name": "Wilderness Born",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're at home in the wilderness and easily disappear into it. You gain a +1 circumstance bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": " in natural terrain, and a +1 circumstance bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "d0498569-a787-5708-8a5f-39c521dd3df4"
+          },
+          {
+            "type": "text",
+            "text": " in natural terrain. While in natural terrain, you're always considered to be "
+          },
+          {
+            "type": "ref",
+            "id": "1c678b1d-a165-51e0-b936-1769b16a5955",
+            "label": "Covering Tracks"
+          },
+          {
+            "type": "text",
+            "text": ", even if you chose a different activity in exploration mode."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This feat gains the trait for your ancestry."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival", "skill:stealth"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          "terrain:natural",
+          {
+            "or": ["action:hide", "action:sneak", "action:sense-direction"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uUPc3k9a6gExLOnN"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ardande trait, plant trait, or wood trait"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

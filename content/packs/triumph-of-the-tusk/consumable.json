@@ -1,0 +1,1015 @@
+[
+  {
+    "id": "b4a29c4b-55c6-525b-b7cc-719c5afba8c6",
+    "pack": "triumph-of-the-tusk",
+    "kind": "consumable",
+    "slug": "consumable:aurochs-jerky",
+    "name": "Aurochs Jerky",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aurochs meat already makes for tough jerky, but with the right alchemical treatment, it becomes legendarily resilient and imparts that durability to those who eat it. Eating the jerky causes a pair of inch-long horns to grow from your forehead (or causes your existing horns to grow noticeably) for 1 hour. During this time, you gain a +1 item bonus to Fortitude saves. You can end the effect prematurely, causing the horns to retract or revert to their normal size, with a free action that has the concentrate trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "f6fa229e-6a5a-5ac0-9414-350854f6ba8e"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aurochs' Endurance",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You begin your turn and are "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You suppress the fatigued condition for 10 minutes. During this time, you are not immune to fatigue and can become fatigued by subsequent effects, but you gain a +2 item bonus to saving throws against effects that would fatigue you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5a32bfca-b76c-5ded-8635-e49d0dea6a7a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CNDOlR00gFm3DDAu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "two"
+      },
+      "effect": "f6fa229e-6a5a-5ac0-9414-350854f6ba8e",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "abf03ed0-b41f-5170-97db-9d78df044994",
+    "pack": "triumph-of-the-tusk",
+    "kind": "consumable",
+    "slug": "consumable:cindergrass-poultice",
+    "name": "Cindergrass Poultice",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["consumable", "healing", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick, waxy gel erases the effects of flame. It restores "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d12"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points to a creature when applied to their body. If the creature has taken fire damage within the last minute, it restores additional Hit Points equal to the amount of fire damage the creature took within the last minute (maximum +10). Finally, the creature becomes immune to the effects of severe heat for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yYe4drMnjGWtUMb7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 33
+        }
+      },
+      "bulk": "light",
+      "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "524bf1c4-3407-5bef-a3d5-7d41d705b248",
+    "pack": "triumph-of-the-tusk",
+    "kind": "consumable",
+    "slug": "consumable:gorums-tear",
+    "name": "Gorum's Tear",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, fortune)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make an attack with the affixed weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This teardrop-shaped piece of iron is a naturally occurring mineral, said to be a solidified tear of bellicose joy shed by Gorum during his battles. When you activate the Gorum's tear, you roll your next attack roll twice and take the better result, ignoring any circumstance penalties. You then become "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to the creature you targeted until the beginning of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fqFOdsUJdvgZCs1U"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "weapon"
+      }
+    }
+  },
+  {
+    "id": "5ad45796-5d86-5f67-9f36-8a19f13f35da",
+    "pack": "triumph-of-the-tusk",
+    "kind": "consumable",
+    "slug": "consumable:pepper-poultice",
+    "name": "Pepper Poultice",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mash of Cinderlands peppers has been fermented into a potent poultice to expel toxins from the body. When you have the sickened condition, you can slather this poultice onto your skin to reduce your "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": " value by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KlI5oBAsPCL5OyH5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8c2329a3-83bc-55dc-8a84-07452acd250d",
+    "pack": "triumph-of-the-tusk",
+    "kind": "consumable",
+    "slug": "consumable:puppetmaster-extract",
+    "name": "Puppetmaster Extract",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "contact", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Distilled from a trighoul's vital fluids, this gummy, ooze-like toxin springs to life when it makes contact with flesh. It swiftly grows spines that dig into the victim, twitching with rudimentary intelligence as they root around for the nervous system. If the toxin embeds itself deeply enough, it seizes control of the victim's body."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Unlike most poisons, puppetmaster extract can affect a dead body with mostly intact flesh. Each round, a corpse without sentience automatically fails its Fortitude save against the poison. At stage 4, the poison stops causing damage and confusion; instead, it reanimates the corpse as an elite Plague Zombie without the unholy trait; a larger body instead uses statistics for a Zombie Brute or Zombie Hulk, whichever matches its size. The corpse stands as a free action at the beginning of its turn and attacks nearby creatures. When the poison's duration expires or the poison is cured, the body's state of animation ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 26
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 8 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d12",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d12",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d12",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and 2d12 poison (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d12",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d12",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, and "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d12",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and confused for 1 round (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3Byr7YKaNlZl474Y"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 85
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "73679770-abb4-59e2-8db4-c5ff67df2dbf",
+    "pack": "triumph-of-the-tusk",
+    "kind": "consumable",
+    "slug": "consumable:purple-pepper-powder",
+    "name": "Purple Pepper Powder",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This nearly black purple powder is made from the extremely spicy Kuthite's kiss pepper and is a favorite among the Sklar-Quah. When you eat a meal flavored with this purple pepper powder, you gain resistance 10 to fire and resistance 5 to poison for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "da2b5437-617b-54b2-8f2f-414c05eb9077"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IouqNbVVqt2oJDri"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "effect": "da2b5437-617b-54b2-8f2f-414c05eb9077",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "abd67bed-7cce-5383-9e88-905ac0314052",
+    "pack": "triumph-of-the-tusk",
+    "kind": "consumable",
+    "slug": "consumable:roc-shaft-arrow-greater",
+    "name": "Roc-Shaft Arrow (Greater)",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ammunition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " arrow"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each of these arrows is made from an immense roc's flight feather, most of whose vanes have been trimmed to expose the arrow's shaft. When an activated roc-shaft arrow hits a target, the arrow briefly grows a pair of avian wings and attempts to carry off the target. The target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 34
+          },
+          {
+            "type": "text",
+            "text": " save or be moved to a space you choose within 20 feet (30 feet on a critical failure). If this would move the target into a hazardous space, this effect gains the incapacitation trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jg3gsPDcrA5xUogf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "6799e84c-fb05-5119-8502-6532618903cf",
+    "pack": "triumph-of-the-tusk",
+    "kind": "consumable",
+    "slug": "consumable:roc-shaft-arrow-lesser",
+    "name": "Roc-Shaft Arrow (Lesser)",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ammunition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " arrow"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each of these arrows is made from an immense roc's flight feather, most of whose vanes have been trimmed to expose the arrow's shaft. When an activated roc-shaft arrow hits a target, the arrow briefly grows a pair of avian wings and attempts to carry off the target. The target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 19
+          },
+          {
+            "type": "text",
+            "text": " save or be moved to a space you choose within 10 feet (20 feet on a critical failure). If this would move the target into a hazardous space, this effect gains the incapacitation trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7pHKxibsckGy220n"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "7f99a2d2-6db6-509e-8d13-3995d9471f9e",
+    "pack": "triumph-of-the-tusk",
+    "kind": "consumable",
+    "slug": "consumable:roc-shaft-arrow-moderate",
+    "name": "Roc-Shaft Arrow (Moderate)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ammunition",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " arrow"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each of these arrows is made from an immense roc's flight feather, most of whose vanes have been trimmed to expose the arrow's shaft. When an activated roc-shaft arrow hits a target, the arrow briefly grows a pair of avian wings and attempts to carry off the target. The target must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " save or be moved to a space you choose within 15 feet (20 feet on a critical failure). If this would move the target into a hazardous space, this effect gains the incapacitation trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wzZbMIlvKbAwaYC0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "other"
+      }
+    }
+  }
+]

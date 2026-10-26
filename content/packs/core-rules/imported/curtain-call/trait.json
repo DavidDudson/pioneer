@@ -1,0 +1,252 @@
+[
+  {
+    "id": "c2ae81de-749c-5b31-ad30-dd1e54bed25d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:ganzi",
+    "name": "Ganzi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "b3f44512-b24f-5fb3-a118-5c3cfc78c8cf",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:minion",
+    "name": "Minion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "26e796be-b63f-5c51-8585-bda64df0985d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:palinthanos",
+    "name": "Palinthanos",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "adefbc76-4c9c-556c-904a-9a114aa422af",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:persona-flirt",
+    "name": "Persona: Flirt",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "eea40b92-a9a7-5087-ae15-29325be4078e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:persona-guardian",
+    "name": "Persona: Guardian",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "30c549ad-718f-5241-962a-f07ca4146439",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:persona-leader",
+    "name": "Persona: Leader",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "845622ff-0929-5b79-b465-d2e4312bd617",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:persona-scholar",
+    "name": "Persona: Scholar",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "ee13c903-d3f9-595a-8f1c-9f301864f622",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:persona-scoundrel",
+    "name": "Persona: Scoundrel",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "7ac21ee0-99a8-5c51-b8b8-047669f56d59",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:persona-underdog",
+    "name": "Persona: Underdog",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "efceea62-d52f-5c45-925d-eb99deb59cd6",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:persona-warrior",
+    "name": "Persona: Warrior",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "71bb6a28-a8eb-5e34-b443-0a2a7a85758e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:persona-wildcard",
+    "name": "Persona: Wildcard",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "ab3de5d0-ba4f-565c-ba50-6ff3701e610e",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:siktempora",
+    "name": "Siktempora",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  }
+]

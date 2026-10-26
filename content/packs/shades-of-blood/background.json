@@ -1,0 +1,633 @@
+[
+  {
+    "id": "969f2941-1d58-5089-b538-c1197d022561",
+    "pack": "shades-of-blood",
+    "kind": "background",
+    "slug": "background:child-of-the-colony",
+    "name": "Child of the Colony",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Talmandor's Bounty's first year was fraught with hardship and peril, and many of the original settlers—including your parents—returned to the mainland at the earliest opportunity. However, you have nothing but fond memories of your time on Ancorato! Your carefree days in the colony were spent climbing trees, picking berries, and wondering at the island's natural splendor. You might even fondly remember some of the original settlers from that time who are still in town. Now that you're grown, you've returned to the colony to recapture that childhood magic (and hopefully avoid the dangers that forced your family to leave the island in the first place)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Survival skill and the Island Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5280295f-7e02-5eed-93b0-2287b39ba574"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, work with your GM to select one business in town. You have a connection to the owner or someone who works there and get a 10% discount on goods and services from that establishment."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:island",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5280295f-7e02-5eed-93b0-2287b39ba574"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.eHttcx3UN9GSzlA7"
+    },
+    "data": {
+      "boosts": [
+        ["str", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "61d131c4-eefc-5064-99c9-35ea4c3bbb1f",
+    "pack": "shades-of-blood",
+    "kind": "background",
+    "slug": "background:company-agent",
+    "name": "Company Agent",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the Bountiful Venture Company first invested in the colony of Talmandor's Bounty, the backers expected to see a return on their investment. Nearly a decade later, the Company has yet to realize any profits, and so they've sent you to Ancorato to see what might be done to remedy the situation. Your employers place much of the blame on the colony's governor, Ramona Avandth, whose stubborn refusal to accelerate the investors' repayment schedule has kept the Company from the money it's rightfully due. While several of the Company's representatives—including your direct superior, Verner Tracewell—have already landed on the island, you're to serve in a more unofficial capacity, scouring the colony for mismanagement in hopes Ramona will be unseated from her position and replaced by someone more amenable to the Company's interests."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Deception skill and the Accounting Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d1ff4227-7dc1-57d9-a3d8-1f16ad627b61"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:deception",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:accounting",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "d1ff4227-7dc1-57d9-a3d8-1f16ad627b61"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.zhSGlVwl75CfVKfR"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "ddc645da-f254-5cbd-8991-e0721f8df1bb",
+    "pack": "shades-of-blood",
+    "kind": "background",
+    "slug": "background:hunted-by-the-night",
+    "name": "Hunted by the Night",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're being hunted—by a vampire no less! What you did to offend this nocturnal predator hardly matters now. All you know is that when your bandolier of garlic bulbs, holy water, and religious icons failed to deter your pursuer, you had no other choice but to put as much distance between you and them as possible. You set sail for the Andoren colony of Talmandor's Bounty, where you hope a vast ocean and an island known for its sun-filled days will keep you safe."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Stealth skill and the Vampire Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ea6c8962-0fc5-5db6-8fbd-0ad99296eae2"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you begin play ready to protect yourself from your supernatural stalker. You have a "
+          },
+          {
+            "type": "ref",
+            "id": "84374307-532b-540a-bb3c-106f356bba16",
+            "label": "religious symbol"
+          },
+          {
+            "type": "text",
+            "text": ", a wooden stake and mallet, and a vial of "
+          },
+          {
+            "type": "ref",
+            "id": "69117d38-92e5-5416-a51f-8dddf680e9d7"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:vampire",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "ea6c8962-0fc5-5db6-8fbd-0ad99296eae2"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.N0CRYmDCw8bgNxLl"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "12c2a86e-b088-5b61-adfb-07a4aba2fd22",
+    "pack": "shades-of-blood",
+    "kind": "background",
+    "slug": "background:knack-for-contraptions",
+    "name": "Knack for Contraptions",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've always liked to fiddle with things mechanical, anything from simple tools to more complex contraptions. The more parts, especially moving parts, the better. You often got in trouble as a child for dismantling something just to see how it worked. As you grew up, you drew plans and yearned to study engineering so that you could build something of your own. You read tales of Jistkan marvels, Shory flying cities, and Azlanti magitech and clockworks. After hearing that an expedition to old Azlant was looking to take on research assistants, you immediately signed up, hoping for a chance to study the ruins. You've even heard that the town has a business with a clockwork soldier working as a guard! You've spent the whole ship ride over to Talmandor's Bounty thinking of the wonders you might find."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and the Engineering Lore skill. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "3a393564-d44c-59e4-8abe-092117c6a5d1"
+          },
+          {
+            "type": "text",
+            "text": " as an arcane innate cantrip. As normal, the cantrip heightens to half your level rounded up."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:engineering",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.ZOT2ztnh6PdqV5EJ"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "fa668adc-62c3-5157-a396-4b9882801b85",
+    "pack": "shades-of-blood",
+    "kind": "background",
+    "slug": "background:stargazer",
+    "name": "Stargazer",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ever since you were a child, you've looked up at the night sky and been filled with wonder by the host of celestial bodies that populate the cosmos. Whether you approach your observations from a mystical perspective or through a more scientific lens, when the opportunity to apprentice under the famed astronomer Inizkar presented itself, you booked passage on the first boat to Ancorato. Once you arrive in Talmandor's Bounty, you hope to continue your studies and perhaps even view the heavens from an observatory built by the ancient Azlanti themselves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in your choice of the Arcana, Nature, or Occultism skill, and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "161d1c8a-4304-59c5-bd4b-e0f21e3afa13"
+          },
+          {
+            "type": "text",
+            "text": " skill feat in your chosen skill. You're also trained in the Astronomy Lore skill."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you have an innate sense of time. You can ascertain the time accurate to within the hour even without being able to see the sky."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcana",
+            "predicate": ["skill:arcana:rank:0"]
+          },
+          {
+            "value": "nature",
+            "label": "Nature",
+            "predicate": ["skill:nature:rank:0"]
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism",
+            "predicate": ["skill:occultism:rank:0"]
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:astronomy",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.HWOGbaRGXazklBMT"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "366db6c8-d26e-5df6-b64d-b4385ea1f0ab",
+    "pack": "shades-of-blood",
+    "kind": "background",
+    "slug": "background:student-of-the-ancients",
+    "name": "Student of the Ancients",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sure, stargazing is fine and all, but you signed up for the expedition to Ancorato so you could visit the remains of the ancient empire of Azlant. A curious child, you had access to books that covered some of the ancient civilizations that thrived before Earthfall and would often get lost in your own imagination of what life was like way back then. You even managed to learn some ancient languages to further your studies by reading the actual words rather than someone else's translations. You hope that when your contract for Inizkar's expedition finishes, you can start your own expedition into the Azlanti ruins."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and the Azlanti Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "2cf519d9-3331-5d83-80da-9041ede7e26f"
+          },
+          {
+            "type": "text",
+            "text": " skill feat; one language gained must be Azlanti and the other can be any common or uncommon language."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:azlanti",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "2cf519d9-3331-5d83-80da-9041ede7e26f"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.RrqQ3hddhSldU5ml"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]

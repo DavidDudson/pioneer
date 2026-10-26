@@ -1,0 +1,61 @@
+[
+  {
+    "id": "cc741243-3002-541a-85d7-954f5aa242f2",
+    "pack": "triumph-of-the-tusk",
+    "kind": "archetype",
+    "slug": "archetype:tattooed-historian",
+    "name": "Tattooed Historian",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In Belkzen, an important part of a storyteller's arsenal is body art—anything from depictions of past events to illustrate a legend to gruesome scars that prove the bearer faced real danger and survived. Belkzen orcs with extensive body art and scars are often dubbed historians for the stories they carry. The greatest of them can unlock these stories' intrinsic magic to perform supernatural feats. A tattooed historian commands respect and reverence, often allowing them to travel safely among Belkzen's holds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This archetype represents the Belkzen version of a tattooed historian; other cultures might have developed variations of this tradition with different prerequisites."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.cI5dxNYp3jRuWBk9"
+    },
+    "data": {
+      "dedication": "da44242c-4db6-586a-8ba0-149599c66351"
+    }
+  }
+]

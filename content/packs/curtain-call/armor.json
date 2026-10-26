@@ -1,0 +1,203 @@
+[
+  {
+    "id": "6fb97239-a1d4-5848-9594-43a83c73de28",
+    "pack": "curtain-call",
+    "kind": "armor",
+    "slug": "armor:scene-stealers-tunic",
+    "name": "Scene Stealer's Tunic",
+    "level": 13,
+    "rarity": "unique",
+    "traits": ["comfort", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This suit of padded armor consists of a beautifully woven pleated tunic adorned with a gold pattern and narrow bands of white fur trim on a deep blue background with matching pants, all of which are meant to signal wealth and status. This +2 resilient raiment padded armor was custom designed for Alessandro Domenesso, an actor as well known for their astounding costume changes as for their roguish off-stage activities. Even without utilizing the magic of this armor, it's elegant enough that it could easily be mistaken as fine clothing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Look At Me!",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, illusion, mental, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make yourself visible and apparent to a creature you can see that's within 30 feet. The scene stealer's tunic transforms into something incredibly gaudy, distracting, or otherwise compelling to the target creature, who must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is distracted by you and keeps looking your way. They take a –1 status penalty to Perception checks against everything but you, a –1 status penalty to all saving throws against your visual effects, and gain a +2 status bonus to all saving throws against visual effects created by anyone else; these penalties and bonus last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the target is also "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to everyone other than you as long as you remain visible."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the target also becomes "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " as they spend extra time on their turn admiring, glowering, or otherwise being distracted by you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "36afa7e4-b7a8-51f7-9fba-d06c761d0d46"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fhhM7nTxxXm09Zz9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "look-at-me",
+          "name": "Look At Me!",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "light",
+      "baseItem": "padded-armor",
+      "acBonus": 1,
+      "dexCap": 3,
+      "strength": 0
+    }
+  }
+]

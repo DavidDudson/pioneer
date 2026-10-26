@@ -1,0 +1,170 @@
+[
+  {
+    "id": "b7a3dd06-79d0-556d-9506-4fa29b71b5b4",
+    "pack": "foolish-housekeeping",
+    "kind": "action",
+    "slug": "action:kick-up-dust",
+    "name": "Kick Up Dust",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your dust bunny shakes and kicks to stir up dust in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": ". Each creature in the area must attempt a Fortitude save against the higher of your class DC or spell DC. A creature that fails its save begins sneezing uncontrollably and is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " and cannot take reactions for 1 round; on a critical failure they are "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.PFH7Y57hbdBvebvp"
+    },
+    "data": {
+      "cost": "two",
+      "category": "familiar",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "01cb199f-d7a6-5dbe-b934-de8765a980c7",
+    "pack": "foolish-housekeeping",
+    "kind": "action",
+    "slug": "action:tell-me-more",
+    "name": "Tell Me More",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Target",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " one creature that shares a language you speak"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're not in combat"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Just batting your eyes and giving someone a familiar nudge can get them talking, ready to spill the beans about everything and everyone around them. You roll twice on all rolls to influence the target and use the better result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.W87FYSsY21BFQWNU"
+    },
+    "data": {
+      "cost": "two",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're not in combat"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

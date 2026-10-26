@@ -1,0 +1,84 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "foolish-housekeeping",
+      "slug": "creature:dust-bunny-swarm",
+      "foundry": "Compendium.pf2e.blog-bestiary.Actor.bupIhMxa1zvWI91a",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "foolish-housekeeping",
+      "slug": "creature:rt5rrmn",
+      "foundry": "Compendium.pf2e.blog-bestiary.Actor.FdsQgecBdj4h5qca",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "healing-received",
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "foolish-housekeeping",
+      "slug": "feat:venture-gossip-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.bdo2ubH7XAs7eG9m",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

@@ -1,0 +1,2346 @@
+[
+  {
+    "id": "17cc45a3-99bc-5576-a423-90f1c6d4d01c",
+    "pack": "prey-for-death",
+    "kind": "equipment",
+    "slug": "equipment:assassins-bracers-type-i",
+    "name": "Assassin's Bracers (Type I)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["illusion", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These paired bracers of red leather appear as plain armbands on the outside but display the branded symbol of "
+          },
+          {
+            "type": "ref",
+            "id": "2a4938f5-44c1-5796-9bcf-2891d69569f8"
+          },
+          {
+            "type": "text",
+            "text": " on the inside. They grant the wearer a +1 item bonus to AC and saving throws, and a maximum Dexterity modifier of +5 as armor. You can affix talismans to "
+          },
+          {
+            "type": "text",
+            "text": "assassin's bracers",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as though they were light armor."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Focus on the Doomed",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You designate one creature within 30 feet. You cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": " on yourself, but the designated creature can still see you. The bracers enhance your appearance to the designated creature, making you appear more fearsome and unnerving, granting you a +1 item bonus to attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " the designated creature. The designated creature takes a –1 item penalty to saving throws against fear effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6348ea92-9175-566a-b6e1-db0f1e832e58"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "93f68659-9e9f-5594-9094-4ab4383a5893"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LWMlDUCdDGo1wJnF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "focus-on-the-doomed",
+          "name": "Focus on the Doomed",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "bracers"
+      }
+    }
+  },
+  {
+    "id": "1470bd7a-9465-5bf8-bc47-772feac4df3e",
+    "pack": "prey-for-death",
+    "kind": "equipment",
+    "slug": "equipment:assassins-bracers-type-ii",
+    "name": "Assassin's Bracers (Type II)",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["illusion", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These paired bracers of red leather appear as plain armbands on the outside but display the branded symbol of "
+          },
+          {
+            "type": "ref",
+            "id": "2a4938f5-44c1-5796-9bcf-2891d69569f8"
+          },
+          {
+            "type": "text",
+            "text": " on the inside. They grant the wearer a +2 item bonus to AC and saving throws, and a maximum Dexterity modifier of +5 as armor. You can affix talismans to "
+          },
+          {
+            "type": "text",
+            "text": "assassin's bracers",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as though they were light armor."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Focus on the Doomed",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You designate one creature within 30 feet. You cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": " on yourself, but the designated creature can still see you. The bracers enhance your appearance to the designated creature, making you appear more fearsome and unnerving, granting you a +2 item bonus to attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " the designated creature. The designated creature takes a –2 item penalty to saving throws against fear effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6348ea92-9175-566a-b6e1-db0f1e832e58"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "93f68659-9e9f-5594-9094-4ab4383a5893"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dtiYqfBG2BcLHX92"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "focus-on-the-doomed",
+          "name": "Focus on the Doomed",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "bracers"
+      }
+    }
+  },
+  {
+    "id": "7159c863-89ea-5af8-be68-9354fe8d0dd1",
+    "pack": "prey-for-death",
+    "kind": "equipment",
+    "slug": "equipment:assassins-bracers-type-iii",
+    "name": "Assassin's Bracers (Type III)",
+    "level": 20,
+    "rarity": "uncommon",
+    "traits": ["illusion", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These paired bracers of red leather appear as plain armbands on the outside but display the branded symbol of "
+          },
+          {
+            "type": "ref",
+            "id": "2a4938f5-44c1-5796-9bcf-2891d69569f8"
+          },
+          {
+            "type": "text",
+            "text": " on the inside. They grant the wearer a +3 item bonus to AC and saving throws, and a maximum Dexterity modifier of +5 as armor. You can affix talismans to "
+          },
+          {
+            "type": "text",
+            "text": "assassin's bracers",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as though they were light armor."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Focus on the Doomed",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You designate one creature within 30 feet. You cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": " on yourself, but the designated creature can still see you. The bracers enhance your appearance to the designated creature, making you appear more fearsome and unnerving, granting you a +3 item bonus to attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " the designated creature. The designated creature takes a –3 item penalty to saving throws against fear effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6348ea92-9175-566a-b6e1-db0f1e832e58"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "93f68659-9e9f-5594-9094-4ab4383a5893"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9pUwExXYzndCJFYj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "focus-on-the-doomed",
+          "name": "Focus on the Doomed",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "bracers"
+      }
+    }
+  },
+  {
+    "id": "b392f186-3416-5d1b-a0df-9a25db71251f",
+    "pack": "prey-for-death",
+    "kind": "equipment",
+    "slug": "equipment:crimson-tome",
+    "name": "Crimson Tome",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["grimoire", "illusion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These tomes are sacred to the Red Mantis assassins, who use them to scribe their spells and record their violent deeds. The first of them were created in Rahadoum, but when the Oath Wars forced the worshippers of Achaekek to flee Rahadoum, many were identified by their "
+          },
+          {
+            "type": "text",
+            "text": "crimson tomes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", which were destroyed on the spot. Less than a dozen volumes survived, and the secret of creating them has been lost to history. Rumors persist of a first edition of this rare tome—an artifact version of the one presented here, but if these rumors are true, even the Red Mantis have lost track of such a treasure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each "
+          },
+          {
+            "type": "text",
+            "text": "crimson tome",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is bound in fine red leather with gold filigree on the cover and golden edge gilding. When an illusion spell is prepared from this grimoire, it becomes more difficult to purposefully disbelieve. Creatures that attempt to disbelieve an illusion spell prepared from a "
+          },
+          {
+            "type": "text",
+            "text": "crimson tome",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " must roll their check twice and take the worse result; this is a misfortune effect. This does not affect the saving throws of spells with the illusion trait that call for a saving throw to resolve effects other than disbelief, such as with "
+          },
+          {
+            "type": "ref",
+            "id": "ce5ba457-89bd-5a85-8d45-2faa300f9d49"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "50de9888-d8e7-5733-b97c-4f360205e33f"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Crimson Focusing",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have fewer Focus Points than your maximum number of Focus Points"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You draw on the "
+          },
+          {
+            "type": "text",
+            "text": "crimson tome's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " energies and regain one Focus Point; the "
+          },
+          {
+            "type": "text",
+            "text": "crimson tome's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " leather binding turns black until your next daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Achaekek's Gift",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, spellshape)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You kill a creature with a spell prepared from the "
+          },
+          {
+            "type": "text",
+            "text": "crimson tome",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "crimson tome",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " infuses the slain creature's mortal remains and soul. If an effect attempts to restore the slain creature to life, the "
+          },
+          {
+            "type": "text",
+            "text": "crimson tome",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " immediately attempts to counteract that effect (counteract modifier +27, counteract rank 8). If the restoring effect is counteracted, you immediately learn the name, nature, and location of the creature or effect that attempted to bring the dead body back to life. You can only impart Achaekek's Gift on one creature at a time. If you use this ability on another creature, the previous creature loses Achaekek's Gift."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LEs9c5GqdGk5aWcP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "crimson-focusing",
+          "name": "Crimson Focusing",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d17bd35c-54bf-53e5-bcf9-d5f50cf41b43",
+    "pack": "prey-for-death",
+    "kind": "equipment",
+    "slug": "equipment:elysian-clairglass",
+    "name": "Elysian Clairglass",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["magical", "scrying"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Used by soldiers who battle on the borderlands of Elysium, particularly in Gorum's realm of Clashing Shore, these bronze spyglasses are somewhat plain-looking save for a single diamond set into the largest cylinder. An "
+          },
+          {
+            "type": "text",
+            "text": "Elysian clairglass",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " functions like a typical spyglass, but you can see twenty times farther while looking through it, rather than eight times farther. It also grants a +3 item bonus to Perception checks to notice details at a distance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Seek and Speak",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "Elysian clairglass",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts clairaudience and clairvoyance on the area you are currently observing with it. As long as you're holding the "
+          },
+          {
+            "type": "text",
+            "text": "Elysian clairglass",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you can speak through the floating eye or ear created by its spells, causing your voice to manifest as a whisper that only one person in range of the spells can hear, as a booming voice that everyone in range of the spells can hear, or as any combination in between those two extremes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Pinpoint",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "6acb56d4-91ce-5efb-b591-d1c2aa5af766"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rGXJKL6xfBGbbd47"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 14000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "seek-and-speak",
+          "name": "Seek and Speak",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "pinpoint",
+          "name": "Pinpoint",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "d3c2e315-a139-554b-846c-7fed8fc33462",
+    "pack": "prey-for-death",
+    "kind": "equipment",
+    "slug": "equipment:eye-of-the-mantis",
+    "name": "Eye of the Mantis",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This 1-inch tall figurine depicts a crouched praying mantis. It's usually carved from green jade, crimson marble, or purple porphyry. Regardless of the figurine's material composition, its gemstone eyes are always a dull ruby red that seems to drink light."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Phantasmal Assassin",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "50de9888-d8e7-5733-b97c-4f360205e33f"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 28
+          },
+          {
+            "type": "text",
+            "text": "). To the target, it always appears as if they are being attacked by an immense praying mantis."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Scouting Eye",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "2897020f-b34e-5315-9369-d501cd903968"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cVnLTzWdaFljFkdb"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "phantasmal-assassin",
+          "name": "Phantasmal Assassin",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "scouting-eye",
+          "name": "Scouting Eye",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "91d94eab-3647-533e-a958-1ae55e224b44",
+    "pack": "prey-for-death",
+    "kind": "equipment",
+    "slug": "equipment:mantis-embrace",
+    "name": "Mantis Embrace",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These stylized red gloves are constructed from plates of leather that have been treated to resemble insect chitin. The gloves grant the wearer a +2 item bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Crushing Embrace",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are grappling a creature"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Strike the creature you are grappling with a melee weapon or unarmed attack. This Strike deals an additional 3d6 precision damage and gains the death trait. The body of a creature that is slain by Crushing Embrace is so gruesomely damaged that the creature's body cannot be affected by any effect that requires an intact body to function, such as the "
+          },
+          {
+            "type": "ref",
+            "id": "b74b8226-f3e5-51b2-85dd-83ed11cd93c3"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:grapple", "action:shove"]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:crushing-embrace",
+        "toggleable": true,
+        "display": {
+          "label": "Crushing Embrace"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 3,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": ["option:crushing-embrace"]
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["option:crushing-embrace"],
+        "property": "traits",
+        "mode": "add",
+        "value": "death"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wJTx2kNgMQJWGvyx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "crushing-embrace",
+          "name": "Crushing Embrace",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "gloves"
+      }
+    }
+  },
+  {
+    "id": "1682ac5d-85bf-518e-acc3-5c3261546e3d",
+    "pack": "prey-for-death",
+    "kind": "equipment",
+    "slug": "equipment:mantis-embrace-greater",
+    "name": "Mantis Embrace (Greater)",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These stylized red gloves are constructed from plates of leather that have been treated to resemble insect chitin. The gloves grant the wearer a +3 item bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Crushing Embrace",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are grappling a creature"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Strike the creature you are grappling with a melee weapon or unarmed attack. This Strike deals an additional 5d6 precision damage and gains the death trait. The body of a creature that is slain by Crushing Embrace is so gruesomely damaged that the creature's body cannot be affected by any effect that requires an intact body to function, such as the "
+          },
+          {
+            "type": "ref",
+            "id": "b74b8226-f3e5-51b2-85dd-83ed11cd93c3"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["action:grapple", "action:shove"]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:crushing-embrace",
+        "toggleable": true,
+        "display": {
+          "label": "Crushing Embrace"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 5,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": ["option:crushing-embrace"]
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["option:crushing-embrace"],
+        "property": "traits",
+        "mode": "add",
+        "value": "death"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oHjCgL1SoVheJwAo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 13000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "crushing-embrace",
+          "name": "Crushing Embrace",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "gloves"
+      }
+    }
+  },
+  {
+    "id": "e1195c15-9efa-5b5c-91f4-045fa4ab27e4",
+    "pack": "prey-for-death",
+    "kind": "equipment",
+    "slug": "equipment:mask-of-the-mantis",
+    "name": "Mask of the Mantis",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The traditional headwear for the Red Mantis assassin is the "
+          },
+          {
+            "type": "text",
+            "text": "mask of the mantis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Most of these masks are constructed from hard leather helmets that serve to obscure the assassin's identity and give them the appearance of possessing a mantis's head. Some variants, however, consist only of the mask itself, and are meant to be worn over the face. Regardless of the shape and style, all masks of the mantis function the same."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Members of the Vernai can use any "
+          },
+          {
+            "type": "text",
+            "text": "mask of the mantis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to enhance their frightening presence—something they often do simply to reveal their standing in the society without speaking a word, as detailed fully in the entry for Vernai's Ire activation below."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While wearing a "
+          },
+          {
+            "type": "text",
+            "text": "mask of the mantis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +1 item bonus to Perception checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Enhance Vision",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast either "
+          },
+          {
+            "type": "ref",
+            "id": "6bcf1643-218b-5e08-9fa5-62ff7c800b72"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+          },
+          {
+            "type": "text",
+            "text": " on yourself."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Vernai's Ire",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a member of the Vernai"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cause the "
+          },
+          {
+            "type": "text",
+            "text": "mask of the mantis's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " eyes to shimmer with crimson light, granting yourself a far more harrowing visage. This light creates illumination equivalent to that of a candle. You can use this ability again to extinguish the frightening glow, but as long as Vernai's Ire remains active, you gain a +1 item bonus to Intimidation checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1
+      },
+      {
+        "key": "RollOption",
+        "option": "option:vernais-ire",
+        "toggleable": true,
+        "display": {
+          "label": "Vernai's Ire"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:vernais-ire"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ku14uJEbwXi0XqD9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "enhance-vision",
+          "name": "Enhance Vision",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "7252ba70-97a1-58d7-a7db-364c6ed18a6c",
+    "pack": "prey-for-death",
+    "kind": "equipment",
+    "slug": "equipment:mask-of-the-mantis-greater",
+    "name": "Mask of the Mantis (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The traditional headwear for the Red Mantis assassin is the "
+          },
+          {
+            "type": "text",
+            "text": "mask of the mantis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Most of these masks are constructed from hard leather helmets that serve to obscure the assassin's identity and give them the appearance of possessing a mantis's head. Some variants, however, consist only of the mask itself, and are meant to be worn over the face. Regardless of the shape and style, all masks of the mantis function the same."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Members of the Vernai can use any "
+          },
+          {
+            "type": "text",
+            "text": "mask of the mantis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to enhance their frightening presence—something they often do simply to reveal their standing in the society without speaking a word, as detailed fully in the entry for Vernai's Ire activation below."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While wearing a "
+          },
+          {
+            "type": "text",
+            "text": "mask of the mantis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +2 item bonus to Perception checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Enhance Vision",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast either a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "6bcf1643-218b-5e08-9fa5-62ff7c800b72"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+          },
+          {
+            "type": "text",
+            "text": " on yourself."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Vernai's Ire",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a member of the Vernai"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cause the "
+          },
+          {
+            "type": "text",
+            "text": "mask of the mantis's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " eyes to shimmer with crimson light, granting yourself a far more harrowing visage. This light creates illumination equivalent to that of a candle. You can use this ability again to extinguish the frightening glow, but as long as Vernai's Ire remains active, you gain a +2 item bonus to Intimidation checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "RollOption",
+        "option": "option:vernais-ire",
+        "toggleable": true,
+        "display": {
+          "label": "Vernai's Ire"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:vernais-ire"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lAQTAOWxU3J2onBv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1350
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "enhance-vision",
+          "name": "Enhance Vision",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "eafe71e6-754a-5599-a758-631b7f029db0",
+    "pack": "prey-for-death",
+    "kind": "equipment",
+    "slug": "equipment:mask-of-the-mantis-major",
+    "name": "Mask of the Mantis (Major)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The traditional headwear for the Red Mantis assassin is the "
+          },
+          {
+            "type": "text",
+            "text": "mask of the mantis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Most of these masks are constructed from hard leather helmets that serve to obscure the assassin's identity and give them the appearance of possessing a mantis's head. Some variants, however, consist only of the mask itself, and are meant to be worn over the face. Regardless of the shape and style, all masks of the mantis function the same."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Members of the Vernai can use any "
+          },
+          {
+            "type": "text",
+            "text": "mask of the mantis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to enhance their frightening presence—something they often do simply to reveal their standing in the society without speaking a word, as detailed fully in the entry for Vernai's Ire activation below."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While wearing a "
+          },
+          {
+            "type": "text",
+            "text": "mask of the mantis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +3 item bonus to Perception checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Enhance Vision",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast either a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "6bcf1643-218b-5e08-9fa5-62ff7c800b72"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+          },
+          {
+            "type": "text",
+            "text": " on yourself."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Vernai's Ire",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a member of the Vernai"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cause the "
+          },
+          {
+            "type": "text",
+            "text": "mask of the mantis's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " eyes to shimmer with crimson light, granting yourself a far more harrowing visage. This light creates illumination equivalent to that of a candle. You can use this ability again to extinguish the frightening glow, but as long as Vernai's Ire remains active, you gain a +3 item bonus to Intimidation checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Locate Target",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "6acb56d4-91ce-5efb-b591-d1c2aa5af766"
+          },
+          {
+            "type": "text",
+            "text": ". If the target of this spell is a creature for which you've accepted a contract to assassinate, you are considered to have seen the creature in person for the purposes of "
+          },
+          {
+            "type": "text",
+            "text": "pinpoint's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " requirements."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 3
+      },
+      {
+        "key": "RollOption",
+        "option": "option:vernais-ire",
+        "toggleable": true,
+        "display": {
+          "label": "Vernai's Ire"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["option:vernais-ire"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7NLu6Vgj9clgdleR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 19000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "enhance-vision",
+          "name": "Enhance Vision",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "locate-target",
+          "name": "Locate Target",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  }
+]
