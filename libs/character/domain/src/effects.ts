@@ -8,9 +8,21 @@ import {
   EffectBadgeType,
   EffectDurationType,
   EffectExpiry,
+  HitPoints,
   OriginHopKind,
+  RollOption,
+  RuleElementKey,
+  SpellRank,
+  Trait,
 } from '@pioneer/rules/sdk';
-import type { BadgeReevaluation, ContentRegistry, DamageFormula, DurationCount, EffectData } from '@pioneer/rules/sdk';
+import type {
+  BadgeReevaluation,
+  ContentRegistry,
+  DamageFormula,
+  DurationCount,
+  EffectData,
+  RuleElement,
+} from '@pioneer/rules/sdk';
 import { Pg, Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -19,6 +31,17 @@ import { CharacterId } from './character-fields';
 
 /** The most effects a character has active at once, however many sources they come from. */
 export const EFFECTS_MAX = 64;
+
+/** The trait that makes effects exclusive (`effect-exclusivity.ts`). */
+const POLYMORPH = Trait.parse('polymorph');
+
+/**
+ * Whether an effect is a polymorph effect: it has the trait, or sets a battle form. Foundry's spell effects (Plant Form,
+ * Dragon Form) carry no traits, only the `BattleForm` rule.
+ */
+export function isPolymorphEntry(traits: readonly Trait[], rules: readonly RuleElement[]): boolean {
+  return traits.includes(POLYMORPH) || rules.some(({ key }) => key === RuleElementKey.BattleForm);
+}
 
 /** The longest an ally's name runs on an effect's source. */
 const ALLY_NAME_MAX = 80;
@@ -80,6 +103,12 @@ export const ActiveEffectSchema = z.strictObject({
   expiry: z.enum(EffectExpiry).optional(),
   sustained: z.boolean().optional(),
   badge: EffectBadgeValue.optional(),
+  /** The form chosen when a polymorph effect was applied, as the roll option its choice sets (`plant-form:arboreal`). */
+  form: RollOption.optional(),
+  /** The spell rank a polymorph effect was cast at, which heightens its form. */
+  rank: SpellRank.optional(),
+  /** The temporary Hit Points the effect gave when applied, so ending it takes back what it gave and no more. */
+  tempHp: HitPoints.optional(),
 });
 export type ActiveEffect = z.infer<typeof ActiveEffectSchema>;
 
@@ -115,6 +144,8 @@ export interface EffectTerms {
   readonly expiry: EffectExpiry | undefined;
   readonly sustained: boolean;
   readonly badge: EffectBadgeTerms | undefined;
+  /** Whether it has the polymorph trait, so a newer polymorph effect replaces it. */
+  readonly polymorph?: boolean;
 }
 
 /** The effects the content has, by id. */
@@ -155,7 +186,7 @@ function badgeTerms(badge: EffectData['badge']): EffectBadgeTerms | undefined {
  * a turn when the content names none. A turn effect has no clock but ends at its expiry; the encounter and unlimited
  * effects have neither.
  */
-export function effectTerms(data: EffectData): EffectTerms {
+export function effectTerms(data: EffectData, polymorph = false): EffectTerms {
   const { duration } = data;
   const badge = badgeTerms(data.badge);
   switch (duration.type) {
@@ -165,14 +196,15 @@ export function effectTerms(data: EffectData): EffectTerms {
         expiry: duration.expiry ?? EffectExpiry.TurnStart,
         sustained: duration.sustained === true,
         badge,
+        polymorph,
       };
     }
     case EffectDurationType.Turn: {
-      return { remaining: undefined, expiry: duration.expiry, sustained: false, badge };
+      return { remaining: undefined, expiry: duration.expiry, sustained: false, badge, polymorph };
     }
     case EffectDurationType.Encounter:
     case EffectDurationType.Unlimited: {
-      return { remaining: undefined, expiry: undefined, sustained: false, badge };
+      return { remaining: undefined, expiry: undefined, sustained: false, badge, polymorph };
     }
     default: {
       return duration satisfies never;
@@ -185,7 +217,9 @@ export function effectContent(registry: ContentRegistry): EffectContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
   return new Map(
     entries.flatMap((entry) =>
-      entry.kind === ContentKind.Effect ? [[entry.id, effectTerms(entry.data)] as const] : [],
+      entry.kind === ContentKind.Effect
+        ? [[entry.id, effectTerms(entry.data, isPolymorphEntry(entry.traits, entry.rules))] as const]
+        : [],
     ),
   );
 }
@@ -195,7 +229,10 @@ export function effectContent(registry: ContentRegistry): EffectContent {
  * they end. The hop carries no badge yet, so a badge changes what the sheet shows but not what the effect grants.
  */
 export function effectRoots(effects: readonly ActiveEffect[]): readonly GrantRoot[] {
-  return effects.map(({ effect }) => ({ entry: effect, hop: { kind: OriginHopKind.Effect, effect } }));
+  return effects.map(({ effect, rank }) => ({
+    entry: effect,
+    hop: { kind: OriginHopKind.Effect, effect, ...(rank === undefined ? {} : { rank }) },
+  }));
 }
 
 /**

@@ -4,8 +4,25 @@
     [placeholder]="'character.sheet.effects.pick' | transloco"
     [options]="choices()"
     [value]="picked()"
-    (valueChange)="picked.set($event)"
+    (valueChange)="choose($event)"
   />
+  @if (forms().length > 0) {
+    <fr-select
+      [ariaLabel]="'character.sheet.effects.formPick' | transloco"
+      [placeholder]="'character.sheet.effects.formPick' | transloco"
+      [options]="forms()"
+      [value]="form()"
+      (valueChange)="form.set($event)"
+    />
+  }
+  @if (ranks().length > 0) {
+    <fr-select
+      [ariaLabel]="'character.sheet.effects.rankPick' | transloco"
+      [options]="ranks()"
+      [value]="rank()"
+      (valueChange)="rank.set($event)"
+    />
+  }
   <fr-select
     [ariaLabel]="'character.sheet.effects.source' | transloco"
     [options]="sources()"

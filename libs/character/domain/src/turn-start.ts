@@ -5,6 +5,7 @@ import { BadgeReevaluation, EffectBadgeType, EffectExpiry, HitPoints } from '@pi
 import { spellsCountedDown } from './active-spells';
 import { ConditionDurationKind } from './conditions';
 import type { ActiveCondition } from './conditions';
+import { endEffects } from './effect-ending';
 import { EffectRounds, rollBadge } from './effects';
 import type { ActiveEffect, EffectContent } from './effects';
 import { applyPlayCommand, currentHitPoints, PlayCommandField } from './play-state';
@@ -72,10 +73,18 @@ function countdown(outcome: TurnOutcome): TurnOutcome {
     const next = countedDown(effect);
     return next === undefined ? [] : [next];
   });
-  const expired = play.effects
-    .filter(({ id }) => !kept.some((each) => each.id === id))
-    .map(({ effect, id }) => effectExpired(effect, id));
-  return then(outcome, { ...play, effects: kept }, expired);
+  const gone = play.effects.filter(({ id }) => !kept.some((each) => each.id === id));
+  return then(
+    outcome,
+    {
+      ...endEffects(
+        play,
+        gone.map(({ id }) => id),
+      ),
+      effects: kept,
+    },
+    gone.map(({ effect, id }) => effectExpired(effect, id)),
+  );
 }
 
 /** Every active spell counts down a round; those whose rounds ran out are removed. */

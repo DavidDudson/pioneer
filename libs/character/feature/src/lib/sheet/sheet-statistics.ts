@@ -1,7 +1,7 @@
-import { characterStatistics, characterVitals } from '@pioneer/character/domain';
-import type { Character } from '@pioneer/character/domain';
+import { characterStatistics, characterVitals, withPlay } from '@pioneer/character/domain';
+import type { ActiveEffect, Character } from '@pioneer/character/domain';
 import type { StatisticResult, VitalsInPlay } from '@pioneer/rules/engine';
-import { Selector } from '@pioneer/rules/sdk';
+import { HitPoints, Selector } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import type { NamedStatistic } from '@pioneer/rules/ui';
 
@@ -89,6 +89,22 @@ export function namedStatistics(
  */
 export function sheetVitalsInPlay(registry: ContentRegistry, character: Character): VitalsInPlay | undefined {
   return characterVitals(sheetSources(registry, character), character.document);
+}
+
+/**
+ * The temporary Hit Points `candidate`, a polymorph effect, would give the character: what its form sets, worked out by
+ * the engine with the effect on the character, and none when the effect is not what the character would get them from.
+ */
+export function sheetFormTempHp(
+  registry: ContentRegistry,
+  character: Character,
+  candidate: ActiveEffect,
+): HitPoints | undefined {
+  const effects = [...character.document.play.effects, candidate];
+  const vitals = sheetVitalsInPlay(registry, withPlay(character, { ...character.document.play, effects }));
+  const temp = vitals?.temporaryHitPoints;
+  const fromEffect = temp?.origins.some(({ entry }) => entry === candidate.effect) === true;
+  return temp === undefined || !fromEffect ? undefined : HitPoints.parse(temp.amount);
 }
 
 /** Whether a derived Speed is above 0: the character moves that way. */

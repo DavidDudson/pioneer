@@ -6,6 +6,7 @@ import type { DamageTarget } from '@pioneer/rules/sdk';
 import { lapsingSpells, spellsAfterTurnEnd } from './active-spells';
 import { ConditionDurationKind } from './conditions';
 import type { ActiveCondition, PersistentDamage } from './conditions';
+import { endEffects } from './effect-ending';
 import type { ActiveEffect } from './effects';
 import { applyPlayCommand, PlayCommandField } from './play-state';
 import type { PlayLimits, PlayState } from './play-state';
@@ -153,13 +154,23 @@ function expiresAtTurnEnd({ expiry, remaining }: ActiveEffect): boolean {
 /** Effects that end at a turn end and are out of rounds, and conditions that end at the end of the turn, are removed. */
 function expiring(outcome: TurnOutcome): TurnOutcome {
   const { play } = outcome;
-  const effects = play.effects.filter((each) => !expiresAtTurnEnd(each));
+  const gone = play.effects.filter((each) => expiresAtTurnEnd(each));
   const conditions = play.conditions.filter((each) => !endsAtTurnEnd(each));
   const events = [
-    ...play.effects.filter((each) => expiresAtTurnEnd(each)).map(({ effect, id }) => effectExpired(effect, id)),
+    ...gone.map(({ effect, id }) => effectExpired(effect, id)),
     ...play.conditions.filter((each) => endsAtTurnEnd(each)).map(({ condition, id }) => conditionEnded(condition, id)),
   ];
-  return then(outcome, { ...play, effects, conditions }, events);
+  return then(
+    outcome,
+    {
+      ...endEffects(
+        play,
+        gone.map(({ id }) => id),
+      ),
+      conditions,
+    },
+    events,
+  );
 }
 
 /** Sustained spells not sustained this turn end, and the rest must be sustained again next turn. */

@@ -18,6 +18,7 @@ const PACKS = cutTo([...CHARACTER_CONTENT_KINDS, ContentKind.Effect]);
 
 const EMPOWERED_ONSLAUGHT = '963ae779-6771-5e53-a0a5-668aa2ee79ca';
 const CONSULT_THE_SPIRITS = '129b46b6-7a1e-5ab5-a7a6-dc34edcdcb5f';
+const PLANT_FORM = '364d6d32-3a80-511d-95b1-952f32748076';
 const SEONI = '11111111-1111-4111-8111-111111111111';
 const FIRST = '00000000-0000-4000-8000-000000000001';
 
@@ -123,13 +124,13 @@ describe('CharacterSheetPage effects', () => {
     });
   });
 
-  it('removes an effect', async () => {
+  it('dismisses an effect', async () => {
     const { root } = await openSheet(undefined, { play: playWith([onslaught(1)]), packs: PACKS });
     await vi.waitFor(() => {
       expect(textOf(effectsOf(root))).toMatch(/Empowered Onslaught\s*1/u);
     });
 
-    buttonOf(root, 'Remove').click();
+    buttonOf(root, 'Dismiss').click();
 
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
@@ -139,6 +140,44 @@ describe('CharacterSheetPage effects', () => {
     await vi.waitFor(() => {
       expect(textOf(effectsOf(root))).toContain('No effects');
     });
+  });
+
+  it('applies a polymorph effect with the form chosen and the rank it is cast at', async () => {
+    const { root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toContain('No effects');
+    });
+
+    await pick(root, 0, 'Spell Effect: Plant Form');
+    expect(buttonOf(root, 'Apply').disabled).toBe(true);
+    await pick(root, 1, 'Arboreal');
+    await pick(root, 2, 'Rank 6');
+    expect(buttonOf(root, 'Apply').disabled).toBe(false);
+    buttonOf(root, 'Apply').click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toMatchObject({
+        command: { field: 'applyEffect', form: 'plant-form:arboreal', rank: 6 },
+      });
+      request.flush(playWith([], 2));
+    });
+  });
+
+  it('shows the form and rank of an active polymorph effect', async () => {
+    const plant = {
+      id: FIRST,
+      effect: PLANT_FORM,
+      source: { kind: 'self' },
+      form: 'plant-form:flytrap',
+      rank: 6,
+    };
+    const { root } = await openSheet(undefined, { play: playWith([plant]), packs: PACKS });
+
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toContain('Flytrap form');
+    });
+    expect(textOf(effectsOf(root))).toContain('Rank 6');
   });
 
   it('applies the effect picked from an ally, who needs a name', async () => {

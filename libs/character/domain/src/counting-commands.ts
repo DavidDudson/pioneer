@@ -2,8 +2,9 @@ import { applyActiveSpellCommand, isActiveSpellCommand } from './active-spells';
 import type { ActiveSpell, ActiveSpellCommand } from './active-spells';
 import { applyConditionCommand, isConditionCommand } from './conditions';
 import type { ConditionCommand } from './conditions';
-import { applyEffectCommand, isEffectCommand } from './effect-commands';
+import { isEffectCommand } from './effect-commands';
 import type { EffectCommand } from './effect-commands';
+import { applyEffectEdit } from './effect-ending';
 import type { ActiveEffect, EffectContent } from './effects';
 import { applyExplorationCommand, isExplorationCommand } from './exploration-commands';
 import type { ExplorationActivity, ExplorationCommand } from './exploration-commands';
@@ -90,7 +91,7 @@ function applyListCommand<Play extends CountingPlay>(
 ): Play {
   return isActiveSpellCommand(command)
     ? { ...play, activeSpells: [...applyActiveSpellCommand(play.activeSpells, command)] }
-    : { ...play, effects: [...applyEffectCommand(play.effects, command, limits.effects)] };
+    : applyEffectEdit(play, command, limits.effects);
 }
 
 /** `play` after a pool, condition, toggle or restoring edit, within the limits. */

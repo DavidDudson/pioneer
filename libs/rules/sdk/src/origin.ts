@@ -5,6 +5,7 @@ import * as z from 'zod';
 import { ContentId } from './content-id';
 import { SlotKey } from './selector';
 import { SourceRef } from './source-ref';
+import { SpellRank } from './spell-rank';
 
 /** Position of a rule element in its entry's `rules` array. */
 export const RuleIndex = Pg.smallint().nonnegative().brand<'RuleIndex'>();
@@ -59,7 +60,13 @@ export const OriginHop = z.discriminatedUnion('kind', [
     value: ConditionValue.optional(),
     appliedBy: EventRef.optional(),
   }),
-  z.strictObject({ kind: z.literal(OriginHopKind.Effect), effect: ContentId, appliedBy: EventRef.optional() }),
+  z.strictObject({
+    kind: z.literal(OriginHopKind.Effect),
+    effect: ContentId,
+    appliedBy: EventRef.optional(),
+    /** The spell rank the effect was cast at, which heightens the rules it carries. */
+    rank: SpellRank.optional(),
+  }),
   /** Someone set it by hand: who, when and why. */
   z.strictObject({
     kind: z.literal(OriginHopKind.Override),

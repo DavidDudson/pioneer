@@ -1,17 +1,21 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { EffectCommandField, EffectSourceKind } from '@pioneer/character/domain';
-import type { PlayCommand } from '@pioneer/character/domain';
+import type { ActiveEffect, PlayCommand } from '@pioneer/character/domain';
 import { AsyncButton, AsyncData, AsyncPending, AsyncRegion, Badge, Skeleton, Stack, Text } from '@pioneer/frontier';
+import type { HitPoints } from '@pioneer/rules/sdk';
 import { ENTRY_PREVIEWS, EntryNameCell } from '@pioneer/rules/ui';
 import type { EntryPreviews } from '@pioneer/rules/ui';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
-import { EFFECT_CONTENT_KINDS, effectOptions, effectViews, steppedView } from '../sheet-effects';
+import { effectOptions, effectViews, steppedView } from '../sheet-effects';
 import type { EffectOption, EffectView } from '../sheet-effects';
 import { sheetEntryPreviews } from '../sheet-entry-previews';
+import { EQUIPMENT_CONTENT_KINDS } from '../sheet-equipment';
 import { describeSaveError } from '../sheet-field';
+import { SheetState } from '../sheet-state';
+import { sheetFormTempHp } from '../sheet-statistics';
 import { SheetEffectAdd } from './sheet-effect-add.component';
 
 /**
@@ -42,8 +46,9 @@ import { SheetEffectAdd } from './sheet-effect-add.component';
 export class SheetEffects {
   readonly #i18n = inject(TranslocoService);
   readonly #play = inject(PlayStore);
+  readonly #sheet = inject(SheetState);
 
-  protected readonly registry = injectContentRegistry(EFFECT_CONTENT_KINDS);
+  protected readonly registry = injectContentRegistry(EQUIPMENT_CONTENT_KINDS);
   /** What an effect's name previews: its entry, from the registry the list was built from. */
   public readonly previews: EntryPreviews = sheetEntryPreviews(() => this.registry.data());
   protected readonly playQuery = this.#play.play;
@@ -60,6 +65,13 @@ export class SheetEffects {
     const registry = this.registry.data();
     return registry === undefined ? [] : effectOptions(registry);
   });
+
+  /** The temporary Hit Points `effect` would give the character, for the add picker to send with it. */
+  protected readonly tempHpFor = (effect: ActiveEffect): HitPoints | undefined => {
+    const registry = this.registry.data();
+    const character = this.#sheet.character();
+    return registry === undefined || character === undefined ? undefined : sheetFormTempHp(registry, character, effect);
+  };
 
   /** Whether an edit is in flight: they share one revision, so a second would meet a conflict nothing caused. */
   protected readonly busy = signal(false);

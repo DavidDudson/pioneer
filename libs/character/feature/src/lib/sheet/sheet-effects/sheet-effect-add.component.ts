@@ -10,11 +10,12 @@ import {
   rollBadge,
   SELF,
 } from '@pioneer/character/domain';
-import type { CampaignAlly, EffectSource, PlayCommand } from '@pioneer/character/domain';
+import type { ActiveEffect, CampaignAlly, EffectSource, PlayCommand } from '@pioneer/character/domain';
 import { AsyncButton, Select, Stack, TextInput } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { RANDOM_SOURCE } from '@pioneer/play/ui';
-import { ContentId } from '@pioneer/rules/sdk';
+import { ContentId, RollOption, SPELL_RANK_MAX, SpellRank } from '@pioneer/rules/sdk';
+import type { HitPoints } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
 import { injectCharacterAllies } from '../../data/character-allies-query';
@@ -50,6 +51,8 @@ export class SheetEffectAdd {
   public readonly busy = input.required<boolean>();
   public readonly send = input.required<(command: PlayCommand) => Promise<void>>();
   public readonly describeError = input.required<(error: unknown) => string>();
+  /** The temporary Hit Points the character would get from `effect`, worked out by the engine; none when it gives none. */
+  public readonly tempHpFor = input.required<(effect: ActiveEffect) => HitPoints | undefined>();
 
   protected readonly choices = computed((): readonly SelectOption<string>[] =>
     this.options().map(({ id, name }) => ({ value: id, label: name })),
@@ -80,11 +83,38 @@ export class SheetEffectAdd {
   protected readonly pickedOption = computed((): EffectOption | undefined =>
     this.options().find(({ id }) => id === this.picked()),
   );
+  /** The forms the picked effect offers, as a select reads them. */
+  protected readonly forms = computed((): readonly SelectOption<string>[] =>
+    (this.pickedOption()?.forms ?? []).map(({ option, label }) => ({ value: option, label })),
+  );
+  /** The ranks the picked polymorph effect can be cast at, from its own up to the tenth. */
+  protected readonly ranks = computed((): readonly SelectOption<string>[] => {
+    const option = this.pickedOption();
+    if (option?.polymorph !== true) {
+      return [];
+    }
+    const floor: number = option.rankFloor;
+    return Array.from({ length: SPELL_RANK_MAX - floor + 1 }, (_blank, index) => ({
+      value: String(floor + index),
+      label: this.#i18n.translate('character.sheet.effects.rankOption', { rank: floor + index }),
+    }));
+  });
+  /** The form and rank chosen for the picked effect; the rank starts at the effect's own. */
+  protected readonly form = signal<string | undefined>(undefined);
+  protected readonly rank = signal<string | undefined>(undefined);
   protected readonly canAdd = computed((): boolean => {
     const option = this.pickedOption();
     const rollable = option?.formula === undefined || canRollBadge(option.formula);
-    return option !== undefined && rollable && (!this.isAlly() || this.#allyKnown());
+    const formed = this.forms().length === 0 || this.form() !== undefined;
+    return option !== undefined && rollable && formed && (!this.isAlly() || this.#allyKnown());
   });
+
+  protected readonly choose = (id: string | undefined): void => {
+    this.picked.set(id);
+    this.form.set(undefined);
+    const floor = this.options().find((each) => each.id === id)?.rankFloor;
+    this.rank.set(floor === undefined ? undefined : String(floor));
+  };
 
   protected readonly setSource = (kind: EffectSourceKind | undefined): void => {
     this.sourceKind.set(kind ?? EffectSourceKind.Self);
@@ -95,18 +125,33 @@ export class SheetEffectAdd {
     if (option === undefined) {
       return;
     }
-    const rolled = option.formula === undefined ? undefined : rollBadge(option.formula, this.#random);
-    await this.send()({
-      field: EffectCommandField.ApplyEffect,
-      id: EffectInstanceId.parse(newId()),
-      effect: ContentId.parse(option.id),
-      source: this.#source(),
-      ...(rolled === undefined ? {} : { rolled: EffectBadgeValue.parse(rolled) }),
-    });
-    this.picked.set(undefined);
+    await this.send()(this.#command(option));
+    this.choose(undefined);
     this.allyName.set('');
     this.allyChoice.set(undefined);
   };
+
+  /** The edit that applies `option`: who it comes from, the badge it rolls, and for a form its choice, rank and temporary Hit Points. */
+  #command(option: EffectOption): PlayCommand {
+    const rolled = option.formula === undefined ? undefined : rollBadge(option.formula, this.#random);
+    const chosen = this.form();
+    const form = chosen === undefined ? undefined : RollOption.parse(chosen);
+    const rank = option.polymorph ? SpellRank.parse(Number(this.rank() ?? option.rankFloor)) : undefined;
+    const applying = {
+      id: EffectInstanceId.parse(newId()),
+      effect: ContentId.parse(option.id),
+      source: this.#source(),
+      ...(form === undefined ? {} : { form }),
+      ...(rank === undefined ? {} : { rank }),
+    };
+    const tempHp = this.tempHpFor()(applying);
+    return {
+      field: EffectCommandField.ApplyEffect,
+      ...applying,
+      ...(rolled === undefined ? {} : { rolled: EffectBadgeValue.parse(rolled) }),
+      ...(tempHp === undefined ? {} : { tempHp }),
+    };
+  }
 
   #source(): EffectSource {
     const kind = this.sourceKind();

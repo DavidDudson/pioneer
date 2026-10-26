@@ -12,17 +12,15 @@
               @if (view.badge !== undefined) {
                 <fr-badge>{{ view.badge }}</fr-badge>
               }
+              @for (detail of view.details; track detail.key) {
+                <fr-text tone="muted">{{ detail.key | transloco: detail.params }}</fr-text>
+              }
               @if (view.source.kind === allySource) {
                 <fr-text tone="muted">{{
                   'character.sheet.effects.fromAlly' | transloco: { name: view.source.name }
                 }}</fr-text>
               } @else if (view.source.kind === gmSource) {
                 <fr-text tone="muted">{{ 'character.sheet.effects.fromGm' | transloco }}</fr-text>
-              }
-              @if (view.remaining !== undefined) {
-                <fr-text tone="muted">{{
-                  'character.sheet.effects.remaining' | transloco: { count: view.remaining }
-                }}</fr-text>
               }
               @if (view.counter) {
                 <fr-async-button
@@ -49,7 +47,13 @@
           } @empty {
             <fr-text tone="muted">{{ 'character.sheet.effects.none' | transloco }}</fr-text>
           }
-          <pio-sheet-effect-add [options]="options()" [busy]="busy()" [send]="send" [describeError]="describeError" />
+          <pio-sheet-effect-add
+            [options]="options()"
+            [busy]="busy()"
+            [send]="send"
+            [describeError]="describeError"
+            [tempHpFor]="tempHpFor"
+          />
         </fr-stack>
       </ng-template>
     </fr-async-region>
