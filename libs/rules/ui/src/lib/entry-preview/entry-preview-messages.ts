@@ -12,7 +12,7 @@ export const EntryPreviewMessage = {
   Open: 'rules.entryPreview.open',
   /** "Perception set to 20": a Change that pins a statistic. */
   EffectSet: 'rules.entryPreview.effectSet',
-  /** "Gains a sense": a sense the entry gives. */
+  /** "Gains Darkvision (precise, 60 feet)": a sense the entry gives, with its acuity and range if it has one. */
   EffectSense: 'rules.entryPreview.effectSense',
   /** A rule element the summary does not cover yet, with the element's name. */
   EffectNotSummarised: 'rules.entryPreview.effectNotSummarised',

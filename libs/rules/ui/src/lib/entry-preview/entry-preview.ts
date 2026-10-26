@@ -21,6 +21,10 @@ export interface PreviewEffect {
   /** The name of the statistic the line changes ("Perception"); undefined for a line that changes none (a sense). */
   readonly statistic: string | undefined;
   readonly line: EffectLine;
+  /** The sense's name ("Darkvision") on a sense line; the view shows the id when the caller has no name. */
+  readonly sense?: string;
+  /** The names of the traits a weakness or resistance makes exceptions for, in the line's order. */
+  readonly exceptions?: readonly string[];
 }
 
 /** What a preview shows of an entry: enough to recognise it without leaving the page. */

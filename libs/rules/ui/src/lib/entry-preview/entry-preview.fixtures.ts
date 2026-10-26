@@ -7,7 +7,10 @@ import {
   ContentId,
   ContentLevel,
   ContentText,
+  DamageAmount,
+  DamageException,
   EntrySlug,
+  Feet,
   ModifierType,
   PackId,
   RichText,
@@ -34,6 +37,8 @@ export const FIREBALL_PREVIEW: EntryPreview = {
   ]),
   sources: [SourceRef.parse({ kind: 'book', book: 'player-core', page: 326 })],
 };
+
+export const DARKVISION = contentId(PackId.parse('player-core'), EntrySlug.parse('sense:darkvision'));
 
 const CLUMSY = contentId(PackId.parse('player-core'), EntrySlug.parse('condition:clumsy'));
 
@@ -62,6 +67,54 @@ export function modifierPreviewEffect(entryId: typeof FIREBALL, options: Modifie
       value: FormulaValue.parse(value),
       adjustedBy,
       status: status ?? { kind: EffectStatusKind.Applied },
+    },
+  };
+}
+
+/** A sense an entry gives, with the name its caller found for it. */
+export function sensePreviewEffect(
+  entryId: typeof FIREBALL,
+  options: { readonly name?: string; readonly range?: number },
+): PreviewEffect {
+  const entry = ContentId.parse(entryId);
+  const { modifier } = line(entry, { type: ModifierType.Status, value: 0 });
+  return {
+    statistic: undefined,
+    ...(options.name === undefined ? {} : { sense: options.name }),
+    line: {
+      change: EffectChange.Sense,
+      rule: modifier.id,
+      label: modifier.label,
+      origin: modifier.origin,
+      status: { kind: EffectStatusKind.Applied },
+      sense: ContentId.parse(DARKVISION),
+      acuity: 'precise',
+      ...(options.range === undefined ? {} : { range: Feet.parse(options.range) }),
+    },
+  };
+}
+
+const RESISTANCE = DamageAmount.parse(5);
+
+/** A resistance to physical damage with exceptions, with the names its caller found for them. */
+export function resistancePreviewEffect(
+  entryId: typeof FIREBALL,
+  options: { readonly exceptions: readonly string[]; readonly names?: readonly string[] },
+): PreviewEffect {
+  const entry = ContentId.parse(entryId);
+  const { modifier } = line(entry, { type: ModifierType.Status, value: 0 });
+  return {
+    statistic: undefined,
+    ...(options.names === undefined ? {} : { exceptions: options.names }),
+    line: {
+      change: EffectChange.Resistance,
+      rule: modifier.id,
+      label: modifier.label,
+      origin: modifier.origin,
+      status: { kind: EffectStatusKind.Applied },
+      damage: 'physical',
+      value: RESISTANCE,
+      exceptions: options.exceptions.map((exception) => DamageException.parse(exception)),
     },
   };
 }
