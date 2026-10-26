@@ -1,11 +1,12 @@
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
+import type { Provider } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
-import { provideI18n } from '@pioneer/shared/web';
+import { API_BASE_URL, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -38,9 +39,10 @@ function download(file: string): string {
 }
 
 /** The Legal page, with the manifest request not yet answered. */
-async function renderLegalPage(): Promise<HTMLElement> {
+async function renderLegalPage(extra: readonly Provider[] = []): Promise<HTMLElement> {
   TestBed.configureTestingModule({
     providers: [
+      ...extra,
       provideRouter([{ path: 'legal', children: legalRoutes }]),
       provideHttpClient(),
       provideHttpClientTesting(),
@@ -67,9 +69,13 @@ async function until(ready: () => boolean): Promise<void> {
   });
 }
 
-async function renderAnswered(): Promise<HTMLElement> {
-  const root = await renderLegalPage();
-  TestBed.inject(HttpTestingController).expectOne('/api/content/manifest').flush(manifest);
+async function renderAnswered(
+  answer: object = manifest,
+  extra: readonly Provider[] = [],
+  manifestUrl = '/api/content/manifest',
+): Promise<HTMLElement> {
+  const root = await renderLegalPage(extra);
+  TestBed.inject(HttpTestingController).expectOne(manifestUrl).flush(answer);
   await until(() => caches(root).querySelector('summary') !== null);
   return caches(root);
 }
@@ -97,6 +103,27 @@ describe('ContentCaches', () => {
       `${PACK_FILE}: download from player-core`,
     ]);
     expect(section.textContent).toContain('2.5 kB');
+  });
+
+  it('shows a size just under a megabyte as a megabyte, not as 1,000 kB', async () => {
+    const section = await renderAnswered({
+      packs: [{ id: 'player-core', file: PACK_FILE, kinds: [], sizes: { [PACK_FILE]: 999_960 } }],
+    });
+
+    expect(section.textContent).toContain('1 MB');
+    expect(section.textContent).not.toContain('1,000 kB');
+  });
+
+  it('links to an API on another origin without doubling the origin', async () => {
+    const section = await renderAnswered(
+      manifest,
+      [{ provide: API_BASE_URL, useValue: 'https://api.example.test' }],
+      'https://api.example.test/content/manifest',
+    );
+
+    expect(section.querySelector('a')?.getAttribute('href')).toBe(
+      `https://api.example.test/content/bundles/player-core/${MECHANICS}`,
+    );
   });
 
   it('names the Foundry release an imported pack came from', async () => {

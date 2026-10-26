@@ -27,6 +27,8 @@ import type { CachePack } from './content-caches';
 const BYTES_PER_KILOBYTE = 1000;
 const BYTES_PER_MEGABYTE = 1_000_000;
 const FRACTION_DIGITS = 1;
+/** The smallest size whose kilobytes, to one fraction digit, round up to a full megabyte. */
+const MEGABYTE_ROUNDS_FROM = 999_950;
 /** Skeleton rows shown while the manifest loads. */
 const PLACEHOLDERS = ['first', 'second', 'third'] as const;
 
@@ -69,7 +71,7 @@ export class ContentCaches {
 
   /** A size in kilobytes, or megabytes from a million bytes, in the viewer's locale. */
   protected size(bytes: number): string {
-    const large = bytes >= BYTES_PER_MEGABYTE;
+    const large = bytes >= MEGABYTE_ROUNDS_FROM;
     return this.#format.number(bytes / (large ? BYTES_PER_MEGABYTE : BYTES_PER_KILOBYTE), {
       style: 'unit',
       unit: large ? 'megabyte' : 'kilobyte',
@@ -79,6 +81,6 @@ export class ContentCaches {
 
   /** Where `file` of `pack` downloads from, absolute so it links as a plain document. */
   protected url(pack: CachePack, file: BundleFile): string {
-    return `${this.#origin}${this.#apiBase}${ContentContract.bundle.url({ pack: pack.id, file })}`;
+    return new URL(`${this.#apiBase}${ContentContract.bundle.url({ pack: pack.id, file })}`, this.#origin).href;
   }
 }
