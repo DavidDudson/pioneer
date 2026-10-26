@@ -147,6 +147,8 @@ type SpellCheck = z.core.ParsePayload<{
   readonly damage: readonly SpellDamage[];
   readonly heightening?: Heightening | undefined;
   readonly variants?: readonly SpellVariant[] | undefined;
+  readonly dismiss?: true | undefined;
+  readonly dismissNote?: RichText | undefined;
 }>;
 
 function pushIssue(context: SpellCheck, path: readonly PropertyKey[], descriptor: MessageDescriptor): void {
@@ -210,6 +212,14 @@ function checkHeightenedRanks(context: SpellCheck): void {
   }
 }
 
+/** A note on ending a spell early is for a spell that does not take the Dismiss action. */
+function checkDismiss(context: SpellCheck): void {
+  const { dismiss, dismissNote } = context.value;
+  if (dismiss === true && dismissNote !== undefined) {
+    pushIssue(context, ['dismissNote'], message(RulesMessage.SpellDismissBoth));
+  }
+}
+
 /**
  * A spell's `data` on the `ContentEntry` envelope, cantrips and focus spells included: they are spells with the
  * `cantrip` or `focus` trait, as in Foundry pf2e. What it does beyond its damage is its description, and the effects
@@ -232,5 +242,6 @@ export const SpellData = z
   .check((context) => {
     checkIncreases(context);
     checkHeightenedRanks(context);
+    checkDismiss(context);
   });
 export type SpellData = z.infer<typeof SpellData>;

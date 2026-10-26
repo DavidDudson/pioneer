@@ -4,7 +4,7 @@
   </fr-async-button>
 </ng-template>
 @if (note(); as text) {
-  <fr-hover-card>
+  <fr-hover-card [tapOpens]="false">
     <ng-container [ngTemplateOutlet]="button" />
     <ng-template frHoverCardContent>
       <pio-rich-text [text]="text" />

@@ -172,12 +172,12 @@ structures, and the importer reports a spell whose text doesn't map
 ([ADR-0021](../adr/0021-structured-spell-casting-fields.md)). Rule elements on a spell are rare: what it does beyond
 its damage is its description, and the effects it applies are `effect` entries.
 
-| Kind                     | `data`                                                                                                                                                         |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `spell`                  | casting fields; `traditions`; `damage`; `heightening?`; `counteraction?`; `dismiss?`; `dismissNote?`                                                           |
-| `ritual`                 | casting fields; `primary` check; `secondary` checks and `casters`                                                                                              |
-| `spellcasting-tradition` | `skill`, the skill that recalls and identifies its magic (`skill:arcana`)                                                                                      |
-| `effect`                 | `category`, `spell`, `feat`, `equipment` or `other` (a GM's); `duration`; `badge?`; `triggerEvent?` and `autoApply?`, as on an action; level is the envelope's |
+| Kind                     | `data`                                                                                                                                                                                                                              |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `spell`                  | casting fields; `traditions`; `damage`; `heightening?`; `counteraction?`; `dismiss?` (ending it takes the Dismiss action); `dismissNote?` (rich text on how it ends early otherwise, a free action or reaction; not with `dismiss`) |
+| `ritual`                 | casting fields; `primary` check; `secondary` checks and `casters`                                                                                                                                                                   |
+| `spellcasting-tradition` | `skill`, the skill that recalls and identifies its magic (`skill:arcana`)                                                                                                                                                           |
+| `effect`                 | `category`, `spell`, `feat`, `equipment` or `other` (a GM's); `duration`; `badge?`; `triggerEvent?` and `autoApply?`, as on an action; level is the envelope's                                                                      |
 
 - **Casting fields.** `rank` 1 to 10. `time` is `actions` with a glyph `cost`, and `upTo` for a range ("one to
   three actions", Heal), or `time` with a `count` of rounds to years ("3 days"). `range?` is feet, `miles` (whole

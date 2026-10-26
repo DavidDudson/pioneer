@@ -127,6 +127,17 @@ describe('CharacterSheetPage active list', () => {
     });
   });
 
+  it('dismisses on the first touch tap of a spell that has a note', async () => {
+    const { root } = await openSheet(MERISIEL, { play: playWith(false, 1, OAKEN_RESILIENCE), packs: PACKS });
+    await vi.waitFor(() => {
+      expect(textOf(listOf(root))).toContain('Oaken Resilience');
+    });
+    const button = present([...listOf(root).querySelectorAll('button')].find((each) => textOf(each) === 'Dismiss'));
+    button.dispatchEvent(new PointerEvent('click', { bubbles: true, cancelable: true, pointerType: 'touch' }));
+    const command = await answerEdit({ revision: 2, play: { hp: { damage: 0, temp: 0 }, turn: TURN } });
+    expect(command).toStrictEqual({ field: 'dismissSpell', id: ACTIVE });
+  });
+
   it('asks before End turn ends a spell that was not sustained, and ends the turn on confirm', async () => {
     const { root } = await openSheet(MERISIEL, { play: playWith(false), packs: PACKS });
     await vi.waitFor(() => {
