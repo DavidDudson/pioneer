@@ -1,0 +1,801 @@
+[
+  {
+    "id": "d4fbef41-ebbe-5273-ab9b-3d5e989e4cd0",
+    "pack": "shades-of-blood",
+    "kind": "action",
+    "slug": "action:vampire-strigoi-drink-essence",
+    "name": "(Vampire, Strigoi) Drink Essence",
+    "rarity": "common",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ", or willing creature is within the strigoi's reach"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The strigoi sinks their fangs into the targeted creature to drink its blood and draw out its vital essence. This requires an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics"
+          },
+          {
+            "type": "text",
+            "text": " check against the creature's Fortitude DC if the creature is grabbed and is automatic for any of the other conditions. The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": ", and the strigoi regains HP equal to 10% of their maximum HP, gaining any excess HP as temporary Hit Points. Drinking Essence from a creature that's already drained or stupefied doesn't restore any HP but increases either the creature's drained condition value or its stupefied condition value by 1 (whichever value is lesser is increased; if both values are equal, then the strigoi chooses which condition to increase the value of)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A victim's drained condition decreases by 1 per week. A blood transfusion, which requires a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:medicine",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " check and sufficient blood or a blood donor, reduces the drained value by 1 after 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A victim's stupefied condition decreases by 1 per day after performing daily preparations. If the daily preparations are done in full sunlight, the stupefied condition is removed entirely."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.rBc9fJlMXhzvn05L"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the strigoi's reach"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "dd88cdd9-12c5-5427-916f-4ef37f618b87",
+    "pack": "shades-of-blood",
+    "kind": "action",
+    "slug": "action:vampire-strigoi-levitation",
+    "name": "(Vampire, Strigoi) Levitation",
+    "rarity": "common",
+    "traits": ["divine", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Strigoi can cast "
+          },
+          {
+            "type": "ref",
+            "id": "daa245e0-fdd6-582d-888d-f47865223c52"
+          },
+          {
+            "type": "text",
+            "text": " at will as a divine innate spell; when they do so, they appear to ascend or descend on a coiling mass of shadows."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.zehifmU1fTeGs2ev"
+    },
+    "data": {
+      "cost": "two",
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "c89f4c32-1bc9-5e72-86c9-b3f775a5d45f",
+    "pack": "shades-of-blood",
+    "kind": "action",
+    "slug": "action:vampire-strigoi-progenitor-create-servitor",
+    "name": "(Vampire, Strigoi Progenitor) Create Servitor",
+    "rarity": "common",
+    "traits": ["divine", "downtime"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If a creature dies after being reduced to 0 HP by Domain of Dusk or Drink Essence, the strigoi can turn this victim into a vampire servitor by donating some of their own blood to the victim and burying the victim in earth for 3 nights."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A victim that's 8th level or higher becomes a strigoi servant, while a lower-level victim instead becomes a moroi vampire."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A vampiric servitor is compelled to obey its creator, but if a vampire controls too many vampiric servitors at once (as determined by the GM), or if the servitor is a higher level than the vampire that created it, strong-willed servitors can free themselves by succeeding at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "save:will"
+            }
+          },
+          {
+            "type": "text",
+            "text": " saving throw against the vampire's Will DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.8IQqWkLqzvWA1JRJ"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "d3249a64-4642-558d-8667-1776176e66db",
+    "pack": "shades-of-blood",
+    "kind": "action",
+    "slug": "action:vampire-strigoi-progenitor-domain-of-dusk",
+    "name": "(Vampire, Strigoi Progenitor) Domain of Dusk",
+    "rarity": "common",
+    "traits": ["divine", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With a wave of their hand, the strigoi calls forth vile ruination from the surrounding shadows, causing coils of darkness and shadowy bats, rats, and wolves to lash out at living targets in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". Living creatures in this area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "floor(1 + @level/2)d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage + 1d6 void damage per 2 levels possessed by the strigoi with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "basic": true,
+            "options": ["inflicts:dazzled", "inflicts:blinded"]
+          },
+          {
+            "type": "text",
+            "text": " save against the DC of the strigoi's level. A creature that fails this save is also "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " by the darkness for 1 round (or "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round and then dazzled for 1 round on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.AzvCvgx9SUAB2blo"
+    },
+    "data": {
+      "cost": "two",
+      "category": "defensive",
+      "frequency": {
+        "max": 1,
+        "per": "minute"
+      }
+    }
+  },
+  {
+    "id": "309e8346-60d4-53a2-882c-3d2d3308dd0b",
+    "pack": "shades-of-blood",
+    "kind": "action",
+    "slug": "action:vampire-strigoi-progenitor-drink-essence",
+    "name": "(Vampire, Strigoi Progenitor) Drink Essence",
+    "rarity": "common",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ", or willing creature is within the strigoi's reach"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The strigoi progenitor sinks their fangs into the targeted creature to drink its blood and draw out its vital essence. This requires an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics"
+          },
+          {
+            "type": "text",
+            "text": " check against the creature's Fortitude DC if the creature is grabbed and is automatic for any of the other conditions. The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": ", and the strigoi regains HP equal to 10% of their maximum HP, gaining any excess HP as temporary Hit Points. Drinking Essence from a creature that's already drained or stupefied doesn't restore any HP, but increases either the creature's drained condition value or its stupefied condition value by 1 (whichever value is lesser is increased; if both values are equal, then the strigoi chooses which condition to increase the value of)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A victim's drained condition decreases by 1 per week. A blood transfusion, which requires a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:medicine",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " check and sufficient blood or a blood donor, reduces the drained value by 1 after 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A victim's stupefied condition decreases by 1 per day after performing daily preparations. If the daily preparations are done in full sunlight, the stupefied condition is removed entirely."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.fh7ar6QrFT8YWgQ9"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the strigoi's reach"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "20f8a24f-4be8-5d15-8609-0db49055e803",
+    "pack": "shades-of-blood",
+    "kind": "action",
+    "slug": "action:vampire-strigoi-progenitor-shadow-escape",
+    "name": "(Vampire, Strigoi Progenitor) Shadow Escape",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The strigoi is reduced to 0 HP"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The strigoi uses Shadow Form. They can take move actions to move toward their coffin even though they're at 0 HP. While at 0 HP in this form, the strigoi is unaffected by further damage. Once the strigoi reaches their coffin, or if they haven't done so within 2 hours, they automatically return to their physical form, "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.R5VgwNbwc3QbqVXC"
+    },
+    "data": {
+      "cost": "free",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The strigoi is reduced to 0 HP"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a4576dea-4202-5cb3-8b5b-e2467e341919",
+    "pack": "shades-of-blood",
+    "kind": "action",
+    "slug": "action:vampire-strigoi-shadow-form",
+    "name": "(Vampire, Strigoi) Shadow Form",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The strigoi reverts to pure shadow and absorbs its body and its gear into the darkness, or it shifts back to its physical form. In shadow form, the strigoi gains a climb Speed equal to its land Speed and can move through any gap that isn't airtight. However, it can only move along solid surfaces that aren't highly reflective, not liquid or mirrored surfaces. If the surface it's on is destroyed, the strigoi returns to physical form and is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": ". The strigoi loses fast healing while in shadow form but can remain in shadow form indefinitely."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A strigoi that is exposed to sunlight while in shadow form becomes "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": " and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 16
+          },
+          {
+            "type": "text",
+            "text": " at the end of each of its turns. If it fails this flat check, it is destroyed, the shadow vanishing with a blood-curdling wail."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.eQLGYrJhu787pEwc"
+    },
+    "data": {
+      "cost": "one",
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "e22c9ecf-2c4b-5597-967f-361dd33d889b",
+    "pack": "shades-of-blood",
+    "kind": "action",
+    "slug": "action:vampire-strigoi-strigoi-weaknesses",
+    "name": "(Vampire, Strigoi) Strigoi Weaknesses",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All strigoi possess the following weaknesses:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Revulsion",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Strigoi are uncomfortable near mirrors or sources of bright light. Only a strigoi's shadow reflects in a mirror, and this often compels them to cover or destroy mirrors in their presence rather than risk their true nature being displayed. A strigoi can't voluntarily come within 10 feet of a brandished mirror or source of bright light. To brandish a mirror or light source, a creature must Interact to do so for 1 round (similar to Raising a Shield). If the strigoi involuntarily comes within 10 feet of a brandished mirror or light source, they gain the "
+                },
+                {
+                  "type": "ref",
+                  "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+                },
+                {
+                  "type": "text",
+                  "text": " condition, running from the brandished object until they end an action beyond 10 feet. After 1 round of being exposed to the subject of their revulsion, a strigoi can attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 25
+                },
+                {
+                  "type": "text",
+                  "text": " save as a single action, which has the concentrate trait. On a success, they overcome their revulsions for 1d6 rounds (or 1 hour on a critical success). A strigoi can move normally around mirrors or bright light sources that are not brandished, although doing so causes them discomfort that can be noticed with a successful Perception check to Sense Motive."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sunlight",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " When exposed to direct sunlight, a strigoi immediately becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+                },
+                {
+                  "type": "text",
+                  "text": " and falls to the ground. They appear to be dead: they don't breathe, their body temperature matches their surroundings, and they don't react to pain or other stimuli. A successful "
+                },
+                {
+                  "type": "check",
+                  "statistic": "perception"
+                },
+                {
+                  "type": "text",
+                  "text": " check against the strigoi's Reflex DC is enough to note one anomaly: the shadow cast by their \"dead\" body shifts and moves slightly, its edges twisting and active. Certain detection spells, senses like lifesense, and the \"corpse\" taking damage from vitality energy still function normally and could reveal the truth without a successful Perception check. Viewing the \"corpse\" in a mirror's reflection can also reveal the truth, for only the body's shadow reflects. While in sunlight and unconscious, the strigoi loses their resistance to physical damage. If the strigoi takes enough damage that they would be reduced to 0 Hit Points, their body quickly decomposes, and the strigoi is destroyed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Water Revulsion",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A strigoi cannot cross a significant source of running water (such as a creek, river, or waves on a seashore). A strigoi capable of flight can cross running water provided they approach no closer than 10 feet to the liquid's surface. If forced into running water against their will, the strigoi becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 2"
+                },
+                {
+                  "type": "text",
+                  "text": " and gains the fleeing condition as long as they remain in the water. At the end of any turn in which the strigoi remains in running water, they must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "flat",
+                  "dc": 5
+                },
+                {
+                  "type": "text",
+                  "text": " or be destroyed."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.qjgrMhwz78T31kLU"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  }
+]

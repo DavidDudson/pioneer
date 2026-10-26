@@ -1,0 +1,20 @@
+[
+  {
+    "id": "5702f080-f2a8-559c-97ac-4494ab1be7f7",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:shoanti",
+    "name": "Shoanti",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

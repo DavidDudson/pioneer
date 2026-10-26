@@ -1,0 +1,302 @@
+[
+  {
+    "id": "41429814-9923-5250-a74a-8ef8d329a1c8",
+    "pack": "triumph-of-the-tusk",
+    "kind": "action",
+    "slug": "action:floodslain-drowning-touch",
+    "name": "(Floodslain) Drowning Touch",
+    "rarity": "common",
+    "traits": ["occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the floodslain creature damages a creature with a non-weapon melee attack, the target's lungs begin to fill with water. The target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "save:will"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against the floodslain's Will DC. A target affected by Drowning Touch can spend a single action coughing in an attempt to recover, which immediately lets them attempt a new Fortitude save against the effect. A success improves the previous result by 1 step. A critical success improves the previous result by 2, and a critical failure decreases it by 1."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is slowed 2 and drowning."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.529SPxfajGnUO5Aw"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "08499f14-11d4-54b2-8a94-cd900bd09b8c",
+    "pack": "triumph-of-the-tusk",
+    "kind": "action",
+    "slug": "action:floodslain-floodslain-spawn",
+    "name": "(Floodslain) Floodslain Spawn",
+    "rarity": "common",
+    "traits": ["occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A living animal or humanoid killed by a floodslain creature will rise as a floodslain if their corpse is left in water for 24 hours. The new floodslain isn't under the control of the floodslain creature that killed it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Er6lawGn6pPbhYuk"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "762858de-25f8-5b8f-a884-ce075d3c209a",
+    "pack": "triumph-of-the-tusk",
+    "kind": "action",
+    "slug": "action:floodslain-hard-to-burn",
+    "name": "(Floodslain) Hard to Burn",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains resistance to fire damage equal to its level (minimum 1)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, @level)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.njqGmYb9I0QakRWD"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "4204d249-4a5d-5ca1-b6c5-cf9896d00a1e",
+    "pack": "triumph-of-the-tusk",
+    "kind": "action",
+    "slug": "action:floodslain-sodden-ground",
+    "name": "(Floodslain) Sodden Ground",
+    "rarity": "common",
+    "traits": ["aura", "occult", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "20 feet. Water flows endlessly from a floodslain creature, making the area around it slippery. The ground in the aura is difficult terrain for all non-floodslain creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "radius": 20,
+        "traits": ["occult", "water"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.oFLIc3Rnm68rEm72"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "75c2ff84-722c-5a98-ac13-5566a5b0180a",
+    "pack": "triumph-of-the-tusk",
+    "kind": "action",
+    "slug": "action:floodslain-vomit-flotsam",
+    "name": "(Floodslain) Vomit Flotsam",
+    "rarity": "common",
+    "traits": ["occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A floodslain creature's body is filled with debris from their horrific death, which they can spew at their enemies. The floodslain vomits flotsam in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ". Any creature in the area takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage per level of the floodslain creature (minimum 1d8) with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": {
+              "against": "save:fortitude"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against the floodslain's Fortitude DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.zXpmQxDNYYvxhgye"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  }
+]

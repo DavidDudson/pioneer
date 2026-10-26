@@ -1,0 +1,20 @@
+[
+  {
+    "id": "20ba6de8-58a3-502a-827d-a7ff68b90d4d",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:minkaian",
+    "name": "Minkaian",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

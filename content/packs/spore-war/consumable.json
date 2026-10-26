@@ -1,0 +1,833 @@
+[
+  {
+    "id": "c0a6876a-5efa-5ca6-8ffd-63d509f6877c",
+    "pack": "spore-war",
+    "kind": "consumable",
+    "slug": "consumable:antifungal-salve-greater",
+    "name": "Antifungal Salve (Greater)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This foul-smelling pink paste is traditionally kept in a tightly sealed jar. Spreading the salve on exposed skin grants a +4 item bonus to saving throws against all afflictions that have the fungus trait or that originate from creatures with the fungus trait. The bonus lasts for 6 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "78902725-8614-5d6f-826e-1c96ac1116ef"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8v5fKBgw7jsCBu8U"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "78902725-8614-5d6f-826e-1c96ac1116ef",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "36b0ea00-2d61-5b03-8421-49c45661505b",
+    "pack": "spore-war",
+    "kind": "consumable",
+    "slug": "consumable:antifungal-salve-lesser",
+    "name": "Antifungal Salve (Lesser)",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This foul-smelling pink paste is traditionally kept in a tightly sealed jar. Spreading the salve on exposed skin grants a +2 item bonus to saving throws against all afflictions that have the fungus trait or that originate from creatures with the fungus trait. The bonus lasts for 6 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "78902725-8614-5d6f-826e-1c96ac1116ef"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TEd1rxn3CfPeh0jZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "78902725-8614-5d6f-826e-1c96ac1116ef",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "c2bb2885-4558-579b-b763-16ded1dd1833",
+    "pack": "spore-war",
+    "kind": "consumable",
+    "slug": "consumable:antifungal-salve-major",
+    "name": "Antifungal Salve (Major)",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This foul-smelling pink paste is traditionally kept in a tightly sealed jar. Spreading the salve on exposed skin grants a +4 item bonus to saving throws against all afflictions that have the fungus trait or that originate from creatures with the fungus trait. The bonus lasts for 6 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you apply the salve, the target can immediately attempt a saving throw against one fungal affliction of 14th level or lower that is affecting them. If they succeed, the affliction is neutralized."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "78902725-8614-5d6f-826e-1c96ac1116ef"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rS3DCw5B0fEVICVW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 675
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "78902725-8614-5d6f-826e-1c96ac1116ef",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "6b5c94f5-6e39-5090-8953-106cd3944fc8",
+    "pack": "spore-war",
+    "kind": "consumable",
+    "slug": "consumable:antifungal-salve-moderate",
+    "name": "Antifungal Salve (Moderate)",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This foul-smelling pink paste is traditionally kept in a tightly sealed jar. Spreading the salve on exposed skin grants a +3 item bonus to saving throws against all afflictions that have the fungus trait or that originate from creatures with the fungus trait. The bonus lasts for 6 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "78902725-8614-5d6f-826e-1c96ac1116ef"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QPaArkVoNOBv5YRU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "78902725-8614-5d6f-826e-1c96ac1116ef",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "05b25000-901b-5609-9177-ad05698cb9f1",
+    "pack": "spore-war",
+    "kind": "consumable",
+    "slug": "consumable:black-ash",
+    "name": "Black Ash",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On certain rare occasions, when a particularly despoiled tree or a powerful demonic fungal infestation (such as a Jeharlu Spore) is destroyed, the grimy black ash that remains behind functions as a catalyst called black ash. A "
+          },
+          {
+            "type": "ref",
+            "id": "9dfded9c-826b-57e9-989b-6b4ea568d4b8"
+          },
+          {
+            "type": "text",
+            "text": " empowered with this catalyst gains the fungus trait and appears diseased and toxic, with greasy filaments of dripping fungus growing through its vines. A creature damaged by this wall's thorns takes an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mcFc9HoKTwWyJiSH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d0896265-4508-5986-b9d9-6e06590207e8",
+    "pack": "spore-war",
+    "kind": "consumable",
+    "slug": "consumable:black-ash-greater",
+    "name": "Black Ash (Greater)",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On certain rare occasions, when a particularly despoiled tree or a powerful demonic fungal infestation (such as a Jeharlu Spore) is destroyed, the grimy black ash that remains behind functions as a catalyst called black ash. A "
+          },
+          {
+            "type": "ref",
+            "id": "9dfded9c-826b-57e9-989b-6b4ea568d4b8"
+          },
+          {
+            "type": "text",
+            "text": " empowered with this catalyst gains the fungus trait and appears diseased and toxic, with greasy filaments of dripping fungus growing through its vines. A creature damaged by this wall's thorns takes an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iXXseeKrvAD95H1i"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dc0e71ae-5c34-5d9f-9b36-807eb45faa11",
+    "pack": "spore-war",
+    "kind": "consumable",
+    "slug": "consumable:black-ash-major",
+    "name": "Black Ash (Major)",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On certain rare occasions, when a particularly despoiled tree or a powerful demonic fungal infestation (such as a Jeharlu Spore) is destroyed, the grimy black ash that remains behind functions as a catalyst called black ash. A "
+          },
+          {
+            "type": "ref",
+            "id": "9dfded9c-826b-57e9-989b-6b4ea568d4b8"
+          },
+          {
+            "type": "text",
+            "text": " empowered with this catalyst gains the fungus trait and appears diseased and toxic, with greasy filaments of dripping fungus growing through its vines. A creature damaged by this wall's thorns takes an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zrCRbt6DUo6i2K7t"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2e669325-b594-51f5-83d9-01a780fafb08",
+    "pack": "spore-war",
+    "kind": "consumable",
+    "slug": "consumable:deathstalk-mushroom",
+    "name": "Deathstalk Mushroom",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "ingested", "poison", "virulent"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Deathstalk mushrooms that have been alchemically treated into this poison cause those who succumb to suffer horrific hallucinations in which everyone around them distorts into demonic shapes shortly before their own bodies begin to break down and melt from within. Creatures with the fungus trait are immune to this poison and often find the flavor of a deathstalk mushroom to be rather pleasant."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 35
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "16d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, confused, and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 3"
+          },
+          {
+            "type": "text",
+            "text": " (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "17d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, confused, and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 4"
+          },
+          {
+            "type": "text",
+            "text": " (1 minute)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HHJboKeB1AXzIKCs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

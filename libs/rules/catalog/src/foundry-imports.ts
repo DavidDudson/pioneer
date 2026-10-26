@@ -58,6 +58,16 @@ export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
   imported('hells-destiny'),
   imported('bastion-of-blasphemies'),
   imported('the-dead-gods-hand'),
+  imported('wardens-of-wildwood'),
+  imported('curtain-call'),
+  imported('triumph-of-the-tusk'),
+  imported('spore-war'),
+  imported('shades-of-blood'),
+  imported('prey-for-death'),
+  imported('claws-of-the-tyrant'),
+  imported('clockwork-mystery'),
+  imported('tian-xia-world-guide'),
+  imported('foolish-housekeeping'),
 ];
 
 /** The release's page on GitHub. */

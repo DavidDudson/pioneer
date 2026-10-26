@@ -33,6 +33,9 @@ extend-ignore-re = [
   "ba-sadhak",
   # A French term in a creature name (NPC Core): Idée Fixe.
   "Idée Fixe",
+  # Tian Xia creatures (Tian Xia World Guide): the aso berang, and the Korean bul-gae.
+  "\\b[Aa]so[ -][Bb]erangs?\\b",
+  "[Bb]ul-[Gg]ae",
   # The ordinal suffixes in the staff matcher's rank label pattern.
   "\\(\\?:st\\|nd\\|rd\\|th\\)",
 ]
@@ -40,6 +43,8 @@ extend-ignore-re = [
 [default.extend-words]
 # Pathfinder terms and deliberate spellings.
 leshy = "leshy"
+# Vyre, a place in Curtain Call (`terrain:vyre`).
+vyre = "vyre"
 # Deity names (Divine Mysteries).
 brigh = "brigh"
 nin = "nin"
@@ -58,6 +63,7 @@ overlayed = "overlayed"
 
 # Paizo's own misspellings, kept as imported (ADR-0031); scoped to JSON so code still gets checked.
 [type.json.extend-words]
+hinderance = "hinderance"
 succed = "succed"
 entitys = "entitys"
 lifes = "lifes"

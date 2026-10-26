@@ -286,5 +286,85 @@
     "remaster": true,
     "released": "2026-09-02",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=370"
+  },
+  {
+    "id": "wardens-of-wildwood",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2024-04-15",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=241"
+  },
+  {
+    "id": "curtain-call",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2024-07-15",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=245"
+  },
+  {
+    "id": "triumph-of-the-tusk",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2024-10-15",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=249"
+  },
+  {
+    "id": "spore-war",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2025-01-15",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=253"
+  },
+  {
+    "id": "shades-of-blood",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2025-04-02",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=257"
+  },
+  {
+    "id": "prey-for-death",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2024-07-31",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=231"
+  },
+  {
+    "id": "claws-of-the-tyrant",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2025-04-02",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=266"
+  },
+  {
+    "id": "clockwork-mystery",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2026-07-22",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=368"
+  },
+  {
+    "id": "tian-xia-world-guide",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2024-04-24",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=223"
+  },
+  {
+    "id": "foolish-housekeeping",
+    "publisher": "paizo",
+    "license": "ORC",
+    "remaster": true,
+    "released": "2025-04-01",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=239"
   }
 ]

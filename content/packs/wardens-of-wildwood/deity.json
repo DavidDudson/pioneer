@@ -1,0 +1,99 @@
+[
+  {
+    "id": "f690c208-fe0a-5187-b241-4ba25bdee1c8",
+    "pack": "wardens-of-wildwood",
+    "kind": "deity",
+    "slug": "deity:zibik",
+    "name": "Zibik",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Most of Zibik's worshippers are leshies, ardandes, and wood elementals, though a few are humanoid clerics; Zibik only accepts clerics who show the fortitude and ability to ensure nature takes its course, sacrificing"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " decay, fresh starts, and fungi"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " foster natural cycles of decay and regrowth, eradicate invasive creatures, treat unnatural diseases"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " ignore mistreatment of the environment, delay natural death, cause imbalance in an ecosystem"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.DN0urKdPPqhXFzTq"
+    },
+    "data": {
+      "category": "deity",
+      "domains": {
+        "primary": ["decay", "healing", "nature", "protection"],
+        "alternate": []
+      },
+      "font": ["harm", "heal"],
+      "attributes": ["con", "wis"],
+      "skills": ["skill:medicine"],
+      "weapons": ["scythe"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "f5a8514d-7f5e-5ac6-9221-b9e7745b07d9"
+        },
+        {
+          "rank": 4,
+          "spell": "cc6b8b29-6166-5a05-a14c-80ba413dc7a7"
+        },
+        {
+          "rank": 6,
+          "spell": "3dcf91db-01f1-596c-96b5-d635c0248044"
+        }
+      ]
+    }
+  }
+]

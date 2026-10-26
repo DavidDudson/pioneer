@@ -1,0 +1,634 @@
+[
+  {
+    "id": "596d452d-4332-56ab-91ca-bc0b95d15002",
+    "pack": "curtain-call",
+    "kind": "consumable",
+    "slug": "consumable:ashes-of-the-war-god",
+    "name": "Ashes of the War God",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ashes of the war god",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " may be applied to armor, a weapon, or mixed into an elixir or potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Armor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The armor becomes "
+          },
+          {
+            "type": "text",
+            "text": "+3 major resilient armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 1 day. It retains any property runes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Elixir or Potion",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " In addition to the normal effects drinking the elixir or potion grant you, you gain a +3 item bonus to Athletics checks and Fortitude saves for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Weapon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The weapon becomes a "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking weapon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 1 day. It retains any property runes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pZB0Gsv1SoPkmzkY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 14000
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "40db43ca-ce5d-54e2-88d2-acda54bf989a",
+    "pack": "curtain-call",
+    "kind": "consumable",
+    "slug": "consumable:euphorium",
+    "name": "Euphorium",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "processed"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An alternative to the magical "
+          },
+          {
+            "type": "ref",
+            "id": "a519f043-9b2c-56d6-8a19-51ec3c4a4aa1"
+          },
+          {
+            "type": "text",
+            "text": ", euphorium offers similar benefits with a gustatory twist. Euphorium generally takes the form of a light, fluffy cake decorated with overpoweringly sweet frosting and served with alchemically chilled ice cream."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Euphorium's effects begin to manifest as you consume it. With every bite of euphorium, you become a little more yourself. You can pause at any time, halting the transformation midway at a point you choose. In this case, the results persist for 24 hours before reverting slowly over the course of an additional hour, allowing you to approach the experience at your own pace."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The remaining dose of euphorium doesn't spoil (unless it's temporary due to another effect, such as the limitation of Quick Alchemy) but has no effect on anyone other than the person who initially began eating it. This allows you to restart your transformation when you feel comfortable in doing so. Restarting this way quickly restores reverted changes, letting you \"pick up where you left off.\" Once you consume the final bite, the effect functions as if you'd activated a "
+          },
+          {
+            "type": "text",
+            "text": "serum of sex shift",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6nIwxBKmmYvTGNip"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "c1e2d674-cc9e-5c30-a55e-caa2104978ad",
+    "pack": "curtain-call",
+    "kind": "consumable",
+    "slug": "consumable:netherwalk-incense",
+    "name": "Netherwalk Incense",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["consumable", "magical", "shadow", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This stick of dark-gray incense carries a faint, strange odor that's different for any creature that smells it—mimicking a scent that evokes feelings of nostalgia or homesickness. You begin the activation of a stick of netherwalk incense by lighting it on fire as a single Interact action, at which point you designate up to 10 willing creatures within 20 feet of you. After spending a minute concentrating on the smoke and its scent, you and the affected creatures move into the Netherworld and can use its warped nature to speed travel. Each hour, your travel covers a distance of 50 miles, during which landmarks appear as vague and symbolic images rather than concrete visuals. You arrive within a mile of your intended destination when you Dismiss the effect or after 8 hours have passed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ga6uMdVOSpYIJyvS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1648ff0e-74f0-56f2-ac99-8114ddc74cca",
+    "pack": "curtain-call",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-passing-fancy",
+    "name": "Potion of Passing Fancy",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A lesser variant of the "
+          },
+          {
+            "type": "ref",
+            "id": "a519f043-9b2c-56d6-8a19-51ec3c4a4aa1"
+          },
+          {
+            "type": "text",
+            "text": " with some interesting quirks, a potion of passing fancy is a staple of Arshean artisans, and most temples keep at least a few doses at hand. Upon drinking the potion, your appearance changes, taking on different sex characteristics in line with another gender expression. You have little control over the details of the change, but it lines up with your deepest heartfelt ideal. More importantly, unlike the "
+          },
+          {
+            "type": "text",
+            "text": "serum of sex shift",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", a potion of passing fancy doesn't impart the \"family resemblance\" effect; thus, a drinker too shy or afraid of being recognized to publicly express another gender as themself can experience the change more anonymously."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "potion of passing fancy's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " effects last for 1 hour before slowly fading over 10 minutes; drinking another before the effect fully ends resets its duration and undoes any fading. If you extend the effect this way a fourth consecutive time, your actual form stabilizes with your current characteristics while retaining a \"family resemblance\" to your original form, as per the effects of a single "
+          },
+          {
+            "type": "text",
+            "text": "serum of sex shift",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2n8vqBGfqrBt4FZp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f4221b3e-cd09-5d14-9704-bbad52d983fb",
+    "pack": "curtain-call",
+    "kind": "consumable",
+    "slug": "consumable:vyres-bliss",
+    "name": "Vyre's Bliss",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["alchemical", "consumable", "ingested", "poison", "virulent"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vyre's Bliss is a toxin that looks and tastes like fine wine."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 43
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 24 hours"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " off-guard, "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " off-guard, "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 3"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " clumsy 2, stupefied 3, and "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " (8 hours)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MXVPJpqMloFlwGBL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8500
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  }
+]

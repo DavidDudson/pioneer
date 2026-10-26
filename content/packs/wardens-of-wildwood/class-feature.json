@@ -1,0 +1,1252 @@
+[
+  {
+    "id": "b9c4c9cf-75bf-50df-8f09-b7a6a470042d",
+    "pack": "wardens-of-wildwood",
+    "kind": "class-feature",
+    "slug": "class-feature:blight-soul-deviant-classification",
+    "name": "Blight Soul Deviant Classification",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether through planar exploration or unintended catastrophe, you've come into close contact with Ayrzul's Blight and have been forever changed. As the Blight is a realm of invasive rot, pernicious decay, and deadly radiation, so too are you capable of wielding the powers of decay."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Backlash"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a7baf5d8-603f-5696-9909-3e3e79e2ffc7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The same blood that lets one of the dragon-descended spit out a gout of flame is precisely what keeps the inside of their mouth from being singed in the furnace. Deviations, unfortunately, lack these safeguards, their powers coming from haphazard circumstance and interactions rather than intentional design. A character using their deviation always risks the chance of backlash."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As you use your powers, radioactive molds and fungi consume your flesh, making you look (and feel) like a rotting, walking corpse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you attempt to use a deviation, roll a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": ". On a success, you use your deviation and the DC for subsequent checks increases by 5, to a maximum of 20 ("
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": "); on a failure, you use your deviation and then suffer a backlash effect, after which your flat check DC resets to 5. Backlash progresses from mild, to moderate, to severe. When you have already taken mild backlash in a given day, the next time you would take backlash, you take the moderate backlash instead, and if you have already taken moderate backlash, you take the severe backlash instead, and your deviation can't be used for the rest of the day—attempting to use it simply brings pain. When you make your daily preparations, your flat check DC returns to 5 and your next backlash returns to mild."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any effects from backlash can't be reduced, prevented, or otherwise bypassed. Conditions and damage you take from backlash can't be reduced or prevented by resistance or immunity, but still triggers any weakness you have to it."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Blight Soul Deviant Feats"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a012cb9e-3f2b-5c2c-a6e6-faf6161981ff"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6f9bb5e3-8aed-5f83-a794-648ed05e1b1d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2605fc2c-683f-5e4d-aba8-bff1f3446ede"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d36c893b-cf7b-5250-995c-5130858e7d43"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Universal Deviant Feats"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2eec0fad-69f6-5c39-8df7-1355a8b97764"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "86231d26-904a-5c33-9556-060dd203eff0"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "a7baf5d8-603f-5696-9909-3e3e79e2ffc7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.pLr6Kxa7XdkVMAub"
+    },
+    "data": {}
+  },
+  {
+    "id": "07046251-6279-564d-8698-933daca1866d",
+    "pack": "wardens-of-wildwood",
+    "kind": "class-feature",
+    "slug": "class-feature:cultivation-order",
+    "name": "Cultivation Order",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You believe that nature is best tended, pruned, and maintained. Nature is inherently random and chaotic out of necessity of survival—the flower spreads its seeds far and wide, hoping that some might sprout, but you believe that plants truly thrive in orderly environments. Thus, you lend a hand, decluttering that which is stagnant, planting in ideal locations, replanting that which grows in suboptimal locations, mulching the soil, and performing other maintenance. While many druids might consider your approach \"meddling\" or \"unnatural,\" you know that the work you do is vital for the overall health of the environment you tend."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Crafting. You also gain the Leshy Familiar druid feat. You gain the cornucopia order spell. Committing wanton cruelty to plants or fungi or neglecting to nurture plants in need of tending is anathema to your order. This doesn't prevent you from killing plants or fungi and it doesn't prevent you from defending yourself against plants or fungi."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Order Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Crafting"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Druid Feat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5c409002-1396-5a85-9e82-44b526e643ab"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Order Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "3a58c6de-a5f2-5276-9f44-4ccb246152c5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Commit wanton cruelty to plants or fungi or kill them unnecessarily. (This doesn't prevent you from defending yourself or harvesting them for survival.)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": The cultivation order is a variant of the leaf order. If you have the cultivation order, you count as a member of the leaf order, and you qualify for leaf order feats."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained",
+        "predicate": [
+          {
+            "not": "feat:order-explorer:leaf-order"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "5c409002-1396-5a85-9e82-44b526e643ab",
+        "predicate": [
+          {
+            "or": ["class:druid", "feat:order-explorer:leaf-order"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.IiYUhFGqq2Nw0b5Y"
+    },
+    "data": {
+      "tags": ["druid-order"]
+    }
+  },
+  {
+    "id": "da059209-e5ae-56ef-a4cb-7ada86b54058",
+    "pack": "wardens-of-wildwood",
+    "kind": "class-feature",
+    "slug": "class-feature:decay-instinct",
+    "name": "Decay Instinct",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["barbarian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your rage is intrinsically tied to the decomposition of organic beings, and the new growth that decay allows. You may have meddled with ancient relics created by Ghorus, been infected by exposure to Ayrzul's Blight or the Tanglebriar, or been blessed by the green man Zibik. As you unleash your rage, you rot, becoming riddled with mold and flesh-eating fungi. Though this rot recedes when you let your emotions settle, it doesn't go away completely, and the scars left behind spread bit by bit throughout your lifetime, multiplying with every rage."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Preventing the decomposition of dead creatures or plants is anathema to your instinct, as is destroying or interfering with the growth of molds or fungi in a natural setting. This doesn't prevent you from defending yourself against fungus creatures or hazards or harvesting fungi or molds solely for sustenance."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Rotting Rage (Instinct Ability)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you rage, you can choose to increase the additional damage from Rage from 2 to 6 and change its damage type to poison, instead of the damage type for your weapon or unarmed attack. If you do this, your Rage action gains the primal and poison traits, and you take 1 damage at the end of each of your turns as your flesh decays. This damage can't be reduced or avoided by any means. You may make this choice only when your rage begins, and it remains in effect until your rage ends."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Specialization AbilityLevel 7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use rotting rage, increase the additional damage from Rage from 6 to 10, but the damage you take at the end of your turn increases to 5. If you have greater weapon specialization, instead increase the damage from Rage when using rotting rage from 10 to 18, but the damage you take increases to 10."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Raging ResistanceLevel 9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You resist poison damage, as well as damage dealt by the attacks and abilities of creatures with the fungus trait, regardless of the damage type."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:rotting-rage",
+        "toggleable": true,
+        "predicate": [
+          {
+            "or": ["class:barbarian", "feat:instinct-ability"]
+          }
+        ],
+        "display": {
+          "label": "Rotting Rage"
+        }
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 10,
+        "predicate": [
+          "class:barbarian",
+          "option:rotting-rage",
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 18,
+        "predicate": ["class:barbarian", "feature:greater-weapon-specialization", "option:rotting-rage"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:rage"],
+        "property": "traits",
+        "mode": "add",
+        "value": "primal",
+        "predicate": ["option:rotting-rage"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:rage"],
+        "property": "traits",
+        "mode": "add",
+        "value": "poison",
+        "predicate": ["option:rotting-rage"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.znxs0soGlusvRP39"
+    },
+    "data": {
+      "tags": ["barbarian-instinct"]
+    }
+  },
+  {
+    "id": "a7baf5d8-603f-5696-9909-3e3e79e2ffc7",
+    "pack": "wardens-of-wildwood",
+    "kind": "class-feature",
+    "slug": "class-feature:fungal-rot",
+    "name": "Fungal Rot",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As you use your powers, radioactive molds and fungi consume your flesh, making you look (and feel) like a rotting, walking corpse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "fb7da97a-b014-5034-8e68-2df0af2cfd22"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage equal to your level as your body decays."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage equal to your level and become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage equal to twice your level and become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 4"
+          },
+          {
+            "type": "text",
+            "text": ". You can't reduce the value of your sickened condition below 1 for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ZYAn8X0IjA6i38qU"
+    },
+    "data": {}
+  },
+  {
+    "id": "76ade6bd-8859-56f8-888e-453782c6fdb4",
+    "pack": "wardens-of-wildwood",
+    "kind": "class-feature",
+    "slug": "class-feature:life-draining",
+    "name": "Life-Draining",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flourishing plant life that covers your body is a part of you, but it draws nutrients from your blood, making you weaker the more the flowers grow. As the plants grow, you need to spend more and more time recuperating. Recuperating in the sunshine lowers this duration, as it feeds the flowers, speeding your recovery."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9f13df1d-6f1c-5b45-a786-602fb3e1f472"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " as the plants feed off your life force. This condition lasts until you spend 3 consecutive actions to rest and do nothing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " until you spend 20 minutes recuperating by resting and doing nothing. If you spend this time basking in sunshine, it instead takes 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 3"
+          },
+          {
+            "type": "text",
+            "text": " until you spend 2 hours napping. While napping, you're "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " and can't take actions or engage in exploration activities, but a creature can wake you with a single action with the manipulate trait. If you spend this time napping in natural sunlight, it instead takes 1 hour. You're fatigued until you can get a full night's rest."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.XIk9Z4cLsoJRyV0T"
+    },
+    "data": {}
+  },
+  {
+    "id": "cf6e3614-cbdd-5411-802f-a159ec53dee2",
+    "pack": "wardens-of-wildwood",
+    "kind": "class-feature",
+    "slug": "class-feature:ligneous-instinct",
+    "name": "Ligneous Instinct",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["barbarian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your rage is powered by the steady growth of the natural world, from the blossoming of flowers to the cultivation of vegetables and the towering, imposing might of the grandest trees. You might be descended from powerful druids or dryads, been exposed to powerful primal magic, or been transformed by the resurgence of the Plane of Wood. As you unleash your rage, your flesh becomes covered in woody growths, which spread like bark across your body."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Despoiling nature and killing plants unnecessarily is anathema to your instinct. Defending yourself against plant creatures or hazards is not."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Wooden Rage (Instinct Ability)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While raging, you can increase the additional damage from Rage from 2 to 6. If you do this, reduce your Speed by 10 feet, as the bark plates covering your body are a hinderance to mobility. This speed reduction can't be overcome by any means, though it can be offset by speed increases."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Specialization AbilityLevel 7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use wooden rage, increase the additional damage from Rage from 6 to 10. If you have greater weapon specialization, instead increase the damage from Rage when using wooden rage from 10 to 18."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Raging ResistanceLevel 9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You resist piercing and slashing damage, but you gain weakness to fire equal to 3 + your Constitution modifier, as your bark-like flesh is highly flammable."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": "@attr.con + 3",
+        "predicate": ["self:effect:rage", "feature:raging-resistance"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 6,
+        "predicate": ["option:wooden-rage"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 10,
+        "predicate": [
+          "class:barbarian",
+          "option:wooden-rage",
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 18,
+        "predicate": ["class:barbarian", "feature:greater-weapon-specialization", "option:wooden-rage"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "untyped",
+        "value": -10,
+        "predicate": ["option:wooden-rage"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.qVAeSFTI1dq64bB8"
+    },
+    "data": {
+      "tags": ["barbarian-instinct"]
+    }
+  },
+  {
+    "id": "71d7b434-829f-56d9-8815-1c1a920d570d",
+    "pack": "wardens-of-wildwood",
+    "kind": "class-feature",
+    "slug": "class-feature:spore-order",
+    "name": "Spore Order",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're fascinated by molds and fungi, and you understand the important role they play in the continued health of ecosystems. This interest often puts you at odds with local communities, who view molds and fungi as something to be eradicated, rather than nurtured."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Intimidation. You also gain the Leshy Familiar druid feat, but you must create a fungus leshy. You gain the "
+          },
+          {
+            "type": "text",
+            "text": "mushroom patch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " order spell. Committing wanton cruelty to molds or fungi, killing molds or fungi unnecessarily, or interfering with the natural processes of decay, is anathema to your order. This doesn't prevent you from defending yourself against fungi or molds or from harvesting fungi or molds for sustenance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Order Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Intimidation"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Druid Feat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5c409002-1396-5a85-9e82-44b526e643ab"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Order Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "c11f4ff2-05e1-5eee-b39a-5923a4430202"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Committing wanton cruelty to molds or fungi, killing molds or fungi unnecessarily, or interfering with the natural processes of decay, is anathema to your order. This doesn't prevent you from defending yourself against fungi or molds or from harvesting fungi or molds for sustenance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": The spore order is a variant of the leaf order. If you have the spore order, you count as a member of the leaf order, and you qualify for leaf order feats."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained",
+        "predicate": [
+          {
+            "not": "feat:order-explorer:leaf-order"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "5c409002-1396-5a85-9e82-44b526e643ab",
+        "predicate": [
+          {
+            "or": ["class:druid", "feat:order-explorer:leaf-order"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.X0k3njLOLX0322Po"
+    },
+    "data": {
+      "tags": ["druid-order"]
+    }
+  },
+  {
+    "id": "82fa9e66-ef2f-5e5a-9a5b-11eda0f2c2c6",
+    "pack": "wardens-of-wildwood",
+    "kind": "class-feature",
+    "slug": "class-feature:verdant-core-deviant-classification",
+    "name": "Verdant Core Deviant Classification",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Verdant Core deviation represents an abundance of vitality and plant life, likely caused by being implanted with supernatural seeds, contact with the Plane of Wood or the First World, or powerful primal rituals. Regardless of the source, you're a walking garden with grass, flowers, and other small plants sprouting from your flesh. You have powers over plants, wood, and growth."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Backlash"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "76ade6bd-8859-56f8-888e-453782c6fdb4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flourishing plant life that covers your body is a part of you, but it draws nutrients from your blood, making you weaker the more the flowers grow. As the plants grow, you need to spend more and more time recuperating. Recuperating in the sunshine lowers this duration, as it feeds the flowers, speeding your recovery."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The same blood that lets one of the dragon-descended spit out a gout of flame is precisely what keeps the inside of their mouth from being singed in the furnace. Deviations, unfortunately, lack these safeguards, their powers coming from haphazard circumstance and interactions rather than intentional design. A character using their deviation always risks the chance of backlash."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you attempt to use a deviation, roll a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": ". On a success, you use your deviation and the DC for subsequent checks increases by 5, to a maximum of 20 ("
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 10
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": "); on a failure, you use your deviation and then suffer a backlash effect, after which your flat check DC resets to 5. Backlash progresses from mild, to moderate, to severe. When you have already taken mild backlash in a given day, the next time you would take backlash, you take the moderate backlash instead, and if you have already taken moderate backlash, you take the severe backlash instead, and your deviation can't be used for the rest of the day—attempting to use it simply brings pain. When you make your daily preparations, your flat check DC returns to 5 and your next backlash returns to mild."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any effects from backlash can't be reduced, prevented, or otherwise bypassed. Conditions and damage you take from backlash can't be reduced or prevented by resistance or immunity, but still triggers any weakness you have to it."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Verdant Core Deviant Feats"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "76983c70-2791-5c70-b813-42e6812104f8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "dc5b51f6-3961-5584-b291-56de34863c31"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "252b4d99-648a-5f8f-90f0-161d63b3d673"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "679888bc-238b-553f-a46e-8bf5c3046bea"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Universal Deviant Feats"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2eec0fad-69f6-5c39-8df7-1355a8b97764"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "86231d26-904a-5c33-9556-060dd203eff0"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "76ade6bd-8859-56f8-888e-453782c6fdb4"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.RI8NqxswR9Am2ZzX"
+    },
+    "data": {}
+  }
+]

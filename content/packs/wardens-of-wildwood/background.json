@@ -1,0 +1,576 @@
+[
+  {
+    "id": "45f5d1d0-f653-53eb-9452-d2996262f662",
+    "pack": "wardens-of-wildwood",
+    "kind": "background",
+    "slug": "background:fey-friend",
+    "name": "Fey Friend",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many grow up hearing cautionary tales of mischievous fey, and with good reason: from sprites' pranks to gremlins' sabotage to redcaps' outright lethality, fey pose a real danger to the unwary. But not for you—usually! Whether you grew up near an enchanted wilderness, have visited the First World, frequently deal with nature spirits, or even were a fey foundling raised by otherworldly beings, you're well acquainted with fey, their myriad traditions, and their even more numerous tricks. Fey and the Wildwood Lodge aren't the same thing, yet there's enough overlap that you're sure to fit in at the upcoming Greenwood Gala."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Deception skill and the Fey Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d1ff4227-7dc1-57d9-a3d8-1f16ad627b61"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:deception",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:fey",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "d1ff4227-7dc1-57d9-a3d8-1f16ad627b61"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.hqtL8A3LVrEFI46f"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "6d6dd1a0-f705-5a44-a9dc-0ea7cc5b9056",
+    "pack": "wardens-of-wildwood",
+    "kind": "background",
+    "slug": "background:green-faith-pilgrim",
+    "name": "Green Faith Pilgrim",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are an adherent of the Green Faith, striving to bring harmony between nature and civilization. While you might hail from Shining Kingdom region surrounding the Verduran Forest, the annual Moot of Ages draws visitors from across the world. Traveling here is a sacred journey that could deepen your understanding of nature's will. As part of your journey and natural communion, you've relied heavily on flora and fauna to ease your sores and other injuries."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Nature skill and the Green Faith Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "856964c2-d154-5fe7-afe4-6e4bac163989"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:green-faith",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "856964c2-d154-5fe7-afe4-6e4bac163989"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.32S5SSVPCbod2GSl"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "6532d6c4-ec05-5b86-beea-98159159322b",
+    "pack": "wardens-of-wildwood",
+    "kind": "background",
+    "slug": "background:moot-guard",
+    "name": "Moot Guard",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a respected guardian of the Verduran Forest, and the Wildwood Lodge has called upon you to manage security at their upcoming Greenwood Gala. What deeds earned you such trust and esteem? Perhaps you have skirmished with Taldan poachers, subdued riotous fey festivities, or spent years systematically sabotaging illegal Andoren woodcutting ventures. Maybe you are officially part of the Wildwood Lodge, serving as a part-time bodyguard and negotiator to help maintain order—otherwise Taldan nobles might send in their own army to keep the peace. Whatever the case, you know that tensions are building between factions who support and oppose the lodge's current leader, Valenar the Green, and you might have to step in to keep the Greenwood Gala fun and welcoming."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Intimidation skill and the Warfare Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:intimidation",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:warfare",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.L9WwmLaDVmu5yleq"
+    },
+    "data": {
+      "boosts": [
+        ["con", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "3aac0912-fe28-5d8e-96f0-10eef54cf695",
+    "pack": "wardens-of-wildwood",
+    "kind": "background",
+    "slug": "background:tree-friend",
+    "name": "Tree Friend",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You aren't a mere visitor or settler living on a woodland's outskirts; you're an avid inhabitant of the Verduran Forest or another verdant wilderness. Intelligent plants like arboreals and leshies have accepted you as their neighbor, and you're adept at communicating with such creatures to avoid misunderstandings and violence. Even if you aren't part of the Wildwood Lodge, you have such a deeply ingrained connection to nature that the druids welcome you to their event."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Diplomacy skill and the Forest Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "24926aff-a7ca-50ec-af8c-cb872fbfd882"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, and you can choose Arboreal as one of your known languages."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:diplomacy",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:forest",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "24926aff-a7ca-50ec-af8c-cb872fbfd882"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.D05fsi5puOWstByA"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "18163999-1d98-54f3-ada2-56c6f7236066",
+    "pack": "wardens-of-wildwood",
+    "kind": "background",
+    "slug": "background:verduran-city-folk",
+    "name": "Verduran City Folk",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hail from one of the few large settlements in or around the Verduran Forest, such as Bellis or Wispil. It might be that you're part of these towns' timber operations or supporting industries, such as transporting supplies, overseeing operations, or serving as a remote bureaucrat who reports to a distant capital and enforces the Treaty of the Wildwood. Whatever the case, you're part of a scattered constellation of settlements that share cultural touchstones, including fey-inspired games like Prismati."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and the Games Lore skill. You gain either "
+          },
+          {
+            "type": "ref",
+            "id": "2cf519d9-3331-5d83-80da-9041ede7e26f"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "7f7011f1-61c2-5cbd-8d5a-29a2b81efc13"
+          },
+          {
+            "type": "text",
+            "text": " as a skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:games",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.gacjZkMkeVsrCt4A"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "712c2a85-0d6e-501a-aa5a-bb7215b3f09d",
+    "pack": "wardens-of-wildwood",
+    "kind": "background",
+    "slug": "background:wood-warden",
+    "name": "Wood Warden",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For all their thorns, beasts, and hazards, the wilds aren't invulnerable. If the natural wonders of the Verduran Forest are to survive, they need guardians like you. You have learned to monitor and protect wildernesses, earning you the Verduran Lodge's respect even if you're not affiliated with any druidic organization. Perhaps you grew up in a community that revered and carefully managed its local ecosystem, learning millennia-old traditions. It could be you were an unlikely survivor who learned to live off the land out of necessity, gradually becoming its protector. Whatever the case, traveling to the Greenwood Gala is a great opportunity to share your knowledge, learn new tricks, and recruit allies who can help defend your home."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Survival skill and the Scouting Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5280295f-7e02-5eed-93b0-2287b39ba574"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:scouting",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5280295f-7e02-5eed-93b0-2287b39ba574"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.t799dIUj6hlICExG"
+    },
+    "data": {
+      "boosts": [
+        ["str", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]

@@ -1,0 +1,387 @@
+[
+  {
+    "id": "2a554fe1-c422-5292-8441-39a0796b5a78",
+    "pack": "shades-of-blood",
+    "kind": "class-feature",
+    "slug": "class-feature:school-of-magical-technologies",
+    "name": "School of Magical Technologies",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At the height of ancient Azlant, the study of magical technologies—better known as magitech—was considered among the most prestigious of arcane specializations, and practitioners were both well regarded and well paid. While some magitech specialists trained in academies or as apprentices, others studied at religious cloisters dedicated to the worship of Amaznen, a now-dead god of invention and magic. Today, practitioners are more likely to learn from scraps of ancient spellbooks, forgotten lore unearthed in Azlanti ruins, or from a time-displaced graduate like Anoreth Zorillen. Modern magitech schools exist today, divorced from their ancient Azlanti origins but no less prestigious, including the famed Clockwork Cathedral in Absalom and temples of Brigh, goddess of clockwork and invention."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a student of magical technologies, you've learned the art of fusing magic with mundane technology to create something truly unique."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "cantrips:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "cddbeecc-4905-5b2d-b2a4-cc0bdf597d99"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "1st:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "d79a21f4-82c0-53b7-a473-84069eb69636"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "1e70918d-066f-5a32-938b-48362d1d669e"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ed3b944d-39c4-5b33-82c2-8f1bf8bd02e7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "2nd:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "1c15fce0-fed7-5364-96ca-a7ecabc1e318"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "dba55d9d-29d0-5766-b822-2a407cefc9fe"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "3rd:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "97c2cffe-087b-5c94-8e99-7f104bd682ad"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "4645b9b6-be83-5af7-a141-523be78ea033"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "4th:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "04ad7d29-a93e-5d13-9563-5e013d6ca611"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "b0ec9594-b2b6-5d97-99b8-41cc7ffab5d0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "5th:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "efcbeb7d-28bc-5644-abad-cbccad85de79"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "1516123c-bc37-5053-be15-24201abb1d02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "6th:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "c4792ce6-24c9-5d8d-858e-5d1e18f2f6e6"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "86c529b1-5a2f-5bac-9c74-674544b5bd32"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "7th:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "4ad15cff-53aa-57b7-b007-305a777fd09a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ea0b986c-facd-554e-b56b-8d4f2e4d8ab3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "8th:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "e63be8c2-c9cf-5e4f-94f2-2012eeb04ef7"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "9th:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "0c07289f-ca48-58ac-a9e3-3ff2cc46c5f1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "School Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "initial:",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "91e3b9a2-0940-51fc-a1d4-ede84f6413be"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "advanced:",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "208526e3-7c6a-5ca0-a656-f866268aad01"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "PoolSpells",
+        "entry": "wizard",
+        "pool": "curriculum",
+        "spells": [
+          "cddbeecc-4905-5b2d-b2a4-cc0bdf597d99",
+          "6dee4f5d-f584-5402-af2a-d3738ec685b3",
+          "d79a21f4-82c0-53b7-a473-84069eb69636",
+          "1e70918d-066f-5a32-938b-48362d1d669e",
+          "ed3b944d-39c4-5b33-82c2-8f1bf8bd02e7",
+          "1c15fce0-fed7-5364-96ca-a7ecabc1e318",
+          "dba55d9d-29d0-5766-b822-2a407cefc9fe",
+          "97c2cffe-087b-5c94-8e99-7f104bd682ad",
+          "4645b9b6-be83-5af7-a141-523be78ea033",
+          "04ad7d29-a93e-5d13-9563-5e013d6ca611",
+          "b0ec9594-b2b6-5d97-99b8-41cc7ffab5d0",
+          "efcbeb7d-28bc-5644-abad-cbccad85de79",
+          "1516123c-bc37-5053-be15-24201abb1d02",
+          "c4792ce6-24c9-5d8d-858e-5d1e18f2f6e6",
+          "86c529b1-5a2f-5bac-9c74-674544b5bd32",
+          "4ad15cff-53aa-57b7-b007-305a777fd09a",
+          "ea0b986c-facd-554e-b56b-8d4f2e4d8ab3",
+          "e63be8c2-c9cf-5e4f-94f2-2012eeb04ef7",
+          "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2",
+          "0c07289f-ca48-58ac-a9e3-3ff2cc46c5f1"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.dPAwM9IdabdH68mW"
+    },
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
+  }
+]

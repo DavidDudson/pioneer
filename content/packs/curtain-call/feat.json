@@ -1,0 +1,1136 @@
+[
+  {
+    "id": "45fe791c-29e7-5d2b-b5a2-1e6176e7231d",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:costume-change",
+    "name": "Costume Change",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Enough of your life has been spent performing that you've mastered the art of the quick change—especially when it comes to armor or invested items. You can remove any armor as a 3-action Interact activity. You can don light armor in 2 rounds, or in 1 minute for medium or heavy armor. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "c2eb8f96-057e-5136-a9b6-491a3be99026"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "c2eb8f96-057e-5136-a9b6-491a3be99026"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.t0ZmwquWfSX2rNUd"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Acrobat, Celebrity, Dandy, or Gladiator Dedication; Quick Disguise; master in Deception"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1f7cebd5-860f-5227-9341-b861de2353df",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:fight-choreography",
+    "name": "Fight Choreography",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've spent enough time training in stage fighting and teaching a wide range of stunts that you can prepare your companions with directions on how to avoid peril in battle. You can "
+          },
+          {
+            "type": "ref",
+            "id": "75d39cda-442b-5171-bf18-4645b8813fd3"
+          },
+          {
+            "type": "text",
+            "text": " an ally's Acrobatics or Athletics check with a Theater Lore check. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "47a7c72a-148b-59b5-9429-c0b3a95ca58d"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "47a7c72a-148b-59b5-9429-c0b3a95ca58d"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.8xb66hZXbVIu7HWG"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Acrobat or Gladiator Dedication; master in Theater Lore"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b02fa3ee-d1b1-5b9b-a66b-0728250f8110",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:fit-for-the-role",
+    "name": "Fit for the Role",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Not only are you a flamboyant performer, but you've mastered an occult secret that allows you to outfit yourself and your companions with magical visages. You gain the ability to cast "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": " as a 7th-rank innate occult spell once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.9mpjAbkfQD59RIpn"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Acrobat or Dandy Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "816bc475-4941-5fe3-9b7f-8f0abc45a9fc",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:gladiators-roar",
+    "name": "Gladiator's Roar",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["archetype", "emotion", "fear", "mental", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can project your voice into a high-pitched screech that damages your foes. Your roar can be heard twice as far as normal, and creatures within a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d10",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your class DC or spell DC, whichever is higher. If your Gladiator's Roar triggers Play to the Crowd, you gain a +2 status bonus to your Performance check to do so."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage and becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage, becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": ", and is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YK7PLPoLGYGBivEt"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gladiator Dedication; master in Intimidation"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "ac062472-3a8e-5035-9c94-a8a12eda3796",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:its-not-over",
+    "name": "It's Not Over",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're reduced to 0 Hit Points"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In the world of drama, the finale of any performance doesn't have to be the end, and for you, this now extends to life itself. When damage reduces you to 0 Hit Points, you can use this reaction to suddenly spring back into action. Instead of gaining the dying condition and falling "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ", you regain a number of Hit Points equal to "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10+@level+@attr.con"
+              }
+            ],
+            "healing": true,
+            "label": "10 + your level + your Constitution modifier"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.37l9SEvS7X1jHtpD"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Celebrity or Gladiator Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You're reduced to 0 Hit Points"
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      }
+    }
+  },
+  {
+    "id": "64136333-fab4-59d4-94aa-de5e0449c4f7",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:more-real-than-real",
+    "name": "More Real Than Real",
+    "level": 20,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your performances aren't just well-known, they're famous across the land and beyond. Your ability to make people believe the stories you perform has taken on supernatural power. You gain the ability to cast "
+          },
+          {
+            "type": "ref",
+            "id": "495cb351-a2ac-5ce6-a749-4ee1a774280a"
+          },
+          {
+            "type": "text",
+            "text": " once per day as an occult innate spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Bf5rqe6tJyR6GoS3"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Acrobat, Celebrity, Dandy, or Gladiator Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "99629f0e-d88f-5ef3-850d-12f109100ea4",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:operatic-adventurer",
+    "name": "Operatic Adventurer",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["archetype", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your training has focused you for the opera, and it certainly shows. You become master in Performance, and at 15th level your skill in Performance increases to Legendary. You also become expert in Theater Lore or become master in Theater Lore if you were already expert. When you're on a stage, in an arena, or otherwise at the focus of a crowd there to see you perform, your eagerness to begin grants a +3 circumstance bonus to initiative rolls if you roll Acrobatics, Intimidation, or Performance for initiative."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["option:acrobatics", "option:intimidation", "option:performance"]
+          },
+          {
+            "or": ["terrain:arena", "terrain:stage", "terrain:crowd"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.d86XC1EmGQ7erkul"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Acrobat, Celebrity, Dandy, or Gladiator Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "94872784-6f10-5c8c-abe1-b32612f59b87",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:perfect-pitch",
+    "name": "Perfect Pitch",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ear for harmony has enhanced your ability with musical magic. You can use Performance to "
+          },
+          {
+            "type": "ref",
+            "id": "9122d740-ef57-5922-bc21-92179b61d03a"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "f7dde84e-f48a-5bd2-8a3b-54c8757a4e87"
+          },
+          {
+            "type": "text",
+            "text": " spells and effects that are musical in nature. In addition, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "316108cc-88e7-5fe9-a3de-31ce43f175a3"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "316108cc-88e7-5fe9-a3de-31ce43f175a3"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.31V4Qo4Vd0ghN0IY"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Celebrity or Dandy Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "de4abe7c-0d93-5fb6-888c-cb44e5f078d2",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:play-to-the-crowd-dandy",
+    "name": "Play to the Crowd (Dandy)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["archetype", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a knack for knowing just how to manipulate groups by saying exactly what needs to be said. When you "
+          },
+          {
+            "type": "ref",
+            "id": "1ee7b671-dd18-5950-a4db-fbd4f8dae832"
+          },
+          {
+            "type": "text",
+            "text": " in a public area in front of a crowd, you can gauge the reactions of the crowd as you speak to know how your Lie is working, and Lie loses its secret trait. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8da7a62e-1f34-5d0d-90fb-e3d039679496"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8da7a62e-1f34-5d0d-90fb-e3d039679496"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uiEoY3uGSEOCaftX"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dandy Dedication; master in Deception"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "869a7dd4-283a-5e8b-ba66-e709d6a30b03",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:primadonna",
+    "name": "Primadonna",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["archetype", "auditory", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The spotlight should always be on you and you alone. Attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:performance"
+          },
+          {
+            "type": "text",
+            "text": " check against the Will DCs of all enemies within "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " who can see or hear you. On a success, the targets focus on you and gain a +1 circumstance bonus to hit you, but they're "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to all creatures other than yourself. On a critical success, the effect lasts for 3 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.pBP8KL1yPU3W1Kmh"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Celebrity Dedication; master in Performance"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      }
+    }
+  },
+  {
+    "id": "7f22f476-1a17-56bc-9969-63073dac077b",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:tempo-shift",
+    "name": "Tempo Shift",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Delay."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are always ready to embrace to a change in tempo and adapt your actions to take advantage of unforeseen developments. When you return to the initiative order after you Delay, you do so in an unpredictable way. All enemies are "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to you until the start of your next turn, and you become "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " for the current round but can only use the extra action to Stride or Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.uMnXk55zlwx26zeW"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Acrobat or Gladiator Dedication; legendary in Acrobatics"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You Delay."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "hour"
+        }
+      }
+    }
+  },
+  {
+    "id": "de41c3b3-94e5-5175-b6f9-ca919ee73423",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:tragic-lament",
+    "name": "Tragic Lament",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["archetype", "auditory", "emotion", "linguistic", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature you're aware of critically succeeds on a Strike against you and would deal damage to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You dramatically cry out in poetic verse about the tragedies that led to your doom at this very moment, instilling guilt in your attacker. The Strike deals normal damage rather than critical damage as your foe relents on their attack at the last moment as they're moved by your words, though other effects that happen on a critical hit still occur. The creature that made the triggering Strike must then succeed on a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " save against your Class DC or be "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round by guilt at its actions against you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qq7QHfysWzBn4z36"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Celebrity or Dandy; legendary in Performance"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature you're aware of critically succeeds on a Strike against you and would deal damage to you."
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      }
+    }
+  },
+  {
+    "id": "1ab6a3b6-7bba-5d7d-8a50-d91cb4dcbecb",
+    "pack": "curtain-call",
+    "kind": "feat",
+    "slug": "feat:virtuosic-dancer",
+    "name": "Virtuosic Dancer",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're so fond of using your Acrobatic feats on the stage that you've begun adding your own flair to these dances on the big stage. When you "
+          },
+          {
+            "type": "ref",
+            "id": "56d1e4d6-9708-5d3c-b2ac-5fe9f0cfb544"
+          },
+          {
+            "type": "text",
+            "text": ", if you do a performance that is either related to dance, acting or opera, you gain a +1 circumstance bonus to the roll. If you're legendary in Acrobatics, this increases to a +2 circumstance bonus. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "f121fc46-b1b0-5b18-9d53-035922a11a97"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f121fc46-b1b0-5b18-9d53-035922a11a97"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "circumstance",
+        "value": "ternary(gte(@rank.skill.acrobatics, 4), 2, 1)",
+        "predicate": [
+          {
+            "or": ["action:perform:dance", "action:perform:opera", "action:perform:act"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.W9Eizd4k0UKO2nT0"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Acrobat Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,4365 @@
+[
+  {
+    "id": "97b28290-83c7-5b53-a8a7-06f1bcaf5e1a",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:amulet-of-kinships-strength",
+    "name": "Amulet of Kinship's Strength",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weighty brass disk is inscribed with the ancestral names of its previous owners and now includes your own. When worn, it rests against your chest with a heavy warmth, a reminder of the strength of those who came before you. While worn and invested, you gain a +2 item bonus to Will saves. This bonus increases to +3 if the effect has the fear trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Strengthen Resolve",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You extend your resolve to your allies, casting "
+          },
+          {
+            "type": "ref",
+            "id": "f79d32ac-c89d-5e7b-b699-5a16c490efdf"
+          },
+          {
+            "type": "text",
+            "text": " on up to three willing targets."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "amulet-of-kinships-strength",
+        "mode": "add",
+        "value": 1,
+        "predicate": ["item:trait:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.P9v4lpVpLlL7AGnw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "strengthen-resolve",
+          "name": "Strengthen Resolve",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "0fb901db-7cd1-597b-a05a-e27abd898617",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:aurochs-might-tattoo-greater",
+    "name": "Aurochs' Might Tattoo (Greater)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aurochs depicted by this tattoo is a powerful symbol of strength and resilience. When upgraded, the tattoo expands to depict an increasingly imposing herd of aurochs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Aurochs Charge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Stride twice and make a melee Strike against a creature within your reach at any point during your movement. If the Strike hits and deals damage, the target attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 38
+          },
+          {
+            "type": "text",
+            "text": " save to avoid being toppled by the impact."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the target also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pX31bW6RrpxJNJms"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "aurochs-charge",
+          "name": "Aurochs Charge",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  },
+  {
+    "id": "7c41f8e8-8d96-57b2-9be4-3c81a52c138a",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:aurochs-might-tattoo-lesser",
+    "name": "Aurochs' Might Tattoo (Lesser)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aurochs depicted by this tattoo is a powerful symbol of strength and resilience. When upgraded, the tattoo expands to depict an increasingly imposing herd of aurochs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Aurochs Charge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Stride twice and make a melee Strike against a creature within your reach at any point during your movement. If the Strike hits and deals damage, the target attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 24
+          },
+          {
+            "type": "text",
+            "text": " save to avoid being toppled by the impact."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the target also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rU9KFul4FRiIGgr4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 475
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "aurochs-charge",
+          "name": "Aurochs Charge",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  },
+  {
+    "id": "c6300deb-b0d6-5ac8-9199-7e13eeac55f6",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:aurochs-might-tattoo-moderate",
+    "name": "Aurochs' Might Tattoo (Moderate)",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aurochs depicted by this tattoo is a powerful symbol of strength and resilience. When upgraded, the tattoo expands to depict an increasingly imposing herd of aurochs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Aurochs Charge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Stride twice and make a melee Strike against a creature within your reach at any point during your movement. If the Strike hits and deals damage, the target attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " save to avoid being toppled by the impact."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the target also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tJhgV3lPtgaSmI41"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2575
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "aurochs-charge",
+          "name": "Aurochs Charge",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  },
+  {
+    "id": "908eea5f-5abd-5024-aac9-0f170632815a",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:box-of-unspoiling-type-i",
+    "name": "Box of Unspoiling (Type I)",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["extradimensional", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This storage container decorated with images of wildlife and berries is popular among Shoanti quahs and other nomadic groups. The box functions like a "
+          },
+          {
+            "type": "ref",
+            "id": "bf40f2e5-f763-50b2-b749-553639592257",
+            "label": "spacious pouch"
+          },
+          {
+            "type": "text",
+            "text": ", holding 25 Bulk, and is inscribed with magic to keep its contents cool to allow for travel with perishable items like meat and fruit. Items in the box are kept fresh for up to a year."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ildZ7xmEjj5vdrT0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "container": {
+        "capacity": 25,
+        "ignored": 25
+      }
+    }
+  },
+  {
+    "id": "2b31411d-b53f-5d06-83d5-3b0ce515a137",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:box-of-unspoiling-type-ii",
+    "name": "Box of Unspoiling (Type II)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["extradimensional", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This storage container decorated with images of wildlife and berries is popular among Shoanti quahs and other nomadic groups. The box functions like a "
+          },
+          {
+            "type": "ref",
+            "id": "bf40f2e5-f763-50b2-b749-553639592257",
+            "label": "spacious pouch"
+          },
+          {
+            "type": "text",
+            "text": ", holding 50 Bulk, and is inscribed with magic to keep its contents cool to allow for travel with perishable items like meat and fruit. Items in the box are kept fresh for up to a year."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GZzVx6uDu60Uiwx7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 575
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "container": {
+        "capacity": 25,
+        "ignored": 25
+      }
+    }
+  },
+  {
+    "id": "074511e3-acb8-5cb8-9c7a-c3b7ea822a59",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:box-of-unspoiling-type-iii",
+    "name": "Box of Unspoiling (Type III)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["extradimensional", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This storage container decorated with images of wildlife and berries is popular among Shoanti quahs and other nomadic groups. The box functions like a "
+          },
+          {
+            "type": "ref",
+            "id": "bf40f2e5-f763-50b2-b749-553639592257",
+            "label": "spacious pouch"
+          },
+          {
+            "type": "text",
+            "text": ", holding 100 Bulk, and is inscribed with magic to keep its contents cool to allow for travel with perishable items like meat and fruit. Items in the box are kept fresh for up to a year."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HcJF7ZA8QfnK8eDw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1640
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "container": {
+        "capacity": 25,
+        "ignored": 25
+      }
+    }
+  },
+  {
+    "id": "b9c44501-af78-5e30-acf3-c9ae5e33e8e8",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:box-of-unspoiling-type-iv",
+    "name": "Box of Unspoiling (Type IV)",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["extradimensional", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This storage container decorated with images of wildlife and berries is popular among Shoanti quahs and other nomadic groups. The box functions like a "
+          },
+          {
+            "type": "ref",
+            "id": "bf40f2e5-f763-50b2-b749-553639592257",
+            "label": "spacious pouch"
+          },
+          {
+            "type": "text",
+            "text": ", holding 150 Bulk, and is inscribed with magic to keep its contents cool to allow for travel with perishable items like meat and fruit. Items in the box are kept fresh for up to a year."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QtF4zZrg9pTqmA1g"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3600
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "container": {
+        "capacity": 25,
+        "ignored": 25
+      }
+    }
+  },
+  {
+    "id": "43c4e041-b815-5a03-b796-2ce4e9abc28c",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:bracers-of-pain",
+    "name": "Bracers of Pain",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These simple bracers look plain on the exterior, but a series of small, sharp studs line the interior like rows of shark teeth. While these bracers are worn and invested, you gain a +2 item bonus to Will saves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sharp Focus",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain an effect that makes you "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your bracers snap tight onto your wrists, driving the studs into your skin to shock you into focus. You can attempt to counteract the effect causing your condition, with a counteract rank of 6th and a counteract modifier of +22. On a success, you lose the condition. If you have more than one condition from the same source, you only need one counteract check against them."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Difes7udDkLfkzvb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2200
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "bracers"
+      }
+    }
+  },
+  {
+    "id": "f1680b83-8740-5ae0-8629-b9629224364e",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:cindergrass-cloak",
+    "name": "Cindergrass Cloak",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This hooded cloak woven of long, waxy grass is designed so it can close over your entire body. While wearing this cloak, you have resistance 5 to fire."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shed Cinders",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would take fire damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With a flick of the cloak, you deflect and smother the flames. The cloak's resistance to fire increases to 15 against the triggering effect. Until the end of your next turn, your flat check to remove persistent fire damage is 10 instead of 15, which is reduced to 5 if another creature uses a particularly appropriate action to help. If you take at least 5 points of fire damage after applying the fire resistance, the cloak gains the "
+          },
+          {
+            "type": "ref",
+            "id": "c945a9c5-1053-552c-8cc3-ac4832741d0f"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "10d09810-b53b-5a88-9a05-17606c196ec8"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.99B5wzvBZ8jZ4Ie7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "814989c2-7680-5b77-8891-e2be2b79ccdd",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:cleft-head-marking-greater",
+    "name": "Cleft Head Marking (Greater)",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Caution and misdirection are the hallmarks of your hold. You've encountered more travelers than most of Belkzen's holds ever see, and you need to understand how to deal with them. You're a proud member of the Cleft Head Hold or have been found worthy of wearing their mark. This tattoo is a crooked line that begins high above one eye and zigzags toward your mouth. The tattoo's grim appearance can help mask your true motivations. You gain a +2 item bonus to Deception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unexpected Strike",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Strike a creature that has the "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " condition with a weapon attack"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You deal an extra 2d6 precision damage to the target."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:feint"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:unexpected-strike",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": ["option:unexpected-strike"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6Vg2ugx0hdazJ57g"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 850
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "unexpected-strike",
+          "name": "Unexpected Strike",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  },
+  {
+    "id": "9cb149af-56c1-5dbc-a569-b77a273809df",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:cleft-head-marking-lesser",
+    "name": "Cleft Head Marking (Lesser)",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Caution and misdirection are the hallmarks of your hold. You've encountered more travelers than most of Belkzen's holds ever see, and you need to understand how to deal with them. You're a proud member of the Cleft Head Hold or have been found worthy of wearing their mark. This tattoo is a crooked line that begins high above one eye and zigzags toward your mouth. The tattoo's grim appearance can help mask your true motivations. You gain a +1 item bonus to Deception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unexpected Strike",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Strike a creature that has the "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " condition with a weapon attack"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You deal an extra 1d6 precision damage to the target."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:feint"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:unexpected-strike",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": ["option:unexpected-strike"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bfDByCXIwWxX7Fiz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "unexpected-strike",
+          "name": "Unexpected Strike",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  },
+  {
+    "id": "2cf3d86e-9ae5-5aee-80fa-8144a701474f",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:dirt-sea-in-a-jar",
+    "name": "Dirt Sea in a Jar",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small jar of dark sand swirls intensely as you peer into it, evoking the dangerous beauty of the Dirt Sea."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pour the contents of the jar onto unworked ground. If you activate this item with one action, you pour the sand into one or two "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " adjacent to you. If you activate this item with two actions, the sand spreads across a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ". The affected space turns into Quicksand. Creatures already in the area can Step out of the area as a reaction. The quicksand doesn't inflict lasting damage to most surfaces or nearby architecture, though a feature surrounded by the quicksand might sink or settle naturally. This terrain lasts for 1 day or until the effect is Dismissed, causing the sand to reappear in the jar."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3Un39La3zogviHgZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 880
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "dirt-sea-in-a-jar",
+          "name": "Dirt Sea in a Jar",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4756463b-d07e-5119-82ba-e34bd55940c9",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:dust-goggles",
+    "name": "Dust Goggles",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These sand-colored goggles keep the harsh weather of the Cinderlands at bay. While wearing the goggles, you ignore penalties to Perception from desert weather effects and gain a +1 bonus to Perception checks involving sight."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["item:trait:visual"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YxZO0GO7MUR9eWQw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "eyeglasses"
+      }
+    }
+  },
+  {
+    "id": "c0b83e11-c9ad-522b-9923-8a4167249d19",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:empty-hand-marking",
+    "name": "Empty Hand Marking",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Members of the Empty Hand consider themselves leaders of Belkzen, and their fearsome reputation has helped control Urgir for generations. As a proud member or honored guest of the hold, you've been allowed to bear their mark. The tattoo depicts a partially closed hand that grasps nothing. Many people wear this tattoo on their faces, but others have it on an exposed shoulder or arm."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reproach",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": " a creature"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum duration of the target's compliance increases to 1d4 days, rather than 1 day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QSx4I9y38hmDwP0I"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 135
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "reproach",
+          "name": "Reproach",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  },
+  {
+    "id": "cc430119-dbeb-5fd3-8b28-c1c9641b98aa",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:eye-of-the-moonwarden",
+    "name": "Eye of the Moonwarden",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This beaded pendant crafted by Lyrune-Quah shamans features an uncut moonstone that warns the wearer of danger. When a hostile creature comes within 30 feet of you, the stone glows with moonlight only you can see."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Lunar Illumination",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Bright moonlight shines out of the gem in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", forcing hostile creatures in the area to make a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 26
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mXz0bL0CbUu2V2Ti"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 620
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "lunar-illumination",
+          "name": "Lunar Illumination",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "necklace"
+      }
+    }
+  },
+  {
+    "id": "5e47bc96-217e-5e11-83eb-196d721ed0b0",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:flowing-water-greater",
+    "name": "Flowing Water (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Flood Truce is a season of relative peace, and this tattoo of a river can soothe your temper when you might otherwise lash out. You gain a +1 item bonus to Diplomacy checks made against orcs who honor the Flood Truce."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Embody the Truce",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A mental effect would compel you to harm an ally or bystander"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempt a counteract check with a counteract rank of 6 to end the effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["target:trait:orc", "target:tag:honors-flood-truce"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Y3arObjLqt31dfNr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "embody-the-truce",
+          "name": "Embody the Truce",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  },
+  {
+    "id": "2f327ca9-8713-5c73-9e60-a8efa5ef36b8",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:flowing-water-lesser",
+    "name": "Flowing Water (Lesser)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Flood Truce is a season of relative peace, and this tattoo of a river can soothe your temper when you might otherwise lash out. You gain a +1 item bonus to Diplomacy checks made against orcs who honor the Flood Truce."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Embody the Truce",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A mental effect would compel you to harm an ally or bystander"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempt a counteract check with a counteract rank of 2 to end the effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["target:trait:orc", "target:tag:honors-flood-truce"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tIFPeuMvkTun3xC2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "embody-the-truce",
+          "name": "Embody the Truce",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  },
+  {
+    "id": "978a0470-8c27-565f-8749-199b0bad9091",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:flowing-water-moderate",
+    "name": "Flowing Water (Moderate)",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Flood Truce is a season of relative peace, and this tattoo of a river can soothe your temper when you might otherwise lash out. You gain a +1 item bonus to Diplomacy checks made against orcs who honor the Flood Truce."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Embody the Truce",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A mental effect would compel you to harm an ally or bystander"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempt a counteract check with a counteract rank of 4 to end the effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["target:trait:orc", "target:tag:honors-flood-truce"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jNuPjthEfk31Ewhb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 320
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "embody-the-truce",
+          "name": "Embody the Truce",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  },
+  {
+    "id": "19e6bc94-354c-5b74-98ee-931a17e4c97f",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:mat-of-resilience",
+    "name": "Mat of Resilience",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This light but sturdy woven mat, a miniature version of the floating foundations used in villages of the Dirt Sea, is carried tied in a tight roll. When you use an action to unfurl the mat onto an unoccupied horizontal space, the mat covers the existing terrain to create a smooth surface that can be walked on as if it were solid ground. Difficult or hazardous terrain in that square may be treated as normal while the mat of resilience covers it. The mat can be rolled back up or moved to an adjacent square using an Interact action, but it cannot be moved or put away while a creature is atop it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Steady Ground",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (envision)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You unfurl the mat and choose which shape it takes, either a "
+          },
+          {
+            "type": "template",
+            "shape": "square",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " or a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sturdy Foundation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature is atop the mat"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature enters a simple stance that makes the most of the mat's stabilizing magic. While in this stance, if at least half of the creature's space is atop the mat, it cannot gain the "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Bh0coFwyMiKf8H78"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 330
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "1c538d05-a75e-5cfe-a6c7-d3bba2ce7794",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:mat-of-resilience-greater",
+    "name": "Mat of Resilience (Greater)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This light but sturdy woven mat, a miniature version of the floating foundations used in villages of the Dirt Sea, is carried tied in a tight roll. When you use an action to unfurl the mat onto an unoccupied horizontal space, the mat covers the existing terrain to create a smooth surface that can be walked on as if it were solid ground. Difficult or hazardous terrain in that square may be treated as normal while the mat of resilience covers it. The mat can be rolled back up or moved to an adjacent square using an Interact action, but it cannot be moved or put away while a creature is atop it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Steady Ground",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (envision)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You unfurl the mat and choose which shape it takes, either a "
+          },
+          {
+            "type": "template",
+            "shape": "square",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " or a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 40
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sturdy Foundation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature is atop the mat"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature enters a simple stance that makes the most of the mat's stabilizing magic. While in this stance, if at least half of the creature's space is atop the mat, it cannot gain the "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nlbNhDcFrU8KIuGT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "6b61cf38-c6a6-5e9b-b88e-740c9cf329e4",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:motivating-treat-bag",
+    "name": "Motivating Treat Bag",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This stiff, cloth pouch is embroidered with whimsical images of playful pets. When you perform your daily preparations in the presence of your creature companion, three treats appear in the bag: an encouraging treat, a reward treat, and a soothing treat. These treats are always suitable for your companion and last until the next time you perform your daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Toss a Treat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Varies by treat"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pull out one of the treats and toss it up to 30 feet into the waiting mouth of your companion. The effect varies by the treat."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Encouraging Treat",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (mental) "
+                },
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You Command your companion, and it performs a skill check; "
+                },
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The treat motivates the companion to perform the task, allowing you to Aid it as though you had prepared to help."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Reward Treat",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (healing, mental) "
+                },
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your companion critically succeeds at a skill check or attack roll; "
+                },
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The treat grants the companion 1d6+6 temporary Hit Points that last until the end of your next turn."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Soothing Treat",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (healing) "
+                },
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your companion attempts a save to reduce its sickened condition, would reduce the value of its frightened condition at the end of your turn, or attempts a flat check to end persistent damage; "
+                },
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Reduce the DC of the check to end persistent damage by 2 or reduce the sickened condition by 2. If the companion would reduce its frightened condition value by 1 at the end of its turn, it instead reduces that condition's value by 2."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rustle the Bag",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Command your companion. Until the end of your turn, it gains a +5-foot status bonus to each of its Speeds, but must use at least one action to move closer to you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FCfFwTfe1Tn5Zlqx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 135
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "d7587a07-e951-5c35-8c0c-a22c70f06776",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:needle-of-undeath",
+    "name": "Needle of Undeath",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thin, wand-like implement is carved from bone and scrimshawed with depictions of battle. While holding the "
+          },
+          {
+            "type": "text",
+            "text": "needle of undeath",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", mindless undead creatures see you as one of their own and are indifferent to you until you take hostile actions against them, and you have a +2 item bonus to Deception and Diplomacy checks against intelligent undead. This does not affect a summoned undead's attitude."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Speak with Undead",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can use Diplomacy to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " on mindless undead or make simple requests of them with a +2 item bonus. You cannot make this request of someone else's summoned undead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception", "skill:diplomacy"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          "target:trait:undead",
+          {
+            "not": "target:trait:mindless"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AavhMzpW5KBIB2DV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1150
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "speak-with-undead",
+          "name": "Speak with Undead",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2423f4f9-3aae-56b3-b976-378417c0e606",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:nomads-shawl",
+    "name": "Nomad's Shawl",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The intricate beading of this shawl subtly guides you. While you wear the shawl, you always know which direction is north and gain a +1 item bonus to Survival checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Mind's Map",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You focus your mind's eye on a location you've been to previously. The beads on the shawl shift colors to create a map of the area based on your memories. You can dismiss this effect as a free action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ybtuHLHWpgMlBDed"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 330
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "a9f83ec4-edee-5a0c-8060-de9375a588ff",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:nostalgic-pot",
+    "name": "Nostalgic Pot",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This small pot filled with pebbles is imbued with the nostalgia of its owner. While this pot is on your person, you get a +1 item bonus to saves against emotion effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Jingling Memories",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, emotion)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You shake the pot, granting a +1 item bonus to an ally to save against an emotion effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0meS8SH8y3qvf6PN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f76adf22-60f6-5817-a405-3e773fb962d3",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:osteomancers-pouch",
+    "name": "Osteomancer's Pouch",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This leather pouch holds a pair of six-sided dice carved from actual knucklebones. When rolled, the dice grant you a vision of a distant location, though their power is unreliable."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Roll the Bones",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You roll the dice. If you roll two 1s, the activation fails with no effect. Otherwise, the dice cast "
+          },
+          {
+            "type": "ref",
+            "id": "9d2d34b7-d94e-51d0-b169-e6cb9f4f0b2a"
+          },
+          {
+            "type": "text",
+            "text": " for you. When cast in this way, the spell's range becomes 100 feet × the result of your roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2jVtcAVrsM52LbV6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 480
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "roll-the-bones",
+          "name": "Roll the Bones",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7b970637-1a88-5b32-acab-955149ce1f11",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:rending-gauntlets-greater",
+    "name": "Rending Gauntlets (Greater)",
+    "level": 19,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These heavy gloves are reinforced with thick animal hide and sharpened bone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shredding Finisher",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hit the same creature with two unarmed Strikes in the same round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The gauntlets' spikes dig into the creature just before you tear them free, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GgR1zcLI8daml05a"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 32000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "shredding-finisher",
+          "name": "Shredding Finisher",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "bracers"
+      }
+    }
+  },
+  {
+    "id": "8fa92694-a55a-50fb-8ed0-79f3d4e4ee92",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:rending-gauntlets-lesser",
+    "name": "Rending Gauntlets (Lesser)",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These heavy gloves are reinforced with thick animal hide and sharpened bone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shredding Finisher",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hit the same creature with two unarmed Strikes in the same round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The gauntlets' spikes dig into the creature just before you tear them free, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.22mke3o7VmNt3Mvb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 130
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "shredding-finisher",
+          "name": "Shredding Finisher",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "bracers"
+      }
+    }
+  },
+  {
+    "id": "b1c19a25-cf24-5547-bfb9-f7ef99269cc8",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:rending-gauntlets-moderate",
+    "name": "Rending Gauntlets (Moderate)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These heavy gloves are reinforced with thick animal hide and sharpened bone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shredding Finisher",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hit the same creature with two unarmed Strikes in the same round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The gauntlets' spikes dig into the creature just before you tear them free, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8ypsabK300Sdf2X8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1700
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "shredding-finisher",
+          "name": "Shredding Finisher",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "bracers"
+      }
+    }
+  },
+  {
+    "id": "530bd5e3-9926-52f5-bdc5-090b51e6fede",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:storied-skin",
+    "name": "Storied Skin",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your skin becomes a canvas that records history as you learn it. When you receive the tattoo, choose a Lore skill. You can add the visual trait to the "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " action in order to study your tattoos, granting you a +1 item bonus to your check using the chosen Lore skill. A storied skin tattoo starts with an icon that represents a central event in your subject of study and is usually placed on the forehead or over the heart. Each time you learn about a major event in the history of that subject, an image, design, or symbol appears on your skin to represent the event."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Living History",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The tattoo's design animates for 1 round, crudely portraying some scene associated with the chosen Lore skill."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OOcgMpqQzk22n6rl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 45
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "living-history",
+          "name": "Living History",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  },
+  {
+    "id": "190d4eb9-eca7-51d2-957f-2e0978ebed3a",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:stormshard",
+    "name": "Stormshard",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These shards of coalesced necromantic essence are sometimes found in the wake of an ancestor storm. Howling spirits are faintly visible, trapped inside the jagged, dark-green glass."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use the shard to cow the undead or briefly release the tormented souls from inside the glass. While you hold the stormshard, you gain a +1 item bonus to Intimidation checks to influence the undead. In addition, you can "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " undead creatures, even if those creatures are mindless or otherwise immune to emotion, fear, or mental effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Free the Spirits",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You briefly release the spirits from the "
+          },
+          {
+            "type": "text",
+            "text": "stormshard",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " before drawing them back into the glass. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 20,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). You treat the result of your saving throw as one degree of success better than its outcome."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["target:trait:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.E89arDdt5UWiAGMY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 230
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "free-the-spirits",
+          "name": "Free the Spirits",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6aceb9a7-2821-5a45-afda-bbb0c6a00f04",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:stormshard-greater",
+    "name": "Stormshard (Greater)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These shards of coalesced necromantic essence are sometimes found in the wake of an ancestor storm. Howling spirits are faintly visible, trapped inside the jagged, dark-green glass."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use the shard to cow the undead or briefly release the tormented souls from inside the glass. While you hold the stormshard, you gain a +2 item bonus to Intimidation checks to influence the undead. In addition, you can "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " undead creatures, even if those creatures are mindless or otherwise immune to emotion, fear, or mental effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Free the Spirits",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You briefly release the spirits from the "
+          },
+          {
+            "type": "text",
+            "text": "stormshard",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " before drawing them back into the glass. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d8",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). You treat the result of your saving throw as one degree of success better than its outcome. You can choose to increase the radius of the emanation by up to 10 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["target:trait:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0gocfTNAWRHddgua"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "free-the-spirits",
+          "name": "Free the Spirits",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c45fd3c5-0b71-5c99-b805-63a8158de852",
+    "pack": "triumph-of-the-tusk",
+    "kind": "equipment",
+    "slug": "equipment:stormshard-major",
+    "name": "Stormshard (Major)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These shards of coalesced necromantic essence are sometimes found in the wake of an ancestor storm. Howling spirits are faintly visible, trapped inside the jagged, dark-green glass."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use the shard to cow the undead or briefly release the tormented souls from inside the glass. While you hold the stormshard, you gain a +3 item bonus to Intimidation checks to influence the undead. In addition, you can "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " undead creatures, even if those creatures are mindless or otherwise immune to emotion, fear, or mental effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Free the Spirits",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You briefly release the spirits from the "
+          },
+          {
+            "type": "text",
+            "text": "stormshard",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " before drawing them back into the glass. Each creature in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "13d8",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 38,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). You treat the result of your saving throw as one degree of success better than its outcome. You can choose to increase the radius of the emanation by up to 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["target:trait:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NrzzXDhoWZdJvhVG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 19000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "free-the-spirits",
+          "name": "Free the Spirits",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

@@ -1,0 +1,234 @@
+[
+  {
+    "id": "f7275b5e-74d7-5cf2-b12a-8e5b9314b83d",
+    "pack": "curtain-call",
+    "kind": "ritual",
+    "slug": "ritual:song-of-silver",
+    "name": "Song of Silver",
+    "level": 6,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The majority of the "
+          },
+          {
+            "type": "text",
+            "text": "Song of Silver's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " time needed to Cast it consists of preparations for the performance, which must take place on a stage in Kintargo. While the "
+          },
+          {
+            "type": "text",
+            "text": "Song of Silver",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be cast by a single primary caster, up to six secondary casters can assist by helping to decorate the stage with Crafting or by spreading word and gathering an audience with Society. At the end of this 8-hour period, the primary caster performs the song, which takes up the final minute of the casting time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "08e7b9fb-93e6-518c-934d-b1c203902dd4"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The stage and rooftop above any stage where the song was performed glows softly with silver radiance for 1 week. During this time, the ritual tries to counteract teleportation effects and planar travel into or out of Kintargo attempted by unholy creatures, and all weapons wielded within Kintargo are treated as if they were made of silver for the purposes of calculating damage against creatures who possess weakness to silver. The ritual also generates the Success effects below. The "
+          },
+          {
+            "type": "text",
+            "text": "Song of Silver",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can't be attempted again for 1 month."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For 1 week, the primary and secondary casters gain a +2 status bonus to all saving throws against mental effects; this bonus doubles to a +4 status bonus against all fear effects. Each caster gains the ability to cast "
+          },
+          {
+            "type": "ref",
+            "id": "4a5766e0-5406-55a9-8b98-36cc6238824d"
+          },
+          {
+            "type": "text",
+            "text": " as an innate occult spell at a rank equal to what the "
+          },
+          {
+            "type": "text",
+            "text": "Song of Silver",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " was cast at, once during the week. These benefits are suppressed as long as the character is outside of Kintargo. The "
+          },
+          {
+            "type": "text",
+            "text": "Song of Silver",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can't be attempted again for 1 month."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "Song of Silver",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " fails, and it can't be attempted again for 1 month."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Not only does the ritual fail, but the primary caster is overwhelmed with shame at the failure and becomes "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 week (can't be removed by any means). The "
+          },
+          {
+            "type": "text",
+            "text": "Song of Silver",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can't be attempted again for 6 months."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The effects of the "
+          },
+          {
+            "type": "text",
+            "text": "Song of Silver",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " expand to cover all of Ravounel."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.HYXyMFsH0K80etBI"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "primary": {
+        "skills": ["skill:performance"]
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting"]
+          },
+          {
+            "skills": ["skill:society"]
+          }
+        ],
+        "casters": 6
+      }
+    }
+  }
+]

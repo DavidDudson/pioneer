@@ -1,0 +1,3699 @@
+[
+  {
+    "id": "061d4688-76fb-5b25-aea9-f02e7b44318d",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:angelic-opera-cloak",
+    "name": "Angelic Opera Cloak",
+    "level": 19,
+    "rarity": "rare",
+    "traits": ["apex", "holy", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This luxurious cloak embodies an angel's swiftness. You gain a +3 item bonus to Acrobatics checks and never take falling damage, as your cloak billows like a pair of wings to soften any fall you take. When you invest in the cloak, you either increase your Dexterity modifier by 1 or increase it to +4, whichever would give you a higher value. If you are unholy, you are "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " while wearing this cloak."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—On Angel's Wings",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The opera cloak transforms into two pairs of brilliant, feathered wings that grant you a fly Speed of 40 feet for 10 minutes. During this time, you gain immunity to paralysis effects and ignore effects that would give you a circumstance penalty to speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6b124cde-73f9-5788-9362-dce724844a6b"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 3
+      },
+      {
+        "key": "GrantItem",
+        "item": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+        "predicate": ["self:trait:unholy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OsUMak2bLZ5H3lTY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "on-angels-wings",
+          "name": "On Angel's Wings",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      },
+      "apex": "dex"
+    }
+  },
+  {
+    "id": "66772ad5-74e0-5b5a-94a6-1cb2dd41f9f8",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:choral-toga",
+    "name": "Choral Toga",
+    "level": 19,
+    "rarity": "rare",
+    "traits": ["apex", "holy", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elegant toga is infused with inexhaustible energy to enjoy life possessed by azatas. You gain resistance to poison 20 and become immune to "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": ". When you invest in the robes, you either increase your Constitution modifier by 1 or increase it to +4, whichever would give you a higher value. If you are unholy, you become deafened while wearing the toga."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Elysium's Gasp",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are exposed to an inhaled poison"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Purifying gusts of sweet-scented air swirl around you, making you immune to inhaled poisons for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Elysium's Breath",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, healing)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The air around the robe constantly circulates to keep you healthy. For 8 hours, you become immune to diseases spread via inhalation, olfactory effects, and environmental effects that would prevent you from breathing (including being underwater or from being strangled)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 20
+      },
+      {
+        "key": "Immunity",
+        "type": ["deafened"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PiAvPmwq1VFboGwX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "elysiums-gasp",
+          "name": "Elysium's Gasp",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "elysiums-breath",
+          "name": "Elysium's Breath",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "clothing"
+      },
+      "apex": "con"
+    }
+  },
+  {
+    "id": "885e571a-1556-5bac-9f70-f340e471fdd7",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:crooners-cravat",
+    "name": "Crooner's Cravat",
+    "level": 13,
+    "rarity": "unique",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long, silky neckcloth has the ability to be tied into a convincing semblance of an elegant evening scarf, a worker's neck kerchief, an elaborate cravat, or any other neckwear. It also provides a boost to vocal performances, enhancing both projection and the emotive qualities of a performance. In its natural state, this item appears as a long, white silk scarf. A "
+          },
+          {
+            "type": "text",
+            "text": "crooner's cravat",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants a +1 item bonus to all Performance checks, but this increases to a +2 item bonus for Performance checks to sing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Adjust Cravat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (illusion, manipulate, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make adjustments to the crooner's cravat, transforming it into any type of stylish chosen neckwear; as you do so, you cast a 1st-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": " on yourself."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Influential Croon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, emotion, linguistic)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pour emotion into your vocal performance, projecting an empathetic bond that fascinates listeners. You cast enthrall ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " save). When you first activate Influential Croon, you can also cast "
+          },
+          {
+            "type": "ref",
+            "id": "72597ff4-3a09-5802-9fd2-d42b78034487"
+          },
+          {
+            "type": "text",
+            "text": " on one creature within 30 feet ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.R5llqYr6ruAiq4EU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "adjust-cravat",
+          "name": "Adjust Cravat",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "influential-croon",
+          "name": "Influential Croon",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "necklace"
+      }
+    }
+  },
+  {
+    "id": "8ba01a42-16db-5f13-8c5c-c075cec1920a",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:draconal-mask",
+    "name": "Draconal Mask",
+    "level": 19,
+    "rarity": "rare",
+    "traits": ["apex", "holy", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This dragon-themed half-mask helps you to navigate through darkness and to notice things from afar—such as helping to find seats in a theater after a show begins, or to pick up details from a show even if you're seated in the back row! You gain a +3 item bonus to Perception checks and never take a penalty to Perception checks based on distance or weather. You gain darkvision, or greater darkvision if you have darkvision. When you invest in the mask you either increase your Wisdom modifier by 1 or increase it to +4, whichever would give you a higher value. If you are unholy, you become "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " as long as you wear the mask."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Dragons See the Truth",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail a saving throw against an illusion effect"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The mask attempts to counteract the triggering illusion with a counteract rank of 9 and a counteract modifier of +31. You then gain the effects of truesight for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.E5EtHYETRbRXg4uE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "dragons-see-the-truth",
+          "name": "Dragons See the Truth",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      },
+      "apex": "wis"
+    }
+  },
+  {
+    "id": "18e3cab0-9cff-50a2-9fe5-ada02cb7d7e2",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:gasping-lament",
+    "name": "Gasping Lament",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["coda", "invested", "magical", "staff"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This collar is a silken cord from which hangs a small silver amulet that bears the likeness of a woman with her hand at her throat. A "
+          },
+          {
+            "type": "text",
+            "text": "gasping lament",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a powerful coda instrument that's worn rather than held. While you sing, you gain a +2 item bonus to Intimidation checks to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " and to Performance checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the collar to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "15904512-5f17-5bba-b1a0-1f892989912c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "df8b32a8-efdb-5955-80bf-f87a3b1eae11"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "600c3684-32bc-5dbc-8b49-99924728c1cd"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "18e20667-b58b-5649-af67-bf8d166c96db"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "55e77e9d-6ce5-5891-b707-4dd41cb99017"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "184bfcdd-a178-5c10-95fe-b959762d1392"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "15904512-5f17-5bba-b1a0-1f892989912c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "904dd564-8ba8-5960-80eb-6f5c1ed7fd17"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed levels of all listed spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance", "skill:intimidation"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:demoralize", "check:statistic:performance"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eCJ8mXA9VQH2P8x7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "collar"
+      }
+    }
+  },
+  {
+    "id": "03bf7f1a-aa12-5e76-8e51-4911cff74183",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:gasping-lament-greater",
+    "name": "Gasping Lament (Greater)",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["coda", "invested", "magical", "staff"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This collar is a silken cord from which hangs a small silver amulet that bears the likeness of a woman with her hand at her throat. A "
+          },
+          {
+            "type": "text",
+            "text": "gasping lament",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a powerful coda instrument that's worn rather than held. While you sing, you gain a +3 item bonus to Intimidation checks to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " and to Performance checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the collar to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "15904512-5f17-5bba-b1a0-1f892989912c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "df8b32a8-efdb-5955-80bf-f87a3b1eae11"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "600c3684-32bc-5dbc-8b49-99924728c1cd"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "18e20667-b58b-5649-af67-bf8d166c96db"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "55e77e9d-6ce5-5891-b707-4dd41cb99017"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "184bfcdd-a178-5c10-95fe-b959762d1392"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "15904512-5f17-5bba-b1a0-1f892989912c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "904dd564-8ba8-5960-80eb-6f5c1ed7fd17"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "51b9baac-1f99-5c5a-a902-ed642a3849ef"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ad4c22df-73d8-547e-be5f-8676b389053e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "18e20667-b58b-5649-af67-bf8d166c96db"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "95907aae-72dc-5f12-a4d9-f4ca3b789e76"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed levels of all listed spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance", "skill:intimidation"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["action:demoralize", "check:statistic:performance"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Lo3IDdKzBVsLtuHG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 14500
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "collar"
+      }
+    }
+  },
+  {
+    "id": "e2e6c4ec-7800-576b-8e54-e68fccc841a7",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:golden-gloves",
+    "name": "Golden Gloves",
+    "level": 19,
+    "rarity": "rare",
+    "traits": ["apex", "holy", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These golden-threaded gloves fit snuggly past the elbows, and imbue all other worn clothing with an aristocratic mien. The gloves grant you a +3 item bonus to Society skill checks. When you invest the gloves, you either increase your Intelligence modifier by 1 or increase it to +4, whichever would give you a higher value. This gives you additional trained skills and languages, as normal for increasing your Intelligence modifier. You must select skills and languages the first time you invest the gloves, and whenever you invest the same "
+          },
+          {
+            "type": "text",
+            "text": "golden gloves",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you get the same skills and languages you chose the first time. If you are unholy, you become "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " when invested in these gloves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Heaven's Wings",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You throw wide your arms, putting the "
+          },
+          {
+            "type": "text",
+            "text": "golden gloves",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on full display and causing a blazing halo to form above your head. All enemies within a 40-feet emanation must make a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 41
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute (or "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute on critical failure). Unholy creatures take a –2 item penalty to their roll. The halo then melts into your body and attempts to counteract any one affliction you are currently suffering of your choice with a counteract rank of 9 and a counteract modifier of +31."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:society"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Mpx6IFq5xMOiZQZm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "heavens-wings",
+          "name": "Heaven's Wings",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "gloves"
+      },
+      "apex": "int"
+    }
+  },
+  {
+    "id": "b0a21fc6-5899-588c-bcef-697579fbbed5",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:graymist",
+    "name": "Graymist",
+    "level": 21,
+    "rarity": "unique",
+    "traits": ["apex", "artifact", "divine", "intelligent", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This black cape flows more like a vaporous liquid than fabric. The cape grants you a +3 item bonus to Stealth checks. When you invest the cape, you either increase your Dexterity modifier by 1 or increase it to +4, whichever would give you a higher value."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature misses you with an attack"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempt a Stealth check against the triggering creature's Perception DC. If you roll a success, you're "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " from that creature until the end of your next turn or until right after you use a hostile action against that creature. If you roll a critical success, you're hidden from that creature until the end of your next turn, even if you use hostile actions against that creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With a twirl of the cape, you transform yourself into a puff of gray smoke. You cast "
+          },
+          {
+            "type": "ref",
+            "id": "1bf15f4b-9369-5136-b3f1-cd18d01b9233"
+          },
+          {
+            "type": "text",
+            "text": " on yourself."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mCs87WJT2l0qkgcC"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "graymist",
+          "name": "Graymist",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cape"
+      },
+      "apex": "dex"
+    }
+  },
+  {
+    "id": "3e981500-3be6-542a-924e-c7d6eef35c7d",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:heralds-ring",
+    "name": "Herald's Ring",
+    "level": 13,
+    "rarity": "unique",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Adorned with golden herald horns, this green ring both enhances a performer's vocal projection and provides partial protection against sonic attacks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Project Voice",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When you turn the "
+          },
+          {
+            "type": "text",
+            "text": "herald's ring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " around your finger three times in either direction, you gain the ability to easily project your voice up to 200 feet without raising the volume of speech, reaching your audience in most venues, including arenas. This effect lasts up to 2 hours."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reflect Sound",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take sonic damage from a spell or effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use the "
+          },
+          {
+            "type": "text",
+            "text": "herald's ring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to reflect a portion of the sonic damage back at its source by attempting to counteract the effect. The ring has a counteract modifier of +23."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " All of the damage is reflected back on its source."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Half of the damage is reflected back at its source, and the other half is negated."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Half of the damage is reflected back at the source, and you take the rest of the damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " None of the damage is reflected, but the herald's ring does absorb enough energy so that you can activate it again today."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UAJursrFNgKpY5dg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "project-voice",
+          "name": "Project Voice",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "reflect-sound",
+          "name": "Reflect Sound",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "cd98d582-6009-58d8-a949-e57deb41235a",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:mockers-swazzle",
+    "name": "Mocker's Swazzle",
+    "level": 13,
+    "rarity": "unique",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A swazzle is a device made of two strips of metal bound with sinew and around a reed that, when held to the mouth, causes the user's voice to take on a distinctive rasping tone. Swazzles are often used by street puppeteers to give their puppets' voices a unique and memorable timber. A mocker's swazzle, though, has a different use—rather than simply giving voices to troublemaking puppets, it helps a performer fight back against hecklers in a crowd."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Heckle the Heckler",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, emotion, linguistic, manipulate, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 30 feet of you attempts and fails to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " you"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You quickly fire a retort back at the triggering creature, mocking its failed attempt in a way that makes it laugh at its own ineptitude; you cast "
+          },
+          {
+            "type": "ref",
+            "id": "14ef4b6a-5640-523d-ae50-9e3f4fbf860b"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " save) on the triggering creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Mocking Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, linguistic, spellshape)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You direct a quick bit of insulting mockery at a creature who can understand you that's within earshot. If your next action is to cast a mental spell that targets only that creature, that creature takes a –1 item penalty to any saving throw against the spell and, regardless of the result of the saving throw, becomes "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4j3mNtQNTzWs4vNW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "heckle-the-heckler",
+          "name": "Heckle the Heckler",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "mocking-spell",
+          "name": "Mocking Spell",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ae9305a9-5021-577a-b9cb-454640915a8f",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:red-hands-satchel",
+    "name": "Red Hand's Satchel",
+    "level": 21,
+    "rarity": "unique",
+    "traits": ["artifact", "divine", "extradimensional", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An "
+          },
+          {
+            "type": "text",
+            "text": "Red Hand's Satchel",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a sturdy leather backpack with two compartments. The main section contains an extradimensional space equivalent to a "
+          },
+          {
+            "type": "ref",
+            "id": "424684d2-314a-5101-bf41-12a4ee094cca"
+          },
+          {
+            "type": "text",
+            "text": ", perfect for carrying bulkier alchemist equipment. A secondary partition can hold 2 Bulk of items, 1 of which doesn't count against your Bulk limit. This second compartment can also be activated (see below). Two shoulder straps and a thick belt for the waist hold the haversack on the wearer securely. These straps have pouches and loops for keeping alchemical items handy. They also contain magically expanded alchemist's tools that grant you a +2 item bonus to Crafting checks to create alchemical items. Water and undesirable material can't seep into the haversack, which cleans itself once per hour. When you reach in any part of the haversack, the item you sought is the first one you find. Also, the haversack preserves mundane ingredients, food, and drink inside, so they stay fresh indefinitely. This feature doesn't prolong the duration of magic or alchemical items."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain batches of infused reagents during your daily preparations"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pull one additional batch of infused reagents from the satchel's secondary compartment. If you fail to use these reagents by the end of your next turn, they're lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are an alchemist."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["item:trait:alchemical"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EoDLnd7KTtVL8mGp"
+    },
+    "data": {
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "red-hands-satchel",
+          "name": "Red Hand's Satchel",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "backpack"
+      },
+      "container": {
+        "capacity": 50,
+        "ignored": 50
+      }
+    }
+  },
+  {
+    "id": "2838b57d-5423-5d89-b8f2-fe431a56c1c6",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:sacred-valkyrie-helm",
+    "name": "Sacred Valkyrie Helm",
+    "level": 19,
+    "rarity": "rare",
+    "traits": ["apex", "holy", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lightning crackles from the wings flanking this helm, which is emblazoned with images of valkyries in the service of benevolent deities. You gain a +3 item bonus to Athletics checks and gain electricity resistance 20. When you invest in the helm, you either increase your Strength modifier by 1 or increase it to +4, whichever would give you a higher value. If you are unholy, you become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " as long as you wear the helm."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Path of the Pegasus",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "sacred valkyrie helm",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts interplanar teleport to your specifications. When you start this activation, each creature you target with this spell mounts a conjured pegasus who then carries them through reality to arrive at the specified location; each affected creature experiences the 10-minute activation as a kaleidoscopic ride through strange worlds and realities atop a pegasus's back."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Storm's Arms",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The helm casts a 9th-rank weapon storm to your specifications. At your option, all damage caused by this spell is electricity damage—in this option, the duplicated weapons created by the spell appear to be made of lightning."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 3
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VGOSmuflyPupOZas"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "path-of-the-pegasus",
+          "name": "Path of the Pegasus",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "storms-arms",
+          "name": "Storm's Arms",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      },
+      "apex": "str"
+    }
+  },
+  {
+    "id": "c45a7729-97a2-578a-ae93-465653334e23",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:silvanshee-collar",
+    "name": "Silvanshee Collar",
+    "level": 19,
+    "rarity": "rare",
+    "traits": ["apex", "holy", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "silvanshee collar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " appears as a collar of prismatic cloth affixed with a tiny bell, but once worn on the body or affixed to your hair, a Tiny cat wearing a similar (but non-magical) collar appears at your feet. This cat is similar to a silvanshee agathion, but its stats are determined as if you gained the "
+          },
+          {
+            "type": "ref",
+            "id": "6bcc37b0-6da4-5c79-90d8-ab7d17f63b9d"
+          },
+          {
+            "type": "text",
+            "text": " general feat. When you first invest the collar, you must name your silvanshee pet, then build its statistics as detailed in the Pet general feat. The silvanshee has a name (chosen by you) and a unique personality. Whenever you invest the same "
+          },
+          {
+            "type": "text",
+            "text": "silvanshee collar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the silvanshee who appears is the same one you named and chose the first time. If you already have a pet, familiar, or other companion that uses the Pet feat, that pet can change its shape as an action to appear as a silvanshee agathion at will (while perhaps retaining some of your pet's cosmetic traits at your option), but this doesn't otherwise alter your existing pet's statistics."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as you wear the "
+          },
+          {
+            "type": "text",
+            "text": "silvanshee collar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +3 item bonus to Performance checks and a +2 circumstance bonus to Gather Information. When you invest it, you either increase your Charisma modifier by 1 or increase it to +4, whichever would give you a higher value. If you are unholy, you become "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " as long as you wear the collar."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Awww!",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, fortune, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail on an attempt to Lie or "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your pet can observe you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your pet does something distracting or adorable at the precise moment you failed, allowing you to reroll the failed check and to use the result of your choice as the actual result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 3
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy", "skill:performance"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "silvanshee-collar-gather-information",
+        "predicate": ["action:gather-information"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ak5bxEDdFMnpYD2L"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "awww",
+          "name": "Awww!",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      },
+      "apex": "cha"
+    }
+  },
+  {
+    "id": "8baf3564-4cf9-5671-a986-325396cc75ed",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:soulfeeding-mask",
+    "name": "Soulfeeding Mask",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["invested", "magical", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This unsettling mask is made from different flensed faces that have been stitched together with bright red thread. Wearing a "
+          },
+          {
+            "type": "text",
+            "text": "soulfeeding mask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " allows you to see others' souls within their bodies as long as they're within 60 feet, as if under the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+          },
+          {
+            "type": "text",
+            "text": " (but only against living or undead creatures). Your Perception DC increases by 10 against living creatures who Impersonate undead creatures or against undead creatures who Impersonate living creatures, as you can tell if the creature's soul has been affected by undeath. The "
+          },
+          {
+            "type": "text",
+            "text": "soulfeeding mask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " counteract rank is 9, with a counteract modifier of +31. While wearing a "
+          },
+          {
+            "type": "text",
+            "text": "soulfeeding mask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain darkvision. If you're holy, you're "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " while you have a "
+          },
+          {
+            "type": "text",
+            "text": "soulfeeding mask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " invested."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Devour Soul",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, death, void)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "soulfeeding mask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s eyes and jaw open wide, and clouds of darkness and shadow spill out and attempt to engulf a single creature you can see that's within 30 feet. That creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "50",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 36,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. If the target is undead or otherwise has void healing, this activation loses the death and void traits and gains the vitality trait, and the target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "50",
+                "damageType": "vitality"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 36,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. If the target takes any damage, you become "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute and can use the extra action each round for only Stride actions, unless the damage killed the creature, in which case you can also use the extra action each round for Strike actions as well."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Disgorge Soul",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're quickened as a result of Devour Soul"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "soulfeeding mask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " disgorges the devoured soul. You're no longer quickened from Devour Soul, and the "
+          },
+          {
+            "type": "text",
+            "text": "soulfeeding mask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts "
+          },
+          {
+            "type": "ref",
+            "id": "49df8d74-a119-5bf7-a977-c5b5bc8f0224"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 36
+          },
+          {
+            "type": "text",
+            "text": " save) to your specifications, targeting the creature whose soul had been devoured. You must Sustain this effect, unless the target creature was slain by Devour Soul, in which case duplicate foe functions as if the creature had failed its save, and the "
+          },
+          {
+            "type": "text",
+            "text": "soulfeeding mask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Sustains this spell automatically."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+        "value": 2,
+        "predicate": ["self:trait:holy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nYrOmi22AN0XDtCO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "devour-soul",
+          "name": "Devour Soul",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  },
+  {
+    "id": "973c59bc-3c2e-5675-b181-2809c0c77c6e",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:spectacles-of-discernment",
+    "name": "Spectacles of Discernment",
+    "level": 13,
+    "rarity": "unique",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Designed for a frequent sponsor of theatrical productions who liked to stay informed of all the off-stage drama, these silver opera glasses are affixed to a slender redwood handle. They can't be worn on the face but must be raised to the eyes and held there, at which point the spectacles of discernment grant a +2 item bonus to Perception checks to notice details at a distance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reveal the Truth",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You raise the spectacles to regard a target creature through them; the target must be within 60 feet. You immediately gain the ability to speak and understand the language the target creature is currently speaking, or its native language if it's not currently talking, for 24 hours. During this time, you can Interact with the spectacles of discernment to flip down a pair of supplementary lenses. When you do so, if you're observing the creature you originally targeted, roll a secret counteract check with a counteract modifier of +23 against any illusion, morph, or polymorph effect affecting the target, but only for the purpose of determining whether you see through the disguise or not."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:details-at-a-distance"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AbgcicGqoHJZJun3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "reveal-the-truth",
+          "name": "Reveal the Truth",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f9828f69-9ea9-57f3-baf3-96849417b852",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:stage-magicians-cloak",
+    "name": "Stage Magician's Cloak",
+    "level": 13,
+    "rarity": "unique",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This black velvet cloak has a silvery blue iridescent lining. The cloak can be worn with either side facing out—switching from one side to the other requires two Interact actions. If these actions are both taken on the same turn, the act of removing and redonning the cloak doesn't cause it to lose its investiture. When worn with the black velvet lining facing out, the stage magician's cloak grants a +2 item bonus to Occultism checks. When worn with the silvery blue lining facing out, it grants a +2 item bonus to Arcana checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Now You See Me...",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Distracting colorful smoke blasts outward from the cloak in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ", causing all creatures in the area to become "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " save). If you were previously "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": ", or undetected, you lose those conditions. You become "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round and may use the extra action to Interact, Strike, or Stride."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—...Now You Don't",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, teleportation)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Harmless silver smoke issues from the cloak in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ". You cast a 2nd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": " on yourself and are transported, along with all items you're wearing and holding, from your current space to an unoccupied space within 30 feet that you can see. If this would bring another creature with you—even if you're carrying it in an extradimensional space—the transportation part of this effect fails."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:stage-magicians-cloak",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "occultism",
+            "label": "Black"
+          },
+          {
+            "value": "arcana",
+            "label": "Blue"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.N5jtL8lLKW0Yzd8e"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "now-you-see-me",
+          "name": "Now You See Me...",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "now-you-dont",
+          "name": "...Now You Don't",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "e7609d37-d592-5a62-ba6b-42d551f013fb",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:tumblers-belt",
+    "name": "Tumbler's Belt",
+    "level": 13,
+    "rarity": "unique",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sparkling purple belt was made for the youngest member of a family of jugglers and tumblers who traveled with the Crascondo Company. The thought was this would allow the child to safely participate with their elder siblings and cousins, but the belt found itself being \"loaned\" more and more often to dare-taking elders in the troupe. The "
+          },
+          {
+            "type": "text",
+            "text": "tumbler's belt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants a +2 item bonus to Acrobatics checks, and whenever you critically succeed at a check to "
+          },
+          {
+            "type": "ref",
+            "id": "11d6f0fd-b182-5043-8a26-973179a93617"
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +10-foot item bonus to your Speed until the end of your turn. While wearing the "
+          },
+          {
+            "type": "text",
+            "text": "tumbler's belt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you're not "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " while you "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Land With Grace",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're falling"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Treat your fall as if it were 120 feet shorter. Regardless of whether you take damage or not from the fall, you land on your feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.i8VDsM0MRVpqC8zu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "land-with-grace",
+          "name": "Land With Grace",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "belt"
+      }
+    }
+  },
+  {
+    "id": "2b2cc52a-ea2d-5518-96b8-30ac13ce3475",
+    "pack": "curtain-call",
+    "kind": "equipment",
+    "slug": "equipment:white-cleomes-eye",
+    "name": "White Cleome's Eye",
+    "level": 21,
+    "rarity": "unique",
+    "traits": ["artifact", "divine", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Delicate engravings of spiders and cleomes decorate the silver cover of this magnifying loupe."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anything viewed through these thin spectacles looks crisp and clear, and the earpieces accentuate sounds around you. You gain a +3 item bonus to Perception checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spectacles key in on someone to show you their social cues in perfect clarity. Choose a creature you can see. You gain a +4 item bonus on Perception checks you make to use "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": " against that creature. This benefit lasts until you Activate the item again in this way. If you're an investigator, you can use this activation as part of the action you take to "
+          },
+          {
+            "type": "ref",
+            "id": "5ac07788-c8ee-564f-ab8e-cd6c1a52e6c8"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "c3e8808d-49ed-5855-90ec-9b753ba89635"
+          },
+          {
+            "type": "text",
+            "text": ", and you can do the latter even though you can't see the creature. You must choose the same creature you chose for Devise a Stratagem or Pursue a Lead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.us2Ypcm6qhmyQnBi"
+    },
+    "data": {
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "white-cleomes-eye",
+          "name": "White Cleome's Eye",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  }
+]

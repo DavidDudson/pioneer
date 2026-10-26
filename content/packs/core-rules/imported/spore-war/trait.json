@@ -1,0 +1,22 @@
+[
+  {
+    "id": "8f7b1f8c-0af9-5bea-9cae-4643d5823b33",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:blight",
+    "name": "Blight",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  }
+]

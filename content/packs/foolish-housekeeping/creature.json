@@ -1,0 +1,585 @@
+[
+  {
+    "id": "3f96f160-589b-5cd2-8282-3746201ff22f",
+    "pack": "foolish-housekeeping",
+    "kind": "creature",
+    "slug": "creature:dust-bunny-swarm",
+    "name": "Dust Bunny Swarm",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["construct", "swarm"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dust bunnies in particular are prone to swarming. This can occur when a large number are left alone for a long period of time and are then disturbed by adventurers or a returning wizard. Other times, a singular dust bunny familiar grows in such numbers (and they will rapidly reproduce!) that a wizard cannot hope to keep them all placated with food and attention. In this situation, they will unionize in rebellion against their master."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It is paramount that you do not allow a dust bunny to multiply, for once a swarm has formed, they are nigh impossible to get rid of. While relatively easy to disperse and unlikely to kill anyone, they will re-form within the week unless the area is immaculately cleaned."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.blog-bestiary.Actor.bupIhMxa1zvWI91a"
+    },
+    "data": {
+      "role": "monster",
+      "size": "large",
+      "perception": 7,
+      "attributes": {
+        "str": 0,
+        "dex": 2,
+        "con": 7,
+        "int": -4,
+        "wis": 0,
+        "cha": 2
+      },
+      "armorClass": 13,
+      "saves": {
+        "fortitude": 7,
+        "reflex": 5,
+        "will": 3
+      },
+      "hitPoints": 16,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "physical",
+          "value": 6,
+          "exceptions": ["bludgeoning"]
+        }
+      ],
+      "speed": 30,
+      "skills": [
+        {
+          "skill": "arcana",
+          "modifier": 3
+        },
+        {
+          "skill": "athletics",
+          "modifier": 3
+        },
+        {
+          "skill": "stealth",
+          "modifier": 7
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Cloud of Allergens",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The swarm rolls initiative"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The swarm rolls initiative"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The dust bunnies stir, kicking up a cloud in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "burst",
+                  "size": 15
+                },
+                {
+                  "type": "text",
+                  "text": " centered on the swarm that lasts for 1 minute. Creatures who enter or start their turn in this cloud must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 16
+                },
+                {
+                  "type": "text",
+                  "text": " save or take a –1 circumstance penalty to skill checks that have the concentration trait and all Perception checks as their sensory organs become impaired."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "c653b73d-bcb9-5455-a215-94eb81f1fe05"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Dust to Dust",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When a dust bunny swarm is destroyed, it re-forms after 2d4 days in the area in which it was destroyed unless the location has been significantly cleaned of all dust and debris."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Pummeling Dust",
+          "cost": "one",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Each enemy in the swarm's space takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 16,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save. A creature that fails its save cannot use reactions for 1 round as they sneeze uncontrollably."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "8fc032cc-909d-58a6-8543-cf88096c3cdd",
+    "pack": "foolish-housekeeping",
+    "kind": "creature",
+    "slug": "creature:rt5rrmn",
+    "name": "Rt5rrmn",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["animal", "fey"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The rt5rrmn is a catlike creature that loves to purr at those they encounter, convincing others to pamper them instead of fight. It would rather be friends than enemies, but if spooked it will viciously attack whoever is in its sights. If they aren't able to make friends, the rt5rrmn will quickly grow defensive, and leap to attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.blog-bestiary.Actor.FdsQgecBdj4h5qca"
+    },
+    "data": {
+      "role": "monster",
+      "size": "small",
+      "perception": 20,
+      "attributes": {
+        "str": 5,
+        "dex": 3,
+        "con": 4,
+        "int": 1,
+        "wis": 1,
+        "cha": 6
+      },
+      "armorClass": 36,
+      "saves": {
+        "fortitude": 15,
+        "reflex": 35,
+        "will": 22
+      },
+      "hitPoints": 172,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 35,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 22
+        },
+        {
+          "skill": "athletics",
+          "modifier": 20
+        },
+        {
+          "skill": "stealth",
+          "modifier": 17
+        }
+      ],
+      "senses": [
+        {
+          "sense": "scent",
+          "acuity": "imprecise",
+          "range": 60
+        }
+      ],
+      "languages": ["common"],
+      "strikes": [
+        {
+          "name": "b9000",
+          "range": "melee",
+          "bonus": 18,
+          "damage": [
+            {
+              "dice": 3,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 12
+            }
+          ],
+          "traits": ["finesse"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Improved Grab"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "g7ujik",
+          "range": "melee",
+          "bonus": 18,
+          "damage": [
+            {
+              "dice": 3,
+              "die": "d6",
+              "damageType": "slashing",
+              "bonus": 12
+            }
+          ],
+          "traits": ["agile", "finesse"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rt5rrmn Yyumn"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "But I'm Adorable",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "An enemy targets the rt5rrmn with a melee attack"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " An enemy targets the rt5rrmn with a melee attack"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The rt5rrmn erkijs, the vibrating sound convincing the enemy to stop hurting it. The target must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 26
+                },
+                {
+                  "type": "text",
+                  "text": " save."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Critical Success",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target is unaffected, ignoring the seduction of the erkij."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Success",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target is Fascinated by the rt5rrmn's erkij until the end of the rt5rrmn's next turn."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Failure",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " As success, and the target is Slowed 1 as it focuses on the rt5rrmn's erkij."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Critical Failure",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " As failure, but the target is Slowed 2."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Extra Reverberation",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the rt5rrmn is targeted with an ability that restores Hit Points, it gains an additional use of But I'm Adorable that lasts until the end of its next turn."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Rt5rrmn Yyumn",
+          "traits": ["disease"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Throw",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 24
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Maximum Duration",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 1 week"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 1",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Sickened 1 (1 hour)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 2",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " sickened 1 and the creature can't reduce its sickened value below 1 (1 day)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 3",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Sickened 2 and the creature can't reduce its sickened value below 1 (1 day)"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Yidsfh",
+          "cost": "two",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The rt5rrmn Strides and then makes two g7ujik Strikes at a single target. Both count toward its multiple attack penalty, but the penalty increases only after both attacks are made. The rt5rrmn must be able to move at least half its Speed to yidsfh."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  }
+]

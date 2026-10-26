@@ -1,0 +1,236 @@
+[
+  {
+    "id": "fa064799-52f7-5aaa-aaa5-0a5eab0bd458",
+    "pack": "triumph-of-the-tusk",
+    "kind": "armor",
+    "slug": "armor:aurochs-hide-armor",
+    "name": "Aurochs Hide Armor",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Made of the sturdy, thick hide of the aurochs and tempered to be both flexible and durable, this "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient hide armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is imbued with the aurochs' natural defenses against venomous predators. You gain resistance 5 to poison damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Stubborn Skin",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You pull the layers of the armor taut, stiffening your body against incoming forces for 1 minute. While the armor is taut, you have a –1 penalty to Reflex saves and a +2 item bonus to Fortitude saves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0d0c5b25-64c3-5948-a37d-a50a2ed778c3"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hCutQISjPJaKGYtj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "leather",
+      "baseItem": "hide-armor",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "1dae2026-c37e-5a88-8077-09d8aa05a7bc",
+    "pack": "triumph-of-the-tusk",
+    "kind": "armor",
+    "slug": "armor:zetogeki-hide-armor",
+    "name": "Zetogeki Hide Armor",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["earth", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 fire-resistant hide armor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is adorned with the shale-like scales of the zetogeki, a giant reptile that dwells near sites of volcanic activity. Like the armor's namesake, you can adjust the scales to better absorb kinetic energy at the cost of some mobility."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shift Scales",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Until the end of your next turn, you gain resistance 5 to bludgeoning, piercing, and slashing damage, but your Speeds are reduced by 10 feet (minimum 5 feet)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6510e822-17cb-5c7d-b141-8c4be232e0db"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LTQDnvgZtY495c3x"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "shift-scales",
+          "name": "Shift Scales",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "leather",
+      "baseItem": "hide-armor",
+      "acBonus": 3,
+      "dexCap": 2,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 2,
+      "runes": {
+        "potency": 1,
+        "property": ["bbde19bb-8ae2-57c1-90f8-0606b6550f08"],
+        "propertyEnergy": {
+          "bbde19bb-8ae2-57c1-90f8-0606b6550f08": "fire"
+        }
+      }
+    }
+  }
+]

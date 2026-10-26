@@ -1,0 +1,22 @@
+[
+  {
+    "id": "16e44ff3-de80-5545-8c76-6b245214e136",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:herald",
+    "name": "Herald",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  }
+]

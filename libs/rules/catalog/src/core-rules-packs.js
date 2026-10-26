@@ -69,6 +69,29 @@ function laterVocabulary() {
   ];
 }
 
+/** The vocabulary the adventure and Society imports add. */
+function adventureVocabulary() {
+  return [
+    import('@pioneer/content/packs/core-rules/imported/hellbreakers/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/hellbreakers/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/wardens-of-wildwood/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/wardens-of-wildwood/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/curtain-call/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/curtain-call/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/curtain-call/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/triumph-of-the-tusk/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/triumph-of-the-tusk/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/spore-war/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/spore-war/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/spore-war/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/shades-of-blood/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/shades-of-blood/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/prey-for-death/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/clockwork-mystery/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/tian-xia-world-guide/trait.json'),
+  ];
+}
+
 export async function coreRulesPack() {
   return pack(import('@pioneer/content/packs/core-rules/pack.json'), [
     import('@pioneer/content/packs/core-rules/language.json'),
@@ -77,5 +100,6 @@ export async function coreRulesPack() {
     import('@pioneer/content/packs/core-rules/variant-rule.json'),
     ...earlierVocabulary(),
     ...laterVocabulary(),
+    ...adventureVocabulary(),
   ]);
 }

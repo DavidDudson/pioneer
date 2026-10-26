@@ -1,0 +1,571 @@
+[
+  {
+    "id": "362b7da9-8240-50c4-9e5c-f3b8756b197a",
+    "pack": "hellbreakers",
+    "kind": "background",
+    "slug": "background:archdevil-apostate",
+    "name": "Archdevil Apostate",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You once worshipped a powerful archdevil, but have turned away from fiendish practices. Whether you walked away due to moral compunctions or cold pragmatism, you know your soul was once bound for Hell, and you can only pray that your new path erases the sins you've committed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Religion skill and the Devil Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "6b5f5e9e-34c3-5952-a24e-4bec4e681633"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:religion",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:devil",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "6b5f5e9e-34c3-5952-a24e-4bec4e681633"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.gF0rOdWCQPHVgrvL"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "ef3a21bf-0cbe-5b76-8aef-739057fd8b22",
+    "pack": "hellbreakers",
+    "kind": "background",
+    "slug": "background:breachill-survivor",
+    "name": "Breachill Survivor",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were an ordinary civilian until one day, Hellknights came to town and changed your world forever. You and your loved ones suffered under their brutality until liberation came, and now you have the chance to pay it forward as a Hellbreaker. As a hero"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Medicine skill and the Warfare Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9848970b-02f3-562b-9a64-29e42647bbc1"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:medicine",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:warfare",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "9848970b-02f3-562b-9a64-29e42647bbc1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.OL58pki9nNu608hp"
+    },
+    "data": {
+      "boosts": [
+        ["str", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "1cfee2f1-cd7e-5e77-9bee-079185cd29f9",
+    "pack": "hellbreakers",
+    "kind": "background",
+    "slug": "background:chelaxian-exile",
+    "name": "Chelaxian Exile",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hail from Cheliax but no longer call it home, having rejected its tyranny and hellish oppression. Yet the traces of your old home linger in your place of refuge, tainting it with violence and injustice. Now you must do in Isger what you couldn't in Cheliax—take up arms and cut out all traces of Abrogail Thrune's influence."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and the Underworld Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7f7011f1-61c2-5cbd-8d5a-29a2b81efc13"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:society",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:underworld",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7f7011f1-61c2-5cbd-8d5a-29a2b81efc13"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.Qg8bHCKrj1t1tPUo"
+    },
+    "data": {
+      "boosts": [
+        ["con", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "347c606d-f9ae-574c-bae0-0a100cf9fae2",
+    "pack": "hellbreakers",
+    "kind": "background",
+    "slug": "background:foreign-aid",
+    "name": "Foreign Aid",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hail from another nation, fighting a battle that isn't your own. You might be an agent from Andoran with sympathies for the locals or a hired hand from the Druma Mercenary League. Regardless of how or why, you're here now, and your duty is to do what you can to help those you find yourself in league with."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Diplomacy skill and a Lore skill pertaining to your place of origin. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "24926aff-a7ca-50ec-af8c-cb872fbfd882"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:diplomacy",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "24926aff-a7ca-50ec-af8c-cb872fbfd882"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.1SdtFFVDXpTz4Ksx"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "76088c46-8f8e-5549-82ef-f624b1509572",
+    "pack": "hellbreakers",
+    "kind": "background",
+    "slug": "background:goblinblood-survivor",
+    "name": "Goblinblood Survivor",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You lost your family to the chaos of the Goblinblood Wars. Maybe you soothed your grief by creating new bonds, or maybe you never put out the flames of righteous anger in your heart. Now whatever semblance of peace you've found is threatened yet again—but this time, you have the skills to ensure that you won't be the one left to mourn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Survival skill and the Goblin Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:survival",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:goblin",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.cfFQituks3OSgpRg"
+    },
+    "data": {
+      "boosts": [
+        ["con", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "e2fd88e1-5c62-5feb-bae9-813d968f4a80",
+    "pack": "hellbreakers",
+    "kind": "background",
+    "slug": "background:isgeri-reclaimer",
+    "name": "Isgeri Reclaimer",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're descended from the original group of Kellid tribes that made up Isger, which was driven from its lands by Taldor's Seventh Army of Exploration centuries ago. While your people lost much to their colonizers, they did not lose their determination to keep their heritage alive, and your very existence is proof of this resolve. Though war brings great calamity, it also brings great opportunity for you to right the wrongs that were done and remind the world that you are here, and you haven't forgotten what it owes your people."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two attribute boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free attribute boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Stealth skill and the Isger Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "64a7812f-3d66-543f-92ba-09b830326f80"
+          },
+          {
+            "type": "text",
+            "text": " skill feat in either rubble or underbrush. You know Hallit as a free additional language."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Language",
+        "slots": 1
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:stealth",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:isger",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "64a7812f-3d66-543f-92ba-09b830326f80"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.wKyURsaOFQL8TKSg"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]

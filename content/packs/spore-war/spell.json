@@ -1,0 +1,721 @@
+[
+  {
+    "id": "8450af91-174f-51a0-a811-a42e5b1ff2f7",
+    "pack": "spore-war",
+    "kind": "spell",
+    "slug": "spell:dimensional-excision",
+    "name": "Dimensional Excision",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You manipulate the boundaries between planes like a scalpel, using it to cut away portions of a creature's essence and banishing those portions to other realities and dimensions, afflicting the target deep lacerations or even severed appendages. The creature takes 14d10 damage (no damage type) and 2d10 persistent bleed damage and must attempt a Will save. If the target is not on its home plane, it takes a –4 status penalty to this save. A creature reduced to 0 HP has their entire body sectioned out and banished across multiple planes and dimensions, leaving nothing behind but their gear."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The base damage increases by 2d10, and the persistent bleed damage by 1d10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.MFPvs0ARxtThYPFq"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": [
+        {
+          "key": "2qdsh92yyppq3ru3",
+          "formula": "14d10",
+          "kinds": ["damage"]
+        },
+        {
+          "key": "zj797hwutfce3mim",
+          "formula": "2d10",
+          "damageType": "bleed",
+          "category": "persistent",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 10,
+            "damage": [
+              {
+                "key": "2qdsh92yyppq3ru3",
+                "formula": "16d10",
+                "kinds": ["damage"]
+              },
+              {
+                "key": "zj797hwutfce3mim",
+                "formula": "3d10",
+                "damageType": "bleed",
+                "category": "persistent",
+                "kinds": ["damage"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "b29d36fa-9274-51d5-b5f2-2d5b2ce21ddf",
+    "pack": "spore-war",
+    "kind": "spell",
+    "slug": "spell:ray-of-corruption",
+    "name": "Ray of Corruption",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["concentrate", "fungus", "manipulate", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You unleash a sickly gray beam of toxic spores at your target. Make a spell attack against the target. If you hit a non-magical object that's made of organic material (such as a tree, wooden house, or massive skull), it melts away into a foul-smelling sludge. A single casting can destroy no more than a 10-foot cube of matter."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you hit a creature, it takes 6d12 poison damage and 6d12 spirit damage with a basic Fortitude save. If you critically hit, the target gets a result one degree of success worse than the outcome of its Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage. Fungal tendrils swiftly digest the body and reduce it to sludge—the target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d12",
+                "damageType": "acid",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the target takes double damage, plus "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d12",
+                "damageType": "acid",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The poison damage and spirit damage each increase by 1d12."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.nPxYYID5JARKouSV"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          },
+          {
+            "count": 1,
+            "of": "object"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        },
+        "against": "ac"
+      },
+      "traditions": ["divine", "primal"],
+      "damage": [
+        {
+          "key": "8syvnjyczwwzhieq",
+          "formula": "6d12",
+          "damageType": "spirit",
+          "kinds": ["damage"]
+        },
+        {
+          "key": "yqimozxrine8ieiz",
+          "formula": "6d12",
+          "damageType": "poison",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "8syvnjyczwwzhieq",
+            "formula": "1d12"
+          },
+          {
+            "key": "yqimozxrine8ieiz",
+            "formula": "1d12"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "755845b2-95f7-5a67-8089-00dcd650118f",
+    "pack": "spore-war",
+    "kind": "spell",
+    "slug": "spell:tanglecurse",
+    "name": "Tanglecurse",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["concentrate", "curse", "fungus", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tanglebriar has been called a \"curse on the land,\" which has inspired Treerazer's cult to develop this notorious spell. The target must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A fungal bloom springs up from the ground in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " around the target. This area is difficult terrain for creatures that enter the area. The target treats all terrain as difficult terrain since this swath of fungus moves with them as they do, transforming into a tangle of spores and floating tendrils if the target flies or a thick swath of stringy floating algae if the target swims. This effect ends after 1 minute or as soon as the curse is lifted, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the fungal bloom increases to 10 feet. It persists until the curse is lifted. In addition, the target is also affected by the spores exuded by the fungal bloom—roll 1d4 and consult the results below to see how the spores affect them. This affect reactivates automatically every 24 hours, replacing the previous result."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "1:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spores cause atrophy; the target is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "2:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spores cause fibrous fungal growths to sprout from the target; the target is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "3:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spores settle in the target's blood and flesh and cause great pain; the target is "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "4:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spores intrude upon the mind and cause hallucinations; the target is "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the emanation increases to 15 feet, and the condition value caused by the spores increases to 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.BokwLLK7OjK6ggHs"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "e99c0dd3-8a06-5245-91c5-1ff1f42f9d1d",
+    "pack": "spore-war",
+    "kind": "spell",
+    "slug": "spell:trim-the-blight",
+    "name": "Trim the Blight",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a cone of shimmering energy that attempts to banish the influence of invasive, supernatural blight, such as that found in Tanglebriar. Blighted difficult terrain in the area becomes regular terrain, while blighted greater difficult terrain becomes difficult terrain; hazardous terrain in the area becomes nonhazardous. These effects persist for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures in the area that carry features of this blight (as determined by the GM, but automatically including all creatures with the fiend trait in this adventure) are trimmed as well, their supernatural infusion of blight being drained. These creatures take 12d10 spirit damage and must attempt a Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's reach with attacks is reduced by 5 feet (to a minimum of 5 feet) for 1 hour, they are "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature's reach is reduced to 5 feet for 1 hour, they are "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " and slowed 1 for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spirit damage increases by 2d10, and 1 hour durations increase to 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.A7NXFVgENRVtYoe3"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "cone",
+        "size": 60
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "fajw2uvtnccsscqg",
+          "formula": "12d10",
+          "damageType": "spirit",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 10,
+            "damage": [
+              {
+                "key": "fajw2uvtnccsscqg",
+                "formula": "14d10",
+                "damageType": "spirit",
+                "kinds": ["damage"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

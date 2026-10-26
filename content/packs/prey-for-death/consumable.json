@@ -1,0 +1,527 @@
+[
+  {
+    "id": "a87dc5a8-670e-5609-8db9-adbb84b7d05b",
+    "pack": "prey-for-death",
+    "kind": "consumable",
+    "slug": "consumable:blood-sight-elixir-greater",
+    "name": "Blood Sight Elixir (Greater)",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick, blood-red elixir sharpens your senses and makes you more acutely aware of blood. You gain blood sight as a precise sense with a duration of 1 hour. Blood sight has a range of 60 feet and allows you to detect living creatures who are taking persistent bleed damage or who have the dying or wounded conditions. You also detect free-standing puddles or droplets of recently spilled blood. At the GM's discretion, living creatures without blood can't be detected with your blood sight."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PWh9oBvwMmItEmHH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 115
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "46556bdd-5685-5e77-85bf-524f54f65528",
+    "pack": "prey-for-death",
+    "kind": "consumable",
+    "slug": "consumable:blood-sight-elixir-lesser",
+    "name": "Blood Sight Elixir (Lesser)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick, blood-red elixir sharpens your senses and makes you more acutely aware of blood. You gain blood sight as an imprecise sense with a duration of 10 minutes. Blood sight has a range of 60 feet and allows you to detect living creatures who are taking persistent bleed damage or who have the dying or wounded conditions. You also detect free-standing puddles or droplets of recently spilled blood. At the GM's discretion, living creatures without blood can't be detected with your blood sight."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Lz643qJldVUItZOS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5275a674-cfef-52bf-aabd-dfcb979dc8d0",
+    "pack": "prey-for-death",
+    "kind": "consumable",
+    "slug": "consumable:blood-sight-elixir-major",
+    "name": "Blood Sight Elixir (Major)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick, blood-red elixir sharpens your senses and makes you more acutely aware of blood. You gain blood sight as a precise sense with a duration of 1 hour. Blood sight has a range of 60 feet and allows you to detect living creatures who are taking persistent bleed damage or who have the dying or wounded conditions. You also detect free-standing puddles or droplets of recently spilled blood. At the GM's discretion, living creatures without blood can't be detected with your blood sight."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your blood sight is especially accurate, allowing you to also detect creatures whose Hit Points are currently at half or less of their maximum. When you detect a creature with blood sight, you get a vague approximation of the value of the creature's bleed damage, dying condition, or wounded condition. This approximation can be noticed as \"excessive bleeding,\" a creature being \"near death,\" or some other general sense that doesn't give the exact value."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ECJCsH4a1qHSk1JW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "deb8523a-3c2f-58ba-a7b3-984b7de71bd1",
+    "pack": "prey-for-death",
+    "kind": "consumable",
+    "slug": "consumable:blood-sight-elixir-moderate",
+    "name": "Blood Sight Elixir (Moderate)",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick, blood-red elixir sharpens your senses and makes you more acutely aware of blood. You gain blood sight as an imprecise sense with a duration of 1 hour. Blood sight has a range of 60 feet and allows you to detect living creatures who are taking persistent bleed damage or who have the dying or wounded conditions. You also detect free-standing puddles or droplets of recently spilled blood. At the GM's discretion, living creatures without blood can't be detected with your blood sight."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lQATunGUOqGVpaxE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c4c34970-1221-5227-ad7b-16ebef4677f3",
+    "pack": "prey-for-death",
+    "kind": "consumable",
+    "slug": "consumable:breath-of-the-mantis-god",
+    "name": "Breath of the Mantis God",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable", "inhaled", "poison", "virulent"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To prevent one of their victims from being brought back to life, Red Mantis assassins often poison targets with the breath of the mantis god. After a creature is poisoned by this concoction, internal hemorrhaging frequently results in blood issuing from the creature's mouth—a condition referred to by the assassins as having \"the breath of the mantis god.\" While a creature can attempt to recover normally from the persistent bleed damage caused by breath of the mantis god, the persistent bleed damage will return if the poison's duration is still ongoing. If a creature dies from the poison's effects, the toxin lingers tenaciously in the creature's flesh for 1 year. During this time, if an attempt is made to bring such a slain creature back to life that doesn't create a new body for the deceased (such as with a 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "ffb89230-3939-5733-83a2-d20bbd4d33db"
+          },
+          {
+            "type": "text",
+            "text": " ritual), the lingering effects of breath of the mantis god attempts to counteract the resurrection (counteract modifier +17, counteract rank 5). A spell like "
+          },
+          {
+            "type": "ref",
+            "id": "5f2c820b-a0a3-5019-93d4-761b18baee52"
+          },
+          {
+            "type": "text",
+            "text": " can be used to decontaminate a corpse for easier resurrection, but simpler magic such as cleanse cuisine cannot. A 5th-rank or higher "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": " can also attempt to counteract lingering breath of the mantis god."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 29
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d8",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and drained 1 (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d10",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 minute)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wZ0ysKZ6FRW2ahAg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

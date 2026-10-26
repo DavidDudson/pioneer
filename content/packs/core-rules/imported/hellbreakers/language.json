@@ -1,0 +1,38 @@
+[
+  {
+    "id": "b6f7c32d-582c-51aa-a149-0f58d4d8acc8",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:kelish",
+    "name": "Kelish",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "b390521b-d89c-5038-8b63-9753b0c631f3",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:varisian",
+    "name": "Varisian",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "hellbreakers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

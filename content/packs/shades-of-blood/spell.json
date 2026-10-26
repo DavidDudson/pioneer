@@ -1,0 +1,287 @@
+[
+  {
+    "id": "91e3b9a2-0940-51fc-a1d4-ede84f6413be",
+    "pack": "shades-of-blood",
+    "kind": "spell",
+    "slug": "spell:augmented-body",
+    "name": "Augmented Body",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "morph", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You magically augment your body with clockwork parts and magitech innovations. Choose any one effect of your choice. You can Dismiss the spell."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ablative Plating",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You coat your body with metal plates that protect your vital organs. You gain resistance 1 to physical damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Clockwork Arm",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You transform one of your arms into a clockwork arm powered by gears, springs, and pneumatic actuators. You gain a clockwork fist unarmed attack, which has the agile, finesse, and free-hand traits and deals 1d6 bludgeoning damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Spined Fingertips",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your fingers sprout microscopic metal spines that enable you to cling to surfaces like a spider. You gain a climb Speed of 20 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Spring-Loaded Legs",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your leg muscles are augmented with powerful springs. You gain a +10-foot status bonus to your Speed and double the distance you "
+                },
+                {
+                  "type": "ref",
+                  "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9f8c33ef-1a37-5685-84fa-b774fdf4abc7"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ablative plating's resistance increases to 2. The clockwork fist is a +1 striking weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ablative plating's resistance increases to 3, and the clockwork fist is a +2 striking weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ablative plating's resistance increases to 4, and the clockwork fist is a +2 greater striking weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ablative plating's resistance increases to 5 and the clockwork fist is a +3 major striking weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.pSepsfCrrAKuwA0N"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "208526e3-7c6a-5ca0-a656-f866268aad01",
+    "pack": "shades-of-blood",
+    "kind": "spell",
+    "slug": "spell:conjured-clockwork",
+    "name": "Conjured Clockwork",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a complex clockwork device on the ground and cause it to slowly spread across the battlefield. The area is difficult terrain. Each creature that enters or ends its turn in the area takes 2d8 slashing damage with a basic Reflex save. A creature can take this damage only once per turn. On subsequent rounds, the first time you Sustain the spell each round, you can expand the radius of the clockwork device by 5 feet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.eob29LrDMH2IoeAj"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "area": {
+        "shape": "burst",
+        "size": 10
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "rnhuuxtidzbvaplh",
+          "formula": "2d8",
+          "damageType": "slashing",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "rnhuuxtidzbvaplh",
+            "formula": "1d8"
+          }
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,523 @@
+[
+  {
+    "id": "05036aa5-a6b3-5e29-b8da-b7492714bcb1",
+    "pack": "triumph-of-the-tusk",
+    "kind": "spell",
+    "slug": "spell:ancestral-winds",
+    "name": "Ancestral Winds",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "emotion", "fear", "manipulate", "mental", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call on the same energies that manifest ancestor storms, summoning wailing spirits to terrorize your foes. Living creatures in the area take 5d6 void damage and 1d6 mental damage and must attempt a Will save. Nonliving creatures are immune to this spell's effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature takes double damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time each round you Sustain the spell, you can move the area up to 30 feet within the range of the spell. Living creatures in the new area must attempt saves with the same effects as above."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Z4X5whSqSvgiiJ05"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": [
+        {
+          "key": "a3n9tkovgqh5ohdm",
+          "formula": "1d6",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        },
+        {
+          "key": "npg0qu7obju0x4lj",
+          "formula": "5d6",
+          "damageType": "void",
+          "kinds": ["damage"]
+        }
+      ]
+    }
+  },
+  {
+    "id": "ff77ab4e-b8a7-58c3-b398-a3a0e20c43dc",
+    "pack": "triumph-of-the-tusk",
+    "kind": "spell",
+    "slug": "spell:mutilate",
+    "name": "Mutilate",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cut your own body in a ritualistic manner, causing similar damage to a creature in your line of sight. These cuts are superficial and cause 1d4 slashing damage to you; however, the wounds that open up on our target's body are far deeper. The targeted creature takes 5d8 slashing damage; a creature that critically fails this saving throw also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8 + @item.level -4",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. If you cast this as a three-action spell, the spell instead affects a 5-foot burst."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the damage dealt to the target by 1d8, and increase the persistent bleed damage by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.BWvGBx51RevizICD"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two",
+        "upTo": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 40
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "occult", "primal"],
+      "damage": [
+        {
+          "key": "sxogi7bfm0musapf",
+          "formula": "5d8",
+          "damageType": "slashing",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "sxogi7bfm0musapf",
+            "formula": "1d8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "f79d32ac-c89d-5e7b-b699-5a16c490efdf",
+    "pack": "triumph-of-the-tusk",
+    "kind": "spell",
+    "slug": "spell:strength-of-mind",
+    "name": "Strength of Mind",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bolster your ally with reminders of their physical prowess, granting them additional defenses against harmful mental effects. The target gains a +1 status bonus to saving throws against mental effects and against effects that hinder movement (including those that reduce Speed or apply the "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " conditions). This bonus increases to +2 if the source of the effect has the fear trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "24fe8c9e-ce29-5b6a-a827-249ea1396be5"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.aMvjaIuPIWN7pbc3"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["divine", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "45a7d607-cfbb-568a-bb16-95d676feddd8",
+    "pack": "triumph-of-the-tusk",
+    "kind": "spell",
+    "slug": "spell:utter-destruction",
+    "name": "Utter Destruction",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["death", "sonic", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You screech with an unearthly voice made of destructive energy, smashing everything that lies before you. Creatures in the area take 4d8 sonic damage and 4d8 void damage. Each creature must attempt a Fortitude save. Unattended objects of Hardness 5 or less in the area of effect are destroyed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is deafened for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes double damage and is permanently deafened."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The sonic and void damage each increase by 1d8. The Hardness threshold of items destroyed by the spell increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.XGB77j7m0SLky8U1"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "cone",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult", "primal"],
+      "damage": [
+        {
+          "key": "0yirszq4zalq14gx",
+          "formula": "4d8",
+          "damageType": "sonic",
+          "kinds": ["damage"]
+        },
+        {
+          "key": "1tttvajo3txkf7uk",
+          "formula": "4d8",
+          "damageType": "void",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0yirszq4zalq14gx",
+            "formula": "1d8"
+          },
+          {
+            "key": "1tttvajo3txkf7uk",
+            "formula": "1d8"
+          }
+        ]
+      }
+    }
+  }
+]

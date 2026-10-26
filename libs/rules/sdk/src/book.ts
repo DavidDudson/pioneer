@@ -55,6 +55,16 @@ export const BOOK_TITLES: ReadonlyMap<BookId, BookLabel> = new Map([
   [BookId.parse('hells-destiny'), BookLabel.parse('rules.book.title.hellsDestiny')],
   [BookId.parse('bastion-of-blasphemies'), BookLabel.parse('rules.book.title.bastionOfBlasphemies')],
   [BookId.parse('the-dead-gods-hand'), BookLabel.parse('rules.book.title.theDeadGodsHand')],
+  [BookId.parse('wardens-of-wildwood'), BookLabel.parse('rules.book.title.wardensOfWildwood')],
+  [BookId.parse('curtain-call'), BookLabel.parse('rules.book.title.curtainCall')],
+  [BookId.parse('triumph-of-the-tusk'), BookLabel.parse('rules.book.title.triumphOfTheTusk')],
+  [BookId.parse('spore-war'), BookLabel.parse('rules.book.title.sporeWar')],
+  [BookId.parse('shades-of-blood'), BookLabel.parse('rules.book.title.shadesOfBlood')],
+  [BookId.parse('prey-for-death'), BookLabel.parse('rules.book.title.preyForDeath')],
+  [BookId.parse('claws-of-the-tyrant'), BookLabel.parse('rules.book.title.clawsOfTheTyrant')],
+  [BookId.parse('clockwork-mystery'), BookLabel.parse('rules.book.title.clockworkMystery')],
+  [BookId.parse('tian-xia-world-guide'), BookLabel.parse('rules.book.title.tianXiaWorldGuide')],
+  [BookId.parse('foolish-housekeeping'), BookLabel.parse('rules.book.title.foolishHousekeeping')],
 ]);
 
 export const PUBLISHER_LABELS: Readonly<Record<Publisher, BookLabel>> = {

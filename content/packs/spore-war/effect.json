@@ -1,0 +1,1051 @@
+[
+  {
+    "id": "78902725-8614-5d6f-826e-1c96ac1116ef",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-antifungal-salve",
+    "name": "Effect: Antifungal Salve",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "36b0ea00-2d61-5b03-8421-49c45661505b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "6b5c94f5-6e39-5090-8953-106cd3944fc8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c0a6876a-5efa-5ca6-8ffd-63d509f6877c"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c2bb2885-4558-579b-b763-16ded1dd1833"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an item bonus to saves against fungal afflictions."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 2,
+        "slug": "antifungal-bonus",
+        "predicate": [
+          {
+            "or": ["item:trait:curse", "item:trait:poison", "item:trait:disease"]
+          },
+          {
+            "or": ["item:trait:fungus", "origin:trait:fungus"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "antifungal-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["antifungal:antifungal-salve-moderate"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "antifungal-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["antifungal:antifungal-salve-greater", "antifungal:antifungal-salve-major"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.MN7OSIN1oeRfV0h6"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 6,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "13f5950c-50c8-55c3-9b42-fc6a36cd1732",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-call-upon-the-ancients",
+    "name": "Effect: Call Upon the Ancients",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance 5 to all damage caused by Treerazer."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.6ReMiLTAc70nbzAC"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "83fdd737-4e06-5757-9a49-7b330ff2cfdd",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-call-upon-the-sovyrian-stone",
+    "name": "Effect: Call Upon the Sovyrian Stone",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Decrease the DC of Treerazer's primal innate spells and his Defoliation ability to DC 46, the DC of his aura of corruption to DC 43, and his spell attack modifier to +38."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-dc", "defoliation-inline-dc"],
+        "type": "untyped",
+        "value": -3
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["aura-of-corruption-inline-dc"],
+        "type": "untyped",
+        "value": -4
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-attack"],
+        "type": "untyped",
+        "value": -5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.l2fxGJVR9ffNI8uC"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "59db8940-3e58-5661-a3f9-5e4f0a4e6e53",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-cloak-of-subversion",
+    "name": "Effect: Cloak of Subversion",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any creature that touches the sporescout or damages them with an unarmed attack or melee weapon without the reach trait takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.v4furpS1e0hiey4R"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "929a79ff-9bd7-5ee6-b2c6-6d2c52346b56",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-demon-hunted",
+    "name": "Effect: Demon Hunted",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your circumstance bonus to saves against mental effects increases to +2."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "demon-hunted",
+        "mode": "upgrade",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.4j5J4IM9sWNe1UcT"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "902fb65b-fe2a-5215-8886-662833650f71",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-drink-life",
+    "name": "Effect: Drink Life",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 25 temporary HP."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 25
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.LfzQ05hYrxPGrsMU"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f87cb8ba-13cb-518c-a9b9-7943d1724f32",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-extract-bones",
+    "name": "Effect: Extract Bones",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 50 temporary HP."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 50
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.G1wD9ERJPWMNmXOc"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ea7081ac-bbe7-550d-b64b-bca85f4b0115",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-hunt-the-razers-pawn",
+    "name": "Effect: Hunt the Razer's Pawn",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Perception checks to Seek or Sense the Motive of the marked creature. This creature takes a –1 circumstance penalty to saving throws against spells or effects you create. This penalty increases to –2 against effects that have the holy trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          "target:mark:hunt-the-razers-pawn",
+          {
+            "or": ["action:seek", "action:sense-motive"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.PYyJjl5EEXs0IswY"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "555d5125-9bdf-55f9-97e9-55bd93223b43",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-hunt-the-razers-pawn-ephemeral",
+    "name": "Effect: Hunt the Razer's Pawn (Ephemeral)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ephemeral effect for"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a a –1 circumstance penalty to saving throws against spells or effects created by the originating actor. This penalty increases to –2 against effects that have the holy trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": -1,
+        "slug": "hunt-the-razers-pawn"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "hunt-the-razers-pawn",
+        "mode": "override",
+        "value": -2,
+        "predicate": ["item:trait:holy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.uGNTOgns4lZ0HW08"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a88008c3-7fb7-568b-a72e-aa246f4b8fc7",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-invoke-the-witchboles-spirit",
+    "name": "Effect: Invoke the Witchbole's Spirit",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "PCs gain a +4 circumstance bonus to all saving throws against Witchbole Collapse effects. Conversely, Treerazer takes a –4 circumstance penalty to his saving throws against the same effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["option:witchbole-collapse"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "invoke-the-witchboles-spirit",
+        "mode": "multiply",
+        "value": -1,
+        "predicate": ["self:type:npc"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.yZGqaYXpuZ3NfbNB"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "599c61db-85e9-5092-bf59-cd51ddadbd83",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-memories-of-failure",
+    "name": "Effect: Memories of Failure",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a -1 penalty to all saving throws against emotion effects created by the marked creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "untyped",
+        "value": -1,
+        "predicate": ["item:trait:emotion", "origin:mark:memories-of-failure"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.jS1J008XoEo50adu"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "6a321c66-653b-5f62-bf96-1b1951210ef0",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-morning-glow",
+    "name": "Effect: Morning Glow",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "43f10f99-c54a-5eca-a1d1-0ba06b084d1d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You glow with bright light in a 30-foot emanation and dim light for another 30 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.gzfoCKld88wHzi2g"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d522837b-f8ec-500d-9017-ff5c1bdda93c",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-pray-to-the-rotting-god",
+    "name": "Effect: Pray to the Rotting God",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus on attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iPk9Pphkq4Zuzvuj"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "284731d9-ecab-5e32-8bec-15ba3f17ea0a",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-queens-presence",
+    "name": "Effect: Queen's Presence",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to saving throws against emotion effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.a2XvUg92diojK9EA"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "83de5c2f-ecc6-5072-a150-09cb0e10a852",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-quicken-the-rot",
+    "name": "Effect: Quicken the Rot",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 30 Temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.8lQneh5ZjMDqmBys"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "aa731a40-83a7-55c2-8bae-88f50bfc0e5d",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-recruit-the-recent-dead",
+    "name": "Effect: Recruit the Recent Dead",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Reduce Treerazer's AC to 51, his Blackaxe Strike modifier to +44, and his jaws Strike modifier to +42."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll", "ac"],
+        "type": "untyped",
+        "value": -3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.A0w4C7GsqgFmkR8u"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b59a487c-fc43-5537-ad1b-3bcf28480b04",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-spore-feedback",
+    "name": "Effect: Spore Feedback",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Treerazer's maximum Hit Points are reduced to 500 and his regeneration reduces to 30."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["hp"],
+        "type": "untyped",
+        "value": -50
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.nTTqHZGSub9kmpOr"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "fc79606d-0ba9-52f8-acd4-7a8fcf919501",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-utter-treerazers-name",
+    "name": "Effect: Utter Treerazer's Name",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Decrease Treerazer's saving throw modifiers, Perception check modifiers, and skill check modifiers by 3."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "perception", "skill-check"],
+        "type": "untyped",
+        "value": -3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.fhcpgC3RX1CEGTC9"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "9b90eb84-a2d8-5e5e-9c59-a666a0fb76bb",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:effect-vamollaroth-stench",
+    "name": "Effect: Vamollaroth Stench",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -2 circumstance penalty to saves against poison and to recover from the "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          {
+            "or": ["item:trait:poison", "action:retch"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.xhkVNfgFMUhalqib"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "ddf7888a-9b94-5687-9451-a6abd0f7283a",
+    "pack": "spore-war",
+    "kind": "effect",
+    "slug": "effect:spell-effect-purify-tanglebriar",
+    "name": "Spell Effect: Purify Tanglebriar",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "text",
+            "text": "Purify Tanglebriar"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 status penalty to Initiative checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "status",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.4ne9K5IQm2whokHP"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 30,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

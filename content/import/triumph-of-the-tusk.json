@@ -1,0 +1,1941 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "action:floodslain-drowning-touch",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.529SPxfajGnUO5Aw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Floodslain.DrowningTouch.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "action:floodslain-floodslain-spawn",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Er6lawGn6pPbhYuk",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Floodslain.FloodslainSpawn.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "action:floodslain-hard-to-burn",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.njqGmYb9I0QakRWD",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Floodslain.HardToBurn.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "action:floodslain-sodden-ground",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.oFLIc3Rnm68rEm72",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Floodslain.SoddenGround.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "action:floodslain-vomit-flotsam",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.zXpmQxDNYYvxhgye",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Floodslain.VomitFlotsam.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "consumable:puppetmaster-extract",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3Byr7YKaNlZl474Y",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[pathfinder-monster-core]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "consumable:roc-shaft-arrow-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jg3gsPDcrA5xUogf",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "selector": "{item|id}-damage",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "consumable:roc-shaft-arrow-lesser",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7pHKxibsckGy220n",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "selector": "{item|id}-damage",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "consumable:roc-shaft-arrow-moderate",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wzZbMIlvKbAwaYC0",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "selector": "{item|id}-damage",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:aurochs-herd",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.qsPMcZFGCsb6PhhB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(16 squares); Thresholds 100 (3 segments), 50 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:azorena",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.5LLyMwwkGjf8QnYW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "21 without mystic armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status bonus against divine spells"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Spellbook"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Fireball (Rank 4)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Lightning Bolt (Rank 4)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Peaceful Rest (Rank 2)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of See the Unseen (Rank 2)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Blazing Bolt (Rank 3)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:blisterwell-oathrisen",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.YQscYvcO7gRiZ6px",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Falchion.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:bugark",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.rMY7Ga6VM1sWXgDv",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "snow vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol of Zagresh"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:champion-of-zagresh",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.AIyuKgeR13MkSFkJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:death-tower-necromancer",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.wqtgtNDhc3by8WBD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(29 with mystic armor)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Charm of Cold Resistance"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Spellbook"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Teeming Ghosts (2nd-Rank Spell, Bonded Item)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:deathless-zealot-of-zagresh",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.ZAUOoAMR8IfO57jp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol of Zagresh"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:diskah-night-watcher",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.rCXzdhq2CTuhuZty",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:flood-ghoul",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.PHF1RyQPb7mrXrr8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["aquatic-ambush"],
+            "selectors": ["strike-attack-roll", "strike-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:floodslain-mage",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.igzD3pYQ0MEHP3zs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:floodslain-orc",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.AjJojjUbSMjcjUDr",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Shoddy Breastplate"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:floodslain-wolf",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.vyWDZoZ6TVIVBB0e",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:graveknight-umbra",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.2IFaNuCUbLvWB2QU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:kzaard-the-drover",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.XYItaez8M433qfWt",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ring of Keys"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:magical-forge",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.EBpwhiVtWKqi8M3n",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(24 when broken); construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:marguk-cleftneck",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.24ct8EZHwtv3O8bY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 20 (deactivated by electricity or fire)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "affects": "origin",
+            "key": "EphemeralEffect",
+            "selectors": ["strike-attack-roll"],
+            "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Partial Armor"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:molog",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.7UR30qeUnnBwY9XE",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:moonstalker",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.qWluB0kAHf4hYfew",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(27 in moonlight)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:murshek",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.P9ZEvhySGN9IlsSK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "toxic-teamwork",
+            "selection": "1",
+            "suboptions": [
+              {
+                "label": "PF2E.SpecificRule.Numbers.One",
+                "value": "1"
+              },
+              {
+                "label": "PF2E.SpecificRule.Numbers.Two",
+                "value": "2"
+              },
+              {
+                "label": "PF2E.SpecificRule.Numbers.Three",
+                "value": "3"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "mode": "upgrade",
+            "predicate": ["toxic-teamwork"],
+            "selector": "strike-damage",
+            "slug": "toxic-teamwork",
+            "value": "2*@item.flags.system.rulesSelections.toxicTeamwork"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:one-eye-phantom",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.x727noUHxyzpCDfb",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:oracle-of-zagresh",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.wTgZk9k7tt4fISoO",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "curse of the destroyer's bloodlust"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Call to Arms"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:orc-hunter",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.xd35No1x2n1MDVCm",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:orc-raider",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.K4NtIq73z5X8geQp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.offGuardable",
+            "value": 8
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:orc-spinecracker",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.pDKT31HwKQLU6tJl",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "spiked-gauntlet-damage",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:paskis-nine-knives",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.mysIREGVTa57nQHF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.offGuardable",
+            "value": 11
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess", "success"],
+            "predicate": ["target:condition:off-guard"],
+            "selector": "strike-damage",
+            "text": "{item|system.description.value}",
+            "title": "<span class=\"action-glyph\">F</span> {item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "damageCategory": "precision",
+            "key": "FlatModifier",
+            "predicate": ["mark-for-death", "target:condition:off-guard"],
+            "selector": "strike-damage",
+            "value": 2
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": [
+              "encounter:round:1",
+              {
+                "lt": ["self:participant:initiative:rank", "target:participant:initiative:rank"]
+              }
+            ],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol of Verex"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:porphyry-guard",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.ID0WGY0jfBLI1QvB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:shadefield-spirit",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.QgBvV33i9waJx11D",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Fiery Hand.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:skeletal-drummer",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.B2ulbcq6lrWXFe0G",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Drum"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:skinslough",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.hNvjRDhIuef4po3N",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "hard to target, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:spite-screamer",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.6kkf6KKqdepx7PSD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fueled by spite, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:stormblood-tiger",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.jFd0TSmaZLYLNjRE",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Tiger empathy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "hybrid",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Hybrid",
+                "value": "hybrid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Ancestry.Orc",
+                "value": "orc"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.Tiger",
+                "value": "tiger"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:wrestle"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.ChangeShape.AlterationNotes.Unusable"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 16,
+            "damage": {
+              "base": {
+                "damageType": "slashing",
+                "dice": 1,
+                "die": "d4",
+                "modifier": 12
+              }
+            },
+            "fist": "claw",
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Fist",
+            "predicate": ["change-shape:orc"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 16,
+            "damage": {
+              "base": {
+                "damageType": "slashing",
+                "dice": 2,
+                "die": "d8",
+                "modifier": 12
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Claw",
+            "predicate": ["change-shape:hybrid"],
+            "slug": "claw"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 16,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 2,
+                "die": "d6",
+                "modifier": 12
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Jaws",
+            "predicate": ["change-shape:hybrid"],
+            "slug": "jaws"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "jaws-attack-roll",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "claw-attack-roll",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "silver"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:the-carcass-man",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.m7jh421DG0ArTQMh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. fear and magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Tusks.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:tooth-fairy-leader",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.ZvzaKiKCmwZ52UJP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Tuskblade"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Pliers"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:trighoul",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.JT4zmVuqpKgchInM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Tentacle HP 20, tentacle regrowth"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:troll",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.iFCh60rD3GIZ6Dva",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 20 (deactivated by electricity or fire)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:ungukk-fleshdredge",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.hHNljlTtIhwNgY5q",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 vs. fear"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "allies",
+                "includesSelf": false,
+                "uuid": "Compendium.pf2e.feat-effects.Item.Effect: Undying Conviction"
+              }
+            ],
+            "key": "Aura",
+            "radius": 30
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:verthok-the-reaper",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.8XXU1rRGS7U5ki0Q",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": ["item:group:axe"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:wight-spell-sniper",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.8J79PxxX2ZmWwkcS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fueled by spite, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:yagrekash",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.FW5k5xBi3YkAsZd9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "selfEffect",
+          "raw": "Compendium.pf2e.bestiary-effects.Item.Effect: Challenge Foe"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:zdagren-half-ear",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.Qr5yy7M7VJaT0CUi",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 to Will vs. auditory"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "creature:zombie-brown-bear",
+      "foundry": "Compendium.pf2e.triumph-of-the-tusk-bestiary.Actor.MzRUR9y9Iw0blcgl",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "effect:effect-destructive-vengeance",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6pLYKcDawL5JUBkK",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitSpirit",
+                "predicate": ["destructive-vengeance-spirit"],
+                "value": "spirit"
+              },
+              {
+                "label": "PF2E.TraitVoid",
+                "value": "bludgeoning"
+              }
+            ],
+            "flag": "damageType",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.DamageType"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "damageType": "{item|flags.system.rulesSelections.damageType}",
+            "key": "FlatModifier",
+            "selector": ["strike-damage"],
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "effect:effect-infused-with-belkzens-might",
+      "foundry": "Compendium.pf2e.feat-effects.Item.yKFV294LeXzrvF8K",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "damageType": "spirit",
+            "key": "FlatModifier",
+            "selector": "strike-damage",
+            "value": "1+floor(@actor.flags.system.tattooedHistorian.archetypeFeatCount/2)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "effect:effect-ironblood-stance",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.nAHRwy8agswzdgFh",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "attackModifier": 19,
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 3,
+                "die": "d8",
+                "modifier": 6
+              }
+            },
+            "group": "brawling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Stance.Attack.IronSweep",
+            "range": null,
+            "traits": ["sweep", "unarmed", "nonlethal"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "effect:effect-shed-cinders",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.2Cdf49eccdwBh40X",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "condition",
+            "key": "ItemAlteration",
+            "mode": "downgrade",
+            "predicate": ["item:damage:type:fire"],
+            "property": "pd-recovery-dc",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "equipment:dirt-sea-in-a-jar",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3Un39La3zogviHgZ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[hazards]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "equipment:nomads-shawl",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ybtuHLHWpgMlBDed",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "key": "AdjustModifier",
+            "requiresEquipped": false,
+            "selector": "survival",
+            "slug": "no-compass",
+            "suppress": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "feat:agent-of-all-holds",
+      "foundry": "Compendium.pf2e.feats-srd.Item.tUAFOayp0DAaJDq4",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.tattooedHistorian.archetypeFeatCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "feat:infused-with-belkzens-might",
+      "foundry": "Compendium.pf2e.feats-srd.Item.DaRfJsWAivah3a07",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.tattooedHistorian.archetypeFeatCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "feat:inked-panoply",
+      "foundry": "Compendium.pf2e.feats-srd.Item.m2A7S4BjZg94WPyr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.tattooedHistorian.archetypeFeatCount",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["inked-panoply"],
+            "type": ["mental", "spirit", "void"],
+            "value": "2*@actor.flags.system.tattooedHistorian.archetypeFeatCount"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "feat:inscribed-with-elders-deeds",
+      "foundry": "Compendium.pf2e.feats-srd.Item.SIsEvELAKfjZxDwx",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.tattooedHistorian.archetypeFeatCount",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "feat:tattooed-historian-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.oKjyD46NmkKx1OvO",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.tattooedHistorian.archetypeFeatCount",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.equipment-srd.Item.Storied Skin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "feat:wrath-of-the-hold",
+      "foundry": "Compendium.pf2e.feats-srd.Item.AYHhuLIDtIEewfRf",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.tattooedHistorian.archetypeFeatCount",
+            "value": 1
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "ritual:entreat-thunderbird",
+      "foundry": "Compendium.pf2e.spells-srd.Item.Do0pe0gn8OFdCOnN",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.secondary.checks",
+          "raw": "Diplomacy, Mountain Lore, Nature, or Survival"
+        }
+      ],
+      "document": {
+        "_id": "Do0pe0gn8OFdCOnN",
+        "name": "Entreat Thunderbird",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder #209: Destroyer's Doom",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 5
+          },
+          "traits": {
+            "value": [],
+            "rarity": "rare",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>You entreat the thunderbird in the Tusk Mountains to come to your aid. While performing this ritual, the secondary casters can appeal to the thunderbird's pride or tempestuous nature to gain a +2 circumstance bonus to their checks.</p><hr /><p><strong>Critical Success</strong> The thunderbird is helpful to the casters for the duration.</p>\n<p><strong>Success</strong> The thunderbird is friendly to the casters for the duration.</p>\n<p><strong>Failure</strong> The thunderbird ignores the entreaty and remains indifferent.</p>\n<p><strong>Critical Failure</strong> The thunderbird takes offense and permanently departs the area.</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": "rare incense and offerings worth 300 gp"
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": "1 month"
+          },
+          "range": {
+            "value": ""
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "DC 29 Nature or Religion"
+            },
+            "secondary": {
+              "casters": 3,
+              "checks": "Diplomacy, Mountain Lore, Nature, or Survival"
+            }
+          },
+          "target": {
+            "value": ""
+          },
+          "time": {
+            "value": "1 hour"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "spell:mutilate",
+      "foundry": "Compendium.pf2e.spells-srd.Item.BWvGBx51RevizICD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 creature in line of sight"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "weapon:returning-starknife",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lGALlZL2Gs2duyp5",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|id}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "property-runes",
+            "value": "returning"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "triumph-of-the-tusk",
+      "slug": "weapon:shadefield-knife",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Pzqgbtp3iVpW0pLY",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

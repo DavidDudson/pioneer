@@ -1,0 +1,693 @@
+[
+  {
+    "id": "53c1c6e3-eca6-525a-8db6-a550c62f3b6c",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:achaekeks-grip",
+    "name": "Achaekek's Grip",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You sense if a creature you have slain in the last year has been restored to life, as long as you and that creature are on the same plane. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9f931a87-85d9-5ca0-802b-3417295a001a"
+          },
+          {
+            "type": "text",
+            "text": " focus spell. If you don't already have one, you gain a focus pool of 1 Focus Point."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.BASCKOPvNGgoHGid"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basic Red Mantis Magic"
+            }
+          ]
+        }
+      ],
+      "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
+    }
+  },
+  {
+    "id": "d07404f6-5371-5397-bc49-cc6d5fb796c9",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:basic-red-mantis-magic",
+    "name": "Basic Red Mantis Magic",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have learned limited divine magic from your Red Mantis training. You gain the Cast a Spell activity. You can prepare two common cantrips each day from the divine spell list or any other divine cantrips you have access to. You also gain the basic spellcasting benefits. You're trained in the spell attack modifier and spell DC statistics. Your key spellcasting attribute for the Red Mantis archetype spells is Charisma, and they are divine Red Mantis spells. If you gain a Focus Pool from any Red Mantis Assassin class feats, you can Refocus by praying to Achaekek or researching your assigned kill."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also have access to the "
+          },
+          {
+            "type": "ref",
+            "id": "cf401d1d-9833-5347-9cd2-ebf30b3eef72"
+          },
+          {
+            "type": "text",
+            "text": ". In addition to preparing spells from the divine spell list, you can prepare spells from this school. Regardless of their usual magic tradition, when you prepare spells from this school, they are divine spells, as are any Red Mantis focus spells you gain."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6RjilN93bgy34y3H"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Religion; Red Mantis Assassin Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
+    }
+  },
+  {
+    "id": "6ff19deb-bbff-5554-b213-e51e5bb76236",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:crimson-shroud",
+    "name": "Crimson Shroud",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "healing", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You swathe yourself in a veil of red mist for 1 minute. While the shroud is active, you gain fast healing equal to half your level. You can Interact with your shroud, swirling it around you, to gain a +1 circumstance bonus to AC until the beginning of your next turn. Finally, if you die while the shroud is active, you can choose to have your entire body vanish into red mist, leaving behind only your gear; you make this choice when you activate Crimson Shroud."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 10th level, you can use this ability once per hour instead of once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.M2V1vqAziOkWV30B"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Red Mantis Assassin Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        },
+        "selfEffect": "b0758645-3845-54ba-8e86-82c9cf84b2c1"
+      },
+      "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
+    }
+  },
+  {
+    "id": "47570de6-531c-5359-8859-44579d73e295",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:expert-red-mantis-magic",
+    "name": "Expert Red Mantis Magic",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the expert spellcasting benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bzKBUK6CH8tuLCfo"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basic Red Mantis Magic; master in Religion"
+            }
+          ]
+        }
+      ],
+      "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
+    }
+  },
+  {
+    "id": "51a3f5a6-6224-5afb-89c3-74c8d039c108",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:mantis-form",
+    "name": "Mantis Form",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "41f87652-a081-594b-b6b5-5bb8a10ff31a"
+          },
+          {
+            "type": "text",
+            "text": " focus spell. If you don't already have one, you gain a focus pool of 1 Focus Point."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.4YeHOPzo3zOhZQCh"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basic Red Mantis Magic"
+            }
+          ]
+        }
+      ],
+      "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
+    }
+  },
+  {
+    "id": "c1a04af7-8926-5777-9bbc-5ea49714d3db",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:master-red-mantis-magic",
+    "name": "Master Red Mantis Magic",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the master spellcasting benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.4jl3w1ojlsnYVNZs"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "legendary in Religion; Expert Red Mantis Magic"
+            }
+          ]
+        }
+      ],
+      "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
+    }
+  },
+  {
+    "id": "04aed2a9-72bb-54e6-a8dc-e2e9cff19b5f",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:prayer-attack",
+    "name": "Prayer Attack",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a sawtooth saber in each hand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've mastered the signature assassination style of the Red Mantis. Attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": " an enemy within 30 feet. If your Feint is successful, when you use Prayer Attack on subsequent turns you automatically make the target "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against your melee attacks for that turn without rolling a check to Feint, so long as you remain visible to the target and the target remains within 30 feet of you. If you use your Prayer Attack against a different target, you must attempt to Feint the target normally."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Prayer Attack, your next successful Strike with a sawtooth saber that turn deals 2d6 persistent bleed damage to the target."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:prayer-attack",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "bleed",
+        "predicate": ["item:base:sawtooth-saber", "option:prayer-attack"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.AtpMrGXaMPJtDIDR"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Red Mantis Assassin Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding a sawtooth saber in each hand."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
+    }
+  },
+  {
+    "id": "a687d446-ce59-5ee9-a553-f8726ec7b4c2",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:red-mantis-assassin-dedication",
+    "name": "Red Mantis Assassin Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Access",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are from Mediogalti Island."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have learned how to stalk your foes and slay them with a sawtooth saber. You become trained in Stealth and Assassin Lore; if you were already trained, you become an expert instead. Whenever your proficiency in any weapon increases to expert or beyond, you also gain that new proficiency with sawtooth sabers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become bound by Achaekek's anathema and can receive his sanctification."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Red Mantis Assassin"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "red-mantis-assassin-dedication",
+        "choices": [
+          {
+            "value": "unholy",
+            "label": "Unholy"
+          },
+          {
+            "value": "none",
+            "label": "None"
+          }
+        ],
+        "prompt": "Select a sanctification.",
+        "rollOption": "sanctification"
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["unholy"],
+        "predicate": ["sanctification:unholy"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.UuPZ7drPBnSmI8Eo"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in sawtooth sabres; deity is Achaekek; member of the Red Mantis assassins"
+            }
+          ]
+        }
+      ],
+      "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
+    }
+  },
+  {
+    "id": "d64e3021-77ac-5f90-a54b-535eb548dc8b",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:red-mantis-school-spell",
+    "name": "Red Mantis School Spell",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cf401d1d-9833-5347-9cd2-ebf30b3eef72",
+            "label": "Red Mantis magic school's"
+          },
+          {
+            "type": "text",
+            "text": " initial school spell. If you don't already have one, you gain a focus pool of 1 Focus Point."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.aMNN3InBhiTjU6C0"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basic Red Mantis Magic"
+            }
+          ]
+        }
+      ],
+      "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
+    }
+  },
+  {
+    "id": "2c63eb66-6f79-58b3-bb3e-cdd360f2a732",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:vernai-training",
+    "name": "Vernai Training",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To resurrect a creature you've slain, a spellcaster must counteract your influence on its death. The DC of this check is equal to your class DC or spell DC, whichever is higher."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you've undergone training to better make use of your magic. Increase the spell slots you gain from Red Mantis assassin archetype feats by 1 for each spell rank other than your two highest Red Mantis spell slots. You can prepare only spells from the Red Mantis magic school curriculum in these extra slots."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.cppQZwnuoXqX8mgF"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Achaekek's Grip; Basic Red Mantis Magic"
+            }
+          ]
+        }
+      ],
+      "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
+    }
+  }
+]
