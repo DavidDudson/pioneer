@@ -2,7 +2,7 @@ import { characterEffects } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import type { EffectLine, EffectMode } from '@pioneer/rules/engine';
 import { ContentId, ContentKind, ContentLevel, Trait } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentRegistry, SpellRank } from '@pioneer/rules/sdk';
 import type { PreviewEffect } from '@pioneer/rules/ui';
 
 import { traitNames } from './sheet-build';
@@ -55,6 +55,8 @@ function previewEffect(registry: ContentRegistry, line: EffectLine): PreviewEffe
 export interface EntryEffectsRequest {
   readonly entry: ContentEntry;
   readonly mode: EffectMode;
+  /** The rank a spell is cast at, which its rules read as their level; undefined for an entry that is no spell. */
+  readonly rank?: SpellRank | undefined;
 }
 
 /**
@@ -65,11 +67,11 @@ export interface EntryEffectsRequest {
 export function sheetEntryEffects(
   registry: ContentRegistry,
   character: Character,
-  { entry, mode }: EntryEffectsRequest,
+  { entry, mode, rank }: EntryEffectsRequest,
 ): readonly PreviewEffect[] {
   const level = 'level' in entry ? ContentLevel.safeParse(entry.level).data : undefined;
   const lines = characterEffects(character.document, sheetSources(registry, character), {
-    entry: { id: entry.id, rules: entry.rules, sources: [...entry.sources], level },
+    entry: { id: entry.id, rules: entry.rules, sources: [...entry.sources], level, rank },
     mode,
   });
   return lines.map((line) => previewEffect(registry, line));

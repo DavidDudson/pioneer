@@ -113,6 +113,8 @@
       "level": "Level {level}",
       "effects": "Changes for this character",
       "noEffects": "Changes no statistic.",
+      "castAt": "Cast at",
+      "rank": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
       "effect": "{statistic} {value}",
       "effectMarked": "{words} ({status})",
       "effectSet": "{statistic} set to {value}",

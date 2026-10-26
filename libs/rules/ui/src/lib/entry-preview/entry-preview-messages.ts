@@ -4,6 +4,10 @@ import { EffectStatusKind } from '@pioneer/rules/engine';
 export const EntryPreviewMessage = {
   Level: 'rules.entryPreview.level',
   Effects: 'rules.entryPreview.effects',
+  /** The label of the rank pick. */
+  CastAt: 'rules.entryPreview.castAt',
+  /** "3rd rank": an option of the rank pick. */
+  Rank: 'rules.entryPreview.rank',
   NoEffects: 'rules.entryPreview.noEffects',
   Effect: 'rules.entryPreview.effect',
   EffectMarked: 'rules.entryPreview.effectMarked',
