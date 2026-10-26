@@ -4345,7 +4345,7 @@
     "name": "Effect: Towering Presence",
     "level": 5,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

@@ -7,7 +7,7 @@
     "name": "Effect: A Little Bird Told Me...",
     "level": 8,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

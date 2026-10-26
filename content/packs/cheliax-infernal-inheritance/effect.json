@@ -111,7 +111,7 @@
     "name": "Effect: Become as Shadow",
     "level": 1,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

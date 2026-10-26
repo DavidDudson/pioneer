@@ -5914,7 +5914,7 @@
     "name": "Effect: Giant's Stature",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
