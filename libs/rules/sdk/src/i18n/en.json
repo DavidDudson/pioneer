@@ -442,6 +442,7 @@
       "defenseEmpty": "Give a save, the statistic the spell is against, or both; leave defense out when the spell has none.",
       "damageKey": "The spell has no damage part {key} to heighten.",
       "heightenAbove": "A heightened entry is for a rank above the spell’s own, {rank}.",
+      "dismissBoth": "A spell that takes the Dismiss action has no dismiss note: the note is for a spell that ends early some other way.",
       "heightenEmpty": "A heightened entry changes at least one of damage, range, area, targets, duration, casting time or traits; describe other changes in the text.",
       "variantEmpty": "A spell variant changes at least one of casting time, range, area, targets, duration, defense, damage or heightening.",
       "against": "A spell is against AC or a save’s DC, like ac or save:will.",

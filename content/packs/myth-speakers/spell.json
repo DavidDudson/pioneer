@@ -237,7 +237,18 @@
         "unit": "minute"
       },
       "traditions": ["divine", "primal"],
-      "damage": []
+      "damage": [],
+      "dismissNote": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A free action after a successful Strike with the weapon: deals the spell's persistent fire damage to the target, d8s if it is undead."
+            }
+          ]
+        }
+      ]
     }
   },
   {

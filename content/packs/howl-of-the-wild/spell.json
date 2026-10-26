@@ -1701,7 +1701,8 @@
         "unit": "hour"
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -2748,7 +2749,18 @@
         }
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismissNote": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A reaction when an ally critically succeeds at a Strike against the target: restores Hit Points to that ally."
+            }
+          ]
+        }
+      ]
     }
   },
   {

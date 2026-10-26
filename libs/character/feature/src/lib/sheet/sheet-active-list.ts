@@ -7,7 +7,7 @@ import {
 } from '@pioneer/character/domain';
 import type { ActiveEffect, ActiveSpell, EffectInstanceId, SlotCountKey, SpellSpend } from '@pioneer/character/domain';
 import { ContentKind, SpellRank } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, ContentRegistry, RichText } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
 import { EFFECT_CONTENT_KINDS, effectViews } from './sheet-effects';
@@ -39,6 +39,8 @@ export interface ActiveRow {
   readonly canSustain: boolean;
   /** Whether ending it during a turn takes the Dismiss action. */
   readonly dismissAction: boolean;
+  /** What ending it early needs when that is not the Dismiss action, which the Dismiss button shows. */
+  readonly dismissNote: RichText | undefined;
   /** Whether its rounds can be edited: an effect from another creature, whose turns the sheet does not know. */
   readonly editable: boolean;
 }
@@ -76,6 +78,7 @@ function spellRow(active: ActiveSpell, entries: ReadonlyMap<ContentId, SpellEntr
       sustainedThisTurn: active.sustainedThisTurn,
       canSustain: canSustain(active),
       dismissAction: entry.data.dismiss === true,
+      dismissNote: entry.data.dismissNote,
       editable: false,
     },
   ];
@@ -96,6 +99,7 @@ export function activeRows(registry: ContentRegistry, play: ActiveLists): readon
     sustainedThisTurn: false,
     canSustain: false,
     dismissAction: false,
+    dismissNote: undefined,
     editable: view.source.kind !== EffectSourceKind.Self && view.remaining !== undefined,
   }));
   return [...play.activeSpells.flatMap((spell) => spellRow(spell, entries)), ...effects];

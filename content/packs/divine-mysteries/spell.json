@@ -814,7 +814,8 @@
             "formula": "2d8"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -1307,7 +1308,8 @@
             "formula": "1d6"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -2626,7 +2628,8 @@
         }
       },
       "traditions": ["arcane", "occult", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -2706,7 +2709,8 @@
         "unit": "round"
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -2795,7 +2799,8 @@
             "formula": "1d6"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -3115,7 +3120,8 @@
             "formula": "1d6"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -3409,7 +3415,8 @@
         }
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -4805,7 +4812,8 @@
             "formula": "1d4"
           }
         ]
-      }
+      },
+      "dismiss": true
     }
   },
   {
@@ -5190,7 +5198,8 @@
         "unit": "minute"
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -5952,7 +5961,8 @@
         "unit": "day"
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -8751,7 +8761,8 @@
         "against": "ac"
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -8934,7 +8945,8 @@
         "unit": "minute"
       },
       "traditions": [],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -9296,7 +9308,8 @@
         }
       },
       "traditions": ["arcane", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -9774,7 +9787,8 @@
         "unit": "minute"
       },
       "traditions": ["divine", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {

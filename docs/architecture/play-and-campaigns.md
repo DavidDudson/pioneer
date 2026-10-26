@@ -148,7 +148,8 @@ skipped; nothing about it is stored.
   spells not sustained this turn and ends them on confirm, so none lapses unnoticed.
 - **Dismiss**: any active spell or effect can be dismissed from the list at any time, which removes it and its
   effects. A spell that needs the Dismiss action spends 1 action when dismissed during the turn; elsewhere removal
-  is free.
+  is free. A spell that ends early under a trigger of its own (a free action or reaction) costs no Dismiss action
+  and carries a `dismissNote`, which the Dismiss button shows while hovered or focused.
 
 The **active list** shows every active spell and effect: name, source (cast by this character, applied by an ally,
 a GM's boon), remaining duration or "sustained", and its Sustain and Dismiss buttons. It sits on the Encounter tab

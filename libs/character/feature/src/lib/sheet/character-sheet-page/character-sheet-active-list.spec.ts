@@ -15,12 +15,13 @@ const openSheet = openerAt(SheetMode.Encounter);
 
 const PLAY_URL = `/api/characters/${id}/play`;
 const CALM = '1e8fd2ab-ffb3-5b91-af85-43e5911b8652';
+const OAKEN_RESILIENCE = 'd649aded-ca36-5663-ba2c-edc97e35bd6c';
 const ACTIVE = '00000000-0000-4000-8000-0000000000a5';
 const TURN = { phase: 'turn', actions: 2, quickened: 0, reactionUsed: false };
 
 /** A sustained Calm, cast at 1st rank with 10 rounds at most, in a turn with two actions left. */
-function playWith(sustainedThisTurn: boolean, revision = 1): object {
-  const calm = { id: ACTIVE, spell: CALM, rank: 1, remaining: 10, sustainedThisTurn };
+function playWith(sustainedThisTurn: boolean, revision = 1, spell = CALM): object {
+  const calm = { id: ACTIVE, spell, rank: 1, remaining: 10, sustainedThisTurn };
   return { revision, play: { hp: { damage: 0, temp: 0 }, turn: TURN, activeSpells: [calm] } };
 }
 
@@ -100,6 +101,39 @@ describe('CharacterSheetPage active list', () => {
       expect(textOf(listOf(root))).toContain('Calm');
     });
     press(listOf(root), 'Dismiss');
+    const command = await answerEdit({ revision: 2, play: { hp: { damage: 0, temp: 0 }, turn: TURN } });
+    expect(command).toStrictEqual({ field: 'dismissSpell', id: ACTIVE });
+  });
+
+  it('dismisses a spell with a note on how it ends early as freely as any other', async () => {
+    const { root } = await openSheet(MERISIEL, { play: playWith(false, 1, OAKEN_RESILIENCE), packs: PACKS });
+    await vi.waitFor(() => {
+      expect(textOf(listOf(root))).toContain('Oaken Resilience');
+    });
+    press(listOf(root), 'Dismiss');
+    const command = await answerEdit({ revision: 2, play: { hp: { damage: 0, temp: 0 }, turn: TURN } });
+    expect(command).toStrictEqual({ field: 'dismissSpell', id: ACTIVE });
+  });
+
+  it('shows how a spell ends early beside its Dismiss button', async () => {
+    const { root } = await openSheet(MERISIEL, { play: playWith(false, 1, OAKEN_RESILIENCE), packs: PACKS });
+    await vi.waitFor(() => {
+      expect(textOf(listOf(root))).toContain('Oaken Resilience');
+    });
+    const button = present([...listOf(root).querySelectorAll('button')].find((each) => textOf(each) === 'Dismiss'));
+    button.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+    await vi.waitFor(() => {
+      expect(document.querySelector('[role="tooltip"]')?.textContent).toContain('as a free action');
+    });
+  });
+
+  it('dismisses on the first touch tap of a spell that has a note', async () => {
+    const { root } = await openSheet(MERISIEL, { play: playWith(false, 1, OAKEN_RESILIENCE), packs: PACKS });
+    await vi.waitFor(() => {
+      expect(textOf(listOf(root))).toContain('Oaken Resilience');
+    });
+    const button = present([...listOf(root).querySelectorAll('button')].find((each) => textOf(each) === 'Dismiss'));
+    button.dispatchEvent(new PointerEvent('click', { bubbles: true, cancelable: true, pointerType: 'touch' }));
     const command = await answerEdit({ revision: 2, play: { hp: { damage: 0, temp: 0 }, turn: TURN } });
     expect(command).toStrictEqual({ field: 'dismissSpell', id: ACTIVE });
   });

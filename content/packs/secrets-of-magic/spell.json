@@ -4048,7 +4048,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -5639,7 +5640,8 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "divine", "occult", "primal"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   },
   {
@@ -6456,7 +6458,8 @@
         "sustained": true
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "dismiss": true
     }
   }
 ]
