@@ -420,7 +420,10 @@ content ids, each once, set by the `setEnvironment` edit (on or off, by id; the 
 character's content lacks). Each is a grant root behind an `environment` origin hop, so its `rules` apply and show in
 breakdowns while it is listed, and it sets the `self:environment:<name>` roll option for predicates. What it forbids
 (`restrictionsInPlay`) is read from the content: each restriction has an id and a reason, which the Exploration tab lists
-under the environment toggles. Lifting a restriction with an ability, and consequences over time, are separate stories.
+under the environment toggles. A `LiftRestriction` rule element on anything in play lifts one
+(`characterLiftedRestrictions`), and the list then says what lifted it. The official underwater environment is Aquatic
+Combat (Player Core, page 437) in `content/packs/player-core/environment.json`: its rules are the effect's, and its
+restrictions are fire actions and speech (which costs the air). Consequences over time are a separate story.
 
 ### Rest and daily preparations
 

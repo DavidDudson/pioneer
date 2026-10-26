@@ -1,0 +1,190 @@
+[
+  {
+    "id": "366c8651-0bf8-5cf8-b3e2-9bdbc43cdb16",
+    "pack": "player-core",
+    "kind": "environment",
+    "slug": "environment:underwater",
+    "name": "Underwater",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 437,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2438"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Use these rules for battles in water or underwater:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You're off-guard unless you have a swim Speed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You gain resistance 5 to acid and fire."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You take a –2 circumstance penalty to your attack roll for bludgeoning or slashing attacks that pass through water."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ranged attacks made by an underwater creature or against an underwater target have their range increments halved."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can't cast fire spells or use actions with the fire trait underwater. As normal for how traits work, any part of the effect that's unrelated to fire still works. For example, an attack with a "
+                },
+                {
+                  "type": "text",
+                  "text": "flaming battleaxe",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " could still deal its physical damage, just not its fire damage."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["acid", "fire"],
+        "value": 5
+      },
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "nor": ["aquatic-combat:not-off-guard", "speed:swim"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          {
+            "or": ["item:damage:type:slashing", "item:damage:type:bludgeoning"]
+          },
+          {
+            "nand": [
+              {
+                "or": ["self:trait:amphibious", "self:trait:aquatic"]
+              },
+              "self:type:npc"
+            ]
+          },
+          {
+            "not": "item:rune:property:underwater"
+          }
+        ]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["inline-damage", "attack-damage", "spell-damage"],
+        "property": "dice-number",
+        "mode": "override",
+        "value": 0,
+        "predicate": [
+          {
+            "or": ["item:damage:persistent:fire", "item:damage:fire"]
+          },
+          {
+            "not": "item:trait:impulse"
+          }
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["ranged-attack-roll"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Ranged attacks made by an underwater creature or against an underwater target have their range increments halved."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "not": "item:rune:property:underwater"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.other-effects.Item.TPbr1kErAAJKBi3V"
+    },
+    "data": {
+      "restrictions": [
+        {
+          "id": "fire-effects",
+          "reason": "You can't cast fire spells or use actions with the fire trait underwater."
+        },
+        {
+          "id": "speech",
+          "reason": "If you speak (including casting a spell), you lose all remaining air."
+        }
+      ],
+      "consequences": []
+    }
+  }
+]
