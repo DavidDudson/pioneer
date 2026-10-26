@@ -89,7 +89,25 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.VZA1dJBBuhCMfAdd"
     },
     "data": {
-      "dedication": "65bb5abd-55d5-5552-b127-ea8952fa120d"
+      "dedication": "65bb5abd-55d5-5552-b127-ea8952fa120d",
+      "additionalFeats": [
+        {
+          "feat": "832a5b20-4a01-5c8d-b8c6-3a49679891e3",
+          "level": 4
+        },
+        {
+          "feat": "6205a47d-f8ef-50fc-aa12-ffe5c9df5a68",
+          "level": 4
+        },
+        {
+          "feat": "a7539372-4fec-53a0-8996-95d3194acd8c",
+          "level": 10
+        },
+        {
+          "feat": "1ddbc14d-d14f-5fff-bd76-e79b6f045fb7",
+          "level": 10
+        }
+      ]
     }
   }
 ]

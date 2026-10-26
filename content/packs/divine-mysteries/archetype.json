@@ -98,7 +98,33 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.n787ifCmIxuhtcMG"
     },
     "data": {
-      "dedication": "d98d1515-2dff-5f31-852d-c4791406a496"
+      "dedication": "d98d1515-2dff-5f31-852d-c4791406a496",
+      "additionalFeats": [
+        {
+          "feat": "eb80956c-9e2f-5c35-9768-1a4e34c66a6b",
+          "level": 16
+        },
+        {
+          "feat": "5aca804d-f758-521e-9684-8c798e075d40",
+          "level": 18
+        },
+        {
+          "feat": "3342b12c-fc47-555c-8b9b-bea93ff317b0",
+          "level": 18
+        },
+        {
+          "feat": "d288b7c9-e004-571f-b935-d397bf6c5f0d",
+          "level": 18
+        },
+        {
+          "feat": "9ed4eb42-b6cd-5f1d-8afb-73f421335bb0",
+          "level": 20
+        },
+        {
+          "feat": "1fc26a43-e1e7-530f-af17-1c456cdf0ed3",
+          "level": 20
+        }
+      ]
     }
   },
   {
@@ -234,7 +260,17 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.mozFKLZrgEO3F7sE"
     },
     "data": {
-      "dedication": "6e56e493-4b78-528d-b4c3-f7515a594a00"
+      "dedication": "6e56e493-4b78-528d-b4c3-f7515a594a00",
+      "additionalFeats": [
+        {
+          "feat": "f71d7de3-e812-5b9b-a5b8-873248b692de",
+          "level": 6
+        },
+        {
+          "feat": "f41c3814-4b8b-543a-ad49-3ad06618ef00",
+          "level": 8
+        }
+      ]
     }
   },
   {
@@ -318,7 +354,25 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Svy85xtvHZaSsGaI"
     },
     "data": {
-      "dedication": "8d7fed26-0d6e-5fa3-98db-5749270b67ba"
+      "dedication": "8d7fed26-0d6e-5fa3-98db-5749270b67ba",
+      "additionalFeats": [
+        {
+          "feat": "f707f5e0-52bc-5bf1-818c-69c290bcba77",
+          "level": 6
+        },
+        {
+          "feat": "dc55f74b-1fe3-5829-a5e9-d9416d93df6e",
+          "level": 6
+        },
+        {
+          "feat": "e84ccda9-d348-570f-873a-cd1f5eb1430d",
+          "level": 12
+        },
+        {
+          "feat": "f89f61e7-3799-549f-92af-555a314ef4cd",
+          "level": 12
+        }
+      ]
     }
   },
   {

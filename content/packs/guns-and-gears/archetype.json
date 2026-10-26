@@ -209,7 +209,13 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.jTiXRtNNvMOnsg98"
     },
     "data": {
-      "dedication": "ebddb5f9-a5a2-5cd6-a33d-179a11b59c63"
+      "dedication": "ebddb5f9-a5a2-5cd6-a33d-179a11b59c63",
+      "additionalFeats": [
+        {
+          "feat": "d988cab1-931d-581e-8d02-d25efed42c72",
+          "level": 8
+        }
+      ]
     }
   },
   {
@@ -373,7 +379,41 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.5nd8ON2kFGOsCdwQ"
     },
     "data": {
-      "dedication": "70f6f003-a5d2-54a2-a6e7-a19944e07981"
+      "dedication": "70f6f003-a5d2-54a2-a6e7-a19944e07981",
+      "additionalFeats": [
+        {
+          "feat": "58a68920-6572-5a20-b890-519b0fd74fc8",
+          "level": 4
+        },
+        {
+          "feat": "471f59ad-b984-54f3-bbbd-20a54ab14045",
+          "level": 4
+        },
+        {
+          "feat": "a6330067-2776-529b-a564-b05b32b77f2b",
+          "level": 6
+        },
+        {
+          "feat": "1eb9b46b-11f4-54e7-bb5c-8100fe37db32",
+          "level": 8
+        },
+        {
+          "feat": "b3a615f2-410e-50dc-bcf9-db5bb57db0d1",
+          "level": 12
+        },
+        {
+          "feat": "06f3c505-3be2-5f63-a291-e4bdb0bb36e8",
+          "level": 14
+        },
+        {
+          "feat": "60915615-1c09-5670-8782-3d3697d5e069",
+          "level": 16
+        },
+        {
+          "feat": "204c6ac3-70d0-5d5a-98c9-7c52fd0d8177",
+          "level": 16
+        }
+      ]
     }
   },
   {
@@ -940,7 +980,25 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.A5HwvubNii1d2UND"
     },
     "data": {
-      "dedication": "c49fc6a8-2034-5439-adfb-91261dcb436c"
+      "dedication": "c49fc6a8-2034-5439-adfb-91261dcb436c",
+      "additionalFeats": [
+        {
+          "feat": "c2873029-b18c-5c30-a2b1-a205b7d18c85",
+          "level": 4
+        },
+        {
+          "feat": "2f25f02e-359e-567e-ab6a-2006de732d49",
+          "level": 4
+        },
+        {
+          "feat": "3993eb2e-f448-51e7-b00f-951d80039c4a",
+          "level": 12
+        },
+        {
+          "feat": "f3fe6245-0761-5a02-97bd-60688b4ccbe7",
+          "level": 12
+        }
+      ]
     }
   },
   {
