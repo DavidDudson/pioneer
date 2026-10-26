@@ -3,7 +3,13 @@
   <fr-list gap="3xs">
     @for (effect of worded(); track $index) {
       <fr-list-item
-        ><fr-text variant="caption">{{ effect }}</fr-text></fr-list-item
+        ><fr-text variant="caption"
+          >{{ effect.before }}
+          @if (effect.statistic; as statistic) {
+            <fr-link [to]="statistic.link.to" [queryParams]="statistic.link.queryParams">{{ statistic.name }}</fr-link
+            >{{ effect.after }}
+          }
+        </fr-text></fr-list-item
       >
     } @empty {
       <fr-list-item

@@ -1,5 +1,6 @@
 import { InjectionToken } from '@angular/core';
 import type { Provider } from '@angular/core';
+import type { Params } from '@angular/router';
 import type { LinkTarget } from '@pioneer/frontier';
 import type { EffectLine } from '@pioneer/rules/engine';
 import { slugName } from '@pioneer/rules/sdk';
@@ -11,6 +12,7 @@ import type {
   ContentText,
   Level,
   RichText,
+  Selector,
   SourceRef,
 } from '@pioneer/rules/sdk';
 
@@ -48,6 +50,12 @@ export interface EntryPreview {
   readonly creature?: StatBlockCreature;
 }
 
+/** Where a statistic's breakdown opens: a router target and the query parameters that select it. */
+export interface StatisticLink {
+  readonly to: LinkTarget;
+  readonly queryParams?: Params;
+}
+
 /** How a preview finds an entry. The page that shows it knows which content is loaded, so it provides this. */
 export interface EntryPreviews {
   /** The entry's preview, or `undefined` when it isn't loaded (its reference then shows without one). */
@@ -60,6 +68,11 @@ export interface EntryPreviews {
   readonly load?: (id: ContentId) => Promise<EntryPreview | undefined>;
   /** Where the entry opens in full (its page or panel), for the card's link; none when the page can't open it. */
   readonly target?: (id: ContentId) => LinkTarget | undefined;
+  /**
+   * Where the breakdown of the statistic `selector` opens, for the name in an effect line; none when the page shows
+   * no breakdown, and the name is then plain text.
+   */
+  readonly statistic?: (selector: Selector) => StatisticLink | undefined;
 }
 
 const NO_PREVIEWS: EntryPreviews = { preview: (): undefined => undefined };

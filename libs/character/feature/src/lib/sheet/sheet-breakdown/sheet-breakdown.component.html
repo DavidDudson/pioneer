@@ -1,0 +1,7 @@
+@if (breakdown.statistic(); as statistic) {
+  <fr-drawer [param]="breakdown.param" [title]="statistic.name">
+    @if (statistic.result.ok) {
+      <pio-breakdown [statistic]="statistic.result" [kind]="statistic.kind" [entryNames]="entryNames()" />
+    }
+  </fr-drawer>
+}
