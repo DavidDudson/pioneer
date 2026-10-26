@@ -1,24 +1,11 @@
+import type { CacheFile, CachePack } from '@pioneer/legal/ui';
 import { BundleFile } from '@pioneer/rules/sdk';
-import type { BookLabel, ContentManifest, PackId } from '@pioneer/rules/sdk';
+import type { ContentManifest, PackId } from '@pioneer/rules/sdk';
 
 import type { LegalImport } from '../legal-imports';
 
-/** One bundle a pack offers for download: its file name already carries the kind and the content hash. */
-interface CacheFile {
-  readonly file: BundleFile;
-  readonly bytes: number;
-}
-
-/** One official pack as the content caches list it. */
-export interface CachePack {
-  readonly id: PackId;
-  /** The book title key of an imported pack; absent for a pack with no book, such as the core rules. */
-  readonly titleKey: BookLabel | undefined;
-  /** The Foundry release the pack was imported from, when it was. */
-  readonly release: string | undefined;
-  readonly bytes: number;
-  readonly files: readonly CacheFile[];
-}
+/** Where a bundle of a pack downloads from. */
+export type DownloadUrl = (pack: PackId, file: BundleFile) => string;
 
 function byFileName(left: CacheFile, right: CacheFile): number {
   return left.file < right.file ? -1 : 1;
@@ -28,11 +15,18 @@ function byFileName(left: CacheFile, right: CacheFile): number {
  * The caches the manifest offers, a pack at a time in manifest order, each with its bundles by file name and its total
  * size. A pack whose manifest has no sizes (an older build's) lists no files.
  */
-export function cachePacks(manifest: ContentManifest, imports: readonly LegalImport[]): readonly CachePack[] {
+export function cachePacks(
+  manifest: ContentManifest,
+  imports: readonly LegalImport[],
+  downloadUrl: DownloadUrl,
+): readonly CachePack[] {
   const imported = new Map(imports.map((each) => [each.pack, each]));
   return manifest.packs.map((pack): CachePack => {
     const files = Object.entries(pack.sizes ?? {})
-      .map(([file, bytes]): CacheFile => ({ file: BundleFile.parse(file), bytes }))
+      .map(([name, bytes]): CacheFile => {
+        const file = BundleFile.parse(name);
+        return { file, bytes, url: downloadUrl(pack.id, file) };
+      })
       .toSorted(byFileName);
     const origin = imported.get(pack.id);
     return {

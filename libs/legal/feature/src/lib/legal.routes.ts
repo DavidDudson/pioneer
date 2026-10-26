@@ -1,4 +1,5 @@
 import type { Routes } from '@angular/router';
+import { legalCachesMessages } from '@pioneer/legal/ui';
 import { rulesMessages } from '@pioneer/rules/sdk';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, provideMessageScope } from '@pioneer/shared/web';
@@ -9,6 +10,7 @@ export const legalRoutes: Routes = [
     path: '',
     providers: [
       provideMessageScope('legal', { [Locale.English]: async () => import('../i18n/en.json') }),
+      provideMessageScope('legalCaches', { [Locale.English]: async () => legalCachesMessages.legalCaches }),
       // Book titles, publishers and licences.
       provideMessageScope('rules', { [Locale.English]: async () => rulesMessages.rules }),
     ],
