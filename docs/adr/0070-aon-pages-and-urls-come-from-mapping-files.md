@@ -1,6 +1,6 @@
 # 0070. AoN pages and URLs come from mapping files, not from AoN's servers
 
-- Status: Proposed
+- Status: Proposed; its "no code calls AoN" and "ask AoN" decisions are superseded by ADR-0071
 - Date: 2026-10-19
 
 ## Context

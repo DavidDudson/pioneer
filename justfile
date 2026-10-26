@@ -43,6 +43,10 @@ down: && db-down
 content-import *args:
     bun tools/content-import/main.ts {{args}}
 
+# Fetch book listings from AoN Sources pages, politely (ADR-0071): --book player-core
+aon-sources *args:
+    bun tools/aon-sources/main.ts {{args}}
+
 # Everything CI runs
 check:
     bun run check

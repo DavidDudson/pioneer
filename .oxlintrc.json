@@ -398,6 +398,7 @@
         "libs/frontier/scripts/*.ts",
         "tools/deploy-production.ts",
         "tools/content-coverage.ts",
+        "tools/aon-sources/main.ts",
         "tools/content-import/main.ts",
         "tools/enrich-prerequisites.ts",
         "tools/enrich-staves.ts",

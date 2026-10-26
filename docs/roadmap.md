@@ -296,13 +296,13 @@ languages other than English wait.
 
 ## Open questions and risks
 
-| Item                                                                         | Plan                                                                                                |
-| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| How to obtain AoN page numbers and URLs within AoN's terms                   | Proposed in ADR-0070: mapping files, pages from the books, nothing calls AoN; ask AoN for a listing |
-| Foundry data model changes between releases                                  | Pin release; upgrade as a deliberate PR with coverage diff                                          |
-| Rule elements with no clean typed equivalent (path-based `ActiveEffectLike`) | Per-path translators; report the rest                                                               |
-| Browser bundle size once spells and equipment load                           | Per-kind lazy bundles; measure in M2                                                                |
-| OAuth library for Elysia                                                     | Decided: Arctic with our own sessions ([ADR-0010](adr/0010-oauth-with-arctic-and-own-sessions.md))  |
+| Item                                                                         | Plan                                                                                                            |
+| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| How to obtain AoN page numbers and URLs within AoN's terms                   | ADR-0070: mapping files, pages from the books. ADR-0071: a polite script caches Sources-page name-to-URL tables |
+| Foundry data model changes between releases                                  | Pin release; upgrade as a deliberate PR with coverage diff                                                      |
+| Rule elements with no clean typed equivalent (path-based `ActiveEffectLike`) | Per-path translators; report the rest                                                                           |
+| Browser bundle size once spells and equipment load                           | Per-kind lazy bundles; measure in M2                                                                            |
+| OAuth library for Elysia                                                     | Decided: Arctic with our own sessions ([ADR-0010](adr/0010-oauth-with-arctic-and-own-sessions.md))              |
 
 ## GitHub project management
 

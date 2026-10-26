@@ -327,6 +327,7 @@ export {
 export { RollOption, RollOptionTail } from './roll-option';
 export { NamespaceKind, NamespaceKindSchema, RollOptionNamespace, RollOptionNamespaces } from './roll-option-namespace';
 export { Domain, Selector, SkillSelector, SlotKey, ToggleKey } from './selector';
+export { EnrichmentMapping, EnrichmentMappingFile } from './enrichment-mapping';
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
 export { default as rulesMessages } from './i18n/en.json';
 export { ActorFormulaSource, type FormulaProblem, formulaProblems, FormulaSource } from './formula-source';
