@@ -177,3 +177,22 @@ export function steppedView(view: EffectView, up: boolean): EffectBadgeValue | u
     ? undefined
     : steppedBadge(view.counter, view.badge, up);
 }
+
+/** The ids of the polymorph effects among `active`: the form the character is in, and any a newer one replaced. */
+function polymorphIds(registry: ContentRegistry, active: readonly ActiveEffect[]): ReadonlySet<EffectInstanceId> {
+  const terms = effectContent(registry);
+  return new Set(active.filter(({ effect }) => terms.get(effect)?.polymorph === true).map(({ id }) => id));
+}
+
+/** The form the character is in: its newest polymorph effect, the one that wins; undefined in no form. */
+export function activeFormOf(registry: ContentRegistry, active: readonly ActiveEffect[]): EffectView | undefined {
+  const forms = polymorphIds(registry, active);
+  const newest = active.findLast(({ id }) => forms.has(id));
+  return newest === undefined ? undefined : effectViews(registry, [newest]).at(0);
+}
+
+/** `active` without its polymorph effects: the effects the character has outside any form. */
+export function withoutForms(registry: ContentRegistry, active: readonly ActiveEffect[]): readonly ActiveEffect[] {
+  const forms = polymorphIds(registry, active);
+  return active.filter(({ id }) => !forms.has(id));
+}

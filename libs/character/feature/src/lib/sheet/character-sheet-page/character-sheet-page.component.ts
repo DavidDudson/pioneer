@@ -24,6 +24,7 @@ import { SheetConditions } from '../sheet-conditions/sheet-conditions.component'
 import { SheetCounted } from '../sheet-counted/sheet-counted.component';
 import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
 import { SheetDrawers } from '../sheet-drawers/sheet-drawers.component';
+import { SheetForm } from '../sheet-form/sheet-form.component';
 import { SheetHeaderActions } from '../sheet-header-actions/sheet-header-actions.component';
 import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
@@ -31,8 +32,8 @@ import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
 import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
-import { SheetSidePanelHost } from '../sheet-side-panel/sheet-side-panel.component';
 // oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
+import { SheetSidePanelHost } from '../sheet-side-panel/sheet-side-panel.component';
 import { SHEET_PLAY_PROVIDERS } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
 
@@ -56,6 +57,7 @@ import { SheetState } from '../sheet-state';
     SheetDeathTrack,
     SheetConditions,
     SheetCounted,
+    SheetForm,
     SheetHeaderActions,
     SheetResources,
     SheetHitPoints,

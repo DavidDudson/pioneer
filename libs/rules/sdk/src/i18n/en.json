@@ -1176,6 +1176,12 @@
     "vitals": {
       "unarmored": "Unarmored"
     },
+    "form": {
+      "active": "In form: {name}",
+      "dismiss": "Dismiss",
+      "baseView": "Show base sheet",
+      "reference": "Base sheet, for reference only. The form is still active."
+    },
     "spellList": {
       "castAt": "Cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
       "none": "No spell",
