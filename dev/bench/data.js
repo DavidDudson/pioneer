@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793055220182,
+  "lastUpdate": 1793055237910,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer benchmarks": [
@@ -27798,6 +27798,228 @@ window.BENCHMARK_DATA = {
             "value": 0.443,
             "unit": "ms",
             "extra": "median 1.009 ms, 51 runs after 20 warm-up, budget 3 ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ea51957a253a4eb1efc6e720b0af554c6d46bd6b",
+          "message": "fix(ci): fix typecheck, shard slow jobs, skip image build on main (#1213)\n\n* fix(test): typecheck environment and dedication specs, widen seed timeout\n\nThree test files failed the CI typecheck: expected values carried plain\nstrings where the result is branded (Slug, ContentText), and one fixture\nused ContentLevel where the import wants Level. Parse the expected\nvalues, or compare through unknown where the point is \"kept as written\".\n\ngenerateCharacter's same-seed test generates seven characters and timed\nout at the 5s default under CI load (7.9s); give it the SLOW timeout the\nsibling tests already use.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* ci: split slow shards, skip the image build on main\n\nJob times from recent runs: storybook for rules-ui alone took 5m39s on a\ncold cache, web tests 4-5m, and server and domain never finished on main\n(api:test hung until the 15 minute timeout). Split to keep each job under\n5 minutes:\n\n- storybook: rules-ui in three vitest shards, the other projects in one\n- web tests: rules-ui, content-ui, play-ui, frontier and rules-data-access\n  apart from the rest\n- server tests: api apart from the other Bun projects\n\nThe Image build fails on main with 429s pulling from public.ecr.aws, so\nit runs on pull requests only for now. Publish and Deploy need it and\nare skipped on main until it returns.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* ci: shard the api character generation tests, expect Witch's open slot\n\nThe api's generate-character tests build a character for every Player\nCore class at five levels, each allowed 180s and holding several GB of\nmemory. Run with the rest of apps/api they pushed the server job to its\n15 minute timeout on every main run. Run them as three parts\n(generate-1..3 on the api test target, split by class name), and the\nrest of the api apart from them.\n\nWitch's Armaments (Select an unarmed attack) is open in the level 20\nWitch build, which the test did not expect now that the feat exists;\ncount it with the other slots no build fills yet.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* fix: brand the unplaced-feats ids, unexport unused AoN listing schemas\n\nTwo more breaks that merged to main while this was open:\nunplaced-feats.test.ts passed Uuid where ContentId is wanted, and\naon-listing.ts exports three schemas (and their types) nothing imports,\nwhich knip rejects.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* fix: type the unplaced-feats import specs, let AoN misspellings through typos\n\nMore breaks that merged to main while this was open:\n\n- Character.create takes unplacedFeats that may be undefined, which\n  exactOptionalPropertyTypes rejects at the import service.\n- pathbuilder-free-archetype.test.ts compared plain strings and numbers\n  with ContentId and RuleBreakingCount values.\n- typos flags four names in content/aon exactly as Archives of Nethys\n  spells them; the table has to match AoN, so ignore them.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* test(content): wait for the entry body before asserting on it\n\nThe entry page spec read the card as soon as its heading showed, but the\nbody renders after the heading. Under CI load the body was not there yet\n(\"Raise a shield\" missing) and the web rest shard failed. Wait for the\nbody text.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* ci: run the api character generation in four parts, allow Rogue's two\n\nThe third generation shard took 292s of test time (Rogue 85s alone) and\nfailed: a generated level 20 Rogue picks Terrain Stalker and Specialty\nCrafting, whose terrain and specialty choices the generator cannot fill\nyet, so two slots stay open. The level 20 build avoids those feats, so\nthe allowance is separate from unfillableSlots and applies to the\ngenerated characters only.\n\nSplit the classes four ways (about 150s of tests each) to keep every\nshard under 5 minutes.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* ci: gate the image build on a repository variable\n\nactionlint rejects a constant false condition. Run the build only when\nthe IMAGE_BUILD repository variable is true, so it is off now and easy\nto turn back on once the ECR pull works.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-10-27T08:49:34+10:00",
+          "tree_id": "530fb99cb8a042d2b40b90e8fe0a2c1f13d49e14",
+          "url": "https://github.com/DavidDudson/pioneer/commit/ea51957a253a4eb1efc6e720b0af554c6d46bd6b"
+        },
+        "date": 1793055236831,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "character: level 20 Bard with every slot and its gear filled",
+            "value": 46.029,
+            "unit": "ms",
+            "extra": "median 63.665 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Cleric with every slot and its gear filled",
+            "value": 59.941,
+            "unit": "ms",
+            "extra": "median 75.848 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Druid with every slot and its gear filled",
+            "value": 46.363,
+            "unit": "ms",
+            "extra": "median 60.003 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Fighter with every slot and its gear filled",
+            "value": 46.615,
+            "unit": "ms",
+            "extra": "median 63.93 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Ranger with every slot and its gear filled",
+            "value": 57.174,
+            "unit": "ms",
+            "extra": "median 69.28 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Rogue with every slot and its gear filled",
+            "value": 61.73,
+            "unit": "ms",
+            "extra": "median 79.487 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Witch with every slot and its gear filled",
+            "value": 58.046,
+            "unit": "ms",
+            "extra": "median 68.203 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Wizard with every slot and its gear filled",
+            "value": 52.878,
+            "unit": "ms",
+            "extra": "median 66.307 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Alchemist with every slot and its gear filled",
+            "value": 53.049,
+            "unit": "ms",
+            "extra": "median 63.623 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Barbarian with every slot and its gear filled",
+            "value": 53.547,
+            "unit": "ms",
+            "extra": "median 67.332 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Champion with every slot and its gear filled",
+            "value": 57.962,
+            "unit": "ms",
+            "extra": "median 67.155 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Investigator with every slot and its gear filled",
+            "value": 56.767,
+            "unit": "ms",
+            "extra": "median 69.783 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Monk with every slot and its gear filled",
+            "value": 43.708,
+            "unit": "ms",
+            "extra": "median 55.606 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Oracle with every slot and its gear filled",
+            "value": 51.255,
+            "unit": "ms",
+            "extra": "median 66.836 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Sorcerer with every slot and its gear filled",
+            "value": 53.63,
+            "unit": "ms",
+            "extra": "median 64.956 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Swashbuckler with every slot and its gear filled",
+            "value": 56.355,
+            "unit": "ms",
+            "extra": "median 75.776 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Animist with every slot and its gear filled",
+            "value": 42.85,
+            "unit": "ms",
+            "extra": "median 60.818 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Exemplar with every slot and its gear filled",
+            "value": 59.818,
+            "unit": "ms",
+            "extra": "median 75.832 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Kineticist with every slot and its gear filled",
+            "value": 59.175,
+            "unit": "ms",
+            "extra": "median 77.834 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Thaumaturge with every slot and its gear filled",
+            "value": 58.953,
+            "unit": "ms",
+            "extra": "median 75.279 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Magus with every slot and its gear filled",
+            "value": 56.376,
+            "unit": "ms",
+            "extra": "median 67.093 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Necromancer with every slot and its gear filled",
+            "value": 50.714,
+            "unit": "ms",
+            "extra": "median 65.581 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Runesmith with every slot and its gear filled",
+            "value": 51.43,
+            "unit": "ms",
+            "extra": "median 62.288 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Summoner with every slot and its gear filled",
+            "value": 53.854,
+            "unit": "ms",
+            "extra": "median 67.301 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Gunslinger with every slot and its gear filled",
+            "value": 53.848,
+            "unit": "ms",
+            "extra": "median 67.673 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Inventor with every slot and its gear filled",
+            "value": 54.409,
+            "unit": "ms",
+            "extra": "median 73.257 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Commander with every slot and its gear filled",
+            "value": 57.476,
+            "unit": "ms",
+            "extra": "median 70.882 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Guardian with every slot and its gear filled",
+            "value": 52.635,
+            "unit": "ms",
+            "extra": "median 63.317 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "catalog: level 20 Fighter derives grants and every statistic",
+            "value": 12.628,
+            "unit": "ms",
+            "extra": "median 16.825 ms, 51 runs after 20 warm-up, budget 10 ms"
+          },
+          {
+            "name": "catalog: level 20 Fighter with Proficiency Without Level and a homebrew pack restating Perception",
+            "value": 12.717,
+            "unit": "ms",
+            "extra": "median 17.001 ms, 51 runs after 20 warm-up, budget 10 ms"
+          },
+          {
+            "name": "grants: a query over 1000 entries",
+            "value": 1.897,
+            "unit": "ms",
+            "extra": "median 2.568 ms, 51 runs after 20 warm-up, budget 2 ms"
+          },
+          {
+            "name": "grants: level 20 character with every slot picked over 1000 more feats",
+            "value": 1.272,
+            "unit": "ms",
+            "extra": "median 2.012 ms, 51 runs after 20 warm-up, budget 3 ms"
+          },
+          {
+            "name": "grants: level 20 Fighter resolves to a fixpoint",
+            "value": 0.701,
+            "unit": "ms",
+            "extra": "median 1.361 ms, 51 runs after 20 warm-up, budget 3 ms"
           }
         ]
       }
