@@ -174,7 +174,7 @@ its damage is its description, and the effects it applies are `effect` entries.
 
 | Kind                     | `data`                                                                                                                                                         |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `spell`                  | casting fields; `traditions`; `damage`; `heightening?`; `counteraction?`                                                                                       |
+| `spell`                  | casting fields; `traditions`; `damage`; `heightening?`; `counteraction?`; `dismiss?`; `dismissNote?`                                                           |
 | `ritual`                 | casting fields; `primary` check; `secondary` checks and `casters`                                                                                              |
 | `spellcasting-tradition` | `skill`, the skill that recalls and identifies its magic (`skill:arcana`)                                                                                      |
 | `effect`                 | `category`, `spell`, `feat`, `equipment` or `other` (a GM's); `duration`; `badge?`; `triggerEvent?` and `autoApply?`, as on an action; level is the envelope's |

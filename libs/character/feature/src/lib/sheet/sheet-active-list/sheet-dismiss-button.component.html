@@ -1,0 +1,15 @@
+<ng-template #button>
+  <fr-async-button size="sm" [action]="action()" [disabled]="disabled()" [describeError]="describeError()">
+    {{ 'character.sheet.active.dismiss' | transloco }}
+  </fr-async-button>
+</ng-template>
+@if (note(); as text) {
+  <fr-hover-card>
+    <ng-container [ngTemplateOutlet]="button" />
+    <ng-template frHoverCardContent>
+      <pio-rich-text [text]="text" />
+    </ng-template>
+  </fr-hover-card>
+} @else {
+  <ng-container [ngTemplateOutlet]="button" />
+}

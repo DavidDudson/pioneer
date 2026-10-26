@@ -33816,7 +33816,18 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "primal"],
-      "damage": []
+      "damage": [],
+      "dismissNote": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The target can Dismiss it as a free action when it takes fire damage; the damage is not reduced."
+            }
+          ]
+        }
+      ]
     }
   },
   {

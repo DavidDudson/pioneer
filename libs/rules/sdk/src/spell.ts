@@ -7,7 +7,7 @@ import { ContentText } from './content-text';
 import { DamageTypeSchema } from './damage';
 import { DamageFormula, SpellDamageFormula } from './damage-formula';
 import { RulesMessage } from './messages';
-import { DamageCategorySchema } from './rich-text';
+import { DamageCategorySchema, RichText } from './rich-text';
 import { CastTime, castingFields, SpellArea, SpellDefense, SpellDuration, SpellRange } from './spell-casting';
 import { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 import { SpellTargets } from './spell-targets';
@@ -224,6 +224,8 @@ export const SpellData = z
     variants: z.array(SpellVariant).min(1).max(VARIANTS_MAX).readonly().optional(),
     /** Ending it takes the Dismiss action, 1 action when done during a turn (Mirror Image); otherwise it ends at will. */
     dismiss: z.literal(true).optional(),
+    /** Ending it early has a condition or a cost of its own (a free action or reaction, with a trigger), which a Dismiss button shows. */
+    dismissNote: RichText.optional(),
     /** It counteracts (Dispel Magic). */
     counteraction: z.boolean().optional(),
   })
