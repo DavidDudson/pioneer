@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=417"
       }
     ],
     "description": [
@@ -76,7 +77,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=418"
       }
     ],
     "description": [
@@ -115,7 +117,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=419"
       }
     ],
     "description": [
@@ -166,7 +169,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=420"
       }
     ],
     "description": [
@@ -204,7 +208,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=421"
       }
     ],
     "description": [

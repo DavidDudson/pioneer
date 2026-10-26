@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2614"
       }
     ],
     "description": [
@@ -97,7 +98,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2644"
       }
     ],
     "description": [
@@ -158,7 +160,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2644"
       }
     ],
     "description": [
@@ -219,7 +222,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2644"
       }
     ],
     "description": [
@@ -280,7 +284,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2644"
       }
     ],
     "description": [
@@ -341,7 +346,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2634"
       }
     ],
     "description": [

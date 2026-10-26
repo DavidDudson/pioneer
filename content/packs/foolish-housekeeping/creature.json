@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "foolish-housekeeping"
+        "book": "foolish-housekeeping",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3681"
       }
     ],
     "description": [
@@ -230,7 +231,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "foolish-housekeeping"
+        "book": "foolish-housekeeping",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3682"
       }
     ],
     "description": [

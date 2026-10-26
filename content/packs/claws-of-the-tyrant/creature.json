@@ -2858,7 +2858,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3824"
       }
     ],
     "description": [

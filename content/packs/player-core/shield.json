@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=17"
       }
     ],
     "description": [
@@ -216,7 +217,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=19"
       }
     ],
     "description": [
@@ -304,7 +306,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=20"
       }
     ],
     "description": [
@@ -401,7 +404,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=18"
       }
     ],
     "description": [

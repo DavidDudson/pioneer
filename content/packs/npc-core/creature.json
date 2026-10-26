@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3439"
       }
     ],
     "description": [
@@ -236,7 +237,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3565"
       }
     ],
     "description": [
@@ -539,7 +541,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3440"
       }
     ],
     "description": [
@@ -736,7 +739,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3570"
       }
     ],
     "description": [
@@ -1059,7 +1063,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3532"
       }
     ],
     "description": [
@@ -1244,7 +1249,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3420"
       }
     ],
     "description": [
@@ -1521,7 +1527,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3630"
       }
     ],
     "description": [
@@ -1792,7 +1799,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3479"
       }
     ],
     "description": [
@@ -1989,7 +1997,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3411"
       }
     ],
     "description": [
@@ -2193,7 +2202,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3552"
       }
     ],
     "description": [
@@ -2382,7 +2392,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3506"
       }
     ],
     "description": [
@@ -2635,7 +2646,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3564"
       }
     ],
     "description": [
@@ -3040,7 +3052,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3459"
       }
     ],
     "description": [
@@ -3361,7 +3374,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3434"
       }
     ],
     "description": [
@@ -3750,7 +3764,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3590"
       }
     ],
     "description": [
@@ -3982,7 +3997,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3592"
       }
     ],
     "description": [
@@ -4231,7 +4247,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3425"
       }
     ],
     "description": [
@@ -4469,7 +4486,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3432"
       }
     ],
     "description": [
@@ -4934,7 +4952,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3546"
       }
     ],
     "description": [
@@ -5158,7 +5177,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3679"
       }
     ],
     "description": [
@@ -5521,7 +5541,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3576"
       }
     ],
     "description": [
@@ -5762,7 +5783,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3452"
       }
     ],
     "description": [
@@ -5914,7 +5936,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3643"
       }
     ],
     "description": [
@@ -6231,7 +6254,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3645"
       }
     ],
     "description": [
@@ -6763,7 +6787,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3504"
       }
     ],
     "description": [
@@ -7081,7 +7106,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3441"
       }
     ],
     "description": [
@@ -7399,7 +7425,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3636"
       }
     ],
     "description": [
@@ -7669,7 +7696,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3513"
       }
     ],
     "description": [
@@ -7901,7 +7929,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3669"
       }
     ],
     "description": [
@@ -8242,7 +8271,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3651"
       }
     ],
     "description": [
@@ -8478,7 +8508,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3600"
       }
     ],
     "description": [
@@ -8707,7 +8738,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3515"
       }
     ],
     "description": [
@@ -8980,7 +9012,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3429"
       }
     ],
     "description": [
@@ -9327,7 +9360,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3560"
       }
     ],
     "description": [
@@ -9713,7 +9747,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3602"
       }
     ],
     "description": [
@@ -10060,7 +10095,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3624"
       }
     ],
     "description": [
@@ -10335,7 +10371,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3613"
       }
     ],
     "description": [
@@ -10669,7 +10706,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3446"
       }
     ],
     "description": [
@@ -11027,7 +11065,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3428"
       }
     ],
     "description": [
@@ -11302,7 +11341,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3470"
       }
     ],
     "description": [
@@ -11619,7 +11659,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3558"
       }
     ],
     "description": [
@@ -12054,7 +12095,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3521"
       }
     ],
     "description": [
@@ -12279,7 +12321,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3488"
       }
     ],
     "description": [
@@ -12448,7 +12491,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3523"
       }
     ],
     "description": [
@@ -12796,7 +12840,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3606"
       }
     ],
     "description": [
@@ -13095,7 +13140,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3498"
       }
     ],
     "description": [
@@ -13294,7 +13340,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3658"
       }
     ],
     "description": [
@@ -13747,7 +13794,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3415"
       }
     ],
     "description": [
@@ -13937,7 +13985,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3578"
       }
     ],
     "description": [
@@ -14215,7 +14264,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3417"
       }
     ],
     "description": [
@@ -14474,7 +14524,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3535"
       }
     ],
     "description": [
@@ -14752,7 +14803,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3435"
       }
     ],
     "description": [
@@ -15211,7 +15263,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3539"
       }
     ],
     "description": [
@@ -15562,7 +15615,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3534"
       }
     ],
     "description": [
@@ -15777,7 +15831,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3544"
       }
     ],
     "description": [
@@ -16110,7 +16165,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3569"
       }
     ],
     "description": [
@@ -16325,7 +16381,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3583"
       }
     ],
     "description": [
@@ -16717,7 +16774,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3450"
       }
     ],
     "description": [
@@ -17228,7 +17286,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3451"
       }
     ],
     "description": [
@@ -17724,7 +17783,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3611"
       }
     ],
     "description": [
@@ -18223,7 +18283,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3461"
       }
     ],
     "description": [
@@ -18592,7 +18653,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3632"
       }
     ],
     "description": [
@@ -18804,7 +18866,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3540"
       }
     ],
     "description": [
@@ -19214,7 +19277,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3594"
       }
     ],
     "description": [
@@ -19458,7 +19522,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3614"
       }
     ],
     "description": [
@@ -19745,7 +19810,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3601"
       }
     ],
     "description": [
@@ -20076,7 +20142,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3490"
       }
     ],
     "description": [
@@ -20293,7 +20360,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3529"
       }
     ],
     "description": [
@@ -20608,7 +20676,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3458"
       }
     ],
     "description": [
@@ -20995,7 +21064,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3664"
       }
     ],
     "description": [
@@ -21286,7 +21356,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3491"
       }
     ],
     "description": [
@@ -21516,7 +21587,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3580"
       }
     ],
     "description": [
@@ -21750,7 +21822,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3455"
       }
     ],
     "description": [
@@ -21984,7 +22057,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3628"
       }
     ],
     "description": [
@@ -22540,7 +22614,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3629"
       }
     ],
     "description": [
@@ -22985,7 +23060,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3626"
       }
     ],
     "description": [
@@ -23203,7 +23279,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3464"
       }
     ],
     "description": [
@@ -23480,7 +23557,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3596"
       }
     ],
     "description": [
@@ -23974,7 +24052,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3634"
       }
     ],
     "description": [
@@ -24315,7 +24394,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3545"
       }
     ],
     "description": [
@@ -25126,7 +25206,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3416"
       }
     ],
     "description": [
@@ -25334,7 +25415,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3557"
       }
     ],
     "description": [
@@ -25581,7 +25663,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3561"
       }
     ],
     "description": [
@@ -25823,7 +25906,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3519"
       }
     ],
     "description": [
@@ -26208,7 +26292,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3478"
       }
     ],
     "description": [
@@ -26629,7 +26714,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3678"
       }
     ],
     "description": [
@@ -26887,7 +26973,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3591"
       }
     ],
     "description": [
@@ -27189,7 +27276,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3537"
       }
     ],
     "description": [
@@ -27523,7 +27611,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3492"
       }
     ],
     "description": [
@@ -27715,7 +27804,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3430"
       }
     ],
     "description": [
@@ -27998,7 +28088,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3609"
       }
     ],
     "description": [
@@ -28367,7 +28458,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3493"
       }
     ],
     "description": [
@@ -28592,7 +28684,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3436"
       }
     ],
     "description": [
@@ -29070,7 +29163,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3617"
       }
     ],
     "description": [
@@ -29435,7 +29529,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3467"
       }
     ],
     "description": [
@@ -29670,7 +29765,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3631"
       }
     ],
     "description": [
@@ -29963,7 +30059,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3462"
       }
     ],
     "description": [
@@ -30307,7 +30404,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3670"
       }
     ],
     "description": [
@@ -30565,7 +30663,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3475"
       }
     ],
     "description": [
@@ -30857,7 +30956,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3618"
       }
     ],
     "description": [
@@ -31263,7 +31363,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3563"
       }
     ],
     "description": [
@@ -31562,7 +31663,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3595"
       }
     ],
     "description": [
@@ -31869,7 +31971,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3639"
       }
     ],
     "description": [
@@ -32119,7 +32222,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3637"
       }
     ],
     "description": [
@@ -32322,7 +32426,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3635"
       }
     ],
     "description": [
@@ -32552,7 +32657,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3640"
       }
     ],
     "description": [
@@ -32774,7 +32880,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3642"
       }
     ],
     "description": [
@@ -33217,7 +33324,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3641"
       }
     ],
     "description": [
@@ -33659,7 +33767,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3542"
       }
     ],
     "description": [
@@ -34078,7 +34187,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3659"
       }
     ],
     "description": [
@@ -34549,7 +34659,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3568"
       }
     ],
     "description": [
@@ -34938,7 +35049,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3503"
       }
     ],
     "description": [
@@ -35443,7 +35555,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3424"
       }
     ],
     "description": [
@@ -35628,7 +35741,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3495"
       }
     ],
     "description": [
@@ -35842,7 +35956,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3551"
       }
     ],
     "description": [
@@ -36054,7 +36169,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3472"
       }
     ],
     "description": [
@@ -36299,7 +36415,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3414"
       }
     ],
     "description": [
@@ -36526,7 +36643,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3456"
       }
     ],
     "description": [
@@ -36802,7 +36920,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3510"
       }
     ],
     "description": [
@@ -37404,7 +37523,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3644"
       }
     ],
     "description": [
@@ -37827,7 +37947,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3646"
       }
     ],
     "description": [
@@ -38208,7 +38329,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3647"
       }
     ],
     "description": [
@@ -38751,7 +38873,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3553"
       }
     ],
     "description": [
@@ -38947,7 +39070,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3533"
       }
     ],
     "description": [
@@ -39138,7 +39262,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3528"
       }
     ],
     "description": [
@@ -39574,7 +39699,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3530"
       }
     ],
     "description": [
@@ -40064,7 +40190,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3621"
       }
     ],
     "description": [
@@ -40443,7 +40570,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3447"
       }
     ],
     "description": [
@@ -40842,7 +40970,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3511"
       }
     ],
     "description": [
@@ -41245,7 +41374,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3649"
       }
     ],
     "description": [
@@ -41692,7 +41822,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3648"
       }
     ],
     "description": [
@@ -41923,7 +42054,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3650"
       }
     ],
     "description": [
@@ -42140,7 +42272,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3486"
       }
     ],
     "description": [
@@ -42508,7 +42641,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3476"
       }
     ],
     "description": [
@@ -42804,7 +42938,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3522"
       }
     ],
     "description": [
@@ -43067,7 +43202,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3566"
       }
     ],
     "description": [
@@ -43468,7 +43604,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3496"
       }
     ],
     "description": [
@@ -43711,7 +43848,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3554"
       }
     ],
     "description": [
@@ -43968,7 +44106,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3615"
       }
     ],
     "description": [
@@ -44309,7 +44448,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3661"
       }
     ],
     "description": [
@@ -44846,7 +44986,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3555"
       }
     ],
     "description": [
@@ -45167,7 +45308,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3671"
       }
     ],
     "description": [
@@ -45435,7 +45577,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3547"
       }
     ],
     "description": [
@@ -45648,7 +45791,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3465"
       }
     ],
     "description": [
@@ -46160,7 +46304,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3572"
       }
     ],
     "description": [
@@ -46444,7 +46589,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3653"
       }
     ],
     "description": [
@@ -46742,7 +46888,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3652"
       }
     ],
     "description": [
@@ -47044,7 +47191,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3423"
       }
     ],
     "description": [
@@ -47418,7 +47566,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3680"
       }
     ],
     "description": [
@@ -47751,7 +47900,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3655"
       }
     ],
     "description": [
@@ -47956,7 +48106,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3654"
       }
     ],
     "description": [
@@ -48305,7 +48456,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3623"
       }
     ],
     "description": [
@@ -48554,7 +48706,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3431"
       }
     ],
     "description": [
@@ -48811,7 +48964,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3587"
       }
     ],
     "description": [
@@ -48984,7 +49138,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3526"
       }
     ],
     "description": [
@@ -49464,7 +49619,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3426"
       }
     ],
     "description": [
@@ -49726,7 +49882,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3481"
       }
     ],
     "description": [
@@ -50018,7 +50175,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3625"
       }
     ],
     "description": [
@@ -50413,7 +50571,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3579"
       }
     ],
     "description": [
@@ -50795,7 +50954,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3514"
       }
     ],
     "description": [
@@ -50974,7 +51134,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3517"
       }
     ],
     "description": [
@@ -51379,7 +51540,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3531"
       }
     ],
     "description": [
@@ -51825,7 +51987,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3500"
       }
     ],
     "description": [
@@ -51997,7 +52160,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3433"
       }
     ],
     "description": [
@@ -52318,7 +52482,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3612"
       }
     ],
     "description": [
@@ -52659,7 +52824,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3549"
       }
     ],
     "description": [
@@ -52879,7 +53045,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3457"
       }
     ],
     "description": [
@@ -53134,7 +53301,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3518"
       }
     ],
     "description": [
@@ -53657,7 +53825,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3412"
       }
     ],
     "description": [
@@ -53833,7 +54002,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3497"
       }
     ],
     "description": [
@@ -54076,7 +54246,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3573"
       }
     ],
     "description": [
@@ -54415,7 +54586,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3494"
       }
     ],
     "description": [
@@ -54619,7 +54791,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3541"
       }
     ],
     "description": [
@@ -55125,7 +55298,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3502"
       }
     ],
     "description": [
@@ -55483,7 +55657,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3516"
       }
     ],
     "description": [
@@ -55800,7 +55975,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3582"
       }
     ],
     "description": [
@@ -56161,7 +56337,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3473"
       }
     ],
     "description": [
@@ -56571,7 +56748,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3507"
       }
     ],
     "description": [
@@ -56860,7 +57038,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3468"
       }
     ],
     "description": [
@@ -57060,7 +57239,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3598"
       }
     ],
     "description": [
@@ -57306,7 +57486,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3538"
       }
     ],
     "description": [
@@ -57639,7 +57820,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3418"
       }
     ],
     "description": [
@@ -57861,7 +58043,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3588"
       }
     ],
     "description": [
@@ -58066,7 +58249,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3605"
       }
     ],
     "description": [
@@ -58634,7 +58818,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3663"
       }
     ],
     "description": [
@@ -58884,7 +59069,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3665"
       }
     ],
     "description": [
@@ -59308,7 +59494,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3666"
       }
     ],
     "description": [
@@ -59627,7 +59814,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3581"
       }
     ],
     "description": [
@@ -59947,7 +60135,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3419"
       }
     ],
     "description": [
@@ -60255,7 +60444,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3512"
       }
     ],
     "description": [
@@ -60645,7 +60835,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3487"
       }
     ],
     "description": [
@@ -61090,7 +61281,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3438"
       }
     ],
     "description": [
@@ -61297,7 +61489,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3527"
       }
     ],
     "description": [
@@ -61719,7 +61912,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3480"
       }
     ],
     "description": [
@@ -61916,7 +62110,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3437"
       }
     ],
     "description": [
@@ -62089,7 +62284,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3599"
       }
     ],
     "description": [
@@ -62353,7 +62549,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3484"
       }
     ],
     "description": [
@@ -62618,7 +62815,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3469"
       }
     ],
     "description": [
@@ -62938,7 +63136,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3505"
       }
     ],
     "description": [
@@ -63207,7 +63406,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3445"
       }
     ],
     "description": [
@@ -63455,7 +63655,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3550"
       }
     ],
     "description": [
@@ -63689,7 +63890,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3454"
       }
     ],
     "description": [
@@ -63910,7 +64112,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3610"
       }
     ],
     "description": [
@@ -64277,7 +64480,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3442"
       }
     ],
     "description": [
@@ -64762,7 +64966,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3577"
       }
     ],
     "description": [
@@ -65059,7 +65264,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3449"
       }
     ],
     "description": [
@@ -65461,7 +65667,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3638"
       }
     ],
     "description": [
@@ -65786,7 +65993,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3616"
       }
     ],
     "description": [
@@ -66087,7 +66295,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3597"
       }
     ],
     "description": [
@@ -66320,7 +66529,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3463"
       }
     ],
     "description": [
@@ -66694,7 +66904,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3656"
       }
     ],
     "description": [
@@ -66921,7 +67132,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3427"
       }
     ],
     "description": [
@@ -67228,7 +67440,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3508"
       }
     ],
     "description": [
@@ -67474,7 +67687,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3608"
       }
     ],
     "description": [
@@ -67735,7 +67949,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3593"
       }
     ],
     "description": [
@@ -68007,7 +68222,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3489"
       }
     ],
     "description": [
@@ -68287,7 +68503,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3604"
       }
     ],
     "description": [
@@ -68539,7 +68756,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3443"
       }
     ],
     "description": [
@@ -68899,7 +69117,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3520"
       }
     ],
     "description": [
@@ -69266,7 +69485,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3584"
       }
     ],
     "description": [
@@ -69554,7 +69774,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3413"
       }
     ],
     "description": [
@@ -69771,7 +69992,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3525"
       }
     ],
     "description": [
@@ -70037,7 +70259,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3543"
       }
     ],
     "description": [
@@ -70447,7 +70670,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3627"
       }
     ],
     "description": [
@@ -70720,7 +70944,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3421"
       }
     ],
     "description": [
@@ -71006,7 +71231,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3524"
       }
     ],
     "description": [
@@ -71224,7 +71450,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3571"
       }
     ],
     "description": [
@@ -71516,7 +71743,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3603"
       }
     ],
     "description": [
@@ -71772,7 +72000,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3482"
       }
     ],
     "description": [
@@ -72002,7 +72231,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3668"
       }
     ],
     "description": [
@@ -72297,7 +72527,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3548"
       }
     ],
     "description": [
@@ -72503,7 +72734,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3589"
       }
     ],
     "description": [
@@ -72711,7 +72943,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3586"
       }
     ],
     "description": [
@@ -73154,7 +73387,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3672"
       }
     ],
     "description": [
@@ -73456,7 +73690,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3485"
       }
     ],
     "description": [
@@ -73761,7 +73996,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3660"
       }
     ],
     "description": [
@@ -74038,7 +74274,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3607"
       }
     ],
     "description": [
@@ -74312,7 +74549,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3474"
       }
     ],
     "description": [
@@ -74529,7 +74767,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3483"
       }
     ],
     "description": [
@@ -74719,7 +74958,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3466"
       }
     ],
     "description": [
@@ -74926,7 +75166,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3501"
       }
     ],
     "description": [
@@ -75185,7 +75426,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3460"
       }
     ],
     "description": [
@@ -75436,7 +75678,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3471"
       }
     ],
     "description": [
@@ -75725,7 +75968,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3676"
       }
     ],
     "description": [],
@@ -75878,7 +76122,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3574"
       }
     ],
     "description": [
@@ -76103,7 +76348,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3448"
       }
     ],
     "description": [
@@ -76492,7 +76738,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3585"
       }
     ],
     "description": [
@@ -76900,7 +77147,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3674"
       }
     ],
     "description": [
@@ -77395,7 +77643,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3673"
       }
     ],
     "description": [
@@ -77653,7 +77902,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3575"
       }
     ],
     "description": [
@@ -77891,7 +78141,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3657"
       }
     ],
     "description": [
@@ -78237,7 +78488,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3667"
       }
     ],
     "description": [
@@ -78481,7 +78733,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3509"
       }
     ],
     "description": [
@@ -78781,7 +79034,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3453"
       }
     ],
     "description": [
@@ -78950,7 +79204,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3499"
       }
     ],
     "description": [
@@ -79175,7 +79430,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3422"
       }
     ],
     "description": [
@@ -79461,7 +79717,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3677"
       }
     ],
     "description": [
@@ -79690,7 +79947,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3562"
       }
     ],
     "description": [
@@ -79934,7 +80192,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3620"
       }
     ],
     "description": [
@@ -80448,7 +80707,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3556"
       }
     ],
     "description": [
@@ -80806,7 +81066,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3559"
       }
     ],
     "description": [
@@ -81148,7 +81409,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3567"
       }
     ],
     "description": [
@@ -81629,7 +81891,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3619"
       }
     ],
     "description": [
@@ -81926,7 +82189,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3633"
       }
     ],
     "description": [
@@ -82706,7 +82970,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3622"
       }
     ],
     "description": [
@@ -83120,7 +83385,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3444"
       }
     ],
     "description": [

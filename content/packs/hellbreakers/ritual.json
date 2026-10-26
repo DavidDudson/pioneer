@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=242"
       }
     ],
     "description": [

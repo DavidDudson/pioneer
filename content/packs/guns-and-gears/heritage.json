@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=184"
       }
     ],
     "description": [
@@ -59,7 +60,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=185"
       }
     ],
     "description": [
@@ -92,7 +94,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=186"
       }
     ],
     "description": [
@@ -138,7 +141,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=187"
       }
     ],
     "description": [

@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=588"
       }
     ],
     "description": [
@@ -93,7 +94,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=589"
       }
     ],
     "description": [
@@ -188,7 +190,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=590"
       }
     ],
     "description": [

@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=280"
       }
     ],
     "description": [
@@ -44,7 +45,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=281"
       }
     ],
     "description": [

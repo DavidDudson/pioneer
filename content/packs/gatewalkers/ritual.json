@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=220"
       }
     ],
     "description": [

@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4025"
       }
     ],
     "description": [
@@ -98,7 +99,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4026"
       }
     ],
     "description": [
@@ -193,7 +195,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4038"
       }
     ],
     "description": [
@@ -260,7 +263,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4034"
       }
     ],
     "description": [
@@ -337,7 +341,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4040"
       }
     ],
     "description": [
@@ -452,7 +457,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4035"
       }
     ],
     "description": [

@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=422"
       }
     ],
     "description": [
@@ -76,7 +77,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=423"
       }
     ],
     "description": [
@@ -135,7 +137,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=424"
       }
     ],
     "description": [
@@ -191,7 +194,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=425"
       }
     ],
     "description": [
@@ -250,7 +254,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=426"
       }
     ],
     "description": [

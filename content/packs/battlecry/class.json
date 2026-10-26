@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=66"
       }
     ],
     "description": [
@@ -1034,7 +1035,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=67"
       }
     ],
     "description": [

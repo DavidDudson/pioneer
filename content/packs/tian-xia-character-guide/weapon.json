@@ -1231,7 +1231,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=334"
       }
     ],
     "description": [
@@ -1734,7 +1735,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=491"
       }
     ],
     "description": [
@@ -1785,7 +1787,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=495"
       }
     ],
     "description": [
@@ -1836,7 +1839,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=492"
       }
     ],
     "description": [
@@ -2167,7 +2171,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=493"
       }
     ],
     "description": [
@@ -2218,7 +2223,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=540"
       }
     ],
     "description": [
@@ -2761,7 +2767,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=494"
       }
     ],
     "description": [

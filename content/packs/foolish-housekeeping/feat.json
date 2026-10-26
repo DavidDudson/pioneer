@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "foolish-housekeeping"
+        "book": "foolish-housekeeping",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7602"
       }
     ],
     "description": [
@@ -115,7 +116,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "foolish-housekeeping"
+        "book": "foolish-housekeeping",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7604"
       }
     ],
     "description": [
@@ -250,7 +252,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "foolish-housekeeping"
+        "book": "foolish-housekeeping",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7601"
       }
     ],
     "description": [
@@ -336,7 +339,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "foolish-housekeeping"
+        "book": "foolish-housekeeping",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7605"
       }
     ],
     "description": [
@@ -427,7 +431,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "foolish-housekeeping"
+        "book": "foolish-housekeeping",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7598"
       }
     ],
     "description": [
@@ -545,7 +550,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "foolish-housekeeping"
+        "book": "foolish-housekeeping",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7599"
       }
     ],
     "description": [
@@ -671,7 +677,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "foolish-housekeeping"
+        "book": "foolish-housekeeping",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7600"
       }
     ],
     "description": [

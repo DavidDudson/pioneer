@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=278"
       }
     ],
     "description": [
@@ -87,7 +88,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=279"
       }
     ],
     "description": [
@@ -120,7 +122,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=276"
       }
     ],
     "description": [
@@ -188,7 +191,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=272"
       }
     ],
     "description": [
@@ -238,7 +242,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=274"
       }
     ],
     "description": [
@@ -288,7 +293,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=275"
       }
     ],
     "description": [
@@ -338,7 +344,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=277"
       }
     ],
     "description": [

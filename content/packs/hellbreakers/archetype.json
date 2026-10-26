@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=353"
       }
     ],
     "description": [

@@ -447,7 +447,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3743"
       }
     ],
     "description": [],
@@ -2119,7 +2120,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3738"
       }
     ],
     "description": [
@@ -7026,7 +7028,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3739"
       }
     ],
     "description": [
@@ -9849,7 +9852,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3740"
       }
     ],
     "description": [
@@ -17716,7 +17720,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3741"
       }
     ],
     "description": [
@@ -21460,7 +21465,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3742"
       }
     ],
     "description": [

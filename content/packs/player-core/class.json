@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=32"
       }
     ],
     "description": [
@@ -978,7 +979,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=33"
       }
     ],
     "description": [
@@ -1908,7 +1910,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=34"
       }
     ],
     "description": [
@@ -2852,7 +2855,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=35"
       }
     ],
     "description": [
@@ -3863,7 +3867,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=36"
       }
     ],
     "description": [
@@ -4893,7 +4898,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=37"
       }
     ],
     "description": [
@@ -6202,7 +6208,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=38"
       }
     ],
     "description": [
@@ -7123,7 +7130,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=39"
       }
     ],
     "description": [

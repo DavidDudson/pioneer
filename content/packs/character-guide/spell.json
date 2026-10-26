@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=556"
       }
     ],
     "description": [
@@ -70,7 +71,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=557"
       }
     ],
     "description": [

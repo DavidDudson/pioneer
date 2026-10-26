@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=316"
       }
     ],
     "description": [
@@ -101,7 +102,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=314"
       }
     ],
     "description": [
@@ -210,7 +212,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=319"
       }
     ],
     "description": [
@@ -260,7 +263,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=315"
       }
     ],
     "description": [
@@ -342,7 +346,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=320"
       }
     ],
     "description": [
@@ -424,7 +429,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=318"
       }
     ],
     "description": [

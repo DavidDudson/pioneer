@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=77"
       }
     ],
     "description": [
@@ -219,7 +220,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=78"
       }
     ],
     "description": [
@@ -422,7 +424,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=79"
       }
     ],
     "description": [
@@ -619,7 +622,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=80"
       }
     ],
     "description": [
@@ -824,7 +828,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=81"
       }
     ],
     "description": [
@@ -1035,7 +1040,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=82"
       }
     ],
     "description": [
@@ -1244,7 +1250,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=83"
       }
     ],
     "description": [
@@ -1450,7 +1457,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=84"
       }
     ],
     "description": [

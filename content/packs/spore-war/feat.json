@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7661"
       }
     ],
     "description": [
@@ -139,7 +140,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7662"
       }
     ],
     "description": [
@@ -201,7 +203,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7660"
       }
     ],
     "description": [
@@ -269,7 +272,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7664"
       }
     ],
     "description": [
@@ -471,7 +475,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7655"
       }
     ],
     "description": [
@@ -543,7 +548,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7659"
       }
     ],
     "description": [
@@ -604,7 +610,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7657"
       }
     ],
     "description": [
@@ -700,7 +707,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7658"
       }
     ],
     "description": [
@@ -792,7 +800,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7656"
       }
     ],
     "description": [
@@ -841,7 +850,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7663"
       }
     ],
     "description": [

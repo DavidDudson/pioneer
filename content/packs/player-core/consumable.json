@@ -139,7 +139,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2709"
       }
     ],
     "description": [
@@ -193,7 +194,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2711"
       }
     ],
     "description": [],
@@ -228,7 +230,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2739"
       }
     ],
     "description": [
@@ -294,7 +297,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2744"
       }
     ],
     "description": [],

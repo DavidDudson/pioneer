@@ -109,7 +109,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8007"
       }
     ],
     "description": [
@@ -928,7 +929,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8006"
       }
     ],
     "description": [

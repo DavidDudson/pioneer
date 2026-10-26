@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3498"
       }
     ],
     "description": [
@@ -133,7 +134,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3499"
       }
     ],
     "description": [
@@ -260,7 +262,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3500"
       }
     ],
     "description": [
@@ -382,7 +385,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3501"
       }
     ],
     "description": [

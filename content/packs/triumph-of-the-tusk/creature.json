@@ -597,7 +597,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "triumph-of-the-tusk"
+        "book": "triumph-of-the-tusk",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3753"
       }
     ],
     "description": [
@@ -3413,7 +3414,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "triumph-of-the-tusk"
+        "book": "triumph-of-the-tusk",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3754"
       }
     ],
     "description": [
@@ -7247,7 +7249,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "triumph-of-the-tusk"
+        "book": "triumph-of-the-tusk",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3755"
       }
     ],
     "description": [
@@ -13828,7 +13831,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "triumph-of-the-tusk"
+        "book": "triumph-of-the-tusk",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3758"
       }
     ],
     "description": [
@@ -14960,7 +14964,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "triumph-of-the-tusk"
+        "book": "triumph-of-the-tusk",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3757"
       }
     ],
     "description": [
@@ -15667,7 +15672,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "triumph-of-the-tusk"
+        "book": "triumph-of-the-tusk",
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3756"
       }
     ],
     "description": [
@@ -18717,7 +18723,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "triumph-of-the-tusk"
+        "book": "triumph-of-the-tusk",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3759"
       }
     ],
     "description": [],
@@ -19835,7 +19842,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "triumph-of-the-tusk"
+        "book": "triumph-of-the-tusk",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3760"
       }
     ],
     "description": [

@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=335"
       }
     ],
     "description": [
@@ -151,7 +152,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=337"
       }
     ],
     "description": [

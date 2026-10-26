@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2534"
       }
     ],
     "description": [
@@ -232,7 +233,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2535"
       }
     ],
     "description": [
@@ -365,7 +367,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2536"
       }
     ],
     "description": [
@@ -475,7 +478,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2533"
       }
     ],
     "description": [

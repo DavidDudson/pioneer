@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=400"
       }
     ],
     "description": [

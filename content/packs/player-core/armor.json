@@ -371,7 +371,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=47"
       }
     ],
     "description": [
@@ -426,7 +427,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=46"
       }
     ],
     "description": [
@@ -473,7 +475,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=43"
       }
     ],
     "description": [
@@ -519,7 +522,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=39"
       }
     ],
     "description": [
@@ -563,7 +567,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=50"
       }
     ],
     "description": [
@@ -627,7 +632,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=49"
       }
     ],
     "description": [
@@ -762,7 +768,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=44"
       }
     ],
     "description": [
@@ -809,7 +816,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=41"
       }
     ],
     "description": [
@@ -890,7 +898,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=40"
       }
     ],
     "description": [
@@ -935,7 +944,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=45"
       }
     ],
     "description": [
@@ -982,7 +992,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=48"
       }
     ],
     "description": [
@@ -1046,7 +1057,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=42"
       }
     ],
     "description": [

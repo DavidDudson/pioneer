@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=20"
       }
     ],
     "description": [
@@ -1017,7 +1018,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=19"
       }
     ],
     "description": [

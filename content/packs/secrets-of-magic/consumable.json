@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1030"
       }
     ],
     "description": [
@@ -88,7 +89,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1033"
       }
     ],
     "description": [

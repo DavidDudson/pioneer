@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=198"
       }
     ],
     "description": [
@@ -69,7 +70,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=197"
       }
     ],
     "description": [

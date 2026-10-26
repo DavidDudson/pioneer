@@ -2734,7 +2734,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3850"
       }
     ],
     "description": [
@@ -29963,7 +29964,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3851"
       }
     ],
     "description": [],

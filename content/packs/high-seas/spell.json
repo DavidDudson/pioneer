@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2621"
       }
     ],
     "description": [
@@ -150,7 +151,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2622"
       }
     ],
     "description": [
@@ -238,7 +240,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2623"
       }
     ],
     "description": [
@@ -355,7 +358,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2624"
       }
     ],
     "description": [
@@ -508,7 +512,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2625"
       }
     ],
     "description": [
@@ -626,7 +631,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2626"
       }
     ],
     "description": [
