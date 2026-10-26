@@ -136,7 +136,7 @@ jobs:
               args: '--projects=tag:platform:web --exclude=character-feature,rules-ui,content-ui,play-ui,frontier,rules-data-access --parallel=2',
             }
           # Generating a character for every class is most of the api's test time (the same run hung until the job
-          # timeout), so it runs in three parts: the generate-* configurations of the api's test target, which name the
+          # timeout), so it runs in four parts: the generate-* configurations of the api's test target, which name the
           # Player Core classes between them. A class added to that test goes in one of them too.
           - { name: server api, id: server-api, args: '--projects=api --configuration=rest' }
           - {
@@ -153,6 +153,11 @@ jobs:
               name: server api characters 3,
               id: server-api-generate-3,
               args: '--projects=api --configuration=generate-3',
+            }
+          - {
+              name: server api characters 4,
+              id: server-api-generate-4,
+              args: '--projects=api --configuration=generate-4',
             }
           - { name: server rest, id: server, args: '--exclude=tag:platform:web,api' }
     services:

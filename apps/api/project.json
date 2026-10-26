@@ -51,13 +51,16 @@
           "command": "bun test apps/api --path-ignore-patterns '**/generate-character.test.ts'"
         },
         "generate-1": {
-          "command": "bun test apps/api/src/generate-character.test.ts --test-name-pattern 'the same seed gives|Alchemist|Barbarian|Bard|Champion'"
+          "command": "bun test apps/api/src/generate-character.test.ts --test-name-pattern 'the same seed gives|Alchemist|Barbarian|Bard'"
         },
         "generate-2": {
-          "command": "bun test apps/api/src/generate-character.test.ts --test-name-pattern 'Cleric|Druid|Fighter|Monk'"
+          "command": "bun test apps/api/src/generate-character.test.ts --test-name-pattern 'Champion|Cleric|Druid|Fighter'"
         },
         "generate-3": {
-          "command": "bun test apps/api/src/generate-character.test.ts --test-name-pattern 'any seed, class|Ranger|Rogue|Sorcerer|Wizard'"
+          "command": "bun test apps/api/src/generate-character.test.ts --test-name-pattern 'Monk|Ranger|Rogue'"
+        },
+        "generate-4": {
+          "command": "bun test apps/api/src/generate-character.test.ts --test-name-pattern 'any seed, class|Sorcerer|Wizard'"
         }
       }
     }
