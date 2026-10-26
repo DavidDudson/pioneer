@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentId, HitPoints, OriginHopKind } from '@pioneer/rules/sdk';
+import { ContentId, ContentText, HitPoints, OriginHopKind, Slug } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import { PLAY_COMMANDS } from './character-command';
@@ -101,7 +101,11 @@ describe('restrictionsInPlay', () => {
 
   test('lists what each environment the character is in forbids, with its id and reason', () => {
     expect(restrictionsInPlay([underwater], content)).toEqual([
-      { environment: underwater, id: 'speech', reason: "You can't speak underwater." },
+      {
+        environment: underwater,
+        id: Slug.parse('speech'),
+        reason: ContentText.parse("You can't speak underwater."),
+      },
     ]);
   });
 
