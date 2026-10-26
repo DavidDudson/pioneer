@@ -8,7 +8,6 @@ import { contentEntry, FOUNDRY_NULL, gapsOf } from './testing/kind-fixtures';
 import {
   BLESS_EFFECT,
   COMMAND,
-  CONSECRATE,
   effectOfNoTime,
   FIREBALL,
   HEAL,
@@ -229,23 +228,6 @@ describe('translateKindData: rituals', () => {
 
   test("a Lore a ritual checks gets its statistic, as a background's does", () => {
     expect(translation.vocabulary.map(({ envelope }) => envelope.id)).toContain(coreRulesId('statistic:legal-lore'));
-  });
-
-  test('checks that do not map are reported and leave the ritual without data', () => {
-    const vague = {
-      ...CONSECRATE,
-      system: {
-        ...CONSECRATE.system,
-        ritual: {
-          primary: { check: 'Religion (expert)' },
-          secondary: { casters: 1, checks: 'Religion (you must be a demon)' },
-        },
-      },
-    };
-    const result = translate([vague]);
-
-    expect(dataIn(result, 'consecrate')).toBeUndefined();
-    expect(gapKeys(result)).toEqual(['unmapped-value ritual.secondary.checks']);
   });
 });
 

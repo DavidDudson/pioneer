@@ -1,0 +1,128 @@
+[
+  {
+    "id": "607cc904-3856-5740-8dfb-000bf40868fc",
+    "pack": "triumph-of-the-tusk",
+    "kind": "ritual",
+    "slug": "ritual:entreat-thunderbird",
+    "name": "Entreat Thunderbird",
+    "level": 5,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You entreat the thunderbird in the Tusk Mountains to come to your aid. While performing this ritual, the secondary casters can appeal to the thunderbird's pride or tempestuous nature to gain a +2 circumstance bonus to their checks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The thunderbird is helpful to the casters for the duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The thunderbird is friendly to the casters for the duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The thunderbird ignores the entreaty and remains indifferent."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The thunderbird takes offense and permanently departs the area."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Do0pe0gn8OFdCOnN"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "month"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incense and offerings worth 300 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:nature", "skill:religion"],
+        "dc": 29
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:diplomacy", "skill:lore:mountain", "skill:nature", "skill:survival"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  }
+]

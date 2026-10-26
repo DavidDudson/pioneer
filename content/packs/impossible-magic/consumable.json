@@ -210,6 +210,9 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "three"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -279,6 +282,9 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "three"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -376,6 +382,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -473,6 +482,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -604,6 +616,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -705,6 +720,9 @@
       "bulk": "negligible",
       "category": "other",
       "uses": 5,
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -807,6 +825,9 @@
       "bulk": "negligible",
       "category": "other",
       "uses": 25,
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1204,6 +1225,7 @@
       },
       "bulk": "light",
       "category": "catalyst",
+      "effect": "f1c1bf86-6e68-5a55-ac10-dc7cb00779ef",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1299,6 +1321,7 @@
       },
       "bulk": "light",
       "category": "catalyst",
+      "effect": "f1c1bf86-6e68-5a55-ac10-dc7cb00779ef",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1883,6 +1906,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -2167,6 +2193,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -2535,6 +2564,9 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "three"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -2838,6 +2870,9 @@
       },
       "bulk": "negligible",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3204,6 +3239,9 @@
       },
       "bulk": "negligible",
       "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -3301,6 +3339,9 @@
       },
       "bulk": "negligible",
       "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -3416,6 +3457,10 @@
       },
       "bulk": "negligible",
       "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "b57454f2-a9b6-5842-a75e-f8727f5909a6",
       "usage": {
         "type": "affixed",
         "to": "armor-or-travelers-clothing"
@@ -3572,6 +3617,9 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "three"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -4080,6 +4128,7 @@
       },
       "bulk": "light",
       "category": "catalyst",
+      "effect": "2d6e8704-044e-5473-8860-501bb2988c12",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4158,6 +4207,7 @@
       },
       "bulk": "light",
       "category": "catalyst",
+      "effect": "2d6e8704-044e-5473-8860-501bb2988c12",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4236,6 +4286,7 @@
       },
       "bulk": "light",
       "category": "catalyst",
+      "effect": "2d6e8704-044e-5473-8860-501bb2988c12",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4482,6 +4533,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -4717,6 +4771,9 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -4786,6 +4843,9 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -4855,6 +4915,9 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -4933,6 +4996,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -5269,6 +5335,9 @@
       },
       "bulk": "negligible",
       "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -5708,6 +5777,10 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "b66ed1fe-1716-5be2-948a-77dfcf40898c",
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -5818,6 +5891,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "b87ef502-a630-5766-81c9-33707db563c9",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -5909,6 +5986,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -6000,6 +6080,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -6091,6 +6174,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -6168,6 +6254,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -6246,6 +6335,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "6eb7e872-2196-59f8-a450-48ebf4c3d232",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -6299,6 +6392,7 @@
       },
       "bulk": "light",
       "category": "potion",
+      "effect": "27912004-f745-5fa8-9364-b5bb8a0d3920",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -6352,6 +6446,7 @@
       },
       "bulk": "light",
       "category": "potion",
+      "effect": "27912004-f745-5fa8-9364-b5bb8a0d3920",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -6518,6 +6613,9 @@
       },
       "bulk": "negligible",
       "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "a-shield"
@@ -6726,6 +6824,9 @@
       },
       "bulk": "negligible",
       "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -6841,6 +6942,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -6956,6 +7060,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -7122,6 +7229,10 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "eef27c3e-aa3b-5e70-884b-db7fc79a8886",
       "usage": {
         "type": "held",
         "hands": "two"
@@ -7479,6 +7590,7 @@
       },
       "bulk": "light",
       "category": "catalyst",
+      "effect": "6eb41471-0c9c-582a-b106-539b7b1e385d",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -8080,6 +8192,10 @@
       },
       "bulk": "negligible",
       "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "9d1bb1d4-8b33-5874-9814-73b7f5212811",
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -8193,6 +8309,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -8262,6 +8381,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -8756,6 +8878,10 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "a782d3e6-5d57-5189-b657-28bc7255ad9d",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -8839,6 +8965,9 @@
       },
       "bulk": "negligible",
       "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -9044,6 +9173,10 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "reaction"
+      },
+      "effect": "fd3d2c1d-7193-5d75-9978-f38bfb2e4e9f",
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -9141,6 +9274,9 @@
       },
       "bulk": "negligible",
       "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"

@@ -150,6 +150,15 @@
       },
       {
         "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "b3c71b46-0e68-5539-9c94-c8999085be0e",
         "predicate": [
           {
@@ -1172,6 +1181,15 @@
       {
         "key": "GrantItem",
         "item": "2ae6e607-5b49-5a8d-aaeb-88ddfcf18a4e",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 13]
@@ -3217,6 +3235,15 @@
       {
         "key": "GrantItem",
         "item": "60a52ad4-ba9d-5f3e-a7fc-c0f5bfadd414",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 13]

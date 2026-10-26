@@ -453,7 +453,8 @@
       "save": "Use a saving throw’s selector, like save:reflex."
     },
     "ritual": {
-      "ranked": "A rank for each skill replaces the one proficiency: name every skill of the check once, and leave proficiency out."
+      "ranked": "A rank for each skill replaces the one proficiency: name every skill of the check once, and leave proficiency out.",
+      "mythic": "A mythic check names no other rank: leave proficiency and ranked out."
     },
     "spell": {
       "castUpTo": "A range of actions runs from fewer to more, like one to three; a reaction or free action has none.",

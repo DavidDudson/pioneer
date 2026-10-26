@@ -20200,8 +20200,8 @@
             "text": "You learn the "
           },
           {
-            "type": "text",
-            "text": "Freedom"
+            "type": "ref",
+            "id": "b2eed0d2-52b6-59e5-ae96-b331bc2a76cf"
           },
           {
             "type": "text",

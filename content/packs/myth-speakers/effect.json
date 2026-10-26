@@ -923,8 +923,8 @@
             "text": "Granted by "
           },
           {
-            "type": "text",
-            "text": "Ash-Strewn Ending"
+            "type": "ref",
+            "id": "7c5c4a97-35f1-5a74-8bab-eebc0c9cd1d6"
           }
         ]
       },
@@ -1152,8 +1152,8 @@
             "text": "Granted by "
           },
           {
-            "type": "text",
-            "text": "Rite of Cleansing Flame"
+            "type": "ref",
+            "id": "a423445c-7852-56be-b8a5-7b43a33eac7f"
           }
         ]
       },
@@ -1217,8 +1217,8 @@
             "text": "Granted by "
           },
           {
-            "type": "text",
-            "text": "Rite of Cleansing Flame"
+            "type": "ref",
+            "id": "a423445c-7852-56be-b8a5-7b43a33eac7f"
           }
         ]
       },

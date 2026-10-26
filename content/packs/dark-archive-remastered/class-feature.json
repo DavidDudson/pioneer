@@ -1301,8 +1301,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Energetic Meltdown"
+            "type": "ref",
+            "id": "a9478002-ca8d-514e-9214-395f185516c7"
           }
         ]
       },
@@ -1444,7 +1444,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "a9478002-ca8d-514e-9214-395f185516c7",
+        "allowDuplicate": false
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.R41sy7weOd0JhOiW"
     },
@@ -1860,8 +1866,8 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Shield"
+                  "type": "ref",
+                  "id": "68daeeb7-849e-58b3-b6ab-988a7d23c747"
                 }
               ]
             }
@@ -2929,7 +2935,15 @@
           },
           {
             "type": "text",
-            "text": " hex, and your familiar learns Mind of Menace."
+            "text": " hex, and your familiar learns "
+          },
+          {
+            "type": "ref",
+            "id": "42a5bea2-feb5-5ca0-a88a-7c72349e16fd"
+          },
+          {
+            "type": "text",
+            "text": "."
           }
         ]
       }
@@ -5476,7 +5490,11 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "6th: Frozen Fog"
+                  "text": "6th: "
+                },
+                {
+                  "type": "ref",
+                  "id": "f6cf5773-52f9-5773-a4a0-e47e03b3d813"
                 }
               ]
             }
@@ -8163,8 +8181,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Encroaching Presence"
+            "type": "ref",
+            "id": "4c9661a3-c6d5-543f-9144-9ef5dd13d60f"
           }
         ]
       },
@@ -8306,7 +8324,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "4c9661a3-c6d5-543f-9144-9ef5dd13d60f",
+        "allowDuplicate": false
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.8Jjy7VsQAJJqCeyE"
     },

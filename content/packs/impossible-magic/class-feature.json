@@ -4090,8 +4090,8 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Aloof Firmament"
+                  "type": "ref",
+                  "id": "32414127-6014-5107-96b9-cb43d601bdca"
                 }
               ]
             }
@@ -4156,8 +4156,8 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Unfurling Brocade"
+                  "type": "ref",
+                  "id": "fa80ec30-f4a4-5a45-907d-6b80422c2ff1"
                 }
               ]
             }
@@ -4167,8 +4167,8 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Resurgent Maelstrom"
+                  "type": "ref",
+                  "id": "239da238-f88b-5d6c-b820-f554aa594269"
                 }
               ]
             }
@@ -5839,6 +5839,10 @@
         "key": "Proficiency",
         "selector": "skill:survival",
         "rank": "trained"
+      },
+      {
+        "key": "Language",
+        "grant": ["f6a1c7b4-1f8f-516e-ac51-c5582b80d463"]
       }
     ],
     "externalIds": {
@@ -7629,7 +7633,19 @@
                 },
                 {
                   "type": "text",
-                  "text": ": Phase Bolt, Warp Step"
+                  "text": ": "
+                },
+                {
+                  "type": "ref",
+                  "id": "f7179b2f-5ab4-5bf5-aadc-b69b1c8d762f"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "46614709-2c6f-5766-8466-6bfaf222442b"
                 }
               ]
             }

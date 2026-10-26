@@ -5739,8 +5739,8 @@
             "text": "If you die for any reason, you transform into a magical font attached to an allied creature of your choice within 1 mile. This creature gains knowledge of the "
           },
           {
-            "type": "text",
-            "text": "Embodied Font"
+            "type": "ref",
+            "id": "f38a448b-7e34-541e-a702-7e30f1412492"
           },
           {
             "type": "text",

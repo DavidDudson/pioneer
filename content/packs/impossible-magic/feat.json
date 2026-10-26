@@ -10166,7 +10166,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Your eidolon grabs enemies. Choose one of the eidolon's unarmed attacks with the grapple trait. Your eidolon gains the Grab action on that unarmed attack."
+            "text": "Your eidolon grabs enemies. Choose one of the eidolon's unarmed attacks with the grapple trait. Your eidolon gains the "
+          },
+          {
+            "type": "ref",
+            "id": "ae260fde-4929-5254-a10c-a5b9eddc2f4a"
+          },
+          {
+            "type": "text",
+            "text": " action on that unarmed attack."
           }
         ]
       }
@@ -23799,7 +23807,23 @@
         "content": [
           {
             "type": "text",
-            "text": "Your eidolon gains Tremorsense as an imprecise sense with a range of 30 feet. If aquatic, it gains Wavesense as an imprecise sense with a range of 30 feet instead. If amphibious, it gains both."
+            "text": "Your eidolon gains "
+          },
+          {
+            "type": "ref",
+            "id": "23b5dc49-5fb7-5959-b7d1-d1a9d57e6a10"
+          },
+          {
+            "type": "text",
+            "text": " as an imprecise sense with a range of 30 feet. If aquatic, it gains "
+          },
+          {
+            "type": "ref",
+            "id": "83e2894e-36fd-51ce-8b00-eb65515f3926"
+          },
+          {
+            "type": "text",
+            "text": " as an imprecise sense with a range of 30 feet instead. If amphibious, it gains both."
           }
         ]
       }
@@ -24219,7 +24243,23 @@
         "content": [
           {
             "type": "text",
-            "text": "Your eidolon hurls enemies to the ground or across the battlefield. Choose one of the eidolon's unarmed attacks that has the shove or trip trait. The attack gains the other trait as well, and your eidolon gains the Knockdown and Push actions for that attack."
+            "text": "Your eidolon hurls enemies to the ground or across the battlefield. Choose one of the eidolon's unarmed attacks that has the shove or trip trait. The attack gains the other trait as well, and your eidolon gains the "
+          },
+          {
+            "type": "ref",
+            "id": "3a2e5f05-7be1-5d4c-bb61-6bd53970fefe"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5e41a046-b596-58c3-9259-0d67db5e73e1"
+          },
+          {
+            "type": "text",
+            "text": " actions for that attack."
           }
         ]
       }

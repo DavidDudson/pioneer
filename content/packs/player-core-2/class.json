@@ -127,6 +127,15 @@
       },
       {
         "key": "GrantItem",
+        "item": "ba805be4-5be4-569a-9f7b-6f7def5b7fca",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "094fc0e4-f1e9-53a4-b6c3-20ffe90d5c06",
         "predicate": [
           {
@@ -144,9 +153,8 @@
         ]
       },
       {
-        "key": "Proficiency",
-        "selector": "perception",
-        "rank": "expert",
+        "key": "GrantItem",
+        "item": "b07b7021-935f-574b-afc3-b60aa0eebfdd",
         "predicate": [
           {
             "gte": ["self:level", 9]
@@ -183,6 +191,15 @@
       {
         "key": "GrantItem",
         "item": "75ad50e6-33e7-5e7f-a46b-6fbeddffe3e0",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 13]
@@ -1144,6 +1161,15 @@
       {
         "key": "GrantItem",
         "item": "ef512500-0ff3-5c27-85f4-c2328b3a2c7a",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 7]
@@ -2191,6 +2217,15 @@
       },
       {
         "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "309fc5cf-4cf6-5298-b692-6d93ccec7132",
         "predicate": [
           {
@@ -2244,9 +2279,8 @@
         ]
       },
       {
-        "key": "Proficiency",
-        "selector": "perception",
-        "rank": "expert",
+        "key": "GrantItem",
+        "item": "b07b7021-935f-574b-afc3-b60aa0eebfdd",
         "predicate": [
           {
             "gte": ["self:level", 11]
@@ -3226,6 +3260,15 @@
       {
         "key": "GrantItem",
         "item": "2cb487a6-08e7-51fc-8dcc-4e29ff632745",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 7]
@@ -4504,9 +4547,8 @@
         ]
       },
       {
-        "key": "Proficiency",
-        "selector": "perception",
-        "rank": "expert",
+        "key": "GrantItem",
+        "item": "b07b7021-935f-574b-afc3-b60aa0eebfdd",
         "predicate": [
           {
             "gte": ["self:level", 5]
@@ -4516,6 +4558,15 @@
       {
         "key": "GrantItem",
         "item": "abddbe82-6e56-578f-ac42-2bee968ceeb5",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 7]
@@ -5597,6 +5648,15 @@
       },
       {
         "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "cf49b5b0-1f58-57cc-a8c2-e2a23e384915",
         "predicate": [
           {
@@ -6540,9 +6600,8 @@
         ]
       },
       {
-        "key": "Proficiency",
-        "selector": "perception",
-        "rank": "expert",
+        "key": "GrantItem",
+        "item": "b07b7021-935f-574b-afc3-b60aa0eebfdd",
         "predicate": [
           {
             "gte": ["self:level", 11]
@@ -6561,6 +6620,15 @@
       {
         "key": "GrantItem",
         "item": "a8282014-e198-5b6c-af1f-3c6a24bd30e9",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 13]
@@ -7524,6 +7592,15 @@
       {
         "key": "GrantItem",
         "item": "3331b001-c794-567e-a6b8-00eb89cccaaa",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 7]

@@ -80,6 +80,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -240,6 +243,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -332,6 +338,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -538,6 +547,9 @@
       },
       "bulk": 1,
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -701,6 +713,9 @@
     "data": {
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -793,6 +808,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1001,6 +1019,9 @@
     "data": {
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1155,6 +1176,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1342,6 +1366,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "cb79f2a3-20ad-5061-8353-bdda1a3e0113",
       "usage": {
         "type": "held",
         "hands": "one"

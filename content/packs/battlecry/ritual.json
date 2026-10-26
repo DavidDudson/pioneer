@@ -1,5 +1,156 @@
 [
   {
+    "id": "1aa02635-7e6f-527d-9fab-9224a0537d30",
+    "pack": "battlecry",
+    "kind": "ritual",
+    "slug": "ritual:antimagic-artifice",
+    "name": "Antimagic Artifice",
+    "level": 9,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You anoint a seemingly harmless item with the power to disrupt magic. As part of performing this ritual, you set a trigger for when the target object activates. The object remains enchanted for 1 week or until it's activated, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 10 minutes after the object is activated, magic is suppressed within an emanation centered on the object. Spells can't penetrate the area, magic items cease to function within it, and no one inside can cast spells or use magic abilities. Likewise, spells—such as dispel magic—can't affect the emanation unless they're of a higher rank than the ritual. Magic effects resume the moment they pass outside the emanation. For example, a caster outside of the emanation could target a fireball on a spot on the other side of the emanation, even if the line of effect passes through the emanation. A summoned creature winks out of existence if it enters the emanation but reappears if the emanation ends. Invested magic items cease to function, but they remain invested and resume functioning when they exit the emanation; the attribute boost from an apex item isn't suppressed within the field. Spells of a higher rank than antimagic artifice overcome its effects and can even be cast by a creature within the field."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The emanation disrupts only magic, so a +3 longsword still functions as a longsword. Magically created creatures (such as constructs with the magical trait) function normally within the emanation."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When triggered, the antimagic emanation has a radius of 100 feet. The ritual casters are unaffected by the emanation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When triggered, the antimagic emanation has a radius of 50 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The magic of the ritual backfires, scrambling the casters' minds. Each caster is "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 4"
+          },
+          {
+            "type": "text",
+            "text": ". The value of this condition is reduced by 1 for each day that passes, and it can't be removed or reduced by any other means."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.LmtwcpYmrJfhGIZY"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "reagents and oils worth a total value of 4,500 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "text": "Arcana, Nature, Occultism, or Religion (whichever is used for the primary check) and Warfare Lore"
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
     "id": "0993de64-4f68-537f-bb33-e8b611bacf80",
     "pack": "battlecry",
     "kind": "ritual",
@@ -470,6 +621,149 @@
           }
         ],
         "casters": 3
+      }
+    }
+  },
+  {
+    "id": "4b49031c-108e-59d1-82ae-12457789d855",
+    "pack": "battlecry",
+    "kind": "ritual",
+    "slug": "ritual:oil-slicked-walls",
+    "name": "Oil-Slicked Walls",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The outer walls are a city's first defense against invaders, and you want to make certain no attackers can climb over them. Upon successful completion of this ritual, the surfaces of a settlement's walls within the area are covered with a thin, slippery sheen that can't be washed away."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The oil covering the walls also coats any climber's hands. The DC for Athletics checks to Climb the affected walls increases by 10, and a creature who fails a check to climb also drops anything they are carrying."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The DC for Athletics checks to Climb the affected walls increases by 5."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Phantom oil constantly pools around your feet during times of stress. For 1 week, the first time each encounter that a primary or secondary caster takes an action to move, they must attempt a Reflex save or Acrobatics check to "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": " against the ritual's casting DC or fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". A caster can Step or "
+          },
+          {
+            "type": "ref",
+            "id": "fe112db5-30e6-5a96-94a1-2356a4820452"
+          },
+          {
+            "type": "text",
+            "text": " without having to attempt a check or save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.bOf5WuLh6ZJloi7F"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 36960
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "primary": {
+        "skills": ["skill:lore:warfare"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore:architecture", "skill:crafting"]
+          }
+        ],
+        "casters": 1
       }
     }
   },

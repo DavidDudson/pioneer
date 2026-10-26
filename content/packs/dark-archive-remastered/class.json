@@ -165,6 +165,15 @@
       },
       {
         "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "d502100a-2b37-5ef9-b75d-c7ed4ed7e776",
         "predicate": [
           {

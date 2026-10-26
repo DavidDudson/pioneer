@@ -142,6 +142,163 @@
     }
   },
   {
+    "id": "bdf4262d-2213-5427-849b-081323a09fec",
+    "pack": "season-of-ghosts",
+    "kind": "ritual",
+    "slug": "ritual:gnaw-at-the-moon",
+    "name": "Gnaw at the Moon",
+    "level": 2,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It's said that after his demise at the hands of jealous Fumeiyoshi, Tsukiyo's corpse was left unguarded; this provided a humble matron-rat opportunities to nibble at god flesh, a meal that transformed her into Lao Shu Po. Gnaw at the moon, an obscure folk magic ritual popular among Shenmen's downtrodden, allows you to honor the Old Rat Woman's audacity and unlikely ascent."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ritual can only be performed on a night when the moon is visible in the sky above; you can't perform this ritual during a totally moonless night, while indoors, or while underground. Performing this ritual on the night of the full moon reduces the DCs of the ritual's skill checks by 2. You set out offerings of mooncakes and cups of tea on a flat surface (such as a table or a tray on the floor), assiduously ignore this food and drink, and praise the night's beauty while admiring and thanking the moon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At the end of a successful ritual, bite marks appear on the mooncakes, and some of the tea disappears as if sipped while no one was looking. Supposedly, the ritual and offerings gain Lao Shu Po's attention, who sends her rodent children to eat and drink their fill and grant stolen blessings of moonlit sight. The effusive admiration for the moon is said to avert Tsukiyo's displeasure for commemorating the event of his murder; after all, old tales warn against giving offense to the moon, lest it slice your ears in retribution."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The targets gain darkvision."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The targets gain low-light vision."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You and the targets are "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " for 24 hours. Your ears feel lacerated and raw as your earlobes become crisscrossed with tiny cuts."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.yrsgOdj5oqp7lEQY"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "mooncakes and rare tea worth 100 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:diplomacy"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting", "skill:occultism", "skill:religion"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
     "id": "8b71fe48-f2b6-5edf-9eca-6129e0d511dc",
     "pack": "season-of-ghosts",
     "kind": "ritual",
@@ -329,6 +486,645 @@
     }
   },
   {
+    "id": "6b183d72-9d89-503a-b503-8f065c5bda35",
+    "pack": "season-of-ghosts",
+    "kind": "ritual",
+    "slug": "ritual:mindscape-shift",
+    "name": "Mindscape Shift",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.VJgSQBYwXGDbMmiW"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "focusing diagrams and incense worth 28 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism", "skill:lore:willowshore"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "text": "Arcana, Deception, Diplomacy, Occultism, Perception, or Willowshore Lore"
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "a16956c7-3a6d-53c8-9603-46b43568d9ac",
+    "pack": "season-of-ghosts",
+    "kind": "ritual",
+    "slug": "ritual:open-the-wall-of-ghosts",
+    "name": "Open the Wall of Ghosts",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["consecration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.PvkEzzCaDT07DcJb"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 40
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "year"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rice grains and incense worth 60 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism", "skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:deception", "skill:diplomacy", "skill:intimidation"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "e11a6e82-b69f-5ef5-a685-dd90f13fdffe",
+    "pack": "season-of-ghosts",
+    "kind": "ritual",
+    "slug": "ritual:ransack-the-night",
+    "name": "Ransack the Night",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["darkness"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When Fumeiyoshi was punished by the Celestial Court for deicide and fratricide, the rat who would become Lao Shu Po robbed the cangue-bound Fumeiyoshi of a sizable chunk of his shadow. This fully catalyzed the rat's transformation into Lao Shu Po, the new Tian goddess of night. "
+          },
+          {
+            "type": "text",
+            "text": "Ransack the night",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a Laoite ritual allowing you to mimic this divine thievery and shroud yourself in the night's cerements."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ritual can only be performed at night. You dig narrow troughs into the dirt and toss blessed salt as well as the juice of citrus fruits into these gashes in the ground. Performing this ritual in an area actively haunted by undead or frequented by fiends reduces the DCs of the ritual's skill checks by 2. If the ritual is successful, a smoky black miasma, said to be the blood and tears of Fumeiyoshi himself, emerges from the broken earth to augment and enhance your spiritual aura, helping you to remain undetected by fiends and undead."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Fiends and undead who are 5th level or lower treat you as if you were "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ". If you take a hostile action against a fiend or undead, you lose this concealment against that fiend or undead until the end of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but when you lose concealment against a fiend or undead, you don't regain concealment from this ritual against that fiend or undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The miasma occludes your senses instead; for 24 hours, the targets treat fiends and undead as if they were concealed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the level of affected creatures by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ksJFGSGlNpUhwcsp"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "duration": {
+        "type": "time",
+        "count": 12,
+        "unit": "hour"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "blessed salt, citrus fruits (such as yuzu or limes), and rare spices worth 25 gp × the spell rank"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:arcana", "skill:intimidation", "skill:occultism"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "bd646ef8-568a-500a-bc48-377e808e5191",
+    "pack": "season-of-ghosts",
+    "kind": "ritual",
+    "slug": "ritual:regale-the-lost-ones",
+    "name": "Regale the Lost Ones",
+    "level": 2,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Autumn's shorter days herald an increase in hauntings, which only intensify during winter's cold, dark nights. As fall draws to a close, some of Shenmen's villages hire or set up Tian opera troupes to enact "
+          },
+          {
+            "type": "text",
+            "text": "regale the lost ones",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rituals, where they perform dramas drawn from literary classics and historical events that incorporate acting, music, acrobatics, and martial arts."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These ritual performances fulfill a dual purpose; not only do they bring cheer to the living, but they also entertain and placate the \"lost ones\"—a euphemism for ghosts and other spirits—and seek to reduce the likelihood of attacks from such entities. Performing this ritual during the season of fall reduces the DCs of the ritual's skill checks by 2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the ritual is successful, sentient undead and other spirits become less hostile, allowing villagers to focus their efforts on dealing with mindless undead and other more physical threats. This ritual can only be attempted once per year per settlement; additional attempts to "
+          },
+          {
+            "type": "text",
+            "text": "regale the lost ones",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in the same settlement automatically result in a critical failure."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Haunts and undead in the settlement that are level 3 or lower become easier to defeat. Reduce all Disable DCs for affected haunts in the settlement by 2, and all affected undead within the settlement begin combat "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": ". If the PCs perform this ritual during Act 2 or Act 3, they gain 3 Hope Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Haunts in the settlement that are level 3 or lower become easier to notice and defeat. Reduce all Disable DCs for affected haunts in the settlement by 1. If the PCs perform this ritual during Act 2 or Act 3, they gain 1 Hope Point."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Haunts and undead in the settlement that are level 3 or lower become more difficult to notice and defeat. Increase all Disable DCs for affected haunts in the settlement by 2, and all affected undead within the settlement gain the elite adjustment. If the PCs perform this ritual during Act 2 or Act 3, they lose 3 Hope Points."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the level of affected haunts and undead by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.FQZaQXiKtHdVjSc5"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 4,
+        "unit": "hour"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "year"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "fees for opera actors, their meals, facial paint, costumes, incense, and offerings of alcohol, tobacco, and food for the lost ones with a total value of 2 gp × the spell rank × the settlement's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:performance"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:acrobatics", "skill:occultism", "skill:religion"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "041929f8-ee78-51a1-8eef-2bb6e8c63ace",
+    "pack": "season-of-ghosts",
+    "kind": "ritual",
+    "slug": "ritual:sweetest-solstice",
+    "name": "Sweetest Solstice",
+    "level": 2,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On long winter nights, many families in Tian Xia share a dish of glutinous rice balls. Wealthier families also dye these rice balls an auspicious pinkish-red in jujube juice and might serve or stuff them with expensive sweetened pastes of red beans, sesame, taro, or lotus. Sweetest solstice is a folk ritual that incorporates this tradition and allows entire villages to experience communal goodwill by celebrating a luxurious version of this dish together."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ritual is performed over 1 hour of cooking a soup of crushed black sesame and sugar in several large cauldrons while good-natured jokes and puns praising Daikitsu, Kofusachi, and other benevolent deities are uttered; quips inspired by Hei Feng and Sun Wukong are usually included in these jovialities, for these rambunctious deities are always ready for feasts and humor. Each time a joke or pun is made, a rice ball is dropped into the boiling soups."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ritual can only be performed once each winter season. If performed on the night of the winter solstice, the DCs of the ritual's skill checks are reduced by 2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the ritual is successful, the delicious black sesame soup, like the longest of nights, seems never-ending and even hides windfalls of chewy sweetness. Sometimes, this small mercy of hot meals, and the hope for pleasant surprises to come, is all a community needs to endure the bleakest of winters together."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "14d45d5e-82a0-5a04-972e-6630f2fbdfa3"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The pot contains enough black sesame soup and rice balls to feed a hot meal to everyone in the settlement for a month. The casters of the ritual gain a +1 status bonus to saves against emotion and fear effects until the end of winter."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The pot contains enough black sesame soup and rice balls to feed a hot meal to everyone in the settlement for a week. The casters of the ritual gain a +1 status bonus to saves against fear effects for 1 month or until the end of winter, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The soup becomes tainted; it not only provides no nourishment but spreads food poisoning through the town (this might have disastrous effects). The casters of the ritual become particularly affected by illness and become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 4"
+          },
+          {
+            "type": "text",
+            "text": " and can't reduce the condition for 12 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.wAJ8mXPYbyAg0qWX"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "sesame paste, sugar, rice balls, food dye, cooking pots, and utensils with a total value of 2 gp × the spell rank × the settlement's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:lore:cooking"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:diplomacy", "skill:performance", "skill:religion"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
     "id": "1ebf061f-75fa-59a2-aa4e-938ff4064d6b",
     "pack": "season-of-ghosts",
     "kind": "ritual",
@@ -381,16 +1177,7 @@
       "secondary": {
         "checks": [
           {
-            "skills": ["skill:crafting"]
-          },
-          {
-            "skills": ["skill:nature"]
-          },
-          {
-            "skills": ["skill:society"]
-          },
-          {
-            "skills": ["skill:lore:or-willowshore"]
+            "skills": ["skill:crafting", "skill:nature", "skill:society", "skill:lore:willowshore"]
           }
         ],
         "casters": 2

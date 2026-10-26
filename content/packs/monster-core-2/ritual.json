@@ -1,5 +1,121 @@
 [
   {
+    "id": "5d7ca217-4944-5070-8677-9109fc00b3e6",
+    "pack": "monster-core-2",
+    "kind": "ritual",
+    "slug": "ritual:div-pact",
+    "name": "Div Pact",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon the powers of Abaddon to grant you the assistance of a div. You call upon a div whose level can be no more than double "
+          },
+          {
+            "type": "text",
+            "text": "div pact",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s spell rank, two divs whose levels are each at least 2 less than double the spell rank, or three divs whose levels are each at least 3 less than double the spell rank."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You conjure the div or divs, and they require nothing in return for their service."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You conjure the div or divs. They are not eager to pursue the task, so they require a favor in return."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " you don't conjure any divs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't conjure any divs, and they send a spiritual backlash that denies your use of any of your innate divine spells for 24 hours. If you are under the effect of any of your innate divine spells, the durations end."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.D8cWhrzcsd43OlIX"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "primary": {
+        "skills": ["skill:religion"],
+        "proficiency": "expert",
+        "note": "you must be a div"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
     "id": "32669a2d-a2e7-500a-8f72-b956e9685ea6",
     "pack": "monster-core-2",
     "kind": "ritual",

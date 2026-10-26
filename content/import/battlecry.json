@@ -1162,6 +1162,2590 @@
     {
       "type": "entry",
       "pack": "battlecry",
+      "slug": "creature:angelic-chorus",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.p8sGnipPHZuoyg9F",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 210 (4 segments); Thresholds 140 (3 segments), 70 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "unholy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:animated-army",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.HIwXNbXV2sfSiYf4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 120 (4 segments); Thresholds 80 (3 segments), 40 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:apprentice-magician-clique",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.tKPZ1iDZukJDvzAK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); 75 (4 segments); Thresholds 50 (3 segments), 25 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "spell-attack-roll",
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:arboreal-copse",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.yHSlSwhlmgTZYNWs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); 150 (4 segments); Thresholds 100 (3 segments), 50 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:archer-regiment",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.pC4qg7AarAty1K7K",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 140 (3 segments), 70 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "change-formation:loose",
+              {
+                "or": ["item:slug:rain-of-arrows", "item:slug:dagger-defense"]
+              }
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.ChangeFormation.Loose.Drawback"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Weakness",
+          "raw": {
+            "key": "Weakness",
+            "mode": "remove",
+            "predicate": ["change-formation:loose"],
+            "type": ["area-damage", "splash-damage"],
+            "value": 0
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:archon-bastion",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.JhyjcHNsKBATE127",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 200 (3 segments), 100 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "unholy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:boggard-dreadknot",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.1erSkftJQkpxYziy",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 120 (3 segments), 60 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:boggard-scouting-party",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.5JQ5nf7LZt05EYiF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.morningstarMassacre}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:charau-ka-shrieker-crew",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.9wgj9Jiej236yjBW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "135 (4 segments); Thresholds 90 (3 segments), 45 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:clockwork-infantry",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.DFKYnBWjZ1i9Lssz",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 130 (3 segments), 65 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage", "reactive-sweep-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.halberdSweep}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "orichalcum"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:clockwork-runner-pack",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.BYh3tkAX9SgGFuXD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 50 (3 segments), 25 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": " troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage", "war-pounce-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.scratchBites}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "orichalcum"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:deinonychus-pack",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.NnnOp57rszKD3lBn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 80 (3 segments), 40 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["damage:type:piercing"],
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.jawsClaws}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:dezullon-thicket",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.mKQXrEpheSCjgJt8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 180 (3 segments), 90 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "acid-rain-inline-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["mass-improved-grab"],
+            "selector": "thrashing-vines-inline-damage",
+            "text": "{item|description}",
+            "title": "{item|name} <span class='pf2-icon'>F</span>",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:drake-flight",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.2CfSF5X4YlLPNKgh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments), Thresholds 160 (3 segments), 80 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.draconicOnslaught}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.drakeBreath}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.drakeBreath}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:dromaar-company",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.R1Ukw41ygDmnAmJk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["target:condition:prone"],
+            "selector": "{item|id}-inline-damage",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:druid-circle",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.V2vFgzymDp2wKRwh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 140 (3 segments), 70 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.sickleStaff}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": [
+                  {
+                    "and": [
+                      "item:area:type:burst",
+                      {
+                        "gte": ["item:area:size", 10]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      {
+                        "or": ["item:area:type:cone", "item:area:type:line"]
+                      },
+                      {
+                        "lte": ["item:area:size", 15]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "property": "area-size",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": ["item:area:type:line", "item:area:type:cone"]
+              },
+              {
+                "gt": ["item:area:size", 15]
+              }
+            ],
+            "priority": 119,
+            "property": "area-size",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:dwarf-longshot-squad",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.6miTTZwtCs2ouJbv",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 120 (3 segments), 60 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:dwarf-longshot-squad-guns",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.zy9mm8SibtzghVUP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 120 (3 segments), 60 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.bulletsBlue}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:first-class-infantry",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.7IqiSn10q9ctmzys",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:fleshwarp-amalgam",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.xEWRFIUNr52EmwVM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 90 (3 segments), 45 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(cant speak any language)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage", "brutal-retaliation-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.frenzyFleshwarp}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:gargoyle-wing",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.6Nk6zk1seqFRQvl1",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 100 (3 segments), 50 (2 segments"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:giant-ant-army",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.pY9fEPDxG925iivp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 80 (3 segments), 40 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "overwhelm-inline-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["grasping-mandibles"],
+            "selector": "mandible-frenzy-inline-damage",
+            "text": "{item|description}",
+            "title": "{item|name} <span class=\"pf2-icon\">1</span>",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:gnome-cannon-corps",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.C3WZzBOvaQ5LrlZ9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 80 (3 segments), 40 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:goblin-rabble",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.IWVQdIhXQTmfaQqB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 40 (3 segments), 20 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:halfling-lucky-draw",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.K6PtvumX6CbtYaQg",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 90 (3 segments), 45 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.falseCuts}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["spellcasting:occult"],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:hell-hound-pack",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.V5CA1bTBMJikCCP6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 90 (3 segments), 45 (2 segments"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(cant speak any language)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:hobgoblin-veteran-regiment",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.Td5jgGuZvNBVQngE",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 100 (3 segments), 50 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.offGuardable",
+            "value": "@actor.level"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:kobold-trap-squad",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.X5UZZ6b6sq5JVJN9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 40 (3 segments), 20 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:leukodaemon-plague",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.jibQ9pSTYlWKkJ7z",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 170 (3 segments), 85 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "plaguesense (imprecise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "all",
+                "events": ["enter"],
+                "includesSelf": false,
+                "predicate": ["target:creature"],
+                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Infectious Aura"
+              }
+            ],
+            "key": "Aura",
+            "radius": 30,
+            "slug": "infectious-aura",
+            "traits": ["disease"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "infected-jaws-and-claws-inline-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["damage:type:untyped"],
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.infectedJawsClaws}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:lich-legion",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.wJYqPXEhWy5kBZ7D",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 220 (3 segments), 110 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exception": "magical bludgeoning",
+            "key": "Resistance",
+            "type": "physical",
+            "value": 15
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": ["item:magical", "damage:type:bludgeoning"],
+                "label": "PF2E.IWR.Custom.MagicalBludgeoning"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 15
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": [
+                  {
+                    "and": [
+                      "item:area:type:burst",
+                      {
+                        "gte": ["item:area:size", 10]
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      {
+                        "or": ["item:area:type:cone", "item:area:type:line"]
+                      },
+                      {
+                        "lte": ["item:area:size", 15]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "property": "area-size",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": ["item:area:type:line", "item:area:type:cone"]
+              },
+              {
+                "gt": ["item:area:size", 15]
+              }
+            ],
+            "priority": 119,
+            "property": "area-size",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:mitflit-vermin-cavalry",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.4Bvb7rVBB5gg7a2N",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments), Thresholds 40 (3 segments), 20 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:monk-cadre",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.bBCYy91DecP2Y8Ax",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 180 (3 segments), 90 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:ofalth-stampede",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.AHV0FTrbuPljLndw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments), filth wallow; Thresholds 180 (3 segments), 90 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "offal-rain-inline-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:omox-slime-pool",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.JLIdUna25mDtAdLM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "4 segments); Thresholds 210 (3 segments), 105 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:orc-raiding-party",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.pC7oMxW93OArImq9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 50 (3 segments), 25 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.trigger",
+          "raw": "Ferocious Fall"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:protean-tumult",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.byWkcSBvfm4n7I3m",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 140 (3 segments), 70 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement, unfettered movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "entropy sense (imprecise) 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Spell Effect: Unfettered Movement (Constant)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "flags.system.proteanResistance",
+            "value": 12
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage", "chaos-flux-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.clawsJawsTails}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "protean-anatomy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:qadiran-camel-corps",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.egHaHp1lqQBZdKdR",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:ratfolk-shank-squad",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.2TE622Pc0ExYZ5dS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 80 (3 segments), 40 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:redcap-brigade",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.7w3C4nT9N2JFG5wd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 110 (3 segments), 55 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:scamp-avalanche",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.p1cVQgdWgs1PhbE3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "smoke vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "details": "PF2E.NPCAbility.Scamp.FastHealing.EarthLabel",
+            "key": "FastHealing",
+            "predicate": ["fast-healing"],
+            "value": 6
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:scamp-flood",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.dT4s7xHwlgYPGF1A",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "details": "PF2E.NPCAbility.Scamp.FastHealing.WaterLabel",
+            "key": "FastHealing",
+            "predicate": ["fast-healing"],
+            "value": 6
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:scamp-inferno",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.iHAHQbGNUNUH51Zs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "smoke vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "details": "PF2E.NPCAbility.Scamp.FastHealing.FireLabel",
+            "key": "FastHealing",
+            "predicate": ["fast-healing"],
+            "value": 6
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:scamp-shrapnel",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.GUDm1E3RASr6HacV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "details": "PF2E.NPCAbility.Scamp.FastHealing.MetalLabel",
+            "key": "FastHealing",
+            "predicate": ["fast-healing"],
+            "value": 6
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:scamp-tangle",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.H3n8i6sZuvUh1nJh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "details": "PF2E.NPCAbility.Scamp.FastHealing.WoodLabel",
+            "key": "FastHealing",
+            "predicate": ["fast-healing"],
+            "value": 6
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:scamp-whirlwind",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.8qmpOMgtd8gdC94B",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "fog vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "details": "PF2E.NPCAbility.Scamp.FastHealing.AirLabel",
+            "key": "FastHealing",
+            "predicate": ["fast-healing"],
+            "value": 6
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:sinswarm",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.DZiYwwjNKlAlyNU2",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 100 (3 segments), 50 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "sin scent (imprecise) 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["damage:type:piercing"],
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.sinfulAssault}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["sinful-bite"],
+            "selector": "sinful-assault-inline-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:skeleton-mob",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.qjCFbg7IB5NDbMOW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 160 (3 segments), 80 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["damage:type:piercing"],
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.rattlingBones}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:vanth-guardian-flock",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.3om22P58nZSuqNrv",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 160 (3 segments), 80 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["damage:type:untyped"],
+            "property": "damage-type",
+            "selectors": ["harvest-the-wicked-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.shepherdsTouch}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:viking-guard",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.8GzKWLw4LjZUoozH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Thresholds 130 (3 segments), 65 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:vordine-legion",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.rdS6HBEtST3WKnSA",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 120 (3 segments), 60 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:wight-battalion",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.qSlw0pWIgYnRr58I",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 100 (3 segments), 50 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "inline-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:wolf-pack",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.imbJcEAt1tVfQ3CO",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:xulgath-army",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.XZcLHaZP7yt2XU8Q",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 66 (3 segments), 33 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:xulgath-dinosaur-cavalry",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.MvWzD22qi92ZF6q0",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 160 (3 segments), 80 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
+      "slug": "creature:zecui-horde",
+      "foundry": "Compendium.pf2e.battlecry-bestiary.Actor.ZV0sTglav4pah5iu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "Thresholds 130 (3 segments), 65 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "battlecry",
       "slug": "effect:effect-aldori-swordlord-temporary-hit-points",
       "foundry": "Compendium.pf2e.feat-effects.Item.eJyyBqrXLOE4R9JI",
       "gaps": [
@@ -8579,10 +11163,6 @@
       "pack": "battlecry",
       "slug": "ritual:antimagic-artifice",
       "foundry": "Compendium.pf2e.spells-srd.Item.LmtwcpYmrJfhGIZY",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
@@ -8598,69 +11178,8 @@
             "value": "1 week (see text)",
             "sustained": false
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Arcana, Nature, Occultism, or Religion (whichever is used for the primary check) and Warfare Lore"
         }
-      ],
-      "document": {
-        "_id": "LmtwcpYmrJfhGIZY",
-        "name": "Antimagic Artifice",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Battlecry!",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 9
-          },
-          "traits": {
-            "value": [],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You anoint a seemingly harmless item with the power to disrupt magic. As part of performing this ritual, you set a trigger for when the target object activates. The object remains enchanted for 1 week or until it's activated, whichever comes first.</p>\n<p>For 10 minutes after the object is activated, magic is suppressed within an emanation centered on the object. Spells can't penetrate the area, magic items cease to function within it, and no one inside can cast spells or use magic abilities. Likewise, spells—such as dispel magic—can't affect the emanation unless they're of a higher rank than the ritual. Magic effects resume the moment they pass outside the emanation. For example, a caster outside of the emanation could target a fireball on a spot on the other side of the emanation, even if the line of effect passes through the emanation. A summoned creature winks out of existence if it enters the emanation but reappears if the emanation ends. Invested magic items cease to function, but they remain invested and resume functioning when they exit the emanation; the attribute boost from an apex item isn't suppressed within the field. Spells of a higher rank than antimagic artifice overcome its effects and can even be cast by a creature within the field.</p>\n<p>The emanation disrupts only magic, so a +3 longsword still functions as a longsword. Magically created creatures (such as constructs with the magical trait) function normally within the emanation.</p><hr /><p><strong>Critical Success</strong> When triggered, the antimagic emanation has a radius of 100 feet. The ritual casters are unaffected by the emanation.</p>\n<p><strong>Success</strong> When triggered, the antimagic emanation has a radius of 50 feet.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> The magic of the ritual backfires, scrambling the casters' minds. Each caster is @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 4}. The value of this condition is reduced by 1 for each day that passes, and it can't be removed or reduced by any other means.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "reagents and oils worth a total value of 4,500 gp"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "1 week (see text)"
-          },
-          "range": {
-            "value": "touch"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Arcana (master), Nature (master), Occultism (master), or Religion (master)"
-            },
-            "secondary": {
-              "casters": 2,
-              "checks": "Arcana, Nature, Occultism, or Religion (whichever is used for the primary check) and Warfare Lore"
-            }
-          },
-          "target": {
-            "value": "one inanimate object of 1 Bulk or less"
-          },
-          "time": {
-            "value": "1 day"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
@@ -8695,110 +11214,14 @@
       "pack": "battlecry",
       "slug": "ritual:oil-slicked-walls",
       "foundry": "Compendium.pf2e.spells-srd.Item.bOf5WuLh6ZJloi7F",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "the outer walls of a settlement"
-        },
-        {
-          "type": "field",
-          "reason": "invalid-data",
-          "field": "area.size",
-          "raw": {
-            "rank": 2,
-            "time": {
-              "type": "time",
-              "count": 8,
-              "unit": "hour"
-            },
-            "area": {
-              "shape": "emanation",
-              "size": 36960
-            },
-            "duration": {
-              "type": "time",
-              "count": 1,
-              "unit": "week"
-            },
-            "primary": {
-              "skills": ["skill:lore:warfare"],
-              "proficiency": "expert"
-            },
-            "secondary": {
-              "checks": [
-                {
-                  "skills": ["skill:lore:architecture", "skill:crafting"]
-                }
-              ],
-              "casters": 1
-            }
-          }
         }
-      ],
-      "document": {
-        "_id": "bOf5WuLh6ZJloi7F",
-        "name": "Oil-Slicked Walls",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Battlecry!",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 2
-          },
-          "traits": {
-            "value": [],
-            "rarity": "uncommon",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>The outer walls are a city's first defense against invaders, and you want to make certain no attackers can climb over them. Upon successful completion of this ritual, the surfaces of a settlement's walls within the area are covered with a thin, slippery sheen that can't be washed away.</p><hr /><p><strong>Critical Success</strong> The oil covering the walls also coats any climber's hands. The DC for Athletics checks to Climb the affected walls increases by 10, and a creature who fails a check to climb also drops anything they are carrying.</p>\n<p><strong>Success</strong> The DC for Athletics checks to Climb the affected walls increases by 5.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> Phantom oil constantly pools around your feet during times of stress. For 1 week, the first time each encounter that a primary or secondary caster takes an action to move, they must attempt a Reflex save or Acrobatics check to @UUID[Compendium.pf2e.actionspf2e.Item.Balance] against the ritual's casting DC or fall @UUID[Compendium.pf2e.conditionitems.Item.Prone]. A caster can Step or @UUID[Compendium.pf2e.actionspf2e.Item.Crawl] without having to attempt a check or save.</p>"
-          },
-          "rules": [],
-          "area": {
-            "type": "emanation",
-            "value": 36960
-          },
-          "cost": {
-            "value": ""
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "1 week"
-          },
-          "range": {
-            "value": ""
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Warfare Lore (expert)"
-            },
-            "secondary": {
-              "casters": 1,
-              "checks": "Architecture Lore or Crafting"
-            }
-          },
-          "target": {
-            "value": "the outer walls of a settlement"
-          },
-          "time": {
-            "value": "8 hours"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
@@ -9439,6 +11862,13 @@
       "slug": "untyped",
       "reason": "unmapped-value",
       "detail": "untyped"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "language",
+      "slug": "wildsong",
+      "reason": "unmapped-value",
+      "detail": "secret"
     }
   ]
 }

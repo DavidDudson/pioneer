@@ -5,7 +5,7 @@ import type * as z from 'zod';
  * Game quantities, branded so a speed can't be added to a hit point total.
  * The brand carries the unit, so names don't repeat it (`speed: Feet`).
  */
-export const Feet = Pg.smallint().nonnegative().brand<'Feet'>();
+export const Feet = Pg.integer().nonnegative().brand<'Feet'>();
 export type Feet = z.infer<typeof Feet>;
 
 /** The finest step a range in miles is counted in. */
