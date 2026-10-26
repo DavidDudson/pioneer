@@ -90,4 +90,52 @@ describe('CharacterSheetPage environments', () => {
       expect(textOf(sectionOf(root))).toContain(`${NO_SPEECH} Lifted by Gilled.`);
     });
   });
+
+  it('shows the air left of a held breath, and sends breathing again as clearing it', async () => {
+    const play = { revision: 1, play: { hp: { damage: 0, temp: 0 }, breath: { air: 3, checks: 0 } } };
+    const { root } = await openSheet(MERISIEL, { play, packs: PACKS });
+
+    await vi.waitFor(() => {
+      expect(textOf(sectionOf(root))).toContain('Air left: 3 rounds');
+    });
+    const again = present(
+      [...sectionOf(root).querySelectorAll<HTMLElement>('button')].find((button) =>
+        textOf(button).includes('Breathe again'),
+      ),
+    );
+
+    again.click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toStrictEqual({ expectedRevision: 1, command: { field: 'clearBreath' } });
+    });
+  });
+
+  it('says a character out of air is suffocating, with the DC of the next save', async () => {
+    const play = { revision: 1, play: { hp: { damage: 0, temp: 0 }, breath: { air: 0, checks: 1 } } };
+    const { root } = await openSheet(MERISIEL, { play, packs: PACKS });
+
+    await vi.waitFor(() => {
+      expect(textOf(sectionOf(root))).toContain('Saves made: 1. The next is a Fortitude save against DC 25.');
+    });
+  });
+
+  it('offers to hold the breath for 5 rounds plus the Constitution modifier, and sends it', async () => {
+    const { root } = await openSheet(MERISIEL, { play: playIn([]), packs: PACKS });
+    const hold = await vi.waitFor(() =>
+      present(
+        [...sectionOf(root).querySelectorAll<HTMLElement>('button')].find((button) =>
+          textOf(button).includes('Hold breath'),
+        ),
+      ),
+    );
+
+    hold.click();
+
+    await vi.waitFor(() => {
+      const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
+      expect(request.request.body).toMatchObject({ command: { field: 'setBreath', checks: 0 } });
+    });
+  });
 });

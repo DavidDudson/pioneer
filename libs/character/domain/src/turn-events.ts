@@ -1,10 +1,19 @@
-import { DamageApplication, DieFace, RollResult } from '@pioneer/rules/dice';
-import { ConditionValue, ContentId, Dc, FastHealingType, HitPoints } from '@pioneer/rules/sdk';
+import { DamageApplication, DieFace, RollResult, RollTotal } from '@pioneer/rules/dice';
+import {
+  ConditionValue,
+  ContentId,
+  Dc,
+  DegreeOfSuccess,
+  DegreeOfSuccessSchema,
+  FastHealingType,
+  HitPoints,
+} from '@pioneer/rules/sdk';
 import { message, MessageDescriptorSchema } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ActiveSpellId } from './active-spells';
+import { AirRounds, SuffocationChecks } from './breath';
 import { ConditionInstanceId } from './conditions';
 import type { ActiveCondition } from './conditions';
 import { EffectInstanceId } from './effects';
@@ -19,6 +28,8 @@ export const TurnEventKind = {
   ConditionLowered: 'conditionLowered',
   PersistentDamage: 'persistentDamage',
   FlatCheck: 'flatCheck',
+  AirLost: 'airLost',
+  Suffocation: 'suffocation',
 } as const;
 export type TurnEventKind = ValueOf<typeof TurnEventKind>;
 
@@ -34,6 +45,10 @@ export const TurnMessage = {
   PersistentDamage: 'character.turn.persistentDamage',
   FlatCheckPassed: 'character.turn.flatCheckPassed',
   FlatCheckFailed: 'character.turn.flatCheckFailed',
+  AirLost: 'character.turn.airLost',
+  SuffocationSaved: 'character.turn.suffocationSaved',
+  SuffocationFailed: 'character.turn.suffocationFailed',
+  SuffocationDied: 'character.turn.suffocationDied',
 } as const;
 export type TurnMessage = ValueOf<typeof TurnMessage>;
 
@@ -91,6 +106,19 @@ export const TurnEventSchema = z.discriminatedUnion('kind', [
     die: DieFace,
     dc: Dc,
     passed: z.boolean(),
+    message: MessageDescriptorSchema,
+  }),
+  z.object({ kind: z.literal(TurnEventKind.AirLost), air: AirRounds, message: MessageDescriptorSchema }),
+  z.object({
+    kind: z.literal(TurnEventKind.Suffocation),
+    /** Which save against suffocation this is, the first being 1. */
+    check: SuffocationChecks,
+    die: DieFace,
+    total: RollTotal,
+    dc: Dc,
+    degree: DegreeOfSuccessSchema,
+    /** The Hit Points the failed save cost after the character's defences; none for a save that held. */
+    taken: HitPoints,
     message: MessageDescriptorSchema,
   }),
 ]);
@@ -164,4 +192,36 @@ export function flatCheck(
   const passed = die >= dc;
   const key = passed ? TurnMessage.FlatCheckPassed : TurnMessage.FlatCheckFailed;
   return { kind: TurnEventKind.FlatCheck, condition, instance, die, dc, passed, message: message(key, { die, dc }) };
+}
+
+/** The turn ended with `air` rounds of breath left. */
+export function airLost(air: AirRounds): TurnEvent {
+  return { kind: TurnEventKind.AirLost, air, message: message(TurnMessage.AirLost, { air }) };
+}
+
+/** What a save against suffocation came to: its roll against its DC, and the Hit Points the failure cost. */
+export interface SuffocationSave {
+  readonly check: SuffocationChecks;
+  readonly die: DieFace;
+  readonly total: RollTotal;
+  readonly dc: Dc;
+  readonly degree: DegreeOfSuccess;
+  readonly taken: HitPoints;
+}
+
+function suffocationKey(degree: DegreeOfSuccess): TurnMessage {
+  if (degree === DegreeOfSuccess.CriticalFailure) {
+    return TurnMessage.SuffocationDied;
+  }
+  return degree === DegreeOfSuccess.Failure ? TurnMessage.SuffocationFailed : TurnMessage.SuffocationSaved;
+}
+
+/** The character, out of air, made a Fortitude save against suffocation. */
+export function suffocationSaved(save: SuffocationSave): TurnEvent {
+  const { total, dc, taken } = save;
+  return {
+    kind: TurnEventKind.Suffocation,
+    ...save,
+    message: message(suffocationKey(save.degree), { total, dc, amount: taken }),
+  };
 }

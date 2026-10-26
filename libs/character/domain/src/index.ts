@@ -715,5 +715,21 @@ export {
   isEnvironmentCommand,
 } from './environments';
 export { characterLiftedRestrictions } from './environment-lifts';
+export {
+  AirRounds,
+  airAfterTurn,
+  applyBreathCommand,
+  type BreathCommand,
+  BreathCommandField,
+  BreathCommandSchema,
+  type BreathState,
+  BreathStateSchema,
+  isBreathCommand,
+  isSuffocating,
+  maxAir,
+  SuffocationChecks,
+  suffocationDamage,
+  suffocationDc,
+} from './breath';
 export { type Generated, type GenerateInput, generateCharacter } from './generate-character';
 export { slotCandidates } from './slot-candidates';

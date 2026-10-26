@@ -1,9 +1,27 @@
-import { applyDamage, DiceExpressionText, DieSize, parseDiceExpression, rollDice } from '@pioneer/rules/dice';
-import type { RandomSource, RollResult, TermResult } from '@pioneer/rules/dice';
-import { BadgeReevaluation, ConditionEffect, ConditionValue, Dc, EffectExpiry } from '@pioneer/rules/sdk';
+import {
+  applyDamage,
+  degreeOfSuccess,
+  DiceExpressionText,
+  DieSize,
+  parseDiceExpression,
+  RollTotal,
+  rollDice,
+} from '@pioneer/rules/dice';
+import type { DamageApplication, RandomSource, RollResult, TermResult } from '@pioneer/rules/dice';
+import {
+  BadgeReevaluation,
+  ConditionEffect,
+  ConditionValue,
+  Dc,
+  DegreeOfSuccess,
+  EffectExpiry,
+  HitPoints,
+} from '@pioneer/rules/sdk';
 import type { DamageTarget } from '@pioneer/rules/sdk';
 
 import { lapsingSpells, spellsAfterTurnEnd } from './active-spells';
+import { airAfterTurn, isSuffocating, SuffocationChecks, suffocationDamage, suffocationDc } from './breath';
+import type { BreathState } from './breath';
 import { ConditionDurationKind } from './conditions';
 import type { ActiveCondition, PersistentDamage } from './conditions';
 import { endEffects } from './effect-ending';
@@ -12,14 +30,16 @@ import { applyPlayCommand, PlayCommandField } from './play-state';
 import type { PlayLimits, PlayState } from './play-state';
 import type { RecoveryConditions } from './rest-types';
 import {
+  airLost,
   conditionEnded,
   conditionLowered,
   effectExpired,
   flatCheck,
   persistentDamage,
   spellEnded,
+  suffocationSaved,
 } from './turn-events';
-import type { TurnEvent } from './turn-events';
+import type { SuffocationSave, TurnEvent } from './turn-events';
 import { reevaluateBadges } from './turn-start';
 import type { Reevaluation, TurnOutcome } from './turn-start';
 
@@ -28,6 +48,10 @@ const FLAT_CHECK_DC = Dc.parse(15);
 const ASSISTED_FLAT_CHECK_DC = Dc.parse(10);
 const FLAT_CHECK_DIE = DieSize.parse(20);
 const ONE_ROUND = 1;
+const NO_ATTACKS = 0;
+const NO_MODIFIER = 0;
+const FIRST_CHECK = 1;
+const CHECKS_LIMIT = 99;
 const LAST_VALUE = ConditionValue.parse(1);
 
 /** What a turn end reads besides the play state. */
@@ -37,6 +61,8 @@ export interface EndTurnInputs {
   readonly defences: DamageTarget;
   /** What the end of the turn does to each condition the content says it eases (Frightened is lowered). */
   readonly recovery: RecoveryConditions;
+  /** The character's Fortitude modifier, read only for a save against suffocation; none counts as 0. */
+  readonly fortitude?: () => RollTotal;
 }
 
 /** `outcome` moved on to `play`, with the `events` that led there. */
@@ -173,6 +199,57 @@ function expiring(outcome: TurnOutcome): TurnOutcome {
   );
 }
 
+/** A save against suffocation: its roll, and the damage a failure rolls and takes through the defences. */
+interface SuffocationRoll {
+  readonly save: SuffocationSave;
+  readonly damage: DamageApplication | undefined;
+}
+
+/** Rolls the `check`th save against suffocation: Fortitude against DC 20, 5 more each time; a failure rolls its damage. */
+function suffocationRoll(check: SuffocationChecks, turn: Turn): SuffocationRoll {
+  const { defences, random } = turn;
+  const die = random.roll(FLAT_CHECK_DIE);
+  const total = RollTotal.parse(die + (turn.fortitude?.() ?? NO_MODIFIER));
+  const dc = suffocationDc(check);
+  const { degree } = degreeOfSuccess({ total, natural: die }, dc);
+  const parsed = parseDiceExpression(suffocationDamage(check));
+  const damage =
+    degree === DegreeOfSuccess.Failure && parsed.ok
+      ? applyDamage(rollDice(parsed.expression, random), defences)
+      : undefined;
+  return { save: { check, die, total, dc, degree, taken: HitPoints.parse(damage?.taken ?? NO_MODIFIER) }, damage };
+}
+
+/**
+ * A character out of air at the end of its turn makes the Fortitude save against suffocation (Player Core, Aquatic
+ * Combat): DC 20, 5 more each time. A failure costs 1d10 Hit Points, a 1d10 more each time; a critical failure kills.
+ */
+function suffocated(outcome: TurnOutcome, breath: BreathState, turn: Turn): TurnOutcome {
+  const check = SuffocationChecks.parse(Math.min(breath.checks + FIRST_CHECK, CHECKS_LIMIT));
+  const { save, damage } = suffocationRoll(check, turn);
+  const marked = { ...outcome.play, breath: { ...breath, checks: check } };
+  const hurt =
+    damage === undefined ? marked : applyPlayCommand(marked, { field: PlayCommandField.Damage, damage }, turn.limits);
+  const dead = save.degree === DegreeOfSuccess.CriticalFailure;
+  return then(outcome, dead ? { ...hurt, dead } : hurt, [suffocationSaved(save)]);
+}
+
+/**
+ * A character holding its breath loses a round of air at the end of its turn, or two when it attacked this turn. One
+ * already out of air makes the save against suffocation instead. A dead character, or one breathing freely, is left.
+ */
+function breathing(outcome: TurnOutcome, turn: Turn): TurnOutcome {
+  const { breath, dead, turn: current } = outcome.play;
+  if (breath === undefined || dead) {
+    return outcome;
+  }
+  if (isSuffocating(breath)) {
+    return suffocated(outcome, breath, turn);
+  }
+  const air = airAfterTurn(breath.air, current.attacks > NO_ATTACKS);
+  return then(outcome, { ...outcome.play, breath: { ...breath, air } }, [airLost(air)]);
+}
+
 /** Sustained spells not sustained this turn end, and the rest must be sustained again next turn. */
 function spellsLapsing(outcome: TurnOutcome): TurnOutcome {
   const { play } = outcome;
@@ -196,5 +273,5 @@ export function endTurn(play: PlayState, inputs: EndTurnInputs, random: RandomSo
     when: BadgeReevaluation.TurnEnd,
     random,
   };
-  return reevaluateBadges(settled, reevaluation);
+  return reevaluateBadges(breathing(settled, { ...inputs, random }), reevaluation);
 }

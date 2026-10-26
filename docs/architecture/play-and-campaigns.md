@@ -425,6 +425,16 @@ under the environment toggles. A `LiftRestriction` rule element on anything in p
 Combat (Player Core, page 437) in `content/packs/player-core/environment.json`: its rules are the effect's, and its
 restrictions are fire actions and speech (which costs the air). Consequences over time are a separate story.
 
+Holding the breath (Aquatic Combat, "Drowning and Suffocating") is its own play state, `breath` (`breath.ts`): the
+rounds of air left (5 plus the Constitution modifier when held) and the saves against suffocation made. The
+`setBreath` edit sets it as it is and `clearBreath` ends it, so holding, losing air and breathing again are each undone
+by the edit that restores the breath before. Ending a turn spends a round of air, or two when the character attacked
+that turn; casting a spell, speaking or a critical hit is told to the sheet (Lose a round, Speak or cast). Out of air,
+the character is suffocating: at each turn end it rolls a Fortitude save against DC 20, 5 more each time. A failure
+takes 1d10 damage, a 1d10 more each time, and a critical failure is death. The sheet says the character is unconscious,
+but the Unconscious condition is not added for it. The environment `consequences` list is for slower costs (heat,
+cold) and is not read.
+
 ### Rest and daily preparations
 
 Tables don't always get both, so they are separate actions, each optional and each previewing its changes before it

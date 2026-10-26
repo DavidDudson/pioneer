@@ -11,6 +11,7 @@ import type { ContentId } from '@pioneer/rules/sdk';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
+import { SheetBreath } from '../sheet-breath/sheet-breath.component';
 import { ENVIRONMENT_CONTENT_KINDS, environmentOptions, restrictionRows } from '../sheet-environments';
 import type { EnvironmentOption, RestrictionRow } from '../sheet-environments';
 import { sheetSources } from '../sheet-sources';
@@ -22,7 +23,7 @@ import { SheetState } from '../sheet-state';
  */
 @Component({
   selector: 'pio-sheet-environments',
-  imports: [AsyncData, AsyncPending, AsyncRegion, Skeleton, Stack, Text, ToggleButton, TranslocoPipe],
+  imports: [AsyncData, AsyncPending, AsyncRegion, SheetBreath, Skeleton, Stack, Text, ToggleButton, TranslocoPipe],
   templateUrl: './sheet-environments.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

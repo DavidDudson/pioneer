@@ -1,0 +1,27 @@
+<fr-stack gap="sm">
+  @let held = view();
+  @if (held === undefined) {
+    @let rounds = maxAir();
+    @if (rounds !== undefined) {
+      <fr-button (pressed)="hold(rounds)">{{ 'character.sheet.breath.hold' | transloco: { rounds } }}</fr-button>
+    }
+  } @else {
+    @if (held.suffocating) {
+      <fr-text>{{
+        'character.sheet.breath.suffocating' | transloco: { checks: held.checks, dc: held.nextDc }
+      }}</fr-text>
+    } @else {
+      <fr-text>{{ 'character.sheet.breath.air' | transloco: { rounds: held.air } }}</fr-text>
+      <fr-stack direction="horizontal" gap="sm">
+        <fr-button (pressed)="loseRound()">{{ 'character.sheet.breath.loseRound' | transloco }}</fr-button>
+        <fr-button (pressed)="loseAll()">{{ 'character.sheet.breath.loseAll' | transloco }}</fr-button>
+      </fr-stack>
+    }
+    <fr-stack direction="horizontal" gap="sm">
+      <fr-button (pressed)="breatheAgain()">{{ 'character.sheet.breath.breatheAgain' | transloco }}</fr-button>
+      @if (canUndo()) {
+        <fr-button (pressed)="undo()">{{ 'character.sheet.breath.undo' | transloco }}</fr-button>
+      }
+    </fr-stack>
+  }
+</fr-stack>
