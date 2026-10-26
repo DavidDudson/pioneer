@@ -18,3 +18,6 @@ export { DrizzleCampaignVariantRepository } from './drizzle-campaign-variant-rep
 export { DrizzleCampaignRuleLimitRepository } from './drizzle-campaign-rule-limit-repository';
 export { DrizzleCampaignItemApprovalRepository } from './drizzle-campaign-item-approval-repository';
 export { DrizzleCampaignKeyItemRepository } from './drizzle-campaign-key-item-repository';
+export { DrizzleItemTransferRepository } from './drizzle-item-transfer-repository';
+export { campaignItemTransferRoutes } from './campaign-item-transfer-routes';
+export { campaignItemTransfers } from './campaign-item-transfer.table';

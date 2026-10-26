@@ -22,6 +22,7 @@ import type { AnyElysia } from 'elysia';
 import { campaignRoutes } from './campaign-routes';
 import {
   itemApprovalService,
+  itemTransferService,
   keyItemService,
   packService,
   ruleLimitService,
@@ -72,6 +73,7 @@ function app(): Api {
     ruleLimits: ruleLimitService(campaigns, clock),
     itemApprovals: itemApprovalService(campaigns, clock),
     keyItems: keyItemService(campaigns, clock),
+    itemTransfers: itemTransferService(campaigns, clock),
   };
   const handler = new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator()));
   return { handler, catalog };

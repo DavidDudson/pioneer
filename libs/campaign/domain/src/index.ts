@@ -75,6 +75,13 @@ export {
   ReviewedRuneId,
 } from './campaign-item-approvals';
 export {
+  ItemTransferId,
+  ItemTransferView,
+  OfferItemBody,
+  TransferStatus,
+  type ItemTransfer,
+} from './campaign-item-transfers';
+export {
   CampaignKeyItems,
   type CampaignKeyItem,
   CreateKeyItemBody,

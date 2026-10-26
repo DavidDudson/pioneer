@@ -14,6 +14,7 @@ import {
 } from './campaign-fields';
 import { InviteSummary } from './campaign-invite';
 import { CampaignItemApprovalContract } from './campaign-item-approval-contract';
+import { CampaignItemTransferContract } from './campaign-item-transfer-contract';
 import { CampaignKeyItemContract } from './campaign-key-item-contract';
 import { CampaignPacks } from './campaign-packs';
 import { CampaignParty } from './campaign-party';
@@ -240,6 +241,7 @@ export const CampaignContract = {
     response: CampaignVariantRules,
   }),
   ...CampaignItemApprovalContract,
+  ...CampaignItemTransferContract,
   ...CampaignKeyItemContract,
   ...CampaignRuleLimitContract,
   /** GM only: invites that still work, newest first. */
