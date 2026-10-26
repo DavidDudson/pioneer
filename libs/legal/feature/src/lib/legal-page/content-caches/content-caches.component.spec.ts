@@ -81,6 +81,14 @@ async function renderAnswered(
 }
 
 describe('ContentCaches', () => {
+  it('shows placeholders while the manifest is loading', async () => {
+    const root = await renderLegalPage();
+    const section = caches(root);
+
+    expect(section.querySelectorAll('fr-skeleton')).toHaveLength(3);
+    expect(section.querySelector('summary')).toBeNull();
+  });
+
   it('lists each pack with its file count and total size', async () => {
     const section = await renderAnswered();
     const summaries = [...section.querySelectorAll('summary')].map((summary) => summary.textContent.trim());
@@ -98,9 +106,9 @@ describe('ContentCaches', () => {
       download(PACK_FILE),
     ]);
     expect(links.map((link) => link.getAttribute('aria-label'))).toStrictEqual([
-      `${MECHANICS}: download from player-core`,
-      `${NAMES}: download from player-core`,
-      `${PACK_FILE}: download from player-core`,
+      `${MECHANICS}: download from Player Core`,
+      `${NAMES}: download from Player Core`,
+      `${PACK_FILE}: download from Player Core`,
     ]);
     expect(section.textContent).toContain('2.5 kB');
   });
