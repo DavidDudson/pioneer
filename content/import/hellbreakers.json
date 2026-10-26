@@ -19,6 +19,1823 @@
     {
       "type": "entry",
       "pack": "hellbreakers",
+      "slug": "creature:adiutor",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.vAL0lOiR0keXNG7T",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Uniform"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:alceo-demetrias",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.Nkmr1Sic5LpIsats",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["target:trait:unholy"],
+            "property": "dice-faces",
+            "selectors": ["morningstar-damage"],
+            "slug": "divine-weapon-of-milani",
+            "value": 6
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol (Milani)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:aurocan",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.mTV00QmO0FhuVRy0",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "orichalcum"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:besunas",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.Y7Ntiz8PZYyqC75J",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:caeto-vulaunex",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.3uUi2rjOEzJGCBkW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(32 with shield raised)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "(+26 against mental)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": "24",
+            "category": "martial",
+            "damage": {
+              "base": {
+                "damageType": "slashing",
+                "dice": 2,
+                "die": "d8",
+                "modifier": 11
+              }
+            },
+            "group": "sword",
+            "key": "Strike",
+            "label": "Shifting Longsword",
+            "predicate": [
+              {
+                "not": "subdue-fugitive"
+              }
+            ],
+            "slug": "shifting-longsword",
+            "traits": ["magical", "versatile-p"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": "24",
+            "category": "martial",
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 2,
+                "die": "d6",
+                "modifier": 11
+              }
+            },
+            "group": "flail",
+            "key": "Strike",
+            "label": "Shifting Flail",
+            "predicate": ["subdue-fugitive"],
+            "slug": "shifting-flail",
+            "traits": ["disarm", "sweep", "trip"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol (Asmodeus)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:captain-lamperia-bane",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.9a0GH3YuaACzsyof",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:coarti-spy",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.bZINUegee7ALoT7H",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet, Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:deathless-acolyte-of-urgathoa",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.erBM6OE5b4SBHWGb",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.pf2e.fieldOfUndeathFastHealing",
+            "value": 2
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "allies",
+                "includesSelf": false,
+                "predicate": ["target:negative-healing"],
+                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Field of Undeath"
+              }
+            ],
+            "key": "Aura",
+            "radius": 20,
+            "slug": "field-of-undeath",
+            "traits": ["divine"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol of Urgathoa"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:draconic-fumecrux",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.Euq1c2U0FLOouYhM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:drude",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.ZbG4M5osQ9sY607a",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "drude",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Drude",
+                "value": "drude"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Small",
+                "value": "animal-small"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Object.Small",
+                "value": "inanimate-object"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:elite-ort",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.fqBgGIySy1qFjzgK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "allies",
+                "includesSelf": false,
+                "predicate": ["target:tag:ort"],
+                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Fiendish Order"
+              }
+            ],
+            "key": "Aura",
+            "radius": 30,
+            "traits": ["divine", "unholy"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:erinys-sister-wight",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.MB8uBxMtA9WJNrXq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fueled by spite, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:ezio-gaeta",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.N55VqxzVwpGysvYy",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 7, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:slug:biting-flies",
+              {
+                "not": "change-shape:swarm"
+              }
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.ChangeShape.AlterationNotes.Unusable"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "vampire",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Vampire",
+                "value": "vampire"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Swarm.Flies",
+                "value": "swarm"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.BaseSpeed",
+          "raw": {
+            "key": "BaseSpeed",
+            "predicate": ["change-shape:swarm"],
+            "selector": "fly-speed",
+            "value": 30
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Devil Costume"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Encryption Ring"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:false-hellbreaker",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.pjEz149NBKw1h96g",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "(+8 to find concealed objects)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:fiendish-viro-ahala",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.9yEUbecGHPTC6g34",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic; +16 Ref vs. area effects"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:gliding-river-snake",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.7Bi8RASEG7d3tJ3I",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "flags.pf2e.remainingAir.rounds",
+            "value": 600
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["aquatic-ambush"],
+            "selectors": ["strike-attack-roll", "strike-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:godclaw-hellcrown",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.ojpc5dqFyNexGMiY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:gredress-tilnanos",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.lxCHRvzbqZEzwCI4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Robes"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Fiendish Hypotheses and Protections from Same (Spellbook)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:hecatinia",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.PYqZIgsj26WyJOlN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(21 with shield raised)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "(+10 to Sense Motive)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "all",
+                "includesSelf": false,
+                "predicate": [
+                  {
+                    "gte": ["self:level", "target:level"]
+                  }
+                ],
+                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Air of Authority"
+              }
+            ],
+            "key": "Aura",
+            "radius": 10,
+            "slug": "air-of-authority",
+            "traits": ["emotion", "mental"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:hedvend-vi",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.U3wRKxiFcCW7tcwR",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 5, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:hellknight-field-maralictor",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.ZZAxu68icExP415I",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(29 with shield raised)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Full Plate (with Livery)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:hestlebeth",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.IZQYYIlFKU1e1sBu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "(+10 to find concealed objects)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.SpecialStatistic",
+          "raw": {
+            "key": "SpecialStatistic",
+            "slug": "efficient-capture",
+            "type": "attack-roll"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Keyring"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:illcayna-alonnor",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.IrlZUmKuUF8OqmYd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status bonus to all saves vs. holy effects"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.pf2e.fieldOfUndeathFastHealing",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "allies",
+                "predicate": ["target:trait:undead"],
+                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Field of Unholy Undeath"
+              }
+            ],
+            "key": "Aura",
+            "radius": 40,
+            "traits": ["divine", "unholy"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Bleeding Heart of Urgathoa"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:insidiator",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.2udvG4UPEhyHGNFC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "insidiator",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Devil.Insidiator",
+                "value": "insidiator"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Medium",
+                "value": "humanoid-medium"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:instillo",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.Vb4cwJ494cUN6aIa",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet; truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:jordis-serelli",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.9kzG7LNaANR5KgPJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(26 with shield raised)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:kylix",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.0HqkraclIhcufOKV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "plus three regional languages; telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.attributes.flanking.canGangUp",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["target:condition:fascinated"],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Gold Goblet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:lefranek-meyal",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.8AhnhoXS2sLBTuhQ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "False Hellbreakers League Banner"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:nayren-allurajix",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.3hqzhMm73q6DW9O8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(30 with shield)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "(+19 Ref vs. area effects)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:novice-hellknight-armiger",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.19qM1w33WRgEkWfs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(17 with shield raised)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:novitiate-of-the-golden-erinys",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.AD3fOtI0mYYbXjSJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:odvolos",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.CBHCri79DDf3I6jf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all save vs. magic, -1 to all saves vs. emotion effects"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "(+14 to detect concealed objects); fevered consciousness"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:phoebe-demetrias",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.bVbBeO60civ7Ac7N",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Hellbreakers League Banner"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:redcap",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.zxaZTLafp2kge1ww",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 10"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Weakness",
+          "raw": {
+            "definition": ["{item|name}"],
+            "key": "Weakness",
+            "type": "custom",
+            "value": 1
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Iron Boots"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Red Cap"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:sarcovalt",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.nhBdtlaAg5QAoAlU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. death effects"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Beak.damage",
+          "raw": {
+            "damage": "3",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:sarcovalt-swarm",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.LKRWhSZqkrNfMnqq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. death effects"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 15,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 3,
+                "die": "d8",
+                "modifier": 5
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Bite",
+            "predicate": ["heads-will-roll"],
+            "slug": "bite",
+            "traits": "reach-10"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:sephone-haugini",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.brSuPkzSWIR97HcL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol (Asmodeus)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:sister-endreah",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.IAWxtdNmkufzBU0b",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Asp Coil"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:sister-of-the-golden-erinys",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.XshECARmwXjp0ncn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:skeletal-hellknight-bonesinger",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.KCEdUHvPf4anTpnK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:skirmancer-mage",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.ZSdPRhQGLI1LQKpM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Spellbook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:springs-crown",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.4PqTl6r2Rhhy3VPG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 10 (deactivated by cold iron)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": ["cold-iron"],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:stumpfield-war-chanter-choir",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.L3iKGwRinPeljMM2",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:stumpfield-war-saboteurs",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.7QeSpkimXeViIoUh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:swiftrun-clergy",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.KxFEwqWX9FFGobeC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:area:type:burst",
+              "item:duration:0",
+              {
+                "gte": ["item:area:size", 10]
+              }
+            ],
+            "property": "area-size",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": ["item:area:type:cone", "item:area:type:line"]
+              },
+              {
+                "lte": ["item:area:size", 15]
+              }
+            ],
+            "priority": 110,
+            "property": "area-size",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": ["item:area:type:cone", "item:area:type:line"]
+              },
+              {
+                "gt": ["item:area:size", 15]
+              }
+            ],
+            "priority": 100,
+            "property": "area-size",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:umok-beastspeaker-circle",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.KNCMQmJ8ddo9fAiI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:area:type:burst",
+              "item:duration:0",
+              {
+                "gte": ["item:area:size", 10]
+              }
+            ],
+            "property": "area-size",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": ["item:area:type:cone", "item:area:type:line"]
+              },
+              {
+                "lte": ["item:area:size", 15]
+              }
+            ],
+            "priority": 110,
+            "property": "area-size",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": ["item:area:type:cone", "item:area:type:line"]
+              },
+              {
+                "gt": ["item:area:size", 15]
+              }
+            ],
+            "priority": 100,
+            "property": "area-size",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:varlario-demicci",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.XJXYmxLbn5gqtJLV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:velavi",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.0x0fDMdBkHKMy5lc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Quill.damage",
+          "raw": {
+            "damage": "1d4",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Phantasmal Minion (Rank 1) (Scroll Robes)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:viro-ahala",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.t4FFJKVeYLagjBYs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(23 with shield raised)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+12 Reflex vs. area effects"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:warshard-wight",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.c7Q4geXnB0FD8D8E",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fueled by spite, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.drainLifeTempHP",
+            "value": 5
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
+      "slug": "creature:zombie-giant-bat",
+      "foundry": "Compendium.pf2e.hellbreakers-bestiary.Actor.ULjbbnq7HdZhp2IF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Weakness",
+          "raw": {
+            "definition": ["item:damage:type:slashing"],
+            "key": "Weakness",
+            "label": "{item|name}",
+            "type": "custom",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "hellbreakers",
       "slug": "effect:effect-devil-you-know",
       "foundry": "Compendium.pf2e.feat-effects.Item.3Qej6bMkgJ5ntllg",
       "gaps": [

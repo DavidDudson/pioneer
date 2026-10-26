@@ -1,0 +1,761 @@
+[
+  {
+    "id": "0ea3a95c-7eb8-5775-8c05-815015e29ed2",
+    "pack": "foolish-housekeeping",
+    "kind": "feat",
+    "slug": "feat:a-little-bird-told-me",
+    "name": "A Little Bird Told Me...",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype", "concentrate", "manipulate", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a small bird, such as a finch or a sparrow, allowing you to eavesdrop on others and gain information you wouldn't otherwise be able to acquire. You become Tiny, gain the animal trait, and you can't make Strikes. You can Dismiss the effect to return to your normal shape, and you resume your normal shape automatically if you're reduced to 0 Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the following statistics and abilities:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "AC = 20 + your level. Ignore your armor's check penalty and Speed reduction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fly speed 25 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Weakness 5 to physical damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Low-light vision and imprecise scent 30 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Acrobatics and Stealth modifiers of +10, unless your own is higher; Athletics modifier –4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Vm8Zhwa2zvXhfT5c"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Venture-Gossip Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two",
+        "selfEffect": "eaef2260-7fd3-5283-bf7f-53fc2ae97ec1"
+      },
+      "archetype": "d00eee09-4c7a-5d76-990d-de06db4c759e"
+    }
+  },
+  {
+    "id": "a26d4d4e-cc1c-58d8-895c-2acc0ff28f8d",
+    "pack": "foolish-housekeeping",
+    "kind": "feat",
+    "slug": "feat:catch-and-kill",
+    "name": "Catch and Kill",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within your reach uses a move action, or leaves a square during a move action it's using."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you've decided to quash a story, no one can escape from you with any incriminating information. Make a melee Strike against the triggering creature. On a hit, the triggering creature is Grabbed, and on a critical hit, they're "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": ". This Strike doesn't count toward your multiple attack penalty, and your multiple attack penalty doesn't apply to this Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Qvz6pGnwWfh4tZGC"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Venture-Gossip Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature within your reach uses a move action, or leaves a square during a move action it's using."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "d00eee09-4c7a-5d76-990d-de06db4c759e"
+    }
+  },
+  {
+    "id": "35e158cb-1e91-5a69-bb43-35bbcc6fbf19",
+    "pack": "foolish-housekeeping",
+    "kind": "feat",
+    "slug": "feat:define-report",
+    "name": "Define “Report”",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype", "fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Look, getting caught in a lie is a normal part of venture-gossip life. Sometimes you have to give a sheepish smile and apologize for what you've done. When you fail a Deception check, reroll with your Diplomacy modifier. On a success, there are no hard feelings and the other person's attitude condition doesn't worsen. On a critical success, you can attempt the Deception again with no consequences."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.0lHhrYVe4VXbdSkh"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Venture-Gossip Dedication; master in Diplomacy"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "free"
+      },
+      "archetype": "d00eee09-4c7a-5d76-990d-de06db4c759e"
+    }
+  },
+  {
+    "id": "99686f94-d168-501c-972c-9f82fe419e52",
+    "pack": "foolish-housekeeping",
+    "kind": "feat",
+    "slug": "feat:hey-over-here",
+    "name": "Hey! Over Here!",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "auditory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally within 30 feet rolls a saving throw against an auditory effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hey! Don't listen to that! That's bad sounds! Listen to me! Would you like to hear about how the high priest of the Abadaran church in Absalom's Petals District is having an affair with an Urgathoan cleric? Yeah, I'm thinking about calling the article \"Boney Money!\""
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your targeted ally treats the result of their saving throw as one degree of success better. Once an ally has been targeted by this effect, they're immune for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.rVgEkpTLfbeOdzzw"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Venture-Gossip Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "An ally within 30 feet rolls a saving throw against an auditory effect."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "d00eee09-4c7a-5d76-990d-de06db4c759e"
+    }
+  },
+  {
+    "id": "95cb4fb9-73a2-5fa2-a31b-73be722f5d3d",
+    "pack": "foolish-housekeeping",
+    "kind": "feat",
+    "slug": "feat:muckraking",
+    "name": "Muckraking",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["archetype", "auditory", "concentrate", "emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It seems like your knowledge has come in handy after all and you have your enemy at your feet. Pulling out your fan mail, you read your fans' scathing remarks about your enemy to their face, letting them feel just how much everyone hates them and everything that they've done. They hate the way that they walk, they hate the way that they talk."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your enemy takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d10",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. On a critical failure, they're "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of your next turn and lose all reactions, except to cry, loudly."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.yM8ITsQuIAxPu1YT"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Venture-Gossip Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "three"
+      },
+      "archetype": "d00eee09-4c7a-5d76-990d-de06db4c759e"
+    }
+  },
+  {
+    "id": "f89078a0-a644-5167-9ef2-74f69ff84992",
+    "pack": "foolish-housekeeping",
+    "kind": "feat",
+    "slug": "feat:speedrun-strats",
+    "name": "Speedrun Strats",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you take a move action to Stride, you can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:acrobatics",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " check to roll forward."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 5 extra feet of movement to your Speeds and can move through solid obstacles such as walls until the end of your Stride action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 5 extra feet of movement to your Speeds until the end of your Stride action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You lose 5 feet of movement from your Speeds until the end of your Stride action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your character softlocks and is "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " permanently. Only a "
+          },
+          {
+            "type": "ref",
+            "id": "0f1f01cd-bf9a-5147-bc44-1697e6548675"
+          },
+          {
+            "type": "text",
+            "text": " ritual or similar magic can reverse this effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.8NnIrUijGD2Chl55"
+    },
+    "data": {
+      "category": "skill"
+    }
+  },
+  {
+    "id": "decea343-48ff-550a-9b7f-49ffa826b000",
+    "pack": "foolish-housekeeping",
+    "kind": "feat",
+    "slug": "feat:venture-gossip-dedication",
+    "name": "Venture-Gossip Dedication",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Look, the motto of the Pathfinder Society is \"explore, report, cooperate\" and you're just reporting what you hear! Is all of it accurate or true? Maybe not, but hey, you can tell a great story and you know how to keep your readers hooked and eating out of the palm of your hand. Ambrus Valsin of the Grand Lodge may disapprove of your methods, but hey, he's not your real boss."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Eando isn't either."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "We'll go with Zarta."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wait, no, Sheila. Sheila appreciates a good gossip column. You're now from Magnimar. Always have been."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have two identities: your day job as a Pathfinder agent, and your real job, one of the many voices that make up the Venture-Gossip tabloid. If someone attempts to figure out if you're a venture-gossip, they must use a "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action to attempt a Perception check against one of your influence skills of your choice: Deception, Diplomacy, or Intimidation. Your DC is 20 + your proficiency modifier."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are discovered to be part of Venture-Gossip, you can spend 1 week of downtime convincing others that you've never even read that tabloid, much less contributed to it!"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the following action, allowing you to collect more information for your column."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "01cb199f-d7a6-5dbe-b934-de8765a980c7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Venture-Gossip"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bdo2ubH7XAs7eG9m"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "member of the Pathfinder Society; Pathfinder Agent Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "d00eee09-4c7a-5d76-990d-de06db4c759e"
+    }
+  },
+  {
+    "id": "257d119b-390c-501d-9d4e-e7a2f385e201",
+    "pack": "foolish-housekeeping",
+    "kind": "feat",
+    "slug": "feat:verbose-distraction",
+    "name": "Verbose Distraction",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype", "auditory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are the target of a physical melee attack."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You talk so much it can be distracting to your enemies and you're often quick to remind your enemies that you're just a little guy! You don't need to be targeted! You don't need to be the focus of their frustrations! Have they tried writing to their mom or talking to a local priest of Desna? Ow!"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to your AC against the triggering attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:verbose-distraction",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:verbose-distraction"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.qIppU9rZRmgEA5pX"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Venture-Gossip Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are the target of a physical melee attack."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "d00eee09-4c7a-5d76-990d-de06db4c759e"
+    }
+  }
+]

@@ -1,0 +1,1512 @@
+[
+  {
+    "id": "7ab39181-ec99-59c5-b0b0-732e1898f1ba",
+    "pack": "wardens-of-wildwood",
+    "kind": "spell",
+    "slug": "spell:bee-mans-summons",
+    "name": "Bee-Man's Summons",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["auditory", "concentrate", "linguistic", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You recreate the Bee-Man's infamous ability to sense when someone utters their name. During the spell's duration, you mentally sense whenever someone (referred to as a speaker) speaks your full name while within the spell's area. You gain a vague sense of the speaker's identity, such as \"a local farmer\" or \"a halfling in distress,\" unless the speaker is someone you have met and interacted with before, in which case you recognize the speaker specifically. As a reaction within 1 minute of the speaker's utterance, you can send the speaker a telepathic prompt, asking if they intend to summon you. If they respond affirmatively, the spell's remaining duration decreases to sustained (up to 10 minutes), during which time you know the direction to where the speaker named you and how far away they are."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The emanation's radius increases to 1,000 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The emanation's radius increases to 1 mile, and instead of locating the speaker, you can instead converse with the speaker for 5 minutes. This otherwise works as sending."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As 7th, except the emanation's radius increases to 5 miles, and the duration of the conversation is 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.BcqJqxIKYE0aoDiS"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 500
+      },
+      "traditions": ["arcane", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "bb12b064-f49a-5ce1-9778-de89c829881d",
+    "pack": "wardens-of-wildwood",
+    "kind": "spell",
+    "slug": "spell:boomerang-shot",
+    "name": "Boomerang Shot",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["attack", "concentrate", "manipulate", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You launch a curved length of wood at a foe that arcs around objects and obstacles to strike from an unexpected direction. Make a spell attack roll against the target's AC. This attack ignores the target's "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " condition and ignores all cover except greater cover. If you hit, the projectile deals 7d10 bludgeoning damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases to 9d10."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases to 12d10, and the attack ignores cover completely."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.zPVJI8Jltt3ERkaU"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "against": "ac"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "phsjrtv8uqcnp7ac",
+          "formula": "7d10",
+          "damageType": "bludgeoning",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 7,
+            "damage": [
+              {
+                "key": "phsjrtv8uqcnp7ac",
+                "formula": "7d10",
+                "damageType": "bludgeoning",
+                "kinds": ["damage"]
+              },
+              {
+                "key": "kbvajjlqowr9df19",
+                "formula": "9d10",
+                "damageType": "bludgeoning",
+                "kinds": ["damage"]
+              }
+            ]
+          },
+          {
+            "rank": 9,
+            "damage": [
+              {
+                "key": "phsjrtv8uqcnp7ac",
+                "formula": "7d10",
+                "damageType": "bludgeoning",
+                "kinds": ["damage"]
+              },
+              {
+                "key": "svhfca1se8cek42o",
+                "formula": "12d10",
+                "damageType": "bludgeoning",
+                "kinds": ["damage"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "8850a035-bd23-5988-b3a2-3f1c200468b9",
+    "pack": "wardens-of-wildwood",
+    "kind": "spell",
+    "slug": "spell:bramble-bush",
+    "name": "Bramble Bush",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["cantrip", "concentrate", "manipulate", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In a sudden burst of growth, you cause a thorned bush to sprout from the ground, lash around, and wither. Any creature in the area takes 1d4 piercing damage with a basic Reflex saving throw."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Until the start of your next turn, the area is difficult terrain and hazardous terrain. Any creature entering the square takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4 + ceil(@item.level / 2) - 1",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a basic Reflex saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial damage increases by 1d4, and the damage dealt by hazardous terrain increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.mAdxOQUA2cHgKViU"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "area": {
+        "shape": "cube",
+        "size": 5
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "t5qwr29amszke1dd",
+          "formula": "1d4",
+          "damageType": "piercing",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "t5qwr29amszke1dd",
+            "formula": "1d4"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "9b3bea55-2b06-5110-8d28-2f2514f89d8d",
+    "pack": "wardens-of-wildwood",
+    "kind": "spell",
+    "slug": "spell:conjured-conveyance",
+    "name": "Conjured Conveyance",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure an intricate vehicle, carved entirely from wood, to serve as a method of conveyance. The vehicle appears in an unoccupied area of your choice within range. The vehicle can be piloted using Arcana, Driving Lore, or Nature skill checks. The DC to pilot the vehicle and the DC of the vehicle's collision are equal to your spell DC. The vehicle's remaining statistics are presented below."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Cast this Spell, choose whether to create a Large skiff, a Large wagon, or a Medium cycle. With the GM's permission, you might instead summon a different vehicle of your choice with a maximum level of 1; this vehicle must be made primarily of plant matter, have common rarity, and be Large or smaller."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Large Skiff—Space",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 15 feet long, 5 feet wide, 3 feet high; "
+                },
+                {
+                  "type": "text",
+                  "text": "Crew",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 1 pilot; "
+                },
+                {
+                  "type": "text",
+                  "text": "Passengers",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 3; "
+                },
+                {
+                  "type": "text",
+                  "text": "Speed",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " swim 30 feet (magical)"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Large Wagon—Space",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 10 feet long, 10 feet wide, 7 feet high; "
+                },
+                {
+                  "type": "text",
+                  "text": "Crew",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 1 pilot; "
+                },
+                {
+                  "type": "text",
+                  "text": "Passengers",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 3; "
+                },
+                {
+                  "type": "text",
+                  "text": "Speed",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 35 feet (magical)"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Medium Cycle—Space",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 5 feet long, 3 feet wide, 3 feet high; "
+                },
+                {
+                  "type": "text",
+                  "text": "Crew",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 1 pilot; "
+                },
+                {
+                  "type": "text",
+                  "text": "Passengers",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 0; "
+                },
+                {
+                  "type": "text",
+                  "text": "Speed",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 40 feet (magical)"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "AC",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 13; "
+          },
+          {
+            "type": "text",
+            "text": "Fortitude",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hardness",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 5, "
+          },
+          {
+            "type": "text",
+            "text": "HP",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 40 (BT 20); "
+          },
+          {
+            "type": "text",
+            "text": "Immunities",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " critical hits, object immunities, precision damage; "
+          },
+          {
+            "type": "text",
+            "text": "Weaknesses",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " fire 5, slashing 5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Collision",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 2d6"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The vehicle's AC increases by 2, Fortitude bonus increases by 2, Hardness increases by 1, HP increases by 20, and the collision damage increases by 1d6. In addition, the maximum level of vehicle you can summon with GM permission increases by 2. The duration increases by 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.FQd6Jc3CU6wiS2U7"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "7dda69d5-0b34-5dfd-af4d-cbfb61a0a7c5",
+    "pack": "wardens-of-wildwood",
+    "kind": "spell",
+    "slug": "spell:cordyceps-command",
+    "name": "Cordyceps Command",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "fungus", "incapacitation", "manipulate", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a mote of cordyceps spores uniquely tailored to the target before whisking it at them. When you Cast this Spell, choose one of the following behaviors that the fungus compels: ascend, consume, descend, or lure. While the target is controlled by the cordyceps toxin's stage 3 effects, it performs that behavior. This control might include risky behavior (such as climbing down a precarious cliff or weaving between armed foes), but it doesn't compel outright lethal actions (such as leaping off the top of that same cliff). If the behavior directly leads to harm (such as falling off the cliff) or hostile actions (such as being attacked by creatures that can now reach the descending creature), the target gains a +4 bonus to their next saving throw against the poison."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ascend",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": The creature tries to reach higher altitudes by any reasonable means, such as Climbing, seeking stairs, or even stacking debris to jump atop of in an attempt to be as high up as possible."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Consume",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": The creature greedily eats or drinks whatever is nearby, using actions to draw and consume elixirs, food, or other consumable items. If the creature has a jaws Strike, fangs Strike, or similar unarmed Strike, the creature can instead chase after and use that Strike against edible targets. If no other food or drink is accessible, the creature attempts to steal or seek nearby nutrition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Descend",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": The creature tries to reach lower altitudes by any reasonable means, such as Climbing, descending while flying, or even falling "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " and attempting to burrow into the ground."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ": The creature moves toward an exposed location and attempts to get bystanders' attention, such as by gesticulating, Performing, or igniting light sources. The target is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " while controlled in this way."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is afflicted with cordyceps toxin at stage 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is afflicted with cordyceps toxin at stage 2."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cordyceps Toxin",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (poison)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28
+          },
+          {
+            "type": "text",
+            "text": ";"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "3f5dc8b4-dcc0-5a99-8501-aff382e8d341"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ADwX87fWrpB8cQ5Q"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "1b6e4d44-521c-598b-bff1-cba1ce410227",
+    "pack": "wardens-of-wildwood",
+    "kind": "spell",
+    "slug": "spell:fungal-exhalation",
+    "name": "Fungal Exhalation",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "druid", "focus", "fungus", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You exhale toxic mold spores that fill the area. You deal 6d4 poison damage to creatures in the area. On a failure, a creature is also "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure. A creature that doesn't breathe is immune to this effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.H481wmQUtEUhxHzi"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "cone",
+        "size": 15
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "frm1ubmzluw6mwmx",
+          "formula": "6d4",
+          "damageType": "poison",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "frm1ubmzluw6mwmx",
+            "formula": "2d4"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "9e8c7312-a596-5197-b805-b85e1177334a",
+    "pack": "wardens-of-wildwood",
+    "kind": "spell",
+    "slug": "spell:hedge-prison",
+    "name": "Hedge Prison",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "druid", "focus", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure an intricate hedge prison to trap a creature, encasing them completely in a hollow cube of dense bushes. The hedge has AC 5, Hardness 5, and 20 Hit Points. It's immune to critical hits and precision damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature escapes the hedge before it fully forms."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is trapped inside the hedge, but the hedge's Hit Points are reduced by half."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is trapped inside the hedge."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is trapped inside the hedge, and the hedge's Hit Points are increased by half."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hedge's hardness increases to 7 and its Hit Points increase to 30."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hedge's hardness increases to 9 and its Hit Points increase to 40. You can target a creature of Large size or smaller."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hedge's hardness increases to 11 and its Hit Points increase to 50. You can target a creature of Large size or smaller."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hedge's hardness increases to 13 and its Hit Points increase to 60. You can target a creature of Huge size or smaller."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hedge's hardness increases to 15 and its Hit Points increase to 70. You can target a creature of Huge size or smaller."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The hedge's hardness increases to 17 and its Hit Points increase to 80. You can target a creature of Huge size or smaller."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.z0ffligcrkVtKZd6"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "c11f4ff2-05e1-5eee-b39a-5923a4430202",
+    "pack": "wardens-of-wildwood",
+    "kind": "spell",
+    "slug": "spell:mushroom-patch",
+    "name": "Mushroom Patch",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "druid", "focus", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cause mushrooms to sprout in the area. The area becomes difficult terrain. When the spell is cast and at the beginning of each round, the mushroom's release a cloud of irritating spores. Creatures in the area must attempt a Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. If the creature moves to outside area, they can spend 1 action to rub their eyes, removing the dazzled condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes dazzled for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes dazzled and "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases to 90 feet and the area increases to a 20-foot-radius burst."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases to 120 feet and the area increases to a 30-foot-radius burst."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases to 150 feet, the area increases to a 40-foot-radius burst, and when a creature would become dazzled, they become "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.xCfOskoogDf9LBlD"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "area": {
+        "shape": "burst",
+        "size": 10
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 3,
+            "range": {
+              "type": "feet",
+              "feet": 90
+            },
+            "area": {
+              "shape": "burst",
+              "size": 20
+            }
+          },
+          {
+            "rank": 6,
+            "range": {
+              "type": "feet",
+              "feet": 120
+            },
+            "area": {
+              "shape": "burst",
+              "size": 30
+            }
+          },
+          {
+            "rank": 9,
+            "range": {
+              "type": "feet",
+              "feet": 150
+            },
+            "area": {
+              "shape": "burst",
+              "size": 40
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "eb108431-f84b-5775-b386-615a652b843e",
+    "pack": "wardens-of-wildwood",
+    "kind": "spell",
+    "slug": "spell:reed-whistle",
+    "name": "Reed Whistle",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You enchant a blade of grass that you can easily hold in your mouth without inhibiting your speech or other actions. As a reaction, you can reduce the spell's remaining duration by 1 hour to Point Out a creature you detect as you sharply whistle through the reed. You and your allies also gain a +2 circumstance bonus to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " the creature for 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spell's duration becomes 4 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.7Ahssy0KDLzcQ2Ex"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "traditions": ["arcane", "occult", "primal"],
+      "damage": []
+    }
+  }
+]

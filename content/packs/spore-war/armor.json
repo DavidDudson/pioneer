@@ -1,0 +1,672 @@
+[
+  {
+    "id": "fb9ad493-68aa-54d0-afc8-2925453dc86c",
+    "pack": "spore-war",
+    "kind": "armor",
+    "slug": "armor:slithermaws-bane",
+    "name": "Slithermaw's Bane",
+    "level": 15,
+    "rarity": "unique",
+    "traits": ["flexible", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This suit of "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient elven chain",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " was worn by the elven hero Kyloss Syndar. The armor served him well, but eventually he fell in battle against the demonic hydra Slithermaw. As Kyloss slew the demonic beast, its fangs pierced his chest and mortally wounded the elf. The armor retains several ragged holes along the chest and abdomen where the hydra's teeth damaged it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Slithermaw's Bane",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants its wearer poison resistance 10, and the resilient rune increases the item bonus on saving throws versus poison by 1 (to +3)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Calistria's Sting",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, divine)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature grapples you"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Poison wells up from the armor's links to seep into the triggering creature's body, causing it to suffer wracking pains as if it were being stung by thousands of angry wasps. The triggering creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "7d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 34,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save); this persistent damage cannot be ended as long as the triggering creature continues to grapple you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Terrain Adaptation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, divine)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You alter the exterior of the armor to better adapt to the surrounding terrain: aquatic, arctic, desert, forest, mountain, plains, sky, swamp, or underground. You ignore non-magical difficult terrain within the chosen environment and gain a +1 circumstance bonus to saving throws against environmental hazards, natural disasters, and extreme temperatures that originate from that terrain. You are also protected from severe and extreme heat or severe and extreme cold (your choice when you activate this ability). This effect lasts until your next daily preparation."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 10
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "resilient",
+        "mode": "add",
+        "value": 1,
+        "predicate": ["item:trait:poison"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9DuwR6Z1P5PuQwS3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": "light",
+      "material": {
+        "type": "dawnsilver",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "calistrias-sting",
+          "name": "Calistria's Sting",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "terrain-adaptation",
+          "name": "Terrain Adaptation",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "chain",
+      "acBonus": 2,
+      "dexCap": 3,
+      "strength": 1,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "9559ca7c-7cdb-512c-97fd-455b2bd25815",
+    "pack": "spore-war",
+    "kind": "armor",
+    "slug": "armor:slithermaws-bane-heroic",
+    "name": "Slithermaw's Bane (Heroic)",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["apex", "artifact", "flexible", "intelligent", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +34; precise low-light vision and hearing within 30 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " telepathy (partner only)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Intimidation +35, Society +33, Warfare +33"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +5, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +6, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +34"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The heroism of Kyloss Syndar, founder of Greengold and slayer of the demonic hydra Slithermaw, imprinted this suit of armor with a gleaming, prismatic sheen that sparkles under bright light. The telepathic voice of "
+          },
+          {
+            "type": "text",
+            "text": "Slithermaw's Bane",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is boisterous and grandiose, encouraging his partner to take up leadership roles while also providing advice to maintain loyalty and strengthen bonds of friendship."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Slithermaw's Bane",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a suit of "
+          },
+          {
+            "type": "text",
+            "text": "+3 major resilient greater fortification high-grade elven chain",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that grants his wearer poison resistance 15, and the item bonus this resilient rune grants to saving throws versus poison increases by 1 to +4."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Calistria's Sting",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, poison)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature grapples you"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Poison wells up from the armor's links to seep into the triggering creature's body, causing it to suffer wracking pains as if it was being stung by thousands of angry wasps. The triggering creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "7d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 34,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save); this persistent damage can't be ended as long as the triggering creature continues to grapple you. "
+          },
+          {
+            "type": "text",
+            "text": "Slithermaw's Bane",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can't activate Calistria's Sting using his actions."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Purge Toxins",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Slithermaw's Bane",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attempts to counteract a disease or poison affliction affecting you, with a counteract rank of 9th and a +25 modifier to the roll (+30 modifier if the source of the disease or poison effect on you was created by a fiend)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Terrain Adaptation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You alter the exterior of the armor to better adapt to the surrounding terrain: aquatic, arctic, desert, forest, mountain, plains, sky, swamp, or underground. You ignore difficult terrain within the chosen environment and gain a +2 circumstance bonus to saving throws against environmental hazards, natural disasters, and extreme temperatures that originate from that terrain. You're also protected from severe and extreme heat or severe and extreme cold (your choice when you activate this ability). This effect lasts until your next daily preparations or the next time you activate it, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 15
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "resilient",
+        "mode": "add",
+        "value": 1,
+        "predicate": ["item:trait:poison"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2IRTceMDqmHfEwcf"
+    },
+    "data": {
+      "bulk": "light",
+      "material": {
+        "type": "dawnsilver",
+        "grade": "high"
+      },
+      "activations": [
+        {
+          "slug": "calistrias-sting",
+          "name": "Calistria's Sting",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "purge-toxins",
+          "name": "Purge Toxins",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        },
+        {
+          "slug": "terrain-adaptation",
+          "name": "Terrain Adaptation",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "chain",
+      "acBonus": 2,
+      "dexCap": 3,
+      "strength": 1,
+      "runes": {
+        "potency": 3,
+        "resilient": 3,
+        "property": ["cd04907f-f4ad-540b-8e85-80028195a121"]
+      }
+    }
+  }
+]

@@ -1,0 +1,382 @@
+[
+  {
+    "id": "5833917b-07e1-5fae-9383-6127f3ca157d",
+    "pack": "shades-of-blood",
+    "kind": "weapon",
+    "slug": "weapon:blood-drinker-blade",
+    "name": "Blood-Drinker Blade",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["agile", "finesse", "magical", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking shortsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has the design of a fanged mouth carved into the handle. Whenever the blade draws blood, it glows with a dull red energy, as if empowered by the taste of blood."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Drink Life",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentration)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The blood-drinker blade guides your hand to cut a foe and feeds you from their blood. Make a Strike with the blade. On a hit, the attack deals an additional 1d8 persistent bleed damage. You also gain 1d8 temporary Hit Points for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "1c9bdefd-d6b6-5a00-a1da-ae1b35afc53e"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:drink-life",
+        "toggleable": true,
+        "display": {
+          "label": "Blood-Drinker Blade — Drink Life"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.V9e6G1ZolN7Ncg7g"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "drink-life",
+          "name": "Drink Life",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "shortsword",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "155337aa-86bd-5a38-a43e-16b2f19f4247",
+    "pack": "shades-of-blood",
+    "kind": "weapon",
+    "slug": "weapon:blood-drinker-blade-greater",
+    "name": "Blood-Drinker Blade (Greater)",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["agile", "finesse", "magical", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking wounding shortsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has the design of a fanged mouth carved into the handle. Whenever the blade draws blood, it glows with a dull red energy, as if empowered by the taste of blood."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Drink Life",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentration)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The blood-drinker blade guides your hand to cut a foe and feeds you from their blood. Make a Strike with the blade. On a hit, the attack deals an additional 1d8 persistent bleed damage. You also gain 1d8 temporary Hit Points for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "1c9bdefd-d6b6-5a00-a1da-ae1b35afc53e"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Exsanguinate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your most recent action was to successfully deal persistent bleed damage to a creature with Drink Life"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The blade's power draws even more blood from your victim. The required creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. You gain temporary Hit Points equal to half the bleed damage the creature takes (after applying resistances and the like). You lose any remaining temporary Hit Points after 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:drink-life",
+        "toggleable": true,
+        "display": {
+          "label": "Blood-Drinker Blade — Drink Life"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vtPf23T4O6fPIF4P"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "drink-life",
+          "name": "Drink Life",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "exsanguinate",
+          "name": "Exsanguinate",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "shortsword",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"]
+      }
+    }
+  }
+]

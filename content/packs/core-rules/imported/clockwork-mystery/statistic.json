@@ -1,0 +1,122 @@
+[
+  {
+    "id": "a150bee0-bb1c-591a-814f-f9f4d1a4307b",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:azlant-lore",
+    "name": "Azlant Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "clockwork-mystery"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:azlant",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.azlant",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "77dfd86a-7f1f-5e18-aa6e-5a17209c4b11",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:cartography-lore",
+    "name": "Cartography Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "clockwork-mystery"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:cartography",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.cartography",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "a14fd0ca-b31b-576f-9a8d-f537c3d462b9",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:clockwork-lore",
+    "name": "Clockwork Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "clockwork-mystery"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:clockwork",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.clockwork",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "5fb956da-a7ec-5616-b929-e79e90a4e274",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:deskari-lore",
+    "name": "Deskari Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "clockwork-mystery"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:deskari",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.deskari",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "53417e8d-a4a8-5930-bfad-b022bba0bf70",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:hag-lore",
+    "name": "Hag Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "clockwork-mystery"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:hag",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.hag",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

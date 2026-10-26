@@ -1,0 +1,4085 @@
+[
+  {
+    "id": "d8042055-0a98-547b-9103-e51d39bc85d8",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:aeon-stone-crescent",
+    "name": "Aeon Stone (Crescent)",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aeon stones are magical, intricately cut gemstones that orbit the head of their owners and grant them a magical effect. The ancient Azlanti empire made many advances in aeon stone technology, creating countless new aeon stones and devising innovative methods to use aeon stones to their greatest effect. The first wayfinders—one of many devices in which aeon stones can be slotted to gain additional resonant powers—were created in Azlant."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you invest one of these precisely shaped crystals, the stone orbits your head instead of being worn on your body. You can stow an aeon stone with an Interact action, and an orbiting stone can be snatched out of the air with a successful "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " action against you. A stowed or removed stone remains invested, but its effects are suppressed until you return it to orbit your head again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There are various types of aeon stones, each with a different appearance, magical effect, and resonant power."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once holy relics, the creation of "
+          },
+          {
+            "type": "text",
+            "text": "crescent aeon stones",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " was inspired by Acavna, goddess of the moon and protection. The "
+          },
+          {
+            "type": "text",
+            "text": "crescent aeon stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " continually sheds dim light in a 5-foot radius."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Moonbeam",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, divine, holy, light, spirit)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "crescent aeon stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " fires a blast of silvery moonlight in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 100
+          },
+          {
+            "type": "text",
+            "text": ", dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d12",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in the area ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 22,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). This is silver damage for the purposes of weaknesses, resistances, and the like."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The resonant power enables you to cast "
+          },
+          {
+            "type": "ref",
+            "id": "87cbc7c8-756e-521d-baaf-9c09d1ddfb3c"
+          },
+          {
+            "type": "text",
+            "text": " as a divine innate cantrip."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sPvip91GX8TYvr8Q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 225
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "moonbeam",
+          "name": "Moonbeam",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "6974540e-138c-5a1c-8e8f-f73de934f482",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:aeon-stone-flickering",
+    "name": "Aeon Stone (Flickering)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aeon stones are magical, intricately cut gemstones that orbit the head of their owners and grant them a magical effect. The ancient Azlanti empire made many advances in aeon stone technology, creating countless new aeon stones and devising innovative methods to use aeon stones to their greatest effect. The first wayfinders—one of many devices in which aeon stones can be slotted to gain additional resonant powers—were created in Azlant."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you invest one of these precisely shaped crystals, the stone orbits your head instead of being worn on your body. You can stow an aeon stone with an Interact action, and an orbiting stone can be snatched out of the air with a successful "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " action against you. A stowed or removed stone remains invested, but its effects are suppressed until you return it to orbit your head again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There are various types of aeon stones, each with a different appearance, magical effect, and resonant power."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A flickering aeon stone contains a drop of orichalcum at its center. It remains slightly out of phase with reality, giving it a translucent appearance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Flicker",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The flickering aeon stone draws you slightly out of sync with the flow of time, causing you to flicker in and out of existence. You become "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute, but you can't use this concealment to Hide or "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Enter Stasis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The flickering aeon stone pulls you from the flow of time completely, placing you in temporary stasis while you heal, then returning you to reality at the moment you left. You regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d10+8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points. If you have the clumsy, drained, enfeebled, or stupefied condition, the value of each of these conditions is reduced by 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The resonant power grants you a +1 circumstance bonus to initiative rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4VZeiIiJl13Bhyxo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "flicker",
+          "name": "Flicker",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "enter-stasis",
+          "name": "Enter Stasis",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "58db9baa-9ec7-59d9-b674-2b8d884b8f94",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:aeon-stone-formulating",
+    "name": "Aeon Stone (Formulating)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Over millennia, these mysterious, intricately cut gemstones have been hoarded by mystics and fanatics hoping to discover their secrets. Despite their myriad forms and functions, these stones are purportedly all fragments of crystal tools used by otherworldly entities to construct the universe in primeval times."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you invest one of these precisely shaped crystals, the stone orbits your head instead of being worn on your body. You can stow an "
+          },
+          {
+            "type": "text",
+            "text": "aeon stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with an Interact action, and an orbiting stone can be snatched out of the air with a successful Disarm action against you. A stowed or removed stone remains invested, but its effects are suppressed until you return it to orbit your head again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There are various types of "
+          },
+          {
+            "type": "text",
+            "text": "aeon stones",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", each with a different appearance and magical effect. Each "
+          },
+          {
+            "type": "text",
+            "text": "aeon stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " also gains a resonant power when slotted into a special magical item called a "
+          },
+          {
+            "type": "text",
+            "text": "wayfinder",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This four-sided prism is imbued with knowledge for the construction of several objects. The stone contains the knowledge of all formulas found in a basic crafter's book. While you have the stone invested, you have the full knowledge of the stone's formulas. This counts as having the formula for the purposes of Crafting checks. While you have this knowledge, you can write the formulas down for later use, such as if you lose access to the stone. You also gain a +1 item bonus to skill checks made to Craft while the stone is invested."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The resonant power allows you to cast "
+          },
+          {
+            "type": "ref",
+            "id": "52547c94-24db-549b-961f-07a2350befdc"
+          },
+          {
+            "type": "text",
+            "text": " as an arcane innate spell once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:craft"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.upwbVWWYP6QED8wC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "c445475e-2241-5f1c-812c-9a4af2ccbe90",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:aeon-stone-repairing",
+    "name": "Aeon Stone (Repairing)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Over millennia, these mysterious, intricately cut gemstones have been hoarded by mystics and fanatics hoping to discover their secrets. Despite their myriad forms and functions, these stones are purportedly all fragments of crystal tools used by otherworldly entities to construct the universe in primeval times."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you invest one of these precisely shaped crystals, the stone orbits your head instead of being worn on your body. You can stow an "
+          },
+          {
+            "type": "text",
+            "text": "aeon stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with an Interact action, and an orbiting stone can be snatched out of the air with a successful Disarm action against you. A stowed or removed stone remains invested, but its effects are suppressed until you return it to orbit your head again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There are various types of "
+          },
+          {
+            "type": "text",
+            "text": "aeon stones",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", each with a different appearance and magical effect. Each "
+          },
+          {
+            "type": "text",
+            "text": "aeon stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " also gains a resonant power when slotted into a special magical item called a "
+          },
+          {
+            "type": "text",
+            "text": "wayfinder",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This translucent, spherical stone's center contains a multitude of sparkling, colored flecks. While you have this stone invested, you gain a +1 item bonus to skill checks made to Craft. Additionally, when Repairing an item, you restore an additional 5 Hit Points to the item (10 Hit Points on a critical success)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The resonant power allows you to cast "
+          },
+          {
+            "type": "ref",
+            "id": "d79a21f4-82c0-53b7-a473-84069eb69636"
+          },
+          {
+            "type": "text",
+            "text": " as an arcane innate spell once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:craft"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4qr2tS58bBYxQvAz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 75
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "5eed05ed-aa02-5107-9a7a-9e03a367a9fa",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:aeon-stone-vital-amplification",
+    "name": "Aeon Stone (Vital Amplification)",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aeon stones are magical, intricately cut gemstones that orbit the head of their owners and grant them a magical effect. The ancient Azlanti empire made many advances in aeon stone technology, creating countless new aeon stones and devising innovative methods to use aeon stones to their greatest effect. The first wayfinders—one of many devices in which aeon stones can be slotted to gain additional resonant powers—were created in Azlant."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you invest one of these precisely shaped crystals, the stone orbits your head instead of being worn on your body. You can stow an aeon stone with an Interact action, and an orbiting stone can be snatched out of the air with a successful "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " action against you. A stowed or removed stone remains invested, but its effects are suppressed until you return it to orbit your head again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There are various types of aeon stones, each with a different appearance, magical effect, and resonant power."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A vital amplification aeon stone improves the flow of vital energy through your body, speeding the healing process and safeguarding your body from life-draining effects. Whenever you regain Hit Points, you regain an additional 1 Hit Point for each 10 Hit Points regained (minimum 1 additional Hit Point). The resonant power grants you resistance 5 to void damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "728d46f6-325b-5201-af8c-16a3a97565e2"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZtiSyJMXellZRPRB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 330
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "57dcd908-6f7a-5a84-8170-0b3f15e23149",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:clockwork-sun",
+    "name": "Clockwork Sun",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["arcane", "artifact", "clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "AC",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 45"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fort",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +36, "
+          },
+          {
+            "type": "text",
+            "text": "Ref",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +30"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hardness",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 20"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "HP",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 300 (BT 150)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Immunities",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " critical hits, object immunities, precision damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Weaknesses",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " electricity 20, orichalcum 20"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Resistances",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " physical 20 (except adamantine or orichalcum)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Speed",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 feet, climb 10 feet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At the height of the Azlant Empire, there were those who had the wealth and skill to elevate the hobby of terrarium-keeping into a truly breathtaking endeavor. By deploying a clockwork sun into a subterranean cavern, these power-drunk overlords introduced a day-night cycle to chambers that otherwise would never have felt the touch of sunlight. At Azlant's height, an elite association of powerful spellcasters and aristocrats kept vast underground terrariums outfitted with clockwork suns, competing to see who could create the most astounding \"personal world.\" Yet not all clockwork suns were the playthings of the rich and bored. The one in En-Gokal served a practical purpose, nurturing farmlands that kept the inmates and staff of the prison fed. Even now, centuries after the cataclysmic events of Earthfall, this clockwork sun continues its relentless crawl across the cavern above Underheaven."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A clockwork sun is an elephant-sized sphere of polished bronze plates fitted with glowing crystals, all arranged around a heart of grinding gears. An array of magical lenses amplifies the energy shed by a single aeon stone set in the center of the artifact, generating light that mimics that of a real sun. A series of short, spider-like legs along one side of the sun grants the artifact lumbering mobility. So long as at least one of these appendages remains in contact with a solid surface, the clockwork sun moves as if gravity were pulling it toward that surface, allowing the sun to move along walls and across ceilings with ease (although a clockwork sun walking on a wall or ceiling immediately falls if it loses contact with this surface)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Set Cycle",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You program the clockwork sun's motions and periods of illumination over the course of a 24-hour cycle. The clockwork sun follows this cycle exactly and must return to its starting point at the end of each cycle. If it does so, the act of the cycle automatically winds the clockwork sun, and it repeats the cycle. A clockwork sun that encounters an unexpected barrier can navigate simple blockades by moving around or climbing over them—as such, many users set a clockwork sun's cycle to take less time than 24 hours, giving the artifact plenty of time to return to its starting spot if it's forced take detours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As part of setting the clockwork sun's cycle, you also determine the periods during which the artifact is illuminated; the total illumination time can't be longer than half the sun's total cycle time (typically 12 hours). While illuminated, a clockwork sun sheds bright light equivalent to that of a sunny day to a radius of 1 mile. A sighted creature that ends their turn within 20 feet of an illuminated clockwork sun and didn't Avert Gaze during their turn must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 43
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute ("
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute on a critical failure). Creatures at a further distance can look directly at the light without fear, as it's not as intense as true sunlight."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures that are vulnerable to sunlight (such as deros or vampires) do not treat the light of a clockwork sun as true sunlight, but if they start their turn within the illumination, they must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 43
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure) from the minor but discomforting pain the near-sunlight induces."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A clockwork sun can be destroyed by mundane means, but its armored frame and high Hit Points make them difficult to damage. A clockwork sun reduced to 0 HP is destroyed and explodes in a blast of shrapnel and fire in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 40
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "piercing"
+              },
+              {
+                "formula": "10d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 43,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eLB9htTAvZeiXgW6"
+    },
+    "data": {
+      "bulk": 24,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0592b9a8-64f0-5415-aeed-ef625310a9fa",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:essence-charm",
+    "name": "Essence Charm",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anyone can use an "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to craft an "
+          },
+          {
+            "type": "text",
+            "text": "essence charm",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " without needing to know the formula for an "
+          },
+          {
+            "type": "text",
+            "text": "essence charm",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". No larger than a coin, an "
+          },
+          {
+            "type": "text",
+            "text": "essence charm",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is normally worn around the neck or hung from a belt—its exact appearance is up to the crafter. When an "
+          },
+          {
+            "type": "text",
+            "text": "essence charm",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is created, its crafter selects a skill in which they are at least trained. The "
+          },
+          {
+            "type": "text",
+            "text": "essence charm",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants a +1 item bonus to that skill when worn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Lucky Charm",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail or critically fail a check using the "
+          },
+          {
+            "type": "text",
+            "text": "essence charm",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s chosen skill"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A failed check becomes a success, and a critical failure becomes a failure."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6BGWlWFEX3gRRnWa"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "lucky-charm",
+          "name": "Lucky Charm",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "860cbc4c-4ba2-58e8-af5c-aa82c1b1e2e7",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:essence-forge-greater",
+    "name": "Essence Forge (Greater)",
+    "level": 18,
+    "rarity": "rare",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " consists of a large stone workbench with a receptacle for fuel built into the left side. Sparkling crystals are embedded across the forge's structure, with additional flourishes made from a different material, as appropriate to the type of forge."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Life forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are adorned with fossilized bones and petrified wood. They're used to craft items associated with the divine and primal magic traditions. One must attempt a Nature or Religion check to prime a "
+          },
+          {
+            "type": "text",
+            "text": "life forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Matter forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are decorated with strips of precious metal. They can be used to craft items associated with the arcane and primal magic traditions. One must attempt an Arcana or Nature check to prime a "
+          },
+          {
+            "type": "text",
+            "text": "matter forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mind forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are accentuated with glittering gemstones. They can be used to craft items associated with the arcane and occult magic traditions. One must attempt an Arcana or Occultism check to prime a "
+          },
+          {
+            "type": "text",
+            "text": "mind forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spirit forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are emblazoned with strange runes and obscure symbols enhanced by different pigments. They can be used to craft items associated with the divine and occult magic traditions. One must attempt an Occultism or Religion check to prime a "
+          },
+          {
+            "type": "text",
+            "text": "spirit forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Prime the Forge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " doesn't currently contain any stored essence"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You prepare the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for use by placing raw materials in its receptacle then spend an hour concentrating on the forge, using your own magical potential to consume the materials. The combined gp value of the raw materials sets the maximum price of the item you can craft with the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". An "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s receptacle can hold no more than 3 Bulk of raw materials, so coins, gemstones, or small valuable objects or items make for the best sources of fuel. Attempt an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:arcana",
+            "dc": 40
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:nature",
+            "dc": 40
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:occultism",
+            "dc": 40
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:religion",
+            "dc": 40
+          },
+          {
+            "type": "text",
+            "text": " check as appropriate for the tradition of "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " you're using to focus your magical potential on the receptacle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials are consumed, and the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " stores essence equal to the value of the raw materials. Additional essence overflows back into you, granting a +3 item bonus to the skill you used to Prime the Forge for the next 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials are consumed, and the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " stores essence equal to the value of the raw materials."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials are consumed, but the burn is inefficient, and the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " stores essence equal to half the value of the raw materials."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials are consumed and lost, but no essence is stored in the forge; the raw materials are wasted."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Craft an Item",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 2 hours (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has been primed with raw materials equaling or exceeding the value of the item you intend to craft, and you are not "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You place your hands atop the forge's workspace and focus your concentration on the essence contained within the forge. Choose an item whose formula you have and whose level is equal to or less than the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s level, or choose an "
+          },
+          {
+            "type": "ref",
+            "id": "0592b9a8-64f0-5415-aeed-ef625310a9fa"
+          },
+          {
+            "type": "text",
+            "text": ". The "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " begins to construct that item as you concentrate, causing an increasingly realistic illusion of the item to come into focus atop the forge's workspace. Attempt a Crafting check with a DC determined by the forge's type (lesser, moderate, or greater); this check earns Forge Points (using the Victory Point system). You can sustain this activation for up to 8 hours; each time you sustain the activation, attempt another Crafting check to earn Forge Points. When you choose to end the activation, you become fatigued, and any remaining essence stored in the forge dissipates with no further effect. Consult the "
+          },
+          {
+            "type": "text",
+            "text": "Essence Forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Crafting section below to determine if you were successful in crafting the item you chose."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Absorb Essence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, healing, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " contains essence"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You absorb the essence in the forge, emptying it and allowing it to be primed. If the essence value in the forge is equal to or greater than 5,000 gp, the forge heals you for "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d8+30"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " HP. Otherwise the absorbed essence has no effect."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Essence Forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Crafting"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you finish crafting with an "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", consult the following to determine how successful you were."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "0 or fewer Forge Points:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The essence was tainted or your concentration was lacking. An illusory object manifests, but it's a non-magical, worthless level 0 replica of the item you intended to craft."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "1–3 Forge Points:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The item you craft is functional but temporary. It falls apart after it's activated or after 24 hours, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "4–5 Forge Points:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully craft the item."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "6 or more Forge Points:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully craft the item, and it works better than expected. Choose one of the following enhancements to add to the item:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the item has an activation that has a frequency of once per day, that activation can be made an additional time each day."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the item has an activation that has a save DC or Strike modifier, that DC or Strike gains a +1 bonus."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the item is an invested item, it grants a +1 item bonus to initiative checks as long as you have it invested."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The item is well crafted and can be sold for 60%"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MIBPJ73gjQ17kweK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24000
+        }
+      },
+      "bulk": 20,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "0cd13761-3dd5-5503-a8a5-68ac060b8398",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:essence-forge-lesser",
+    "name": "Essence Forge (Lesser)",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " consists of a large stone workbench with a receptacle for fuel built into the left side. Sparkling crystals are embedded across the forge's structure, with additional flourishes made from a different material, as appropriate to the type of forge."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Life forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are adorned with fossilized bones and petrified wood. They're used to craft items associated with the divine and primal magic traditions. One must attempt a Nature or Religion check to prime a "
+          },
+          {
+            "type": "text",
+            "text": "life forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Matter forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are decorated with strips of precious metal. They can be used to craft items associated with the arcane and primal magic traditions. One must attempt an Arcana or Nature check to prime a "
+          },
+          {
+            "type": "text",
+            "text": "matter forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mind forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are accentuated with glittering gemstones. They can be used to craft items associated with the arcane and occult magic traditions. One must attempt an Arcana or Occultism check to prime a "
+          },
+          {
+            "type": "text",
+            "text": "mind forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spirit forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are emblazoned with strange runes and obscure symbols enhanced by different pigments. They can be used to craft items associated with the divine and occult magic traditions. One must attempt an Occultism or Religion check to prime a "
+          },
+          {
+            "type": "text",
+            "text": "spirit forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Prime the Forge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " doesn't currently contain any stored essence"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You prepare the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for use by placing raw materials in its receptacle then spend an hour concentrating on the forge, using your own magical potential to consume the materials. The combined gp value of the raw materials sets the maximum price of the item you can craft with the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". An "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s receptacle can hold no more than 3 Bulk of raw materials, so coins, gemstones, or small valuable objects or items make for the best sources of fuel. Attempt an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:arcana",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:nature",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:occultism",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:religion",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " check as appropriate for the tradition of "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " you're using to focus your magical potential on the receptacle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials are consumed, and the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " stores essence equal to the value of the raw materials. Additional essence overflows back into you, granting a +1 item bonus to the skill you used to Prime the Forge for the next 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials are consumed, and the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " stores essence equal to the value of the raw materials."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials are consumed, but the burn is inefficient, and the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " stores essence equal to half the value of the raw materials."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials are consumed and lost, but no essence is stored in the forge; the raw materials are wasted."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Craft an Item",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 2 hours (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has been primed with raw materials equaling or exceeding the value of the item you intend to craft, and you are not "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You place your hands atop the forge's workspace and focus your concentration on the essence contained within the forge. Choose an item whose formula you have and whose level is equal to or less than the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s level, or choose an "
+          },
+          {
+            "type": "ref",
+            "id": "0592b9a8-64f0-5415-aeed-ef625310a9fa"
+          },
+          {
+            "type": "text",
+            "text": ". The "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " begins to construct that item as you concentrate, causing an increasingly realistic illusion of the item to come into focus atop the forge's workspace. Attempt a Crafting check with a DC determined by the forge's type (lesser, moderate, or greater); this check earns Forge Points (using the Victory Point system). You can sustain this activation for up to 8 hours; each time you sustain the activation, attempt another Crafting check to earn Forge Points. When you choose to end the activation, you become fatigued, and any remaining essence stored in the forge dissipates with no further effect. Consult the "
+          },
+          {
+            "type": "text",
+            "text": "Essence Forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Crafting section below to determine if you were successful in crafting the item you chose."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Absorb Essence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, healing, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " contains essence"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You absorb the essence in the forge, emptying it and allowing it to be primed. If the essence value in the forge is equal to or greater than 50 gp, the forge heals you for "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d8+10"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " HP. Otherwise the absorbed essence has no effect."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Essence Forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Crafting"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you finish crafting with an "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", consult the following to determine how successful you were."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "0 or fewer Forge Points:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The essence was tainted or your concentration was lacking. An illusory object manifests, but it's a non-magical, worthless level 0 replica of the item you intended to craft."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "1–3 Forge Points:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The item you craft is functional but temporary. It falls apart after it's activated or after 24 hours, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "4–5 Forge Points:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully craft the item."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "6 or more Forge Points:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully craft the item, and it works better than expected. Choose one of the following enhancements to add to the item:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the item has an activation that has a frequency of once per day, that activation can be made an additional time each day."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the item has an activation that has a save DC or Strike modifier, that DC or Strike gains a +1 bonus."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the item is an invested item, it grants a +1 item bonus to initiative checks as long as you have it invested."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The item is well crafted and can be sold for 60%"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LmksnUQdwRu0SPCK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": 20,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "049b234f-d9ed-5504-b52a-bff253ee9e30",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:essence-forge-moderate",
+    "name": "Essence Forge (Moderate)",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " consists of a large stone workbench with a receptacle for fuel built into the left side. Sparkling crystals are embedded across the forge's structure, with additional flourishes made from a different material, as appropriate to the type of forge."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Life forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are adorned with fossilized bones and petrified wood. They're used to craft items associated with the divine and primal magic traditions. One must attempt a Nature or Religion check to prime a "
+          },
+          {
+            "type": "text",
+            "text": "life forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Matter forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are decorated with strips of precious metal. They can be used to craft items associated with the arcane and primal magic traditions. One must attempt an Arcana or Nature check to prime a "
+          },
+          {
+            "type": "text",
+            "text": "matter forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mind forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are accentuated with glittering gemstones. They can be used to craft items associated with the arcane and occult magic traditions. One must attempt an Arcana or Occultism check to prime a "
+          },
+          {
+            "type": "text",
+            "text": "mind forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spirit forges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are emblazoned with strange runes and obscure symbols enhanced by different pigments. They can be used to craft items associated with the divine and occult magic traditions. One must attempt an Occultism or Religion check to prime a "
+          },
+          {
+            "type": "text",
+            "text": "spirit forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Prime the Forge",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " doesn't currently contain any stored essence"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You prepare the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for use by placing raw materials in its receptacle then spend an hour concentrating on the forge, using your own magical potential to consume the materials. The combined gp value of the raw materials sets the maximum price of the item you can craft with the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". An "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s receptacle can hold no more than 3 Bulk of raw materials, so coins, gemstones, or small valuable objects or items make for the best sources of fuel. Attempt an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:arcana",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:nature",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:occultism",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:religion",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " check as appropriate for the tradition of "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " you're using to focus your magical potential on the receptacle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials are consumed, and the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " stores essence equal to the value of the raw materials. Additional essence overflows back into you, granting a +2 item bonus to the skill you used to Prime the Forge for the next 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials are consumed, and the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " stores essence equal to the value of the raw materials."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials are consumed, but the burn is inefficient, and the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " stores essence equal to half the value of the raw materials."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The raw materials are consumed and lost, but no essence is stored in the forge; the raw materials are wasted."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Craft an Item",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 2 hours (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has been primed with raw materials equaling or exceeding the value of the item you intend to craft, and you are not "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You place your hands atop the forge's workspace and focus your concentration on the essence contained within the forge. Choose an item whose formula you have and whose level is equal to or less than the "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s level, or choose an "
+          },
+          {
+            "type": "ref",
+            "id": "0592b9a8-64f0-5415-aeed-ef625310a9fa"
+          },
+          {
+            "type": "text",
+            "text": ". The "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " begins to construct that item as you concentrate, causing an increasingly realistic illusion of the item to come into focus atop the forge's workspace. Attempt a Crafting check with a DC determined by the forge's type (lesser, moderate, or greater); this check earns Forge Points (using the Victory Point system). You can sustain this activation for up to 8 hours; each time you sustain the activation, attempt another Crafting check to earn Forge Points. When you choose to end the activation, you become fatigued, and any remaining essence stored in the forge dissipates with no further effect. Consult the "
+          },
+          {
+            "type": "text",
+            "text": "Essence Forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Crafting section below to determine if you were successful in crafting the item you chose."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Absorb Essence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, healing, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " contains essence"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You absorb the essence in the forge, emptying it and allowing it to be primed. If the essence value in the forge is equal to or greater than 400 gp, the forge heals you for "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d8+20"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " HP. Otherwise the absorbed essence has no effect."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Essence Forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " Crafting"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you finish crafting with an "
+          },
+          {
+            "type": "text",
+            "text": "essence forge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", consult the following to determine how successful you were."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "0 or fewer Forge Points:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The essence was tainted or your concentration was lacking. An illusory object manifests, but it's a non-magical, worthless level 0 replica of the item you intended to craft."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "1–3 Forge Points:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The item you craft is functional but temporary. It falls apart after it's activated or after 24 hours, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "4–5 Forge Points:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully craft the item."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "6 or more Forge Points:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully craft the item, and it works better than expected. Choose one of the following enhancements to add to the item:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the item has an activation that has a frequency of once per day, that activation can be made an additional time each day."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the item has an activation that has a save DC or Strike modifier, that DC or Strike gains a +1 bonus."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the item is an invested item, it grants a +1 item bonus to initiative checks as long as you have it invested."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The item is well crafted and can be sold for 60%"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tjxoE6w85Hlg2To4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": 20,
+      "usage": {
+        "type": "other"
+      }
+    }
+  },
+  {
+    "id": "d26f8824-35e4-5391-8b51-fbca957be872",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:farlight-stone",
+    "name": "Farlight Stone",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["light", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Farlight stones",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are common in libraries, monasteries, labs, and other places where simple but silent communication is important. "
+          },
+          {
+            "type": "text",
+            "text": "Farlight stones",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " always come in linked pairs, and each of the fist-sized stones can be Activated independently."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Light",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The stone begins to glow as a torch, shedding bright light in a 20-foot radius (and dim light to the next 20 feet). You can Activate the stone in this way again to end the effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Color",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The stone is glowing with light"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the color of the stone's light to any other color, which remains as long as the stone sheds light."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Notify",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The stone is glowing with light"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The stone's light begins to pulse. You can choose the rate of the pulse between slow, moderate, and fast. If the linked stone is within 15 miles, its center begins to glow in the same color and pulse at the same rate. You can use this activation to end the pulsing caused by a linked stone."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AQBJX5RnI1YIMLmm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 35
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "962efa39-0267-5818-972f-f6b68fa9c18d",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:miniaturization-module",
+    "name": "Miniaturization Module",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A miniaturization module is a bulky clockwork belt interwoven with clear rubber tubing. These tubes are filled with distilled liquid magic, which serves as a power source. While wearing a miniaturization module, you gain a +1 item bonus to checks to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Miniaturize Me!",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You instantly shrink, becoming Tiny in size. Your equipment shrinks with you but returns to its original size if removed. While Tiny, your reach changes to 0 feet. You remain Tiny for 10 minutes, but you can Dismiss this effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Miraculous Escape",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You instinctively trigger the miniaturization module and wiggle free, then move and grow larger, seemingly escaping in a flicker of motion. You become Tiny, then attempt to Escape the triggering effect, gaining a +4 circumstance bonus to this check. If you successfully Escape, you Step into an adjacent space. Regardless of the result, you then return to your original size."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6BGlAjt37jE4a6st"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "miniaturize-me",
+          "name": "Miniaturize Me!",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "miraculous-escape",
+          "name": "Miraculous Escape",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "74f344d0-aa20-5ce8-95d2-a1e009aa0770",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:schematic-scanner",
+    "name": "Schematic Scanner",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "schematic scanner",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a complex brass device featuring multiple mounted lenses, clamps, and apertures. A "
+          },
+          {
+            "type": "text",
+            "text": "schematic scanner",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can hold the formulas for items as if it were a formula book with unlimited capacity. You can add a formula to the "
+          },
+          {
+            "type": "text",
+            "text": "schematic scanner",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " using the Store Schematics activation. A "
+          },
+          {
+            "type": "text",
+            "text": "schematic scanner",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants you a +2 item bonus to Crafting checks to craft an item whose formula is stored in the "
+          },
+          {
+            "type": "text",
+            "text": "schematic scanner",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Store Schematics",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You place the written formula for an item into the "
+          },
+          {
+            "type": "text",
+            "text": "schematic scanner",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and view it through the mounted lenses, magically storing a copy of the formula inside the "
+          },
+          {
+            "type": "text",
+            "text": "schematic scanner",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reverse Engineer Schematics",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You place an item in front of the "
+          },
+          {
+            "type": "text",
+            "text": "schematic scanner",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", then view the item through the mounted lenses, magically learning the formula for the targeted item, without disassembling or causing harm to the item, and storing the formula in the "
+          },
+          {
+            "type": "text",
+            "text": "schematic scanner",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Reverse engineering a formula in this way takes 10 minutes and doesn't cost any gold."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0X1s1F8HmEXu3vEj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 230
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d55765f1-0bb6-5875-96a0-5cb2918b2c63",
+    "pack": "shades-of-blood",
+    "kind": "equipment",
+    "slug": "equipment:security-badge",
+    "name": "Security Badge",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When displayed prominently, this iron badge grants you authority and gravitas. You gain a +1 item bonus to Intimidation checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Authoritative Command",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, concentrate, incapacitation, linguistic, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You shout at a foe within 60 feet, compelling them to stand in place and drop everything they're holding. The target attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 23
+          },
+          {
+            "type": "text",
+            "text": " save with the following results."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " as it does one of the following at the beginning of its next turn: stand in place or release what it's holding."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": " as it stands in place and releases what it's holding at the beginning of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 3"
+          },
+          {
+            "type": "text",
+            "text": " as it spends its next turn to stand in place, release what it's holding, and place its hands in the air."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.v6J6LjXazHCHResN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "authoritative-command",
+          "name": "Authoritative Command",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  }
+]

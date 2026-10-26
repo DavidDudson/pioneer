@@ -1,0 +1,1083 @@
+[
+  {
+    "id": "528a89d0-b078-580d-9ca3-6cd62bf7f105",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-absorb-shock",
+    "name": "Effect: Absorb Shock",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The stormdrinker gains 10 temporary HP, is quickened, and increases the reach of its vine Strikes by 5 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 10
+      },
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:slug:vine"],
+        "property": "traits",
+        "mode": "add",
+        "value": "reach-15"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.LWXdHlZQ2mttrp6R"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "0d44f47a-c84c-5360-b1de-4d667b37ad1f",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-aggravating-aura",
+    "name": "Effect: Aggravating Aura",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains weakness to all damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.WQsMv2KlURI9OKQQ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ebaea108-9be8-568f-8d16-e35274c4ffe6",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-born-to-the-trees",
+    "name": "Effect: Born to the Trees",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4d679f80-7866-56c3-80cd-126e2f45bdcc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a climb Speed equal to your Speed and a +1 circumstance bonus to Acrobatics checks to Balance and Athletics checks to Long Jump and High Jump."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics", "skill:athletics"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["action:balance", "action:long-jump", "action:high-jump"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.uaWIJU1m2eHgfkDp"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cc79dcc0-73c1-5fe9-8b29-c694f8ad0cf2",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-clay-sphere-armor",
+    "name": "Effect: Clay Sphere - Armor",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "17e75e93-b9d7-5f4c-81ff-a74997817a90"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "970b4b7e-6b7f-586c-a54d-700159629ce2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "dcc19d30-2db5-5f9a-ae7b-7b70c2a99c78"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance to precision damage and an item bonus to saving throws against effects with the morph or polymorph traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["precision"],
+        "value": 2,
+        "predicate": ["clay-sphere:clay-sphere"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["precision"],
+        "value": 5,
+        "predicate": ["clay-sphere:clay-sphere-greater"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["precision"],
+        "value": 10,
+        "predicate": ["clay-sphere:clay-sphere-major"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 1,
+        "slug": "clay-sphere-bonus",
+        "predicate": [
+          {
+            "or": ["item:trait:morph", "item:trait:polymorph"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "clay-sphere-bonus",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["clay-sphere:clay-sphere-greater"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "clay-sphere-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["clay-sphere:clay-sphere-major"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.fLcp28dxFCOcBibw"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "e65672c0-d53c-5d1e-ad2d-5f287ae98d72",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-clay-sphere-weapon",
+    "name": "Effect: Clay Sphere - Weapon",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "17e75e93-b9d7-5f4c-81ff-a74997817a90"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "970b4b7e-6b7f-586c-a54d-700159629ce2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "dcc19d30-2db5-5f9a-ae7b-7b70c2a99c78"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Strikes with the affixed weapon have the versatile bludgeoning, versatile piercing, and versatile slashing trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "febc5b84-ff02-5eab-96ab-9b9c2356ba17"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.La2ziyuLYKG0thOj"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "febc5b84-ff02-5eab-96ab-9b9c2356ba17",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-clay-sphere-weapon-damage-increase",
+    "name": "Effect: Clay Sphere - Weapon Damage Increase",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "17e75e93-b9d7-5f4c-81ff-a74997817a90"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "970b4b7e-6b7f-586c-a54d-700159629ce2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "dcc19d30-2db5-5f9a-ae7b-7b70c2a99c78"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Strikes with the affixed weapon have their damage dice increase by one step."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.SMsTQhsPJ58WqPKy"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "9340c9e8-8a5e-59dd-85ad-f88d60bb53fa",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-curse-trespassers",
+    "name": "Effect: Curse Trespassers",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –2 penalty to Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "untyped",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.SN2UAhPQROyvuj6c"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "64d6276b-09a4-5830-8e2c-588936fc0f90",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-exalt-the-little-ones",
+    "name": "Effect: Exalt the Little Ones",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures with the animal trait gain a +1 status bonus to attack rolls, damage rolls, and saving throws. If the animals have the swarm trait, the saving throw DCs to resist their damaging actions gain a +1 status bonus. This bonus increases to +2 for allies whose level is 2 or lower."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage", "saving-throw"],
+        "type": "status",
+        "value": "ternary(lte(@level, 2), 2, 1)",
+        "predicate": ["self:trait:animal"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["inline-dc"],
+        "type": "status",
+        "value": "ternary(lte(@level, 2), 2, 1)",
+        "predicate": ["self:trait:animal", "self:trait:swarm", "option:damaging-effect"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iscmAwLoNKLQ2vnU"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fb7da97a-b014-5034-8e68-2df0af2cfd22",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-fungal-rot",
+    "name": "Effect: Fungal Rot",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a7baf5d8-603f-5696-9909-3e3e79e2ffc7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage equal to your level as your body decays."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage equal to your level and become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage equal to twice your level and become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 4"
+          },
+          {
+            "type": "text",
+            "text": ". You can't reduce the value of your sickened condition below 1 for 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.v9ujShXxA76JL8kh"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "labels": ["Mild", "Moderate", "Severe"],
+        "loop": false
+      }
+    }
+  },
+  {
+    "id": "5c89e5c7-9121-507d-9511-7ee9b963ec7c",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-inflammation-flask",
+    "name": "Effect: Inflammation Flask",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a89b013f-b5fc-5b27-9a76-4f6ec8b03701"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ef0c2511-8239-5cc8-b567-310a1dbf85a6"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "92b37069-beb3-580d-87fe-7bd31c5c60dc"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3102302a-3ca9-550d-a702-9d2370fb2cb4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness to acid, fire, and slashing damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["acid", "fire", "slashing"],
+        "value": 1,
+        "predicate": ["inflammation-flask:inflammation-flask-lesser"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["acid", "fire", "slashing"],
+        "value": 2,
+        "predicate": ["inflammation-flask:inflammation-flask-moderate"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["acid", "fire", "slashing"],
+        "value": 3,
+        "predicate": ["inflammation-flask:inflammation-flask-greater"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["acid", "fire", "slashing"],
+        "value": 4,
+        "predicate": ["inflammation-flask:inflammation-flask-major"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.li52UFA2ErqRLeer"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 3,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "9f13df1d-6f1c-5b45-a786-602fb3e1f472",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-life-draining",
+    "name": "Effect: Life-Draining",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "76ade6bd-8859-56f8-888e-453782c6fdb4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mild Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " as the plants feed off your life force. This condition lasts until you spend 3 consecutive actions to rest and do nothing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " until you spend 20 minutes recuperating by resting and doing nothing. If you spend this time basking in sunshine, it instead takes 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Severe Backlash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 3"
+          },
+          {
+            "type": "text",
+            "text": " until you spend 2 hours napping. While napping, you're "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " and can't take actions or engage in exploration activities, but a creature can wake you with a single action with the manipulate trait. If you spend this time napping in natural sunlight, it instead takes 1 hour. You're fatigued until you can get a full night's rest."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.iAePXmGL9bMKBTpv"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "labels": ["Mild", "Moderate", "Severe"],
+        "loop": false
+      }
+    }
+  },
+  {
+    "id": "ad6bd2fa-f2fd-56e3-abe5-555453024029",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-necrotic-cap",
+    "name": "Effect: Necrotic Cap",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d8395cd4-9481-56f7-944b-e45491841e9a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "a81b516c-c53d-5404-b7d7-422969621ea3"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "75aad1f7-3e9c-5d10-be5d-822330df94f9"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "153196ae-1079-5071-8721-4241d43896da"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your "
+          },
+          {
+            "type": "text",
+            "text": "acid grip",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell loses the acid trait, gains the fungus trait, and all acid damage the spell deals becomes void damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:acid-grip"],
+        "property": "traits",
+        "mode": "remove",
+        "value": "acid"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:acid-grip"],
+        "property": "traits",
+        "mode": "add",
+        "value": "fungus"
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["spell-damage", "inline-damage"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "void",
+        "predicate": ["damage:type:acid", "item:slug:acid-grip"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.wQDfwrrvfRxwG5CY"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "6d07b5ab-f828-5e22-bc10-ebb123f52170",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-primal-sink",
+    "name": "Effect: Primal Sink",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to attack rolls, saving throws, skill checks, and sap saving throw DC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "saving-throw", "sap-inline-dc", "skill-check"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.45iy8x9ObfnkM97c"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 4,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "95337c44-2ed8-553f-8b19-ad49bdec1d02",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-unwavering-resilience",
+    "name": "Effect: Unwavering Resilience",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e8aa30ac-32d7-5a5d-84bf-2dff82f64b24"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a number of temporary Hit Point equal to your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.wAvcGfatk9H3TblG"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

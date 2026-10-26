@@ -1,0 +1,154 @@
+[
+  {
+    "id": "2943332a-78c2-5c71-bc66-2df094255221",
+    "pack": "wardens-of-wildwood",
+    "kind": "shield",
+    "slug": "shield:bloodroot-shield",
+    "name": "Bloodroot Shield",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["magical", "void", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden shield is an interwoven knot of still-living tree roots (Hardness 6, HP 36, BT 18)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Thirsty Roots",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hold out the shield as the roots untangle themselves and launch forward, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 25,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). On a failed save, a creature takes an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5",
+                "damageType": "bleed",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. The shield regains a number of Hit Points equal to half the void damage dealt."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2m6ug3NJo0YHZvsj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 600
+        }
+      },
+      "bulk": 1,
+      "hardness": 6,
+      "hitPoints": 36,
+      "activations": [
+        {
+          "slug": "thirsty-roots",
+          "name": "Thirsty Roots",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  }
+]

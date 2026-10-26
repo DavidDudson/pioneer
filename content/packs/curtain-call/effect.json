@@ -1,0 +1,931 @@
+[
+  {
+    "id": "02189767-71a4-5bb9-82db-76746429e1b9",
+    "pack": "curtain-call",
+    "kind": "effect",
+    "slug": "effect:effect-bloodletting",
+    "name": "Effect: Bloodletting",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Father Skinsaw gains 40 temporary hit points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 40
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.fLaHBJFV02m25j4c"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "310b3f8e-95ff-5072-a1bd-6ac5e1ab3e87",
+    "pack": "curtain-call",
+    "kind": "effect",
+    "slug": "effect:effect-clinging-smoke",
+    "name": "Effect: Clinging Smoke",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a –5-foot status penalty to all Speeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except –10 feet to speed and you are also clumsy 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except you are also slowed 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-clinging-smoke",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "clinging-smoke"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -5,
+        "slug": "clinging-smoke-penalty"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all-speeds"],
+        "slug": "clinging-smoke-penalty",
+        "mode": "override",
+        "value": -10,
+        "predicate": [
+          {
+            "or": ["clinging-smoke:failure", "clinging-smoke:critical-failure"]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+        "predicate": [
+          {
+            "or": ["clinging-smoke:failure", "clinging-smoke:critical-failure"]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+        "predicate": ["clinging-smoke:critical-failure"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.hHALCOBKk1j8yRfv"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "26b26e2a-5655-5432-8c19-aa526fa0946c",
+    "pack": "curtain-call",
+    "kind": "effect",
+    "slug": "effect:effect-consumed-by-bloodlust",
+    "name": "Effect: Consumed by Bloodlust",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to attacks and damage with your dagger, but are stupefied 2."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["dagger-attack-roll", "dagger-damage"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "GrantItem",
+        "item": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.l9sm9MVVzWlx010m"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c5a37e21-b39d-5657-be89-dbb6b4c6a83f",
+    "pack": "curtain-call",
+    "kind": "effect",
+    "slug": "effect:effect-dueling-dance",
+    "name": "Effect: Dueling Dance",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to your AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.lWciVCnKhwp8cF6E"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a9e2012e-008e-5f50-9132-a1b80f507004",
+    "pack": "curtain-call",
+    "kind": "effect",
+    "slug": "effect:effect-emotion-vulnerability",
+    "name": "Effect: Emotion Vulnerability",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The furnerico gains weakness to mental 15."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["mental"],
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.gFsYqrYJk7ZPvygY"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "aae0ae00-39d8-5294-92cd-958398d00f3f",
+    "pack": "curtain-call",
+    "kind": "effect",
+    "slug": "effect:effect-feast-on-illness",
+    "name": "Effect: Feast on Illness",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The furnerico gains 30 temporary hit points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.jjSMbM3FCI3gLXCz"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "36afa7e4-b7a8-51f7-9fba-d06c761d0d46",
+    "pack": "curtain-call",
+    "kind": "effect",
+    "slug": "effect:effect-look-at-me",
+    "name": "Effect: Look at Me!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6fb97239-a1d4-5848-9594-43a83c73de28"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 status penalty to Perception checks against everything but the source, a –1 status penalty to all saving throws against the source's visual effects, and gain a +2 status bonus to all saving throws against visual effects created by anyone else."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.hhW265JTxuLr1EP5"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6b124cde-73f9-5788-9362-dce724844a6b",
+    "pack": "curtain-call",
+    "kind": "effect",
+    "slug": "effect:effect-on-angels-wings",
+    "name": "Effect: On Angel's Wings",
+    "level": 19,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "061d4688-76fb-5b25-aea9-f02e7b44318d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed of 40 feet, and you gain immunity to paralysis effects and ignore effects that would give you a circumstance penalty to speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 40
+      },
+      {
+        "key": "Immunity",
+        "type": ["paralyzed"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["all-speeds"],
+        "suppress": true,
+        "predicate": ["penalty:type:circumstance"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.lw7i49nuCMYeppDC"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b2443a95-c9b5-55c8-bec5-7d621c5d712a",
+    "pack": "curtain-call",
+    "kind": "effect",
+    "slug": "effect:effect-scream-of-despair",
+    "name": "Effect: Scream of Despair",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness to mental 15."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["mental"],
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.TvctK2VAteHbnKXk"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "9da71dda-d9cf-5020-b6ba-50980154179f",
+    "pack": "curtain-call",
+    "kind": "effect",
+    "slug": "effect:effect-venomous-aura",
+    "name": "Effect: Venomous Aura",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 10 to poison (weakness 15 on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6fPk2jOEp7LOsV7J"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "513051db-adea-54e0-9cb2-e07ea8d782dd",
+    "pack": "curtain-call",
+    "kind": "effect",
+    "slug": "effect:spell-effect-musical-shift",
+    "name": "Spell Effect: Musical Shift",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "22bca9d1-35d5-5b13-8837-febc0367f271"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Flat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (key signature) Whenever an enemy critically fails at a Strike, saving throw, or skill check, they fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " in addition to other effects from the critical failure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Natural",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (key signature) Enemies take a –2 status penalty to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sharp",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (key signature) Whenever an enemy takes piercing or slashing damage, they also take 2d6 persistent bleed damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Double",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (time signature) You and your allies become "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " and can use the extra action each round only for "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": ", Stand, Step, or Stride actions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Quadruple",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (time signature) You and your allies gain a +2 status bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Triple",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (time signature) You and your allies gain a +2 status bonus to Armor Class and Reflex saving throws."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-musical-shift",
+        "choices": [
+          {
+            "value": "flat",
+            "label": "Flat"
+          },
+          {
+            "value": "natural",
+            "label": "Natural"
+          },
+          {
+            "value": "sharp",
+            "label": "Sharp"
+          },
+          {
+            "value": "double",
+            "label": "Double"
+          },
+          {
+            "value": "quadruple",
+            "label": "Quadruple"
+          },
+          {
+            "value": "triple",
+            "label": "Triple"
+          }
+        ],
+        "prompt": "Select a Signature",
+        "rollOption": "musical-shift"
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll", "skill-check", "saving-throw"],
+        "title": "Spell Effect: Musical Shift",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Whenever the enemy critically fails at a Strike, saving throw, or skill check, they fall Prone in addition to other effects from the critical failure."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalFailure"],
+        "predicate": ["musical-shift:flat"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["damage-received"],
+        "title": "Spell Effect: Musical Shift",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Whenever an enemy takes piercing or slashing damage, they also take "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "2d6",
+                    "damageType": "bleed"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "or": ["item:damage:type:piercing", "item:damage:type:slashing"]
+          },
+          "musical-shift:sharp"
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0",
+        "predicate": ["musical-shift:double"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": -2,
+        "slug": "musical-shift-attack",
+        "predicate": [
+          {
+            "or": ["musical-shift:natural", "musical-shift:quadruple"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["musical-shift:triple"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["attack"],
+        "slug": "musical-shift-attack",
+        "mode": "multiply",
+        "value": -1,
+        "predicate": ["musical-shift:quadruple"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.1W1LZ3qrZLXr2Mn7"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "08e7b9fb-93e6-518c-934d-b1c203902dd4",
+    "pack": "curtain-call",
+    "kind": "effect",
+    "slug": "effect:spell-effect-song-of-silver",
+    "name": "Spell Effect: Song of Silver",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f7275b5e-74d7-5cf2-b12a-8e5b9314b83d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to all saving throws against mental effects; this bonus doubles to a +4 status bonus against all fear effects. On a critical success all weapons you wield are treated as silver."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-song-of-silver",
+        "choices": [
+          {
+            "value": "critical-success",
+            "label": "Critical Success"
+          },
+          {
+            "value": "success",
+            "label": "Success"
+          }
+        ],
+        "rollOption": "song-of-silver"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:mental"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "song-of-silver",
+        "mode": "add",
+        "value": 2,
+        "predicate": ["item:trait:fear"]
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": [
+          {
+            "not": "item:unarmed"
+          }
+        ],
+        "predicate": ["song-of-silver:critical-success"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.BdgWuULYjFwlVkr7"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 7,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

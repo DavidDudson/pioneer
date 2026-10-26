@@ -1,0 +1,3902 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "action:woodblessed-explosive-end",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.edpED1d9NbvR2NmB",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Woodblessed.ExplosiveEnd.Name"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "deathNote",
+          "raw": true
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "action:woodblessed-luminant-aura",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.WIVta5JyoDl9b2UO",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Woodblessed.LuminantAura.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "action:woodblessed-primal-innate-spells",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.p7VpIVDh5geLj7Ze",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Woodblessed.PrimalInnateSpells.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "action:woodblessed-reactive-flare",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.tEP4ajRcD7cr644Z",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Woodblessed.ReactiveFlare.Name"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[dc]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "action:woodblessed-tap-planar-gate",
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.sQ2nzNDLMdGqECm6",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Woodblessed.TapPlanarGate.Name"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "background:verduran-city-folk",
+      "foundry": "Compendium.pf2e.backgrounds.Item.gacjZkMkeVsrCt4A",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "value": "Compendium.pf2e.feats-srd.Item.Multilingual"
+              },
+              {
+                "value": "Compendium.pf2e.feats-srd.Item.Streetwise"
+              }
+            ],
+            "flag": "feat",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Feat"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "{item|flags.system.rulesSelections.feat}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "class-feature:blight-soul-deviant-classification",
+      "foundry": "Compendium.pf2e.classfeatures.Item.pLr6Kxa7XdkVMAub",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.deviantAbilities.awakenedChoices",
+            "priority": 10,
+            "value": {
+              "greater": [],
+              "lesser": []
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.ReleaseSporesSickening",
+              "predicate": [
+                {
+                  "not": "awakening:release-spores:sickening"
+                },
+                "feat:release-spores"
+              ],
+              "value": "release-spores:sickening"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.ReleaseSporesToxic",
+              "predicate": [
+                {
+                  "not": "awakening:release-spores:toxic"
+                },
+                "feat:release-spores"
+              ],
+              "value": "release-spores:toxic"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.ReleaseSporesSickening",
+              "predicate": [
+                {
+                  "not": "awakening:release-spores:sickening"
+                },
+                "feat:release-spores"
+              ],
+              "value": "release-spores:sickening"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.ReleaseSporesToxic",
+              "predicate": [
+                {
+                  "not": "awakening:release-spores:toxic"
+                },
+                "feat:release-spores"
+              ],
+              "value": "brelease-spores:toxic"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.RottenSlurrySplash",
+              "predicate": [
+                {
+                  "not": "awakening:rotten-slurry:splash"
+                },
+                "feat:rotten-slurry"
+              ],
+              "value": "rotten-slurry:splash"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.RottenSlurryPersistent",
+              "predicate": [
+                {
+                  "not": "awakening:rotten-slurry:persistent"
+                },
+                "feat:rotten-slurry"
+              ],
+              "value": "rotten-slurry:persistent"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.RottenSlurrySplash",
+              "predicate": [
+                {
+                  "not": "awakening:rotten-slurry:splash"
+                },
+                "feat:rotten-slurry"
+              ],
+              "value": "rotten-slurry:splash"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.RottenSlurryPersistent",
+              "predicate": [
+                {
+                  "not": "awakening:rotten-slurry:persistent"
+                },
+                "feat:rotten-slurry"
+              ],
+              "value": "rotten-slurry:persistent"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.IrradiatePoison",
+              "predicate": [
+                {
+                  "not": "awakening:irradiate:poison"
+                },
+                "feat:irradiate"
+              ],
+              "value": "irradiate:poison"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.IrradiateRadiusIncrease",
+              "predicate": [
+                {
+                  "not": "awakening:irradiate:radius-increase"
+                },
+                "feat:irradiate"
+              ],
+              "value": "irradiate:radius-increase"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.UnleashTheBlightDebilitating",
+              "predicate": [
+                {
+                  "not": "awakening:unleash-the-blight:debilitating"
+                },
+                "feat:unleash-the-blight"
+              ],
+              "value": "unleash-the-blight:debilitating"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.UnleashTheBlightInfectious",
+              "predicate": [
+                {
+                  "not": "awakening:unleash-the-blight:infectious"
+                },
+                "feat:unleash-the-blight"
+              ],
+              "value": "unleash-the-blight:infectious"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "SpecialStatistic",
+          "raw": {
+            "extends": "class-spell",
+            "key": "SpecialStatistic",
+            "label": "PF2E.SpecificRule.DeviantAbilities.Label",
+            "slug": "deviant",
+            "type": "attack-roll"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "class-feature:decay-instinct",
+      "foundry": "Compendium.pf2e.classfeatures.Item.znxs0soGlusvRP39",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["self:effect:rage", "feature:raging-resistance"],
+            "type": "poison",
+            "value": "@actor.flags.system.ragingResistance"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "definition": ["origin:trait:fungus"],
+            "key": "Resistance",
+            "label": "PF2E.IWR.Custom.AllDamageFromFungus",
+            "predicate": ["self:effect:rage", "feature:raging-resistance"],
+            "type": "custom",
+            "value": "@actor.flags.system.ragingResistance"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustModifier",
+          "raw": {
+            "damageType": "poison",
+            "key": "AdjustModifier",
+            "mode": "upgrade",
+            "predicate": ["rotting-rage"],
+            "selectors": ["strike-damage"],
+            "slug": "rage",
+            "value": 6
+          }
+        },
+        {
+          "type": "markup",
+          "markup": "span[style]"
+        },
+        {
+          "type": "markup",
+          "markup": "span"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "class-feature:ligneous-instinct",
+      "foundry": "Compendium.pf2e.classfeatures.Item.qVAeSFTI1dq64bB8",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "disabledIf": [
+              {
+                "not": "self:effect:rage"
+              }
+            ],
+            "disabledValue": false,
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.Barbarian.Ligneous.ToggleLabel",
+            "option": "wooden-rage",
+            "predicate": [
+              {
+                "or": ["class:barbarian", "feat:instinct-ability"]
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["self:effect:rage", "feature:raging-resistance"],
+            "type": ["piercing", "slashing"],
+            "value": "@actor.flags.system.ragingResistance"
+          }
+        },
+        {
+          "type": "markup",
+          "markup": "span[style]"
+        },
+        {
+          "type": "markup",
+          "markup": "span"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "class-feature:verdant-core-deviant-classification",
+      "foundry": "Compendium.pf2e.classfeatures.Item.RI8NqxswR9Am2ZzX",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.deviantAbilities.awakenedChoices",
+            "priority": 10,
+            "value": {
+              "greater": [],
+              "lesser": []
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.SproutFruitPlentiful",
+              "predicate": [
+                {
+                  "not": "awakening:sprout-fruit:plentiful"
+                },
+                "feat:sprout-fruit"
+              ],
+              "value": "sprout-fruit:plentiful"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.SproutFruitPotent",
+              "predicate": [
+                {
+                  "not": "awakening:sprout-fruit:potent"
+                },
+                "feat:sprout-fruit"
+              ],
+              "value": "sprout-fruit:potent"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.SproutFruitPlentiful",
+              "predicate": [
+                {
+                  "not": "awakening:sprout-fruit:plentiful"
+                },
+                "feat:sprout-fruit"
+              ],
+              "value": "sprout-fruit:plentiful"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.SproutFruitPotent",
+              "predicate": [
+                {
+                  "not": "awakening:sprout-fruit:potent"
+                },
+                "feat:sprout-fruit"
+              ],
+              "value": "sprout-fruit:potent"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.VineLashCone",
+              "predicate": [
+                {
+                  "not": "awakening:vine-lash:cone"
+                },
+                "feat:vine-lash"
+              ],
+              "value": "vine-lash:cone"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.lesser",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.VineLashConstrict",
+              "predicate": [
+                {
+                  "not": "awakening:vine-lash:constrict"
+                },
+                "feat:vine-lash"
+              ],
+              "value": "vine-lash:constrict"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.VineLashCone",
+              "predicate": [
+                {
+                  "not": "awakening:vine-lash:cone"
+                },
+                "feat:vine-lash"
+              ],
+              "value": "vine-lash:cone"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.VineLashConstrict",
+              "predicate": [
+                {
+                  "not": "awakening:vine-lash:constrict"
+                },
+                "feat:vine-lash"
+              ],
+              "value": "vine-lash:constrict"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.DefensiveGrowthExplodingShield",
+              "predicate": [
+                {
+                  "not": "awakening:defensive-growth:exploding-shield"
+                },
+                "feat:defensive-growth"
+              ],
+              "value": "defensive-growth:exploding-shield"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.DefensiveGrowthStrongerShield",
+              "predicate": [
+                {
+                  "not": "awakening:defensive-growth:stronger-shield"
+                },
+                "feat:defensive-growth"
+              ],
+              "value": "defensive-growth:stronger-shield"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.DisperseIntoPetalsBlossomVortex",
+              "predicate": [
+                {
+                  "not": "awakening:disperse-into-petals:blossom-vortex"
+                },
+                "feat:disperse-into-petals"
+              ],
+              "value": "disperse-into-petals:blossom-vortex"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.deviantAbilities.awakenedChoices.greater",
+            "value": {
+              "label": "PF2E.SpecificRule.DeviantAbilities.AwakenedPower.DisperseIntoPetalsExtendedFlight",
+              "predicate": [
+                {
+                  "not": "awakening:disperse-into-petals:extended-flight"
+                },
+                "feat:disperse-into-petals"
+              ],
+              "value": "disperse-into-petals:extended-flight"
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "key": "SpecialStatistic",
+          "raw": {
+            "extends": "class-spell",
+            "key": "SpecialStatistic",
+            "label": "PF2E.SpecificRule.DeviantAbilities.Label",
+            "slug": "deviant",
+            "type": "attack-roll"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "consumable:wood-rotted-root-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1PG9vWx48TWopxpm",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "consumable:wood-rotted-root-lesser",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JQqtNuiMQrU3DW11",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "consumable:wood-rotted-root-major",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vIMax5wxd9zS1MpW",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "consumable:wood-rotted-root-moderate",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dFHJyZV5Kx6IRbWC",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:alyce-quinley",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.6EFWsv18TiO3uNRb",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Maps"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:arboreal-sapling",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.9qCcLskO4Z3nkBD6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:arboreal-sapstriker",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.6JBIKvCygSaYISNA",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:arboreal-shepherd",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.mnuaGhIOwPNUoXYF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with animals"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:ardande-ghost",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.ec7JXhGV8mqrS4tn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:avathrael-realmshaper",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.SscxN3m8bRuXhgWk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "woodland stride"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "shadowsense (vague) 250 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Speak with Plants, Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Razor Tail.damage",
+          "raw": {
+            "damage": "1d8",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "strike-attack-roll",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:azhana",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.CMw41oIFKvdTgd0m",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with animals"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:bee-covered-ohancanu",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.MWwgjlNph9kqsGjo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Sack for Holding Rocks"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Rock"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:besieged-logging-crew",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.pO47dwHY2ulSpg7F",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Thresholds 40 (3 segments), 20 (2 segments);"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:blighted-speaker-in-spores",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.zH0xAdq6qxv5ARSO",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "fly"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "sporesight (imprecise) 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "shaped tongue, spore matrix"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Spell Effect: Fly"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Tendril.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "poison",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:bonebleacher-bugbear",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.xf2V2i0J3oJlXMnF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Mask (Plague)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:bystander",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.aUSYu3w1TSufTlLP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "(+11 to find concealed objects)"
+        },
+        {
+          "type": "trait",
+          "trait": "lawful"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:caustic-wraith",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.EdZm8SanOd6pJXUs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.drainLifeTempHP",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:coiled-conifer",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.24Mybh3pBJN5mQ7R",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:creeping-cone-swarm",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.oZpXqQDC3ggyNK4Z",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:drinesh",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.cNy6Zt9zImma5aPQ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "doubleVs": ["non-magical"],
+            "exceptions": ["force", "ghost-touch", "vitality"],
+            "key": "Resistance",
+            "predicate": ["ghostly-swoop"],
+            "type": "all-damage",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Ghost Sound"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:druulbach",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.YqDrvGRd3dmXoC2T",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.MultipleAttackPenalty",
+          "raw": {
+            "key": "MultipleAttackPenalty",
+            "predicate": ["agile"],
+            "selector": "attack",
+            "value": -3
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:durnolith",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.kGZ9TvZWq4eOG9hk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:emorga-all-seer",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.lPePtLExbp8sqNoo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with animals, speak with plants"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:eyelet",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.C0aQ8ndBb5hr32HS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Can't Speak Any Language"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:eyelet-swarm",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.NYzgI3QFklyAmMo4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Can't Speak Any Language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:glitterspore",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.kisnb8UHvS72yYH4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:gritblight",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.lHAK5I1ksuuhZsRu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "earth glide"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status vs. earth effects"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "blight sense (precise) 60 feet, grit vision"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:hateful-bear",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.uctziqpGJSJU50rl",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:hateful-hodag",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.N8YG3THrSgSwtzIn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:hateful-logger",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.upP0w940TKNkLO1k",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "nonlethal-attacks"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:izurran",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.7ZtPLXR6jw1ZWLJc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Claw Blade.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Potion of Resistance (Moderate, Fire)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:khasprickle",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.YU2EwouEWCKNcjGK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "pukwudgie",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Pukwudgie",
+                "value": "pukwudgie"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.PorcupineGiant",
+                "value": "porcupine-giant"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 21,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 2,
+                "die": "d8",
+                "modifier": 8
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Quill",
+            "predicate": ["change-shape:porcupine-giant"],
+            "replaceAll": true,
+            "slug": "quill",
+            "traits": []
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 21,
+            "category": "simple",
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 2,
+                "die": "d4",
+                "modifier": 10
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Quill",
+            "predicate": ["change-shape:pukwudgie"],
+            "slug": "quill",
+            "traits": ["agile", "finesse", "magical"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 21,
+            "category": "simple",
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 2,
+                "die": "d4",
+                "modifier": 10
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Quill",
+            "predicate": ["change-shape:pukwudgie"],
+            "range": {
+              "increment": 30,
+              "max": null
+            },
+            "slug": "quill-ranged",
+            "traits": ["agile", "magical"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "strike-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "strike-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Invisibility (At Will) (Self Only)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:leshy-mob",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.Cm96cXbKhov2TqJq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Thresholds 130 (3 segments), 65 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with plants"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "leshy",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Plant.LeshyMob",
+                "value": "leshy-mob"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Plant.Plant",
+                "value": "plant"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.rainOfSeeds}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "property": "damage-type",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.veggielanteJustice}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:lloyd-the-leaper",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.TJ7fH93NWXXMyM8m",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "initiative.statistic",
+          "raw": "deception"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Sally Sharp-tongue.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Sally Sharp-tongue"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:luruvin",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.wxtJK9oRXGE61CLn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:ohancanu",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.5GbRsrENVq0SjqBH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Sack for Holding Rocks"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Rock"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:old-thornbarker",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.PpKV5h6ZQALfgJKY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with plants"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Scamp.damage",
+          "raw": {
+            "damage": "4",
+            "damageType": "piercing",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "phase": "afterDerived",
+            "predicate": ["sycophantic-scamps"],
+            "value": false
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:otis",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.WHvAA8nScHw3448B",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 20 (deactivated by electricity or fire)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:phytohydra",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.j39LXy9R6i6y4coq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "phytohydra regeneration"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any languages)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Effect: Phytohydra Heads"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:phytomancer-ghost",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.Lbeii1aQcByS3oKV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:primal-mantis",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.BiNtR3JSahC0Yv07",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["item:trait:primal"],
+            "selector": "spell-damage",
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": [
+              "encounter:round:1",
+              {
+                "lt": ["self:participant:initiative:rank", "target:participant:initiative:rank"]
+              }
+            ],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:primal-warden-of-zibik",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.s2oc6zKIGTyJkOlA",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:putrifer",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.v7Atpv0BQql0XB7W",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "Woodland Stride"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:rancorous-druids",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.bO3DhcY4fumsjnW4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 27
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "troop defenses"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:area:type:burst",
+              "item:duration:0",
+              {
+                "gte": ["item:area:size", 10]
+              }
+            ],
+            "property": "area-size",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": ["item:area:type:cone", "item:area:type:line"]
+              },
+              {
+                "lte": ["item:area:size", 15]
+              }
+            ],
+            "priority": 110,
+            "property": "area-size",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:duration:0",
+              {
+                "or": ["item:area:type:cone", "item:area:type:line"]
+              },
+              {
+                "gt": ["item:area:size", 15]
+              }
+            ],
+            "priority": 100,
+            "property": "area-size",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:reborn-devotee",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.N0LZl2XaP8pFByuq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.RebornDevotee.RebornDevoteeFocusedAssault",
+            "option": "stalk-number",
+            "predicate": ["focused-assault"],
+            "selection": "1",
+            "suboptions": [
+              {
+                "label": "PF2E.SpecificRule.Numbers.One",
+                "value": "1"
+              },
+              {
+                "label": "PF2E.SpecificRule.Numbers.Two",
+                "value": "2"
+              },
+              {
+                "label": "PF2E.SpecificRule.Numbers.Three",
+                "value": "3"
+              },
+              {
+                "label": "PF2E.SpecificRule.Numbers.Four",
+                "value": "4"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageDice",
+          "raw": {
+            "diceNumber": "(@item.flags.system.rulesSelections.stalkNumber)-1",
+            "dieSize": "d8",
+            "key": "DamageDice",
+            "predicate": ["focused-assault"],
+            "selector": "stalk-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:redwood-leshy",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.z8bNDLO8O4BhPVRl",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. fear"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with plants (trees only)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "leshy",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Plant.Leshy",
+                "value": "leshy"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Tree",
+                "value": "tree"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:rootridden",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.8ikKo7zxWm0rjoUu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:ruzadoya-swiftmane",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.zjJn0DDIMxt4L77S",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:shadebound-pixie-guard",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.lAQZ903Y1psxFAcT",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:shadow-sage",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.b5aessbWq2CWlBAk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:sigrid-jandevik",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.RKj2Ovrwcz7bCGF4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "bear empathy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "hybrid",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Hybrid",
+                "value": "hybrid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Humanoid",
+                "value": "humanoid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Animal",
+                "value": "animal"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 16,
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d4",
+                "modifier": 10
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.Strike.Fist.Label",
+            "predicate": ["change-shape:humanoid"],
+            "slug": "fist",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 16,
+            "damage": {
+              "base": {
+                "damageType": "slashing",
+                "dice": 2,
+                "die": "d8",
+                "modifier": 10
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Claw",
+            "predicate": [
+              {
+                "not": "change-shape:humanoid"
+              }
+            ],
+            "slug": "claw",
+            "traits": ["agile", "reach-10", "unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": [
+              {
+                "or": ["change-shape:animal", "change-shape:hybrid"]
+              }
+            ],
+            "selector": "claw-damage",
+            "text": "@Localize[PF2E.NPC.Abilities.Glossary.Grab]",
+            "title": "@Localize[PF2E.AttackEffectGrab] <span class=\"action-glyph\">1</span>",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 16,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 2,
+                "die": "d10",
+                "modifier": 10
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Jaws",
+            "predicate": [
+              {
+                "not": "change-shape:humanoid"
+              }
+            ],
+            "slug": "jaws",
+            "traits": ["reach-10"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "silver"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:silene",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.M7iUWn7SDzSDFidX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with plants"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "doubleVs": ["non-magical"],
+            "exceptions": ["force", "ghost-touch", "vitality"],
+            "key": "Resistance",
+            "predicate": [
+              {
+                "not": "possess-tree"
+              }
+            ],
+            "type": "all-damage",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 20,
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 2,
+                "die": "d12",
+                "modifier": 9
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Branch",
+            "predicate": ["possess-tree"],
+            "replaceAll": true,
+            "slug": "branch",
+            "traits": ["reach-15"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Tree Stride"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Entangle (At-Will)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Tanglefoot"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:spitting-sawfly",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.6lPHKb53ZG98ZTLL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "wood scent (precise) 30 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:splintershank",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.oFZvM54qFh9OVctJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Quench"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Hawthorn (2nd-level)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:stormdrinker",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.qyQnrF170l8bpwWi",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(Can't Speak any Language)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:sylvarindarian",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.sEQfFPOrdCiSddtV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:the-bee-man-of-bellis",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.IKpUFi5yeegXdahw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with animals (insects only)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:thrailorn",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.bqNDx6G7OVyeu7Kg",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Thorn.damage",
+          "raw": {
+            "damage": "1",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:timber-titan",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.vOeCcqkOZsYalDol",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(22 when broken); construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:timberweb",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.vKdkG4JJSfzTz2RK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "vine sense"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:twigjack-bramble",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.yW6weKrIkjL3UIqD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(16 squares) Thresholds 68 (3 segments), 34 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:unaasi",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.m05K0hO2UL5VIuyh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Weakness",
+          "raw": {
+            "definition": [
+              {
+                "or": ["item:slug:jaws", "item:slug:fangs", "item:slug:bite"]
+              }
+            ],
+            "key": "Weakness",
+            "type": "custom",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Thundering Echoes (4th-Rank Spell)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Sound Body (Rank 4)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Soothe (Rank 6)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:usher",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.dkg9CbjEjjOlpCkX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(22 when broken); construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:verdant-swordkeeper",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.Cqojdf1w1uPitolZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(31 with guard raised)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "echoblade-attack",
+            "text": "PF2E.Item.Weapon.CriticalSpecialization.sword",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "trait",
+          "trait": "lawful"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:woodweave-caterpillar",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.mPLImUv6yvOKgSNY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:wraithvine",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.ibgHT0HBOi6eB26U",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(Can't Speak any Language); Telepathy 120 feet (Wraithvines Only)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:wraithvine-offshoot",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.xV8QIBCeKOm2GQXL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "blood scent"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "creature:zibik",
+      "foundry": "Compendium.pf2e.wardens-of-wildwood-bestiary.Actor.4l5JArUXizR8CdMM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 48
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "plantsense 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "green tongue"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "effect:effect-aggravating-aura",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.WQsMv2KlURI9OKQQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.Check.Result.Degree.Check.failure",
+                "value": 3
+              },
+              {
+                "label": "PF2E.Check.Result.Degree.Check.criticalFailure",
+                "value": 5
+              }
+            ],
+            "flag": "weakness",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "type": "all-damage",
+            "value": "@item.flags.system.rulesSelections.weakness"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "effect:effect-clay-sphere-armor",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.fLcp28dxFCOcBibw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:clay-sphere",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Clay Sphere"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:clay-sphere-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Clay Sphere (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:clay-sphere-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Clay Sphere (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "clay-sphere"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "effect:effect-clay-sphere-weapon",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.La2ziyuLYKG0thOj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "includeHandwraps": true,
+              "ownedItems": true,
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|flags.system.rulesSelections.weapon}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "versatile-b"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|flags.system.rulesSelections.weapon}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "versatile-p"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|flags.system.rulesSelections.weapon}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "versatile-s"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.claySphere.weapon",
+            "value": "{item|flags.system.rulesSelections.weapon}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "effect:effect-clay-sphere-weapon-damage-increase",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.SMsTQhsPJ58WqPKy",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{actor|flags.system.claySphere.weapon}",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "property": "damage-dice-faces"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "effect:effect-inflammation-flask",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.li52UFA2ErqRLeer",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:inflammation-flask-lesser",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Inflammation Flask (Lesser)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:inflammation-flask-moderate",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Inflammation Flask (Moderate)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:slug:inflammation-flask-greater",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Inflammation Flask (Greater)"
+              },
+              {
+                "predicate": [
+                  {
+                    "or": [
+                      "parent:origin:item:inflammation-flask-major",
+                      {
+                        "not": "parent:origin:item"
+                      }
+                    ]
+                  }
+                ],
+                "value": "Compendium.pf2e.equipment-srd.Item.Inflammation Flask (Major)"
+              }
+            ],
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
+            "rollOption": "inflammation-flask"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:caustic-nectar",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3wYqZuyaIredjSZ6",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "{item|id}-damage",
+            "text": "PF2E.SpecificRule.Ardande.CausticNectar.Note"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:death-from-above",
+      "foundry": "Compendium.pf2e.feats-srd.Item.j8CLa6RoohfKCWoO",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[against]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:defensive-growth",
+      "foundry": "Compendium.pf2e.feats-srd.Item.pGjSh6qk9kQLznKn",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "flag": "verdantCoreDeviantClassification",
+            "key": "GrantItem",
+            "predicate": [
+              {
+                "not": "feature:verdant-core-deviant-classification"
+              }
+            ],
+            "uuid": "Compendium.pf2e.classfeatures.Item.Verdant Core Deviant Classification"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:disperse-into-petals",
+      "foundry": "Compendium.pf2e.feats-srd.Item.vUHDuKLKKZHzAqvZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "flag": "verdantCoreDeviantClassification",
+            "key": "GrantItem",
+            "predicate": [
+              {
+                "not": "feature:verdant-core-deviant-classification"
+              }
+            ],
+            "uuid": "Compendium.pf2e.classfeatures.Item.Verdant Core Deviant Classification"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:irradiate",
+      "foundry": "Compendium.pf2e.feats-srd.Item.79GUhBznFfYqdwgO",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "flag": "blightSoulDeviantClassification",
+            "key": "GrantItem",
+            "predicate": [
+              {
+                "not": "feature:blight-soul-deviant-classification"
+              }
+            ],
+            "uuid": "Compendium.pf2e.classfeatures.Item.Blight Soul Deviant Classification"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:release-spores",
+      "foundry": "Compendium.pf2e.feats-srd.Item.YePPw9Oc4JlDAmYD",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "flag": "blightSoulDeviantClassification",
+            "key": "GrantItem",
+            "predicate": [
+              {
+                "not": "feature:blight-soul-deviant-classification"
+              }
+            ],
+            "uuid": "Compendium.pf2e.classfeatures.Item.Blight Soul Deviant Classification"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:rotten-slurry",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ZJSkCrud1FZ7PMFk",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "flag": "blightSoulDeviantClassification",
+            "key": "GrantItem",
+            "predicate": [
+              {
+                "not": "feature:blight-soul-deviant-classification"
+              }
+            ],
+            "uuid": "Compendium.pf2e.classfeatures.Item.Blight Soul Deviant Classification"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[type:deviant]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:sprout-fruit",
+      "foundry": "Compendium.pf2e.feats-srd.Item.WxnCYjr02usmMN1q",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "flag": "verdantCoreDeviantClassification",
+            "key": "GrantItem",
+            "predicate": [
+              {
+                "not": "feature:verdant-core-deviant-classification"
+              }
+            ],
+            "uuid": "Compendium.pf2e.classfeatures.Item.Verdant Core Deviant Classification"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:the-thousand-lashes-of-the-weeping-willow",
+      "foundry": "Compendium.pf2e.feats-srd.Item.PYRx4lCIQXyW8tz8",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:unfettered-growth",
+      "foundry": "Compendium.pf2e.feats-srd.Item.CFNjlHpVUit4ygaf",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:enlarge", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:enlarge", "self:heritage:ardande", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:ardande"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:unleash-the-blight",
+      "foundry": "Compendium.pf2e.feats-srd.Item.PycaQsgfgOQc86UX",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "flag": "blightSoulDeviantClassification",
+            "key": "GrantItem",
+            "predicate": [
+              {
+                "not": "feature:blight-soul-deviant-classification"
+              }
+            ],
+            "uuid": "Compendium.pf2e.classfeatures.Item.Blight Soul Deviant Classification"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:verduran-shadow-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.i2H0iiGYRr0fhzgz",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "feat:vine-lash",
+      "foundry": "Compendium.pf2e.feats-srd.Item.fYD0SrZhMyJVQgvl",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "flag": "verdantCoreDeviantClassification",
+            "key": "GrantItem",
+            "predicate": [
+              {
+                "not": "feature:verdant-core-deviant-classification"
+              }
+            ],
+            "uuid": "Compendium.pf2e.classfeatures.Item.Verdant Core Deviant Classification"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[type:deviant]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "ritual:commune-with-corazal",
+      "foundry": "Compendium.pf2e.spells-srd.Item.zIAvj7V6BTuQMAIi",
+      "leftOut": {
+        "reason": "no-kind-data",
+        "detail": ""
+      },
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.primary.check",
+          "raw": "DC 24 Nature (master) or DC 29 Nature (expert)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "ritual.secondary.checks",
+          "raw": "DC 24 Forest Lore, Perception, or Survival"
+        }
+      ],
+      "document": {
+        "_id": "zIAvj7V6BTuQMAIi",
+        "name": "Commune with Corazal",
+        "type": "spell",
+        "system": {
+          "publication": {
+            "title": "Pathfinder #201: Pactbreaker",
+            "license": "ORC",
+            "remaster": true
+          },
+          "level": {
+            "value": 4
+          },
+          "traits": {
+            "value": [],
+            "rarity": "unique",
+            "traditions": []
+          },
+          "description": {
+            "value": "<p>You tap into Corazal's innumerable senses to identify disturbances throughout the Verduran Forest.</p>\n<hr />\n<p><strong>Critical Success</strong> You and Corazal successfully identify a flashpoint: an imminent event that could stoke distrust and unrest. You experience a sensory premonition of the event, can cast know the way as a 7th-rank cantrip to point toward the location, and know which Elder Oak is closest to it.</p>\n<p><strong>Success</strong> As success, but the ritual heavily taxes your mind and body. You are @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 1}, and until the drained condition ends, you are also @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 1}.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> The ritual has no effect beyond burning your mind with conflicting information. You are @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 2}, and until the drained condition ends, you are also stupefied 1 and have the Dubious Knowledge skill feat. Whenever you would decrease this drained value, the value does not decrease unless you succeed at a @Check[flat|dc:11].</p>"
+          },
+          "rules": [],
+          "area": null,
+          "cost": {
+            "value": ""
+          },
+          "counteraction": false,
+          "damage": {},
+          "defense": null,
+          "duration": {
+            "sustained": false,
+            "value": ""
+          },
+          "range": {
+            "value": ""
+          },
+          "requirements": "",
+          "ritual": {
+            "primary": {
+              "check": "DC 24 Nature (master) or DC 29 Nature (expert)"
+            },
+            "secondary": {
+              "casters": 3,
+              "checks": "DC 24 Forest Lore, Perception, or Survival"
+            }
+          },
+          "target": {
+            "value": ""
+          },
+          "time": {
+            "value": "4 hours"
+          }
+        },
+        "folder": "6JF73zNhT8zbp1qC"
+      }
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "spell:bee-mans-summons",
+      "foundry": "Compendium.pf2e.spells-srd.Item.BcqJqxIKYE0aoDiS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "duration",
+          "raw": {
+            "value": "until the next time you make your daily preparations or until discharged",
+            "sustained": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "spell:boomerang-shot",
+      "foundry": "Compendium.pf2e.spells-srd.Item.zPVJI8Jltt3ERkaU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "range.value",
+          "raw": "100"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "spell:cordyceps-command",
+      "foundry": "Compendium.pf2e.spells-srd.Item.ADwX87fWrpB8cQ5Q",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "range.value",
+          "raw": "30"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "spell:hedge-prison",
+      "foundry": "Compendium.pf2e.spells-srd.Item.z0ffligcrkVtKZd6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "target.value",
+          "raw": "1 Medium or smaller creature"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "heightening.levels.5.target.value",
+          "raw": "1 Large or smaller creature"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "heightening.levels.7.target.value",
+          "raw": "1 Huge or smaller creature"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "spell:reed-whistle",
+      "foundry": "Compendium.pf2e.spells-srd.Item.7Ahssy0KDLzcQ2Ex",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "duration",
+          "raw": {
+            "value": "1 hour or until expended",
+            "sustained": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "weapon:cythbikian-staff",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XnlYH66ZA7RR3QgR",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][show-dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]][dc]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "[[/act]]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "weapon:lance-of-suns-radiance",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mVjHOSH8ydCmqRQ7",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "diceNumber": "1",
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": ["target:trait:dragon"],
+            "selector": "{item|id}-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "weapon:nail-bomb-greater",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YZ8WY378H1WFaD6s",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|id}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "materials",
+            "value": "cold-iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "weapon:nail-bomb-lesser",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2zDOPJy5goJjRREN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|id}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "materials",
+            "value": "cold-iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "weapon:nail-bomb-major",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qmFVrqzvkGU9g5lt",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|id}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "materials",
+            "value": "cold-iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "wardens-of-wildwood",
+      "slug": "weapon:nail-bomb-moderate",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.19njoGhqVm3UYsn1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:id:{item|id}"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "materials",
+            "value": "cold-iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "language",
+      "slug": "wildsong",
+      "reason": "unmapped-value",
+      "detail": "secret"
+    }
+  ]
+}

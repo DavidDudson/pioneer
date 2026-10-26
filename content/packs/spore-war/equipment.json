@@ -1,0 +1,3596 @@
+[
+  {
+    "id": "9fdad2b2-eb85-5a8c-ad76-a8351bf4119d",
+    "pack": "spore-war",
+    "kind": "equipment",
+    "slug": "equipment:anima-robe",
+    "name": "Anima Robe",
+    "level": 15,
+    "rarity": "unique",
+    "traits": ["illusion", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This robe was the favored garment of the legendary Ekujae hero, Iyalirrin. When the draconic god Dahak threatened destruction, Iyalirrin was the primary architect of a powerful ritual to banish him called the anima invocation. Iyalirrin and many others were forced to sacrifice themselves to empower this ritual, but he ensured his "
+          },
+          {
+            "type": "text",
+            "text": "Anima Robe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " remained in good hands before he did so. Since then, the "
+          },
+          {
+            "type": "text",
+            "text": "Anima Robe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has been worn by dozens of elven occultists and bards who have traveled Golarion and beyond. The "
+          },
+          {
+            "type": "text",
+            "text": "Anima Robe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has remained in the care of Queen Telandia for only the past few dozen years."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While wearing the "
+          },
+          {
+            "type": "text",
+            "text": "Anima Robe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +2 item bonus to Diplomacy checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " and to all Performance checks. You also gain resistance 10 to mental damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Who Am I?",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, illusion, manipulate, visual) With a toss of the robe's hood, you cast a 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": " on yourself."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Who Are We?",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, illusion, manipulate, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With a whirl of the robe's hem, you cast a 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Who Are They?",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (auditory, concentrate, illusion, manipulate, olfactory, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With a swish of the robe's sleeve, you cast a 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "0af1f62f-c028-5e01-ba52-4b9c00f83890"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:make-an-impression"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OKJYb2UuJ1aAKlJ3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "who-are-we",
+          "name": "Who Are We?",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "who-are-they",
+          "name": "Who Are They?",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "garment"
+      }
+    }
+  },
+  {
+    "id": "f53faa3c-baa2-5b75-9d0d-ec076323a3db",
+    "pack": "spore-war",
+    "kind": "equipment",
+    "slug": "equipment:anima-robe-heroic",
+    "name": "Anima Robe (Heroic)",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["apex", "artifact", "illusion", "intelligent", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +33; precise low-light vision and hearing within 30 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " telepathy (partner only)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Deception +35, Occultism +34, Performance +35"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +6, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +5, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +33"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The artistic echo of the Ekujae hero Iyalirrin animates the "
+          },
+          {
+            "type": "text",
+            "text": "Anima Robe's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " stitching to display embroidered reactions to situations experienced by the wearer. The "
+          },
+          {
+            "type": "text",
+            "text": "Anima Robe's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " telepathic voice is filled with confidence (almost to the point of cockiness) and is supportive, often encouraging his partner to take risky or showy actions yet never to the extent that would put them in significant harm's way."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Anima Robe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants a +3 item bonus to Diplomacy checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " and to all Performance checks, and you gain resistance 15 to mental damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate–Billowing Distraction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "Anima Robe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " billows as if in a blustery wind and attempts to "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": " a creature you're adjacent to."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate–Who Am I?",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The robe's hood rises up over your head, casting a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": " to your specifications."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate–Who Are We?",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The robe's hem swishes, casting a 7th-rank "
+          },
+          {
+            "type": "text",
+            "text": "illusory disguise",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to your specifications."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Who Are They?",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An image of a creature shows up in the robe's stitching, then appears to come to life; the robe casts an 8th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "0af1f62f-c028-5e01-ba52-4b9c00f83890"
+          },
+          {
+            "type": "text",
+            "text": " to your specifications. The robe can use an action to Sustain this activation for up to 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["action:make-an-impression"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 3
+      },
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jVBXBsulk4ZlvRs4"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "who-are-we",
+          "name": "Who Are We?",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "who-are-they",
+          "name": "Who Are They?",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "garment"
+      },
+      "apex": "cha"
+    }
+  },
+  {
+    "id": "e7404e08-408d-5748-b081-e22676ef9156",
+    "pack": "spore-war",
+    "kind": "equipment",
+    "slug": "equipment:boots-of-the-blight",
+    "name": "Boots of the Blight",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tanglebriar is not the only realm plagued by fiendish fungi. The soldiers of Nirmathas have long fought against a similar blight deep in Fangwood, and these boots are one of the more potent tools they've developed to help in this pursuit. Now that the Fangwood blight has been mostly contained, many of these boots have been gifted to elven soldiers, for they are equally useful to those who operate within Tanglebriar's borders. They are also regarded as great trophies for the demons and cultists who dwell within Tanglebriar, for not only can they make use of these boots' powers, but wearing something created by your enemy gives Treerazer's agents yet another way to engage in psychological warfare—they often adorn their boots with severed elf ears, or worse!"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These leather boots remain covered in mud no matter how often they are cleaned. The oiled leather resists water and keeps the feet and legs dry even when wading through water, but the boots retain a damp, fungal smell reminiscent of rotting vegetation. While wearing the boots, you gain a +2 item bonus to Athletics checks to Climb or Swim and to Acrobatics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Swift Sidestep",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are about to make a Reflex saving throw against an environmental hazard or terrain feature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The boots help you to avoid the hazard or effect, granting you a +2 status bonus to your saving throw. If you succeed at the saving throw, you become "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute, but can use the additional action only to Stride."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Fungal Stride",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You ignore the effects of difficult terrain and gain resistance 10 to damage caused by hazardous terrain. This activation lasts for 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics", "skill:acrobatics"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:climb", "action:swim", "action:balance"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KJoSUpK6kqLXi4K6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "swift-sidestep",
+          "name": "Swift Sidestep",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "fungal-stride",
+          "name": "Fungal Stride",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "shoes"
+      }
+    }
+  },
+  {
+    "id": "6c067679-aa45-5ea9-b10c-72194875d937",
+    "pack": "spore-war",
+    "kind": "equipment",
+    "slug": "equipment:drumish-pearl-token",
+    "name": "Drumish Pearl Token",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This silver brooch features an enormous freshwater pearl pulled from the depths of Lake Encarthan. They are often given to trading partners among Drumish merchants as a sign of favor—not as favored as a fellow Kalistocrat, but nonetheless worth treating well. Openly wearing a "
+          },
+          {
+            "type": "text",
+            "text": "Drumish pearl token",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can work wonders when traveling through Druma, whether on legitimate mercantile business or not, but those who flaunt the token inappropriately must beware of repercussions from the Drumish government! The wearer of a "
+          },
+          {
+            "type": "text",
+            "text": "Drumish pearl token",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " benefits from a +2 item bonus to Diplomacy checks to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " and to their Perception DC when someone attempts to Lie to them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Subversive Friendship",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, emotion, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You succeed at "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150",
+            "label": "Making an Impression"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You automatically increase the target's attitude to helpful. If the target's initial attitude was unfriendly or hostile, they revert to this attitude after 10 minutes and realize they've been manipulated by you. Afterward, they might decide to act against you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy", "perception-dc"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:make-an-impression", "action:lie"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RpGBzy2OpdfgJmpo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "subversive-friendship",
+          "name": "Subversive Friendship",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "d40bd21d-e175-5963-83ab-b9dc7953ef7a",
+    "pack": "spore-war",
+    "kind": "equipment",
+    "slug": "equipment:guiding-star-orb",
+    "name": "Guiding Star Orb",
+    "level": 15,
+    "rarity": "unique",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Candlaron the Sculptor is one of Kyonin's most storied and honored wizards. While his final fate is unknown, his greatest creations, the aiudara, remain behind as a legacy of his power—as do other potent items, such as the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", a navigational traveling aid that the heroic wizard often relied upon when venturing into an unexplored part of the world."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Embed Location",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate);"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "By focusing on the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you embed your current location in the item. Thereafter, anyone who holds the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " while Casting a Spell with the teleportation trait to travel to this location arrives precisely, without any inaccuracy at all. The "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can only have one location embedded at a time; if you use this activity a second time, the new location replaces the previous one."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Momentary Aiudara",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate, manipulate, teleportation)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cause a shimmering magical archway to appear next to you as the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts a 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "fdafb7f2-fde7-571a-89b5-7c2aba17e259"
+          },
+          {
+            "type": "text",
+            "text": " to your specifications. If you are teleporting to an aiudara you've visited before, you and the targets appear precisely at that location."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hwVS8uNgIEfENz6q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "momentary-aiudara",
+          "name": "Momentary Aiudara",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ab8101af-0af8-56e4-953b-b04d3a324e42",
+    "pack": "spore-war",
+    "kind": "equipment",
+    "slug": "equipment:guiding-star-orb-heroic",
+    "name": "Guiding Star Orb (Heroic)",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["apex", "artifact", "intelligent", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +33; precise low-light vision and hearing within 30 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " telepathy (partner only)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Arcana +35, Architecture Lore +35, Society +35"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +7, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +5, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +33"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The stoic echo of Candlaron the Sculptor, architect of the aiudara network, infuses the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". As long as you have him invested, the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " orbits your body instead of needing to be held in one hand. You can stow the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with an Interact action, and he can be snatched out of the air with a successful "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " action against you. When stowed, the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " remains invested, but if he's removed from you via Disarm, your investment ends if you don't reclaim him by the end of your next turn. The "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " voice is scholarly and precise, speaking telepathically with clearly enunciated but often complex words, and he assumes you're educated enough to keep up with his academic dialogue."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as you have the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " invested, teleportation effects created by you or the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " aren't affected by the Witchbole's meddling with teleportation effects, and they can't be counteracted by the Witchbole."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Blinding Spark",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, incapacitation, light, visual)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " creates a beam of bright light and fires it at a creature within 30 feet. That creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 43
+          },
+          {
+            "type": "text",
+            "text": " save, after which that creature is temporarily immune to Blinding Spark for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is permanently blinded."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Embed Location",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " By focusing, the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " embeds your current location within. Thereafter, anyone who touches the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " while casting a spell with the teleportation trait to travel to this location arrives precisely, without any inaccuracy at all. The "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can have up to three locations embedded at a time; if this activity is used a fourth time, the new location replaces the oldest stored one."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Momentary Aiudara",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A shimmering magical archway appears next to you as the "
+          },
+          {
+            "type": "text",
+            "text": "Guiding Star Orb",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts a 9th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "fdafb7f2-fde7-571a-89b5-7c2aba17e259"
+          },
+          {
+            "type": "text",
+            "text": " to your specifications. If you're teleporting to an aiudara you've visited before, you and the targets appear precisely at that location. If you're teleporting to Lotusgate in Kyonin, this effect functions as "
+          },
+          {
+            "type": "ref",
+            "id": "3e61b605-c274-5409-a4e1-9cb72132821d"
+          },
+          {
+            "type": "text",
+            "text": " if you aren't on the same plane as Kyonin."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.F5dQEQTyOpSBeXDJ"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "momentary-aiudara",
+          "name": "Momentary Aiudara",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "apex": "int"
+    }
+  },
+  {
+    "id": "8798a4dc-10ff-5199-a6f9-164cf845bc2e",
+    "pack": "spore-war",
+    "kind": "equipment",
+    "slug": "equipment:kora-of-the-unending-story",
+    "name": "Kora of the Unending Story",
+    "level": 14,
+    "rarity": "rare",
+    "traits": ["coda", "occult", "staff"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This 21-stringed instrument symbolizes connectivity with the past, present, and future. The kora grants a +2 item bonus to Performance checks made to tell stories when used to accompany song or speech."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "kora of the unending story",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a coda instrument—an item that functions like a staff but in the form of a musical instrument."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the kora to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "02c769dd-dba8-5437-8189-28b9800afaac"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "982bfd2b-5f56-5940-983b-a1a9aba1bb98"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dfab75a2-997b-5597-b7d7-3b9ad9e935dc"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9aed7b61-843a-5ec7-b205-94e5369630f3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "43c59605-b0f6-5d58-afc0-27485aeb4204"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "50de9888-d8e7-5733-b97c-4f360205e33f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "982bfd2b-5f56-5940-983b-a1a9aba1bb98"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:perform:story-telling"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hPhI0FWH5TtaANcl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "3e6d4b41-e6d7-5131-8b9b-4816343eef1e",
+    "pack": "spore-war",
+    "kind": "equipment",
+    "slug": "equipment:pharasmin-visor",
+    "name": "Pharasmin Visor",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Popular in Ustalav and other lands where undead are numerous, a "
+          },
+          {
+            "type": "text",
+            "text": "Pharasmin visor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a valuable part of any fashionable noble's armory when attending events in places like Caliphas. This item consists of a metal skullcap helm with a pair of blue crystal lenses extending from each side on metal armatures that can be moved independently in front of or away from the eyes. The helm can appear as either gleaming silver or dull black, and the wearer can alter its appearance whenever they invest the visor."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Pharasma's Disdain",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You adjust the visors so that both are lowered. Your vision becomes obscured, causing you to become "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": ". At the same time, a tiny fraction of Pharasma's notice seeps out of the visor to fill the area around you in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". All undead creatures in this area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 30,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). At the end of your turn, both visors automatically rise back up, but you remain dazzled until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Pierce the Night",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You adjust the helm so that only the left visor is lowered. You gain darkvision until you adjust the visors again or until the item is no longer invested by you, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Reveal the Unseen",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You adjust the helm so that only the right visor is lowered. You can see "
+          },
+          {
+            "type": "ref",
+            "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+          },
+          {
+            "type": "text",
+            "text": " creatures as though they weren't invisible, although their features are blurred, making them "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " and difficult to identify. You can also see incorporeal creatures like ghosts when they have phased through an object if you are within 10 feet of an object's surface; they look like blurry shapes seen through those objects. This effect lasts until 8 hours pass, until you adjust the visors again, or until the item is no longer invested by you, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—See Through Death",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You adjust the visors so that both are raised. The "
+          },
+          {
+            "type": "text",
+            "text": "Pharasmin visor",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " grants a +2 item bonus on all saving throws against effects with the death trait."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:pharasmin-visor",
+        "toggleable": true,
+        "suboptions": [
+          {
+            "value": "pierce-the-night",
+            "label": "Pierce the Night"
+          },
+          {
+            "value": "reveal-the-unseen",
+            "label": "Reveal the Unseen"
+          },
+          {
+            "value": "see-through-death",
+            "label": "See Through Death"
+          }
+        ]
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["pharasmin-visor:pierce-the-night"]
+      },
+      {
+        "key": "Sense",
+        "sense": "1853ffc0-c400-5107-bcde-24728797d4e1",
+        "predicate": ["pharasmin-visor:reveal-the-unseen"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["pharasmin-visor:see-through-death", "item:trait:death"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7jb5AgGsyIRcVsKw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "pharasmas-disdain",
+          "name": "Pharasma's Disdain",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "reveal-the-unseen",
+          "name": "Reveal the Unseen",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "65321dc5-55b7-5e07-98ac-638d8d718f81",
+    "pack": "spore-war",
+    "kind": "equipment",
+    "slug": "equipment:skirmishers-coat",
+    "name": "Skirmisher's Coat",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Valued among soldiers (particularly those from war-torn Nirmathas) who often find themselves operating undercover, this large-collared garment is reminiscent of a highwayman's coat. A "
+          },
+          {
+            "type": "text",
+            "text": "skirmisher's coat",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is cleverly constructed, and contains several concealed pockets and grants the wearer a +2 item bonus to checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "517c9cad-b8a0-50b0-9f0d-6500158793fc"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Costume Change",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, illusion)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the shape and appearance of all your clothing, making them appear as ordinary or fine clothes of your imagining. This doesn't change the statistics of any armor you're wearing. Only a creature that's benefiting from "
+          },
+          {
+            "type": "ref",
+            "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+          },
+          {
+            "type": "text",
+            "text": " or a similar effect can attempt to disbelieve this illusion, with a DC of 28."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Unexpected Armament",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reach into one of the coat's pockets and withdraw a chunk of metal that instantly expands into a common simple or martial melee weapon of your choice. The weapon functions as a +1 striking weapon. When you produce the weapon, you decide if it is made from cold iron or silver, and which one of the following property runes it gains: "
+          },
+          {
+            "type": "text",
+            "text": "corrosive",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "flaming",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "frost",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "shock",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "thundering",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". This weapon remains for 1 hour or until it leaves your grasp, at which point it vanishes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:conceal-an-object"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gjigpt5xi68xm2ub"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "unexpected-armament",
+          "name": "Unexpected Armament",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "garment"
+      }
+    }
+  },
+  {
+    "id": "8d375dbe-12fc-58d9-a804-0d5415ea922d",
+    "pack": "spore-war",
+    "kind": "equipment",
+    "slug": "equipment:viridian-crown",
+    "name": "Viridian Crown",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["apex", "artifact", "invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The monarch of Kyonin imparts a sliver of their personality to the artifact when they are crowned ruler of the nation. The crown's precise shape changes with their needs. A paranoid ruler might cause the crown to transform into a cowl, while a gregarious one could cause it to become a lofty piece that displays its beauty."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Atop Queen Telandia's brow, the "
+          },
+          {
+            "type": "text",
+            "text": "Viridian Crown",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has assumed its current appearance: brimming with life, its blue-green vines moving and rustling on her brow. While the material that comprises the crown seems to be made of living vines, to the touch it is as resilient as dawnsilver. In the spring, buds bloom into crystalline flowers that give the crown a scintillating appearance. These delicate flower petals naturally fall over time as the season advances, and often serve as temporary tokens or gifts to citizens and dignitaries. The petals are art objects worth a few dozen gp each, but the act of selling them is considered crass by Kyonin's people–and their fragility ensures that they crumble to dust before too long anyway. Their use as raw materials in the crafting of consumable magic is a time-honored tradition among elves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are the properly anointed ruler of Kyonin, or if that ruler has given you permission to wear the crown for a time, as long as you have the "
+          },
+          {
+            "type": "text",
+            "text": "Viridian Crown",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " invested, choose either Charisma or Wisdom. The "
+          },
+          {
+            "type": "text",
+            "text": "Viridian Crown",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " increases the chosen modifier by 1 or increases it to +4, whichever would give you a higher value. You can change which modifier is adjusted once every 24 hours as you make your daily preparations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as you have the crown invested, it imparts knowledge of the Fortifying Brew and "
+          },
+          {
+            "type": "ref",
+            "id": "ffb89230-3939-5733-83a2-d20bbd4d33db"
+          },
+          {
+            "type": "text",
+            "text": " rituals. When you cast either of these (either as a primary or secondary caster) you gain a +3 item bonus to your skill check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Invoke the Crown",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast one of the following spells from the crown at 10th-rank: "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "a926ae03-6272-520c-8d97-5244677ee213"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "b0b84836-b7a0-59ca-9379-6efdfb022f9e"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—View Subject",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You focus your thoughts, and the "
+          },
+          {
+            "type": "text",
+            "text": "Viridian Crown",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " shows you an image of an elf who has accepted your rule. You must know the elf's name or have met them in person. This functions as if the "
+          },
+          {
+            "type": "text",
+            "text": "Viridian Crown",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " cast "
+          },
+          {
+            "type": "ref",
+            "id": "d86cf275-4547-59c7-87b4-41d84f69e524"
+          },
+          {
+            "type": "text",
+            "text": " to your specifications. The target can resist the scrying effect with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 43
+          },
+          {
+            "type": "text",
+            "text": " save if they wish."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Elven Hope",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, emotion, mental)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You draw upon the hope of the elven people, and exude these positive thoughts in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ". You and all allies in this area gain a +3 status bonus to saving throws against mental effects. You can Sustain this Activation for up to 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Garden Sanctuary",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " three times per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You touch the "
+          },
+          {
+            "type": "text",
+            "text": "Viridian Crown",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", then pass your hand outward, palm down. A glorious and beautiful garden blossoms around you in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". The plants comprising this garden are of a type appropriate to the terrain, but if no plants are appropriate, you can choose the type. The garden's plants actively move and twist to oppose passage by your enemies, and they treat the terrain as greater difficult terrain. As long as you begin your turn in the garden sanctuary, it gains the minion trait and can use its two actions to cast spells at your direction. The garden sanctuary's spells are cast at 9th-rank, and it has 3 spell slots to cast spells each day. It can cast "
+          },
+          {
+            "type": "ref",
+            "id": "9e74612a-5951-5a86-b13d-31d1a2609c4c"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "dc60bdf3-ddf1-5c4a-8919-7ef3688f5f7a"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "ef82adde-90cc-5a59-9424-8690ccf303e7"
+          },
+          {
+            "type": "text",
+            "text": ", treating its center as the point of origin for these spells as needed. The garden sanctuary persists until you use this activation again."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "Viridian Crown",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " withers and dies if a rightfully coronated monarch pledges the crown to a demon lord during a ritual that takes 24 hours to complete."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LxTtq31HIP8KjBH3"
+    },
+    "data": {
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "invoke-the-crown",
+          "name": "Invoke the Crown",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        },
+        {
+          "slug": "elven-hope",
+          "name": "Elven Hope",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "garden-sanctuary",
+          "name": "Garden Sanctuary",
+          "frequency": {
+            "max": 3,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      },
+      "apex": "cha"
+    }
+  },
+  {
+    "id": "4301160d-cb7d-5e79-adb4-b64f81e321e8",
+    "pack": "spore-war",
+    "kind": "equipment",
+    "slug": "equipment:void-shackles",
+    "name": "Void Shackles",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["magical", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Void shackles",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are built from supernatural crystals that form in the Void—materials that dig painfully into the flesh of those they restrain. A set of "
+          },
+          {
+            "type": "text",
+            "text": "void shackles",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " functions as superior manacles, but while they are in the Void, the crystals fluctuate in response to the plane's energy, which increases all DCs to remove them or "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " by 1 to DC 43. If a check to remove "
+          },
+          {
+            "type": "text",
+            "text": "void shackles",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " from a creature fails, the wearer of the manacles takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 37,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). While a creature is manacled, the "
+          },
+          {
+            "type": "text",
+            "text": "void shackles",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attempt to counteract any teleportation effect that targets the manacled creature, with a counteract rank of 9th and a +25 modifier to the roll. If the teleportation effect is countered, the manacled creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 37,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Void shackles can be placed on incorporeal creatures as if they were not incorporeal. An incorporeal creature manacled by "
+          },
+          {
+            "type": "text",
+            "text": "void shackles",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " cannot pass through solid objects. Even a soul can be "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " via "
+          },
+          {
+            "type": "text",
+            "text": "void shackles",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", provided the soul was of a 17th- or lower-level creature in life. A soul held in "
+          },
+          {
+            "type": "text",
+            "text": "void shackles",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " cannot move on to the afterlife, cannot become undead, and can be transported by simply transporting the shackles."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Affix Shackle",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You affix the "
+          },
+          {
+            "type": "text",
+            "text": "void shackles",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to a helpless or willing creature or to any 17th- or lower-level soul. The shackles grow in size to accommodate the wrists or ankles of any size creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Release Shackle",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cause the "
+          },
+          {
+            "type": "text",
+            "text": "void shackles",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to open and release their prisoner. If you were not the one to affix the shackles to that creature or soul, you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 43
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shackles open."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shackles open, but you and the shackled creature take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shackles do not open, and you and the shackled creature take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "20d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XJPHem2m0Yjm2VYe"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12500
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "d59ddbca-6374-5206-bf77-3f9e1f478582",
+    "pack": "spore-war",
+    "kind": "equipment",
+    "slug": "equipment:what-doors-we-open",
+    "name": "What Doors We Open",
+    "level": 14,
+    "rarity": "unique",
+    "traits": ["grimoire", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "spore-war"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "What Doors We Open",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is the culmination of Aravashnial's research. Before he was captured, he performed a 1-minute ritual to erase his spells from this book and then hid it at his campsite to prevent his demonic foes from learning too many of his secrets. A spellcaster can transfer their own spells to this grimoire using a similar 1-minute ritual. When a spellcaster prepares their spells from it, they gain the ability to Activate the grimoire until their next daily preparations and gain a +2 item bonus to checks made to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " about demons. A grimoire's benefits apply only to spells cast via spell slots. No one can use more than one grimoire per day, nor can a grimoire be used by more than one person per day."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Cast Out",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If the next activity you take this round is to cast banishment prepared from this grimoire, it counts as the extra cost of adding an object that is anathema to the creature and gives the creature a –2 circumstance penalty to its save. If the targeted creature is a demon, increase this to a –3 circumstance penalty."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Open the Door Within",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The inside back cover of "
+          },
+          {
+            "type": "text",
+            "text": "What Doors We Open",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " features a realistic depiction of a bejeweled door set in a stone wall. When you Open the Door Within, you open that door to reveal an extradimensional space that otherwise functions identically to a "
+          },
+          {
+            "type": "ref",
+            "id": "7d21cd24-78ab-55b9-b65f-d662ae43cb37"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion", "lore-skill-check"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["target:trait:demon"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tL5pYmT9KUwxL2fn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cast-out",
+          "name": "Cast Out",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

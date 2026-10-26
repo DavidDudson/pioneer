@@ -1,0 +1,542 @@
+[
+  {
+    "id": "2d0e2608-535d-5cd4-8faa-975d1ded778b",
+    "pack": "triumph-of-the-tusk",
+    "kind": "feat",
+    "slug": "feat:agent-of-all-holds",
+    "name": "Agent of all Holds",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically fail a Diplomacy, Intimidation, or Performance check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Orcs across Belkzen recognize you as an honored lorekeeper. You're adept at leveraging this status and showing off your tattoos to resolve conflicts, change minds, or distract others from a faux pas. You get a failure on the check, rather than a critical failure. If the triggering check was made against a creature with the orc trait, you can instead add the fortune trait to this ability and reroll the check, treating any critical failure as a failure."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.tUAFOayp0DAaJDq4"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tattooed Historian Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You critically fail a Diplomacy, Intimidation, or Performance check."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "cc741243-3002-541a-85d7-954f5aa242f2"
+    }
+  },
+  {
+    "id": "3f16d23c-c34c-5053-9f56-9340589a31b2",
+    "pack": "triumph-of-the-tusk",
+    "kind": "feat",
+    "slug": "feat:aurochs-headed",
+    "name": "Aurochs-Headed",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your words and body language can subconsciously unsettle orcs, giving you an advantage when convincing them to see things your way. Many with this feat use it to travel freely between holds, warning all but the toughest orcs to waylay weaker prey. You gain a +1 circumstance bonus to skill checks to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": " creatures with the orc trait. Enemy orcs who can see you at the start of combat take a –1 penalty to initiative rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy", "skill:intimidation"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          "target:trait:orc",
+          {
+            "or": ["action:make-an-impression", "action:coerce"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.nTHhkHfAItjrO9d9"
+    },
+    "data": {
+      "category": "skill",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "trained in Diplomacy or Intimidation"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d8ebfb92-3fa9-5075-8a5b-3dfcccb7fe36",
+    "pack": "triumph-of-the-tusk",
+    "kind": "feat",
+    "slug": "feat:infused-with-belkzens-might",
+    "name": "Infused with Belkzen's Might",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your tattoos immortalize the conquests of orc war leaders, such as Belkzen besieging the dwarven Sky Citadel of Koldukar. You can expend one use of your storied skin's Living History ability to channel this power into your own weapons. Until the end of your next turn, you deal additional spirit damage with weapons and unarmed attacks equal to 1 plus half the number of Tattooed Historian feats you have."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DaRfJsWAivah3a07"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tattooed Historian Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "selfEffect": "23b85c4c-6f66-5241-829f-c0faeef60d09"
+      },
+      "archetype": "cc741243-3002-541a-85d7-954f5aa242f2"
+    }
+  },
+  {
+    "id": "96c9fcea-4da3-55f5-935e-7e26d495411b",
+    "pack": "triumph-of-the-tusk",
+    "kind": "feat",
+    "slug": "feat:inked-panoply",
+    "name": "Inked Panoply",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature targets you with an attack, and you can see the attacker."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your tattoos can briefly animate and extend from your skin, granting you a spectral shield-bearer who protects you from harm. Doing so expends one use of your "
+          },
+          {
+            "type": "ref",
+            "id": "530bd5e3-9926-52f5-bdc5-090b51e6fede"
+          },
+          {
+            "type": "text",
+            "text": ", granting you a +1 circumstance bonus to AC against the triggering attack. In addition, you gain resistance to mental, spirit, and void damage equal to twice your number of tattooed historian feats against the triggering attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:inked-panoply",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:inked-panoply"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.m2A7S4BjZg94WPyr"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tattooed Historian Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "A creature targets you with an attack, and you can see the attacker."
+              }
+            ]
+          }
+        ]
+      },
+      "archetype": "cc741243-3002-541a-85d7-954f5aa242f2"
+    }
+  },
+  {
+    "id": "e87de7f1-635c-5529-872f-2faf78d58600",
+    "pack": "triumph-of-the-tusk",
+    "kind": "feat",
+    "slug": "feat:inscribed-with-elders-deeds",
+    "name": "Inscribed with Elders' Deeds",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your tattoos commemorate unique exploits that (according to legends) only an orc could accomplish. During your daily preparations, you can reconfigure part of your storied skin to depict a specific orc hero, granting you a 1st-level ancestry feat with the orc trait until you prepare again; this ancestry feat cannot require any physiological feature you lack, as determined by the GM. Since this feat is temporary, you can't use it as a prerequisite for permanent character options, such as for a feat. At 13th level, you can instead gain a 5th-level ancestry feat with the orc trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.SIsEvELAKfjZxDwx"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tattooed Historian Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "cc741243-3002-541a-85d7-954f5aa242f2"
+    }
+  },
+  {
+    "id": "f7cc581c-c582-5308-a84a-72435460c205",
+    "pack": "triumph-of-the-tusk",
+    "kind": "feat",
+    "slug": "feat:spell-survivor",
+    "name": "Spell Survivor",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["orc"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once you've resisted an opponent's magic, anything else they throw your way becomes less effective. When you attempt a saving throw against a spell using "
+          },
+          {
+            "type": "ref",
+            "id": "a50a59d6-604f-52af-85fb-24ad27a68dda"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "2cf3f871-cef3-5095-aa49-0b1fab9e932f"
+          },
+          {
+            "type": "text",
+            "text": " and critically succeed, you gain resistance 1 to all damage dealt by that triggering spell's caster until the end of their next turn. At 9th level and every 4 levels thereafter, the resistance increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.QkDZ96UR3PzW8FDB"
+    },
+    "data": {
+      "category": "ancestry"
+    }
+  },
+  {
+    "id": "da44242c-4db6-586a-8ba0-149599c66351",
+    "pack": "triumph-of-the-tusk",
+    "kind": "feat",
+    "slug": "feat:tattooed-historian-dedication",
+    "name": "Tattooed Historian Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become trained in Diplomacy or Performance; if you are already trained in both skills, you instead become trained in a skill of your choice. You gain access to all uncommon magical tattoos with the orc trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a "
+          },
+          {
+            "type": "ref",
+            "id": "530bd5e3-9926-52f5-bdc5-090b51e6fede"
+          },
+          {
+            "type": "text",
+            "text": " for free upon gaining this feat (or another magical tattoo of 2nd level or lower if you already have storied skin). You cannot have more than one storied skin tattoo, but the frequency of its Living History ability increases by one use per minute for every three tattooed historian feats you have. For every two tattooed historian feats you have, you can invest one magical tattoo that does not count against the maximum number of items you can have invested at one time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.oKjyD46NmkKx1OvO"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Constitution +1; trained in Belkzen Lore, Orc Lore, Orc Pantheon Lore, or (at the GM's discretion) a related Lore skill"
+            }
+          ]
+        }
+      ],
+      "archetype": "cc741243-3002-541a-85d7-954f5aa242f2"
+    }
+  },
+  {
+    "id": "dde0aca7-2c7c-5dd0-ab84-f244e15f024c",
+    "pack": "triumph-of-the-tusk",
+    "kind": "feat",
+    "slug": "feat:wrath-of-the-hold",
+    "name": "Wrath of the Hold",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["archetype", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your tattoos carry the strength of an innumerable horde, and you can expend one use of your storied skin's Living History ability to animate your tattoos as ghostly assailants that swarm your foes. These spirits attack all foes in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(floor(@level/2))d6",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. The damage increases by 1d6 at 10th level and every 2 levels thereafter. Each affected creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": {
+              "against": "class-or-spell-dc"
+            },
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " saving throw against the higher of your class DC or spell DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.AYHhuLIDtIEewfRf"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tattooed Historian Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      },
+      "archetype": "cc741243-3002-541a-85d7-954f5aa242f2"
+    }
+  }
+]

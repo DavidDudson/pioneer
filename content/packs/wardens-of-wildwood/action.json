@@ -1,0 +1,371 @@
+[
+  {
+    "id": "e8aa30ac-32d7-5a5d-84bf-2dff82f64b24",
+    "pack": "wardens-of-wildwood",
+    "kind": "action",
+    "slug": "action:unwavering-resilience",
+    "name": "Unwavering Resilience",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a saving throw against a poison, disease, or mental effect, but you haven't rolled yet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You tap into the power of the Plane of Wood, gaining strength and mental fortitude. You gain a +1 circumstance bonus on the triggering save. If you critically succeed at this saving throw, you become bolstered by your success; blossoms and new growth temporarily sprout all over your body, and you gain a number of temporary Hit Point equal to your level. These temporary Hit Points last for one minute. When there temporary Hit Points are lost, the verdant growth subsides."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:unwavering-resilience",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:unwavering-resilience"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.KofrLYBif2QKyiqe"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You attempt a saving throw against a poison, disease, or mental effect, but you haven't rolled yet."
+            }
+          ]
+        }
+      ],
+      "selfEffect": "95337c44-2ed8-553f-8b19-ad49bdec1d02"
+    }
+  },
+  {
+    "id": "d5737d53-258b-55b3-851b-33476ec091ba",
+    "pack": "wardens-of-wildwood",
+    "kind": "action",
+    "slug": "action:woodblessed-explosive-end",
+    "name": "(Woodblessed) Explosive End",
+    "rarity": "common",
+    "traits": ["primal", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the woodblessed dies, the planar portal inside of them collapses, causing them to explode in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " of vines that deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage per level to all creatures with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against the woodblessed's spell DC. The woodblessed's body is completely consumed, though their root network and gear remain behind."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.edpED1d9NbvR2NmB"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "32b7b24d-b86f-54cc-91fe-6167a26d4180",
+    "pack": "wardens-of-wildwood",
+    "kind": "action",
+    "slug": "action:woodblessed-luminant-aura",
+    "name": "(Woodblessed) Luminant Aura",
+    "rarity": "common",
+    "traits": ["aura", "light"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "20 feet. The volatile planar energy coursing through a woodblessed's veins fills the area with dim light."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.WIVta5JyoDl9b2UO"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "c76cd4f8-1dd2-5af2-9a0b-1b41ab38152e",
+    "pack": "wardens-of-wildwood",
+    "kind": "action",
+    "slug": "action:woodblessed-primal-innate-spells",
+    "name": "(Woodblessed) Primal Innate Spells",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A woodblessed can cast "
+          },
+          {
+            "type": "ref",
+            "id": "16413e09-040a-521f-b5fa-6329981f41b4"
+          },
+          {
+            "type": "text",
+            "text": " as an innate primal cantrip."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.p7VpIVDh5geLj7Ze"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "57a8b4b4-5f6c-5f9a-9e41-0f4fcdb4789c",
+    "pack": "wardens-of-wildwood",
+    "kind": "action",
+    "slug": "action:woodblessed-reactive-flare",
+    "name": "(Woodblessed) Reactive Flare",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The woodblessed is damaged by a creature within their reach"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Distracted by the pain, the woodblessed's concentration slips and splinters erupt from their body as they temporarily lose control of the planar energy within them. Both the triggering creature and the woodblessed take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage + 1d6 per 2 levels the woodblessed has, with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save against the woodblessed's spell DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.tEP4ajRcD7cr644Z"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The woodblessed is damaged by a creature within their reach"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b71a30bd-4e36-542b-b2bd-d60fa15f66a0",
+    "pack": "wardens-of-wildwood",
+    "kind": "action",
+    "slug": "action:woodblessed-tap-planar-gate",
+    "name": "(Woodblessed) Tap Planar Gate",
+    "rarity": "common",
+    "traits": ["concentrate", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The woodblessed empowers themself or their next attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the woodblessed's next action is to Stride, is launched off the ground by a suddenly sprouting tree and propelled forward. During this Stride, they have a fly Speed equal to their Speed. If they don't end their movement on a solid surface that can support their weight, they fall."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the woodblessed's next action is a Strike, the attack sprouts thorns that deal an additional 1d4 persistent bleed damage (1d6 for levels 6–12, 1d10 for levels 13+)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:tap-planar-gate",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "bleed",
+        "predicate": ["option:tap-planar-gate"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.sQ2nzNDLMdGqECm6"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  }
+]

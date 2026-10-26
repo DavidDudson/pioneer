@@ -1,0 +1,745 @@
+[
+  {
+    "id": "728d46f6-325b-5201-af8c-16a3a97565e2",
+    "pack": "shades-of-blood",
+    "kind": "effect",
+    "slug": "effect:effect-aeon-stone-resonance-vital-amplification",
+    "name": "Effect: Aeon Stone Resonance (Vital Amplification)",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5eed05ed-aa02-5107-9a7a-9e03a367a9fa"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The resonant power grants you resistance 5 to void damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WHDaCszWhQCM0EpL"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0d0a763e-3ec2-5daf-af10-dff73b84f210",
+    "pack": "shades-of-blood",
+    "kind": "effect",
+    "slug": "effect:effect-align-the-stars",
+    "name": "Effect: Align the Stars",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are an ally, you gain a +2 circumstance bonus to AC. If you are an enemy, other creatures gain a +4 circumstance bonus to damage rolls against you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-align-the-stars",
+        "choices": [
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          }
+        ],
+        "prompt": "Is this an ally of Inizkar?",
+        "rollOption": "inizkar-ally"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["inizkar-ally:yes"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.MLwB5v5DffmfUTWe"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "945d5736-7f00-56ac-ac8e-2013b29741d3",
+    "pack": "shades-of-blood",
+    "kind": "effect",
+    "slug": "effect:effect-align-the-stars-ephemeral",
+    "name": "Effect: Align the Stars (Ephemeral)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ephemeral Effect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 circumstance bonus to damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "circumstance",
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.BXFP2EC8HIVZ7h9r"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1c9bdefd-d6b6-5a00-a1da-ae1b35afc53e",
+    "pack": "shades-of-blood",
+    "kind": "effect",
+    "slug": "effect:effect-blood-drinker-blade",
+    "name": "Effect: Blood-Drinker Blade",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 1d8 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.FHcvd2XHBdqKg5KT"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "1d8"
+      }
+    }
+  },
+  {
+    "id": "11b0821f-4b60-5dab-a2c4-8cb7fa19898a",
+    "pack": "shades-of-blood",
+    "kind": "effect",
+    "slug": "effect:effect-body-shield",
+    "name": "Effect: Body Shield",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC. This bonus stacks with the circumstance bonus from cover."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "cover",
+        "mode": "add",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.YH57XXyIQCRe6pcR"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0c0a14b7-4512-53ec-b9f4-39392bca4975",
+    "pack": "shades-of-blood",
+    "kind": "effect",
+    "slug": "effect:effect-cataclysm-brand",
+    "name": "Effect: Cataclysm Brand",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your strikes deal an additional 1d10 fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d10",
+        "damageType": "fire"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.4NC6sIgh6LUEbBiU"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "02ec4353-71e6-58b5-9190-049c6aa35fff",
+    "pack": "shades-of-blood",
+    "kind": "effect",
+    "slug": "effect:effect-dero-medicine-deg",
+    "name": "Effect: Dero Medicine (Deg)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain weakness 5 to slashing."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["slashing"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.tVw3srxbsQ8PjBfy"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "617c0977-3294-5a4d-83c0-6b4499303265",
+    "pack": "shades-of-blood",
+    "kind": "effect",
+    "slug": "effect:effect-drain-blood",
+    "name": "Effect: Drain Blood",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain 4d4 temporary hit points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.0ExJcZM3X51B0Ok3"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "4d4"
+      }
+    }
+  },
+  {
+    "id": "3321bea7-8cf7-5899-99c2-e7b50ccc2777",
+    "pack": "shades-of-blood",
+    "kind": "effect",
+    "slug": "effect:effect-keepers-ward",
+    "name": "Effect: Keeper's Ward",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 status bonus to saves against magical effects. The bonus increases to +2 if the effect originated from an aquatic creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:magical"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "effect-keepers-ward",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["origin:trait:aquatic"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.SCQZCtRTHBqqOUOA"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "6f205ec6-545e-5e4c-8a6b-c314f9ae0370",
+    "pack": "shades-of-blood",
+    "kind": "effect",
+    "slug": "effect:effect-yobnobby-overdrive",
+    "name": "Effect: Yobnobby Overdrive",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Yobnobby deals additional damage on her strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.EIERHL5oo4OlBkAZ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9f8c33ef-1a37-5685-84fa-b774fdf4abc7",
+    "pack": "shades-of-blood",
+    "kind": "effect",
+    "slug": "effect:spell-effect-augmented-body",
+    "name": "Spell Effect: Augmented Body",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shades-of-blood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose any one effect of your choice."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ablative Plating",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain resistance 1 to physical damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Clockwork Arm",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain a clockwork fist unarmed attack, which has the agile, finesse, and free-hand traits and deals 1d6 bludgeoning damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Spined Fingertips",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain a climb Speed of 20 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Spring-Loaded Legs",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You gain a +10-foot status bonus to your Speed."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ablative plating's resistance increases to 2. The clockwork fist is a +1 striking weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ablative plating's resistance increases to 3, and the clockwork fist is a +2 striking weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ablative plating's resistance increases to 4, and the clockwork fist is a +2 greater striking weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ablative plating's resistance increases to 5 and the clockwork fist is a +3 major striking weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-augmented-body",
+        "choices": [
+          {
+            "value": "ablative-plating",
+            "label": "Ablative Plating"
+          },
+          {
+            "value": "clockwork-arm",
+            "label": "Clockwork Arm"
+          },
+          {
+            "value": "spined-fingertips",
+            "label": "Spined Fingertips"
+          },
+          {
+            "value": "spring-loaded-legs",
+            "label": "Spring-Loaded Legs"
+          }
+        ],
+        "rollOption": "augmented-body",
+        "display": {
+          "label": "Select an augmentation."
+        }
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "ceil(@item.level / 2)",
+        "predicate": ["augmented-body:ablative-plating"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": ["augmented-body:spined-fingertips"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10,
+        "predicate": ["augmented-body:spring-loaded-legs"]
+      },
+      {
+        "key": "Strike",
+        "slug": "clockwork-fist",
+        "category": "unarmed",
+        "traits": ["agile", "finesse", "free-hand", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "predicate": ["augmented-body:clockwork-arm"],
+        "display": {
+          "label": "Clockwork Fist"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.CVR6mkf5bVIK9KjU"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  }
+]

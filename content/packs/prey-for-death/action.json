@@ -1,0 +1,150 @@
+[
+  {
+    "id": "4ef517cb-0ad7-5af4-a943-875a590ce35e",
+    "pack": "prey-for-death",
+    "kind": "action",
+    "slug": "action:erupting-spurs",
+    "name": "Erupting Spurs",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature takes persistent bleed damage from your bone flense spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You will the bone spurs to erupt in a particularly devastating manner, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (basic Fortitude save) to the triggering creature instead of the persistent bleed damage from bone flense. The duration of bone flense immediately ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.wfUIsKBxCBfXi1TF"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature takes persistent bleed damage from your bone flense spell"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "27372868-5ce5-5379-b25d-da2bd2903481",
+    "pack": "prey-for-death",
+    "kind": "action",
+    "slug": "action:swirl-crimson-shroud",
+    "name": "Swirl Crimson Shroud",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can Interact with your shroud, swirling it around you, to gain a +1 circumstance bonus to AC until the beginning of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Gu0QsFvWoR9EP5SE"
+    },
+    "data": {
+      "cost": "one",
+      "category": "defensive",
+      "selfEffect": "dcd15b6e-68ee-57e5-a6ee-b2060ca350b6"
+    }
+  },
+  {
+    "id": "5ca0c55c-881e-5638-ab56-b66835665681",
+    "pack": "prey-for-death",
+    "kind": "action",
+    "slug": "action:valkyrie-tempest-mounted-troop",
+    "name": "(Valkyrie Tempest) Mounted Troop",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects that target only animals or only humanoids may not work on the valkyrie tempest, subject to the GM's discretion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.RJkRiqoxU1xMdZ81"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  }
+]

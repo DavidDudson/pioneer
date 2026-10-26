@@ -1,0 +1,20 @@
+[
+  {
+    "id": "05b409cb-8416-5e5a-a9e5-e680e5325d74",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:osiriani",
+    "name": "Osiriani",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

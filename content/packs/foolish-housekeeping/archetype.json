@@ -1,0 +1,76 @@
+[
+  {
+    "id": "d00eee09-4c7a-5d76-990d-de06db4c759e",
+    "pack": "foolish-housekeeping",
+    "kind": "archetype",
+    "slug": "archetype:venture-gossip",
+    "name": "Venture-Gossip",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Venture-Gossip is not only the name of a beloved agent of the Pathfinder Society who has dedicated herself to bringing all of the lurid, gruesome stories to Absalom's streets—it's also the name of a popular tabloid newsletter that appears across Golarion, primarily wherever there's a Pathfinder Society lodge. There isn't just one venture-gossip: there are hundreds. Hundreds of Pathfinders with loads of stories and rumors that they collect and then forward along to the Ink Worker's United Printing Press, a unionized printing press based out of Absalom. Formally, only one name is associated with Venture-Gossip: Agent Kitsch of the Office of Supplies and Procurement. However, no one truly believes that she's behind any of this, as the older ysoki is known to misplace just about everything, from poison flasks to important cursed artifacts."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Distracting Flattery, Gossip Lore ; "
+          },
+          {
+            "type": "text",
+            "text": "7th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Fabricated Connections, Party Crasher, Quick Change, Read Shibboleths, Subjective Truth, "
+          },
+          {
+            "type": "text",
+            "text": "8th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Crude Communication"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.ygcqpeo43GpRsxXR"
+    },
+    "data": {
+      "dedication": "decea343-48ff-550a-9b7f-49ffa826b000"
+    }
+  }
+]

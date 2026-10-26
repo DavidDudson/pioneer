@@ -1,0 +1,3649 @@
+[
+  {
+    "id": "0ad81977-9c4f-5c8b-ac96-3ad95d70b88d",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:boughshatter",
+    "name": "Boughshatter",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["earth", "magical", "poison", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The spikes of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking standard-grade adamantine morningstar",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " have a faintly green shimmer, as if resembling Ayrzul's crystalline teeth. The weapon vibrates briefly when first drawn in or carried into a radioactive area, with the intensity of the vibration correlating to the radioactivity's strength. While you carry Boughshatter, you gain a +4 status bonus to saving throws against radiation, including Ayrzul's Blight."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Splintering Strike",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Make a Strike with the morningstar that deals an extra die of weapon damage. If you make this Strike against a fungus, plant, or creature with the wood trait, the Strike ignores 10 points of the target's resistances to bludgeoning and piercing damage, if any. By damaging such a creature, the morningstar causes the target's flesh to explode in a shower of splinters that affect a 30-foot cone originating from the target's space, dealing 8d6 piercing damage to creatures in the area ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 30,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). You and the target are unaffected by these splinters."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Absorb Corruption",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take poison or void damage;"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You channel some of the toxic energy into Boughshatter, granting the weapon the effects of either a "
+          },
+          {
+            "type": "ref",
+            "id": "f0455ffb-aa99-554e-a3e8-328023d85255"
+          },
+          {
+            "type": "text",
+            "text": " weapon rune, "
+          },
+          {
+            "type": "ref",
+            "id": "7d9ea442-d6e1-5178-b5cf-e5be287effc2"
+          },
+          {
+            "type": "text",
+            "text": " weapon rune, or "
+          },
+          {
+            "type": "ref",
+            "id": "2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"
+          },
+          {
+            "type": "text",
+            "text": " weapon rune for 1 minute. While under this effect, the morningstar glows with dim green light in a 20-foot radius."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 4,
+        "predicate": ["option:radiation"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DGehMCf2XViTvBDu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2875
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "adamantine",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "splintering-strike",
+          "name": "Splintering Strike",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        },
+        {
+          "slug": "absorb-corruption",
+          "name": "Absorb Corruption",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "club",
+      "baseItem": "morningstar",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "d964ce17-dc7a-507e-b12d-8fd609410816",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:clear-cutters-axe",
+    "name": "Clear Cutter's Axe",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["agile", "magical", "sweep", "thrown-10"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wielded by wealthy Taldan knights against the Goroth Lodge, this +1 striking returning hatchet has an axe head resembling a roaring lion's head."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Slash and Burn",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically succeed at a Strike against a plant"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The weapon's etchings pulse with green energy, as it tears through bark, leaf, and wood. The clear cutter's axe deals an additional "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d10",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the plant."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Mow Down",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hurl the axe horizontally, sending it flying through the air in a wild, whirling cyclone. The axe flies in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " around you, eliminating all non-magical undergrowth and any resulting difficult terrain, cover, and concealment in area. It attempts to counteract one magical effect that affects a plant in the area (counteract +20). Plant creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 25,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). As the axe finishes its circuit, it returns to your hand."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Q2oyGb8l2hU7jYAi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 600
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "mow-down",
+          "name": "Mow Down",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "axe",
+      "baseItem": "hatchet",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["55822cf6-140a-55d9-9015-60f75cd52e5a"]
+      }
+    }
+  },
+  {
+    "id": "94b53a19-c6e0-5e61-8d5e-9a40f218bfed",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:cythbikian-staff",
+    "name": "Cythbikian Staff",
+    "level": 15,
+    "rarity": "unique",
+    "traits": ["fungus", "magical", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Cythbikian staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a gnarled length of rotting wood, riddled with mold and fungal growths. Originally called the Zibikian staff in honor of its creator, the green man Zibik, with whom Ghorus communed before magically receiving this staff. Ghorus spent years using samples of the staff's spores to invent weapons for his war against Taldor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you invest this staff, a thin layer of fungi grows on your hands, remaining until your next daily preparations. If an enemy takes damage from any of the spells you cast by the "
+          },
+          {
+            "type": "text",
+            "text": "Cythbikian staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", this fungus spreads up your arms, and you gain temporary Hit Points equal to double that spell's level. These temporary Hit Points last 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Rule by Roots",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (fungus, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per week"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You plunge the "
+          },
+          {
+            "type": "text",
+            "text": "Cythbikian staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " into the earth, causing a vast fungal network to spread out from the staff, coating the ground, plants, structures, and all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 100
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 34
+          },
+          {
+            "type": "text",
+            "text": " avoids) until the staff is removed or 24 hours have passed. Non-magical plants in the area die. A creature covered by these fungal growths is "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": " and controlled, physically, by the fungus, as it moves them around like a living puppet. At the beginning of a grabbed creature's turn, they can attempt to Escape. On a failure, the fungus forces them to spend all of their remaining actions moving toward and attacking the nearest creature in the area using melee Strikes with any weapon at their disposal. The fungal growths pay no mind to how the bodies under their control operate, and grabbed creatures are twisted, bent, and contorted in ways that harm their body. Each round, at the end of a grabbed creature's turn, they take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage from this painful manipulation ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 34,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). A creature that successfully Escapes or is physically removed from the area is no longer grabbed or controlled. When the "
+          },
+          {
+            "type": "text",
+            "text": "Cythbikian staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is removed from the ground, or after 24 hours have passed, the mold dies and this effect ends. Over the course of a week, the mold decays and fertilizes the soil, providing valuable nutrients to the soil and preparing the region for new plant growth."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "16413e09-040a-521f-b5fa-6329981f41b4"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b39fb037-a34a-5298-b289-cec012658f14"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "97b07b03-c8e6-5598-916f-3f32b2d2e11d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "6bfaa8ef-6ef0-5e68-9da4-d04bb80b39c7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1ded08e5-9413-503a-a695-fa2c55c2681e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "9dfded9c-826b-57e9-989b-6b4ea568d4b8"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "81ebad08-67c3-53e6-b4f1-2eba1200c66d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "9ec7124e-f252-5d28-83aa-3cf3086fd787"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "cc6b8b29-6166-5a05-a14c-80ba413dc7a7"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "813db347-48b2-5dec-bbda-70e18cbe1719"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "55d2af6d-c067-5fae-96ec-e7b268084323"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3dcf91db-01f1-596c-96b5-d635c0248044"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XnlYH66ZA7RR3QgR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5800
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "rule-by-roots",
+          "name": "Rule by Roots",
+          "frequency": {
+            "max": 1,
+            "per": "week"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ace9687d-05ec-5d51-9929-01ebbad8357a",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:defoliation-bomb-greater",
+    "name": "Defoliation Bomb (Greater)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This brightly painted ceramic sphere contains chemicals that cause plants to wither and die. You gain a +2 item bonus to attack rolls. A defoliation bomb deals the 3d6 void damage, 3d4 persistent void damage, and 3 void splash damage to all plants in the area. Non-creature plants in the area immediately wither and die."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tcHzNhjP6BesejWT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d6",
+        "damageType": "void",
+        "persistent": {
+          "formula": "3d4",
+          "damageType": "void"
+        }
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "995f9322-a926-5774-a113-dc7f28b8a523",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:defoliation-bomb-lesser",
+    "name": "Defoliation Bomb (Lesser)",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This brightly painted ceramic sphere contains chemicals that cause plants to wither and die. A defoliation bomb deals the 1d6 void damage, 1d4 persistent void damage, and 1 void splash damage to all plants in the area. Non-creature plants in the area immediately wither and die."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.M1P2Tn4e9L92Wadw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 7
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "void",
+        "persistent": {
+          "formula": "1d4",
+          "damageType": "void"
+        }
+      },
+      "splash": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a62e368b-deea-5606-a9df-98e3d8743bb0",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:defoliation-bomb-major",
+    "name": "Defoliation Bomb (Major)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This brightly painted ceramic sphere contains chemicals that cause plants to wither and die. You gain a +3 item bonus to attack rolls. A defoliation bomb deals the 4d6 void damage, 4d4 persistent void damage, and 4 void splash damage to all plants in the area. Non-creature plants in the area immediately wither and die."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ey3AowmoC3Fo0OJ9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3600
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d6",
+        "damageType": "void",
+        "persistent": {
+          "formula": "4d4",
+          "damageType": "void"
+        }
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "222526c1-d3d2-5c34-a513-619561204ab5",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:defoliation-bomb-moderate",
+    "name": "Defoliation Bomb (Moderate)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This brightly painted ceramic sphere contains chemicals that cause plants to wither and die. You gain a +1 item bonus to attack rolls. A defoliation bomb deals the 2d6 void damage, 2d4 persistent void damage, and 2 void splash damage to all plants in the area. Non-creature plants in the area immediately wither and die."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bPWqAnZAoDPko7sw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 18
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d6",
+        "damageType": "void",
+        "persistent": {
+          "formula": "2d4",
+          "damageType": "void"
+        }
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c7a7762e-25f0-58f9-ab90-024ab416e4a4",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:durian-bomb-greater",
+    "name": "Durian Bomb (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "olfactory", "plant", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whereas a durian's aroma ranges from pleasant to revolting depending on the person, a durian bomb is a fruit that's been alchemically modified for maximum revulsion. You gain a +2 item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a successful Strike, a durian bomb deals the 3d4 piercing damage to the target. Any creature hit by the bomb or in its splash area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28
+          },
+          {
+            "type": "text",
+            "text": " saving throw. Creatures in the splash area treat the results of their saving throw as one step better. Creatures sickened by a durian bomb are unable to smell anything else while the sickened condition lasts, suppressing any scent special sense they might have."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once a creature is sickened by a durian bomb, they're immune to the sickened condition caused by other durian bombs for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round and sickened 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is dazzled for 1 round and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mE2MpteGPmGeYbOL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 275
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "itemBonus": 2,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "41c6aea0-8f7d-5902-a9b5-ad34ae02378d",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:durian-bomb-lesser",
+    "name": "Durian Bomb (Lesser)",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "olfactory", "plant", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whereas a durian's aroma ranges from pleasant to revolting depending on the person, a durian bomb is a fruit that's been alchemically modified for maximum revulsion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a successful Strike, a durian bomb deals the 1d4 piercing damage to the target. Any creature hit by the bomb or in its splash area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " saving throw. Creatures in the splash area treat the results of their saving throw as one step better. Creatures sickened by a durian bomb are unable to smell anything else while the sickened condition lasts, suppressing any scent special sense they might have."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once a creature is sickened by a durian bomb, they're immune to the sickened condition caused by other durian bombs for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round and sickened 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is dazzled for 1 round and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RIhdmH0yMzht7OD5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f1463945-1457-5834-8b8a-c7ca5e326c20",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:durian-bomb-major",
+    "name": "Durian Bomb (Major)",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "olfactory", "plant", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whereas a durian's aroma ranges from pleasant to revolting depending on the person, a durian bomb is a fruit that's been alchemically modified for maximum revulsion. You gain a +3 item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a successful Strike, a durian bomb deals the 4d4 piercing damage to the target. Any creature hit by the bomb or in its splash area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 37
+          },
+          {
+            "type": "text",
+            "text": " saving throw. Creatures in the splash area treat the results of their saving throw as one step better. Creatures sickened by a durian bomb are unable to smell anything else while the sickened condition lasts, suppressing any scent special sense they might have."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once a creature is sickened by a durian bomb, they're immune to the sickened condition caused by other durian bombs for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round and sickened 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is dazzled for 1 round and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9crpQ6bymgYcKGjq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2750
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "itemBonus": 3,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "98c4bdd9-9510-5907-a74e-356e0372fda6",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:durian-bomb-moderate",
+    "name": "Durian Bomb (Moderate)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "olfactory", "plant", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whereas a durian's aroma ranges from pleasant to revolting depending on the person, a durian bomb is a fruit that's been alchemically modified for maximum revulsion. You gain a +1 item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a successful Strike, a durian bomb deals the 2d4 piercing damage to the target. Any creature hit by the bomb or in its splash area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": " saving throw. Creatures in the splash area treat the results of their saving throw as one step better. Creatures sickened by a durian bomb are unable to smell anything else while the sickened condition lasts, suppressing any scent special sense they might have."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once a creature is sickened by a durian bomb, they're immune to the sickened condition caused by other durian bombs for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round and sickened 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is dazzled for 1 round and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.B9BYJQt5Jlwv2cxv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "92b37069-beb3-580d-87fe-7bd31c5c60dc",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:inflammation-flask-greater",
+    "name": "Inflammation Flask (Greater)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["acid", "alchemical", "bomb", "consumable", "disease", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This flask contains a caustic irritant that makes a target's skin, scales, or carapace extremely sensitive to further nicks and burns. An inflammation flask deals 3d6 acid damage and 3 acid splash damage. On a hit, the target also gains weakness 3 to acid, fire, and slashing damage for 3 rounds. You gain a +2 item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target can end the weakness effect by three means: being drenched with water (such as submersion or exposure to an area water effect), being Administered First Aid (DC 30), or regaining Hit Points from a single effect equal to twice the inflammation flask's level. A creature that critically fails to Administer First Aid in this way deals untyped damage to the target equal to the inflammation flask's initial acid damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5c89e5c7-9121-507d-9511-7ee9b963ec7c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zbwV685YkIVxPNWE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 340
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d6",
+        "damageType": "acid"
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a89b013f-b5fc-5b27-9a76-4f6ec8b03701",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:inflammation-flask-lesser",
+    "name": "Inflammation Flask (Lesser)",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["acid", "alchemical", "bomb", "consumable", "disease", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This flask contains a caustic irritant that makes a target's skin, scales, or carapace extremely sensitive to further nicks and burns. An inflammation flask deals 1d6 acid damage and 1 acid splash damage. On a hit, the target also gains weakness 1 to acid, fire, and slashing damage for 3 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target can end the weakness effect by three means: being drenched with water (such as submersion or exposure to an area water effect), being Administered First Aid (DC 17), or regaining Hit Points from a single effect equal to twice the inflammation flask's level. A creature that critically fails to Administer First Aid in this way deals untyped damage to the target equal to the inflammation flask's initial acid damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5c89e5c7-9121-507d-9511-7ee9b963ec7c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IGwM0rPKZt7vZ7zq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "acid"
+      },
+      "splash": 1,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3102302a-3ca9-550d-a702-9d2370fb2cb4",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:inflammation-flask-major",
+    "name": "Inflammation Flask (Major)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["acid", "alchemical", "bomb", "consumable", "disease", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This flask contains a caustic irritant that makes a target's skin, scales, or carapace extremely sensitive to further nicks and burns. An inflammation flask deals 4d6 acid damage and 4 acid splash damage. On a hit, the target also gains weakness 4 to acid, fire, and slashing damage for 3 rounds. You gain a +3 item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target can end the weakness effect by three means: being drenched with water (such as submersion or exposure to an area water effect), being Administered First Aid (DC 38), or regaining Hit Points from a single effect equal to twice the inflammation flask's level. A creature that critically fails to Administer First Aid in this way deals untyped damage to the target equal to the inflammation flask's initial acid damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5c89e5c7-9121-507d-9511-7ee9b963ec7c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AOGJdyn5J0nB9ThV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3750
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d6",
+        "damageType": "acid"
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ef0c2511-8239-5cc8-b567-310a1dbf85a6",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:inflammation-flask-moderate",
+    "name": "Inflammation Flask (Moderate)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["acid", "alchemical", "bomb", "consumable", "disease", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This flask contains a caustic irritant that makes a target's skin, scales, or carapace extremely sensitive to further nicks and burns. An inflammation flask deals 2d6 acid damage and 2 acid splash damage. On a hit, the target also gains weakness 2 to acid, fire, and slashing damage for 3 rounds. You gain a +1 item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target can end the weakness effect by three means: being drenched with water (such as submersion or exposure to an area water effect), being Administered First Aid (DC 20), or regaining Hit Points from a single effect equal to twice the inflammation flask's level. A creature that critically fails to Administer First Aid in this way deals untyped damage to the target equal to the inflammation flask's initial acid damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5c89e5c7-9121-507d-9511-7ee9b963ec7c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.A3uCOubAKyCSRPRv"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d6",
+        "damageType": "acid"
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "ammunition": {},
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f9fbbc57-7247-5868-b114-49189f7ad4e1",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:lance-of-suns-radiance",
+    "name": "Lance of Sun's Radiance",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["deadly-d8", "jousting-d6", "light", "magical", "reach"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Crafted for a long-forgotten knight to slay Avathrael Realmshaper, this "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking dragon bane lance",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is crafted from gleaming steel with a golden silk banner depicting a radiant sun. When in a location of dim light or darkness, the "
+          },
+          {
+            "type": "text",
+            "text": "lance of sun's radiance",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " sheds bright light in a 60-foot radius, and dim light for a further 60 feet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Banish Darkness",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (divine, light, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You tap the lance's tip against an object, causing that object to shed light like a torch for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sun Cutting Scales",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (divine, light, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With a bold proclamation, you thrust the lance forward, firing a beam of brilliant, scouring light in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 120
+          },
+          {
+            "type": "text",
+            "text": ". Creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d8",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, or "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d12",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage if they're a dragon ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 28,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). Creatures that critically fail are also "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mVjHOSH8ydCmqRQ7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1450
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "banish-darkness",
+          "name": "Banish Darkness",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        },
+        {
+          "slug": "sun-cutting-scales",
+          "name": "Sun Cutting Scales",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "spear",
+      "baseItem": "lance",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": ["b87722cc-7fc3-535c-963c-8c06864b69c6"]
+      }
+    }
+  },
+  {
+    "id": "78d6ac92-fe69-5da7-8aa7-804d0ca206fd",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:nail-bomb-greater",
+    "name": "Nail Bomb (Greater)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pressurized iron casing bursts open when struck, releasing cold iron shrapnel. You gain a +2 item bonus to attack rolls. The bomb deals 6d4 piercing damage and 3 piercing splash damage from a cold iron source."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YZ8WY378H1WFaD6s"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 6,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "72de63d6-af06-5638-bb90-1ff1633f51ec",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:nail-bomb-lesser",
+    "name": "Nail Bomb (Lesser)",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pressurized iron casing bursts open when struck, releasing cold iron shrapnel. The bomb deals 2d4 piercing damage and 1 piercing splash damage from a cold iron source."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2zDOPJy5goJjRREN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "splash": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b854fe27-cba5-5c0d-9eeb-d47348a9627d",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:nail-bomb-major",
+    "name": "Nail Bomb (Major)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pressurized iron casing bursts open when struck, releasing cold iron shrapnel. You gain a +3 item bonus to attack rolls. The bomb deals 8d4 piercing damage and 4 piercing splash damage from a cold iron source."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qmFVrqzvkGU9g5lt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4000
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 8,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ff096c33-bc66-57d5-8d36-edbfa55b7385",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:nail-bomb-moderate",
+    "name": "Nail Bomb (Moderate)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pressurized iron casing bursts open when struck, releasing cold iron shrapnel. You gain a +1 item bonus to attack rolls. The bomb deals 4d4 piercing damage and 2 piercing splash damage from a cold iron source."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.19njoGhqVm3UYsn1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 16
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "024d7720-e77b-5254-9b8c-defa4a604af8",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:spider-satchel-greater",
+    "name": "Spider Satchel (Greater)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "poison", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Verduran Forest's tiny tent-trap spider lays her eggs in a pyramidal web, and her young hatch only in response to intense vibration, such as the struggles of an ensnared insect or even songbird. Sadistic alchemists gather and augment these eggs, packing them in silken satchels that disgorge thousands of biting spider babies on impact."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Until shaken off—or for the desperate target, incinerated—these spiders make it difficult to concentrate on anything other than escaping the swarm. The fascination effect ends automatically if a creature uses further hostile actions against the target, but hostile actions against the target's allies don't automatically end the effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to attack rolls. The bomb deals 3d6 persistent poison damage, 3 poison splash damage, and fascinates the target while the persistent damage lasts."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.r0eGBESoYYiFbhEm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 0,
+        "damageType": "poison",
+        "persistent": {
+          "formula": "3d6",
+          "damageType": "poison"
+        }
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "809b6960-dec4-54ae-b398-848e78036482",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:spider-satchel-lesser",
+    "name": "Spider Satchel (Lesser)",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "poison", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Verduran Forest's tiny tent-trap spider lays her eggs in a pyramidal web, and her young hatch only in response to intense vibration, such as the struggles of an ensnared insect or even songbird. Sadistic alchemists gather and augment these eggs, packing them in silken satchels that disgorge thousands of biting spider babies on impact."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Until shaken off—or for the desperate target, incinerated—these spiders make it difficult to concentrate on anything other than escaping the swarm. The fascination effect ends automatically if a creature uses further hostile actions against the target, but hostile actions against the target's allies don't automatically end the effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bomb deals 1d6 persistent poison damage, 1 poison splash damage, and fascinates the target while the persistent damage lasts."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NDIHtSxYUoQwtP2z"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 0,
+        "damageType": "poison",
+        "persistent": {
+          "formula": "1d6",
+          "damageType": "poison"
+        }
+      },
+      "splash": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "909375ee-b7d5-5de5-b555-83510f93826b",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:spider-satchel-major",
+    "name": "Spider Satchel (Major)",
+    "level": 18,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "poison", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Verduran Forest's tiny tent-trap spider lays her eggs in a pyramidal web, and her young hatch only in response to intense vibration, such as the struggles of an ensnared insect or even songbird. Sadistic alchemists gather and augment these eggs, packing them in silken satchels that disgorge thousands of biting spider babies on impact."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Until shaken off—or for the desperate target, incinerated—these spiders make it difficult to concentrate on anything other than escaping the swarm. The fascination effect ends automatically if a creature uses further hostile actions against the target, but hostile actions against the target's allies don't automatically end the effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +3 item bonus to attack rolls. The bomb deals 4d6 persistent poison damage, 4 poison splash damage, and fascinates the target while the persistent damage lasts."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pEuFCloUo1SdfORL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4000
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 0,
+        "damageType": "poison",
+        "persistent": {
+          "formula": "4d6",
+          "damageType": "poison"
+        }
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "231d6b40-cda1-5fc4-95d2-381c2413eb9f",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:spider-satchel-moderate",
+    "name": "Spider Satchel (Moderate)",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "bomb", "consumable", "poison", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Verduran Forest's tiny tent-trap spider lays her eggs in a pyramidal web, and her young hatch only in response to intense vibration, such as the struggles of an ensnared insect or even songbird. Sadistic alchemists gather and augment these eggs, packing them in silken satchels that disgorge thousands of biting spider babies on impact."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Until shaken off—or for the desperate target, incinerated—these spiders make it difficult to concentrate on anything other than escaping the swarm. The fascination effect ends automatically if a creature uses further hostile actions against the target, but hostile actions against the target's allies don't automatically end the effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to attack rolls. The bomb deals 2d6 persistent poison damage, 2 poison splash damage, and fascinates the target while the persistent damage lasts."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hOuFviZYTOjN1hxM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 16
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 0,
+        "damageType": "poison",
+        "persistent": {
+          "formula": "2d6",
+          "damageType": "poison"
+        }
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3dcc6296-e47c-5f80-a47c-c5124829c5dc",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:tenderizer-grenade-greater",
+    "name": "Tenderizer Grenade (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["acid", "alchemical", "bomb", "consumable", "plant", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Made from the acidic flesh of an especially astringent fruit found on the Plane of Wood, this bomb's contents soften, oxidize, and season whatever they touch. You gain a +2 item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a successful Strike, a tenderizer grenade deals the 3d6 acid damage to the target and the 3 acid splash damage. Any resistances the target has against bludgeoning, piercing, and slashing damage are reduced by an amount based on the bomb's type. In addition, the target is showered with appetizing esters, oils, and salts, making them "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against jaws Strikes, fangs Strikes, or similar Strikes with a creature's mouth. These additional effects last until the end of your next turn, or for 1 minute on a critical hit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3W0PWkDuAZFEGQtx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 275
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d6",
+        "damageType": "acid"
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0957d463-ea33-5ab1-8e62-0ee3b95f3076",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:tenderizer-grenade-lesser",
+    "name": "Tenderizer Grenade (Lesser)",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["acid", "alchemical", "bomb", "consumable", "plant", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Made from the acidic flesh of an especially astringent fruit found on the Plane of Wood, this bomb's contents soften, oxidize, and season whatever they touch."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a successful Strike, a tenderizer grenade deals the 1d6 acid damage to the target and the 1 acid splash damage. Any resistances the target has against bludgeoning, piercing, and slashing damage are reduced by an amount based on the bomb's type. In addition, the target is showered with appetizing esters, oils, and salts, making them "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against jaws Strikes, fangs Strikes, or similar Strikes with a creature's mouth. These additional effects last until the end of your next turn, or for 1 minute on a critical hit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KMfbKiCHmzenEEhQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "acid"
+      },
+      "splash": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e41b8bdd-d280-581b-bb6f-4d90e1fc1a76",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:tenderizer-grenade-major",
+    "name": "Tenderizer Grenade (Major)",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["acid", "alchemical", "bomb", "consumable", "plant", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Made from the acidic flesh of an especially astringent fruit found on the Plane of Wood, this bomb's contents soften, oxidize, and season whatever they touch. You gain a +3 item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a successful Strike, a tenderizer grenade deals the 4d6 acid damage to the target and the 4 acid splash damage. Any resistances the target has against bludgeoning, piercing, and slashing damage are reduced by an amount based on the bomb's type. In addition, the target is showered with appetizing esters, oils, and salts, making them "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against jaws Strikes, fangs Strikes, or similar Strikes with a creature's mouth. These additional effects last until the end of your next turn, or for 1 minute on a critical hit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bo0HMGgyrp6v5Dn0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2750
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d6",
+        "damageType": "acid"
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dd02ba64-3aec-5527-88fc-b9f3c240b969",
+    "pack": "wardens-of-wildwood",
+    "kind": "weapon",
+    "slug": "weapon:tenderizer-grenade-moderate",
+    "name": "Tenderizer Grenade (Moderate)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["acid", "alchemical", "bomb", "consumable", "plant", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Made from the acidic flesh of an especially astringent fruit found on the Plane of Wood, this bomb's contents soften, oxidize, and season whatever they touch. You gain a +1 item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a successful Strike, a tenderizer grenade deals the 2d6 acid damage to the target and the 2 acid splash damage. Any resistances the target has against bludgeoning, piercing, and slashing damage are reduced by an amount based on the bomb's type. In addition, the target is showered with appetizing esters, oils, and salts, making them "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against jaws Strikes, fangs Strikes, or similar Strikes with a creature's mouth. These additional effects last until the end of your next turn, or for 1 minute on a critical hit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.V9ZhiUJhemaUDYzq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d6",
+        "damageType": "acid"
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

@@ -1,0 +1,197 @@
+[
+  {
+    "id": "eaef2260-7fd3-5283-bf7f-53fc2ae97ec1",
+    "pack": "foolish-housekeeping",
+    "kind": "effect",
+    "slug": "effect:effect-a-little-bird-told-me",
+    "name": "Effect: A Little Bird Told Me...",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0ea3a95c-7eb8-5775-8c05-815015e29ed2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a small bird, such as a finch or a sparrow. You gain the following statistics and abilities:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "AC = 20 + your level. Ignore your armor's check penalty and Speed reduction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fly speed 25 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Weakness 5 to physical damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Low-light vision and imprecise scent 30 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Acrobatics and Stealth modifiers of +10, unless your own is higher; Athletics modifier –4."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "20 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "size": "tiny",
+          "skills": [
+            {
+              "skill": "skill:acrobatics",
+              "modifier": 10
+            },
+            {
+              "skill": "skill:athletics",
+              "modifier": -4,
+              "ownIfHigher": false
+            },
+            {
+              "skill": "skill:stealth",
+              "modifier": 10
+            }
+          ],
+          "speeds": {
+            "fly": 25
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 30
+            }
+          ],
+          "weaknesses": [
+            {
+              "type": "physical",
+              "value": 5
+            }
+          ],
+          "traits": ["animal"]
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Tlb2xfEhGLHjwPHy"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c653b73d-bcb9-5455-a215-94eb81f1fe05",
+    "pack": "foolish-housekeeping",
+    "kind": "effect",
+    "slug": "effect:effect-cloud-of-allergens",
+    "name": "Effect: Cloud of Allergens",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "foolish-housekeeping"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a –1 circumstance penalty to skill checks that have the concentration trait and all Perception checks while inside the cloud."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": -1,
+        "slug": "cloud-of-allergens-perception-penalty"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": -1,
+        "slug": "cloud-of-allergens-skill-penalty",
+        "predicate": ["item:trait:concentrate"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.pVd4mbG2u8Y1mqgL"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]

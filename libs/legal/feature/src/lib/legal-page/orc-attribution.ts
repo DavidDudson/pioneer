@@ -76,6 +76,12 @@ export const ORC_ATTRIBUTION: readonly AttributionGroup[] = [
     "Pathfinder Hell's Destiny © 2026, Paizo Inc.",
     'Pathfinder Bastion of Blasphemies © 2026, Paizo Inc.',
     "Pathfinder The Dead God's Hand © 2026, Paizo Inc.",
+    "Shades of Blood Player's Guide © 2025, Paizo Inc.",
+    'Pathfinder Adventure Path #213: Thirst for Blood © 2025, Paizo Inc.',
+    'Pathfinder Adventure Path #214: The Broken Palace © 2025, Paizo Inc.',
+    'Pathfinder Adventure Path #215: To Blot Out the Sun © 2025, Paizo Inc.',
+    'Pathfinder Prey for Death © 2024, Paizo Inc.',
+    'Pathfinder Claws of the Tyrant © 2025, Paizo Inc.',
   ]),
   group('legal.orc.attribution.society', [
     "Pathfinder Society Quest #20: The Dacilane Academy's Show Must Go On © 2024, Paizo Inc.; Author: Lucas Servideo.",
@@ -97,9 +103,11 @@ export const ORC_ATTRIBUTION: readonly AttributionGroup[] = [
     'Pathfinder Society Scenario #6-12: The Burning of Greensteeples © 2025, Paizo Inc.; Author: Joseph Blomquist',
     'Pathfinder Society Scenario #6-13: All That Glitters © 2025, Paizo Inc.; Author: Genevieve Olejnik',
     'Pathfinder Society Guide to Play (Second Edition) © 2024, The Organized Play Foundation',
+    "Pathfinder Society Clockwork Mystery Player's Guide © 2026, Paizo Inc.",
   ]),
   group('legal.orc.attribution.blog', [
     'Fine-tuning Ancestries © 2023, Paizo Inc.; Author: Jason Bulmahn.',
     'Apex of Power © 2023, Paizo Inc.; Author: Jason Bulmahn.',
+    'Foolish Housekeeping and Other Articles © 2025, Paizo Inc.',
   ]),
 ];

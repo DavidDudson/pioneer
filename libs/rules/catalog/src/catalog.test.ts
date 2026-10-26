@@ -43,6 +43,16 @@ const troublesInGrayce = PackId.parse('troubles-in-grayce');
 const hellsDestiny = PackId.parse('hells-destiny');
 const bastionOfBlasphemies = PackId.parse('bastion-of-blasphemies');
 const theDeadGodsHand = PackId.parse('the-dead-gods-hand');
+const wardensOfWildwood = PackId.parse('wardens-of-wildwood');
+const curtainCall = PackId.parse('curtain-call');
+const triumphOfTheTusk = PackId.parse('triumph-of-the-tusk');
+const sporeWar = PackId.parse('spore-war');
+const shadesOfBlood = PackId.parse('shades-of-blood');
+const preyForDeath = PackId.parse('prey-for-death');
+const clawsOfTheTyrant = PackId.parse('claws-of-the-tyrant');
+const clockworkMystery = PackId.parse('clockwork-mystery');
+const tianXiaWorldGuide = PackId.parse('tian-xia-world-guide');
+const foolishHousekeeping = PackId.parse('foolish-housekeeping');
 const hellfireDispatches = PackId.parse('hellfire-dispatches');
 const highSeas = PackId.parse('high-seas');
 const seasonOfGhosts = PackId.parse('season-of-ghosts');
@@ -65,10 +75,14 @@ describe('content catalog', () => {
       battlecry,
       characterGuide,
       chelaxInfernalInheritance,
+      clawsOfTheTyrant,
+      clockworkMystery,
       coreRules,
+      curtainCall,
       darkArchiveRemastered,
       divineMysteries,
       draconicCodex,
+      foolishHousekeeping,
       gatewalkers,
       gmCore,
       gunsAndGears,
@@ -86,18 +100,24 @@ describe('content catalog', () => {
       npcCore,
       playerCore,
       playerCore2,
+      preyForDeath,
       rageOfElements,
       revengeOfTheRunelords,
       rivalAcademies,
       seasonOfGhosts,
       secretsOfMagic,
       secretsOfTheUnlitStar,
+      shadesOfBlood,
       shiningKingdoms,
+      sporeWar,
       theDeadGodsHand,
       tianXiaCharacterGuide,
+      tianXiaWorldGuide,
       treasureVault,
+      triumphOfTheTusk,
       troublesInGrayce,
       warOfImmortals,
+      wardensOfWildwood,
     ]);
     const human = registry.ancestry(humanId);
     expect(human?.definition.hitPoints).toBe(HitPoints.parse(8));

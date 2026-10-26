@@ -1,0 +1,661 @@
+[
+  {
+    "id": "846dacf3-54b1-5703-af1f-9c2e5a7156d7",
+    "pack": "curtain-call",
+    "kind": "spell",
+    "slug": "spell:missed-cue",
+    "name": "Missed Cue",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["concentrate", "emotion", "fear", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You make the spell's target believe they had something incredibly important to say but forgot to say it, and now they've missed their opportunity. Sensations of overwhelming panic akin to stage fright flood the target's mind, causing them to suffer excruciating mental anguish and take 12d6 mental damage. The target might even become filled with the conviction that they've doomed themselves by missing their cue. The target must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The conviction of a missed cue is only a fleeting notion that passes quickly without any effect on the target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes half damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage and becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": ". In addition, the target is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for as long as they remain frightened."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes double damage and becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 3"
+          },
+          {
+            "type": "text",
+            "text": ". In addition, the target is slowed 1 for as long as they remain frightened."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.oCdcZ8EqoC1K0Drq"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [
+        {
+          "key": "7juasjpoenc3htit",
+          "formula": "12d6",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "7juasjpoenc3htit",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "22bca9d1-35d5-5b13-8837-febc0367f271",
+    "pack": "curtain-call",
+    "kind": "spell",
+    "slug": "spell:musical-shift",
+    "name": "Musical Shift",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["auditory", "concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a quick series of wrist flicks, music fills the air. While the music can be heard as if it were performed normally at a distance, creatures in the spell's area become affected in more significant ways. When you cast musical shift, select a key signature (to affect enemies) and a time signature (to affect allies) from the options below; all creatures within the area are affected as indicated. You can change the key signature or time signature as part of the action you take when you Sustain the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Flat",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (key signature) Whenever an enemy critically fails at a Strike, saving throw, or skill check, they fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": " in addition to other effects from the critical failure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Natural",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (key signature) Enemies take a –2 status penalty to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sharp",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (key signature) Whenever an enemy takes piercing or slashing damage, they also take 2d6 persistent bleed damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Double",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (time signature) You and your allies become "
+          },
+          {
+            "type": "ref",
+            "id": "6517bbf2-8085-534b-be6a-187d52739fa0"
+          },
+          {
+            "type": "text",
+            "text": " and can use the extra action each round only for "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8"
+          },
+          {
+            "type": "text",
+            "text": ", Stand, Step, or Stride actions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Quadruple",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (time signature) You and your allies gain a +2 status bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Triple",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (time signature) You and your allies gain a +2 status bonus to Armor Class and Reflex saving throws."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "513051db-adea-54e0-9cb2-e07ea8d782dd"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.3ZxaIw1FOOocJboH"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "227ed2c9-0e60-542f-bd46-b1f9a4e18333",
+    "pack": "curtain-call",
+    "kind": "spell",
+    "slug": "spell:reflected-beauty",
+    "name": "Reflected Beauty",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "illusion", "manipulate", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you cast reflected beauty, choose a willing creature that's the same size as you and that you can see within 30 feet. The spell then disguises you with a realistic illusion, as if via "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": " heightened to 3rd rank, but includes tactile and olfactory sensation in addition to visual and voice. The appearance of the illusion that disguises you includes any changes to sex characteristics or other aspects needed to match the target creature's heart's desire, allowing you to interact with them as the person they could be. If you're ever more than 30 feet from the subject you're reflecting, "
+          },
+          {
+            "type": "text",
+            "text": "reflected beauty",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " immediately ends. You can Dismiss this spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ghIoycTH6gxxAw3w"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "6bf6b6a5-c82a-5a0e-80b0-0376c8523952",
+    "pack": "curtain-call",
+    "kind": "spell",
+    "slug": "spell:take-your-places",
+    "name": "Take Your Places",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["auditory", "concentrate", "linguistic", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The scene would play out exactly as you envisioned it, if only the actors would respect their blocking. You instantly transport the targeted creatures and any items they're wearing and holding from their current space to an unoccupied space within range. You don't need to be able to see the destinations as long as you've been there in the past and know its relative location and distance from each target. Creatures affected by take your places are then temporarily immune to this spell for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.bfdiKEZQLVvslcDi"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 4,
+            "upTo": true,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ]
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "95907aae-72dc-5f12-a4d9-f4ca3b789e76",
+    "pack": "curtain-call",
+    "kind": "spell",
+    "slug": "spell:vibrant-vibrato",
+    "name": "Vibrant Vibrato",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["auditory", "aura", "concentrate", "manipulate", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your voice trills in perfect vibrato. When casting the spell, you can make the area any radius you choose, up to 40 feet. The reverberations of your voice continue to shimmer and hang in the air as long as you Sustain the spell but can't be heard at all outside of the area. A creature must attempt a Will save if it's within the area when you Cast the Spell or as soon as it enters the area while the spell is in effect. Once a creature has attempted the save, it uses the same result for that casting of vibrant vibrato."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d10",
+                "damageType": "sonic",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage at the end of their turn as long as they remain within the aura's area of effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but if the creature leaves the area, or if you move far enough from the creature that they're no longer in the area, the creature hears a shattering sound and takes 5d10 sonic damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": ". The creature is then "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " for the rest of the spell's duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature takes double the sonic damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage on a failed save increases by 1d10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.tPtTKe0X1dDwoDmQ"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 40
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": [
+        {
+          "key": "wzgwqijgih6tu9iv",
+          "formula": "5d10",
+          "damageType": "sonic",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "wzgwqijgih6tu9iv",
+            "formula": "1d10"
+          }
+        ]
+      }
+    }
+  }
+]

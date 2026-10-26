@@ -1,0 +1,358 @@
+[
+  {
+    "id": "cf401d1d-9833-5347-9cd2-ebf30b3eef72",
+    "pack": "prey-for-death",
+    "kind": "class-feature",
+    "slug": "class-feature:red-mantis-magic-school",
+    "name": "Red Mantis Magic School",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While any thug can commit a murder, proper assassination requires finesse and guile. Deep within the Crimson Citadel, the Red Mantis assassins have developed a specific selection of spells they teach to all magically capable members. These spells complement the assassins' clandestine and deadly methods."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Curriculum",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "cantrips:",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d32836d8-9eeb-52c0-a7f8-6e0bc64ed7c7"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "411dc034-1932-5468-960c-2c3f40ec20ec"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f94a3b5e-8e3c-5781-81a5-5eca9bd19421"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1871511d-f694-5e6b-b49d-1e7388909900"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "137e9f3a-3af5-5004-9a32-dba8fdaff034"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e2594f4d-2f11-588b-a4b3-5a9afe11dd4f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9d2d34b7-d94e-51d0-b169-e6cb9f4f0b2a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "888ee328-702c-5823-8023-5f7b1c6f813c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d894e516-941a-5425-aad2-92f58eeaccac"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "64000c62-eeaa-5b2e-a340-0a6842e50a1e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "8863d56b-38f3-5724-80df-c0c7f9a8652f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "49df8d74-a119-5bf7-a977-c5b5bc8f0224"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "a3f9a255-5673-5df8-91ea-24b02bb4d503"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c162b2c7-aa54-5201-ab21-a2909f5790b3"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cd8e86f-9a06-59b4-a2fd-7a1cc14b4c3e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e551a4eb-8b73-5a89-979e-a15f470a28ce"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "School Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "2c1aae9d-150f-519e-bdc9-95d8394cb4e4"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "22b07c2d-faa8-55a8-bf2c-020ddcd23b70"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.srcPBNjhq7FBSmi3"
+    },
+    "data": {
+      "tags": ["wizard-arcane-school"]
+    }
+  }
+]

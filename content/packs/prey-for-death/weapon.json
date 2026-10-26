@@ -1,0 +1,1068 @@
+[
+  {
+    "id": "3af026ac-bfcd-594a-a15c-65f9fc60589d",
+    "pack": "prey-for-death",
+    "kind": "weapon",
+    "slug": "weapon:blood-drinker",
+    "name": "Blood-Drinker",
+    "level": 18,
+    "rarity": "unique",
+    "traits": ["agile", "finesse", "magical", "twin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking keen sawtooth saber",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a black blade that always seems freshly smeared with blood."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Drink Blood",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reduce a creature to 0 Hit Points with the weapon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a number of temporary Hit Points equal to twice the creature's level. If you're also wielding Fleshrender in your other hand, you instead gain temporary Hit Points equal to three times the creature's level. These Hit Points remain for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Wall of Sabers",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Fleshrender is within 30 feet and isn't currently held by you"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A whirling wall of sawtooth sabers appear in the air between the paired weapons. All creatures in a line between you and Fleshrender take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 38,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uXug1JhufAQr8HOC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wall-of-sabers",
+          "name": "Wall of Sabers",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "advanced",
+      "group": "sword",
+      "baseItem": "sawtooth-saber",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["bc974552-c0c5-57ac-9924-d474d2bdf9a0"]
+      }
+    }
+  },
+  {
+    "id": "75f230ea-0972-5817-884b-302e2e0f346b",
+    "pack": "prey-for-death",
+    "kind": "weapon",
+    "slug": "weapon:bloody-fang",
+    "name": "Bloody Fang",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["agile", "finesse", "magical", "thrown-10", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bladed inner curve of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking keen wounding dagger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a jagged, saw-like edge, while its handle is wrapped in red leather. Carved from the mandible of a giant praying mantis, this magical weapon's blade is as sharp and serviceable as steel."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Sweeping Slash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You swing the dagger in a wide arc, causing a horizontal swipe of blood-red energy to sweep out in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". All living creatures in the area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "15d6",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 34,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save), plus "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage on a failed save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jEYl5VuFa2JslZbY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6250
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "sweeping-slash",
+          "name": "Sweeping Slash",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "knife",
+      "baseItem": "dagger",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["bc974552-c0c5-57ac-9924-d474d2bdf9a0", "2ed55af4-0d60-53f9-ad8e-ce9db657b9c0"]
+      }
+    }
+  },
+  {
+    "id": "3682cf1e-9f6b-5f2b-a763-21b9883c46df",
+    "pack": "prey-for-death",
+    "kind": "weapon",
+    "slug": "weapon:crimson-bluff",
+    "name": "Crimson Bluff",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["agile", "finesse", "illusion", "magical", "twin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking grievous sawtooth saber",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has a red hilt and a purple-black blade. Favored by Red Mantis assassins who enjoy using illusions to confound their targets, a "
+          },
+          {
+            "type": "text",
+            "text": "crimson bluff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " constantly flickers and flashes, creating brief afterimages that can be quite distracting. If you use a "
+          },
+          {
+            "type": "text",
+            "text": "crimson bluff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " as part of a gesture when you Create a Diversion, you gain a +2 item bonus to your Deception check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Shimmer Step",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "afbc48e9-7c5b-5afd-905f-4249a35e7b24"
+          },
+          {
+            "type": "text",
+            "text": " and then you Step or Stride."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Swap Places",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are under the effects of "
+          },
+          {
+            "type": "text",
+            "text": "blur",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy would hit you with a melee Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You swiftly dodge to the side as a momentary image of yourself manifests to distract the foe. The triggering Strike uses the outcome for one degree of success worse than the result of the attack roll. The duration of your "
+          },
+          {
+            "type": "text",
+            "text": "blur",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " effect is reduced by 2 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:create-a-diversion", "option:crimson-bluff"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TD44V3u77AMbOnTo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "shimmer-step",
+          "name": "Shimmer Step",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        },
+        {
+          "slug": "swap-places",
+          "name": "Swap Places",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "advanced",
+      "group": "sword",
+      "baseItem": "sawtooth-saber",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["7d9ea442-d6e1-5178-b5cf-e5be287effc2"]
+      }
+    }
+  },
+  {
+    "id": "febd70b2-9f75-55f8-96bb-167b08184b75",
+    "pack": "prey-for-death",
+    "kind": "weapon",
+    "slug": "weapon:fleshrender",
+    "name": "Fleshrender",
+    "level": 18,
+    "rarity": "unique",
+    "traits": ["agile", "finesse", "magical", "twin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking animated dawnsilver sawtooth saber",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has many serrated edges and gleams blinding white in bright light."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're wielding Blood-Drinker in your other hand, increase "
+          },
+          {
+            "type": "text",
+            "text": "Fleshrender's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attack modifier to +32 instead of +24, and increase its fly Speed to 50 feet when you Set Free "
+          },
+          {
+            "type": "text",
+            "text": "Fleshrender",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PTTB9orSB4RelXF3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24000
+        }
+      },
+      "bulk": "light",
+      "material": {
+        "type": "dawnsilver",
+        "grade": "high"
+      },
+      "category": "advanced",
+      "group": "sword",
+      "baseItem": "sawtooth-saber",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "c516211e-449b-58a3-b5cf-21aaed7e8fe6",
+    "pack": "prey-for-death",
+    "kind": "weapon",
+    "slug": "weapon:temperbrand",
+    "name": "Temperbrand",
+    "level": 20,
+    "rarity": "unique",
+    "traits": ["fire", "magical", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the mighty fire-and-metal elemental "
+          },
+          {
+            "type": "text",
+            "text": "Temperbrand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is defeated, their corpse transforms into a "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking greater flaming grievous shifting maul",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " made of what appears to be molten steel, though it behaves as if it were made of solid metal. When a creature first picks up "
+          },
+          {
+            "type": "text",
+            "text": "Temperbrand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", they must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 43
+          },
+          {
+            "type": "text",
+            "text": " save to establish their dominance over the weapon. On a success, they become "
+          },
+          {
+            "type": "text",
+            "text": "Temperbrand's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " only accepted wielder and may use the weapon normally. On a failure, the character takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "20d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "40d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage on a critical failure) and drops the weapon as it melts away into slag and immediately reforms in an adjacent space. A new attempt to establish dominance can be made by picking the weapon up again and attempting a new Will save. Once "
+          },
+          {
+            "type": "text",
+            "text": "Temperbrand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " has an accepted wielder, it can't be wielded by anyone else unless the accepted wielder intentionally permits it, declaring so in a loud voice; this permission can be rescinded in a similar manner. Anyone else trying to wield "
+          },
+          {
+            "type": "text",
+            "text": "Temperbrand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " after it has accepted a wielder takes fire damage and causes the weapon to melt away as if they failed the Will save to wield it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The additional fire damage caused by "
+          },
+          {
+            "type": "text",
+            "text": "Temperbrand's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " greater flaming property (but not its persistent fire damage) is splash damage. "
+          },
+          {
+            "type": "text",
+            "text": "Temperbrand's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " wielder is immune to this splash damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Molten Smash",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You smash "
+          },
+          {
+            "type": "text",
+            "text": "Temperbrand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " against the ground or another solid adjacent surface, causing an explosion of molten metal and force to radiate outward in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": ". All creatures in this area take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 43,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save); those who critically fail this save are knocked "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". You are immune to the effects of Molten Smash, but your allies are not."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.596xrLHt1Sx0p7Pm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "molten-smash",
+          "name": "Molten Smash",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "maul",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 3,
+        "property": [
+          "5747a85f-d782-56c0-80af-ba0961339c1b",
+          "7d9ea442-d6e1-5178-b5cf-e5be287effc2",
+          "ef5cd06c-2a43-5c3b-bb92-137af16e574e"
+        ]
+      }
+    }
+  }
+]

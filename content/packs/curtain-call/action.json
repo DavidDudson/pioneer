@@ -1,0 +1,1289 @@
+[
+  {
+    "id": "f121fc46-b1b0-5b18-9d53-035922a11a97",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:dancing-dodge",
+    "name": "Dancing Dodge",
+    "rarity": "common",
+    "traits": ["move"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're hit by a Strike during the first round of combat"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take advantage of the fact that your foe isn't ready to anticipate your dance-like moves in combat. Add a +3 circumstance bonus to your Armor Class against the triggering Strike to determine the Strike's actual result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "ac",
+        "option": "option:dancing-dodge",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 3,
+        "predicate": ["option:dancing-dodge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.1ejGup6ouh9t9S96"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're hit by a Strike during the first round of combat"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "c2eb8f96-057e-5136-a9b6-491a3be99026",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:impromptu-investment",
+    "name": "Impromptu Investment",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "(one minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can remove investiture from an item you currently have invested, and this investiture does not count against your daily limit. You can invest a new item in this item's place."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.WKEFnxUH0CkM8bWq"
+    },
+    "data": {
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
+    }
+  },
+  {
+    "id": "84016f73-eed6-5c72-8e13-be69bd9ae6c6",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:nemesis-additional-damage",
+    "name": "(Nemesis) Additional Damage",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nemesis inflicts 1d6 extra damage (chosen from acid, cold, electricity, fire, poison, or sonic) on all Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "poison",
+            "label": "Poison"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a damage type."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.2kgvmo7z0nRQVNGy"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "2f8a615d-a6a4-5497-a4b7-6749cf572b9d",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:nemesis-enhanced-sense",
+    "name": "(Nemesis) Enhanced Sense",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nemesis gains one of the following senses: all-around vision, scent (imprecise) 100 feet, lifesense 20 feet, or tremorsense (imprecise) 100 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.hrX8wChrtscSGkkN"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "2eab3ad3-a232-5855-857d-815cd97daf9f",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:nemesis-explosive-blast",
+    "name": "(Nemesis) Explosive Blast",
+    "rarity": "common",
+    "traits": ["occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " twice per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nemesis causes a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": " of explosive energy at a range of up to 200 feet. Choose from acid, cold, electricity, fire, or sonic. Explosive Blast gains that trait, and creatures caught in the area take 14d6[@item.flags.system.rulesSelections.damage] damage of that energy type ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 33,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a damage type."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.v8DDA7RFIt7ayv3z"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 2,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "0ebfc57e-4ca0-5066-bd86-f671db7ed4a3",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:nemesis-fast-healing",
+    "name": "(Nemesis) Fast Healing",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nemesis gains fast healing 40; reduce Nemesis' Hit Points to 180."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 40
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["hp"],
+        "type": "untyped",
+        "value": -60
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.95GtEVW0qI1h9oPq"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "6977a6e6-ba67-58be-9910-a70589a4c54f",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:nemesis-ghostly-flicker",
+    "name": "(Nemesis) Ghostly Flicker",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nemesis looks ghostly. While not actually incorporeal, Nemesis gains resistance 10 to physical damage, with an exception for ghost touch weapons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 10,
+        "exceptions": ["ghost-touch"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.glb03wxLyMzzeH13"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "0195e86b-8ad1-5db2-9b59-41f37c0019ae",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:nemesis-immunity",
+    "name": "(Nemesis) Immunity",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nemesis inherits an immunity possessed by the inspiring villain, chosen from the following: acid, cold, electricity, fire, or sonic. The second is chosen from acid, bleed, cold, electricity, emotion, fire, force, "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": ", poison, precision, sonic, spirit, or void."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "immunity-one",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select an immunity.",
+        "rollOption": "nemesis-immunity"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.dYDrrBn5sNgoo4Au"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "eae47f5a-afa4-5c10-9132-406607ba82b3",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:nemesis-ravage-mind",
+    "name": "(Nemesis) Ravage Mind",
+    "rarity": "common",
+    "traits": ["mental", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " twice per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nemesis waves a limb or shoots a sinister glance at a single creature they can see who is within 120 feet. That creature's mind is ravaged, and they must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 33
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "7d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "14d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "21d6",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 3"
+          },
+          {
+            "type": "text",
+            "text": "; when they recover from being stunned, they're confused for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.N6OADmxP3Y1qUZKv"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 2,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "bd67e4d0-5107-5444-b63d-abc0fed267d1",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:nemesis-resilient",
+    "name": "(Nemesis) Resilient",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose Fortitude, Reflex, or Will. When Nemesis rolls a success on the chosen save, they get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "resilient",
+        "choices": [
+          {
+            "value": "fortitude",
+            "label": "Fortitude"
+          },
+          {
+            "value": "reflex",
+            "label": "Reflex"
+          },
+          {
+            "value": "will",
+            "label": "Will"
+          }
+        ],
+        "prompt": "Select a saving throw."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.nq282ijl9aKm2JST"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "316108cc-88e7-5fe9-a3de-31ce43f175a3",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:pitch-perfect-projection",
+    "name": "Pitch-Perfect Projection",
+    "rarity": "common",
+    "traits": ["auditory", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "By using your perfect pitch, you can amplify your voice to cause magical auditory effects to reach further. If your next action this round is to Cast a Spell or use an action that creates an auditory effect with a range, increase that range by 30 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ri6ZVR7nhFOvZfVa"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "8da7a62e-1f34-5d0d-90fb-e3d039679496",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:reactive-falsehood",
+    "name": "Reactive Falsehood",
+    "rarity": "common",
+    "traits": ["fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to "
+          },
+          {
+            "type": "ref",
+            "id": "1ee7b671-dd18-5950-a4db-fbd4f8dae832"
+          },
+          {
+            "type": "text",
+            "text": " to a creature in public"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As your target sees through your lie, you spin your falsehood in a way that utilizes the crowd's reaction to bolster believability. Re-roll your Deception check to Lie with a +2 status bonus and use this check's result as the actual result to Lie."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:reactive-falsehood",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:reactive-falsehood"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.CLX9WEYXdntl2wrt"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You fail to Lie to a creature in public"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "4491915e-ca17-5c9e-a87b-8ccb93b395cf",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:risen-nemesis-euphoric-cackle",
+    "name": "(Risen Nemesis) Euphoric Cackle",
+    "rarity": "common",
+    "traits": ["occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature the Risen Nemesis can observe critically fails an attack or save"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Risen Nemesis revels and gains 20 temporary Hit Points that last for 24 hours. They cannot use Euphoric Cackle again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.d5gy2aWgkM95fTN4"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature the Risen Nemesis can observe critically fails an attack or save"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1ab6b11c-8ccc-5b7e-b0b9-ed551000d57e",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:risen-nemesis-fixated-obsession",
+    "name": "(Risen Nemesis) Fixated Obsession",
+    "rarity": "common",
+    "traits": ["emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Risen Nemesis expresses a vengeful interest in a target within 30 feet. The creature must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 42
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute ("
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure). On failure or critical failure, the Risen Nemesis also gains a +2 status bonus on Strikes and damage rolls against the target until the target or the Risen Nemesis dies, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.sLhidNrdrlnBpIcH"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "af7a2cdd-9235-594e-bc2c-df160c6de364",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:risen-nemesis-indignant-curse",
+    "name": "(Risen Nemesis) Indignant Curse",
+    "rarity": "common",
+    "traits": ["curse"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Risen Nemesis critically fails a save"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The Risen Nemesis curses the creature who created the triggering effect with bad luck by sneering or shouting a cutting insult. The triggering creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 42
+          },
+          {
+            "type": "text",
+            "text": " save. On failure, the Risen Nemesis can reroll the triggering roll and take the better result of the two (a fortune effect); the cursed creature must make their next d20 roll twice and take the worse result (a misfortune effect)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.JrDcRygSLTr6IekW"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Risen Nemesis critically fails a save"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f54ce02f-222c-57e0-9916-0e0d79233008",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:risen-nemesis-pained-retribution",
+    "name": "(Risen Nemesis) Pained Retribution",
+    "rarity": "common",
+    "traits": ["mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Risen Nemesis demands the PCs see how they have wronged them. All PCs within "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " of the Risen Nemesis must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 42
+          },
+          {
+            "type": "text",
+            "text": " save. Regardless of the outcome, the PCs become temporarily immune to this ability for 24 hours. On failure, the PCs are "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " by invisible chains of guilt that only they can see (Escape). On a critical failure, the PC is also "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute as they hesitate from a guilty conscience."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.w4RUMCiHixgqJiy7"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "47a7c72a-148b-59b5-9429-c0b3a95ca58d",
+    "pack": "curtain-call",
+    "kind": "action",
+    "slug": "action:swift-choreography",
+    "name": "Swift Choreography",
+    "rarity": "common",
+    "traits": ["auditory", "linguistic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "curtain-call"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally within 30 feet would become "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call out a quick reminder to your ally about a special move you'd suggested to them at some point in the past, allowing the ally to avoid the triggering effect completely."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.cyl7y8GcGjd8ENC7"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An ally within 30 feet would become Grabbed, Immobilized, Off-Guard, Prone, or Restrained"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

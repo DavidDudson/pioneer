@@ -1,0 +1,26 @@
+[
+  {
+    "id": "83b714da-858a-5384-83a9-305ac9bd8cfd",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:green-faith-lore",
+    "name": "Green Faith Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:green-faith",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.green-faith",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

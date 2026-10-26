@@ -1,0 +1,98 @@
+[
+  {
+    "id": "18976a24-257d-5552-aee5-4e49c93a0ea1",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:badlands-lore",
+    "name": "Badlands Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:badlands",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.badlands",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "bc3c348b-787e-50ae-9768-aedcc54fe2d5",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:belkzen-lore",
+    "name": "Belkzen Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:belkzen",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.belkzen",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "af8c6ef5-6b54-5f67-a7e0-00c7d60ba6a0",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:heraldry-lore",
+    "name": "Heraldry Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:heraldry",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.heraldry",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "1f29ff05-1216-533d-827e-cd8e877f5c2a",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:orc-pantheon-lore",
+    "name": "Orc Pantheon Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "triumph-of-the-tusk"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore:orc-pantheon",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore.orc-pantheon",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  }
+]

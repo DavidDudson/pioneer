@@ -259,4 +259,19 @@ export const CURRICULA: ReadonlyMap<string, readonly (readonly string[])[]> = ne
       ['player-core:metamorphosis'],
     ],
   ],
+  [
+    'school-of-magical-technologies',
+    [
+      ['rage-of-elements:needle-darts', 'player-core:shield'],
+      ['player-core:mending', 'player-core:runic-weapon', 'player-core:summon-construct'],
+      ['player-core-2:animated-assault', 'player-core-2:dismantle'],
+      ['player-core-2:shrink-item', 'rage-of-elements:wooden-double'],
+      ['player-core:creation', 'player-core:weapon-storm'],
+      ['player-core:impaling-spike', 'player-core:wall-of-stone'],
+      ['rage-of-elements:field-of-razors', 'player-core:petrify'],
+      ['rage-of-elements:beheading-buzz-saw', 'player-core-2:lifewood-cage'],
+      ['rage-of-elements:ferrous-form', 'player-core:quandary'],
+      ['player-core-2:resplendent-mansion'],
+    ],
+  ],
 ]);

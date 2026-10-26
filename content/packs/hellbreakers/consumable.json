@@ -70,6 +70,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -147,6 +150,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -263,6 +269,10 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "1515859b-0942-5670-a076-c3601999f0ba",
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -355,6 +365,10 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "214d0f44-9cd8-5e7f-8393-9769e842f08a",
       "usage": {
         "type": "affixed",
         "to": "a-slashing-weapon"
@@ -447,6 +461,10 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "8e87f75c-c8dd-598e-92ed-d2642321bdf1",
       "usage": {
         "type": "applied",
         "to": "armor"
@@ -525,6 +543,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -603,6 +624,9 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -672,6 +696,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -852,6 +879,10 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "d4c0ca57-5773-5f5e-8084-8863a75d7624",
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -944,6 +975,10 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "d4c0ca57-5773-5f5e-8084-8863a75d7624",
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -1031,6 +1066,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "three"
+      },
+      "effect": "c3a4f2c0-008a-5126-8cee-805e17918394",
       "usage": {
         "type": "held",
         "hands": "two"
@@ -1108,6 +1147,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1186,6 +1228,10 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "three"
+      },
+      "effect": "b73d9b9f-9332-5708-a5c9-54b796d976a5",
       "usage": {
         "type": "held",
         "hands": "one"

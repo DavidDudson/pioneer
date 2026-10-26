@@ -1,0 +1,1346 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:brumesgarth",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.ElTYWqGvup7okvC5",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. vitality"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Wall of Force (Rank 6)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:chained-norn",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.rjV4XOnJemV8lKJu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "detect magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.SubstituteRoll",
+          "raw": {
+            "key": "SubstituteRoll",
+            "required": true,
+            "selector": "initiative",
+            "value": 1
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": ["cold-iron"],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 20
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:chernasardo-ranger",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.0mllbU5aBEcVUj3E",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Snare Kit (Specialist)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:commander-arsiella-dei",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.tMqtId1TKVUXe4tN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Irgal's Axe"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol of Iomedae"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:divine-warden-of-arazni",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.IOzVkKmHQvHdmO90",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "type": ["spirit"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:divine-warden-of-iomedae",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.U6kC8ohP723gydUI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "type": ["spirit"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:engerra",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.ZUkMXxPyOJ9sPRvN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "unholy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:garrholdion",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.mGTK0uSZiQY0vsCf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "48 with shield raised"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "type": ["spirit"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "allies",
+                "predicate": ["target:effect:belief-fortification-mark"],
+                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Belief Fortification"
+              }
+            ],
+            "key": "Aura",
+            "radius": 30,
+            "traits": ["emotion", "occult"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:lady-siccale",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.aEBup6SntDIOlTtY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "coffin restoration, fast healing 15, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": [
+                  "item:magical",
+                  {
+                    "or": ["damage:material:dawnsilver", "damage:material:silver"]
+                  }
+                ],
+                "label": "PF2E.IWR.Custom.MagicalSilver"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 15
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:mirmicette",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.OlBw2JqWcb3aBfKf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:moldering-steed",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.hXEFhS8iL5d6MqdD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "willsense (precise) 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:oceanius-and-glory-arcely",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.2plKfPwYPE6yHBZw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": ["unholy"],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 20
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "unholy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:omelia",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.M2Co6b3pKO3TOWQj",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:onturat",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.rPp9nA89lSDrxEyq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "skeletal lore languages"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:ossuary-warden",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.fF04YIUUzwQlK1TW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:priest-of-iomedae",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.uhTMcy0blrxpP6aZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "predicate": ["item:slug:heal"],
+            "property": "dice-faces",
+            "selectors": ["spell-damage", "spell-healing"],
+            "slug": "base",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol of Iomedae"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:radiant-veranallia",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.ZcrucwbmzI5J5jvk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:raised-cavalry",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.vdywUTHF4uhA7cyh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Thresholds 360 (4 segments), 240 (3 segments), 140 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:seldeg-bhedlis",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.Kqd7MVuRRYvvZQ0g",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:skeletal-rat-swarm",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.RwNVqGmL6VjxhO82",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:splinter-officer",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.RiB74rq2dsKATghi",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "splintersense"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:stelemora",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.OZRvOYnkvEVlTx90",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:tallusian",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.Q0ASK7LvvRXfJe7v",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "disabledIf": [
+              {
+                "not": "rubble"
+              }
+            ],
+            "disabledValue": false,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.Tallusian.Rubble.RollOptionLabel",
+            "option": "in-ruins",
+            "toggleable": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.SubstituteRoll",
+          "raw": {
+            "key": "SubstituteRoll",
+            "predicate": ["rubble"],
+            "required": true,
+            "selectors": ["deception-dc", "deception"],
+            "slug": "rubble-bonus",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["rubble"],
+            "selector": "deception",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "unholy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:undead-murder",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.zqnIJ602BTZSBFaL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:zombie-bear",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.sWoLuDXZoGO9Ld4n",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "creature:zombie-desecrator",
+      "foundry": "Compendium.pf2e.claws-of-the-tyrant-bestiary.Actor.NzhVuwCmMTPUQPAB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "effect:effect-iron-command-extra-damage",
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.upPUhhjz3stTWRsy",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitSpirit",
+                "value": "spirit"
+              },
+              {
+                "label": "PF2E.TraitVoid",
+                "value": "void"
+              }
+            ],
+            "flag": "ironCommandDamage",
+            "key": "ChoiceSet",
+            "label": "PF2E.SpecificRule.Prompt.DamageType"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "damageType": "{item|flags.system.rulesSelections.ironCommandDamage}",
+            "key": "FlatModifier",
+            "predicate": ["target:mark:iron-command-extra-damage"],
+            "selector": "strike-damage",
+            "slug": "champions-extra-damage",
+            "value": 3
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "effect:effect-strength-through-pain",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.0bwavSwP7XUMO9J1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "removeAfterRoll": "if-enabled",
+            "selector": ["strike-attack-roll", "spell-attack-roll"],
+            "type": "status",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "effect:stance-cenotaph-stance",
+      "foundry": "Compendium.pf2e.feat-effects.Item.KoHUnnrrcCHRkmJQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "TempHP",
+          "raw": {
+            "events": {
+              "onCreate": true,
+              "onTurnStart": true
+            },
+            "key": "TempHP",
+            "value": 10
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.shield.raised",
+            "predicate": [
+              "self:shield:equipped",
+              {
+                "nor": ["self:shield:broken", "self:shield:destroyed"]
+              }
+            ],
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:adept-storyteller",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Lj39KxIDs7irpOHs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:body-barrier",
+      "foundry": "Compendium.pf2e.feats-srd.Item.w32WGAkrgXw5N7yL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:cautious-word",
+      "foundry": "Compendium.pf2e.feats-srd.Item.2i6sEZ4rQm1Pd5nD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:cenotaph-stance",
+      "foundry": "Compendium.pf2e.feats-srd.Item.oP7xcBm4BfctDMHW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Knights of Lastwall"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:crusaders-masquerade",
+      "foundry": "Compendium.pf2e.feats-srd.Item.IxgBnW2L8MpJBUG2",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:cut-them-down-burn-them-out",
+      "foundry": "Compendium.pf2e.feats-srd.Item.O8mfeWtUogB74J9E",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:faith-in-the-fallen",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7w8SOlLlFYOBYC5Y",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:grave-threat",
+      "foundry": "Compendium.pf2e.feats-srd.Item.RPN5wXkXpP8ky3jo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:i-knew-the-heroes",
+      "foundry": "Compendium.pf2e.feats-srd.Item.mbmjj0LKVuI4Zl81",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:may-death-itself-reconsider",
+      "foundry": "Compendium.pf2e.feats-srd.Item.bO5ULM0yxTZVydtn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:preternatural-polish",
+      "foundry": "Compendium.pf2e.feats-srd.Item.xuZFUOkkjHg9mrcI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:rallying-charge-knight-vigilant",
+      "foundry": "Compendium.pf2e.feats-srd.Item.xsyiCcJ2YKhn6tOF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Knights of Lastwall"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:shattered-sacrament",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Dthd23nBhnKZaMlP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:speak-for-the-gravelands",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Ogso0WqodeFG27L1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "disabledIf": ["attunement-shift"],
+            "disabledValue": false,
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.Geomancer.TerrainAttunement.Label",
+            "mergeable": true,
+            "option": "terrain-attunement",
+            "placement": "spellcasting",
+            "suboptions": [
+              {
+                "label": "PF2E.SpecificRule.Geomancer.SpeakForTheGravelands.GravelandsLabel",
+                "value": "gravelands"
+              }
+            ],
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.Geomancer.AttunementShift",
+            "mergeable": true,
+            "option": "attunement-shift",
+            "placement": "spellcasting",
+            "predicate": ["feat:attunement-shift"],
+            "priority": 49,
+            "suboptions": [
+              {
+                "label": "PF2E.SpecificRule.Geomancer.SpeakForTheGravelands.GravelandsLabel",
+                "value": "gravelands"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "label": "PF2E.SpecificRule.Geomancer.Dedication.Label",
+            "mode": "add",
+            "predicate": [
+              "item:trait:vitality",
+              {
+                "or": [
+                  {
+                    "and": [
+                      "terrain:gravelands",
+                      {
+                        "not": "attunement-shift"
+                      }
+                    ]
+                  },
+                  "terrain-attunement:gravelands",
+                  "attunement-shift:gravelands"
+                ]
+              }
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Geomancer.TerrainAttunement.Gravelands"
+              },
+              {
+                "text": "@UUID[Compendium.pf2e.feat-effects.Item.Effect: Terrain Attunement (Gravelands)]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:spirit-of-vigil",
+      "foundry": "Compendium.pf2e.feats-srd.Item.dwILRnGUQArJvfa4",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.attributes.dying.max",
+            "priority": 150,
+            "value": 1
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:tripartite-omen",
+      "foundry": "Compendium.pf2e.feats-srd.Item.4mDk8SQyx9dRxy9y",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:uncanny-vitae",
+      "foundry": "Compendium.pf2e.feats-srd.Item.NzE3QK3P6U1t142f",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:vellumis-excision",
+      "foundry": "Compendium.pf2e.feats-srd.Item.EPqhCeCo1uOvJSTZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "claws-of-the-tyrant",
+      "slug": "feat:vigils-palisades",
+      "foundry": "Compendium.pf2e.feats-srd.Item.S3rPkukk46SHntai",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "archetype",
+          "raw": []
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

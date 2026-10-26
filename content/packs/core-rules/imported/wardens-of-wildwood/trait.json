@@ -1,0 +1,22 @@
+[
+  {
+    "id": "0cbb0f2e-406f-519b-9c34-d4e66d608699",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:wraithvine",
+    "name": "Wraithvine",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  }
+]

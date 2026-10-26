@@ -1,0 +1,32 @@
+[
+  {
+    "id": "15a2429c-a352-5e91-95e0-848750406218",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:trial",
+    "name": "Trial",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-world-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry-feature",
+        "class-feature",
+        "condition",
+        "consumable",
+        "effect",
+        "feat",
+        "ritual",
+        "spell"
+      ]
+    }
+  }
+]
