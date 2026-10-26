@@ -1,0 +1,39 @@
+{
+  "name": "legal-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/legal/ui/src",
+  "prefix": "pio",
+  "tags": ["scope:legal", "type:ui", "platform:web"],
+  "targets": {
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "buildTarget": "web:build:development",
+        "tsConfig": "libs/legal/ui/tsconfig.spec.json",
+        "runner": "vitest"
+      }
+    },
+    "storybook": {
+      "options": {
+        "port": 6011
+      }
+    },
+    "test-storybook": {
+      "cache": true,
+      "parallelism": false,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "env": "PLAYWRIGHT_BROWSERS_PATH"
+        },
+        {
+          "env": "PLAYWRIGHT_DRIVER_VERSION"
+        },
+        "{workspaceRoot}/libs/frontier/.storybook/storybook-project.ts"
+      ],
+      "command": "vitest run --config libs/legal/ui/.storybook/vitest.config.ts"
+    }
+  }
+}
