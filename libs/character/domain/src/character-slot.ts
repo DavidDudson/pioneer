@@ -149,4 +149,6 @@ export const SlotInvalidMessage = {
   SpellNotInRepertoire: 'rules.choices.invalid.spellNotInRepertoire',
   PrerequisitesNotMet: 'rules.choices.invalid.prerequisitesNotMet',
   DedicationLocked: 'rules.choices.invalid.dedicationLocked',
+  /** An imported feat no slot offers, kept on the character. */
+  NoSlot: 'rules.choices.invalid.noSlot',
 } as const;

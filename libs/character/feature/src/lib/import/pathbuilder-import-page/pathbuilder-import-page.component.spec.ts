@@ -161,6 +161,7 @@ describe('PathbuilderImportPage create', () => {
         modifierDifferences: [],
         discrepancies: { compared: 0, differences: [] },
         ruleBreaking: RuleBreakingCount.parse(0),
+        ruleBreakingFeats: RuleBreakingCount.parse(0),
       },
     });
 

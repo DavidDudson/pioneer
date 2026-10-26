@@ -90,6 +90,12 @@ const VERSION_9 = {
   schemaVersion: 9,
 };
 
+/** Version 10, before a build kept the feats an import found no slot for: `build` had no `unplacedFeats`. */
+const VERSION_10 = {
+  ...VERSION_9,
+  schemaVersion: 10,
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -104,4 +110,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_7.schemaVersion), VERSION_7],
   [CharacterSchemaVersion.parse(VERSION_8.schemaVersion), VERSION_8],
   [CharacterSchemaVersion.parse(VERSION_9.schemaVersion), VERSION_9],
+  [CharacterSchemaVersion.parse(VERSION_10.schemaVersion), VERSION_10],
 ]);

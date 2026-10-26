@@ -85,13 +85,14 @@ describe('PathbuilderImportService.importPathbuilder: Free Archetype', () => {
     expect(leftBehind(report, UnmatchedReason.NotOffered)).not.toContain('Sorcerer Dedication');
   });
 
-  test('names the feat as not offered, and enables nothing, when no pack defines the variant', async () => {
+  test('keeps the feat as a rule break, and enables nothing, when no pack defines the variant', async () => {
     const pack = mordredPack(false);
     const { character, report, enabled } = await importMordred(pack);
     expect(enabled).toStrictEqual([]);
-    expect(Object.values(character.document.build.choices)).not.toContain(
-      pack.idOf(ContentKind.Feat, 'sorcerer-dedication'),
-    );
-    expect(leftBehind(report, UnmatchedReason.NotOffered)).toContain('Sorcerer Dedication');
+    const dedication = pack.idOf(ContentKind.Feat, 'sorcerer-dedication');
+    expect(Object.values(character.document.build.choices)).not.toContain(dedication);
+    expect(character.document.build.unplacedFeats).toStrictEqual([dedication]);
+    expect(report.ruleBreakingFeats).toBe(1);
+    expect(leftBehind(report, UnmatchedReason.NotOffered)).not.toContain('Sorcerer Dedication');
   });
 });

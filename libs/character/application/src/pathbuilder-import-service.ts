@@ -8,6 +8,7 @@ import {
   itemContent,
   runeContent,
   slotContent,
+  unplacedFeatBreaks,
 } from '@pioneer/character/domain';
 import type { Inventory } from '@pioneer/character/domain';
 import {
@@ -18,12 +19,7 @@ import {
   registryLookup,
   RuleBreakingCount,
 } from '@pioneer/interop/pathbuilder';
-import type {
-  BoostChoices,
-  ContentLookup,
-  PathbuilderImport,
-  PathbuilderImportResponse,
-} from '@pioneer/interop/pathbuilder';
+import type { ContentLookup, PathbuilderImport, PathbuilderImportResponse } from '@pioneer/interop/pathbuilder';
 import type { AncestryId, ContentRegistry, ContentSource, VariantRuleEntry } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
@@ -39,6 +35,7 @@ import {
   matchedAncestry,
   readExport,
 } from './pathbuilder-import';
+import type { Create } from './pathbuilder-import';
 import { importedInventory } from './pathbuilder-inventory';
 import type { InventoryContent } from './pathbuilder-inventory';
 
@@ -146,20 +143,27 @@ export class PathbuilderImportService {
         variants: enabled,
       }),
       ruleBreaking: ruleBreaking(character.document.inventory, content),
+      ruleBreakingFeats: RuleBreakingCount.parse(unplacedFeatBreaks(character.document).length),
     });
     return { character: saved, report };
   }
 
   /** The character `value` makes, owned by `actor`, with the choices it is given picked. */
-  #newCharacter(
-    actor: UserId,
-    value: PathbuilderImport,
-    { ancestry, inventory }: Start,
-  ): (choices: BoostChoices) => Character {
+  #newCharacter(actor: UserId, value: PathbuilderImport, { ancestry, inventory }: Start): Create {
     const id = CharacterId.parse(newId());
     const now = this.#clock.now();
-    return (choices) =>
-      Character.create({ id, ownerId: actor, name: value.name, ancestry, level: value.level, choices, inventory, now });
+    return (choices, unplacedFeats) =>
+      Character.create({
+        id,
+        ownerId: actor,
+        name: value.name,
+        ancestry,
+        level: value.level,
+        choices,
+        inventory,
+        unplacedFeats,
+        now,
+      });
   }
 
   /** The variant rules `character` needs, enabled for its owner; nothing when it needs none. */

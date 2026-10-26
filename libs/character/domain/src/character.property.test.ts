@@ -84,6 +84,7 @@ type UnaimedField =
   | typeof CharacterPatchField.SetCoins
   | typeof CharacterPatchField.GrantSpellAccess
   | typeof CharacterPatchField.RevokeSpellAccess
+  | typeof CharacterPatchField.DismissUnplacedFeat
   | typeof CharacterPatchField.SetAppearance
   | typeof CharacterPatchField.SetPersonality;
 type ItemPatch = Exclude<CharacterPatch, { readonly field: UnaimedField }>;
@@ -96,6 +97,7 @@ const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
   CharacterPatchField.SetCoins,
   CharacterPatchField.GrantSpellAccess,
   CharacterPatchField.RevokeSpellAccess,
+  CharacterPatchField.DismissUnplacedFeat,
   CharacterPatchField.SetAppearance,
   CharacterPatchField.SetPersonality,
 ]);

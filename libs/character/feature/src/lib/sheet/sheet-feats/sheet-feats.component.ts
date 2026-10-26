@@ -25,6 +25,7 @@ import { sheetEntryPreview } from '../sheet-entry-previews';
 import { SheetFeatGroupList } from '../sheet-feat-group/sheet-feat-group.component';
 import { featFieldsOf } from '../sheet-feat-picks';
 import { FEAT_CONTENT_KINDS } from '../sheet-feats';
+import { SheetUnplacedFeats } from '../sheet-unplaced-feats/sheet-unplaced-feats.component';
 
 const LOADING_SLOTS = 3;
 
@@ -46,6 +47,7 @@ const LOADING_SLOTS = 3;
     Grid,
     InlineField,
     SheetFeatGroupList,
+    SheetUnplacedFeats,
     Skeleton,
     Stack,
     ToggleButton,

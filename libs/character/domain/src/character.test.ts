@@ -124,7 +124,10 @@ describe('Character', () => {
   test('an empty ancestry slot reads as no ancestry', () => {
     const original = new CharacterBuilder().build();
     const unpicked = new Character({
-      document: { ...original.document, build: { choices: {}, spellAccess: [], repertoireSwaps: [], boons: [] } },
+      document: {
+        ...original.document,
+        build: { choices: {}, spellAccess: [], unplacedFeats: [], repertoireSwaps: [], boons: [] },
+      },
       version: original.version,
       createdAt: original.createdAt,
       updatedAt: original.updatedAt,

@@ -1,16 +1,17 @@
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import type { SlotKey } from '@pioneer/rules/sdk';
+import type { ContentId, SlotKey } from '@pioneer/rules/sdk';
 import { FIRST_VERSION, InstantCodec, Version } from '@pioneer/shared/kernel';
 import type { Temporal, UserId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { withBuildListEdit } from './build-list-edits';
 import { CharacterDocumentSchema } from './character-document';
 import type { Build, CharacterDocument } from './character-document';
 import { CURRENT_SCHEMA_VERSION } from './character-document-upgrades';
 import { CHARACTER_LEVEL_MIN, CharacterLevel } from './character-fields';
 import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField, isInventoryPatch } from './character-patch';
-import type { CharacterPatch, InventoryPatch, SpellAccessPatch } from './character-patch';
+import type { CharacterPatch, InventoryPatch } from './character-patch';
 import { withProse } from './character-prose';
 import { ANCESTRY_SLOT } from './character-slots';
 import { equipmentChange } from './equipment-change';
@@ -21,6 +22,7 @@ import type { EditInputs } from './item-purchase';
 import { storableLimits } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
 import { signatureKeyOf } from './signature-spells';
+import { withoutUnplacedFeat } from './unplaced-feats';
 
 /**
  * JSON shape of a character on the wire: its document at the current schema version, plus the row's version and
@@ -106,6 +108,7 @@ export class Character {
     readonly level?: CharacterLevel;
     readonly choices?: Readonly<Record<SlotKey, ChoiceValue>>;
     readonly inventory?: Inventory;
+    readonly unplacedFeats?: readonly ContentId[];
     readonly now: Temporal.Instant;
   }): Character {
     return new Character({
@@ -115,7 +118,10 @@ export class Character {
         ownerId: input.ownerId,
         name: input.name,
         level: input.level ?? CharacterLevel.parse(CHARACTER_LEVEL_MIN),
-        build: { choices: { ...input.choices, [ANCESTRY_SLOT]: ChoiceValue.parse(input.ancestry) } },
+        build: {
+          choices: { ...input.choices, [ANCESTRY_SLOT]: ChoiceValue.parse(input.ancestry) },
+          unplacedFeats: input.unplacedFeats,
+        },
         inventory: input.inventory,
       }),
       version: FIRST_VERSION,
@@ -166,8 +172,9 @@ export class Character {
         return this.#stock(patch, (inventory) => equipmentChange(inventory, patch), inputs.limits);
       }
       case CharacterPatchField.GrantSpellAccess:
-      case CharacterPatchField.RevokeSpellAccess: {
-        return this.#accessChanges(patch);
+      case CharacterPatchField.RevokeSpellAccess:
+      case CharacterPatchField.DismissUnplacedFeat: {
+        return { document: withBuildListEdit(this.document, patch) };
       }
       case CharacterPatchField.SetAppearance:
       case CharacterPatchField.SetPersonality: {
@@ -236,30 +243,19 @@ export class Character {
     };
   }
 
-  /** The build's spell access with `patch.spell` added at the end unless listed, or taken out; a pick of a spell taken out stays (#478). */
-  #accessChanges(patch: SpellAccessPatch): Partial<CharacterProps> {
-    const { build } = this.document;
-    const listed = build.spellAccess.includes(patch.spell);
-    const granted = listed ? build.spellAccess : [...build.spellAccess, patch.spell];
-    const spellAccess =
-      patch.field === CharacterPatchField.GrantSpellAccess
-        ? granted
-        : build.spellAccess.filter((spell) => spell !== patch.spell);
-    return { document: { ...this.document, build: { ...build, spellAccess } } };
-  }
-
   #choose(slot: SlotKey, value: ChoiceValue, inputs: EditInputs): CharacterDocument {
     const { build } = this.document;
     const choices: Record<SlotKey, ChoiceValue> = { ...build.choices, [slot]: value };
     const old = build.choices[slot];
     if (inputs.countsAsSwap !== true || old === undefined) {
-      return { ...this.document, build: { ...build, choices } };
+      return { ...this.document, build: { ...withoutUnplacedFeat(build, value), choices } };
     }
     const signature = signatureKeyOf(slot);
     if (signature !== undefined && choices[signature] === old) {
       choices[signature] = value;
     }
-    return { ...this.document, build: { ...build, choices, repertoireSwaps: this.#swapped(slot) } };
+    const swapped = { ...withoutUnplacedFeat(build, value), choices, repertoireSwaps: this.#swapped(slot) };
+    return { ...this.document, build: swapped };
   }
 
   /** The swaps with `slot` recorded at the character's level. */
