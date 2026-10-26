@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ChoiceValue, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
+import { ChoiceValue, ContentId, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
 import { fixedClock } from '@pioneer/shared/kernel';
 
 import { Character } from './character';
@@ -11,8 +11,8 @@ import { unplacedFeatBreaks } from './unplaced-feats';
 
 const later = fixedClock('2026-10-07T10:00:00Z').now();
 const pack = PackId.parse('player-core');
-const nimble = contentId(pack, EntrySlug.parse('feat:nimble-dodge'));
-const toughness = contentId(pack, EntrySlug.parse('feat:toughness'));
+const nimble = ContentId.parse(contentId(pack, EntrySlug.parse('feat:nimble-dodge')));
+const toughness = ContentId.parse(contentId(pack, EntrySlug.parse('feat:toughness')));
 const slot = SlotKey.parse('feat:class:2');
 
 /** A character carrying the feats an import found no slot for. */
