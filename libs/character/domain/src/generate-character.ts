@@ -1,21 +1,19 @@
-import { SlotKey } from '@pioneer/rules/sdk';
-import type { ChoiceValue } from '@pioneer/rules/sdk';
+import type { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import type { Temporal } from '@pioneer/shared/kernel';
+import * as z from 'zod';
 
 import type { Character } from './character';
-import type { CharacterDocument } from './character-document';
-import type { CharacterLevel } from './character-fields';
+import { CharacterLevel } from './character-fields';
 import { CharacterPatchField } from './character-patch';
 import { SlotStatus } from './character-slot';
 import type { CharacterSlot } from './character-slot';
 import { characterSlots } from './character-slot-status';
-import { withoutPick } from './feat-slots';
 import { seededPicks } from './pick-source';
 import type { PickSource, Seed } from './pick-source';
 import { shuffle } from './picks';
 import { slotCandidates } from './slot-candidates';
 import { slotRefusal } from './slot-offer';
-import type { SlotContent, SlotPick } from './slot-offer';
+import type { SlotContent } from './slot-offer';
 
 /** What `generateCharacter` is asked for: the character to start from, how far to take it, and what to read. */
 export interface GenerateInput {
@@ -33,33 +31,6 @@ export interface Generated {
   readonly unfilled: readonly SlotKey[];
 }
 
-/** The picks a slot read as invalid after later ones, which it is not offered again. */
-type Rejected = Map<SlotKey, ChoiceValue[]>;
-
-/** What each pick is read from and drawn with, and what a slot is not offered. */
-interface Filling {
-  readonly content: SlotContent;
-  readonly source: PickSource;
-  readonly now: Temporal.Instant;
-  readonly rejected: Rejected;
-}
-
-/** Most rounds of taking out picks that read invalid; real content settles in a few. */
-const REPAIRS_MAX = 8;
-
-/**
- * One of an open slot's candidates the builder's own check accepts, tried in random order; undefined when none is. A
- * candidate is never one whose prerequisites are unparsed, so those are never treated as met.
- */
-function pickFor(character: Character, { content, source, rejected }: Filling, slot: OpenSlot): SlotPick | undefined {
-  const refused = rejected.get(slot.key) ?? [];
-  const candidates = slotCandidates(character.document, content, slot).filter((value) => !refused.includes(value));
-  const selection = shuffle(source, candidates).find(
-    (candidate) => slotRefusal(character.document, content, { slot: slot.key, selection: candidate }) === undefined,
-  );
-  return selection === undefined ? undefined : { slot: slot.key, selection };
-}
-
 /** A slot with nothing picked. */
 type OpenSlot = Extract<CharacterSlot, { status: typeof SlotStatus.Open }>;
 
@@ -67,92 +38,132 @@ function isOpen(slot: CharacterSlot): slot is OpenSlot {
   return slot.status === SlotStatus.Open;
 }
 
-/** The slots `character` has open, in the order they are read. */
-function openSlots(character: Character, content: SlotContent): readonly OpenSlot[] {
-  return characterSlots(character.document, content).filter((slot) => isOpen(slot));
+/** How many dead ends a search may still back out of. */
+const Backtracks = z.int().nonnegative().brand<'Backtracks'>();
+type Backtracks = z.infer<typeof Backtracks>;
+
+/**
+ * Most dead ends the strict search backs out of before giving up on filling every slot. A build that can be filled
+ * needs a handful; a slot no pick can satisfy (its grants undo its own offer) would otherwise be searched whole.
+ */
+const BACKTRACKS_MAX = Backtracks.parse(150);
+
+/** What a search reads and draws with, and what it may spend. */
+interface Search {
+  readonly content: SlotContent;
+  readonly source: PickSource;
+  readonly now: Temporal.Instant;
+  readonly target: CharacterLevel;
+  /** Whether a slot whose every pick leads to a dead end is left open, rather than backed out of. */
+  readonly lenient: boolean;
+  /** Dead ends still to back out of; undefined for no limit. */
+  left: Backtracks | undefined;
+}
+
+/** Where a search stands: the character so far, and the slots it left open because nothing could be picked for them. */
+interface Node {
+  readonly character: Character;
+  readonly skipped: readonly SlotKey[];
+}
+
+/** Whether a character holds a pick its slot reads as invalid: a later pick can undo what an earlier one allowed. */
+function hasInvalid(slots: readonly CharacterSlot[]): boolean {
+  return slots.some((slot) => slot.status === SlotStatus.Invalid);
+}
+
+/** `node` without `slot`, which stays open. */
+function leave(node: Node, slot: OpenSlot, search: Search): Generated | undefined {
+  return extend({ ...node, skipped: [...node.skipped, slot.key] }, search);
 }
 
 /**
- * `character` with every slot it has open picked once. Slots are read once a pass (reading resolves the grants at every
- * level) and each is picked for in turn over the picks before it; a pick that opens a slot, as an ancestry's heritage
- * does, is found by the next pass. Passes go on while one picks, so a slot that took nothing early is tried again.
+ * Levels `node` up from where it stands to the target, picking each open slot at random as it opens. Each slot is a
+ * choice point: its candidates the builder accepts are tried in random order, and a pick after which a slot reads
+ * invalid, or after which the rest of the build can't be filled, is taken back and the next tried. A slot that offers
+ * nothing the builder accepts is left open and the search goes on without it.
  */
-function filled(start: Character, filling: Filling): Character {
-  const { content, now } = filling;
-  const picked = new Set<SlotKey>();
-  let character = start;
-  for (let progress = true; progress;) {
-    progress = false;
-    for (const slot of openSlots(character, content).filter((open) => !picked.has(open.key))) {
-      const pick = pickFor(character, filling, slot);
-      if (pick !== undefined) {
-        picked.add(slot.key);
-        progress = true;
-        character = character.apply({ field: CharacterPatchField.SelectSlot, ...pick }, now);
-      }
+function extend(node: Node, search: Search): Generated | undefined {
+  const { character, skipped } = node;
+  const { content, now, target } = search;
+  const slots = characterSlots(character.document, content);
+  if (hasInvalid(slots)) {
+    return undefined;
+  }
+  const slot = slots.filter((each) => isOpen(each)).find((open) => !skipped.includes(open.key));
+  if (slot !== undefined) {
+    return pickSlot(node, slot, search) ?? (search.lenient ? leave(node, slot, search) : undefined);
+  }
+  const { level } = character.document;
+  return level >= target
+    ? { character, unfilled: skipped }
+    : extend(
+        {
+          character: character.apply({ field: CharacterPatchField.Level, value: CharacterLevel.parse(level + 1) }, now),
+          skipped,
+        },
+        search,
+      );
+}
+
+/** Spends a dead end; false when none is left. */
+function backOut(search: Search): boolean {
+  if (search.left === undefined) {
+    return true;
+  }
+  if (search.left === 0) {
+    return false;
+  }
+  search.left = Backtracks.parse(search.left - 1);
+  return true;
+}
+
+/**
+ * What `slot` offers that the builder accepts, in random order, each checked only when asked for.
+ * @yields {ChoiceValue} a candidate of `slot` that `slotRefusal` accepts.
+ */
+function* acceptable(character: Character, slot: OpenSlot, { content, source }: Search): Generator<ChoiceValue> {
+  for (const selection of shuffle(source, slotCandidates(character.document, content, slot))) {
+    if (slotRefusal(character.document, content, { slot: slot.key, selection }) === undefined) {
+      yield selection;
     }
   }
-  return character;
-}
-
-/** The picks `character` holds that their slots read as invalid: a later pick can undo what an earlier one allowed. */
-function invalidPicks(character: Character, content: SlotContent): readonly SlotPick[] {
-  return characterSlots(character.document, content).flatMap((slot) =>
-    slot.status === SlotStatus.Invalid ? [{ slot: slot.key, selection: slot.selection }] : [],
-  );
-}
-
-/** Whether `document` has `slot`, open or answered, over the picks it holds. */
-function hasSlot(document: CharacterDocument, content: SlotContent, slot: SlotKey): boolean {
-  return characterSlots(document, content).some((each) => each.key === slot && each.status !== SlotStatus.Hidden);
 }
 
 /**
- * The picks that opened each slot nothing valid could be picked for, because its picks read invalid again (the grants it
- * gives can undo the offer, whichever it is). The slot's cause is the latest pick without which the character has no such
- * slot: a feat, or a background that grants one. It is taken out in the slot's place.
+ * The first completion of the build over one of `slot`'s candidates, tried in random order; undefined when none
+ * completes. A slot with no candidate the builder accepts is left open instead, as nothing could fill it.
  */
-function culpritPicks(character: Character, { content, rejected }: Filling): readonly SlotPick[] {
-  const stuck = characterSlots(character.document, content).filter(
-    (slot) => (isOpen(slot) || slot.status === SlotStatus.Invalid) && rejected.has(slot.key),
-  );
-  const picks = Object.entries(character.document.build.choices).toReversed();
-  return stuck.flatMap((slot): SlotPick[] => {
-    const cause = picks.find(
-      ([key]) => !hasSlot(withoutPick(character.document, SlotKey.parse(key)), content, slot.key),
-    );
-    return cause === undefined ? [] : [{ slot: SlotKey.parse(cause[0]), selection: cause[1] }];
-  });
-}
-
-/** `character` without `picks`, each kept out of its slot from then on. */
-function withoutPicks(character: Character, picks: readonly SlotPick[], filling: Filling): Character {
-  const { rejected, now } = filling;
-  let cleared = character;
-  for (const { slot, selection } of picks) {
-    rejected.set(slot, [...(rejected.get(slot) ?? []), selection]);
-    cleared = cleared.apply({ field: CharacterPatchField.ClearSlot, slot }, now);
+function pickSlot(node: Node, slot: OpenSlot, search: Search): Generated | undefined {
+  const { character } = node;
+  let tried = false;
+  for (const selection of acceptable(character, slot, search)) {
+    tried = true;
+    const picked = character.apply({ field: CharacterPatchField.SelectSlot, slot: slot.key, selection }, search.now);
+    const done = extend({ ...node, character: picked }, search);
+    if (done !== undefined) {
+      return done;
+    }
+    if (!backOut(search)) {
+      return undefined;
+    }
   }
-  return cleared;
+  return tried ? undefined : leave(node, slot, search);
 }
 
 /**
- * `start` at `level` with every slot it has open picked at random, from what each offers (the builder's own check, so a
- * pick is never one `selectSlot` would refuse). Picks go in through `selectSlot`, the slots read again once a pass: a
- * pick can open more (an ancestry's heritage and boosts, a feat's own choices). A pick a later one makes invalid, or a
- * feat whose own choice can't be made validly, is taken out and its slot filled again without it. A slot with nothing
- * to pick is left in `unfilled`. The same seed and character give the same one.
+ * `start` taken from where it stands up to `level`, every slot it opens picked at random from what the slot offers
+ * (the builder's own check, so a pick is never one `selectSlot` would refuse). It is a recursive backtracking
+ * search: levels are filled in order, each open slot is a choice point, and a pick that leaves a slot invalid or the
+ * build unfillable is undone and another tried. A slot nothing can be picked for is left in `unfilled`. If no build
+ * fills every slot within the search's budget (a feat whose own choices undo each other, say), the search runs again
+ * leaving such slots open. The same seed and character give the same one.
  */
 export function generateCharacter({ start, seed, level, content, now }: GenerateInput): Generated {
-  const filling: Filling = { content, source: seededPicks(seed), now, rejected: new Map() };
-  let character = filled(start.apply({ field: CharacterPatchField.Level, value: level }, now), filling);
-  for (let round = 0; round < REPAIRS_MAX; round += 1) {
-    const undone = [...invalidPicks(character, content), ...culpritPicks(character, filling)];
-    if (undone.length === 0) {
-      break;
-    }
-    character = filled(withoutPicks(character, undone, filling), filling);
-  }
-  character = withoutPicks(character, invalidPicks(character, content), filling);
-  return { character, unfilled: openSlots(character, content).map((slot) => slot.key) };
+  const source = seededPicks(seed);
+  const base = { content, source, now, target: level };
+  const root: Node = { character: start, skipped: [] };
+  return (
+    extend(root, { ...base, lenient: false, left: BACKTRACKS_MAX }) ??
+    extend(root, { ...base, lenient: true, left: undefined }) ?? { character: start, unfilled: [] }
+  );
 }
