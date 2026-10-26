@@ -151,6 +151,11 @@
         "hint": "What the character is doing while exploring. It suggests the skill of the initiative roll."
       }
     },
+    "environments": {
+      "heading": "Environments",
+      "hint": "Situations the character is in, such as underwater or in the dark. Each can forbid things, and says why.",
+      "none": "No environments in the content yet"
+    },
     "roleplay": {
       "heading": "Appearance and personality",
       "appearance": "Appearance",
@@ -515,6 +520,7 @@
     "staffSlotNotExpendable": "Only a spell slot of a prepared spellcasting entry can be expended for charges. Choose another.",
     "preparedSlotNotPrepared": "Daily preparations only change prepared spells. Choose a slot of a prepared spellcasting entry.",
     "preparedSlotRepeated": "A slot can be changed once in one daily preparations. Remove the repeat.",
+    "environmentUnknown": "That is not an environment in the content this character uses.",
     "explorationUnknown": "That is not an exploration activity in the content this character uses.",
     "effectUnknown": "That effect is not in the content this character uses.",
     "effectMissing": "That effect is no longer on the character. Reload the sheet and try again.",
