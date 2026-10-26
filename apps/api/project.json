@@ -44,6 +44,22 @@
         "{workspaceRoot}/libs/identity/dev-users/src/**/*"
       ],
       "command": "bun tools/check-dev-free.ts dist/apps/api"
+    },
+    "test": {
+      "configurations": {
+        "rest": {
+          "command": "bun test apps/api --path-ignore-patterns '**/generate-character.test.ts'"
+        },
+        "generate-1": {
+          "command": "bun test apps/api/src/generate-character.test.ts --test-name-pattern 'the same seed gives|Alchemist|Barbarian|Bard|Champion'"
+        },
+        "generate-2": {
+          "command": "bun test apps/api/src/generate-character.test.ts --test-name-pattern 'Cleric|Druid|Fighter|Monk'"
+        },
+        "generate-3": {
+          "command": "bun test apps/api/src/generate-character.test.ts --test-name-pattern 'any seed, class|Ranger|Rogue|Sorcerer|Wizard'"
+        }
+      }
     }
   }
 }
