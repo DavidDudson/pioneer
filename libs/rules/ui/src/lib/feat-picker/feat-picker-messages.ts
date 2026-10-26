@@ -19,6 +19,9 @@ export const FEAT_CATEGORY_MESSAGES: Readonly<Record<FeatCategory, string>> = {
   [FeatCategory.General]: 'rules.featPicker.category.general',
   [FeatCategory.Skill]: 'rules.featPicker.category.skill',
   [FeatCategory.Bonus]: 'rules.featPicker.category.bonus',
+  [FeatCategory.DeityBoon]: 'rules.featPicker.category.deityBoon',
+  [FeatCategory.Calling]: 'rules.featPicker.category.calling',
+  [FeatCategory.Curse]: 'rules.featPicker.category.curse',
 };
 
 /** What each rarity above common is called, shown as a chip before the traits. */

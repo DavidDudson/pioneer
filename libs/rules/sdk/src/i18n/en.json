@@ -615,7 +615,10 @@
         "class": "Class",
         "general": "General",
         "skill": "Skill",
-        "bonus": "Bonus"
+        "bonus": "Bonus",
+        "deityBoon": "Deity boon",
+        "calling": "Calling",
+        "curse": "Curse"
       },
       "skill": {
         "acrobatics": "Acrobatics",
@@ -920,7 +923,10 @@
         "class": "Class",
         "general": "General",
         "skill": "Skill",
-        "bonus": "Bonus"
+        "bonus": "Bonus",
+        "deityBoon": "Deity boon",
+        "calling": "Calling",
+        "curse": "Curse"
       },
       "rarity": {
         "uncommon": "Uncommon",

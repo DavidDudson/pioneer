@@ -79,6 +79,15 @@
     ],
     "rules": [
       {
+        "key": "GrantItem",
+        "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+        "predicate": [
+          {
+            "not": "feature:persona-trait"
+          }
+        ]
+      },
+      {
         "key": "Proficiency",
         "selector": "skill:society",
         "rank": "trained"
@@ -182,6 +191,15 @@
       }
     ],
     "rules": [
+      {
+        "key": "GrantItem",
+        "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+        "predicate": [
+          {
+            "not": "feature:persona-trait"
+          }
+        ]
+      },
       {
         "key": "Proficiency",
         "selector": "skill:diplomacy",
@@ -287,6 +305,15 @@
     ],
     "rules": [
       {
+        "key": "GrantItem",
+        "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+        "predicate": [
+          {
+            "not": "feature:persona-trait"
+          }
+        ]
+      },
+      {
         "key": "Proficiency",
         "selector": "skill:crafting",
         "rank": "trained"
@@ -390,6 +417,15 @@
       }
     ],
     "rules": [
+      {
+        "key": "GrantItem",
+        "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+        "predicate": [
+          {
+            "not": "feature:persona-trait"
+          }
+        ]
+      },
       {
         "key": "Proficiency",
         "selector": "skill:intimidation",
@@ -495,6 +531,15 @@
     ],
     "rules": [
       {
+        "key": "GrantItem",
+        "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+        "predicate": [
+          {
+            "not": "feature:persona-trait"
+          }
+        ]
+      },
+      {
         "key": "Proficiency",
         "selector": "skill:acrobatics",
         "rank": "trained"
@@ -599,6 +644,15 @@
     ],
     "rules": [
       {
+        "key": "GrantItem",
+        "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+        "predicate": [
+          {
+            "not": "feature:persona-trait"
+          }
+        ]
+      },
+      {
         "key": "Proficiency",
         "selector": "skill:medicine",
         "rank": "trained"
@@ -694,6 +748,15 @@
       }
     ],
     "rules": [
+      {
+        "key": "GrantItem",
+        "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+        "predicate": [
+          {
+            "not": "feature:persona-trait"
+          }
+        ]
+      },
       {
         "key": "Proficiency",
         "selector": "skill:thievery",
@@ -798,6 +861,15 @@
       }
     ],
     "rules": [
+      {
+        "key": "GrantItem",
+        "item": "0278da3c-1d99-5b06-9d0d-a3c0db6ff384",
+        "predicate": [
+          {
+            "not": "feature:persona-trait"
+          }
+        ]
+      },
       {
         "key": "Proficiency",
         "selector": "skill:deception",

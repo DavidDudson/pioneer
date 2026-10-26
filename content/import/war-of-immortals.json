@@ -1360,38 +1360,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "class-feature:crafter-in-the-vault",
-      "foundry": "Compendium.pf2e.classfeatures.Item.csrF8UOWPl1rr6st",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Rage of Elements"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "class-feature:custodian-of-groves-and-gardens",
-      "foundry": "Compendium.pf2e.classfeatures.Item.EyRHVD4h2eZYIsk5",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Rage of Elements"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "class-feature:dancer-in-the-seasons",
       "foundry": "Compendium.pf2e.classfeatures.Item.vrKfwncFKxapUYRp",
       "gaps": [
@@ -1537,18 +1505,6 @@
             "priority": 10,
             "value": []
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "class-feature:echo-of-lost-moments",
-      "foundry": "Compendium.pf2e.classfeatures.Item.UbOFa3BBHO8HwLJR",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
         }
       ]
     },
@@ -2533,30 +2489,6 @@
             "predicate": ["item:category:simple", "item:equipped"],
             "property": "damage-dice-faces"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "class-feature:impostor-in-hidden-places",
-      "foundry": "Compendium.pf2e.classfeatures.Item.Gss5cYmRySgi1UxP",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "class-feature:lurker-in-devouring-dark",
-      "foundry": "Compendium.pf2e.classfeatures.Item.NNVkvA9fmyFy68ag",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Rage of Elements"
         }
       ]
     },
@@ -3995,18 +3927,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "class-feature:stalker-in-darkened-boughs",
-      "foundry": "Compendium.pf2e.classfeatures.Item.ImJ09rEZW5WtS26L",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "class-feature:starshot",
       "foundry": "Compendium.pf2e.classfeatures.Item.LC8i3ZJjhhKEHSLI",
       "gaps": [
@@ -4164,18 +4084,6 @@
         {
           "type": "enricher",
           "enricher": "@Embed"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "class-feature:steward-of-stone-and-fire",
-      "foundry": "Compendium.pf2e.classfeatures.Item.ILGq8LQBnwsAz2jK",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Rage of Elements"
         }
       ]
     },
@@ -5127,22 +5035,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "class-feature:vanguard-of-roaring-waters",
-      "foundry": "Compendium.pf2e.classfeatures.Item.M3q0KIyuMvSgUZH7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Rage of Elements"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "class-feature:victors-wreath",
       "foundry": "Compendium.pf2e.classfeatures.Item.pHUi7KCh1DH5pxMe",
       "gaps": [
@@ -5672,33 +5564,9 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "class-feature:witness-to-ancient-battles",
-      "foundry": "Compendium.pf2e.classfeatures.Item.k9P2mXRjyy5X24rH",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "class:animist",
       "foundry": "Compendium.pf2e.classes.Item.9KiqZVG9r5g8mC4V",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "items",
-          "raw": "Compendium.pf2e.classfeatures.Item.Simple Weapon Expertise"
-        },
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "items",
-          "raw": "Compendium.pf2e.classfeatures.Item.Weapon Specialization"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -5714,6 +5582,579 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "war-of-immortals",
+      "slug": "creature:agyra",
+      "foundry": "Compendium.pf2e.war-of-immortals-bestiary.Actor.yQIro3136G7EUgLQ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "mythic resilience (Fort and Ref)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "stormsight"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Tail.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": [],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 30
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "war-of-immortals",
+      "slug": "creature:immortal-trickster",
+      "foundry": "Compendium.pf2e.war-of-immortals-bestiary.Actor.H2RSvVckwPdFCAYY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "mythic resistance 11"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "humanoid-medium",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Medium",
+                "value": "humanoid-medium"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.Coyote",
+                "value": "coyote"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.Fox",
+                "value": "fox"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.Raven",
+                "value": "raven"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.BaseSpeed",
+          "raw": {
+            "key": "BaseSpeed",
+            "predicate": ["change-shape:raven"],
+            "selector": "fly-speed",
+            "value": 25
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 23,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 2,
+                "die": "d6",
+                "modifier": 4
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Bite",
+            "predicate": [
+              {
+                "or": ["change-shape:coyote", "change-shape:fox"]
+              }
+            ],
+            "slug": "bite",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 23,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 2,
+                "die": "d6",
+                "modifier": 4
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Beak",
+            "predicate": ["change-shape:raven"],
+            "slug": "beak",
+            "traits": ["agile", "unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 23,
+            "category": "simple",
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 2,
+                "die": "d6",
+                "modifier": 7
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.NPCAbility.ImmortalTrickster.Attack.Pipe",
+            "predicate": ["change-shape:humanoid-medium"],
+            "slug": "pipe",
+            "traits": ["agile", "finesse", "magical", "fire"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 23,
+            "category": "simple",
+            "damage": {
+              "base": {
+                "damageType": "force",
+                "dice": 2,
+                "die": "d6",
+                "modifier": 7
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.NPCAbility.ImmortalTrickster.Attack.TelekineticManipulation",
+            "predicate": ["change-shape:humanoid-medium"],
+            "range": {
+              "increment": 60,
+              "max": null
+            },
+            "slug": "telekinetic-manipulation",
+            "traits": ["force", "magical"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["success", "criticalSuccess"],
+            "selector": "telekinetic-manipulation-damage",
+            "text": "{item|description}",
+            "title": "{item|name} <span class=\"action-glyph\">1</span>",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["success", "criticalSuccess"],
+            "selector": "telekinetic-manipulation-damage",
+            "text": "{item|description}",
+            "title": "{item|name} <span class=\"action-glyph\">1</span>",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "war-of-immortals",
+      "slug": "creature:mythic-gogiteth",
+      "foundry": "Compendium.pf2e.war-of-immortals-bestiary.Actor.AQw3uql8ovK4NPPi",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(Can't Speak)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "war-of-immortals",
+      "slug": "creature:mythic-lich",
+      "foundry": "Compendium.pf2e.war-of-immortals-bestiary.Actor.Roj3l7HjnV0kFq9a",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            },
+            "mythicPoints": {
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing, rejuvenation"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. vitality; mythic resilience (Ref and Will)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": ["item:magical", "damage:type:bludgeoning"],
+                "label": "PF2E.IWR.Custom.MagicalBludgeoning"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Teleport (Rank 6)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "war-of-immortals",
+      "slug": "creature:mythic-ogre-boss",
+      "foundry": "Compendium.pf2e.war-of-immortals-bestiary.Actor.F9HHYowsSs0CLMX0",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "war-of-immortals",
+      "slug": "creature:oliphaunt-of-jandelay",
+      "foundry": "Compendium.pf2e.war-of-immortals-bestiary.Actor.fH8t5uKyFA4UuZqp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "legendary vigor, unfettered movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "mythic resilience (all saves)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": [],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 30
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "predicate": ["mythic-power"],
+            "property": "dice-faces",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": 12
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["mythic-power"],
+            "selector": "{item|id}-inline-dc",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "war-of-immortals",
+      "slug": "creature:sublime-breath",
+      "foundry": "Compendium.pf2e.war-of-immortals-bestiary.Actor.Om9ruhbwPNISjwDr",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. emotion; mythic resilience (Will)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "war-of-immortals",
+      "slug": "creature:verex-that-was",
+      "foundry": "Compendium.pf2e.war-of-immortals-bestiary.Actor.qPFA9IM6QjnSuagx",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 30 (deactivated by sloughstone weapons)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "mythic resilience (all saves)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": [],
+            "key": "FastHealing",
+            "predicate": [
+              {
+                "not": "deactivate-regeneration"
+              }
+            ],
+            "type": "regeneration",
+            "value": 30
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "war-of-immortals",
+      "slug": "creature:vulot",
+      "foundry": "Compendium.pf2e.war-of-immortals-bestiary.Actor.FpM4xd45aBf7wsqH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "mythic immunity"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "many eyes in many places, truesight"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "all languages spoken by their collective identities; telepathy 200 feet (unlimited range to other stolen identities worn by cultists of Vulot)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Claw.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "war-of-immortals",
+      "slug": "creature:weaver-of-webs",
+      "foundry": "Compendium.pf2e.war-of-immortals-bestiary.Actor.otEC0HMg4whUaLAD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 10 (deactivated by bright light)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "all-around vision, greater web sense"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": [],
+            "key": "FastHealing",
+            "predicate": [
+              {
+                "not": "lighting:bright-light"
+              }
+            ],
+            "type": "regeneration",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
         }
       ]
     },
@@ -6865,475 +7306,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "effect:spell-effect-devouring-dark-form",
-      "foundry": "Compendium.pf2e.spell-effects.Item.Le5Sewk43o7V60nO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BattleForm",
-          "raw": {
-            "brackets": [
-              {
-                "start": 2,
-                "value": {
-                  "armorClass": {
-                    "modifier": "16 + @actor.level"
-                  },
-                  "skills": {
-                    "athletics": {
-                      "modifier": 9
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "modifier": 1
-                      },
-                      "modifier": 9
-                    }
-                  },
-                  "tempHP": 5
-                }
-              },
-              {
-                "start": 3,
-                "value": {
-                  "armorClass": {
-                    "modifier": "17 + @actor.level"
-                  },
-                  "skills": {
-                    "athletics": {
-                      "modifier": 14
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "modifier": 5
-                      },
-                      "modifier": 14
-                    }
-                  },
-                  "tempHP": 10
-                }
-              },
-              {
-                "start": 4,
-                "value": {
-                  "armorClass": {
-                    "modifier": "18 + @actor.level"
-                  },
-                  "size": "lg",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 16
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "modifier": 9
-                      },
-                      "modifier": 16,
-                      "traits": ["unarmed", "reach"]
-                    }
-                  },
-                  "tempHP": 15
-                }
-              },
-              {
-                "start": 5,
-                "value": {
-                  "armorClass": {
-                    "modifier": "18 + @actor.level"
-                  },
-                  "size": "huge",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 20
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "dice": 4,
-                        "modifier": 7
-                      },
-                      "modifier": 18,
-                      "traits": ["unarmed", "reach-15"]
-                    }
-                  },
-                  "tempHP": 20
-                }
-              }
-            ],
-            "key": "BattleForm",
-            "overrides": {
-              "senses": {
-                "low-light-vision": {},
-                "scent": {
-                  "acuity": "imprecise",
-                  "range": 30
-                }
-              },
-              "size": "med",
-              "speeds": {
-                "swim": 35
-              },
-              "strikes": {
-                "jaws": {
-                  "ability": "str",
-                  "baseType": "jaws",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "piercing",
-                    "dice": 2,
-                    "die": "d8"
-                  },
-                  "traits": ["unarmed"]
-                }
-              },
-              "traits": ["animal"]
-            },
-            "predicate": ["devouring-dark-form:shark"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "BattleForm",
-          "raw": {
-            "brackets": [
-              {
-                "start": 5,
-                "value": {
-                  "armorClass": {
-                    "modifier": "19 + @actor.level"
-                  },
-                  "size": "med",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 20
-                    }
-                  },
-                  "strikes": {
-                    "wave": {
-                      "damage": {
-                        "modifier": 9
-                      },
-                      "modifier": 18
-                    }
-                  },
-                  "tempHP": 10
-                }
-              },
-              {
-                "start": 6,
-                "value": {
-                  "armorClass": {
-                    "modifier": "22 + @actor.level"
-                  },
-                  "size": "lg",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 23
-                    }
-                  },
-                  "strikes": {
-                    "wave": {
-                      "damage": {
-                        "modifier": 13
-                      },
-                      "modifier": 23,
-                      "traits": ["unarmed", "reach-10"]
-                    }
-                  },
-                  "tempHP": 15
-                }
-              },
-              {
-                "start": 7,
-                "value": {
-                  "armorClass": {
-                    "modifier": "22 + @actor.level"
-                  },
-                  "size": "huge",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 25
-                    }
-                  },
-                  "strikes": {
-                    "wave": {
-                      "damage": {
-                        "dice": 2,
-                        "modifier": 11
-                      },
-                      "modifier": 25,
-                      "traits": ["unarmed", "reach-15"]
-                    }
-                  },
-                  "tempHP": 20
-                }
-              }
-            ],
-            "key": "BattleForm",
-            "overrides": {
-              "resistances": [
-                {
-                  "type": "fire",
-                  "value": 5
-                }
-              ],
-              "senses": {
-                "darkvision": {}
-              },
-              "speeds": {
-                "land": 20,
-                "swim": 60
-              },
-              "strikes": {
-                "wave": {
-                  "ability": "str",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "bludgeoning",
-                    "dice": 1,
-                    "die": "d12"
-                  },
-                  "traits": ["unarmed"]
-                }
-              },
-              "traits": ["elemental", "water"]
-            },
-            "predicate": ["devouring-dark-form:water-elemental"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "BattleForm",
-          "raw": {
-            "brackets": [
-              {
-                "start": 8,
-                "value": {
-                  "armorClass": {
-                    "modifier": "20 + @actor.level"
-                  },
-                  "size": "huge",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 30
-                    }
-                  },
-                  "strikes": {
-                    "body": {
-                      "modifier": 28
-                    },
-                    "jaws": {
-                      "modifier": 28
-                    },
-                    "stinger": {
-                      "modifier": 28
-                    }
-                  },
-                  "tempHP": 20
-                }
-              },
-              {
-                "start": 9,
-                "value": {
-                  "armorClass": {
-                    "modifier": "22 + @actor.level"
-                  },
-                  "size": "huge",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 33
-                    }
-                  },
-                  "strikes": {
-                    "body": {
-                      "damage": {
-                        "dice": 3
-                      },
-                      "modifier": 31,
-                      "traits": ["unarmed", "reach-10"]
-                    },
-                    "jaws": {
-                      "damage": {
-                        "dice": 3
-                      },
-                      "modifier": 31,
-                      "traits": ["unarmed", "reach-10"]
-                    },
-                    "stinger": {
-                      "damage": {
-                        "dice": 3
-                      },
-                      "modifier": 31,
-                      "traits": ["unarmed", "reach-10", "agile"]
-                    }
-                  },
-                  "tempHP": 25
-                }
-              }
-            ],
-            "key": "BattleForm",
-            "overrides": {
-              "immunities": [
-                {
-                  "type": "immobilized"
-                }
-              ],
-              "senses": {
-                "darkvision": {}
-              },
-              "speeds": {
-                "burrow": 30,
-                "land": 40,
-                "swim": 20
-              },
-              "strikes": {
-                "body": {
-                  "ability": "str",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "bludgeoning",
-                    "dice": 2,
-                    "die": "d8",
-                    "modifier": 20
-                  },
-                  "traits": ["unarmed", "reach-10"]
-                },
-                "jaws": {
-                  "ability": "str",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "piercing",
-                    "dice": 2,
-                    "die": "d12",
-                    "modifier": 20
-                  },
-                  "traits": ["unarmed", "reach-10"]
-                },
-                "stinger": {
-                  "ability": "str",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "piercing",
-                    "dice": 2,
-                    "die": "d8",
-                    "modifier": 15
-                  },
-                  "traits": ["unarmed", "reach-10", "agile"]
-                }
-              },
-              "traits": ["animal"]
-            },
-            "predicate": ["devouring-dark-form:cave-worm"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "BattleForm",
-          "raw": {
-            "brackets": [
-              {
-                "start": 8,
-                "value": {
-                  "armorClass": {
-                    "modifier": "20 + @actor.level"
-                  },
-                  "size": "huge",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 30
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "modifier": 28
-                    },
-                    "tail": {
-                      "modifier": 28
-                    }
-                  },
-                  "tempHP": 20
-                }
-              },
-              {
-                "start": 9,
-                "value": {
-                  "armorClass": {
-                    "modifier": "22 + @actor.level"
-                  },
-                  "size": "huge",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 33
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "dice": 3
-                      },
-                      "modifier": 31
-                    },
-                    "tail": {
-                      "damage": {
-                        "dice": 3
-                      },
-                      "modifier": 31
-                    }
-                  },
-                  "tempHP": 25
-                }
-              }
-            ],
-            "key": "BattleForm",
-            "overrides": {
-              "senses": {
-                "darkvision": {}
-              },
-              "speeds": {
-                "land": 20,
-                "swim": 90
-              },
-              "strikes": {
-                "jaws": {
-                  "ability": "str",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "piercing",
-                    "dice": 2,
-                    "die": "d12",
-                    "modifier": 20
-                  },
-                  "traits": ["unarmed", "reach-15"]
-                },
-                "tail": {
-                  "ability": "str",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "bludgeoning",
-                    "dice": 2,
-                    "die": "d8",
-                    "modifier": 20
-                  },
-                  "traits": ["unarmed", "reach-25"]
-                }
-              },
-              "traits": ["animal"]
-            },
-            "predicate": ["devouring-dark-form:sea-serpent"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "effect:spell-effect-discomfiting-whispers",
       "foundry": "Compendium.pf2e.spell-effects.Item.JfvVyMWuD8yvSrIe",
       "gaps": [
@@ -7612,63 +7584,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "feat:acrobats-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.1FCu53hOTJrCF2iW",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "1FCu53hOTJrCF2iW",
-        "name": "Acrobat's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "uncommon"
-          },
-          "description": {
-            "value": "<p>You feel a need to dance amid dangerous heights and soar across empty divides with nothing but your skill and reflexes to protect you. When you @UUID[Compendium.pf2e.actionspf2e.Item.Balance], @UUID[Compendium.pf2e.actionspf2e.Item.Maneuver in Flight], @UUID[Compendium.pf2e.actionspf2e.Item.Tumble Through], or attempt a @UUID[Compendium.pf2e.actionspf2e.Item.Long Jump], you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on an Acrobatics check while Balancing, Maneuvering in Flight, or Tumbling Through during combat, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> leap without being sure you'll land unharmed, test your reflexes by maneuvering through the spaces of significantly more powerful enemies</p>\n<p><strong>Anathema</strong> maneuver around an enemy when tumbling through their space is a viable option, use safety measures to attempt acrobatic stunts</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "aAfH2153pBHpxzJK"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "feat:advanced-glory",
       "foundry": "Compendium.pf2e.feats-srd.Item.cNYfClpqqGDC4j7A",
       "gaps": [
@@ -7853,63 +7768,6 @@
           }
         }
       ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "feat:artisans-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.ADm8BpMlmoYUCyZy",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "ADm8BpMlmoYUCyZy",
-        "name": "Artisan's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "uncommon"
-          },
-          "description": {
-            "value": "<p>You feel an urge that echoes throughout your being to create, and one day you know you shall craft an achievement surpassing anything the world has ever seen. When you @UUID[Compendium.pf2e.actionspf2e.Item.Craft] or @UUID[Compendium.pf2e.actionspf2e.Item.Repair] an object (including vehicles and structures), you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Repair an object, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> be the first to test an item or weapon crafted with your own hands, seek out or innovate formulas for evermore complex creations</p>\n<p><strong>Anathema</strong> destroy the creations of other artisans, refuse an earnest request to repair something that has been broken, use a weapon or item crafted by someone else, except for the purpose of learning its function so you can understand how to create it yourself</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "aAfH2153pBHpxzJK"
-      }
     },
     {
       "type": "entry",
@@ -8125,63 +7983,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "feat:bookkeepers-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.LoTFGTJCAGJFUFYs",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "LoTFGTJCAGJFUFYs",
-        "name": "Bookkeeper's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "uncommon"
-          },
-          "description": {
-            "value": "<p>Your passion and destiny are both tied to the preservation of knowledge and a deep-seated love of instruments designed to preserve and propagate knowledge, such as books and scrolls. When you attempt a check to Recall Knowledge or @UUID[Compendium.pf2e.actionspf2e.Item.Earn Income] using a Lore skill you're trained in, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Recall Knowledge while researching in a library or similar facility, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> educate others, record new knowledge so that others can share in your discoveries</p>\n<p><strong>Anathema</strong> destroy books, scrolls, or other instruments used to record information; refuse an opportunity to share your knowledge with an earnest knowledge-seeker</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "aAfH2153pBHpxzJK"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "feat:branched-tree-of-pain",
       "foundry": "Compendium.pf2e.feats-srd.Item.dfQdJIqngKIX24UV",
       "gaps": [
@@ -8290,63 +8091,6 @@
           "raw": []
         }
       ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "feat:caretakers-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.wQ4VqAhhCbT5OC9k",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "wQ4VqAhhCbT5OC9k",
-        "name": "Caretaker's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "uncommon"
-          },
-          "description": {
-            "value": "<p>You have a deep-seated drive or divine directive to care for others, and your power might one day grow to allow you to heal an unimaginable wound. When you @UUID[Compendium.pf2e.actionspf2e.Item.Treat Disease], @UUID[Compendium.pf2e.actionspf2e.Item.Treat Poison], @UUID[Compendium.pf2e.actionspf2e.Item.Treat Wounds], or use @UUID[Compendium.pf2e.feats-srd.Item.Battle Medicine], you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Treat Wounds, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> give aid to others, heal those who are wounded regardless of where they come from</p>\n<p><strong>Anathema</strong> deny care to the disadvantaged, refuse to heal the wounds of an enemy who has surrendered</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "aAfH2153pBHpxzJK"
-      }
     },
     {
       "type": "entry",
@@ -8721,83 +8465,6 @@
           "enricher": "@Check[options]"
         }
       ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "feat:cutting-rebuke",
-      "foundry": "Compendium.pf2e.feats-srd.Item.mg8yScrzlUVsoWJc",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "Compendium.pf2e.feats-srd.Item.Bon Mot"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "feat:demagogues-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.sJzi16AkcZrfa7oo",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "sJzi16AkcZrfa7oo",
-        "name": "Demagogue's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "uncommon"
-          },
-          "description": {
-            "value": "<p>Words flow freely from a font within your soul. When you attempt a check to @UUID[Compendium.pf2e.actionspf2e.Item.Coerce] or @UUID[Compendium.pf2e.actionspf2e.Item.Make an Impression], you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Coerce a creature who isn't your ally, @UUID[Compendium.pf2e.actionspf2e.Item.Create a Diversion] using your words, or Make an Impression on an indifferent or unfriendly audience, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> tell stories to audiences who have never heard them before, use words rather than weapons to resolve conflicts</p>\n<p><strong>Anathema</strong> interrupt someone telling a story, resort to violent action without trying to defuse the situation with your words</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "aAfH2153pBHpxzJK"
-      }
     },
     {
       "type": "entry",
@@ -9327,120 +8994,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "feat:guardians-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.Lc7PS4JDnO6SWmiS",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "Lc7PS4JDnO6SWmiS",
-        "name": "Guardian's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "uncommon"
-          },
-          "description": {
-            "value": "<p>Your instinctive urge is always to protect others, pushing back aggressors and doing everything in your power to prevent them from harming your allies and charges. When you attempt to @UUID[Compendium.pf2e.actionspf2e.Item.Disarm], @UUID[Compendium.pf2e.actionspf2e.Item.Reposition], or @UUID[Compendium.pf2e.actionspf2e.Item.Shove] an opponent, you can spend a Mythic Point to make the check at mythic proficiency. You can attempt these maneuvers against a creature of any size when performing them at mythic proficiency. The first time each day that you critically succeed on a check to Disarm, Reposition, or Shove an opponent, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> place yourself in harm's way to protect your allies or innocent creatures under threat</p>\n<p><strong>Anathema</strong> retreat from a battle while your allies or innocent bystanders are in danger without taking every reasonable effort to rescue them first</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "aAfH2153pBHpxzJK"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "feat:handlers-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.qRWnLtYNjz9z8Xe5",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "qRWnLtYNjz9z8Xe5",
-        "name": "Handler's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "uncommon"
-          },
-          "description": {
-            "value": "<p>You have an instinctive urge to care for wild creatures. When you attempt a check to @UUID[Compendium.pf2e.actionspf2e.Item.Command an Animal], you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to @UUID[Compendium.pf2e.actionspf2e.Item.Make an Impression] on a wild animal or Command an Animal who isn't your pet or companion, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> care for dangerous animals or beasts in need, respect the habitats of wild creatures</p>\n<p><strong>Anathema</strong> initiate combat against an animal or beast encountered in its natural environment, kill an animal or beast when sparing it is a viable option</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "aAfH2153pBHpxzJK"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "feat:hematocritical",
       "foundry": "Compendium.pf2e.feats-srd.Item.AY3XRv2j0cZvHaks",
       "gaps": [
@@ -9465,63 +9018,6 @@
           "raw": []
         }
       ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "feat:hunters-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.xuotWgnajtwcN7X7",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "xuotWgnajtwcN7X7",
-        "name": "Hunter's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "uncommon"
-          },
-          "description": {
-            "value": "<p>You're the hunter, and somewhere, a legendary predator awaits as your ultimate challenge. When you attempt a check to @UUID[Compendium.pf2e.actionspf2e.Item.Seek] or @UUID[Compendium.pf2e.actionspf2e.Item.Track], you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Seek or Track a hostile or unfriendly creature, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> be first in a group to scout an unknown and potentially dangerous area, seek out creatures that are causing imbalances in the natural world and correct the imbalance</p>\n<p><strong>Anathema</strong> leave an animal or beast you've wounded free to cause future harm, refuse a request to hunt a dangerous animal or beast</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "aAfH2153pBHpxzJK"
-      }
     },
     {
       "type": "entry",
@@ -10331,63 +9827,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "feat:sages-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.LigU977wR6qt5Vx8",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "LigU977wR6qt5Vx8",
-        "name": "Sage's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "uncommon"
-          },
-          "description": {
-            "value": "<p>You're already an archive of knowledge, but you're driven to learn more with an unquenchable passion that might never be sated. When you attempt to Recall Knowledge, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a Recall Knowledge check against an enemy creature, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> preserve your knowledge for future generations, seek out lost knowledge in dangerous or forgotten places</p>\n<p><strong>Anathema</strong> destroy books or other repositories of knowledge, lie to hide knowledge from the world</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "aAfH2153pBHpxzJK"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "feat:sanctified-soul",
       "foundry": "Compendium.pf2e.feats-srd.Item.qV9sAyHN90uYu4OO",
       "gaps": [
@@ -10712,10 +10151,6 @@
           "raw": []
         },
         {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Secrets of Magic"
-        },
-        {
           "type": "markup",
           "markup": "table[class]"
         }
@@ -10973,120 +10408,6 @@
           "enricher": "@UUID[journals]"
         }
       ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "feat:thespians-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.CPUunLbsBjRgfS10",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "CPUunLbsBjRgfS10",
-        "name": "Thespian's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "uncommon"
-          },
-          "description": {
-            "value": "<p>All the world is a stage, and you're no mere player, but a playwright whose story may change the course of history. When you use Performance to @UUID[Compendium.pf2e.actionspf2e.Item.Perform] or @UUID[Compendium.pf2e.actionspf2e.Item.Earn Income], you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Perform, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> master new performances, seek opportunities to perform in front of new audiences, support other performers</p>\n<p><strong>Anathema</strong> deny a call for an encore performance, refuse a request to perform in front of an audience, sabotage another performer</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "aAfH2153pBHpxzJK"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "feat:thiefs-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.R1Ierj67voEOc6xu",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "R1Ierj67voEOc6xu",
-        "name": "Thief's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "uncommon"
-          },
-          "description": {
-            "value": "<p>Whether guildmaster or cutpurse, you covet something, or many things, that don't belong to you, and you're driven to ever greater heights of larceny. When you attempt to @UUID[Compendium.pf2e.actionspf2e.Item.Pick a Lock] or @UUID[Compendium.pf2e.actionspf2e.Item.Steal] an item, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Pick a Lock or Steal from a hostile creature, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> seek opportunities to overcome evermore dangerous and complex locks and mechanical defenses, steal things from dangerous creatures or places</p>\n<p><strong>Anathema</strong> leave unattended treasure where you found it, pass up opportunities for profit that challenge your skills</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          }
-        },
-        "folder": "aAfH2153pBHpxzJK"
-      }
     },
     {
       "type": "entry",
@@ -12160,10 +11481,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[overrideTraits]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[bestiary-ability-glossary-srd] Pathfinder Monster Core"
         },
         {
           "type": "enricher",

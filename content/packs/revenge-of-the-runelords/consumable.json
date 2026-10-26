@@ -163,6 +163,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -250,6 +253,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -337,6 +343,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -424,6 +433,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -539,6 +551,7 @@
       },
       "bulk": "light",
       "category": "other",
+      "effect": "a40c1934-425f-5640-a71e-f7571458c258",
       "usage": {
         "type": "held",
         "hands": "one"
