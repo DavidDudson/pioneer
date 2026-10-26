@@ -19,6 +19,10 @@
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=310"
   },
+  "deity:abadar": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=277"
+  },
   "deity:abraxas": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=425"
@@ -99,6 +103,10 @@
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=330"
   },
+  "deity:arazni": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=326"
+  },
   "deity:ardad-lili": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=588"
@@ -126,6 +134,10 @@
   "deity:ashukharma": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=611"
+  },
+  "deity:asmodeus": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=278"
   },
   "deity:atreia": {
     "book": "divine-mysteries",
@@ -207,6 +219,10 @@
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=333"
   },
+  "deity:calistria": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=279"
+  },
   "deity:camazotz": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=334"
@@ -214,6 +230,10 @@
   "deity:casandalee": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=335"
+  },
+  "deity:cayden-cailean": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=280"
   },
   "deity:cernunnos": {
     "book": "divine-mysteries",
@@ -307,6 +327,10 @@
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=536"
   },
+  "deity:desna": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=281"
+  },
   "deity:dhalavei": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=613"
@@ -354,6 +378,10 @@
   "deity:emmeton-galardaria": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=341"
+  },
+  "deity:erastil": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=282"
   },
   "deity:erecura": {
     "book": "divine-mysteries",
@@ -418,6 +446,10 @@
   "deity:gorum": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=283"
+  },
+  "deity:gozreh": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=284"
   },
   "deity:grandmother-spider": {
     "book": "divine-mysteries",
@@ -511,9 +543,17 @@
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=539"
   },
+  "deity:iomedae": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=285"
+  },
   "deity:irez": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=472"
+  },
+  "deity:irori": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=286"
   },
   "deity:isis": {
     "book": "divine-mysteries",
@@ -594,6 +634,10 @@
   "deity:lalaci": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=476"
+  },
+  "deity:lamashtu": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=287"
   },
   "deity:laudinmio": {
     "book": "divine-mysteries",
@@ -711,6 +755,10 @@
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=478"
   },
+  "deity:nethys": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=288"
+  },
   "deity:ng": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=458"
@@ -730,6 +778,10 @@
   "deity:nocticula": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=355"
+  },
+  "deity:norgorber": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=289"
   },
   "deity:nulgreth": {
     "book": "divine-mysteries",
@@ -795,6 +847,10 @@
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=434"
   },
+  "deity:pharasma": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=290"
+  },
   "deity:phlegyas": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=546"
@@ -859,6 +915,10 @@
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=388"
   },
+  "deity:rovagug": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=291"
+  },
   "deity:rull": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=559"
@@ -870,6 +930,10 @@
   "deity:saloc": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=547"
+  },
+  "deity:sarenrae": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=292"
   },
   "deity:scal": {
     "book": "divine-mysteries",
@@ -894,6 +958,10 @@
   "deity:shax": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=435"
+  },
+  "deity:shelyn": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=293"
   },
   "deity:shivaska": {
     "book": "divine-mysteries",
@@ -1047,6 +1115,10 @@
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=415"
   },
+  "deity:torag": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=294"
+  },
   "deity:treasures-of-the-eternal-delve": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=374"
@@ -1082,6 +1154,10 @@
   "deity:urazra": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=499"
+  },
+  "deity:urgathoa": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=295"
   },
   "deity:uskyeria": {
     "book": "divine-mysteries",
@@ -1243,6 +1319,10 @@
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=489"
   },
+  "deity:zon-kuthon": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=296"
+  },
   "deity:zugero": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=509"
@@ -1260,6 +1340,18 @@
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=361"
   },
   "equipment:razmiri-mask": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3593"
+  },
+  "equipment:razmiri-mask-gold": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3593"
+  },
+  "equipment:razmiri-mask-porcelain": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3593"
+  },
+  "equipment:razmiri-mask-silver": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3593"
   },

@@ -446,7 +446,8 @@ applying it. `content/aon/<book>.json` is a book's name-to-URL table from its Ao
 `just aon-sources`: a developer-run script that reads `robots.txt`, sends a descriptive User-Agent, keeps two seconds
 between requests, uses `ETag`s and stops at the first refusal. It fetches only Sources pages and stores only names and
 URLs. Nothing in CI, the importer or the app calls AoN. `bun run content:aon-propose` reads those tables and adds an
-`{ book, aon }` mapping for each entry with exactly one same-named, same-kind listing, keeping every mapping already in
+`{ book, aon }` mapping for each entry with exactly one URL for a same-named, same-kind listing (or its name without a
+parenthetical or comma suffix: a variant maps to its family page, as on AoN), keeping every mapping already in
 the file; entries with two candidates are reported, and a page number is never proposed.
 
 `bun run content:coverage` reports, per registered book, how many catalog entries cite it and which cite it by AoN

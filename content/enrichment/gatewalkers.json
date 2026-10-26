@@ -59,7 +59,23 @@
     "book": "gatewalkers",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4030"
   },
+  "equipment:pickled-demon-tongue-greater": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4030"
+  },
+  "equipment:pickled-demon-tongue-major": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4030"
+  },
   "equipment:polished-demon-horn": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4031"
+  },
+  "equipment:polished-demon-horn-greater": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4031"
+  },
+  "equipment:polished-demon-horn-major": {
     "book": "gatewalkers",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4031"
   },
@@ -72,6 +88,14 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4021"
   },
   "equipment:stalk-goggles": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4024"
+  },
+  "equipment:stalk-goggles-greater": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4024"
+  },
+  "equipment:stalk-goggles-major": {
     "book": "gatewalkers",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4024"
   },

@@ -447,6 +447,10 @@
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2711"
   },
+  "consumable:oil-1-pint": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2739"
+  },
   "consumable:rations": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2744"
@@ -494,6 +498,10 @@
   "equipment:cane": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2772"
+  },
+  "equipment:chain-10-feet": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2710"
   },
   "equipment:chest": {
     "book": "player-core",
@@ -618,6 +626,10 @@
   "equipment:hourglass": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2728"
+  },
+  "equipment:lantern-bulls-eye": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2730"
   },
   "equipment:lantern-hooded": {
     "book": "player-core",
@@ -988,6 +1000,10 @@
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=4422"
   },
   "feat:animal-companion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4708"
+  },
+  "feat:animal-companion-ranger": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=4708"
   },
@@ -1439,6 +1455,10 @@
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5061"
   },
+  "feat:counterspell-prepared": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4994"
+  },
   "feat:courageous-advance": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=4589"
@@ -1834,6 +1854,10 @@
   "feat:eternal-composition": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=4635"
+  },
+  "feat:eternal-wings-nephilim": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4566"
   },
   "feat:exacting-strike": {
     "book": "player-core",
@@ -2426,6 +2450,10 @@
   "feat:iron-fists": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=4513"
+  },
+  "feat:irrepressible-halfling": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4469"
   },
   "feat:irresistible-magic": {
     "book": "player-core",
@@ -3571,6 +3599,10 @@
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=4624"
   },
+  "feat:soulsight-bard": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4609"
+  },
   "feat:sow-spell": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=4755"
@@ -3851,6 +3883,10 @@
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=4919"
   },
+  "feat:tree-climber-elf": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4418"
+  },
   "feat:trick-magic-item": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=5229"
@@ -3882,6 +3918,10 @@
   "feat:tumble-behind-rogue": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=4920"
+  },
+  "feat:tusks-orc": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4519"
   },
   "feat:twin-distraction": {
     "book": "player-core",

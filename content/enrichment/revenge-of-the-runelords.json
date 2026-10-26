@@ -1,4 +1,20 @@
 {
+  "consumable:elixir-of-the-peaks-greater": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+  },
+  "consumable:elixir-of-the-peaks-lesser": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+  },
+  "consumable:elixir-of-the-peaks-major": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+  },
+  "consumable:elixir-of-the-peaks-moderate": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+  },
   "equipment:cyrusian-wand-1st-rank-spell": {
     "book": "revenge-of-the-runelords",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
@@ -43,7 +59,19 @@
     "book": "revenge-of-the-runelords",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4043"
   },
+  "equipment:sihedron-medallion-greater": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4043"
+  },
+  "equipment:sihedron-medallion-major": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4043"
+  },
   "equipment:sihedron-ring": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4044"
+  },
+  "equipment:sihedron-ring-greater": {
     "book": "revenge-of-the-runelords",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4044"
   },

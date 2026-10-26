@@ -8,6 +8,7 @@ const KINDS_BY_PAGE: Readonly<Record<string, readonly ContentKind[]>> = {
   Archetypes: [ContentKind.Archetype],
   Armor: [ContentKind.Armor],
   Backgrounds: [ContentKind.Background],
+  ClassKits: [ContentKind.Kit],
   Classes: [ContentKind.Class],
   Conditions: [ContentKind.Condition],
   Deities: [ContentKind.Deity],
@@ -26,6 +27,9 @@ const KINDS_BY_PAGE: Readonly<Record<string, readonly ContentKind[]>> = {
   Weapons: [ContentKind.Weapon],
 };
 
+/** The kinds some AoN page holds. An entry of any other kind (effects, class features) has no AoN page to find. */
+const LISTED_KINDS: ReadonlySet<ContentKind> = new Set(Object.values(KINDS_BY_PAGE).flat());
+
 /** What the matcher reads from an entry. */
 export interface AonMatchable {
   readonly slug: EntrySlug;
@@ -40,11 +44,15 @@ export interface AonListing {
   readonly entries: readonly AonListedEntry[];
 }
 
-/** What the matcher found: mappings to propose, entries with more than one candidate, and the count it left. */
+/**
+ * What the matcher found: mappings to propose, entries with more than one candidate, entries of a kind AoN has no page
+ * for, and entries of a listed kind it found nothing for.
+ */
 export interface AonProposals {
   readonly proposals: ReadonlyMap<EntrySlug, EnrichmentMapping>;
   readonly ambiguous: readonly EntrySlug[];
-  readonly unmatched: number;
+  readonly unlisted: number;
+  readonly unmatched: readonly EntrySlug[];
 }
 
 /** Lowercase words with straight apostrophes and no diacritics: "Warrior’s Regret" finds "Warrior's Regret". */
@@ -60,6 +68,13 @@ function normalise(name: string): string {
 
 function pageOf(url: AonUrl): string {
   return new URL(url).pathname.replace(/^\//u, '').replace(/\.aspx$/iu, '');
+}
+
+/** "Alchemist's Lab (Expanded)" and "Rope, Silk" also look up "Alchemist's Lab" and "Rope", after the full name. */
+function nameVariants(name: string): readonly string[] {
+  const withoutParenthetical = name.replace(/\s*\([^)]*\)\s*$/u, '');
+  const withoutSuffix = withoutParenthetical.replace(/,.*$/u, '');
+  return [...new Set([name, withoutParenthetical, withoutSuffix])];
 }
 
 /** Listing entries by normalised name and the kinds their page holds. */
@@ -93,14 +108,30 @@ function openSource(entry: AonMatchable, listings: ReadonlyMap<BookId, ListingIn
 /** How one entry fared: a mapping to propose, more than one candidate, no candidate, or not for the matcher. */
 type Outcome =
   | { readonly kind: 'proposal'; readonly mapping: EnrichmentMapping }
-  | { readonly kind: 'ambiguous' | 'unmatched' | 'skipped' };
+  | { readonly kind: 'ambiguous' | 'unmatched' | 'unlisted' | 'skipped' };
+
+/** The distinct URLs of the first name variant that the listing holds; rows sharing a URL are one candidate. */
+function candidates(index: ListingIndex, entry: AonMatchable): readonly AonUrl[] {
+  for (const name of nameVariants(entry.name)) {
+    const rows = index.get(indexKey(name, entry.kind));
+    const found = rows === undefined ? [] : [...new Set(rows)];
+    if (found.length > 0) {
+      return found;
+    }
+  }
+  return [];
+}
 
 function matchEntry(entry: AonMatchable, indexes: ReadonlyMap<BookId, ListingIndex>): Outcome {
   const book = openSource(entry, indexes);
   if (book === undefined) {
     return { kind: 'skipped' };
   }
-  const urls = indexes.get(book)?.get(indexKey(entry.name, entry.kind)) ?? [];
+  if (!LISTED_KINDS.has(entry.kind)) {
+    return { kind: 'unlisted' };
+  }
+  const index = indexes.get(book);
+  const urls = index === undefined ? [] : candidates(index, entry);
   const [url] = urls;
   if (urls.length > 1) {
     return { kind: 'ambiguous' };
@@ -110,7 +141,8 @@ function matchEntry(entry: AonMatchable, indexes: ReadonlyMap<BookId, ListingInd
 
 /**
  * Proposes the AoN URL of each entry from the books' listings (ADR-0071). An entry matches when a listing of a book it
- * cites holds exactly one entry of that kind with its name; two candidates are reported, not guessed. An entry that
+ * cites holds exactly one URL for an entry of that kind with its name, or with the parenthetical or comma suffix of the
+ * name dropped; two candidates are reported, not guessed. An entry that
  * already has a mapping, or whose source already has a link, is left alone. A page number is never proposed: it comes
  * from the book.
  */
@@ -120,18 +152,20 @@ export function proposeAonMappings(
   mapped: ReadonlySet<EntrySlug>,
 ): AonProposals {
   const indexes = new Map(listings.map((listing) => [listing.book, indexListing(listing)]));
-  const proposals = new Map<EntrySlug, EnrichmentMapping>();
-  const ambiguous: EntrySlug[] = [];
-  let unmatched = 0;
-  for (const entry of entries.filter(({ slug }) => !mapped.has(slug))) {
-    const outcome = matchEntry(entry, indexes);
-    if (outcome.kind === 'proposal') {
-      proposals.set(entry.slug, outcome.mapping);
-    } else if (outcome.kind === 'ambiguous') {
-      ambiguous.push(entry.slug);
-    } else if (outcome.kind === 'unmatched') {
-      unmatched += 1;
-    }
-  }
-  return { proposals, ambiguous, unmatched };
+  const results = entries
+    .filter(({ slug }) => !mapped.has(slug))
+    .map((entry) => ({ entry, outcome: matchEntry(entry, indexes) }));
+  const slugsOf = (kind: Outcome['kind']): readonly EntrySlug[] =>
+    results.filter(({ outcome }) => outcome.kind === kind).map(({ entry }) => entry.slug);
+  const proposals = new Map(
+    results.flatMap(({ entry, outcome }): [EntrySlug, EnrichmentMapping][] =>
+      outcome.kind === 'proposal' ? [[entry.slug, outcome.mapping]] : [],
+    ),
+  );
+  return {
+    proposals,
+    ambiguous: slugsOf('ambiguous'),
+    unlisted: slugsOf('unlisted').length,
+    unmatched: slugsOf('unmatched'),
+  };
 }

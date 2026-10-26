@@ -891,6 +891,10 @@
     "book": "impossible-lands",
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=258"
   },
+  "weapon:chakri-lost-omens": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=270"
+  },
   "weapon:dandpatta": {
     "book": "impossible-lands",
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=260"

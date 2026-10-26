@@ -115,6 +115,10 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3863"
   },
+  "consumable:burrowing-bolt-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3863"
+  },
   "consumable:chivalric-emblem": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3877"
@@ -128,6 +132,10 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3879"
   },
   "consumable:ethereal-crescent": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3880"
+  },
+  "consumable:ethereal-crescent-greater": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3880"
   },
@@ -207,6 +215,22 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3896"
   },
+  "consumable:toothy-knife-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3896"
+  },
+  "consumable:transmuting-ingot-adamantine": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3897"
+  },
+  "consumable:transmuting-ingot-cold-iron": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3897"
+  },
+  "consumable:transmuting-ingot-silver": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3897"
+  },
   "consumable:valorous-coin": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3898"
@@ -231,15 +255,51 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3902"
   },
+  "equipment:arcane-standard-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3902"
+  },
   "equipment:atlas-arcane": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3922"
+  },
+  "equipment:banner-of-creeping-death-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3903"
+  },
+  "equipment:banner-of-creeping-death-lesser": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3903"
+  },
+  "equipment:banner-of-creeping-death-major": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3903"
+  },
+  "equipment:banner-of-creeping-death-moderate": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3903"
   },
   "equipment:banner-of-piercing-shards": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3904"
   },
+  "equipment:banner-of-piercing-shards-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3904"
+  },
+  "equipment:banner-of-piercing-shards-major": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3904"
+  },
   "equipment:banner-of-the-restful": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3905"
+  },
+  "equipment:banner-of-the-restful-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3905"
+  },
+  "equipment:banner-of-the-restful-major": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3905"
   },
@@ -279,6 +339,14 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3908"
   },
+  "equipment:blazing-banner-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3908"
+  },
+  "equipment:blazing-banner-major": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3908"
+  },
   "equipment:bloodstained-waistcoat": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3957"
@@ -296,6 +364,14 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3959"
   },
   "equipment:boots-of-the-secret-blade": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3960"
+  },
+  "equipment:boots-of-the-secret-blade-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3960"
+  },
+  "equipment:boots-of-the-secret-blade-major": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3960"
   },
@@ -319,6 +395,10 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3909"
   },
+  "equipment:dawnfire-beacon-major": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3909"
+  },
   "equipment:doom-switch": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3933"
@@ -331,6 +411,10 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3962"
   },
+  "equipment:endless-quiver-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3962"
+  },
   "equipment:fife-of-the-faithful": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3936"
@@ -339,7 +423,15 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3963"
   },
+  "equipment:fireproof-gloves-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3963"
+  },
   "equipment:flag-of-the-stronghold": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3910"
+  },
+  "equipment:flag-of-the-stronghold-major": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3910"
   },
@@ -363,6 +455,10 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3911"
   },
+  "equipment:hexwise-banner-major": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3911"
+  },
   "equipment:horn-of-the-archon": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3938"
@@ -379,6 +475,26 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3967"
   },
+  "equipment:killers-belt": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3968"
+  },
+  "equipment:killers-belt-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3968"
+  },
+  "equipment:knaves-standard": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3912"
+  },
+  "equipment:knaves-standard-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3912"
+  },
+  "equipment:knaves-standard-major": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3912"
+  },
   "equipment:lieutenants-sash": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3969"
@@ -390,6 +506,14 @@
   "equipment:marshals-baton": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3941"
+  },
+  "equipment:medics-armband": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3972"
+  },
+  "equipment:medics-armband-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3972"
   },
   "equipment:motion-seeking-lenses": {
     "book": "battlecry",
@@ -419,6 +543,14 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3987"
   },
+  "equipment:sailors-collar": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3977"
+  },
+  "equipment:sailors-collar-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3977"
+  },
   "equipment:satchel-of-numberless-seeds": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3944"
@@ -447,6 +579,18 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3980"
   },
+  "equipment:stalwarts-banner": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3914"
+  },
+  "equipment:stalwarts-banner-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3914"
+  },
+  "equipment:stalwarts-banner-major": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3914"
+  },
   "equipment:standard-of-the-sure-footed": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3915"
@@ -467,11 +611,23 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3917"
   },
+  "equipment:swift-standard-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3917"
+  },
+  "equipment:swift-standard-major": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3917"
+  },
   "equipment:tasset-of-flexibility": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3982"
   },
   "equipment:timepiece-standard": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3918"
+  },
+  "equipment:timepiece-standard-major": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3918"
   },

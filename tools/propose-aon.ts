@@ -51,14 +51,18 @@ async function readEntries(pack: string): Promise<readonly ContentEntry[]> {
 async function proposePack(pack: string, listings: readonly AonListing[]): Promise<string> {
   const [entries, mapping] = await Promise.all([readEntries(pack), readMapping(pack)]);
   const mapped = new Set(Object.keys(mapping) as EntrySlug[]);
-  const { proposals, ambiguous, unmatched } = proposeAonMappings(entries, listings, mapped);
+  const { proposals, ambiguous, unlisted, unmatched } = proposeAonMappings(entries, listings, mapped);
   if (proposals.size > 0) {
     const merged = Object.fromEntries(
       [...Object.entries(mapping), ...proposals].toSorted(([left], [right]) => left.localeCompare(right)),
     );
     await Bun.write(path.join(ENRICHMENT, `${pack}.json`), `${JSON.stringify(merged, undefined, JSON_INDENT)}\n`);
   }
-  return `${pack}: ${proposals.size} proposed, ${ambiguous.length} ambiguous, ${unmatched} unmatched`;
+  const lines = [
+    `${pack}: ${proposals.size} proposed, ${ambiguous.length} ambiguous, ${unmatched.length} unmatched, ${unlisted} of kinds AoN has no page for`,
+    ...ambiguous.map((slug) => `  ambiguous: ${slug}`),
+  ];
+  return lines.join('\n');
 }
 
 const listings = await readListings();

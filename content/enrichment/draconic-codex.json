@@ -15,6 +15,18 @@
     "book": "draconic-codex",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4014"
   },
+  "consumable:dragon-scute-greater": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
+  },
+  "consumable:dragon-scute-lesser": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
+  },
+  "consumable:dragon-scute-moderate": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
+  },
   "deity:brixori": {
     "book": "draconic-codex",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=715"
@@ -50,6 +62,10 @@
   "deity:yluma": {
     "book": "draconic-codex",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=721"
+  },
+  "equipment:dragon-pearl-draconic-codex": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4011"
   },
   "equipment:duty-of-the-oathsworn": {
     "book": "draconic-codex",

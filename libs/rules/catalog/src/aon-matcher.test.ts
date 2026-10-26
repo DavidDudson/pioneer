@@ -17,7 +17,12 @@ function bookSource(book: BookId, aon?: string): SourceRef {
 }
 
 function entry(kind: ContentKind, name: string, source: SourceRef = bookSource(BOOK)): AonMatchable {
-  const slug = EntrySlug.parse(`${kind}:${name.toLowerCase().replaceAll(/[^a-z]+/gu, '-')}`);
+  const slug = EntrySlug.parse(
+    `${kind}:${name
+      .toLowerCase()
+      .replaceAll(/[^a-z]+/gu, '-')
+      .replaceAll(/^-|-$/gu, '')}`,
+  );
   return { slug, kind, name, sources: [source] };
 }
 
@@ -47,7 +52,7 @@ describe('proposeAonMappings', () => {
     const spell = entry(ContentKind.Spell, "warrior's regret");
     const { proposals, unmatched } = proposeAonMappings([feat, spell], [LISTING], new Set());
     expect([...proposals.keys()]).toEqual([spell.slug]);
-    expect(unmatched).toBe(1);
+    expect(unmatched).toEqual([feat.slug]);
   });
 
   test('reports two candidates instead of guessing', () => {
@@ -62,7 +67,7 @@ describe('proposeAonMappings', () => {
     const linked = entry(ContentKind.Spell, 'Fireball', bookSource(BOOK, 'https://2e.aonprd.com/Spells.aspx?ID=2'));
     const { proposals, unmatched } = proposeAonMappings([mapped, linked], [LISTING], new Set([mapped.slug]));
     expect(proposals.size).toBe(0);
-    expect(unmatched).toBe(0);
+    expect(unmatched).toEqual([]);
   });
 
   test('skips an entry whose books have no listing', () => {
@@ -81,5 +86,42 @@ describe('proposeAonMappings page kinds', () => {
     const guard = entry(ContentKind.Creature, 'Guard');
     const { proposals } = proposeAonMappings([goblin, guard], [listing], new Set());
     expect([...proposals.keys()]).toEqual([goblin.slug, guard.slug]);
+  });
+});
+
+describe('proposeAonMappings name variants and kinds', () => {
+  const listing: AonListing = {
+    book: BOOK,
+    entries: [
+      listed("Alchemist's Lab", 'Equipment', 10),
+      listed("Alchemist's Lab (Expanded)", 'Equipment', 10),
+      listed('Rope', 'Equipment', 11),
+      listed('Twin', 'Feats', 12),
+      listed('Twin', 'Feats', 13),
+    ],
+  };
+
+  test('looks up a name without its parenthetical or comma suffix when the full name has no row', () => {
+    const expanded = entry(ContentKind.Equipment, "Alchemist's Lab (Expanded)");
+    const silk = entry(ContentKind.Equipment, 'Rope, Silk');
+    const { proposals } = proposeAonMappings([expanded, silk], [listing], new Set());
+    expect(proposals.get(expanded.slug)?.aon).toBe(AonUrl.parse('https://2e.aonprd.com/Equipment.aspx?ID=10'));
+    expect(proposals.get(silk.slug)?.aon).toBe(AonUrl.parse('https://2e.aonprd.com/Equipment.aspx?ID=11'));
+  });
+
+  test('counts rows that share a URL as one candidate, and two URLs as ambiguous', () => {
+    const lab = entry(ContentKind.Equipment, "Alchemist's Lab");
+    const twin = entry(ContentKind.Feat, 'Twin');
+    const result = proposeAonMappings([lab, twin], [listing], new Set());
+    expect([...result.proposals.keys()]).toEqual([lab.slug]);
+    expect(result.ambiguous).toEqual([twin.slug]);
+  });
+
+  test('counts an entry of a kind AoN has no page for apart from one it could not find', () => {
+    const effect = entry(ContentKind.Effect, 'Effect: Aid');
+    const missing = entry(ContentKind.Feat, 'Not On AoN');
+    const result = proposeAonMappings([effect, missing], [listing], new Set());
+    expect(result.unlisted).toBe(1);
+    expect(result.unmatched).toEqual([missing.slug]);
   });
 });

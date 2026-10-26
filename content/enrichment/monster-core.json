@@ -951,6 +951,14 @@
     "book": "monster-core",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2994"
   },
+  "creature:manticore-quill-tail": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3093"
+  },
+  "creature:manticore-scorpion-tail": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3093"
+  },
   "creature:marsh-giant": {
     "book": "monster-core",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3011"
@@ -1362,6 +1370,50 @@
   "creature:sod-hound": {
     "book": "monster-core",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2977"
+  },
+  "creature:soulbound-doll-brave": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+  },
+  "creature:soulbound-doll-calm": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+  },
+  "creature:soulbound-doll-careful": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+  },
+  "creature:soulbound-doll-cruel": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+  },
+  "creature:soulbound-doll-gentle": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+  },
+  "creature:soulbound-doll-impish": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+  },
+  "creature:soulbound-doll-jolly": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+  },
+  "creature:soulbound-doll-kind": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+  },
+  "creature:soulbound-doll-rash": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+  },
+  "creature:soulbound-doll-sassy": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+  },
+  "creature:soulbound-doll-timid": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
   },
   "creature:sphinx": {
     "book": "monster-core",

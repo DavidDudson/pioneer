@@ -35,9 +35,41 @@
     "book": "triumph-of-the-tusk",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3760"
   },
+  "equipment:aurochs-might-tattoo-greater": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3738"
+  },
+  "equipment:aurochs-might-tattoo-lesser": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3738"
+  },
+  "equipment:aurochs-might-tattoo-moderate": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3738"
+  },
+  "equipment:cleft-head-marking-greater": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3739"
+  },
+  "equipment:cleft-head-marking-lesser": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3739"
+  },
   "equipment:empty-hand-marking": {
     "book": "triumph-of-the-tusk",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3656"
+  },
+  "equipment:flowing-water-greater": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3740"
+  },
+  "equipment:flowing-water-lesser": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3740"
+  },
+  "equipment:flowing-water-moderate": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3740"
   },
   "equipment:storied-skin": {
     "book": "triumph-of-the-tusk",

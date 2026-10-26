@@ -279,6 +279,10 @@
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1122"
   },
+  "consumable:black-powder-dose": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190"
+  },
   "consumable:black-powder-horn": {
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190"
@@ -784,6 +788,10 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1155"
   },
   "equipment:portable-weapon-mount-monopod": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1219"
+  },
+  "equipment:portable-weapon-mount-shielded-tripod": {
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1219"
   },
