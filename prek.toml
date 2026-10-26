@@ -16,6 +16,8 @@ name = "oxfmt"
 language = "system"
 # oxfmt skips files it does not support or ignores.
 entry = "node_modules/.bin/oxfmt --no-error-on-unmatched-pattern"
+# Not at commit-msg: prek passes COMMIT_EDITMSG there, a relative path oxfmt rejects in a workspace checkout.
+stages = ["pre-commit"]
 priority = 0
 
 [[repos.hooks]]
