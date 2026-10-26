@@ -177,7 +177,9 @@ export async function seasonOfGhostsPack() {
 export async function hellbreakersPack() {
   return pack(import('@pioneer/content/packs/hellbreakers/pack.json'), [
     import('@pioneer/content/packs/hellbreakers/archetype.json'),
+    import('@pioneer/content/packs/hellbreakers/background.json'),
     import('@pioneer/content/packs/hellbreakers/consumable.json'),
+    import('@pioneer/content/packs/hellbreakers/creature.json'),
     import('@pioneer/content/packs/hellbreakers/effect.json'),
     import('@pioneer/content/packs/hellbreakers/equipment.json'),
     import('@pioneer/content/packs/hellbreakers/feat.json'),
