@@ -1,0 +1,98 @@
+{
+  "consumable:bonebloom-rose": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5196"
+  },
+  "consumable:poets-fritter-greater": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5203"
+  },
+  "consumable:poets-fritter-lesser": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5203"
+  },
+  "consumable:poets-fritter-moderate": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5203"
+  },
+  "equipment:alisendras-fan": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5193"
+  },
+  "equipment:augstens-cudgel": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5193"
+  },
+  "equipment:commanders-signet": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5197"
+  },
+  "equipment:dazeriens-thumbscrew": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5193"
+  },
+  "equipment:evercursed-crystal": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5199"
+  },
+  "equipment:generals-signet": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5197"
+  },
+  "equipment:graverose-garland": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5198"
+  },
+  "equipment:illusionists-hat": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5201"
+  },
+  "equipment:irrokciss-medallion": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5193"
+  },
+  "equipment:jinniveres-riding-crop": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5193"
+  },
+  "equipment:kindler-cameo": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5202"
+  },
+  "equipment:raudltzs-telescope": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5193"
+  },
+  "equipment:ryhasphineas-hourglass": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5193"
+  },
+  "equipment:soulheart": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5194"
+  },
+  "equipment:soulheart-greater": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5194"
+  },
+  "equipment:soulheart-major": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5194"
+  },
+  "equipment:soulheart-pure": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5194"
+  },
+  "equipment:velicarns-cursed-coin": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5204"
+  },
+  "equipment:vile-remnant": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5195"
+  },
+  "equipment:whispering-remnant": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5195"
+  }
+}

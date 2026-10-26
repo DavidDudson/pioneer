@@ -1,0 +1,198 @@
+{
+  "archetype:oatia-skysage": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=335"
+  },
+  "archetype:twilight-speaker": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=337"
+  },
+  "consumable:bottled-omen": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4025"
+  },
+  "consumable:draft-of-stellar-radiance": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4026"
+  },
+  "consumable:oil-of-corpse-restoration": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4038"
+  },
+  "consumable:psychic-colors-elixir": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4034"
+  },
+  "consumable:star-of-cynosure": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4040"
+  },
+  "consumable:vat-grown-brain": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4035"
+  },
+  "equipment:cloak-of-devouring-thorns": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4023"
+  },
+  "equipment:cloak-of-gnawing-leaves": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4023"
+  },
+  "equipment:cloak-of-thirsty-fronds": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4023"
+  },
+  "equipment:ice-forge": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4037"
+  },
+  "equipment:mariners-astrolabe": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4027"
+  },
+  "equipment:mindsponge": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4036"
+  },
+  "equipment:pickled-demon-tongue": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4030"
+  },
+  "equipment:polished-demon-horn": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4031"
+  },
+  "equipment:rime-jar": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4039"
+  },
+  "equipment:shadewither-key": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4021"
+  },
+  "equipment:stalk-goggles": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4024"
+  },
+  "equipment:standard-astrolabe": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4027"
+  },
+  "equipment:telekinetic-converters": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4033"
+  },
+  "feat:basic-skysage-divination": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8113"
+  },
+  "feat:betraying-shank": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8135"
+  },
+  "feat:disarming-smile": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8134"
+  },
+  "feat:emphatic-emissary": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8138"
+  },
+  "feat:guardians-embrace": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8127"
+  },
+  "feat:guided-skill": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8126"
+  },
+  "feat:ilverani-purist": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8136"
+  },
+  "feat:invigorating-breath": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8128"
+  },
+  "feat:minor-omen": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8116"
+  },
+  "feat:nights-glow": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8115"
+  },
+  "feat:nights-shine": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8120"
+  },
+  "feat:oatia-skysage-dedication": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8112"
+  },
+  "feat:scholars-hunch": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8117"
+  },
+  "feat:scion-of-domora-dedication": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8124"
+  },
+  "feat:spirit-guide-form": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8131"
+  },
+  "feat:spiritual-aid": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8130"
+  },
+  "feat:spiritual-flurry": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8129"
+  },
+  "feat:spiritual-strike": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8125"
+  },
+  "feat:stargazers-eyes": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8114"
+  },
+  "feat:starlight-armor": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8122"
+  },
+  "feat:starlit-spells": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8118"
+  },
+  "feat:twilight-speaker-dedication": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8132"
+  },
+  "feat:world-wise-vigilance": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8137"
+  },
+  "ritual:phantom-ship": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=220"
+  },
+  "spell:advanced-scurvy": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2534"
+  },
+  "spell:briny-bolt": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2535"
+  },
+  "spell:lashing-rope": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2536"
+  },
+  "spell:lashuntas-life-bubble": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2533"
+  }
+}

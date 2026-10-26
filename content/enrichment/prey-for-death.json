@@ -1,0 +1,182 @@
+{
+  "archetype:red-mantis-assassin": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=271"
+  },
+  "consumable:blood-sight-elixir-greater": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3490"
+  },
+  "consumable:blood-sight-elixir-lesser": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3490"
+  },
+  "consumable:blood-sight-elixir-major": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3490"
+  },
+  "consumable:blood-sight-elixir-moderate": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3490"
+  },
+  "consumable:breath-of-the-mantis-god": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3491"
+  },
+  "creature:bloodfog": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3389"
+  },
+  "creature:bloody-hands": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3393"
+  },
+  "creature:einherji-host": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3390"
+  },
+  "creature:frost-roc": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3392"
+  },
+  "creature:saint-fang": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3394"
+  },
+  "creature:silver-saber": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3396"
+  },
+  "creature:temperbrand": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3395"
+  },
+  "creature:the-first-blade": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3391"
+  },
+  "creature:valkyrie-tempest": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3397"
+  },
+  "equipment:assassins-bracers-type-i": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3495"
+  },
+  "equipment:assassins-bracers-type-ii": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3495"
+  },
+  "equipment:assassins-bracers-type-iii": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3495"
+  },
+  "equipment:crimson-tome": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3492"
+  },
+  "equipment:elysian-clairglass": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3493"
+  },
+  "equipment:eye-of-the-mantis": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3494"
+  },
+  "equipment:mantis-embrace": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3496"
+  },
+  "equipment:mantis-embrace-greater": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3496"
+  },
+  "equipment:mask-of-the-mantis": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3497"
+  },
+  "equipment:mask-of-the-mantis-greater": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3497"
+  },
+  "equipment:mask-of-the-mantis-major": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3497"
+  },
+  "feat:achaekeks-grip": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6523"
+  },
+  "feat:basic-red-mantis-magic": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6520"
+  },
+  "feat:crimson-shroud": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6521"
+  },
+  "feat:expert-red-mantis-magic": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6526"
+  },
+  "feat:mantis-form": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6524"
+  },
+  "feat:master-red-mantis-magic": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6529"
+  },
+  "feat:prayer-attack": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6528"
+  },
+  "feat:red-mantis-assassin-dedication": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6519"
+  },
+  "feat:red-mantis-school-spell": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6522"
+  },
+  "feat:vernai-training": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6527"
+  },
+  "spell:achaekeks-clutch": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2128"
+  },
+  "spell:bone-flense": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2123"
+  },
+  "spell:crimson-breath": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2124"
+  },
+  "spell:debilitating-terror": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2130"
+  },
+  "spell:mantis-form": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2129"
+  },
+  "spell:mantiss-grasp": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2125"
+  },
+  "spell:mark-of-blood": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2126"
+  },
+  "spell:sawtooth-terrain": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2127"
+  },
+  "spell:shroud-of-the-mantis": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2131"
+  }
+}

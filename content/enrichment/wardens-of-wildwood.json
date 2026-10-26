@@ -1,0 +1,78 @@
+{
+  "archetype:verduran-shadow": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=312"
+  },
+  "consumable:primal-pollen": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3715"
+  },
+  "creature:arboreal-sapling": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3690"
+  },
+  "creature:arboreal-sapstriker": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3692"
+  },
+  "creature:arboreal-shepherd": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3691"
+  },
+  "creature:azhana": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3693"
+  },
+  "creature:chetamog": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3695"
+  },
+  "creature:cythnophorian": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3696"
+  },
+  "creature:ohancanu": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3697"
+  },
+  "creature:the-bee-man-of-bellis": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3694"
+  },
+  "creature:twigjack-bramble": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3698"
+  },
+  "equipment:beekeepers-smoker": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3716"
+  },
+  "feat:canopy-predator": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7607"
+  },
+  "feat:death-from-above": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7610"
+  },
+  "feat:sense-the-strike": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7611"
+  },
+  "feat:underbrush-trailblazer": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7608"
+  },
+  "feat:verduran-ambush": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7609"
+  },
+  "feat:verduran-shadow-dedication": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7606"
+  },
+  "spell:bee-mans-summons": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2439"
+  }
+}

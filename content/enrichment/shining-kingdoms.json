@@ -1,0 +1,494 @@
+{
+  "archetype:blackjacket": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=316"
+  },
+  "archetype:eagle-knight": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=314"
+  },
+  "archetype:lion-blade": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=319"
+  },
+  "archetype:prophet-of-kalistrade": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=315"
+  },
+  "archetype:ulfen-guard": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=320"
+  },
+  "archetype:wylderheart": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=318"
+  },
+  "consumable:breath-of-freedom": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3761"
+  },
+  "consumable:godrending-ammunition": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3763"
+  },
+  "consumable:memory-ribbon": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3768"
+  },
+  "deity:the-tides-of-chaos": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=698"
+  },
+  "equipment:emperors-peak-quartz-bracelet": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3766"
+  },
+  "equipment:fan-buckler": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3776"
+  },
+  "equipment:jaws-of-the-grogrisant": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3780"
+  },
+  "equipment:keep-stone-amulet": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3767"
+  },
+  "equipment:paws-of-the-grogrisant": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3781"
+  },
+  "equipment:resonating-crystal-boots": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3774"
+  },
+  "equipment:shawl-of-seasons": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3775"
+  },
+  "equipment:splinter-of-finality": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3772"
+  },
+  "equipment:taldogis-badge": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3779"
+  },
+  "equipment:twilight-tattoo": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3765"
+  },
+  "feat:aura-of-confidence": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7673"
+  },
+  "feat:basic-prophet-spellcasting": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7681"
+  },
+  "feat:battlefield-agility": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7692"
+  },
+  "feat:belay-that": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7690"
+  },
+  "feat:blackjacket-dedication": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7689"
+  },
+  "feat:blessed-sentinel": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7717"
+  },
+  "feat:bolster-ally": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7671"
+  },
+  "feat:close-contract": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7695"
+  },
+  "feat:commitment-to-equality": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7667"
+  },
+  "feat:commitment-to-justice": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7669"
+  },
+  "feat:commitment-to-liberty": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7670"
+  },
+  "feat:crowd-mastery": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7727"
+  },
+  "feat:defenders-grit": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7736"
+  },
+  "feat:demon-hunting-companion": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7715"
+  },
+  "feat:dread-blade": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7705"
+  },
+  "feat:eagle-knight-dedication": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7666"
+  },
+  "feat:elven-persistence": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7723"
+  },
+  "feat:expeditious-advance": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7728"
+  },
+  "feat:expert-prophet-spellcasting": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7686"
+  },
+  "feat:fiend-slayer": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7720"
+  },
+  "feat:flickering-twirl": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7732"
+  },
+  "feat:fling-head": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7700"
+  },
+  "feat:fortunes-favor": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7683"
+  },
+  "feat:free-heart": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7722"
+  },
+  "feat:ghostly-condemnation": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7703"
+  },
+  "feat:guarded-mind": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7738"
+  },
+  "feat:guards-fury": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7737"
+  },
+  "feat:guillotine-blade": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7712"
+  },
+  "feat:haunting-memories": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7701"
+  },
+  "feat:headless-haunt": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7699"
+  },
+  "feat:hungry-blade": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7709"
+  },
+  "feat:immediate-rebuke": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7676"
+  },
+  "feat:inflame-crowd": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7677"
+  },
+  "feat:inspiring-recitation": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7725"
+  },
+  "feat:instrument-of-death": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7711"
+  },
+  "feat:interpose": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7668"
+  },
+  "feat:interposing-crowd": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7729"
+  },
+  "feat:klingegeist": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7702"
+  },
+  "feat:lead-by-example": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7693"
+  },
+  "feat:lethal-edge": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7708"
+  },
+  "feat:lion-blade-dedication": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7724"
+  },
+  "feat:lions-magic": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7730"
+  },
+  "feat:lost-in-the-crowd": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7726"
+  },
+  "feat:master-merchant": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7687"
+  },
+  "feat:master-prophet-spellcasting": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7688"
+  },
+  "feat:mercenary-motivation": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7691"
+  },
+  "feat:nothing-personal": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7694"
+  },
+  "feat:opportune-opening": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7696"
+  },
+  "feat:primal-guardian": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7718"
+  },
+  "feat:prolific-prophet-spellcasting": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7684"
+  },
+  "feat:prophet-of-kalistrade-dedication": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7680"
+  },
+  "feat:prophets-lockbox": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7685"
+  },
+  "feat:protective-strike": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7741"
+  },
+  "feat:sacred-weapon": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7721"
+  },
+  "feat:slowing-strike": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7733"
+  },
+  "feat:smile-at-failure": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7682"
+  },
+  "feat:soul-bleed": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7706"
+  },
+  "feat:soul-oubliette": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7713"
+  },
+  "feat:soul-well": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7707"
+  },
+  "feat:spectral-dagger": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7704"
+  },
+  "feat:spys-countermeasures": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7731"
+  },
+  "feat:stalwart-chant": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7698"
+  },
+  "feat:stalwart-song": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7697"
+  },
+  "feat:stifle-flames": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7678"
+  },
+  "feat:stir-allies": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7672"
+  },
+  "feat:stunning-surprise": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7734"
+  },
+  "feat:talmandors-shout": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7674"
+  },
+  "feat:tight-follower": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7740"
+  },
+  "feat:ulfen-guard-dedication": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7735"
+  },
+  "feat:vanish-into-the-land": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7679"
+  },
+  "feat:wild-dance": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7719"
+  },
+  "feat:wounded-party": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7739"
+  },
+  "feat:wylderheart-dedication": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7714"
+  },
+  "feat:wyldsinger": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7716"
+  },
+  "rune:bolkas-blessing": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3769"
+  },
+  "rune:kolss-oath": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3770"
+  },
+  "rune:trudds-strength": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3771"
+  },
+  "spell:attacked-from-within": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2467"
+  },
+  "spell:avenging-wildwood": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2461"
+  },
+  "spell:capital-dividend": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2466"
+  },
+  "spell:defended-by-spirits": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2468"
+  },
+  "spell:eagles-cry": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2462"
+  },
+  "spell:echo-jump": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2481"
+  },
+  "spell:elemental-sheath": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2477"
+  },
+  "spell:equal-footing": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2463"
+  },
+  "spell:forest-of-gates": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2482"
+  },
+  "spell:friendly-push": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2479"
+  },
+  "spell:kings-castle": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2483"
+  },
+  "spell:manifestation-of-spirits": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2469"
+  },
+  "spell:menacing-lament": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2475"
+  },
+  "spell:pain-of-ages": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2470"
+  },
+  "spell:radiant-globe": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2464"
+  },
+  "spell:rapid-retreat": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2480"
+  },
+  "spell:spirit-ward": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2471"
+  },
+  "spell:spiritual-renewal": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2472"
+  },
+  "spell:spiritual-transport": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2473"
+  },
+  "spell:sudden-transposition": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2484"
+  },
+  "spell:trade-items": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2485"
+  },
+  "spell:unexpected-windfall": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2465"
+  },
+  "spell:valiant-anthem": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2476"
+  },
+  "spell:veil-of-spirits": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2474"
+  },
+  "spell:vicious-howl": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2478"
+  },
+  "spell:warping-pull": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2486"
+  }
+}

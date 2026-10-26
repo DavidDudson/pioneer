@@ -1,0 +1,82 @@
+{
+  "archetype:tattooed-historian": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=313"
+  },
+  "creature:aurochs": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3753"
+  },
+  "creature:bristle-boar": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3754"
+  },
+  "creature:floodslain-orc": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3755"
+  },
+  "creature:orc-doomsayer": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3758"
+  },
+  "creature:orc-rampager": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3757"
+  },
+  "creature:orc-vagabond": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3756"
+  },
+  "creature:skinslough": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3759"
+  },
+  "creature:stormblood-tiger": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3760"
+  },
+  "equipment:empty-hand-marking": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3656"
+  },
+  "equipment:storied-skin": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3658"
+  },
+  "feat:agent-of-all-holds": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7650"
+  },
+  "feat:aurochs-headed": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7648"
+  },
+  "feat:infused-with-belkzens-might": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7652"
+  },
+  "feat:inked-panoply": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7651"
+  },
+  "feat:inscribed-with-elders-deeds": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7653"
+  },
+  "feat:spell-survivor": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7649"
+  },
+  "feat:tattooed-historian-dedication": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7647"
+  },
+  "feat:wrath-of-the-hold": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7654"
+  },
+  "weapon:orc-skewermaul": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=527"
+  }
+}

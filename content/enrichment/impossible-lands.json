@@ -1,0 +1,934 @@
+{
+  "ancestry:ghoran": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=52"
+  },
+  "ancestry:kashrishi": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=53"
+  },
+  "ancestry:nagaji": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=54"
+  },
+  "ancestry:vanara": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=55"
+  },
+  "ancestry:vishkanya": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=56"
+  },
+  "archetype:jalmeri-heavenseeker": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=198"
+  },
+  "archetype:shieldmarshal": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=197"
+  },
+  "consumable:alkenstar-ice-wine": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1788"
+  },
+  "consumable:bottled-screams": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1792"
+  },
+  "consumable:condensed-mana": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1802"
+  },
+  "consumable:defiled-costa": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1793"
+  },
+  "consumable:defiled-costa-greater": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1793"
+  },
+  "consumable:grave-token": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1794"
+  },
+  "consumable:oozepick": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1812"
+  },
+  "consumable:oozepick-greater": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1812"
+  },
+  "consumable:oxygen-ooze": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1813"
+  },
+  "consumable:unsullied-blood-greater": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1795"
+  },
+  "consumable:unsullied-blood-lesser": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1795"
+  },
+  "consumable:unsullied-blood-major": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1795"
+  },
+  "consumable:unsullied-blood-moderate": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1795"
+  },
+  "consumable:vultures-wing": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1796"
+  },
+  "equipment:carrion-cask": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1797"
+  },
+  "equipment:cube-of-force": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1803"
+  },
+  "equipment:cube-of-nex": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1805"
+  },
+  "equipment:doctrine-of-blissful-eternity": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1798"
+  },
+  "equipment:lesser-cube-of-nex": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1804"
+  },
+  "equipment:open-mind": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1806"
+  },
+  "equipment:palanquin-of-night": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1799"
+  },
+  "equipment:plated-duster": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1789"
+  },
+  "equipment:pocket-watch": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1790"
+  },
+  "equipment:silent-heart": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1807"
+  },
+  "equipment:sunflower-censer": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1800"
+  },
+  "equipment:thoughtwhip-claw": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1808"
+  },
+  "equipment:vengeful-arm": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1809"
+  },
+  "equipment:venomed-tongue": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1810"
+  },
+  "equipment:wrenchgear": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1791"
+  },
+  "feat:alabaster-eyes": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4021"
+  },
+  "feat:alluring-performance": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4029"
+  },
+  "feat:ancient-memories": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3944"
+  },
+  "feat:asura-magic": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3940"
+  },
+  "feat:bend-space": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3980"
+  },
+  "feat:breath-of-calamity": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3998"
+  },
+  "feat:cannibalize-magic": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4049"
+  },
+  "feat:canopy-sight": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4000"
+  },
+  "feat:cleansing-light": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3981"
+  },
+  "feat:climbing-tail": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4001"
+  },
+  "feat:cold-minded": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3982"
+  },
+  "feat:community-knowledge": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3962"
+  },
+  "feat:consolidated-overlay-panopticon": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4041"
+  },
+  "feat:counterclockwork-focus": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4043"
+  },
+  "feat:cross-the-final-horizon": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2205"
+  },
+  "feat:crystal-luminescence": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3963"
+  },
+  "feat:dangle-vanara": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4012"
+  },
+  "feat:darting-monkey": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4006"
+  },
+  "feat:debilitating-venom": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4026"
+  },
+  "feat:defy-fey": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4054"
+  },
+  "feat:disruptive-stare": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3995"
+  },
+  "feat:dominion-aura": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3943"
+  },
+  "feat:drain-emotion": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4047"
+  },
+  "feat:eldritch-calm": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4051"
+  },
+  "feat:embodied-dragoon-subjectivity": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3929"
+  },
+  "feat:embodied-dreadnought-subjectivity": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3927"
+  },
+  "feat:embodied-legionary-subjectivity": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3926"
+  },
+  "feat:emotional-partitions": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3964"
+  },
+  "feat:empathic-calm": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3970"
+  },
+  "feat:endless-memories": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3953"
+  },
+  "feat:envenom-strike": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3991"
+  },
+  "feat:equitable-defense": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4042"
+  },
+  "feat:eternal-memories": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3957"
+  },
+  "feat:fey-ascension": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4048"
+  },
+  "feat:fey-influence": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1239"
+  },
+  "feat:fey-tracker": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4055"
+  },
+  "feat:fey-transcendence": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4052"
+  },
+  "feat:fighting-horn": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3971"
+  },
+  "feat:flexible-form": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3945"
+  },
+  "feat:flower-magic": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3954"
+  },
+  "feat:fortified-mind": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3975"
+  },
+  "feat:ghoran-lore": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3946"
+  },
+  "feat:ghoran-weapon-expertise": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3958"
+  },
+  "feat:ghoran-weapon-familiarity": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3947"
+  },
+  "feat:ghoran-weapon-practice": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3949"
+  },
+  "feat:ghorans-wrath": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3961"
+  },
+  "feat:glamour": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4050"
+  },
+  "feat:grand-dance": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4046"
+  },
+  "feat:greater-enhance-venom": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4036"
+  },
+  "feat:greenwatch-initiate": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4053"
+  },
+  "feat:greenwatch-veteran": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4056"
+  },
+  "feat:greenwatcher": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4058"
+  },
+  "feat:guarded-thoughts": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3992"
+  },
+  "feat:heavens-thunder": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2199"
+  },
+  "feat:hidden-thorn": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3948"
+  },
+  "feat:hypnotic-lure": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3987"
+  },
+  "feat:idol-threat": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3942"
+  },
+  "feat:jalmeri-heavenseeker-dedication": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2198"
+  },
+  "feat:jalmeri-rakshasa-magic": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3941"
+  },
+  "feat:jungle-runner": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4007"
+  },
+  "feat:kashrishi-revivification": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3978"
+  },
+  "feat:legendary-size": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4013"
+  },
+  "feat:lesser-enhance-venom": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4022"
+  },
+  "feat:look-but-dont-touch": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3959"
+  },
+  "feat:masquerade-of-seasons-stance": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4044"
+  },
+  "feat:mental-sustenance": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3965"
+  },
+  "feat:miraculous-repair": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3935"
+  },
+  "feat:moderate-enhance-venom": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4030"
+  },
+  "feat:molten-wit": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3930"
+  },
+  "feat:monkey-spirits": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4016"
+  },
+  "feat:murderous-thorns": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3950"
+  },
+  "feat:nagaji-lore": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3983"
+  },
+  "feat:nagaji-spell-expertise": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3996"
+  },
+  "feat:nagaji-spell-familiarity": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3984"
+  },
+  "feat:nagaji-spell-mysteries": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3988"
+  },
+  "feat:native-waters": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3931"
+  },
+  "feat:noble-resolve": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3934"
+  },
+  "feat:open-mind": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3966"
+  },
+  "feat:perfect-ki-exemplar": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4062"
+  },
+  "feat:perfect-ki-expert": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4061"
+  },
+  "feat:perfect-ki-grandmaster": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4063"
+  },
+  "feat:perfect-resistance": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4060"
+  },
+  "feat:perfect-weaponry": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4059"
+  },
+  "feat:perfume-cloud": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3955"
+  },
+  "feat:pirouette": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4045"
+  },
+  "feat:pit-of-snakes": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3997"
+  },
+  "feat:planar-sidestep": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3936"
+  },
+  "feat:prismatic-scales": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3999"
+  },
+  "feat:puncturing-horn": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3967"
+  },
+  "feat:ragdyas-dance": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4014"
+  },
+  "feat:ragdyas-revelry": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4008"
+  },
+  "feat:rakshasa-ravaged": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4015"
+  },
+  "feat:reimagine": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3979"
+  },
+  "feat:restoring-blood": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4027"
+  },
+  "feat:reveal-hidden-self": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3938"
+  },
+  "feat:scuttle-up": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3968"
+  },
+  "feat:serpentcoil-slam": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3993"
+  },
+  "feat:serpentine-swimmer": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3994"
+  },
+  "feat:serpents-tongue": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3985"
+  },
+  "feat:shieldmarshal-dedication": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4040"
+  },
+  "feat:silent-stone": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3932"
+  },
+  "feat:skilled-climber": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3972"
+  },
+  "feat:skillful-climber": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4009"
+  },
+  "feat:skin-split": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3989"
+  },
+  "feat:sky-and-heaven-stance": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2200"
+  },
+  "feat:skyseeker": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2201"
+  },
+  "feat:social-camouflage": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4023"
+  },
+  "feat:speak-with-flowers": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3951"
+  },
+  "feat:speaking-sky": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2204"
+  },
+  "feat:steal-the-sky": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2202"
+  },
+  "feat:stronger-debilitating-venom": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4033"
+  },
+  "feat:sudden-mindfulness": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4002"
+  },
+  "feat:swift-application": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4031"
+  },
+  "feat:tail-snatch": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4010"
+  },
+  "feat:telekinetic-slip": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3976"
+  },
+  "feat:tough-skin": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3969"
+  },
+  "feat:transcendent-realization": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3977"
+  },
+  "feat:transposable-compliance": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3928"
+  },
+  "feat:trees-ward": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3952"
+  },
+  "feat:triggerbrand-blitz": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4039"
+  },
+  "feat:triggerbrand-salvo": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4038"
+  },
+  "feat:unbound-freedom": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4017"
+  },
+  "feat:unfettering-prankster": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4020"
+  },
+  "feat:unlock-secret": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3973"
+  },
+  "feat:unseen-passage": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4057"
+  },
+  "feat:vanara-battle-clarity": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4018"
+  },
+  "feat:vanara-lore": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4003"
+  },
+  "feat:vanara-weapon-expertise": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4019"
+  },
+  "feat:vanara-weapon-familiarity": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4004"
+  },
+  "feat:vanara-weapon-trickery": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4011"
+  },
+  "feat:venom-purge": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4034"
+  },
+  "feat:venom-spit": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3990"
+  },
+  "feat:vicious-venom": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4037"
+  },
+  "feat:violent-vines": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3960"
+  },
+  "feat:viper-strike": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4032"
+  },
+  "feat:vishkanya-lore": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4024"
+  },
+  "feat:vishkanya-weapon-arts": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4028"
+  },
+  "feat:vishkanya-weapon-expertise": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4035"
+  },
+  "feat:vishkanya-weapon-familiarity": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4025"
+  },
+  "feat:water-nagaji": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3986"
+  },
+  "feat:well-of-potential": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3974"
+  },
+  "feat:whitecape": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4005"
+  },
+  "feat:wind-pillow": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3933"
+  },
+  "heritage:ancient-ash": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=207"
+  },
+  "heritage:athamasi": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=211"
+  },
+  "heritage:bandaagee-vanara": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=221"
+  },
+  "heritage:cataphract-fleshwarp": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=204"
+  },
+  "heritage:discarded-fleshwarp": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=205"
+  },
+  "heritage:elusive-vishkanya": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=225"
+  },
+  "heritage:enchanting-lily": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=208"
+  },
+  "heritage:hooded-nagaji": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=216"
+  },
+  "heritage:keen-venom-vishkanya": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=226"
+  },
+  "heritage:lahkgyan-vanara": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=222"
+  },
+  "heritage:lethoci": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=212"
+  },
+  "heritage:nascent": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=213"
+  },
+  "heritage:old-blood-vishkanya": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=227"
+  },
+  "heritage:prismatic-vishkanya": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=228"
+  },
+  "heritage:ragdyan-vanara": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=223"
+  },
+  "heritage:sacred-nagaji": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=217"
+  },
+  "heritage:scalekeeper-vishkanya": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=229"
+  },
+  "heritage:strong-oak": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=209"
+  },
+  "heritage:surgewise-fleshwarp": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=206"
+  },
+  "heritage:thorned-rose": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=210"
+  },
+  "heritage:titan-nagaji": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=218"
+  },
+  "heritage:trogloshi": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=214"
+  },
+  "heritage:venom-resistant-vishkanya": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=230"
+  },
+  "heritage:venomshield-nagaji": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=219"
+  },
+  "heritage:wajaghand-vanara": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=224"
+  },
+  "heritage:whipfang-nagaji": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=220"
+  },
+  "heritage:xyloshi": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=215"
+  },
+  "spell:speaking-sky": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=824"
+  },
+  "spell:steal-the-sky": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=825"
+  },
+  "spell:summon-ancient-fleshforged": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1256"
+  },
+  "spell:summon-healing-servitor": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1257"
+  },
+  "spell:unblinking-flame-aura": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1244"
+  },
+  "spell:unblinking-flame-emblem": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1245"
+  },
+  "spell:unblinking-flame-ignition": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1246"
+  },
+  "spell:unbreaking-wave-barrier": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1247"
+  },
+  "spell:unbreaking-wave-containment": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1248"
+  },
+  "spell:unbreaking-wave-vapor": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1249"
+  },
+  "spell:unfolding-wind-blitz": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1250"
+  },
+  "spell:unfolding-wind-buffet": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1251"
+  },
+  "spell:unfolding-wind-crash": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1252"
+  },
+  "spell:untwisting-iron-augmentation": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1253"
+  },
+  "spell:untwisting-iron-pillar": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1254"
+  },
+  "spell:untwisting-iron-roots": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1255"
+  },
+  "weapon:broadspear": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=258"
+  },
+  "weapon:dandpatta": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=260"
+  },
+  "weapon:donchak": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=261"
+  },
+  "weapon:gada": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=262"
+  },
+  "weapon:kalis": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=263"
+  },
+  "weapon:kris": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=264"
+  },
+  "weapon:talwar": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=266"
+  },
+  "weapon:thorn-whip": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=267"
+  },
+  "weapon:triggerbrand": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=257"
+  },
+  "weapon:visap": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=268"
+  },
+  "weapon:zulfikar": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=269"
+  }
+}

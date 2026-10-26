@@ -1,0 +1,1998 @@
+{
+  "archetype:mortal-herald": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=305"
+  },
+  "archetype:razmiran-priest": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=307"
+  },
+  "archetype:rivethun-emissary": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=308"
+  },
+  "archetype:rivethun-invoker": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=309"
+  },
+  "archetype:rivethun-involutionist": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=310"
+  },
+  "deity:abraxas": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=425"
+  },
+  "deity:acavna": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=402"
+  },
+  "deity:achaekek": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=325"
+  },
+  "deity:aegirran": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=490"
+  },
+  "deity:aesocar": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=403"
+  },
+  "deity:ah-pook": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=327"
+  },
+  "deity:ahriman": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=563"
+  },
+  "deity:alazhra": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=510"
+  },
+  "deity:aleth": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=328"
+  },
+  "deity:alglenweis": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=605"
+  },
+  "deity:alseta": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=329"
+  },
+  "deity:amaznen": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=404"
+  },
+  "deity:ananshea": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=592"
+  },
+  "deity:andoletta": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=464"
+  },
+  "deity:angradd": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=444"
+  },
+  "deity:anogetz": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=416"
+  },
+  "deity:anubis": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=511"
+  },
+  "deity:aonaurious": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=581"
+  },
+  "deity:apollyon": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=390"
+  },
+  "deity:apsu": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=330"
+  },
+  "deity:ardad-lili": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=588"
+  },
+  "deity:areshkagal": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=426"
+  },
+  "deity:aroden": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=512"
+  },
+  "deity:arshea": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=465"
+  },
+  "deity:arundhat": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=610"
+  },
+  "deity:ashava": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=466"
+  },
+  "deity:ashukharma": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=611"
+  },
+  "deity:atreia": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=686"
+  },
+  "deity:atrogine": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=331"
+  },
+  "deity:atropos": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=533"
+  },
+  "deity:ayrzul": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=687"
+  },
+  "deity:azathoth": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=567"
+  },
+  "deity:baalzebul": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=394"
+  },
+  "deity:baphomet": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=427"
+  },
+  "deity:barbatos": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=395"
+  },
+  "deity:barzahk": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=534"
+  },
+  "deity:belial": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=396"
+  },
+  "deity:bergelmir": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=491"
+  },
+  "deity:besmara": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=332"
+  },
+  "deity:bharnarol": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=467"
+  },
+  "deity:bifrons": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=525"
+  },
+  "deity:black-butterfly": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=468"
+  },
+  "deity:blooms-of-the-spreading-weald": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=365"
+  },
+  "deity:bokrug": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=568"
+  },
+  "deity:bolka": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=445"
+  },
+  "deity:breath-of-the-endless-sky": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=366"
+  },
+  "deity:brigh": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=333"
+  },
+  "deity:camazotz": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=334"
+  },
+  "deity:casandalee": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=335"
+  },
+  "deity:cernunnos": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=513"
+  },
+  "deity:ceyannan": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=535"
+  },
+  "deity:chaldira": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=336"
+  },
+  "deity:chamiaholom": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=593"
+  },
+  "deity:chamidu": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=612"
+  },
+  "deity:charg": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=594"
+  },
+  "deity:charon": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=391"
+  },
+  "deity:chavazvug": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=582"
+  },
+  "deity:children-of-the-night": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=376"
+  },
+  "deity:cihua-coatl": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=413"
+  },
+  "deity:cixyron": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=417"
+  },
+  "deity:cong": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=502"
+  },
+  "deity:corosbel": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=418"
+  },
+  "deity:cosmic-caravan": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=377"
+  },
+  "deity:count-ranalc": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=452"
+  },
+  "deity:cthulhu": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=569"
+  },
+  "deity:cyth-vsug": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=428"
+  },
+  "deity:dachzerul": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=595"
+  },
+  "deity:dagon": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=429"
+  },
+  "deity:dahak": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=337"
+  },
+  "deity:dajermube": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=338"
+  },
+  "deity:dalenydra": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=469"
+  },
+  "deity:dammar": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=536"
+  },
+  "deity:dhalavei": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=613"
+  },
+  "deity:diomazul": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=614"
+  },
+  "deity:dispater": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=397"
+  },
+  "deity:dolok-darkfur": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=606"
+  },
+  "deity:doloras": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=589"
+  },
+  "deity:dramindyr": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=537"
+  },
+  "deity:dranngvit": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=446"
+  },
+  "deity:droskar": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=447"
+  },
+  "deity:eiseth": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=590"
+  },
+  "deity:elion": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=405"
+  },
+  "deity:embaral": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=340"
+  },
+  "deity:emmeton-galardaria": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=341"
+  },
+  "deity:erecura": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=564"
+  },
+  "deity:eritrice": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=470"
+  },
+  "deity:esoteric-order-of-the-palatine-eye": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=362"
+  },
+  "deity:faith-in-the-fallen": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=367"
+  },
+  "deity:fandarra": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=492"
+  },
+  "deity:ferrumnestra": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=688"
+  },
+  "deity:findeladlara": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=461"
+  },
+  "deity:folgrit": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=448"
+  },
+  "deity:fortunes-fate": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=378"
+  },
+  "deity:furcas": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=526"
+  },
+  "deity:genzaeri": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=342"
+  },
+  "deity:geryon": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=398"
+  },
+  "deity:ghlaunder": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=343"
+  },
+  "deity:gogunta": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=321"
+  },
+  "deity:good-neighbors": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=368"
+  },
+  "deity:gorum": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=283"
+  },
+  "deity:grandmother-spider": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=344"
+  },
+  "deity:grask-uldeth": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=555"
+  },
+  "deity:green-faith": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=298"
+  },
+  "deity:groetus": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=345"
+  },
+  "deity:gruhastha": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=346"
+  },
+  "deity:grundinnar": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=514"
+  },
+  "deity:guardians-of-the-sacred-self": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=379"
+  },
+  "deity:gyronna": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=515"
+  },
+  "deity:haagenti": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=430"
+  },
+  "deity:haborym": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=527"
+  },
+  "deity:hadregash": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=503"
+  },
+  "deity:haggakal": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=493"
+  },
+  "deity:hanspur": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=347"
+  },
+  "deity:hastur": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=570"
+  },
+  "deity:hataam": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=596"
+  },
+  "deity:hei-feng": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=307"
+  },
+  "deity:horus": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=516"
+  },
+  "deity:hshurha": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=689"
+  },
+  "deity:iggeret": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=597"
+  },
+  "deity:ilsurrish": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=538"
+  },
+  "deity:imbrex": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=454"
+  },
+  "deity:immaculate-growth": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=364"
+  },
+  "deity:inna": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=539"
+  },
+  "deity:irez": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=472"
+  },
+  "deity:isis": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=517"
+  },
+  "deity:isph-aun-vuln": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=583"
+  },
+  "deity:izuyaku": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=348"
+  },
+  "deity:jaidi": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=406"
+  },
+  "deity:jezelda": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=431"
+  },
+  "deity:jukha": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=556"
+  },
+  "deity:kabriri": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=432"
+  },
+  "deity:kagia": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=607"
+  },
+  "deity:kaldemash": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=349"
+  },
+  "deity:kazutal": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=350"
+  },
+  "deity:kelinahat": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=473"
+  },
+  "deity:kelizandri": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=690"
+  },
+  "deity:keltheald": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=474"
+  },
+  "deity:ketephys": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=462"
+  },
+  "deity:kols": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=449"
+  },
+  "deity:korada": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=475"
+  },
+  "deity:kurgess": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=351"
+  },
+  "deity:lahkgya": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=615"
+  },
+  "deity:laivatiniel": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=419"
+  },
+  "deity:lalaci": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=476"
+  },
+  "deity:laudinmio": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=691"
+  },
+  "deity:laws-of-mortality": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=386"
+  },
+  "deity:light-of-the-everlasting-flame": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=369"
+  },
+  "deity:liisglan": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=540"
+  },
+  "deity:likha": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=616"
+  },
+  "deity:lorris": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=477"
+  },
+  "deity:lurlup": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=504"
+  },
+  "deity:lysianassa": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=692"
+  },
+  "deity:maat": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=518"
+  },
+  "deity:magdh": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=457"
+  },
+  "deity:magrim": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=450"
+  },
+  "deity:mahathallah": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=591"
+  },
+  "deity:mahja-firehair": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=557"
+  },
+  "deity:malthus": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=528"
+  },
+  "deity:mammon": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=399"
+  },
+  "deity:matravash": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=617"
+  },
+  "deity:mephistopheles": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=400"
+  },
+  "deity:mestama": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=519"
+  },
+  "deity:mhar": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=571"
+  },
+  "deity:milani": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=352"
+  },
+  "deity:minderhal": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=494"
+  },
+  "deity:monad": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=541"
+  },
+  "deity:mother-vulture": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=542"
+  },
+  "deity:mrtyu": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=543"
+  },
+  "deity:myr": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=408"
+  },
+  "deity:nameless": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=598"
+  },
+  "deity:narriseminek": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=544"
+  },
+  "deity:nergal": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=529"
+  },
+  "deity:neshen": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=478"
+  },
+  "deity:ng": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=458"
+  },
+  "deity:nhimbaloth": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=572"
+  },
+  "deity:nin": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=353"
+  },
+  "deity:nivi-rhombodazzle": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=354"
+  },
+  "deity:nocticula": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=355"
+  },
+  "deity:nulgreth": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=558"
+  },
+  "deity:nurgal": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=433"
+  },
+  "deity:nyarlathotep-the-crawling-chaos": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=573"
+  },
+  "deity:nyarlathotep-the-faceless-sphinx": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=574"
+  },
+  "deity:nyarlathotep-the-veiled-voice": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=575"
+  },
+  "deity:nyuo-ogh": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=584"
+  },
+  "deity:oaur-ooung": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=585"
+  },
+  "deity:obari": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=356"
+  },
+  "deity:olheon": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=479"
+  },
+  "deity:onos": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=409"
+  },
+  "deity:orgesh": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=576"
+  },
+  "deity:osiris": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=520"
+  },
+  "deity:ozranvial": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=599"
+  },
+  "deity:pahti-coatl": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=414"
+  },
+  "deity:pavnuri": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=420"
+  },
+  "deity:pazuzu": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=434"
+  },
+  "deity:phlegyas": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=546"
+  },
+  "deity:prophecies-of-kalistrade": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=387"
+  },
+  "deity:pulura": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=480"
+  },
+  "deity:ra": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=521"
+  },
+  "deity:radiant-prism": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=380"
+  },
+  "deity:ragadahn": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=459"
+  },
+  "deity:ragathiel": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=481"
+  },
+  "deity:ragdya": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=618"
+  },
+  "deity:ranginori": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=693"
+  },
+  "deity:raumya": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=619"
+  },
+  "deity:ravithra": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=620"
+  },
+  "deity:razmir": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=357"
+  },
+  "deity:reymenda": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=482"
+  },
+  "deity:rhan-tegoth": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=577"
+  },
+  "deity:ristrentho": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=608"
+  },
+  "deity:rivethun": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=388"
+  },
+  "deity:rull": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=559"
+  },
+  "deity:sairazul": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=694"
+  },
+  "deity:saloc": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=547"
+  },
+  "deity:scal": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=410"
+  },
+  "deity:seramaydiel": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=483"
+  },
+  "deity:shadow-cabinet": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=372"
+  },
+  "deity:shapes-of-the-fading-luster": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=373"
+  },
+  "deity:shawnari": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=600"
+  },
+  "deity:shax": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=435"
+  },
+  "deity:shivaska": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=436"
+  },
+  "deity:shizuru": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=315"
+  },
+  "deity:shumunue": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=695"
+  },
+  "deity:shyka": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=460"
+  },
+  "deity:sicva": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=411"
+  },
+  "deity:sifkesh": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=437"
+  },
+  "deity:sithhud": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=438"
+  },
+  "deity:sivanah": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=358"
+  },
+  "deity:skode": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=495"
+  },
+  "deity:skrymir": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=496"
+  },
+  "deity:smiad": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=522"
+  },
+  "deity:soralyon": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=484"
+  },
+  "deity:sovyrian-conclave": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=381"
+  },
+  "deity:ssilameshnik": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=548"
+  },
+  "deity:stag-mother-of-the-forest-of-stones": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=609"
+  },
+  "deity:stones-blood": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=382"
+  },
+  "deity:sturovenen": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=523"
+  },
+  "deity:suyuddha": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=621"
+  },
+  "deity:szuriel": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=392"
+  },
+  "deity:talons-of-the-godclaw": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=383"
+  },
+  "deity:teki-stronggut": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=505"
+  },
+  "deity:telastmar": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=549"
+  },
+  "deity:teshallas": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=550"
+  },
+  "deity:thamir": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=566"
+  },
+  "deity:the-devourer": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=339"
+  },
+  "deity:the-green-mother": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=453"
+  },
+  "deity:the-lantern-king": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=455"
+  },
+  "deity:the-lost-prince": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=456"
+  },
+  "deity:the-pale-horse": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=545"
+  },
+  "deity:the-pandemonia": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=370"
+  },
+  "deity:the-readied-strike": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=371"
+  },
+  "deity:the-spirit-wall": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=363"
+  },
+  "deity:thoth": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=524"
+  },
+  "deity:thremyr": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=497"
+  },
+  "deity:thuskchoon": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=586"
+  },
+  "deity:titivilus": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=530"
+  },
+  "deity:tjasse": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=498"
+  },
+  "deity:tolte-coatl": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=415"
+  },
+  "deity:treasures-of-the-eternal-delve": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=374"
+  },
+  "deity:treerazer": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=324"
+  },
+  "deity:trelmarixian": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=393"
+  },
+  "deity:tresmalvos": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=421"
+  },
+  "deity:trudd": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=451"
+  },
+  "deity:tsukiyo": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=317"
+  },
+  "deity:uirch": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=560"
+  },
+  "deity:ulon": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=412"
+  },
+  "deity:urazra": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=499"
+  },
+  "deity:uskyeria": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=485"
+  },
+  "deity:ussharassim": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=531"
+  },
+  "deity:valani": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=486"
+  },
+  "deity:vale": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=551"
+  },
+  "deity:vapula": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=532"
+  },
+  "deity:varg": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=561"
+  },
+  "deity:vavaalrav": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=552"
+  },
+  "deity:velgaas": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=601"
+  },
+  "deity:venkelvore": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=506"
+  },
+  "deity:verilorn": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=696"
+  },
+  "deity:vildeis": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=487"
+  },
+  "deity:vineshvakhi": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=622"
+  },
+  "deity:vonymos": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=553"
+  },
+  "deity:vorasha": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=422"
+  },
+  "deity:vudravati": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=359"
+  },
+  "deity:vulot": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=439"
+  },
+  "deity:waves-of-the-boundless-sea": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=375"
+  },
+  "deity:weight-of-the-world": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=384"
+  },
+  "deity:wheels-of-innovation": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=385"
+  },
+  "deity:whispering-way": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=389"
+  },
+  "deity:wulgren": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=562"
+  },
+  "deity:xhamen-dor": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=578"
+  },
+  "deity:xoveron": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=440"
+  },
+  "deity:xsistaid": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=423"
+  },
+  "deity:yamasoth": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=587"
+  },
+  "deity:ydajisk": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=554"
+  },
+  "deity:ydersius": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=323"
+  },
+  "deity:yhidothrus": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=441"
+  },
+  "deity:yig": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=579"
+  },
+  "deity:ylimancha": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=488"
+  },
+  "deity:ymeri": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=697"
+  },
+  "deity:yog-sothoth": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=580"
+  },
+  "deity:yrmidar": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=500"
+  },
+  "deity:yuelral": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=463"
+  },
+  "deity:zarongel": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=507"
+  },
+  "deity:zelishkar": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=424"
+  },
+  "deity:zevgavizeb": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=442"
+  },
+  "deity:zjar-tovan": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=360"
+  },
+  "deity:zogmugot": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=508"
+  },
+  "deity:zohls": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=489"
+  },
+  "deity:zugero": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=509"
+  },
+  "deity:zura": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=443"
+  },
+  "deity:zursvaater": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=501"
+  },
+  "deity:zyphus": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=361"
+  },
+  "equipment:razmiri-mask": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3593"
+  },
+  "feat:advanced-domain-spirit": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7576"
+  },
+  "feat:aura-enhancement": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7506"
+  },
+  "feat:aura-expertise": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7514"
+  },
+  "feat:basic-rivethun-spellcasting": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7589"
+  },
+  "feat:battle-harbinger-dedication": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7505"
+  },
+  "feat:celestial-form": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7525"
+  },
+  "feat:challenge-insight": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7562"
+  },
+  "feat:chastise": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7535"
+  },
+  "feat:consult-the-spirits-rivethun-emissary": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7577"
+  },
+  "feat:creed-magic": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7510"
+  },
+  "feat:cursebreaker": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7563"
+  },
+  "feat:declare-anathema": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7536"
+  },
+  "feat:defy-sorrow": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7585"
+  },
+  "feat:deific-font": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7543"
+  },
+  "feat:dive-of-the-divine": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7537"
+  },
+  "feat:divine-presence": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7544"
+  },
+  "feat:domain-embodiment": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7529"
+  },
+  "feat:domain-spirit": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7573"
+  },
+  "feat:ease-the-burden": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7551"
+  },
+  "feat:emissary-familiar": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7572"
+  },
+  "feat:empowered-onslaught": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7512"
+  },
+  "feat:enforce-oath": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7522"
+  },
+  "feat:enter-divine-realm": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7552"
+  },
+  "feat:esoteric-spellcasting": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7558"
+  },
+  "feat:exalted-greatness": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7524"
+  },
+  "feat:exigent-aura": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7508"
+  },
+  "feat:expanded-domain-initiate": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7595"
+  },
+  "feat:expert-rivethun-spellcasting": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7591"
+  },
+  "feat:eyes-of-god": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7545"
+  },
+  "feat:fear-of-god": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7530"
+  },
+  "feat:fiendish-form": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7526"
+  },
+  "feat:flash-of-omnipresence": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7531"
+  },
+  "feat:flash-of-omniscience": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7546"
+  },
+  "feat:following-smite": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7538"
+  },
+  "feat:free-from-bonds": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7539"
+  },
+  "feat:glory-on-high": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7547"
+  },
+  "feat:greater-armament": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7515"
+  },
+  "feat:greater-esoteric-spellcasting": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7564"
+  },
+  "feat:guiding-words": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7548"
+  },
+  "feat:harbingers-armament": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7511"
+  },
+  "feat:harbingers-protection": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7509"
+  },
+  "feat:healing-sanctuary": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7540"
+  },
+  "feat:heraldic-proclamation": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7541"
+  },
+  "feat:heralds-strike": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7554"
+  },
+  "feat:heralds-weapon": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7532"
+  },
+  "feat:invisible-hand": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7542"
+  },
+  "feat:invoke-defense": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7584"
+  },
+  "feat:invoke-movement": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7586"
+  },
+  "feat:invoke-offense": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7582"
+  },
+  "feat:kaleidoscopic-entreaty": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7574"
+  },
+  "feat:leverage-anguish": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7583"
+  },
+  "feat:live-the-creed": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7516"
+  },
+  "feat:living-god": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7570"
+  },
+  "feat:manifold-conduit": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7578"
+  },
+  "feat:marked-for-rebuke": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7549"
+  },
+  "feat:mask-of-the-12th-step": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7568"
+  },
+  "feat:mask-of-the-15th-step": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7569"
+  },
+  "feat:master-rivethun-spellcasting": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7593"
+  },
+  "feat:moment-of-apotheosis": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7555"
+  },
+  "feat:mortal-ascension": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7533"
+  },
+  "feat:mortal-herald-dedication": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7528"
+  },
+  "feat:oath-of-the-avenger": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7517"
+  },
+  "feat:oath-of-the-defender": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7518"
+  },
+  "feat:oath-of-the-slayer": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7519"
+  },
+  "feat:one-with-the-spirits": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7587"
+  },
+  "feat:open-the-blazing-eye": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7565"
+  },
+  "feat:palatine-detective-dedication": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7557"
+  },
+  "feat:palatine-enchantment": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7560"
+  },
+  "feat:palatine-strike": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7561"
+  },
+  "feat:pale-horse": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7523"
+  },
+  "feat:perfect-truths": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7567"
+  },
+  "feat:razmiran-priest-dedication": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7566"
+  },
+  "feat:retributive-focus": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7527"
+  },
+  "feat:rivethun-adept": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7579"
+  },
+  "feat:rivethun-devotion": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7575"
+  },
+  "feat:rivethun-emissary-dedication": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7571"
+  },
+  "feat:rivethun-invoker-dedication": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7581"
+  },
+  "feat:rivethun-involutionist-dedication": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7588"
+  },
+  "feat:sense-holiness": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7520"
+  },
+  "feat:sense-unholiness": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7521"
+  },
+  "feat:shield-the-faithful": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7534"
+  },
+  "feat:spark-of-immortality": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7556"
+  },
+  "feat:specialized-spirit-companion": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7592"
+  },
+  "feat:spirit-companion": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7590"
+  },
+  "feat:splinter-faith": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7596"
+  },
+  "feat:stand-for-the-fallen": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7550"
+  },
+  "feat:tandem-auras": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7513"
+  },
+  "feat:tandem-onslaught": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7507"
+  },
+  "feat:text-decoder": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7559"
+  },
+  "spell:accelerated-decomposition": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2428"
+  },
+  "spell:acid-storm": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2339"
+  },
+  "spell:acidic-burst": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2340"
+  },
+  "spell:adapt-self": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2377"
+  },
+  "spell:adaptive-ablation": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2378"
+  },
+  "spell:agitate": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2341"
+  },
+  "spell:animus-mine": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2342"
+  },
+  "spell:anticipate-peril": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2343"
+  },
+  "spell:arms-of-nature": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2421"
+  },
+  "spell:ash-form": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2425"
+  },
+  "spell:ashen-wind": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2423"
+  },
+  "spell:asterism": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2412"
+  },
+  "spell:befuddle": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2344"
+  },
+  "spell:benediction": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2345"
+  },
+  "spell:bottle-the-storm": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2396"
+  },
+  "spell:buzzing-bites": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2438"
+  },
+  "spell:charged-javelin": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2395"
+  },
+  "spell:chastising-retort": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2399"
+  },
+  "spell:cloak-of-light": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2346"
+  },
+  "spell:clouded-focus": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2383"
+  },
+  "spell:confront-selves": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2394"
+  },
+  "spell:cup-of-dust": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2347"
+  },
+  "spell:delay-consequence": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2415"
+  },
+  "spell:diamond-dust": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2380"
+  },
+  "spell:divine-plagues": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2403"
+  },
+  "spell:door-to-beyond": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2402"
+  },
+  "spell:draconic-barrage": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2385"
+  },
+  "spell:dust-storm": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2388"
+  },
+  "spell:dutiful-challenge": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2390"
+  },
+  "spell:ectoplasmic-interstice": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2410"
+  },
+  "spell:eject-soul": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2409"
+  },
+  "spell:empty-inside": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2401"
+  },
+  "spell:endure": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2348"
+  },
+  "spell:entreat-spirit": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2432"
+  },
+  "spell:entreat-the-many": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2433"
+  },
+  "spell:ephemeral-hazards": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2384"
+  },
+  "spell:expeditious-excavation": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2349"
+  },
+  "spell:fallow-field": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2382"
+  },
+  "spell:fear-the-sun": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2350"
+  },
+  "spell:fearful-feast": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2376"
+  },
+  "spell:feast-of-ashes": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2351"
+  },
+  "spell:font-of-serenity": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2406"
+  },
+  "spell:foul-miasma": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2404"
+  },
+  "spell:fungal-hyphae": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2352"
+  },
+  "spell:ghostly-transcription": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2392"
+  },
+  "spell:glamorize": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2353"
+  },
+  "spell:guided-introspection": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2393"
+  },
+  "spell:incendiary-ashes": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2424"
+  },
+  "spell:lament": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2407"
+  },
+  "spell:liberating-command": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2354"
+  },
+  "spell:lift-natures-caul": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2375"
+  },
+  "spell:malediction": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2355"
+  },
+  "spell:message-rune": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2356"
+  },
+  "spell:moonburst": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2357"
+  },
+  "spell:moonlight-ray": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2358"
+  },
+  "spell:object-memory": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2419"
+  },
+  "spell:overflowing-sorrow": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2408"
+  },
+  "spell:pact-broker": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2436"
+  },
+  "spell:parch": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2387"
+  },
+  "spell:penumbral-disguise": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2359"
+  },
+  "spell:penumbral-shroud": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2360"
+  },
+  "spell:practice-makes-perfect": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2417"
+  },
+  "spell:radiant-field": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2361"
+  },
+  "spell:redact": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2391"
+  },
+  "spell:reflective-scales": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2362"
+  },
+  "spell:remember-the-lost": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2420"
+  },
+  "spell:repel-metal": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2398"
+  },
+  "spell:roar-of-the-dragon": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2386"
+  },
+  "spell:serrate": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2397"
+  },
+  "spell:share-burden": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2405"
+  },
+  "spell:share-lore": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2363"
+  },
+  "spell:share-vision": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2434"
+  },
+  "spell:shattering-gem": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2364"
+  },
+  "spell:shifting-sand": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2365"
+  },
+  "spell:shockwave": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2366"
+  },
+  "spell:show-the-path": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2400"
+  },
+  "spell:show-the-way": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2367"
+  },
+  "spell:slough-skin": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2368"
+  },
+  "spell:spirit-object": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2437"
+  },
+  "spell:stasis": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2416"
+  },
+  "spell:swarm-form": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2414"
+  },
+  "spell:swarmsense": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2413"
+  },
+  "spell:swear-oath": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2389"
+  },
+  "spell:temporary-tool": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2369"
+  },
+  "spell:tether": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2370"
+  },
+  "spell:tireless-worker": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2418"
+  },
+  "spell:trade-death-for-life": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2435"
+  },
+  "spell:ulcerous-canker": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2426"
+  },
+  "spell:wall-of-shadow": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2373"
+  },
+  "spell:whirling-scarves": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2374"
+  },
+  "spell:winter-bolt": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2379"
+  },
+  "spell:withering-grasp": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2381"
+  },
+  "spell:wood-walk": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2422"
+  },
+  "spell:zenith-star": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2411"
+  }
+}

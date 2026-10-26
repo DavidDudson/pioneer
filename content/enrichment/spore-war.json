@@ -1,0 +1,86 @@
+{
+  "consumable:black-ash": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3746"
+  },
+  "creature:degholau": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3776"
+  },
+  "creature:eshmok": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3777"
+  },
+  "creature:grizzer": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3778"
+  },
+  "creature:root-rotter": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3779"
+  },
+  "creature:sinmold": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3780"
+  },
+  "creature:tithekeeper": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3781"
+  },
+  "equipment:boots-of-the-blight": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3693"
+  },
+  "equipment:drumish-pearl-token": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3694"
+  },
+  "equipment:pharasmin-visor": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3695"
+  },
+  "equipment:skirmishers-coat": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3696"
+  },
+  "feat:anchoring-arrow": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7661"
+  },
+  "feat:cold-iron-stomach": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7662"
+  },
+  "feat:demon-hunter": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7660"
+  },
+  "feat:demon-slayer": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7664"
+  },
+  "feat:political-acumen": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7655"
+  },
+  "feat:political-virtuoso": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7659"
+  },
+  "feat:shame-the-sin": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7657"
+  },
+  "feat:swamp-stealth": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7658"
+  },
+  "feat:traditional-ways": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7656"
+  },
+  "feat:treehealer": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7663"
+  }
+}

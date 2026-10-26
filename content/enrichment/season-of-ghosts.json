@@ -1,0 +1,338 @@
+{
+  "consumable:animal-turning-fulu": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4082"
+  },
+  "consumable:ascendant-dragon-spirit": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4068"
+  },
+  "consumable:covenant-tea": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4075"
+  },
+  "consumable:energizing-pill": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4055"
+  },
+  "consumable:energizing-tea": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4076"
+  },
+  "consumable:firecracker-fulu": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4083"
+  },
+  "consumable:gossamer-sash": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4110"
+  },
+  "consumable:invigorating-soap": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4056"
+  },
+  "consumable:longnight-tea": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4077"
+  },
+  "consumable:matsukis-medicinal-wine": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4057"
+  },
+  "consumable:moon-blossom-tea": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4078"
+  },
+  "consumable:panaceatic-salve": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4069"
+  },
+  "consumable:peace-in-dreams-tea": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4079"
+  },
+  "consumable:privacy-ward-fulu-chamber": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4084"
+  },
+  "consumable:privacy-ward-fulu-hallway": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4084"
+  },
+  "consumable:privacy-ward-fulu-room": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4084"
+  },
+  "consumable:resurrection-tea": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4080"
+  },
+  "consumable:sanctified-beans": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4070"
+  },
+  "consumable:spirit-trap": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4071"
+  },
+  "consumable:spiritsight-tea": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4081"
+  },
+  "consumable:taljjae-tassel": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4072"
+  },
+  "consumable:thousand-year-dragonroot": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4073"
+  },
+  "consumable:travelers-fulu": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4085"
+  },
+  "consumable:vengeful-demons-tears": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4074"
+  },
+  "equipment:cape-of-justice": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4086"
+  },
+  "equipment:dragon-turtle-artillery": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4087"
+  },
+  "equipment:fan-of-falling-words": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4088"
+  },
+  "equipment:fortune-cord": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4089"
+  },
+  "equipment:ghost-scarf": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4104"
+  },
+  "equipment:hairpin-of-blooming-flowers": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4105"
+  },
+  "equipment:hongruis-gratitude": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4090"
+  },
+  "equipment:injigos-loving-embrace": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4099"
+  },
+  "equipment:jiang-shi-bell": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4091"
+  },
+  "equipment:juubuns-one-thousand-poems": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4101"
+  },
+  "equipment:kinburis-sandals-of-bounding": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4100"
+  },
+  "equipment:lacquered-waist-drum": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4092"
+  },
+  "equipment:moonsilver-necklace": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4093"
+  },
+  "equipment:noppera-bo-hood": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4094"
+  },
+  "equipment:phoenix-fulu-holder": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4095"
+  },
+  "equipment:red-thread-knot": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4106"
+  },
+  "equipment:resolute-mind-wrap": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4107"
+  },
+  "equipment:root-boots": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4108"
+  },
+  "equipment:skyfang-crystal": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4097"
+  },
+  "equipment:spider-lily-tattoo": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4098"
+  },
+  "feat:animal-soul-siblings": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8197"
+  },
+  "feat:boneyard-acquaintance": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8212"
+  },
+  "feat:calm-and-centered": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8190"
+  },
+  "feat:clinging-to-life": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8206"
+  },
+  "feat:comforting-presence": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8191"
+  },
+  "feat:empathy-incarnate": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8198"
+  },
+  "feat:go-with-the-flow": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8192"
+  },
+  "feat:i-sense-malevolence": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8207"
+  },
+  "feat:indomitable-spirit": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8213"
+  },
+  "feat:ive-had-many-jobs": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8199"
+  },
+  "feat:lets-try-that-again": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8193"
+  },
+  "feat:like-a-roach": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8194"
+  },
+  "feat:lingering-echoes": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8202"
+  },
+  "feat:linguistic-revival": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8208"
+  },
+  "feat:pain-is-temporary": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8209"
+  },
+  "feat:plant-soul-siblings": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8203"
+  },
+  "feat:rapid-retraining": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8204"
+  },
+  "feat:reincarnated-ridiculer": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8200"
+  },
+  "feat:release-the-light": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8214"
+  },
+  "feat:see-you-in-hell": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8215"
+  },
+  "feat:sleep-of-the-reborn": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8201"
+  },
+  "feat:stone-soul-siblings": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8210"
+  },
+  "feat:this-is-what-its-like-to-die": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8216"
+  },
+  "feat:unbreakable-resolve": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8211"
+  },
+  "feat:weight-of-experience": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8195"
+  },
+  "feat:wisdom-from-another-life": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8196"
+  },
+  "feat:you-seem-somewhat-familiar": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8205"
+  },
+  "ritual:last-nights-vigil": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=234"
+  },
+  "ritual:transmigrate": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=240"
+  },
+  "ritual:winters-breath": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=241"
+  },
+  "spell:cycle-of-retribution": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2537"
+  },
+  "spell:entangle-fate": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2541"
+  },
+  "spell:fated-healing": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2539"
+  },
+  "spell:fateful-condemnation": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2538"
+  },
+  "spell:lifes-flowing-river": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2540"
+  },
+  "spell:lifes-fresh-bloom": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2542"
+  },
+  "spell:prophets-luck": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2543"
+  },
+  "spell:sacred-nimbus": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2544"
+  },
+  "spell:tomorrows-dawn": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2545"
+  },
+  "spell:wall-of-mirrors": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2546"
+  }
+}

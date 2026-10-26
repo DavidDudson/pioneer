@@ -1,0 +1,66 @@
+{
+  "background:absalom-street-preacher": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=673"
+  },
+  "background:ambitious-knave": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=674"
+  },
+  "background:destined-for-greatness": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=675"
+  },
+  "background:esoteric-bookworm": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=676"
+  },
+  "background:mystery-adept": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=677"
+  },
+  "background:puddles-carny": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=678"
+  },
+  "consumable:toilers-gruel": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5216"
+  },
+  "equipment:aeon-stone-eastern-star": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+  },
+  "equipment:aeon-stone-western-star": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+  },
+  "equipment:deravons-helm": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5217"
+  },
+  "equipment:heart-of-sarnax": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5222"
+  },
+  "equipment:lookouts-spyglass": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5218"
+  },
+  "equipment:mantle-of-far-horizons": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5219"
+  },
+  "equipment:throneglass-shard": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5212"
+  },
+  "feat:asp-stance": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9419"
+  },
+  "ritual:beckon-the-blasphemous-brethren": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=275"
+  }
+}

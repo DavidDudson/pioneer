@@ -1,0 +1,70 @@
+{
+  "archetype:sanguimancer": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=321"
+  },
+  "consumable:moonkeep-hyacinth": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790"
+  },
+  "consumable:moonkeep-lily": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790"
+  },
+  "consumable:moonkeep-orchid": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790"
+  },
+  "creature:batkin-guard": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3850"
+  },
+  "creature:werebat-warrior": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3851"
+  },
+  "equipment:aeon-stone-formulating": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+  },
+  "equipment:aeon-stone-repairing": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+  },
+  "equipment:farlight-stone": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3789"
+  },
+  "feat:blood-shield": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7765"
+  },
+  "feat:bloodsense": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7761"
+  },
+  "feat:exsanguinate": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7766"
+  },
+  "feat:sanguimancer-dedication": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7764"
+  },
+  "feat:sanguine-tenacity": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7762"
+  },
+  "feat:transfusion": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7767"
+  },
+  "feat:vasodilation": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7763"
+  },
+  "feat:venipuncture": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7768"
+  }
+}
