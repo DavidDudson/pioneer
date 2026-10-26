@@ -145,7 +145,8 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
     );
     const responses = await Promise.all(files.map(async (file) => api.handle(get(`/content/bundles/${file}`))));
 
-    expect(packs.map((pack) => String(pack.id))).toStrictEqual(OFFICIAL_PACK_IDS);
+    // The manifest follows the database collation, which orders hyphens differently from code units.
+    expect(packs.map((pack) => String(pack.id)).toSorted()).toStrictEqual(OFFICIAL_PACK_IDS.toSorted());
     expect(responses.map((response) => response.status)).toStrictEqual(files.map(() => 200));
     expect(responses.map((response) => response.headers.get('cache-control'))).toStrictEqual(
       files.map(() => BUNDLE_CACHE_CONTROL),

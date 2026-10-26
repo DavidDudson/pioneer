@@ -84,21 +84,25 @@ describe('CharacterSheetPage options that train a skill again', () => {
 
     const rows = await backgroundRowsShown(root);
 
-    expect(
-      rows.filter((row) => row.note !== undefined).map((row) => [row.name, row.note, row.disabledReason]),
-    ).toStrictEqual([
-      ['Absalom Street Preacher', MARK, undefined],
-      ['Acolyte', MARK, undefined],
-      ['Blooded by the Dead', MARK, undefined],
-      ['Combat Chaplain', MARK, undefined],
-      ['Local Savior', MARK, undefined],
-      ['Otherworldly Mission', MARK, undefined],
-      ['Pilgrim', MARK, undefined],
-      ['Revenant', MARK, undefined],
-      ['Seer of the Dead', MARK, undefined],
-      ['Street Preacher', MARK, undefined],
-      ['Wandering Preacher', MARK, undefined],
-    ]);
+    // Every pack that adds a Religion background adds to this list, so it names only the ones to keep.
+    const marked = rows.filter((row) => row.note !== undefined);
+
+    expect(marked.map((row) => row.name)).toStrictEqual(
+      expect.arrayContaining([
+        'Absalom Street Preacher',
+        'Acolyte',
+        'Blooded by the Dead',
+        'Combat Chaplain',
+        'Local Savior',
+        'Otherworldly Mission',
+        'Pilgrim',
+        'Revenant',
+        'Seer of the Dead',
+        'Street Preacher',
+        'Wandering Preacher',
+      ]),
+    );
+    expect(marked.map((row) => [row.note, row.disabledReason])).toStrictEqual(marked.map(() => [MARK, undefined]));
   });
 
   it('marks the class that trains a skill the background trains', async () => {

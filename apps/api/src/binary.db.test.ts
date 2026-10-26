@@ -68,7 +68,8 @@ async function seededPacks(databaseUrl: string): Promise<readonly string[]> {
   const db = new Bun.SQL(databaseUrl);
   const rows = SlugRows.parse(await db`select slug from content_packs order by slug`);
   await db.close();
-  return rows.map(({ slug }) => slug);
+  // Sorted here: the database collation orders hyphens differently from code units.
+  return rows.map(({ slug }) => slug).toSorted();
 }
 
 describe.skipIf(adminUrl === undefined)('compiled api binary (postgres)', () => {
