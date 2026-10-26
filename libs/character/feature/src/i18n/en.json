@@ -36,6 +36,9 @@
     "attributesHeading": "Attributes",
     "defencesHeading": "Defences",
     "strikesHeading": "Strikes",
+    "formLimits": {
+      "cantCast": "{form}: you can't cast spells."
+    },
     "actionsHeading": "Actions",
     "choicesHeading": "Choices",
     "timelineHeading": "Level timeline",

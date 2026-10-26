@@ -795,8 +795,10 @@ while a form is in force; it needs the rule elements in play (`StrikeRulesInput`
 - **Restrictions** (`availableActions`, `battle-form-actions.ts`): an action is unavailable, with a reason that names
   the form (`engine.action.formCantCast`, `formCantSpeak`, `formNoHands`), when the form sets `canCast: false` and the
   action casts a spell (Cast a Spell, or a spell), `canSpeak: false` and it has the `auditory` or `linguistic` trait,
-  or `hasHands: false` and it has the `manipulate` trait. A flag the form leaves out forbids nothing. An action needing
-  several things the form lacks gives a reason for each.
+  or `hasHands: false` and it has the `manipulate` trait. A flag the form leaves out forbids nothing, so the importer
+  states all three for every form (casting and speech forbidden, hands only where Foundry gives them), as the Battle Form
+  trait says; the sheet words them beside the spell lists and on the action rows (play-and-campaigns.md, "Sheet
+  modes"). An action needing several things the form lacks gives a reason for each.
 
 ### Strike dice and notes
 

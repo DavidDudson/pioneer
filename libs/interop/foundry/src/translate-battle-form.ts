@@ -135,6 +135,12 @@ function bracket(raw: unknown, context: SenseContext): unknown {
   return { ...rest, ...(isFields(changes) ? changes : {}) };
 }
 
+/**
+ * What the Battle Form trait forbids in a form (#531): casting, speaking and anything that needs hands, unless Foundry
+ * says the form has hands. Foundry leaves these to the system, so the importer states them for the engine to read.
+ */
+const BATTLE_FORM_LIMITS = { canCast: false, canSpeak: false, hasHands: false };
+
 /** A `BattleForm` as Pioneer's, with its base fields kept; any other element as it is. */
 function withBattleForm(raw: unknown, context: SenseContext): unknown {
   if (!isFields(raw) || raw['key'] !== RuleElementKey.BattleForm || !isFields(raw['overrides'])) {
@@ -142,7 +148,11 @@ function withBattleForm(raw: unknown, context: SenseContext): unknown {
   }
   const { overrides, brackets, hasHands, ...rest } = raw;
   const statistic = statistics(overrides, context);
-  const form = { ...(hasHands === undefined ? {} : { hasHands }), ...(isFields(statistic) ? statistic : {}) };
+  const form = {
+    ...BATTLE_FORM_LIMITS,
+    ...(hasHands === undefined ? {} : { hasHands }),
+    ...(isFields(statistic) ? statistic : {}),
+  };
   return {
     ...rest,
     form,

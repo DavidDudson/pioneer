@@ -362,6 +362,7 @@ export {
   STOWED,
 } from './item-carry';
 export { ItemOrigin } from './item-origin';
+export { type FormLimits, formLimits } from './form-limits';
 export { KeyItemId } from './key-item-id';
 export { type KeyItemLine, keyItemLine, keyItemRefusal, withKeyItem, withKeyLink, withoutKeyItem } from './key-items';
 export { type ActiveItem, activeItems } from './active-items';

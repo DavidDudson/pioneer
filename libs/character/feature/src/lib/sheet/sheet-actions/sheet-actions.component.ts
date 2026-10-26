@@ -4,17 +4,18 @@ import type { ActionMode } from '@pioneer/rules/sdk';
 import { ActionsView, ActionsViewKind } from '@pioneer/rules/ui';
 import type { ActionLine } from '@pioneer/rules/ui';
 
-import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { ACTION_CONTENT_KINDS, sheetActions } from '../sheet-actions';
 import { SheetSpender } from '../sheet-spender';
+import { SheetState } from '../sheet-state';
 
 /**
  * A sheet tab's Actions section (#353): the character's actions in the tab's mode, as Now (what it can do at this
  * moment, grouped by cost, the situation's first, and only what the turn has the actions for) and All (every action,
  * filterable, with why an unusable one is). An action with a roll rolls on the sheet's roll card in one click, with
- * the conditional toggles of the roll; one with a cost is used with the sheet's spender (#355).
+ * the conditional toggles of the roll; one with a cost is used with the sheet's spender (#355). It reads the character
+ * the sheet shows, so the conditions and the form in play (#531) decide what is usable.
  */
 @Component({
   selector: 'pio-sheet-actions',
@@ -23,7 +24,7 @@ import { SheetSpender } from '../sheet-spender';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetActions {
-  readonly #characters = inject(CharacterStore);
+  readonly #sheet = inject(SheetState);
   readonly #play = inject(PlayStore);
   readonly #spender = inject(SheetSpender);
 
@@ -38,7 +39,7 @@ export class SheetActions {
   /** The actions as the engine decides them for the character now; undefined while the content or play state loads. */
   protected readonly lines = computed((): readonly ActionLine[] | undefined => {
     const registry = this.registry.data();
-    const character = this.#characters.selected();
+    const character = this.#sheet.character();
     const read = this.#play.play.data();
     return registry === undefined || character === undefined || read === undefined
       ? undefined

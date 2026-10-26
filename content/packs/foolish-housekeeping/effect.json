@@ -87,6 +87,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "armorClass": {
             "modifier": "20 + @level",
             "ignoreCheckPenalty": true,
