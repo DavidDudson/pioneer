@@ -40,6 +40,9 @@ function entryOf(hop: OriginHop): ContentId | undefined {
     case OriginHopKind.Effect: {
       return hop.effect;
     }
+    case OriginHopKind.Environment: {
+      return hop.environment;
+    }
     case OriginHopKind.Choice:
     case OriginHopKind.Grant:
     case OriginHopKind.Inventory:
@@ -129,6 +132,9 @@ export class OriginChainView {
       }
       case OriginHopKind.Effect: {
         return [text(this.#appliedBy(this.#entry(hop.effect), hop.appliedBy))];
+      }
+      case OriginHopKind.Environment: {
+        return [text(this.#entry(hop.environment))];
       }
       case OriginHopKind.Override: {
         return this.#override(hop);

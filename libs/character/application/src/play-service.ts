@@ -61,7 +61,14 @@ import { contentOfCharacter, variantRulesOfCharacter } from './character-content
 import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository, PlayWrite } from './character-repository';
-import { checkCondition, checkEffect, checkExploration, checkStaff, isDailyPreparations } from './play-checks';
+import {
+  checkCondition,
+  checkEffect,
+  checkEnvironment,
+  checkExploration,
+  checkStaff,
+  isDailyPreparations,
+} from './play-checks';
 import { NO_MAX_HIT_POINTS, NO_REST, NO_VALUED, turnLimits } from './play-defaults';
 import type { RestContent } from './play-defaults';
 import { derivedMaxHitPoints } from './play-hit-points';
@@ -110,6 +117,7 @@ export class PlayService {
       throw new VersionConflictError('CharacterPlay', id);
     }
     await checkExploration(command, async () => this.#contentOf(character).registry());
+    await checkEnvironment(command, async () => this.#contentOf(character).registry());
     const reinventoried = await this.#reinventoried(character, current.play, command);
     const { play, events } = isTurnCommand(command)
       ? await this.#turned(character, current.play, command)

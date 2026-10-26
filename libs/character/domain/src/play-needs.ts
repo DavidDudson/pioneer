@@ -1,5 +1,6 @@
 import { isActiveSpellCommand } from './active-spells';
 import { isEffectCommand } from './effect-commands';
+import { isEnvironmentCommand } from './environments';
 import { isExplorationCommand } from './exploration-commands';
 import { PlayCommandField } from './play-state';
 import type { PlayCommand } from './play-state';
@@ -18,7 +19,8 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
     isEffectCommand(command) ||
     isActiveSpellCommand(command) ||
     isSpendCommand(command) ||
-    isExplorationCommand(command)
+    isExplorationCommand(command) ||
+    isEnvironmentCommand(command)
   ) {
     return false;
   }
@@ -60,10 +62,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
 /** Whether `command` moves a pool of points, and so needs the maxima the build and the rules give. */
 // oxlint-disable-next-line complexity -- a case for each play command, with the toggle edit told apart first
 export function needsResourceMaxima(command: PlayCommand): boolean {
-  if (isRestCommand(command)) {
-    return true;
-  }
-  if (isSpendCommand(command)) {
+  if (isRestCommand(command) || isSpendCommand(command)) {
     return true;
   }
   if (
@@ -71,7 +70,8 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
     isEffectCommand(command) ||
     isActiveSpellCommand(command) ||
     isSpendCommand(command) ||
-    isExplorationCommand(command)
+    isExplorationCommand(command) ||
+    isEnvironmentCommand(command)
   ) {
     return false;
   }
@@ -119,7 +119,8 @@ export function needsConditionContent(command: PlayCommand): boolean {
     isEffectCommand(command) ||
     isActiveSpellCommand(command) ||
     isSpendCommand(command) ||
-    isExplorationCommand(command)
+    isExplorationCommand(command) ||
+    isEnvironmentCommand(command)
   ) {
     return false;
   }

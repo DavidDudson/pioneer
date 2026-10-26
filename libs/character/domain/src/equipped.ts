@@ -14,13 +14,12 @@ import {
   Level,
   Modifier,
   NumericItemProperty,
-  OriginHopKind,
   RuneGrade,
   SlotKey,
   slugName,
   Trait,
 } from '@pioneer/rules/sdk';
-import type { BaseWeapon, ContentId, Origin, Slug } from '@pioneer/rules/sdk';
+import type { BaseWeapon, ContentId, Slug } from '@pioneer/rules/sdk';
 
 import { activeItems, inventoryHop, itemsIn, originOf } from './active-items';
 import type { ActiveItem } from './active-items';
@@ -30,8 +29,9 @@ import { exclusiveEffects } from './effect-exclusivity';
 import { effectRoots } from './effects';
 import type { ActiveEffect } from './effects';
 import { encumberedRoots } from './encumbered-roots';
-import { rulesOf } from './entry-rules';
+import { fromInventory, rulesOf } from './entry-rules';
 import type { Resolved } from './entry-rules';
+import { environmentRoots } from './environments';
 import type { Inventory, InventoryItemId } from './inventory';
 import { activeState, equippedState } from './inventory-content';
 import type { ItemContent } from './inventory-content';
@@ -198,12 +198,6 @@ export function heldShields(
   });
 }
 
-/** Whether a resolved entry is in play through the inventory: an active item, or the condition its Bulk brings. */
-function fromInventory(origin: Origin): boolean {
-  const kind = origin.hops[0]?.kind;
-  return kind === OriginHopKind.Inventory || kind === OriginHopKind.Condition || kind === OriginHopKind.Effect;
-}
-
 /** The rules in play and the facts they read, with the `RollOption` toggles the character's items offer. */
 export interface EquippedRules extends ModifierInputs {
   readonly toggles: readonly ToggleSlot[];
@@ -227,6 +221,7 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
     ...encumberedRoots(document, content, slots),
     ...conditionRoots(document.play.conditions),
     ...effectRoots(exclusive.active),
+    ...environmentRoots(document.play.environments),
   ];
   return resolveGrants({
     roots,

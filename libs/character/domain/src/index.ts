@@ -694,5 +694,20 @@ export {
 export type { ActiveSpell, ActiveSpellCommand, SpellSpend } from './active-spells';
 export { PickBound, PickIndex, type PickSource, Seed, seededPicks } from './pick-source';
 export { type PickOutcome, PickRefusal, pickOne, PickWeight, pickWeighted, shuffle, type Weighted } from './picks';
+export {
+  type ActiveEnvironments,
+  ActiveEnvironmentsSchema,
+  applyEnvironmentCommand,
+  type EnvironmentContent,
+  environmentContent,
+  type RestrictionInPlay,
+  restrictionsInPlay,
+  ENVIRONMENTS_MAX,
+  type EnvironmentCommand,
+  EnvironmentCommandField,
+  EnvironmentCommandSchema,
+  environmentRoots,
+  isEnvironmentCommand,
+} from './environments';
 export { type Generated, type GenerateInput, generateCharacter } from './generate-character';
 export { slotCandidates } from './slot-candidates';

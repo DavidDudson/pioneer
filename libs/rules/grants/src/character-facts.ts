@@ -40,6 +40,7 @@ const KIND_NAMESPACES: Readonly<Record<ContentKind, RollOptionNamespace | undefi
   [ContentKind.DamageType]: undefined,
   [ContentKind.Deity]: RollOptionNamespace.parse('deity:primary'),
   [ContentKind.Effect]: RollOptionNamespace.parse('self:effect'),
+  [ContentKind.Environment]: RollOptionNamespace.parse('self:environment'),
   [ContentKind.Equipment]: undefined,
   [ContentKind.Feat]: RollOptionNamespace.parse('feat'),
   [ContentKind.Heritage]: RollOptionNamespace.parse('heritage'),

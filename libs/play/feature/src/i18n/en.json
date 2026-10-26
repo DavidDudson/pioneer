@@ -160,6 +160,7 @@
       "damageType": "Damage type",
       "deity": "Deity",
       "effect": "Effect",
+      "environment": "Environment",
       "equipment": "Equipment",
       "feat": "Feat",
       "heritage": "Heritage",

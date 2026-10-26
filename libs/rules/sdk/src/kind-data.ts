@@ -1,3 +1,4 @@
+// oxlint-disable import/max-dependencies -- This registry names the data schema of every content kind, so it grows with ContentKind.
 import { ActionData } from './action';
 import { AncestryData } from './ancestry';
 import { ArchetypeData } from './archetype';
@@ -9,6 +10,7 @@ import { CreatureData } from './creature';
 import { DamageTypeData } from './damage';
 import { DeityData } from './deity';
 import { EffectData } from './effect';
+import { EnvironmentData } from './environment';
 import { EQUIPMENT_KIND_DATA } from './equipment-kind-data';
 import { AncestryFeatureData, ClassFeatureData, FeatData } from './feat';
 import { HeritageData } from './heritage';
@@ -38,6 +40,7 @@ export const KIND_DATA = {
   [ContentKind.DamageType]: DamageTypeData,
   [ContentKind.Deity]: DeityData,
   [ContentKind.Effect]: EffectData,
+  [ContentKind.Environment]: EnvironmentData,
   [ContentKind.Feat]: FeatData,
   [ContentKind.Heritage]: HeritageData,
   [ContentKind.Language]: LanguageData,

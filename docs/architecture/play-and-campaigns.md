@@ -412,6 +412,16 @@ are applied the same way by the player receiving them, with the giver recorded a
 another player's sheet (ADR-0018). Permanent boons are part of the build (`build.boons`), so Pioneer keeps them in
 every sync mode; temporary ones are play state.
 
+### Environments
+
+An environment (underwater, darkness, extreme cold) is a situation the character is in, not a condition: the
+`environment` content kind (content-model.md). Play state keeps the ones the character is in as `environments`, a list of
+content ids, each once, set by the `setEnvironment` edit (on or off, by id; the service refuses turning on an id the
+character's content lacks). Each is a grant root behind an `environment` origin hop, so its `rules` apply and show in
+breakdowns while it is listed, and it sets the `self:environment:<name>` roll option for predicates. What it forbids
+(`restrictionsInPlay`) is read from the content: each restriction has an id and a reason, which the Exploration tab lists
+under the environment toggles. Lifting a restriction with an ability, and consequences over time, are separate stories.
+
 ### Rest and daily preparations
 
 Tables don't always get both, so they are separate actions, each optional and each previewing its changes before it

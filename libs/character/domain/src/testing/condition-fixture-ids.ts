@@ -19,3 +19,11 @@ export function encumberedFixtureId(): ContentId {
 export function clumsyFixtureId(): ContentId {
   return ContentId.parse(contentId(PackId.parse(ITEM_PACK), EntrySlug.parse(`condition:${CLUMSY}`)));
 }
+
+/** The underwater environment: a circumstance penalty to Fortitude saves, and no speech. */
+export const UNDERWATER = 'underwater';
+
+/** The id of the fixture underwater environment. */
+export function underwaterFixtureId(): ContentId {
+  return ContentId.parse(contentId(PackId.parse(ITEM_PACK), EntrySlug.parse(`environment:${UNDERWATER}`)));
+}

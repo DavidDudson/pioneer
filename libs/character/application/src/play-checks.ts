@@ -2,11 +2,13 @@ import {
   conditionProblem,
   ConditionProblem,
   EffectCommandField,
+  environmentContent,
   EffectProblem,
   effectProblem,
   isConditionCommand,
   isConsumableCommand,
   isEffectCommand,
+  isEnvironmentCommand,
   isExplorationActivity,
   isExplorationCommand,
   PlayCommandField,
@@ -100,6 +102,19 @@ export async function checkExploration(command: PlayEdit, registry: () => Promis
   if (!isExplorationActivity(content, activity)) {
     throw new ValidationError([
       { path: ['command', 'activity'], message: message('character.validation.explorationUnknown') },
+    ]);
+  }
+}
+
+/** Refuses turning on an environment the character's content does not have; turning one off is always allowed. */
+export async function checkEnvironment(command: PlayEdit, registry: () => Promise<ContentRegistry>): Promise<void> {
+  if (!isEnvironmentCommand(command) || !command.active) {
+    return;
+  }
+  const content = environmentContent(await registry());
+  if (!content.has(command.environment)) {
+    throw new ValidationError([
+      { path: ['command', 'environment'], message: message('character.validation.environmentUnknown') },
     ]);
   }
 }

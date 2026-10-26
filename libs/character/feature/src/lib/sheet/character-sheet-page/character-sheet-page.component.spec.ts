@@ -43,6 +43,7 @@ describe('CharacterSheetPage', () => {
     expect(regionsOf(root)).toStrictEqual([
       ['Appearance and personality', true],
       ['Exploration activity', true],
+      ['Environments', true],
       ['Actions', true],
       ['Deity', true],
       ['Languages', true],

@@ -42,6 +42,7 @@ export const OriginHopKind = {
   Inventory: 'inventory',
   Condition: 'condition',
   Effect: 'effect',
+  Environment: 'environment',
   Override: 'override',
   Variant: 'variant',
 } as const;
@@ -67,6 +68,8 @@ export const OriginHop = z.discriminatedUnion('kind', [
     /** The spell rank the effect was cast at, which heightens the rules it carries. */
     rank: SpellRank.optional(),
   }),
+  /** An environment the character is in (underwater) put it in play. */
+  z.strictObject({ kind: z.literal(OriginHopKind.Environment), environment: ContentId }),
   /** Someone set it by hand: who, when and why. */
   z.strictObject({
     kind: z.literal(OriginHopKind.Override),

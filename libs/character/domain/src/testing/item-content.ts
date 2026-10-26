@@ -17,6 +17,7 @@ import { runeContent } from '../item-runes';
 import type { RuneContent } from '../item-runes';
 import { CLUMSY, ENCUMBERED, ITEM_PACK } from './condition-fixture-ids';
 import { BULWARK_CHARM, EMBER_BLADE, TROLL_CHARM } from './effect-items';
+import { withUnderwater } from './environment-fixtures';
 import { FIRE_STAFF, FIRE_STAFF_SPELLS, FIREBALL_WAND } from './fire-staff';
 import { HUNTERS_BLADE } from './hunters-blade';
 import { HUNTERS_CLOAK } from './hunters-cloak';
@@ -239,10 +240,7 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
   },
 };
 
-/**
- * A pack of one item of every carried kind, a backpack among them to stow things in, property runes to etch onto them,
- * and the encumbered condition.
- */
+/** One item of every carried kind, runes to etch onto them, the encumbered condition and the underwater environment. */
 function itemPack(): ContentPack {
   const builder = new ContentPackBuilder().withId(ITEM_PACK);
   for (const [name, fields] of Object.entries(ITEMS)) {
@@ -263,7 +261,7 @@ function itemPack(): ContentPack {
     { key: 'FlatModifier', selectors: ['all-speeds'], type: 'untyped', slug: ENCUMBERED, value: -10 },
     { key: 'GrantItem', item: builder.idOf(ContentKind.Condition, CLUMSY) },
   ]);
-  return builder.build();
+  return withUnderwater(builder).build();
 }
 
 export const ITEM_FIXTURES: ContentPack = itemPack();

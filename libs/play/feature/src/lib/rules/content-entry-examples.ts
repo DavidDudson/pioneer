@@ -22,7 +22,7 @@ import {
   striking,
 } from './equipment-examples';
 import { arcane, consecrate, fireball, heroism } from './magic-examples';
-import { aid, darkvision, draconic, fire, freeArchetype, grabbed, manipulate } from './rules-core-examples';
+import { aid, darkvision, draconic, fire, freeArchetype, grabbed, manipulate, underwater } from './rules-core-examples';
 
 const PLAYER_CORE = PackId.parse('player-core');
 const MONSTER_CORE = PackId.parse('monster-core');
@@ -145,6 +145,7 @@ export const EXAMPLE_CONTENT_ENTRIES: Readonly<Record<RegisteredKind, unknown>> 
   [ContentKind.DamageType]: fire,
   [ContentKind.Deity]: pharasma,
   [ContentKind.Effect]: heroism,
+  [ContentKind.Environment]: underwater,
   [ContentKind.Equipment]: backpack,
   [ContentKind.Feat]: suddenCharge,
   [ContentKind.Heritage]: skilledHuman,
@@ -179,6 +180,7 @@ export const CONTENT_KIND_KEYS: Readonly<Record<RegisteredKind, string>> = {
   [ContentKind.DamageType]: 'play.rules.contentKind.damageType',
   [ContentKind.Deity]: 'play.rules.contentKind.deity',
   [ContentKind.Effect]: 'play.rules.contentKind.effect',
+  [ContentKind.Environment]: 'play.rules.contentKind.environment',
   [ContentKind.Equipment]: 'play.rules.contentKind.equipment',
   [ContentKind.Feat]: 'play.rules.contentKind.feat',
   [ContentKind.Heritage]: 'play.rules.contentKind.heritage',
