@@ -96,6 +96,12 @@ const VERSION_10 = {
   schemaVersion: 10,
 };
 
+/** Version 11, before a build kept the heritage and languages an import found no slot for. */
+const VERSION_11 = {
+  ...VERSION_10,
+  schemaVersion: 11,
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -111,4 +117,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_8.schemaVersion), VERSION_8],
   [CharacterSchemaVersion.parse(VERSION_9.schemaVersion), VERSION_9],
   [CharacterSchemaVersion.parse(VERSION_10.schemaVersion), VERSION_10],
+  [CharacterSchemaVersion.parse(VERSION_11.schemaVersion), VERSION_11],
 ]);

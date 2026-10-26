@@ -18,6 +18,9 @@ export const SPELL_ACCESS_MAX = 500;
 /** The most imported feats a build keeps with no slot to hold them. */
 export const UNPLACED_FEATS_MAX = 100;
 
+/** The most imported languages a build keeps with no slot to hold them. */
+export const UNPLACED_LANGUAGES_MAX = 100;
+
 /** A repertoire slot swapped at `level`. */
 const RepertoireSwapRecord = z.strictObject({ level: Level, slot: SlotKey });
 
@@ -25,12 +28,15 @@ const RepertoireSwapRecord = z.strictObject({ level: Level, slot: SlotKey });
  * Everything the player picked. Selections are kept for slots the character doesn't have (character-model.md).
  * `spellAccess` lists the uncommon and rare spells the character may prepare, each once (#478). `unplacedFeats` lists
  * the feats an import found that no slot offers, each once: kept so the character carries them, flagged as breaking
- * a rule until a pick of one in a slot, or the player, takes it off the list.
+ * a rule until a pick of one in a slot, or the player, takes it off the list. `unplacedHeritage` and `unplacedLanguages`
+ * keep, the same way, the heritage the ancestry does not offer and the languages no slot has room for.
  */
 export const BuildSchema = z.strictObject({
   choices: z.record(SlotKey, ChoiceValue).default({}),
   spellAccess: z.array(ContentId).max(SPELL_ACCESS_MAX).readonly().check(uniqueItems).default([]),
   unplacedFeats: z.array(ContentId).max(UNPLACED_FEATS_MAX).readonly().check(uniqueItems).default([]),
+  unplacedHeritage: ContentId.optional(),
+  unplacedLanguages: z.array(ContentId).max(UNPLACED_LANGUAGES_MAX).readonly().check(uniqueItems).default([]),
   /** The repertoire slot swapped at each level, one a level-up (#594). */
   repertoireSwaps: z.array(RepertoireSwapRecord).readonly().default([]),
   boons: None.default([]),
@@ -49,7 +55,14 @@ export const CharacterDocumentSchema = z.strictObject({
   level: CharacterLevel,
   /** Content the character draws on; campaign packs take precedence. */
   packs: z.array(PackId).readonly().default([]),
-  build: BuildSchema.default({ choices: {}, spellAccess: [], unplacedFeats: [], repertoireSwaps: [], boons: [] }),
+  build: BuildSchema.default({
+    choices: {},
+    spellAccess: [],
+    unplacedFeats: [],
+    unplacedLanguages: [],
+    repertoireSwaps: [],
+    boons: [],
+  }),
   inventory: InventorySchema.default(EMPTY_INVENTORY),
   /** Stored apart, in `character_play` (ADR-0022); a build save never writes it. */
   play: PlayStateSchema.default(FRESH_PLAY),

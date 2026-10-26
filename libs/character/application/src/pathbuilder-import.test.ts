@@ -16,12 +16,13 @@ import {
   ImportKind,
   Occurrences,
   PathbuilderName,
+  RuleBreakingCount,
   UncarriedField,
   UnmatchedReason,
 } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport, UnmatchedName } from '@pioneer/interop/pathbuilder';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { Attribute, ChoiceValue, ContentKind, Level } from '@pioneer/rules/sdk';
+import { Attribute, ChoiceValue, ContentId, ContentKind, Level } from '@pioneer/rules/sdk';
 import type { ContentSource } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, SortDirection, UserId, ValidationError } from '@pioneer/shared/kernel';
@@ -145,19 +146,20 @@ describe('PathbuilderImportService.importPathbuilder', () => {
     }
   });
 
-  test('a loaded heritage of another ancestry is reported as not offered, and not written', async () => {
-    const pack = new ContentPackBuilder()
+  test('a loaded heritage of another ancestry is kept as a rule break, and not written to its slot', async () => {
+    const builder = new ContentPackBuilder()
       .withId('player-core')
       .withAncestry('human')
       .withAncestry('elf')
-      .withHeritage('changeling', 'elf')
-      .build();
-    const elsewhere = importerOver(fixedContent(pack), repository);
+      .withHeritage('changeling', 'elf');
+    const elsewhere = importerOver(fixedContent(builder.build()), repository);
     const { character, report } = await elsewhere.importPathbuilder(amiri, mordredExport);
     expect(Object.keys(character.document.build.choices)).not.toContain(HERITAGE_SLOT);
-    expect(unmatchedHeritage(report)).toStrictEqual([
-      { name: changeling, occurrences: Occurrences.parse(1), reason: UnmatchedReason.NotOffered },
-    ]);
+    expect(unmatchedHeritage(report)).toBeUndefined();
+    expect(character.document.build.unplacedHeritage).toBe(
+      ContentId.parse(builder.idOf(ContentKind.Heritage, 'changeling')),
+    );
+    expect(report.ruleBreakingPicks).toBe(RuleBreakingCount.parse(1));
     expect(repository.audits).toStrictEqual([{ actor: amiri, command: CharacterCommand.ImportPathbuilder }]);
   });
 

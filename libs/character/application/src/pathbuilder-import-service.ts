@@ -9,6 +9,7 @@ import {
   runeContent,
   slotContent,
   unplacedFeatBreaks,
+  unplacedPickBreaks,
 } from '@pioneer/character/domain';
 import type { Inventory } from '@pioneer/character/domain';
 import {
@@ -144,6 +145,7 @@ export class PathbuilderImportService {
       }),
       ruleBreaking: ruleBreaking(character.document.inventory, content),
       ruleBreakingFeats: RuleBreakingCount.parse(unplacedFeatBreaks(character.document).length),
+      ruleBreakingPicks: RuleBreakingCount.parse(unplacedPickBreaks(character.document).length),
     });
     return { character: saved, report };
   }
@@ -152,7 +154,7 @@ export class PathbuilderImportService {
   #newCharacter(actor: UserId, value: PathbuilderImport, { ancestry, inventory }: Start): Create {
     const id = CharacterId.parse(newId());
     const now = this.#clock.now();
-    return (choices, unplacedFeats) =>
+    return (choices, unplaced) =>
       Character.create({
         id,
         ownerId: actor,
@@ -161,7 +163,7 @@ export class PathbuilderImportService {
         level: value.level,
         choices,
         inventory,
-        unplacedFeats,
+        unplaced,
         now,
       });
   }

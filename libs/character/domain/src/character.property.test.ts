@@ -9,7 +9,7 @@ import * as z from 'zod';
 
 import { Character } from './character';
 import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
-import type { CharacterPatch } from './character-patch';
+import type { CharacterPatch, UnplacedPickPatch } from './character-patch';
 import { InventoryItemId, inventoryRefusal, ItemQuantity } from './inventory';
 import type { InventoryEdit, InventoryItem, NewItem } from './inventory';
 import { inventoryTarget } from './inventory-target';
@@ -84,7 +84,7 @@ type UnaimedField =
   | typeof CharacterPatchField.SetCoins
   | typeof CharacterPatchField.GrantSpellAccess
   | typeof CharacterPatchField.RevokeSpellAccess
-  | typeof CharacterPatchField.DismissUnplacedFeat
+  | UnplacedPickPatch['field']
   | typeof CharacterPatchField.SetAppearance
   | typeof CharacterPatchField.SetPersonality;
 type ItemPatch = Exclude<CharacterPatch, { readonly field: UnaimedField }>;
@@ -98,6 +98,8 @@ const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
   CharacterPatchField.GrantSpellAccess,
   CharacterPatchField.RevokeSpellAccess,
   CharacterPatchField.DismissUnplacedFeat,
+  CharacterPatchField.DismissUnplacedHeritage,
+  CharacterPatchField.DismissUnplacedLanguage,
   CharacterPatchField.SetAppearance,
   CharacterPatchField.SetPersonality,
 ]);

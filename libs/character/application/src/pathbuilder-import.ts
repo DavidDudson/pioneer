@@ -8,9 +8,8 @@ import {
   HERITAGE_SLOT,
   rootSlotOptions,
   SECOND_CLASS_SLOT,
-  UNPLACED_FEATS_MAX,
 } from '@pioneer/character/domain';
-import type { Character, CharacterDocument, SlotContent } from '@pioneer/character/domain';
+import type { Character, CharacterDocument, SlotContent, UnplacedPicks } from '@pioneer/character/domain';
 import {
   ImportKind,
   matchKey,
@@ -27,7 +26,6 @@ import {
 import type {
   BoostChoices,
   ContentLookup,
-  ImportedFeat,
   ImportedName,
   PathbuilderImport,
   PathbuilderName,
@@ -40,6 +38,8 @@ import { AncestryId, ChoiceValue, ContentId, VariantStructure } from '@pioneer/r
 import type { ContentRegistry, SlotKey, VariantRuleEntry } from '@pioneer/rules/sdk';
 import { fieldIssues, message, ValidationError } from '@pioneer/shared/kernel';
 import type { FieldIssue } from '@pioneer/shared/kernel';
+
+import { keptPicks } from './pathbuilder-unplaced';
 
 const PROBLEM_MESSAGES = {
   [PathbuilderProblem.Malformed]: 'character.import.problem.malformed',
@@ -127,8 +127,8 @@ function rootChoices(value: PathbuilderImport, { lookup, slots }: ImportContent)
   );
 }
 
-/** Makes the character with `choices` picked, and the feats no slot took kept beside them. */
-export type Create = (choices: BoostChoices, unplacedFeats?: readonly ContentId[]) => Character;
+/** Makes the character with `choices` picked, and the picks no slot took kept beside them. */
+export type Create = (choices: BoostChoices, unplaced?: UnplacedPicks) => Character;
 
 /** What an import is matched against: content by name, and what each slot offers, boosts included. */
 export interface ImportContent {
@@ -139,12 +139,13 @@ export interface ImportContent {
 /** The export's heritage in its slot, or the heritage named as not offered when the slot refuses it. */
 interface HeritageChoice {
   readonly choices: BoostChoices;
-  readonly notOffered: readonly ImportedName[];
+  /** A loaded heritage the ancestry does not offer: kept on the character, flagged as breaking a rule. */
+  readonly unplacedHeritage?: ContentId;
 }
 
 /**
  * The heritage an export names, in its slot when it matches a loaded heritage that `document`'s ancestry offers (one
- * of its own or a versatile one). A loaded heritage of another ancestry stays out, named as not offered.
+ * of its own or a versatile one). A loaded heritage of another ancestry is kept as unplaced instead.
  */
 function heritageChoice(
   value: PathbuilderImport,
@@ -154,13 +155,13 @@ function heritageChoice(
   const name = value.identity.heritage;
   const match = name === undefined ? undefined : lookup.resolve(ImportKind.Heritage, name);
   if (name === undefined || match === undefined) {
-    return { choices: {}, notOffered: [] };
+    return { choices: {} };
   }
   const selection = ChoiceValue.parse(match.id);
   const offered = rootSlotOptions(document, slots, HERITAGE_SLOT).some((option) => option.value === selection);
   return offered
-    ? { choices: { [HERITAGE_SLOT]: selection }, notOffered: [] }
-    : { choices: {}, notOffered: [{ kind: ImportKind.Heritage, name }] };
+    ? { choices: { [HERITAGE_SLOT]: selection } }
+    : { choices: {}, unplacedHeritage: ContentId.parse(match.id) };
 }
 
 /**
@@ -187,11 +188,10 @@ export interface ImportedCharacter {
 /** What the feat, skill and language slots took from an export, on top of the choices already made. */
 interface SlotFills {
   readonly choices: BoostChoices;
-  /** The matched feats no slot offers, each once: the character keeps them, flagged as breaking a rule. */
-  readonly unplacedFeats: readonly ContentId[];
+  /** The matched feats and languages no slot offers, each once: the character keeps them, flagged as breaking a rule. */
+  readonly unplaced: UnplacedPicks;
   readonly skillGaps: readonly SkillGap[];
   readonly spellGaps: readonly SpellGap[];
-  readonly notOffered: readonly ImportedName[];
 }
 
 /** The character `create` makes, and the choices already made in it. */
@@ -200,19 +200,9 @@ interface Build {
   readonly choices: BoostChoices;
 }
 
-/** The content of the feats no slot took, each once and no more than a character keeps; they are flagged, not forced into a slot. */
-function keptFeats(unplaced: readonly ImportedFeat[], lookup: ContentLookup): ContentId[] {
-  const ids = unplaced.flatMap(({ name }): ContentId[] => {
-    const match = lookup.resolve(ImportKind.Feat, name);
-    return match === undefined ? [] : [ContentId.parse(match.id)];
-  });
-  return [...new Set(ids)].slice(0, UNPLACED_FEATS_MAX);
-}
-
 /** The feats, then the skills and Lores, the languages and the spells in the slots `build` opens, each read after the last. */
 function slotFills(value: PathbuilderImport, content: ImportContent, { create, choices: built }: Build): SlotFills {
   const feats = placeFeats(create(built).document, content, value.feats);
-  const unplacedFeats = keptFeats(feats.unplaced, content.lookup);
   const withFeats = { ...built, ...feats.choices };
   const skills = placeSkills(create(withFeats).document, content.slots, value);
   const withSkills = { ...withFeats, ...skills.choices };
@@ -223,10 +213,9 @@ function slotFills(value: PathbuilderImport, content: ImportContent, { create, c
   const spells = placeSpells(create(withFocus).document, content, value.casters);
   return {
     choices: { ...withFocus, ...spells.choices },
-    unplacedFeats,
+    unplaced: keptPicks(feats.unplaced, languages.unplaced, content.lookup),
     skillGaps: skills.gaps,
     spellGaps: [...spells.gaps, ...focus.gaps],
-    notOffered: languages.unplaced.map((name): ImportedName => ({ kind: ImportKind.Language, name })),
   };
 }
 
@@ -234,8 +223,8 @@ function slotFills(value: PathbuilderImport, content: ImportContent, { create, c
  * The character `create` makes from an export: its background and class (and second class) picked, then the heritage
  * its ancestry offers, then each boost in the slots they open, the voluntary flaws (#550) and the feats in the slots
  * those open, the skills and Lores in the skill slots, the languages in the language slots (#308) and the spells in the
- * prepared and repertoire slots (#311); a matched language no slot offers is named as not offered, and a matched feat
- * no slot offers is kept on the character as unplaced, flagged as breaking a rule rather than forced into a slot.
+ * prepared and repertoire slots (#311); a matched feat, language or heritage no slot offers is kept on
+ * the character as unplaced, flagged as breaking a rule rather than forced into a slot.
  */
 export function importedCharacter(value: PathbuilderImport, content: ImportContent, create: Create): ImportedCharacter {
   const roots = rootChoices(value, content);
@@ -248,11 +237,11 @@ export function importedCharacter(value: PathbuilderImport, content: ImportConte
   const fills = slotFills(value, content, { create, choices: built });
   return {
     dualClass: SECOND_CLASS_SLOT in roots,
-    character: create(fills.choices, fills.unplacedFeats),
+    character: create(fills.choices, { ...fills.unplaced, unplacedHeritage: heritage.unplacedHeritage }),
     unplaced: placement.unplaced,
     skillGaps: fills.skillGaps,
     spellGaps: fills.spellGaps,
-    notOffered: [...heritage.notOffered, ...secondClassNotOffered(value, content), ...fills.notOffered],
+    notOffered: secondClassNotOffered(value, content),
   };
 }
 

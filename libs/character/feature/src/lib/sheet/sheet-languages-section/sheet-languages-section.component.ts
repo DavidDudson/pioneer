@@ -17,6 +17,7 @@ import { languageRows } from '../../data/language-rows';
 import { sheetLanguages } from '../sheet-languages';
 import type { SheetLanguages } from '../sheet-languages';
 import { SheetState } from '../sheet-state';
+import { SheetUnplacedPicks } from '../sheet-unplaced-picks/sheet-unplaced-picks.component';
 
 /**
  * The Languages section's content (#470): the languages the character knows as the server read them, a picked one
@@ -25,7 +26,7 @@ import { SheetState } from '../sheet-state';
  */
 @Component({
   selector: 'pio-sheet-languages-section',
-  imports: [LanguageAdd, LanguagesView, Stack],
+  imports: [LanguageAdd, LanguagesView, SheetUnplacedPicks, Stack],
   templateUrl: './sheet-languages-section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

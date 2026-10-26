@@ -1,0 +1,25 @@
+@if (rows().length > 0) {
+  <fr-stack gap="2xs">
+    <fr-heading variant="subheading" [level]="3">{{ words().heading | transloco }}</fr-heading>
+    <fr-text tone="muted">{{ words().explain | transloco }}</fr-text>
+    <fr-list gap="xs">
+      @for (row of rows(); track row.id) {
+        @let name = row.name ?? ('character.sheet.unplacedPicks.unknown' | transloco);
+        <fr-list-item>
+          <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+            <fr-stack direction="horizontal" align="center" gap="xs">
+              <fr-text>{{ name }}</fr-text>
+              <fr-badge [tone]="Tone.Warning">{{ row.reason.key | transloco: row.reason.params }}</fr-badge>
+            </fr-stack>
+            <fr-async-button
+              variant="ghost"
+              [ariaLabel]="'character.sheet.unplacedPicks.dismissNamed' | transloco: { name }"
+              [action]="dismiss(row.id)"
+              >{{ 'character.sheet.unplacedPicks.dismiss' | transloco }}</fr-async-button
+            >
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  </fr-stack>
+}

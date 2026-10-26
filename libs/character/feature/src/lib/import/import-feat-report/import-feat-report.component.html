@@ -1,3 +1,6 @@
+@if (picks() > 0) {
+  <fr-text>{{ 'character.import.result.ruleBreakingPicks' | transloco: { count: picks() } }}</fr-text>
+}
 @if (count() > 0) {
   <fr-text>{{ 'character.import.result.ruleBreakingFeats' | transloco: { count: count() } }}</fr-text>
 }

@@ -29,6 +29,7 @@ describe('decodeCharacterDocument', () => {
       choices: {},
       spellAccess: [],
       unplacedFeats: [],
+      unplacedLanguages: [],
       repertoireSwaps: [],
       boons: [],
     });

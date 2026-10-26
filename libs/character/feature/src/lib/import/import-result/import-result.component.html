@@ -24,7 +24,7 @@
         <fr-link [to]="inventory">{{ 'character.import.result.ruleBreakingReview' | transloco }}</fr-link>
       </fr-stack>
     }
-    <pio-import-feat-report [count]="report().ruleBreakingFeats" />
+    <pio-import-feat-report [count]="report().ruleBreakingFeats" [picks]="report().ruleBreakingPicks" />
     @if (notCarried() !== '') {
       <fr-text>{{ 'character.import.result.notCarried' | transloco: { fields: notCarried() } }}</fr-text>
     }

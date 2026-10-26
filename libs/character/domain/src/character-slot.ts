@@ -151,4 +151,8 @@ export const SlotInvalidMessage = {
   DedicationLocked: 'rules.choices.invalid.dedicationLocked',
   /** An imported feat no slot offers, kept on the character. */
   NoSlot: 'rules.choices.invalid.noSlot',
+  /** An imported heritage the ancestry does not offer, kept on the character. */
+  NoHeritageSlot: 'rules.choices.invalid.noHeritageSlot',
+  /** An imported language no language slot has room for, kept on the character. */
+  NoLanguageSlot: 'rules.choices.invalid.noLanguageSlot',
 } as const;

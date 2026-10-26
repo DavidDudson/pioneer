@@ -23,7 +23,7 @@ function keeping(...feats: (typeof nimble)[]): Character {
     ownerId: document.ownerId,
     name: document.name,
     ancestry: humanAncestryId,
-    unplacedFeats: feats,
+    unplaced: { unplacedFeats: feats },
     now: later,
   });
 }

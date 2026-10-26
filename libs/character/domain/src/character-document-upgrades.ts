@@ -38,6 +38,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 10 → 11: the feats an import found no slot for, kept on the build. A version 10 build has none. */
   (document) => document,
+  /** 11 → 12: the heritage and languages an import found no slot for, kept on the build. A version 11 build has none. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */
