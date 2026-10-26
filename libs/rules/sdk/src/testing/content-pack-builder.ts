@@ -255,6 +255,17 @@ export class ContentPackBuilder {
     return this;
   }
 
+  /** An environment slugged `environment:<name>`, with `rules` as JSON: what it does to statistics while it is active. */
+  public withEnvironment(name: string, data: object = {}, rules: readonly object[] = []): this {
+    this.#entries.push({
+      kind: ContentKind.Environment,
+      name,
+      data: { restrictions: [], consequences: [], ...data },
+      rules,
+    });
+    return this;
+  }
+
   /** A spell slugged `spell:<name>`, cast with two actions, its level its rank. */
   public withSpell(name: string, { rank, traditions, traits = [], rarity, duration, dismiss }: SpellFields): this {
     const data = {

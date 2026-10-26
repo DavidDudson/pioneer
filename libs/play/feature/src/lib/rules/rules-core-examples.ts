@@ -41,6 +41,19 @@ export const grabbed = {
   data: { valued: false, overrides: [], implies: [offGuard, immobilized], recovery: {} },
 };
 
+export const underwater = {
+  ...playerCore('environment:underwater', 'Underwater', 'You are submerged in water deep enough to swim in.'),
+  kind: ContentKind.Environment,
+  rules: [],
+  data: {
+    restrictions: [
+      { id: 'speech', reason: "You can't speak underwater." },
+      { id: 'fire-effects', reason: 'Fire is put out underwater.' },
+    ],
+    consequences: [{ after: { count: 5, unit: 'round' }, applies: playerCoreId('condition:unconscious') }],
+  },
+};
+
 export const aid = {
   ...playerCore('action:aid', 'Aid', 'You try to help your ally with a task.'),
   kind: ContentKind.Action,

@@ -22,7 +22,7 @@ import { ContentKind } from '../content-kind';
 import { DisplayCategory, Rarity } from '../entry-fields';
 import { FeatCategory, UNLIMITED } from '../feat';
 import type { RegisteredKind } from '../kind-data';
-import { ActionCost } from '../rich-text';
+import { ActionCost, DurationUnit } from '../rich-text';
 import { CONTENT_LEVEL_MAX, LEVEL_MAX, LEVEL_MIN } from '../units';
 import { predicateJson, skillSelectorText, withTrigger } from './arbitraries';
 import {
@@ -104,6 +104,17 @@ const conditionData: Arbitrary<object> = withOptional(
   { group: constantFrom(...Object.values(ConditionGroup)) },
 );
 
+const environmentRestriction: Arbitrary<{ id: string; reason: string }> = record({ id: slugText, reason: contentText });
+const durationUnit: Arbitrary<string> = constantFrom(...Object.values(DurationUnit));
+const environmentConsequence: Arbitrary<object> = withOptional(
+  record({ after: record({ count: positive, unit: durationUnit }), applies: contentIdJson }),
+  { repeats: boolean() },
+);
+const environmentData: Arbitrary<object> = record({
+  restrictions: uniqueArray(environmentRestriction, { selector: ({ id }) => id, maxLength: LIST_MAX }),
+  consequences: array(environmentConsequence, { maxLength: LIST_MAX }),
+});
+
 const contentKind: Arbitrary<string> = constantFrom(...Object.values(ContentKind));
 const traitData: Arbitrary<object> = record({ appliesTo: uniqueArray(contentKind, { maxLength: LIST_MAX }) });
 
@@ -133,6 +144,7 @@ const KIND_ARBITRARIES: Readonly<Record<RegisteredKind, KindArbitrary>> = {
   [ContentKind.DamageType]: { data: emptyData },
   [ContentKind.Deity]: { data: deityOrPhilosophyData },
   [ContentKind.Effect]: { data: effectData },
+  [ContentKind.Environment]: { data: environmentData },
   [ContentKind.Feat]: { data: featData, level: entryLevel },
   [ContentKind.Heritage]: { data: heritageData },
   [ContentKind.Language]: { data: emptyData },

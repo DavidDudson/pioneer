@@ -17,6 +17,7 @@ export const CONTENT_KIND_KEYS: Readonly<Record<ContentKind, string>> = {
   [ContentKind.DamageType]: 'character.import.pioneer.kind.damageType',
   [ContentKind.Deity]: 'character.import.pioneer.kind.deity',
   [ContentKind.Effect]: 'character.import.pioneer.kind.effect',
+  [ContentKind.Environment]: 'character.import.pioneer.kind.environment',
   [ContentKind.Equipment]: 'character.import.pioneer.kind.equipment',
   [ContentKind.Feat]: 'character.import.pioneer.kind.feat',
   [ContentKind.Heritage]: 'character.import.pioneer.kind.heritage',

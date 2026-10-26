@@ -96,6 +96,12 @@ const Entry = z.discriminatedUnion('kind', [
   }),
   z.strictObject({
     ...address,
+    kind: z.literal(ContentKind.Environment),
+    ...envelope,
+    data: KIND_DATA[ContentKind.Environment],
+  }),
+  z.strictObject({
+    ...address,
     kind: z.literal(ContentKind.Feat),
     ...envelope,
     // A feat always has a level: the lowest a character can take it at.

@@ -44,7 +44,7 @@ turns them into the definitions it holds today and wraps each in `PackEntry`.
 | Build      | `ancestry`, `ancestry-feature`, `heritage`, `background`, `class`, `class-feature`, `feat`, `archetype`, `deity` |
 | Magic      | `spell` (incl. focus spells and cantrips), `ritual`, `spellcasting-tradition`                                    |
 | Equipment  | `weapon`, `armor`, `shield`, `equipment`, `consumable`, `rune`, `treasure`, `kit`                                |
-| Play       | `effect` (spell and feat effects, GM effects)                                                                    |
+| Play       | `effect` (spell and feat effects, GM effects), `environment` (underwater, darkness, extreme cold)                |
 | Bestiary   | `creature` (see [Creatures](#creatures)), `hazard` (later milestone)                                             |
 
 Class progression (features by level, feat slots, skill increases, boosts) is data on the `class` entry, expressed
@@ -90,6 +90,11 @@ in its `rules`, not repeated in `data`; a condition's `implies` is the one excep
   `trigger` stays the wording shown. `autoApply: false` makes a free, beneficial ability prompt rather than apply at
   once, and needs a `triggerEvent` (play-and-campaigns.md, "Triggered abilities"). A feat or class feature that is an
   action carries both on its `action`.
+- `environment`: a situation a character is in, which is not a condition. Its adjustments are its `rules`,
+  applied while it is active. `restrictions` lists what it forbids: each has an `id` (`speech`, `fire-effects`),
+  unique in the environment, that abilities name to lift it, and a `reason` the sheet shows. `consequences` lists what
+  staying costs: after `after` (a count of rounds, minutes, hours or days), `applies` (a condition or effect, by
+  `ContentId`) is put on the character, again each time that long passes with `repeats`.
 
 Two checks span fields: a reaction needs a `trigger`, and every condition in `implies` needs a `GrantItem` of it in
 `rules` with no predicate. Foundry applies implied conditions (Grabbed's Off-Guard and Immobilized) with

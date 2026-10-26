@@ -20,6 +20,7 @@ export const ContentKind = {
   DamageType: 'damage-type',
   Deity: 'deity',
   Effect: 'effect',
+  Environment: 'environment',
   Equipment: 'equipment',
   Feat: 'feat',
   Heritage: 'heritage',
