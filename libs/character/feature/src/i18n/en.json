@@ -199,7 +199,10 @@
         "class": "Class feats",
         "skill": "Skill feats",
         "general": "General feats",
-        "bonus": "Bonus feats"
+        "bonus": "Bonus feats",
+        "deityBoon": "Deity boons",
+        "calling": "Callings",
+        "curse": "Curses"
       },
       "display": {
         "active": "Active",

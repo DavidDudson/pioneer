@@ -15,6 +15,9 @@ export const FeatCategory = {
   General: 'general',
   Skill: 'skill',
   Bonus: 'bonus',
+  DeityBoon: 'deity-boon',
+  Calling: 'calling',
+  Curse: 'curse',
 } as const;
 export type FeatCategory = ValueOf<typeof FeatCategory>;
 const FeatCategorySchema = z.enum(FeatCategory);

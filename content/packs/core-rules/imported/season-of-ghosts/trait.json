@@ -1,5 +1,25 @@
 [
   {
+    "id": "24121f78-4c90-5e42-9b00-24d2a699d1d9",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:nindoru",
+    "name": "Nindoru",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
     "id": "cf2af84b-a77a-578a-87e8-2bcc446ae895",
     "pack": "core-rules",
     "kind": "trait",

@@ -80,6 +80,26 @@
     }
   },
   {
+    "id": "87c9b45e-c439-59b3-9af9-2c3a3ce11f8d",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:kaiju",
+    "name": "Kaiju",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
     "id": "81fa50aa-cf2f-5880-b3ca-31871144f6c0",
     "pack": "core-rules",
     "kind": "trait",

@@ -47,6 +47,2036 @@
     {
       "type": "entry",
       "pack": "revenge-of-the-runelords",
+      "slug": "creature:abysium-sentinel",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.PfLXgBatvTJlrOfk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:adamantine-sentinel",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.AKJ3ZHpR5i7dOmKy",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:ancient-one",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.rvkUJfaGLaMxdP4i",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "mythic resilience"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "entropy sense (precise) 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 300 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Annihilation Ray.damage",
+          "raw": {
+            "damage": "6d8",
+            "damageType": "void",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:ancient-one-the-ashen-mans-anger",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.1o0nvZRwGkqxP1D9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "mythic resilience"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "entropy sense (precise) 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 300 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Annihilation Ray.damage",
+          "raw": {
+            "damage": "6d8",
+            "damageType": "void",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:animate-nightmare-disaster",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.AJ5x96JQzEL1kxPc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:animate-nightmare-disorder",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.MVvscUip8Qu7AgWl",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:animate-nightmare-famine",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.9m1zbd4EyWSYHOB3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:animate-nightmare-plague",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.3yq9O31OreSgxhux",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:areelu-vorlesh",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.igeNfVBZBcIkCzcZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "darkvision, truesight"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:ayavah",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.TttCvtb147urbMi1",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to saves against spells and magic effects"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Sculptor's Tools"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Porphyry Succubi Statuette"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:baolen",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.VwXQStpbtRju6TRg",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:belimarius",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.w0tzpjuIi18Q2I0K",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status vs. magical effects, +4 status vs. mental effects HP 350; Immunities aging, disease; R"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Spell Effect: Hidden Mind"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:tag:mythic"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.Belimarius.MythicAlteration"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Warshard of Gorum"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Mountain Resilience (Rank 4)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "persistent-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:bittersweet-sister",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.QpqjeI8noCOqDlPJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 23
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:clockwork-whale",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.5vuhv7BQ7AsNCLXu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "aquatic echolocation 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "orichalcum"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:commander-yrasthura",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.7bMz3ppqOSnp4iMo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Spell Effect: Fly"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:czaresia",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.MSMKOjqW07pyCvxJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Spell Effect: Fly"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:dream-aethusa",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.uv0pb5o8phryeL4z",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Elder Sign Amulet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:eron-of-jandelay",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.y8wrYOUeEADpSDt9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 20"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "unfettered movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": [
+              {
+                "lt": ["target:size", 4]
+              }
+            ],
+            "selector": ["claw-damage"],
+            "text": "{item|description}",
+            "title": "{item|name} <span class=\"action-glyph\">f</span>",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:erzgeist",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.j4hKLFhLQrvC96EN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Speak with stones"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:gavergash",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.wZ4GXG48jC06ceCu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(26 plus all-around vision after Shed Armor)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 25 (deactivated by electricity or fire)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:goldgorger",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.1zkyfGLVOn3D1kBv",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "darkvision, rust vision"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:greedspawn",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.CPkNCHW9cGAUq099",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic, +4 status to all saves vs. mental"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "sin scent (imprecise) 30 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:insatiable-bore-worm-swarm",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.U8Yep31RWGzEJrxZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "water"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:jandelay-tolokand",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.aLAvOKIN2zRaJRFe",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. primal magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "smoke vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Hand.damage",
+          "raw": {
+            "damage": "3d6",
+            "damageType": "poison",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": [
+              {
+                "or": ["item:damage:type:piercing", "item:damage:type:slashing"]
+              }
+            ],
+            "selector": ["damage-received"],
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:javownir",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.TZcpflDA27pF7S8b",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet, tongues"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "critical-hits"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:kandirvek",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.YQti84LNgXtaYASl",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. occult"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "strike-attack-roll",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:knight-of-malice",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.bwpKnfGrRdLrSEyJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to saves vs. magic, +4 status to saves vs. mental"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "sin scent (precise) 30 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:kraken-caller",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.lY8sJYRA3P6Honx4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Sea speech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Jaws.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:liralarue",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.UPvIOjp41CCwoz3Z",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:lograsi",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.bWqwwzOECcOmXLQD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.offGuardable",
+            "value": "@actor.level"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:lythazossa",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.jcWh8ro0ZSDmVw3N",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "unfettered movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:maddenmist",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.s8avDK6SPRvsY9eI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Sea speech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Jaws.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:maze-weaver",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.2Trva9wzJsfYgUbI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(fast healing 10)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "detect magic, greater web sense"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "tongues"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:misery-siktempora",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.T9iiSzluw5ITmbcL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 40 (deactivated by mental, orichalcum, or vitality)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "air walk"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language), telepathy 300 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": ["mental", "orichalcum", "vitality"],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 40
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": [
+              {
+                "or": ["target:condition:confused", "target:condition:stupefied"]
+              }
+            ],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["dimension-of-time-lore"],
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:natbakh",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.8NoFgZU5BRlGQ6yV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Jaws.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:peacock-phoenix",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.15TO8VpSxDgs10fh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "detect magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "doubleVs": ["non-magical"],
+            "exceptions": ["force", "ghost-touch", "spirit"],
+            "key": "Resistance",
+            "predicate": [
+              {
+                "not": "rebirth"
+              }
+            ],
+            "type": "all-damage",
+            "value": 15
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 32,
+            "damage": {
+              "base": {
+                "damageType": "mental",
+                "dice": 4,
+                "die": "d10",
+                "modifier": 15
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.NPCAbility.PeacockPhoenix.RadiantWing",
+            "predicate": [
+              {
+                "not": "rebirth"
+              }
+            ],
+            "slug": "radiant-wind",
+            "traits": ["magical", "reach-20"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 32,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 3,
+                "die": "d10",
+                "modifier": 15
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Beak",
+            "predicate": ["rebirth"],
+            "slug": "beak",
+            "traits": ["magical", "reach-20"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 32,
+            "damage": {
+              "base": {
+                "damageType": "slashing",
+                "dice": 3,
+                "die": "d6",
+                "modifier": 15
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Talon",
+            "predicate": ["rebirth"],
+            "slug": "talon",
+            "traits": ["agile", "magical", "reach-20"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.abilities.str.mod",
+            "predicate": ["rebirth"],
+            "value": 12
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:phantom-of-desire",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.AfmWLF5xxPJtrmua",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 50 feet, Universal language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Illusory Scratch.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:pridespawn-sentinel",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.EsCu5ehBgpwRHKGZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic, +4 status to all saves vs. mental"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "sin scent (imprecise) 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:pyroclastic-mukradi",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.WHkCAhi5PQ5oyZnr",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:quoroc",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.EIExtvIGAnR420JB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "compression"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:ravenous-crypt",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.VT3IYCG7bdDgZG3U",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(32 when broken); construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Leg.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-aethusa-ii",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.D6LQmc3jwvoLf7gc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-alaznist",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.VzbJJXwyySpyPD2p",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Falling Stars (Rank 9)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-envy",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.tPakDjrVu0H8MF9K",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-gluttony",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.XvtYOHs2ICT8jPCU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-greed",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.oziRsLtjxQ8cQNYp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-haphrama",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.Hv6AOuRRRA2arzEt",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-jurah",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.tctIDvrYBryBhgxX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-kaliphesta",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.sd6fJzg7eHYv5p4v",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-karzoug",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.fJM5suUaAEe000s2",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-lust",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.O7X3Qg3HSfdHCSdB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-of-envy-prison",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.TCnACzhKgO1NB0Zv",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-pride",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.KSxYIYQdeMj4f8Vd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-sloth",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.aG1BdKptb1CLXqvY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-wrath",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.QAc6oh8MP7a7NYA7",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:risen-runelord-xirie",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.UEOWzm594hZ33Eqj",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:runelord-xanderghul",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.dQCxG9v2LE0niYEp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Xanderghul's Flawless Hammer"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:runic-warmaw",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.rELMTgvh9e5GHVDL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "jaws-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:silent-devotee",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.E3MQAayLHyz1Cgm9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. auditory"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language, Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Longsword.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "definition": ["item:trait:inhaled", "item:trait:poison"],
+            "key": "Immunity",
+            "label": "PF2E.IWR.Custom.InhaledPoisons",
+            "type": "custom"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:the-ashen-man",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.U32Vush39MP50jhu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "mythic resilience"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "entropy sense (precise) 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 300 feet, Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Annihilation Ray.damage",
+          "raw": {
+            "damage": "8d8",
+            "damageType": "void",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Doomsday Scepter"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:tormented-hero",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.2Sk4mzY8RSgOytMT",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 30 (deactivated by bludgeoning), void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Painful Touch.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "mental",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "key": "Aura",
+            "radius": "ternary(lte(@actor.hitPoints.value, 170), 60, 30)",
+            "slug": "tortured-gaze",
+            "traits": ["divine", "illusion", "mental"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:trinity-initiate",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.KMQRSpWcxf7sXjp9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.AdjustStrike",
+          "raw": {
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["bespell-strikes"],
+            "property": "weapon-traits",
+            "value": "arcane"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:vesinra",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.Gub2adEgrkMlWWrf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "lamia",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.LamiaMatriarch",
+                "value": "lamia"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Humanoid",
+                "value": "humanoid"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:vogorond",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.sUGjEmOq1cW5hK4D",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Plus one or more dead languages spoken on their home world"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "key": "Aura",
+            "predicate": ["self:ruinous-aura"],
+            "radius": "@item.flags.system.rulesSelections.selfruinousAura",
+            "traits": ["occult"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "predicate": ["self:ruinous-aura"],
+            "selector": "damage-received",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
+      "slug": "creature:watcher",
+      "foundry": "Compendium.pf2e.revenge-of-the-runelords-bestiary.Actor.lATJpd52KTOa4QTe",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 20 (deactivated by void)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "greater darkvision, truesight"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Speechless, Telepathy 200 feet, Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "revenge-of-the-runelords",
       "slug": "effect:effect-bolster-flesh",
       "foundry": "Compendium.pf2e.equipment-effects.Item.gKnoF5VKTCyl4JaN",
       "gaps": [
@@ -395,130 +2425,6 @@
     {
       "type": "entry",
       "pack": "revenge-of-the-runelords",
-      "slug": "feat:doomsayers-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.Gsltv71YQJc55XSS",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "Gsltv71YQJc55XSS",
-        "name": "Doomsayer's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Revenge of the Runelords Player's Guide",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "rare"
-          },
-          "description": {
-            "value": "<p>As long as people have dwelt in the world, there have been those who foresaw, feared, or worked toward that world's end. You know all things must end and have long felt that at some point in your life, you would stand on the precipice of Golarion's final fate—not to usher it along, but to deny the agents of this doomsday the satisfaction of seeing your world end. Until then, you'll do your best to keep the world and your allies in shape to face these ultimate threats. When you attempt a check to Repair, Administer First Aid, or Treat Wounds (but not when you use @UUID[Compendium.pf2e.feats-srd.Item.Battle Medicine]), you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Repair or Administer First Aid, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> help to prevent (or at least forestall) doomsday by keeping allies (and their gear) in good health (or repair), console those who are despondent</p>\n<p><strong>Anathema</strong> knowingly aid in any plot to end the world, mock or deride those who predict the end of the world</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          },
-          "subfeatures": {
-            "proficiencies": {},
-            "senses": {},
-            "suppressedFeatures": []
-          }
-        },
-        "folder": "oepc0znkPUF8JkVh"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "revenge-of-the-runelords",
-      "slug": "feat:dreamers-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.HnUzQqmAphx9nXDt",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "HnUzQqmAphx9nXDt",
-        "name": "Dreamer's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Revenge of the Runelords Player's Guide",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "rare"
-          },
-          "description": {
-            "value": "<p>Your dreams have always felt more real than reality itself, and upon learning of the Dimension of Dreams you weren't surprised—indeed, you've often found yourself entering these Dreamlands when you sleep. You've long felt that something in the Dreamlands has been calling to you, and that some great rescue or revelation awaits in a dream you've yet to experience. In the meantime, your dreams remain a potent source of inspiration and power, and the ability to draw from them to affect the waking world is something you've always been able to do. When you attempt an Arcana, Nature, Religion, or Occultism check to @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge], or when you attempt a check to Craft any work of art, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed at a check to Craft or at a Recall Knowledge check about a subject associated with dreaming or the Dreamlands, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> share your dreams with your friends and take interest if they share their dreams with you, take inspiration from your dreams when you create</p>\n<p><strong>Anathema</strong> deny a creature (including yourself) the chance to sleep long enough to dream, deride those who have ambitions that they're unlikely to ever achieve</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          },
-          "subfeatures": {
-            "proficiencies": {},
-            "senses": {},
-            "suppressedFeatures": []
-          }
-        },
-        "folder": "oepc0znkPUF8JkVh"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "revenge-of-the-runelords",
       "slug": "feat:fracture-timeflow",
       "foundry": "Compendium.pf2e.feats-srd.Item.iUEYGMjvveC9sfUu",
       "gaps": [
@@ -550,130 +2456,14 @@
     {
       "type": "entry",
       "pack": "revenge-of-the-runelords",
-      "slug": "feat:runelords-calling",
-      "foundry": "Compendium.pf2e.classfeatures.Item.5M7ybjAyttZHAdtT",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        }
-      ],
-      "document": {
-        "_id": "5M7ybjAyttZHAdtT",
-        "name": "Runelord's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Revenge of the Runelords Player's Guide",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "rare"
-          },
-          "description": {
-            "value": "<p>Even before Karzoug rose, you felt something tugging to you from beyond. Strange memories, sudden insights, vivid dreams, or wild hunches that lead to discoveries or unexpected successes have been the norm for you. Once knowledge of the legacies of Thassilon began to spread anew into the modern world after Karzoug rose from slumber, you've increasingly come to realize these visions and inspirations come to you from the past—maybe even one of your past lives—and that something from the time before Earthfall in ancient Thassilon is linked to your soul. When you attempt a check to Identify Magic, Learn a Spell, or cast a ritual, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed at an Arcana, Nature, Occultism, or Religion check to Identify Magic, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> seek out rare magic spells and items from ancient Thassilon, learn knowledge about Thassilon that has been forgotten</p>\n<p><strong>Anathema</strong> willingly destroy ancient texts or other forms of written knowledge without first preserving that lore in some way, treat another's convictions or beliefs as fantasy or delusion</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          },
-          "subfeatures": {
-            "proficiencies": {},
-            "senses": {},
-            "suppressedFeatures": []
-          }
-        },
-        "folder": "oepc0znkPUF8JkVh"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "revenge-of-the-runelords",
       "slug": "feat:sagas-calling",
       "foundry": "Compendium.pf2e.classfeatures.Item.BJQt9j4HAwic5AST",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "category",
-          "raw": "calling"
-        },
         {
           "type": "enricher",
           "enricher": "[[/act]]"
         }
-      ],
-      "document": {
-        "_id": "BJQt9j4HAwic5AST",
-        "name": "Saga's Calling",
-        "type": "feat",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Revenge of the Runelords Player's Guide",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": ["calling", "mythic"],
-            "rarity": "rare"
-          },
-          "description": {
-            "value": "<p>The Saga Lands do not come by that appellation lightly, for the storied legacies of this region predate Earthfall and have roots in worlds far beyond Golarion. Whether you were born in these lands or drawn there, those storied legacies have resonated with you on a supernatural level. It seems like each time you learn of some new legend or tale of this land passed down through the generations, there's something in it that directly applies to your life. You've taken to relying upon these legends—be they ancient or modern—as guideposts for your own life's course, knowing full well that they're calling to you and that you're destined to be the focus of one yourself. When you attempt a Performance check or a check to [[/act gather-information]], you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed at a check to Gather Information, you regain a Mythic Point.</p><hr /><p><strong>Edicts</strong> do what you can to protect the people of the Saga Lands, preserve legends and myths in writing or other forms of art for future generations to enjoy and learn from</p>\n<p><strong>Anathema</strong> allow those in the Saga Lands who need aid to suffer if there's something you can do to help them, regard your own saga as more important than anyone else's, since your tale has yet to be fully told—and not even you know its ending</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.actionspf2e.Item.Rewrite Fate"
-            }
-          ],
-          "actionType": {
-            "value": "passive"
-          },
-          "actions": {
-            "value": null
-          },
-          "category": "calling",
-          "prerequisites": {
-            "value": []
-          },
-          "subfeatures": {
-            "proficiencies": {},
-            "senses": {},
-            "suppressedFeatures": []
-          }
-        },
-        "folder": "oepc0znkPUF8JkVh"
-      }
+      ]
     },
     {
       "type": "entry",

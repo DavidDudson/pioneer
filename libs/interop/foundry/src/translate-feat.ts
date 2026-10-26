@@ -45,6 +45,9 @@ const TAGS_MAX = 16;
 
 const FeatCategorySchema = z.enum(FeatCategory);
 
+/** The categories Foundry spells differently from Pioneer: its `deityboon` is a deity boon. */
+const FOUNDRY_CATEGORIES: ReadonlyMap<string, FeatCategory> = new Map([['deityboon', FeatCategory.DeityBoon]]);
+
 const FoundryPrerequisite = z.looseObject({ value: z.string().max(NAME_MAX) });
 
 const FoundryTags = z.array(z.string().max(FIELD_MAX)).max(TAGS_MAX);
@@ -226,7 +229,7 @@ export function featData(input: KindInput): object | undefined {
   if (system === undefined) {
     return undefined;
   }
-  const category = FeatCategorySchema.safeParse(system.category);
+  const category = FeatCategorySchema.safeParse(FOUNDRY_CATEGORIES.get(system.category ?? '') ?? system.category);
   if (!category.success) {
     report(input.log, { reason: KindDataGapReason.UnmappedValue, field: 'category', raw: system.category });
     return undefined;

@@ -84,6 +84,9 @@
       },
       "bulk": "negligible",
       "category": "fulu",
+      "activation": {
+        "cost": "reaction"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -162,6 +165,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "adbe2f5c-1010-5371-b254-aded0831abfc",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -284,6 +291,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "0a07a5bf-a4d0-5fd7-b558-80eec8788466",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -463,6 +474,10 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "3cb71fc5-2c2b-592b-a648-e13169c79ae3",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -567,6 +582,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "d9c2cc9c-afea-5f62-a0e8-274f1fe790b3",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -681,6 +700,9 @@
       },
       "bulk": "negligible",
       "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -949,6 +971,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "d2c1d407-deba-5481-9d2f-dfa67ab2f217",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1054,6 +1080,10 @@
       },
       "bulk": "light",
       "category": "drug",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "3e6d057b-20fa-50e5-b86c-28b1bb5c49df",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1211,6 +1241,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "16a2621f-c581-59a5-8cf6-5ae4322cf811",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1298,6 +1332,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "9ece2db1-878b-58fb-8d8f-16e2fa32fb70",
       "usage": {
         "type": "held",
         "hands": "two"
@@ -1393,6 +1431,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "43fa566b-a4ba-5270-af8e-b600c26015ea",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1724,6 +1766,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "7a4de242-dd41-5606-becc-170f8f5dd49f",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1920,6 +1966,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2183,6 +2232,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "708ed4cf-329b-5ce4-9424-db92bdaefea4",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2283,6 +2336,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -2388,6 +2444,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "a50ac31c-4590-5d1c-85b8-28be85a94f14",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2503,6 +2563,9 @@
       },
       "bulk": "negligible",
       "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -2616,6 +2679,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "6ce2a911-f4b8-5e9c-b031-440a4965294b",
       "usage": {
         "type": "held",
         "hands": "one"

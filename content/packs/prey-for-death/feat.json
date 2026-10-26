@@ -1,5 +1,259 @@
 [
   {
+    "id": "fef29595-9fae-5ccb-b25f-f0039c7766b6",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:achaekek-major-boon",
+    "name": "Achaekek - Major Boon",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4002ee58-c0ce-505b-a450-26505397453f"
+          },
+          {
+            "type": "text",
+            "text": " rogue class feature, dealing 3d6 precision damage. If you already have that class feature, you increase your sneak attack damage by 3d6."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 3,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": [
+          "target:condition:off-guard",
+          {
+            "or": [
+              "item:trait:finesse",
+              "item:trait:agile",
+              {
+                "and": [
+                  "item:ranged",
+                  {
+                    "not": "item:thrown"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.boons-and-curses.Item.eFwCopyvVam6GiCT"
+    },
+    "data": {
+      "category": "deity-boon"
+    }
+  },
+  {
+    "id": "8a46425f-34a5-5145-bca7-43816b0cbc75",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:achaekek-major-curse",
+    "name": "Achaekek - Major Curse",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Mantis God doesn't waste his time toying with or tormenting those who truly anger him or those who dare to consider themselves divine. He rips open a portal to your location, kills you, drags your soul to judgment in a way that prevents resurrection magic, and then leaves."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.boons-and-curses.Item.GJdHcY56q2c3kSiA"
+    },
+    "data": {
+      "category": "curse"
+    }
+  },
+  {
+    "id": "2cc50d23-ea75-583f-bcdb-c2b08aca3ac6",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:achaekek-minor-boon",
+    "name": "Achaekek - Minor Boon",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once, when you would fail a Stealth check, you critically succeed instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Achaekek typically grants this boon for an extremely consequential Stealth check that could lead to an assassination, such as one that could get you into position to kill an important target, but rarely on a Stealth check to help you escape."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.boons-and-curses.Item.bvBzvLDKM5sAJm9s"
+    },
+    "data": {
+      "category": "deity-boon"
+    }
+  },
+  {
+    "id": "e9ece6c8-3e63-54fa-b684-9b52fc5cfa79",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:achaekek-minor-curse",
+    "name": "Achaekek - Minor Curse",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Non-sapient insects (especially mantises) become hostile against you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.boons-and-curses.Item.1QtjogbV1MsJp7x5"
+    },
+    "data": {
+      "category": "curse"
+    }
+  },
+  {
+    "id": "0c631266-448c-51d6-b3b2-c9c6e5e06c1a",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:achaekek-moderate-boon",
+    "name": "Achaekek - Moderate Boon",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "1ce2f883-74e2-5f2d-99fa-78356f6720d6"
+          },
+          {
+            "type": "text",
+            "text": " once per day as an innate divine spell; this spell automatically heightens to a rank equal to your half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.boons-and-curses.Item.xwhPzOXxX1fON3j4"
+    },
+    "data": {
+      "category": "deity-boon"
+    }
+  },
+  {
+    "id": "3dfa5a4b-4434-5c89-ab5c-965c6d4f7162",
+    "pack": "prey-for-death",
+    "kind": "feat",
+    "slug": "feat:achaekek-moderate-curse",
+    "name": "Achaekek - Moderate Curse",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hubris brings death. Your name and location are projected into the mind of a Red Mantis assassin, who is tasked with eliminating you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.boons-and-curses.Item.wXAVESzPURB1iBWW"
+    },
+    "data": {
+      "category": "curse"
+    }
+  },
+  {
     "id": "53c1c6e3-eca6-525a-8db6-a550c62f3b6c",
     "pack": "prey-for-death",
     "kind": "feat",

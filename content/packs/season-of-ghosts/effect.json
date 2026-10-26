@@ -2674,8 +2674,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Curiosity"
+            "type": "ref",
+            "id": "21160542-f77d-5f39-9920-512322e6f88c"
           }
         ]
       },
@@ -2683,8 +2683,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Delusion"
+            "type": "ref",
+            "id": "86393c80-fa16-51a6-bcd5-32966c6a2dc4"
           }
         ]
       },
@@ -2692,8 +2692,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Duty"
+            "type": "ref",
+            "id": "0a92fd05-b8b2-5f6f-9b93-569c1af12c6e"
           }
         ]
       },
@@ -2701,8 +2701,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Love"
+            "type": "ref",
+            "id": "5369d5e7-5834-571f-99d9-f22aea765cb6"
           }
         ]
       },
@@ -2710,8 +2710,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Obsession"
+            "type": "ref",
+            "id": "79191463-d903-5b4d-9e02-145618fe7c41"
           }
         ]
       },
@@ -2719,8 +2719,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Passion"
+            "type": "ref",
+            "id": "3333b8d5-b631-55cc-ad50-983a40015d98"
           }
         ]
       },
@@ -2728,8 +2728,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Spite"
+            "type": "ref",
+            "id": "86ebeb96-3e7d-565a-8470-361c5ae1df77"
           }
         ]
       },
@@ -2747,8 +2747,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Chilling Paralysis"
+            "type": "ref",
+            "id": "d0eb3ac5-dca5-5dd1-b5a9-f910c541ac50"
           }
         ]
       },
@@ -2756,8 +2756,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Dematerialize"
+            "type": "ref",
+            "id": "87fca4aa-0c32-52ea-9d1b-80f080a16e35"
           }
         ]
       },
@@ -2765,8 +2765,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Flickering Figure"
+            "type": "ref",
+            "id": "9fab69ea-6913-5fd9-bebd-274391890b03"
           }
         ]
       },
@@ -2774,8 +2774,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Flight"
+            "type": "ref",
+            "id": "4fd7d6f1-3212-5609-81c9-54037456ac05"
           }
         ]
       },
@@ -2783,8 +2783,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Grudge"
+            "type": "ref",
+            "id": "d0b1d179-9826-5758-a837-09083c2f35f2"
           }
         ]
       },
@@ -2792,8 +2792,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Resist Death"
+            "type": "ref",
+            "id": "ddd474b5-5061-5734-9328-659a36028971"
           }
         ]
       },
@@ -2801,8 +2801,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "River's Reflection"
+            "type": "ref",
+            "id": "509216b7-f9b5-522e-88f0-5fdf9d1e8997"
           }
         ]
       },
@@ -2810,8 +2810,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Sap Life"
+            "type": "ref",
+            "id": "b0ab9fd9-a9fc-5334-900a-05a7e618460e"
           }
         ]
       },
@@ -2819,8 +2819,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Undying Flesh"
+            "type": "ref",
+            "id": "c30e4fa7-97ba-579c-b03b-efa36682f17e"
           }
         ]
       }

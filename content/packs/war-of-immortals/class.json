@@ -96,29 +96,6 @@
         "rank": "trained"
       },
       {
-        "key": "ChoiceSet",
-        "flag": "animist-skill",
-        "choices": [
-          {
-            "value": "nature",
-            "label": "Nature"
-          },
-          {
-            "value": "occultism",
-            "label": "Occultism"
-          }
-        ],
-        "prompt": "Select a skill."
-      },
-      {
-        "key": "Proficiency",
-        "selector": {
-          "choice": "animist-skill",
-          "prefix": "skill"
-        },
-        "rank": "trained"
-      },
-      {
         "key": "GrantItem",
         "item": "802bbf4e-6967-59bb-b21c-9b86d2b9a4bb"
       },
@@ -158,9 +135,8 @@
         ]
       },
       {
-        "key": "Proficiency",
-        "selector": "perception",
-        "rank": "expert",
+        "key": "GrantItem",
+        "item": "b07b7021-935f-574b-afc3-b60aa0eebfdd",
         "predicate": [
           {
             "gte": ["self:level", 9]
@@ -178,7 +154,25 @@
       },
       {
         "key": "GrantItem",
+        "item": "9c40dd14-87f0-5596-90ea-f542fe704c6e",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "06309e58-6c21-5d39-a500-3d0c961bdc5b",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 13]
@@ -1154,9 +1148,8 @@
         ]
       },
       {
-        "key": "Proficiency",
-        "selector": "perception",
-        "rank": "expert",
+        "key": "GrantItem",
+        "item": "b07b7021-935f-574b-afc3-b60aa0eebfdd",
         "predicate": [
           {
             "gte": ["self:level", 9]
