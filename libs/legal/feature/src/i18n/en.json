@@ -51,5 +51,13 @@
     "release": "Foundry release {release}",
     "affiliation": "Pioneer is not affiliated with Foundry Gaming LLC or the pf2e system maintainers.",
     "repositoryLink": "foundryvtt/pf2e on GitHub"
+  },
+  "caches": {
+    "heading": "Content caches",
+    "intro": "The official packs as the app loads them, one file per kind and purpose, named by content hash. Download them without an account.",
+    "loadError": "Could not load the content caches.",
+    "untitled": "Pioneer pack: {pack}",
+    "downloadLabel": "{file}: download from {pack}",
+    "summary": "{title}: {count, plural, one {# file} other {# files}}, {size}"
   }
 }
