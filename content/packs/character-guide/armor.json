@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 93,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=520"
       }
     ],
     "description": [

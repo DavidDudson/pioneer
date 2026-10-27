@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 329,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3176"
       }
     ],
     "description": [

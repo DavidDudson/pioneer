@@ -29,6 +29,16 @@
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=318",
     "page": 146
   },
+  "armor:lions-pelt-chain": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3778",
+    "page": 173
+  },
+  "armor:lions-pelt-leather": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3778",
+    "page": 173
+  },
   "consumable:breath-of-freedom": {
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3761",
@@ -653,5 +663,20 @@
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2486",
     "page": 149
+  },
+  "weapon:jorngarls-harm": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3773",
+    "page": 124
+  },
+  "weapon:lions-call": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3777",
+    "page": 173
+  },
+  "weapon:screaming-pinion": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3764",
+    "page": 52
   }
 }

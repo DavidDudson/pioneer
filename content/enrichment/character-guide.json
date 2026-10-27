@@ -54,6 +54,11 @@
     "page": 115,
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=33"
   },
+  "armor:glorious-plate": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=520",
+    "page": 93
+  },
   "consumable:fortifying-pebble": {
     "book": "character-guide",
     "page": 110,
@@ -988,5 +993,20 @@
     "book": "character-guide",
     "page": 91,
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=557"
+  },
+  "weapon:crimson-brand": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=515",
+    "page": 82
+  },
+  "weapon:radiant-lance": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=517",
+    "page": 92
+  },
+  "weapon:scrollstaff": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=521",
+    "page": 100
   }
 }

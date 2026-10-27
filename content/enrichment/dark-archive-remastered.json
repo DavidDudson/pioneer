@@ -1798,5 +1798,10 @@
     "book": "dark-archive-remastered",
     "page": 144,
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2596"
+  },
+  "weapon:dog-bone-knife": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4136",
+    "page": 134
   }
 }

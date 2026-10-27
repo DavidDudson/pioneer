@@ -14,20 +14,115 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=1905",
     "page": 165
   },
+  "armor:arachnid-harness": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1839",
+    "page": 14
+  },
+  "armor:arachnid-harness-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1839",
+    "page": 14
+  },
+  "armor:autumns-embrace": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1840",
+    "page": 14
+  },
+  "armor:bastion-of-the-inheritor": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1841",
+    "page": 14
+  },
   "armor:bastion-plate": {
     "book": "treasure-vault",
     "page": 9,
     "aon": "https://2e.aonprd.com/Armor.aspx?ID=17"
+  },
+  "armor:black-hole-armor": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1842",
+    "page": 14
+  },
+  "armor:blade-byrnie": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1843",
+    "page": 15
+  },
+  "armor:blade-byrnie-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1843",
+    "page": 15
+  },
+  "armor:blade-byrnie-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1843",
+    "page": 15
+  },
+  "armor:bone-dreadnought-plate": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1974",
+    "page": 63
+  },
+  "armor:breastplate-of-the-mountain": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2137",
+    "page": 103
   },
   "armor:ceramic-plate": {
     "book": "treasure-vault",
     "page": 10,
     "aon": "https://2e.aonprd.com/Armor.aspx?ID=19"
   },
+  "armor:cloister-robe-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2321",
+    "page": 148
+  },
+  "armor:cloister-robe-lesser": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2321",
+    "page": 148
+  },
+  "armor:cloister-robe-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2321",
+    "page": 148
+  },
+  "armor:cloister-robe-moderate": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2321",
+    "page": 148
+  },
   "armor:coral-armor": {
     "book": "treasure-vault",
     "page": 10,
     "aon": "https://2e.aonprd.com/Armor.aspx?ID=20"
+  },
+  "armor:crushing-coils": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2377",
+    "page": 191
+  },
+  "armor:devils-bargain": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1844",
+    "page": 15
+  },
+  "armor:dragon-turtle-plate": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1845",
+    "page": 15
+  },
+  "armor:energizing-lattice": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1846",
+    "page": 15
+  },
+  "armor:faerie-queens-bower": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2395",
+    "page": 194
   },
   "armor:fortress-plate": {
     "book": "treasure-vault",
@@ -54,6 +149,11 @@
     "page": 10,
     "aon": "https://2e.aonprd.com/Armor.aspx?ID=25"
   },
+  "armor:immortal-bastion": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1847",
+    "page": 15
+  },
   "armor:lamellar-breastplate": {
     "book": "treasure-vault",
     "page": 10,
@@ -68,6 +168,36 @@
     "book": "treasure-vault",
     "page": 11,
     "aon": "https://2e.aonprd.com/Armor.aspx?ID=29"
+  },
+  "armor:library-robes": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1848",
+    "page": 15
+  },
+  "armor:library-robes-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1848",
+    "page": 15
+  },
+  "armor:library-robes-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1848",
+    "page": 15
+  },
+  "armor:library-robes-true": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1848",
+    "page": 15
+  },
+  "armor:linnorms-sankeit": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1849",
+    "page": 18
+  },
+  "armor:living-leaf-weave": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1978",
+    "page": 64
   },
   "armor:mantis-shell": {
     "book": "treasure-vault",
@@ -84,15 +214,75 @@
     "page": 11,
     "aon": "https://2e.aonprd.com/Armor.aspx?ID=32"
   },
+  "armor:ooze-skin": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1980",
+    "page": 64
+  },
+  "armor:ouroboros-buckles": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1850",
+    "page": 18
+  },
+  "armor:powered-full-plate": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1982",
+    "page": 64
+  },
   "armor:quilted-armor": {
     "book": "treasure-vault",
     "page": 11,
     "aon": "https://2e.aonprd.com/Armor.aspx?ID=33"
   },
+  "armor:reef-heart": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1851",
+    "page": 18
+  },
+  "armor:reef-heart-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1851",
+    "page": 18
+  },
+  "armor:rusting-carapace": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1853",
+    "page": 19
+  },
   "armor:scroll-robes": {
     "book": "treasure-vault",
     "page": 11,
     "aon": "https://2e.aonprd.com/Armor.aspx?ID=35"
+  },
+  "armor:shared-pain-sankeit": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2386",
+    "page": 192
+  },
+  "armor:smoldering-armor": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1852",
+    "page": 19
+  },
+  "armor:troll-hide": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1986",
+    "page": 65
+  },
+  "armor:trollhound-vest": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1854",
+    "page": 19
+  },
+  "armor:wasp-guard": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1855",
+    "page": 19
+  },
+  "armor:wolfjaw-armor": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1856",
+    "page": 19
   },
   "armor:wooden-breastplate": {
     "book": "treasure-vault",
@@ -4464,6 +4654,16 @@
     "page": 20,
     "aon": "https://2e.aonprd.com/Shields.aspx?ID=5"
   },
+  "shield:clockwork-shield": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1857",
+    "page": 22
+  },
+  "shield:clockwork-shield-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1857",
+    "page": 22
+  },
   "shield:dart-shield": {
     "book": "treasure-vault",
     "page": 20,
@@ -4489,6 +4689,21 @@
     "page": 20,
     "aon": "https://2e.aonprd.com/Shields.aspx?ID=10"
   },
+  "shield:helmsmans-recourse": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1858",
+    "page": 22
+  },
+  "shield:helmsmans-recourse-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1858",
+    "page": 22
+  },
+  "shield:helmsmans-recourse-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1858",
+    "page": 22
+  },
   "shield:hide-shield": {
     "book": "treasure-vault",
     "page": 20,
@@ -4498,6 +4713,11 @@
     "book": "treasure-vault",
     "page": 20,
     "aon": "https://2e.aonprd.com/Shields.aspx?ID=12"
+  },
+  "shield:magnetic-shield": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1979",
+    "page": 64
   },
   "shield:meteor-shield": {
     "book": "treasure-vault",
@@ -4514,40 +4734,200 @@
     "page": 21,
     "aon": "https://2e.aonprd.com/Shields.aspx?ID=15"
   },
+  "shield:sanguine-klar": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1859",
+    "page": 22
+  },
+  "shield:sanguine-klar-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1859",
+    "page": 22
+  },
+  "shield:sapling-shield-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1860",
+    "page": 22
+  },
+  "shield:sapling-shield-lesser": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1860",
+    "page": 22
+  },
+  "shield:sapling-shield-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1860",
+    "page": 22
+  },
+  "shield:sapling-shield-minor": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1860",
+    "page": 22
+  },
+  "shield:sapling-shield-moderate": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1860",
+    "page": 22
+  },
+  "shield:sapling-shield-true": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1860",
+    "page": 22
+  },
+  "shield:scale-of-igroon": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2365",
+    "page": 180
+  },
+  "shield:starfall-shield": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1861",
+    "page": 22
+  },
   "shield:swordstealer-shield": {
     "book": "treasure-vault",
     "page": 21,
     "aon": "https://2e.aonprd.com/Shields.aspx?ID=16"
+  },
+  "shield:turnabout-shield": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1862",
+    "page": 23
+  },
+  "shield:warding-escutcheon": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1863",
+    "page": 23
   },
   "spell:frosts-touch": {
     "book": "treasure-vault",
     "page": 185,
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=1274"
   },
+  "weapon:accursed-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2244",
+    "page": 130
+  },
+  "weapon:accursed-staff-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2244",
+    "page": 130
+  },
+  "weapon:accursed-staff-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2244",
+    "page": 130
+  },
+  "weapon:alchemical-gauntlet": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1971",
+    "page": 62
+  },
+  "weapon:alghollthu-whip": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1881",
+    "page": 35
+  },
+  "weapon:alicorn-lance": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1882",
+    "page": 36
+  },
+  "weapon:arboreal-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2392",
+    "page": 193
+  },
   "weapon:barricade-buster": {
     "book": "treasure-vault",
     "page": 30,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=330"
+  },
+  "weapon:batsbreath-cane": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2155",
+    "page": 105
   },
   "weapon:battle-saddle": {
     "book": "treasure-vault",
     "page": 26,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=271"
   },
+  "weapon:beast-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2245",
+    "page": 130
+  },
+  "weapon:beast-staff-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2245",
+    "page": 130
+  },
+  "weapon:beast-staff-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2245",
+    "page": 130
+  },
   "weapon:bec-de-corbin": {
     "book": "treasure-vault",
     "page": 26,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=272"
+  },
+  "weapon:bellicose-dagger": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2374",
+    "page": 190
   },
   "weapon:bladed-scarf": {
     "book": "treasure-vault",
     "page": 26,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=273"
   },
+  "weapon:blessed-reformer": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1878",
+    "page": 35
+  },
+  "weapon:blightburn-bomb": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1902",
+    "page": 44
+  },
+  "weapon:blightburn-bomb-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1902",
+    "page": 44
+  },
   "weapon:boomerang": {
     "book": "treasure-vault",
     "page": 30,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=332"
+  },
+  "weapon:boreal-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2246",
+    "page": 131
+  },
+  "weapon:boreal-staff-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2246",
+    "page": 131
+  },
+  "weapon:boreal-staff-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2246",
+    "page": 131
+  },
+  "weapon:boulder-seed": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1903",
+    "page": 44
+  },
+  "weapon:boulder-seed-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1903",
+    "page": 44
   },
   "weapon:bow-staff": {
     "book": "treasure-vault",
@@ -4559,6 +4939,16 @@
     "page": 26,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=275"
   },
+  "weapon:caydens-tankard": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2360",
+    "page": 178
+  },
+  "weapon:celestial-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2247",
+    "page": 131
+  },
   "weapon:chain-sword": {
     "book": "treasure-vault",
     "page": 26,
@@ -4569,10 +4959,35 @@
     "page": 30,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=333"
   },
+  "weapon:chronomancer-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2248",
+    "page": 131
+  },
+  "weapon:coldstar-pistols": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2361",
+    "page": 178
+  },
   "weapon:combat-lure": {
     "book": "treasure-vault",
     "page": 26,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=277"
+  },
+  "weapon:composer-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2249",
+    "page": 131
+  },
+  "weapon:composer-staff-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2249",
+    "page": 131
+  },
+  "weapon:composer-staff-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2249",
+    "page": 131
   },
   "weapon:corset-knife": {
     "book": "treasure-vault",
@@ -4588,6 +5003,36 @@
     "book": "treasure-vault",
     "page": 26,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=279"
+  },
+  "weapon:dezullon-fountain": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1883",
+    "page": 36
+  },
+  "weapon:dragon-handwraps": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2138",
+    "page": 103
+  },
+  "weapon:dragonprism-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2250",
+    "page": 132
+  },
+  "weapon:dragonprism-staff-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2250",
+    "page": 132
+  },
+  "weapon:dragonscale-bo-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1884",
+    "page": 36
+  },
+  "weapon:dragontooth-leiomano": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1885",
+    "page": 36
   },
   "weapon:dwarven-dorn-dergar": {
     "book": "treasure-vault",
@@ -4624,10 +5069,50 @@
     "page": 27,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=286"
   },
+  "weapon:gamblers-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2251",
+    "page": 132
+  },
+  "weapon:ghosthands-comet": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2363",
+    "page": 179
+  },
+  "weapon:ghoul-stiletto": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1886",
+    "page": 36
+  },
+  "weapon:grounding-spike": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1874",
+    "page": 34
+  },
+  "weapon:guardian-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2252",
+    "page": 132
+  },
+  "weapon:guardian-staff-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2252",
+    "page": 132
+  },
+  "weapon:guardian-staff-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2252",
+    "page": 132
+  },
   "weapon:harpoon": {
     "book": "treasure-vault",
     "page": 31,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=336"
+  },
+  "weapon:hell-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2253",
+    "page": 132
   },
   "weapon:hook-sword": {
     "book": "treasure-vault",
@@ -4638,6 +5123,11 @@
     "book": "treasure-vault",
     "page": 27,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=288"
+  },
+  "weapon:kaldemashs-lament": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1890",
+    "page": 38
   },
   "weapon:karambit": {
     "book": "treasure-vault",
@@ -4659,10 +5149,45 @@
     "page": 27,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=292"
   },
+  "weapon:librarian-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2254",
+    "page": 133
+  },
+  "weapon:librarian-staff-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2254",
+    "page": 133
+  },
+  "weapon:lodestone-bomb": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1904",
+    "page": 44
+  },
+  "weapon:lodestone-bomb-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1904",
+    "page": 44
+  },
   "weapon:long-hammer": {
     "book": "treasure-vault",
     "page": 27,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=293"
+  },
+  "weapon:lyrakien-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2255",
+    "page": 133
+  },
+  "weapon:lyrakien-staff-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2255",
+    "page": 133
+  },
+  "weapon:lyrakien-staff-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2255",
+    "page": 133
   },
   "weapon:machete": {
     "book": "treasure-vault",
@@ -4678,6 +5203,11 @@
     "book": "treasure-vault",
     "page": 31,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=347"
+  },
+  "weapon:mindlance": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1891",
+    "page": 39
   },
   "weapon:naginata": {
     "book": "treasure-vault",
@@ -4699,10 +5229,35 @@
     "page": 31,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=337"
   },
+  "weapon:pirate-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2256",
+    "page": 133
+  },
+  "weapon:piston-gauntlets": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1872",
+    "page": 34
+  },
+  "weapon:polarizing-mace": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1875",
+    "page": 34
+  },
   "weapon:polytool": {
     "book": "treasure-vault",
     "page": 27,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=300"
+  },
+  "weapon:reapers-crescent": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1879",
+    "page": 35
+  },
+  "weapon:rime-foil": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1876",
+    "page": 34
   },
   "weapon:rope-dart": {
     "book": "treasure-vault",
@@ -4724,10 +5279,145 @@
     "page": 27,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=303"
   },
+  "weapon:scizore-of-the-crab": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1887",
+    "page": 36
+  },
+  "weapon:shattered-plan": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1877",
+    "page": 35
+  },
+  "weapon:shatterstone": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1905",
+    "page": 44
+  },
+  "weapon:shatterstone-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1905",
+    "page": 44
+  },
   "weapon:shield-bow": {
     "book": "treasure-vault",
     "page": 31,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=339"
+  },
+  "weapon:skunk-bomb-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1906",
+    "page": 45
+  },
+  "weapon:skunk-bomb-lesser": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1906",
+    "page": 45
+  },
+  "weapon:skunk-bomb-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1906",
+    "page": 45
+  },
+  "weapon:skunk-bomb-moderate": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1906",
+    "page": 45
+  },
+  "weapon:socialite-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2257",
+    "page": 134
+  },
+  "weapon:solar-shellflower": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1892",
+    "page": 39
+  },
+  "weapon:spark-dancer": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1893",
+    "page": 39
+  },
+  "weapon:spellstriker-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2258",
+    "page": 134
+  },
+  "weapon:spellstriker-staff-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2258",
+    "page": 134
+  },
+  "weapon:spellstriker-staff-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2258",
+    "page": 134
+  },
+  "weapon:spy-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2259",
+    "page": 134
+  },
+  "weapon:spy-staff-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2259",
+    "page": 134
+  },
+  "weapon:spy-staff-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2259",
+    "page": 134
+  },
+  "weapon:staff-of-air": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2260",
+    "page": 134
+  },
+  "weapon:staff-of-air-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2260",
+    "page": 134
+  },
+  "weapon:staff-of-air-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2260",
+    "page": 134
+  },
+  "weapon:staff-of-earth": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2261",
+    "page": 135
+  },
+  "weapon:staff-of-earth-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2261",
+    "page": 135
+  },
+  "weapon:staff-of-earth-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2261",
+    "page": 135
+  },
+  "weapon:staff-of-water": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2262",
+    "page": 135
+  },
+  "weapon:staff-of-water-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2262",
+    "page": 135
+  },
+  "weapon:staff-of-water-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2262",
+    "page": 135
+  },
+  "weapon:stargazer": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1880",
+    "page": 35
   },
   "weapon:sukgung": {
     "book": "treasure-vault",
@@ -4739,10 +5429,40 @@
     "page": 27,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=304"
   },
+  "weapon:thundercrasher": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1894",
+    "page": 39
+  },
+  "weapon:trueshape-bomb": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1907",
+    "page": 45
+  },
+  "weapon:trueshape-bomb-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1907",
+    "page": 45
+  },
   "weapon:urumi": {
     "book": "treasure-vault",
     "page": 30,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=306"
+  },
+  "weapon:vampire-fang-morningstar": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1888",
+    "page": 38
+  },
+  "weapon:vine-whip": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1889",
+    "page": 38
+  },
+  "weapon:viper-rapier": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2145",
+    "page": 104
   },
   "weapon:war-razor": {
     "book": "treasure-vault",
@@ -4754,9 +5474,39 @@
     "page": 30,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=308"
   },
+  "weapon:whisperer-of-souls": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2367",
+    "page": 180
+  },
+  "weapon:whispering-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2146",
+    "page": 105
+  },
   "weapon:wrecker": {
     "book": "treasure-vault",
     "page": 31,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=348"
+  },
+  "weapon:zealot-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2263",
+    "page": 135
+  },
+  "weapon:zombie-staff": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2264",
+    "page": 135
+  },
+  "weapon:zombie-staff-greater": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2264",
+    "page": 135
+  },
+  "weapon:zombie-staff-major": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2264",
+    "page": 135
   }
 }

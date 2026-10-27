@@ -359,6 +359,46 @@
     "page": 222,
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=270"
   },
+  "armor:dragonplate": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3271",
+    "page": 278
+  },
+  "armor:ghoul-hide": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3272",
+    "page": 278
+  },
+  "armor:holy-chain": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3273",
+    "page": 278
+  },
+  "armor:mariners-splint": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3274",
+    "page": 278
+  },
+  "armor:onslaught-hide": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3275",
+    "page": 278
+  },
+  "armor:unholy-plate": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3276",
+    "page": 278
+  },
+  "armor:warleaders-bulwark": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3277",
+    "page": 279
+  },
+  "armor:warleaders-bulwark-greater": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3277",
+    "page": 279
+  },
   "background:astrologer": {
     "book": "player-core-2",
     "page": 50,
@@ -6639,6 +6679,26 @@
     "page": 271,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=156"
   },
+  "shield:exploding-shield": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3278",
+    "page": 279
+  },
+  "shield:glamorous-buckler": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3279",
+    "page": 279
+  },
+  "shield:medusas-scream": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3280",
+    "page": 279
+  },
+  "shield:medusas-scream-greater": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3280",
+    "page": 279
+  },
   "spell:aberrant-whispers": {
     "book": "player-core-2",
     "page": 262,
@@ -7434,6 +7494,66 @@
     "page": 274,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=467"
   },
+  "weapon:blasting-stone-greater": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3288",
+    "page": 283
+  },
+  "weapon:blasting-stone-lesser": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3288",
+    "page": 283
+  },
+  "weapon:blasting-stone-major": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3288",
+    "page": 283
+  },
+  "weapon:blasting-stone-moderate": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3288",
+    "page": 283
+  },
+  "weapon:blight-bomb-greater": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3289",
+    "page": 283
+  },
+  "weapon:blight-bomb-lesser": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3289",
+    "page": 283
+  },
+  "weapon:blight-bomb-major": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3289",
+    "page": 283
+  },
+  "weapon:blight-bomb-moderate": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3289",
+    "page": 283
+  },
+  "weapon:bottled-lightning-greater": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3290",
+    "page": 284
+  },
+  "weapon:bottled-lightning-lesser": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3290",
+    "page": 284
+  },
+  "weapon:bottled-lightning-major": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3290",
+    "page": 284
+  },
+  "weapon:bottled-lightning-moderate": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3290",
+    "page": 284
+  },
   "weapon:breaching-pike": {
     "book": "player-core-2",
     "page": 274,
@@ -7444,6 +7564,11 @@
     "page": 274,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=469"
   },
+  "weapon:chalice-of-justice": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3281",
+    "page": 280
+  },
   "weapon:claw-blade": {
     "book": "player-core-2",
     "page": 274,
@@ -7453,6 +7578,21 @@
     "book": "player-core-2",
     "page": 274,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=471"
+  },
+  "weapon:crystal-shards-greater": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3291",
+    "page": 284
+  },
+  "weapon:crystal-shards-major": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3291",
+    "page": 284
+  },
+  "weapon:crystal-shards-moderate": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3291",
+    "page": 284
   },
   "weapon:daikyu": {
     "book": "player-core-2",
@@ -7469,10 +7609,60 @@
     "page": 274,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=474"
   },
+  "weapon:four-ways-dogslicer": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3282",
+    "page": 280
+  },
+  "weapon:frost-vial-greater": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3293",
+    "page": 285
+  },
+  "weapon:frost-vial-lesser": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3293",
+    "page": 285
+  },
+  "weapon:frost-vial-major": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3293",
+    "page": 285
+  },
+  "weapon:frost-vial-moderate": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3293",
+    "page": 285
+  },
+  "weapon:ghost-charge-greater": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3294",
+    "page": 285
+  },
+  "weapon:ghost-charge-lesser": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3294",
+    "page": 285
+  },
+  "weapon:ghost-charge-major": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3294",
+    "page": 285
+  },
+  "weapon:ghost-charge-moderate": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3294",
+    "page": 285
+  },
   "weapon:hand-adze": {
     "book": "player-core-2",
     "page": 274,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=475"
+  },
+  "weapon:infiltrators-accessory": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3283",
+    "page": 280
   },
   "weapon:khopesh": {
     "book": "player-core-2",
@@ -7484,10 +7674,75 @@
     "page": 274,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=477"
   },
+  "weapon:spellguard-blade": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3284",
+    "page": 280
+  },
   "weapon:spirit-thresher": {
     "book": "player-core-2",
     "page": 274,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=478"
+  },
+  "weapon:spiritsight-crossbow": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3285",
+    "page": 280
+  },
+  "weapon:staff-of-impossible-visions": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3421",
+    "page": 308
+  },
+  "weapon:staff-of-impossible-visions-greater": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3421",
+    "page": 308
+  },
+  "weapon:staff-of-impossible-visions-major": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3421",
+    "page": 308
+  },
+  "weapon:staff-of-impossible-visions-true": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3421",
+    "page": 308
+  },
+  "weapon:staff-of-providence": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3422",
+    "page": 308
+  },
+  "weapon:staff-of-providence-greater": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3422",
+    "page": 308
+  },
+  "weapon:staff-of-providence-major": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3422",
+    "page": 308
+  },
+  "weapon:staff-of-providence-true": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3422",
+    "page": 308
+  },
+  "weapon:staff-of-the-tempest": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3423",
+    "page": 308
+  },
+  "weapon:staff-of-the-tempest-greater": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3423",
+    "page": 308
+  },
+  "weapon:staff-of-the-tempest-major": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3423",
+    "page": 308
   },
   "weapon:tengu-gale-blade": {
     "book": "player-core-2",

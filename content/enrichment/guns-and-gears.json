@@ -194,6 +194,11 @@
     "page": 56,
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=113"
   },
+  "armor:clockwork-diving-suit": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1144",
+    "page": 86
+  },
   "background:alkenstar-outlaw": {
     "book": "guns-and-gears",
     "page": 124,
@@ -2434,6 +2439,16 @@
     "page": 152,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=188"
   },
+  "weapon:animate-dreamer": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1177",
+    "page": 161
+  },
+  "weapon:arboreals-revenge": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1174",
+    "page": 160
+  },
   "weapon:arquebus": {
     "book": "guns-and-gears",
     "page": 152,
@@ -2474,6 +2489,26 @@
     "page": 152,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=196"
   },
+  "weapon:boastful-hunter": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1178",
+    "page": 162
+  },
+  "weapon:breath-blaster": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1165",
+    "page": 154
+  },
+  "weapon:breath-blaster-greater": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1165",
+    "page": 154
+  },
+  "weapon:breath-blaster-major": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1165",
+    "page": 154
+  },
   "weapon:cane-pistol": {
     "book": "guns-and-gears",
     "page": 159,
@@ -2513,6 +2548,36 @@
     "book": "guns-and-gears",
     "page": 152,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=199"
+  },
+  "weapon:drake-rifle-acid": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1166",
+    "page": 154
+  },
+  "weapon:drake-rifle-cold": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1166",
+    "page": 154
+  },
+  "weapon:drake-rifle-electricity": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1166",
+    "page": 154
+  },
+  "weapon:drake-rifle-fire": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1166",
+    "page": 154
+  },
+  "weapon:drake-rifle-poison": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1166",
+    "page": 154
+  },
+  "weapon:duchy-defender": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1179",
+    "page": 162
   },
   "weapon:dueling-pistol": {
     "book": "guns-and-gears",
@@ -2559,6 +2624,11 @@
     "page": 159,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=217"
   },
+  "weapon:growth-gun": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1167",
+    "page": 155
+  },
   "weapon:gun-sword": {
     "book": "guns-and-gears",
     "page": 159,
@@ -2574,10 +2644,20 @@
     "page": 153,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=202"
   },
+  "weapon:hyldarfs-fang": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1181",
+    "page": 164
+  },
   "weapon:injection-spear": {
     "book": "guns-and-gears",
     "page": 63,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=170"
+  },
+  "weapon:iris-of-the-sky": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1182",
+    "page": 165
   },
   "weapon:jezail": {
     "book": "guns-and-gears",
@@ -2589,6 +2669,11 @@
     "page": 152,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=185"
   },
+  "weapon:liars-gun": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1173",
+    "page": 157
+  },
   "weapon:long-air-repeater": {
     "book": "guns-and-gears",
     "page": 153,
@@ -2598,6 +2683,16 @@
     "book": "guns-and-gears",
     "page": 159,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=220"
+  },
+  "weapon:mountebanks-passage": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1183",
+    "page": 165
+  },
+  "weapon:pact-bound-pistol": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1176",
+    "page": 161
   },
   "weapon:pantograph-gauntlet": {
     "book": "guns-and-gears",
@@ -2609,30 +2704,105 @@
     "page": 153,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=205"
   },
+  "weapon:petrification-cannon": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1168",
+    "page": 155
+  },
   "weapon:piercing-wind": {
     "book": "guns-and-gears",
     "page": 159,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=221"
+  },
+  "weapon:pistol-of-wonder": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1187",
+    "page": 167
   },
   "weapon:rapier-pistol": {
     "book": "guns-and-gears",
     "page": 159,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=222"
   },
+  "weapon:reapers-grasp": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1184",
+    "page": 165
+  },
   "weapon:reinforced-stock": {
     "book": "guns-and-gears",
     "page": 152,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=187"
+  },
+  "weapon:rowan-rifle": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1185",
+    "page": 166
+  },
+  "weapon:screech-shooter": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1169",
+    "page": 155
+  },
+  "weapon:screech-shooter-greater": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1169",
+    "page": 155
+  },
+  "weapon:screech-shooter-major": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1169",
+    "page": 155
   },
   "weapon:slide-pistol": {
     "book": "guns-and-gears",
     "page": 153,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=206"
   },
+  "weapon:spider-gun": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1170",
+    "page": 155
+  },
+  "weapon:spider-gun-greater": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1170",
+    "page": 155
+  },
+  "weapon:spider-gun-major": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1170",
+    "page": 155
+  },
+  "weapon:spike-launcher": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1171",
+    "page": 156
+  },
   "weapon:spoon-gun": {
     "book": "guns-and-gears",
     "page": 157,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=225"
+  },
+  "weapon:tentacle-cannon": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1172",
+    "page": 156
+  },
+  "weapon:tentacle-cannon-greater": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1172",
+    "page": 156
+  },
+  "weapon:tentacle-cannon-major": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1172",
+    "page": 156
+  },
+  "weapon:tigers-claw": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1186",
+    "page": 166
   },
   "weapon:umbrella-injector": {
     "book": "guns-and-gears",

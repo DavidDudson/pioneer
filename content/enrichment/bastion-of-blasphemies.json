@@ -123,5 +123,10 @@
     "book": "bastion-of-blasphemies",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5195",
     "page": 238
+  },
+  "weapon:fearcutter": {
+    "book": "bastion-of-blasphemies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5200",
+    "page": 239
   }
 }

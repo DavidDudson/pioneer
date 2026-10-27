@@ -98,5 +98,15 @@
     "book": "hells-destiny",
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2620",
     "page": 227
+  },
+  "weapon:warmasters-baton": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4955",
+    "page": 226
+  },
+  "weapon:warmasters-baton-greater": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4955",
+    "page": 226
   }
 }

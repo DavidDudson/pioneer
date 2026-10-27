@@ -1,4 +1,9 @@
 {
+  "armor:aeon-armor": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5213",
+    "page": 141
+  },
   "background:absalom-street-preacher": {
     "book": "the-dead-gods-hand",
     "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=673",
@@ -78,5 +83,30 @@
     "book": "the-dead-gods-hand",
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=275",
     "page": 147
+  },
+  "weapon:azlanti-diamond": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5220",
+    "page": 143
+  },
+  "weapon:chimeras-claw": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5214",
+    "page": 141
+  },
+  "weapon:destiny-blade": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5215",
+    "page": 141
+  },
+  "weapon:meloths-lifedrinker": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5223",
+    "page": 145
+  },
+  "weapon:meloths-lifedrinker-level-7": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5223",
+    "page": 145
   }
 }

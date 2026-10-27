@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 235,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4032"
       }
     ],
     "description": [
@@ -99,7 +101,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 235,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4032"
       }
     ],
     "description": [
@@ -187,7 +191,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 235,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4032"
       }
     ],
     "description": [
@@ -275,7 +281,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 230,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4022"
       }
     ],
     "description": [

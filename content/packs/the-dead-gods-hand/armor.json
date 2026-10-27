@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "the-dead-gods-hand"
+        "book": "the-dead-gods-hand",
+        "page": 141,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5213"
       }
     ],
     "description": [

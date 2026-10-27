@@ -318,5 +318,85 @@
     "book": "hellbreakers",
     "page": 215,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=242"
+  },
+  "shield:fiendsbane-shield": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4190",
+    "page": 213
+  },
+  "shield:imposing-shield": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4191",
+    "page": 213
+  },
+  "shield:martyrs-shield-hellbreakers": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4193",
+    "page": 214
+  },
+  "weapon:atrophy-bomb-greater": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4166",
+    "page": 209
+  },
+  "weapon:atrophy-bomb-lesser": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4166",
+    "page": 209
+  },
+  "weapon:atrophy-bomb-major": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4166",
+    "page": 209
+  },
+  "weapon:atrophy-bomb-moderate": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4166",
+    "page": 209
+  },
+  "weapon:calamity": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4187",
+    "page": 212
+  },
+  "weapon:crimson-thorn": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4188",
+    "page": 213
+  },
+  "weapon:dreamcrusher": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4189",
+    "page": 213
+  },
+  "weapon:lifebloom": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4195",
+    "page": 214
+  },
+  "weapon:magnetic-bola": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4192",
+    "page": 213
+  },
+  "weapon:reapers-sigh": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4196",
+    "page": 214
+  },
+  "weapon:silverscrap-bomb-greater": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4169",
+    "page": 209
+  },
+  "weapon:silverscrap-bomb-lesser": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4169",
+    "page": 209
+  },
+  "weapon:silverscrap-bomb-moderate": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4169",
+    "page": 209
   }
 }

@@ -64,6 +64,21 @@
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=227",
     "page": 82
   },
+  "armor:hodag-leather": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3196",
+    "page": 100
+  },
+  "armor:mamlambo-scale": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3197",
+    "page": 100
+  },
+  "armor:mantis-plate": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3198",
+    "page": 100
+  },
   "consumable:alicorn-hair": {
     "book": "howl-of-the-wild",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3254",
@@ -1979,6 +1994,16 @@
     "aon": "https://2e.aonprd.com/Heritages.aspx?ID=291",
     "page": 24
   },
+  "shield:arctic-worm-chitin-shield": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3199",
+    "page": 100
+  },
+  "shield:hippopotamus-klar": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3200",
+    "page": 100
+  },
   "spell:albatross-curse": {
     "book": "howl-of-the-wild",
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=1946",
@@ -2148,5 +2173,105 @@
     "book": "howl-of-the-wild",
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=1934",
     "page": 60
+  },
+  "weapon:alicorn-trigger": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3214",
+    "page": 104
+  },
+  "weapon:amphisbaena-handwraps": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3223",
+    "page": 106
+  },
+  "weapon:ankhrav-duster": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3201",
+    "page": 101
+  },
+  "weapon:black-scorpion-stingmace": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3202",
+    "page": 101
+  },
+  "weapon:bloodgorger-scythe": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3203",
+    "page": 101
+  },
+  "weapon:catoblepas-maul": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3204",
+    "page": 101
+  },
+  "weapon:chimera-flail": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3205",
+    "page": 102
+  },
+  "weapon:constricting-meteor": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3206",
+    "page": 102
+  },
+  "weapon:fulmination-fang": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3215",
+    "page": 104
+  },
+  "weapon:giant-squid-lash": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3207",
+    "page": 102
+  },
+  "weapon:howler-pistol": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3216",
+    "page": 104
+  },
+  "weapon:hydrocannon": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3217",
+    "page": 104
+  },
+  "weapon:leydroth-spellbreaker": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3218",
+    "page": 105
+  },
+  "weapon:nightmares-lament": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3219",
+    "page": 105
+  },
+  "weapon:shuln-fang-katar": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3208",
+    "page": 102
+  },
+  "weapon:splithead-bow": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3209",
+    "page": 103
+  },
+  "weapon:storm-herald": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3210",
+    "page": 103
+  },
+  "weapon:tidal-crossbow": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3211",
+    "page": 103
+  },
+  "weapon:trollhound-pick": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3212",
+    "page": 103
+  },
+  "weapon:whip-tongue-sling": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3213",
+    "page": 104
   }
 }

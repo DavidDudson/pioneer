@@ -133,5 +133,20 @@
     "book": "spore-war",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=7663",
     "page": 81
+  },
+  "weapon:castrovels-beacon": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3688",
+    "page": 77
+  },
+  "weapon:morning-glow": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3689",
+    "page": 77
+  },
+  "weapon:snowcasters-staff": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3692",
+    "page": 78
   }
 }

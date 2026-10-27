@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 101,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3483"
       }
     ],
     "description": [
@@ -173,7 +175,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 101,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3484"
       }
     ],
     "description": [

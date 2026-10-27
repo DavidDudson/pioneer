@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 213,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4190"
       }
     ],
     "description": [
@@ -221,7 +223,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 213,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4191"
       }
     ],
     "description": [
@@ -404,7 +408,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 214,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4193"
       }
     ],
     "description": [

@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3628"
       }
     ],
     "description": [

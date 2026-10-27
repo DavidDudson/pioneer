@@ -49,6 +49,11 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3535",
     "page": 85
   },
+  "armor:hollow-robes": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4046",
+    "page": 70
+  },
   "consumable:elixir-of-the-peaks-greater": {
     "book": "revenge-of-the-runelords",
     "page": 69,

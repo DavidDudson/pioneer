@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3788"
       }
     ],
     "description": [
@@ -157,7 +159,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3788"
       }
     ],
     "description": [

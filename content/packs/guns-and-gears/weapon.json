@@ -70,7 +70,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 161,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1177"
       }
     ],
     "description": [
@@ -499,7 +501,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 160,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1174"
       }
     ],
     "description": [
@@ -1321,7 +1325,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 162,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1178"
       }
     ],
     "description": [
@@ -1602,7 +1608,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 154,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1165"
       }
     ],
     "description": [
@@ -1853,7 +1861,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 154,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1165"
       }
     ],
     "description": [
@@ -2104,7 +2114,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 154,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1165"
       }
     ],
     "description": [
@@ -2882,7 +2894,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 154,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1166"
       }
     ],
     "description": [
@@ -3071,7 +3085,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 154,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1166"
       }
     ],
     "description": [
@@ -3259,7 +3275,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 154,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1166"
       }
     ],
     "description": [
@@ -3455,7 +3473,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 154,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1166"
       }
     ],
     "description": [
@@ -3643,7 +3663,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 154,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1166"
       }
     ],
     "description": [
@@ -3841,7 +3863,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 162,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1179"
       }
     ],
     "description": [
@@ -4721,7 +4745,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 155,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1167"
       }
     ],
     "description": [
@@ -5133,7 +5159,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 164,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1181"
       }
     ],
     "description": [
@@ -5534,7 +5562,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 165,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1182"
       }
     ],
     "description": [
@@ -5882,7 +5912,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 157,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1173"
       }
     ],
     "description": [
@@ -6119,7 +6151,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 165,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1183"
       }
     ],
     "description": [
@@ -6309,7 +6343,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 161,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1176"
       }
     ],
     "description": [
@@ -6648,7 +6684,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 155,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1168"
       }
     ],
     "description": [
@@ -6897,7 +6935,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 167,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1187"
       }
     ],
     "description": [
@@ -7842,7 +7882,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 165,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1184"
       }
     ],
     "description": [
@@ -8085,7 +8127,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 166,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1185"
       }
     ],
     "description": [
@@ -8420,7 +8464,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 155,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1169"
       }
     ],
     "description": [
@@ -8705,7 +8751,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 155,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1169"
       }
     ],
     "description": [
@@ -8990,7 +9038,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 155,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1169"
       }
     ],
     "description": [
@@ -9334,7 +9384,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 155,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1170"
       }
     ],
     "description": [
@@ -9547,7 +9599,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 155,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1170"
       }
     ],
     "description": [
@@ -9757,7 +9811,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 155,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1170"
       }
     ],
     "description": [
@@ -9979,7 +10035,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 156,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1171"
       }
     ],
     "description": [
@@ -10273,7 +10331,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 156,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1172"
       }
     ],
     "description": [
@@ -10578,7 +10638,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 156,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1172"
       }
     ],
     "description": [
@@ -10883,7 +10945,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 156,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1172"
       }
     ],
     "description": [
@@ -11261,7 +11325,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 166,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1186"
       }
     ],
     "description": [

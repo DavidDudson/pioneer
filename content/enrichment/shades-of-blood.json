@@ -118,5 +118,15 @@
     "book": "shades-of-blood",
     "page": 84,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=7768"
+  },
+  "weapon:blood-drinker-blade": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3788",
+    "page": 82
+  },
+  "weapon:blood-drinker-blade-greater": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3788",
+    "page": 82
   }
 }

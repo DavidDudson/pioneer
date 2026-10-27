@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4966"
       }
     ],
     "description": [

@@ -9,6 +9,16 @@
     "page": 108,
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=271"
   },
+  "armor:assassins-skin": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3483",
+    "page": 101
+  },
+  "armor:vernai-shell": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3484",
+    "page": 101
+  },
   "consumable:blood-sight-elixir-greater": {
     "book": "prey-for-death",
     "page": 102,
@@ -328,5 +338,30 @@
     "book": "prey-for-death",
     "page": 100,
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2131"
+  },
+  "weapon:blood-drinker": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3485",
+    "page": 101
+  },
+  "weapon:bloody-fang": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3486",
+    "page": 101
+  },
+  "weapon:crimson-bluff": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3487",
+    "page": 102
+  },
+  "weapon:fleshrender": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3488",
+    "page": 102
+  },
+  "weapon:temperbrand": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3489",
+    "page": 102
   }
 }

@@ -64,6 +64,66 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3520",
     "page": 212
   },
+  "armor:barding-of-the-zephyr": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3014",
+    "page": 272
+  },
+  "armor:electric-eelskin": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2805",
+    "page": 230
+  },
+  "armor:elven-chain-high-grade": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2801",
+    "page": 228
+  },
+  "armor:elven-chain-standard-grade": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2801",
+    "page": 228
+  },
+  "armor:impenetrable-scale": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2806",
+    "page": 230
+  },
+  "armor:life-saver-mail": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2808",
+    "page": 230
+  },
+  "armor:life-saver-mail-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2808",
+    "page": 230
+  },
+  "armor:lions-armor": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2807",
+    "page": 230
+  },
+  "armor:lions-armor-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2807",
+    "page": 230
+  },
+  "armor:medusa-armor": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3130",
+    "page": 306
+  },
+  "armor:moonlit-chain": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2809",
+    "page": 231
+  },
+  "armor:tideplate": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2810",
+    "page": 231
+  },
   "consumable:alloy-orb-exquisite-high-grade": {
     "book": "gm-core",
     "page": 263,
@@ -2423,5 +2483,405 @@
     "book": "gm-core",
     "page": 239,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2854"
+  },
+  "shield:dragonslayers-shield": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2818",
+    "page": 234
+  },
+  "shield:floating-shield": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2819",
+    "page": 234
+  },
+  "shield:floating-shield-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2819",
+    "page": 234
+  },
+  "shield:force-shield": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2820",
+    "page": 234
+  },
+  "shield:forge-warden": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2821",
+    "page": 234
+  },
+  "shield:indestructible-shield": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2822",
+    "page": 234
+  },
+  "shield:lions-shield": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2823",
+    "page": 234
+  },
+  "shield:lodestone-shield": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2824",
+    "page": 234
+  },
+  "shield:martyrs-shield": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3126",
+    "page": 305
+  },
+  "shield:reflecting-shield": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2825",
+    "page": 234
+  },
+  "shield:spellguard-shield": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2826",
+    "page": 234
+  },
+  "shield:sturdy-shield-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2828",
+    "page": 235
+  },
+  "shield:sturdy-shield-lesser": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2828",
+    "page": 235
+  },
+  "shield:sturdy-shield-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2828",
+    "page": 235
+  },
+  "shield:sturdy-shield-minor": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2828",
+    "page": 235
+  },
+  "shield:sturdy-shield-moderate": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2828",
+    "page": 235
+  },
+  "shield:sturdy-shield-supreme": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2828",
+    "page": 235
+  },
+  "weapon:animal-staff": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3035",
+    "page": 278
+  },
+  "weapon:animal-staff-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3035",
+    "page": 278
+  },
+  "weapon:animal-staff-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3035",
+    "page": 278
+  },
+  "weapon:bloodletting-kukri": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2862",
+    "page": 241
+  },
+  "weapon:caterwaul-sling": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2863",
+    "page": 242
+  },
+  "weapon:chaplains-cudgel": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2864",
+    "page": 242
+  },
+  "weapon:fighters-fork": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2865",
+    "page": 242
+  },
+  "weapon:fluid-form-staff": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3036",
+    "page": 278
+  },
+  "weapon:fluid-form-staff-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3036",
+    "page": 278
+  },
+  "weapon:fluid-form-staff-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3036",
+    "page": 278
+  },
+  "weapon:gloom-blade": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2866",
+    "page": 242
+  },
+  "weapon:handwraps-of-mighty-blows": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3086",
+    "page": 290
+  },
+  "weapon:holy-water": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3001",
+    "page": 268
+  },
+  "weapon:hunters-anthem": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2867",
+    "page": 242
+  },
+  "weapon:icicle": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2868",
+    "page": 242
+  },
+  "weapon:mentalists-staff": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3037",
+    "page": 279
+  },
+  "weapon:mentalists-staff-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3037",
+    "page": 279
+  },
+  "weapon:mentalists-staff-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3037",
+    "page": 279
+  },
+  "weapon:retribution-axe": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2869",
+    "page": 242
+  },
+  "weapon:searing-blade": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2870",
+    "page": 243
+  },
+  "weapon:searing-blade-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2870",
+    "page": 243
+  },
+  "weapon:serithtial": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3123",
+    "page": 302
+  },
+  "weapon:serpent-dagger": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2871",
+    "page": 242
+  },
+  "weapon:singing-sword": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3127",
+    "page": 305
+  },
+  "weapon:sky-hammer": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2872",
+    "page": 242
+  },
+  "weapon:staff-of-arcane-might": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3038",
+    "page": 279
+  },
+  "weapon:staff-of-arcane-might-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3038",
+    "page": 279
+  },
+  "weapon:staff-of-arcane-might-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3038",
+    "page": 279
+  },
+  "weapon:staff-of-control": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3039",
+    "page": 279
+  },
+  "weapon:staff-of-control-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3039",
+    "page": 279
+  },
+  "weapon:staff-of-control-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3039",
+    "page": 279
+  },
+  "weapon:staff-of-elemental-power": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3040",
+    "page": 279
+  },
+  "weapon:staff-of-elemental-power-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3040",
+    "page": 279
+  },
+  "weapon:staff-of-elemental-power-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3040",
+    "page": 279
+  },
+  "weapon:staff-of-fire": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3041",
+    "page": 279
+  },
+  "weapon:staff-of-fire-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3041",
+    "page": 279
+  },
+  "weapon:staff-of-fire-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3041",
+    "page": 279
+  },
+  "weapon:staff-of-healing": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3042",
+    "page": 280
+  },
+  "weapon:staff-of-healing-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3042",
+    "page": 280
+  },
+  "weapon:staff-of-healing-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3042",
+    "page": 280
+  },
+  "weapon:staff-of-healing-true": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3042",
+    "page": 280
+  },
+  "weapon:staff-of-illumination": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3043",
+    "page": 280
+  },
+  "weapon:staff-of-phantasms": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3044",
+    "page": 280
+  },
+  "weapon:staff-of-phantasms-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3044",
+    "page": 280
+  },
+  "weapon:staff-of-phantasms-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3044",
+    "page": 280
+  },
+  "weapon:staff-of-protection": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3045",
+    "page": 280
+  },
+  "weapon:staff-of-protection-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3045",
+    "page": 280
+  },
+  "weapon:staff-of-protection-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3045",
+    "page": 280
+  },
+  "weapon:staff-of-summoning": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3046",
+    "page": 280
+  },
+  "weapon:staff-of-summoning-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3046",
+    "page": 280
+  },
+  "weapon:staff-of-summoning-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3046",
+    "page": 280
+  },
+  "weapon:staff-of-the-dead": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3047",
+    "page": 281
+  },
+  "weapon:staff-of-the-dead-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3047",
+    "page": 281
+  },
+  "weapon:staff-of-the-dead-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3047",
+    "page": 281
+  },
+  "weapon:staff-of-the-unblinking-eye": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3048",
+    "page": 281
+  },
+  "weapon:staff-of-the-unblinking-eye-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3048",
+    "page": 281
+  },
+  "weapon:staff-of-the-unblinking-eye-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3048",
+    "page": 281
+  },
+  "weapon:storm-flash": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2873",
+    "page": 243
+  },
+  "weapon:storm-flash-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2873",
+    "page": 243
+  },
+  "weapon:twining-staff": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2874",
+    "page": 242
+  },
+  "weapon:unholy-water": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3006",
+    "page": 269
+  },
+  "weapon:verdant-staff": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3049",
+    "page": 281
+  },
+  "weapon:verdant-staff-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3049",
+    "page": 281
   }
 }

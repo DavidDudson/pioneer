@@ -14,6 +14,21 @@
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=334",
     "page": 220
   },
+  "armor:anti-dragon-barding": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4010",
+    "page": 222
+  },
+  "armor:anti-dragon-barding-greater": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4010",
+    "page": 222
+  },
+  "armor:dragonauts-wingsuit": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4013",
+    "page": 223
+  },
   "consumable:dragon-eye": {
     "book": "draconic-codex",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4014",
@@ -503,5 +518,20 @@
     "book": "draconic-codex",
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2532",
     "page": 225
+  },
+  "weapon:dragons-tongue": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4012",
+    "page": 222
+  },
+  "weapon:dragons-tongue-greater": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4012",
+    "page": 222
+  },
+  "weapon:dragons-tongue-major": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4012",
+    "page": 222
   }
 }

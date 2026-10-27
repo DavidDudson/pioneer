@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3587"
       }
     ],
     "description": [

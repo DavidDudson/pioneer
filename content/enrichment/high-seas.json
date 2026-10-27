@@ -9,6 +9,11 @@
     "page": 106,
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=385"
   },
+  "armor:winged-terror": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4966",
+    "page": 64
+  },
   "consumable:sanguine-ammunition": {
     "book": "high-seas",
     "page": 64,
@@ -468,5 +473,25 @@
     "book": "high-seas",
     "page": 79,
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2626"
+  },
+  "weapon:bloodstride-blade": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4961",
+    "page": 64
+  },
+  "weapon:sawtooth-reaper": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4965",
+    "page": 64
+  },
+  "weapon:trident-of-the-azarketis": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4976",
+    "page": 108
+  },
+  "weapon:trident-of-the-azarketis-greater": {
+    "book": "high-seas",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4976",
+    "page": 108
   }
 }
