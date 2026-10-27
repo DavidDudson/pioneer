@@ -1,66 +1,82 @@
 {
   "background:absalom-street-preacher": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=673"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=673",
+    "page": 166
   },
   "background:ambitious-knave": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=674"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=674",
+    "page": 166
   },
   "background:destined-for-greatness": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=675"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=675",
+    "page": 166
   },
   "background:esoteric-bookworm": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=676"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=676",
+    "page": 166
   },
   "background:mystery-adept": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=677"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=677",
+    "page": 166
   },
   "background:puddles-carny": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=678"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=678",
+    "page": 166
   },
   "consumable:toilers-gruel": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5216"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5216",
+    "page": 142
   },
   "equipment:aeon-stone-eastern-star": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
+    "page": 143
   },
   "equipment:aeon-stone-western-star": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
+    "page": 143
   },
   "equipment:deravons-helm": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5217"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5217",
+    "page": 143
   },
   "equipment:heart-of-sarnax": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5222"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5222",
+    "page": 144
   },
   "equipment:lookouts-spyglass": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5218"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5218",
+    "page": 143
   },
   "equipment:mantle-of-far-horizons": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5219"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5219",
+    "page": 143
   },
   "equipment:throneglass-shard": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5212"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5212",
+    "page": 142
   },
   "feat:asp-stance": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9419"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9419",
+    "page": 157
   },
   "ritual:beckon-the-blasphemous-brethren": {
     "book": "the-dead-gods-hand",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=275"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=275",
+    "page": 147
   }
 }

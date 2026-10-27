@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=324"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=324",
+        "page": 54
       }
     ],
     "description": [
@@ -80,7 +81,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=332"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=332",
+        "page": 82
       }
     ],
     "description": [
@@ -140,7 +142,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=322"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=322",
+        "page": 52
       }
     ],
     "description": [
@@ -175,7 +178,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=325"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=325",
+        "page": 56
       }
     ],
     "description": [
@@ -244,7 +248,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=326"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=326",
+        "page": 58
       }
     ],
     "description": [
@@ -304,7 +309,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=323"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=323",
+        "page": 53
       }
     ],
     "description": [
@@ -339,7 +345,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=327"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=327",
+        "page": 60
       }
     ],
     "description": [
@@ -396,7 +403,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=328"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=328",
+        "page": 62
       }
     ],
     "description": [
@@ -456,7 +464,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=330"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=330",
+        "page": 66
       }
     ],
     "description": [

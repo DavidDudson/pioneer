@@ -1,742 +1,927 @@
 {
   "archetype:campfire-chronicler": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=300"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=300",
+    "page": 34
   },
   "archetype:kitharodian-actor": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=301"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=301",
+    "page": 58
   },
   "archetype:lepidstadt-surgeon": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=302"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=302",
+    "page": 94
   },
   "background:academic-scion": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=491"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=491",
+    "page": 22
   },
   "background:convocation-scout": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=492"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=492",
+    "page": 22
   },
   "background:ghostwriter": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=493"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=493",
+    "page": 22
   },
   "background:library-dweller": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=494"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=494",
+    "page": 22
   },
   "background:party-scholar": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=495"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=495",
+    "page": 23
   },
   "background:respected-mentor": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=496"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=496",
+    "page": 23
   },
   "background:school-medic": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=497"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=497",
+    "page": 23
   },
   "background:star-athlete": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=498"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=498",
+    "page": 23
   },
   "background:working-student": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=499"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=499",
+    "page": 23
   },
   "consumable:aetheric-irritant-greater": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3565",
+    "page": 92
   },
   "consumable:aetheric-irritant-lesser": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3565",
+    "page": 92
   },
   "consumable:aetheric-irritant-major": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3565",
+    "page": 92
   },
   "consumable:aetheric-irritant-moderate": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3565"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3565",
+    "page": 92
   },
   "consumable:blood-pack-squib": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3527"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3527",
+    "page": 56
   },
   "consumable:bloodstone-doll-major": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3574"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3574",
+    "page": 101
   },
   "consumable:bloodstone-doll-minor": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3574"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3574",
+    "page": 101
   },
   "consumable:bloodstone-doll-moderate": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3574"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3574",
+    "page": 101
   },
   "consumable:conspirators-cookie": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3520"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3520",
+    "page": 29
   },
   "consumable:demon-bone-tiles-brimorak": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3581"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3581",
+    "page": 111
   },
   "consumable:demon-bone-tiles-pusk": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3581"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3581",
+    "page": 111
   },
   "consumable:demon-bone-tiles-seraptis": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3581"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3581",
+    "page": 111
   },
   "consumable:demon-hunting-bands": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3540"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3540",
+    "page": 66
   },
   "consumable:dr-ushernachts-astonishing-ink-major": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3564"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3564",
+    "page": 89
   },
   "consumable:dr-ushernachts-astonishing-ink-minor": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3564"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3564",
+    "page": 89
   },
   "consumable:dr-ushernachts-astonishing-ink-moderate": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3564"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3564",
+    "page": 89
   },
   "consumable:drop-of-convergent-waters": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3563"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3563",
+    "page": 79
   },
   "consumable:echo-token": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3521"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3521",
+    "page": 29
   },
   "consumable:illusory-program": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3524"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3524",
+    "page": 53
   },
   "consumable:kimanez-luminescent-toadstool": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3579"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3579",
+    "page": 107
   },
   "consumable:krasovnatype": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3566"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3566",
+    "page": 92
   },
   "consumable:maelstromic-destabilizer-lesser": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3567"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3567",
+    "page": 92
   },
   "consumable:maelstromic-destabilizer-major": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3567"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3567",
+    "page": 92
   },
   "consumable:maelstromic-destabilizer-moderate": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3567"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3567",
+    "page": 92
   },
   "consumable:moritype": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3568"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3568",
+    "page": 92
   },
   "consumable:moritype-greater": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3568"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3568",
+    "page": 92
   },
   "consumable:mutator-onyx": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3576"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3576",
+    "page": 104
   },
   "consumable:one-hour-flower": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3518"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3518",
+    "page": 29
   },
   "consumable:perfections-first-step": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3562"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3562",
+    "page": 77
   },
   "consumable:portable-seal-lesser": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3569"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3569",
+    "page": 93
   },
   "consumable:portable-seal-major": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3569"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3569",
+    "page": 93
   },
   "consumable:portable-seal-moderate": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3569"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3569",
+    "page": 93
   },
   "consumable:prismatic-dust": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3533"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3533",
+    "page": 57
   },
   "consumable:quartz-coil-rail-transport-greater": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3570",
+    "page": 93
   },
   "consumable:quartz-coil-rail-transport-lesser": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3570",
+    "page": 93
   },
   "consumable:quartz-coil-rail-transport-major": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3570",
+    "page": 93
   },
   "consumable:quartz-coil-rail-transport-moderate": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3570"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3570",
+    "page": 93
   },
   "consumable:seed-pod-of-rooted-wisdom": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3539"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3539",
+    "page": 65
   },
   "consumable:shaping-sweet": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3522"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3522",
+    "page": 41
   },
   "consumable:spark-wafer": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3534"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3534",
+    "page": 57
   },
   "consumable:spiced-demonade": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3519"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3519",
+    "page": 29
   },
   "consumable:tangibility-resonator-lesser": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3572"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3572",
+    "page": 93
   },
   "consumable:tangibility-resonator-major": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3572"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3572",
+    "page": 93
   },
   "consumable:tangibility-resonator-moderate": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3572"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3572",
+    "page": 93
   },
   "consumable:twig-of-knowledge-and-memory": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3538"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3538",
+    "page": 64
   },
   "consumable:vanishing-shocker-greater": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3573",
+    "page": 93
   },
   "consumable:vanishing-shocker-lesser": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3573",
+    "page": 93
   },
   "consumable:vanishing-shocker-major": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3573",
+    "page": 93
   },
   "consumable:vanishing-shocker-moderate": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3573"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3573",
+    "page": 93
   },
   "equipment:branch-attendants-mask": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3561"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3561",
+    "page": 69
   },
   "equipment:hidden-pocket-outfit": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3529"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3529",
+    "page": 56
   },
   "equipment:illusory-backdrop": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3530"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3530",
+    "page": 56
   },
   "equipment:inspiring-spotlight-mounted": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3531"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3531",
+    "page": 56
   },
   "equipment:inspiring-spotlight-portable": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3531"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3531",
+    "page": 56
   },
   "equipment:monster-suit": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3532"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3532",
+    "page": 57
   },
   "equipment:oathlamp-of-accord": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3575"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3575",
+    "page": 103
   },
   "equipment:pranksters-perpetual-pieplate": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3577"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3577",
+    "page": 105
   },
   "equipment:talented-tap-shoes": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3535"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3535",
+    "page": 57
   },
   "equipment:theater-enhancers": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3525"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3525",
+    "page": 53
   },
   "equipment:three-pillared-yang-na": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3580"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3580",
+    "page": 108
   },
   "equipment:uzunjati-storytelling-amulet": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3560"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3560",
+    "page": 67
   },
   "equipment:vocal-shells": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3526"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3526",
+    "page": 54
   },
   "equipment:weapon-of-false-wounds": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3536"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3536",
+    "page": 57
   },
   "equipment:windborne-platform": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3537"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3537",
+    "page": 57
   },
   "equipment:zarothrasks-contract": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3578"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3578",
+    "page": 106
   },
   "feat:a-miracle-of-science": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7481"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7481",
+    "page": 95
   },
   "feat:aeon-resonance": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7484"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7484",
+    "page": 116
   },
   "feat:animal-actor": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7457"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7457",
+    "page": 58
   },
   "feat:artery-map": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7475"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7475",
+    "page": 94
   },
   "feat:beautiful-knifework": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7477"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7477",
+    "page": 95
   },
   "feat:behold-my-creation": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7478"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7478",
+    "page": 95
   },
   "feat:bleak-humorist": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7463"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7463",
+    "page": 58
   },
   "feat:campfire-chronicler-dedication": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7438"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7438",
+    "page": 34
   },
   "feat:clean-take": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7459"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7459",
+    "page": 58
   },
   "feat:convergent-tides": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7466"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7466",
+    "page": 84
   },
   "feat:cozy-campfire": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7442"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7442",
+    "page": 35
   },
   "feat:crosscurrent-counter": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7469"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7469",
+    "page": 83
   },
   "feat:culverts-collapse": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7498"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7498",
+    "page": 80
   },
   "feat:divert-streamflow": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7496"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7496",
+    "page": 80
   },
   "feat:embed-aeon-stone": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7483"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7483",
+    "page": 116
   },
   "feat:flickering-stories": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7444"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7444",
+    "page": 35
   },
   "feat:flood-stance": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7492"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7492",
+    "page": 80
   },
   "feat:heavens-step-offense": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7458"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7458",
+    "page": 58
   },
   "feat:illuminating-stories": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7443"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7443",
+    "page": 35
   },
   "feat:kitharodian-actor-dedication": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7456"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7456",
+    "page": 58
   },
   "feat:lepidstadt-surgeon-dedication": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7472"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7472",
+    "page": 94
   },
   "feat:lessons-of-flux": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7502"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7502",
+    "page": 81
   },
   "feat:let-my-creature-live": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7476"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7476",
+    "page": 95
   },
   "feat:listeners-boon": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7440"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7440",
+    "page": 35
   },
   "feat:maelstrom-flow": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7471"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7471",
+    "page": 83
   },
   "feat:monumental-maestro": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7460"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7460",
+    "page": 58
   },
   "feat:of-lions-and-wyrms": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7464"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7464",
+    "page": 58
   },
   "feat:orichalcum-bond": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7489"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7489",
+    "page": 117
   },
   "feat:ouroboric-pact": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7448"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7448",
+    "page": 46
   },
   "feat:pact-of-huldras-renewal": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7447"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7447",
+    "page": 46
   },
   "feat:pact-of-the-crossroads": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7450"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7450",
+    "page": 47
   },
   "feat:pact-of-the-death-hunter": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7451"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7451",
+    "page": 47
   },
   "feat:pact-of-the-fey-paths": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7452"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7452",
+    "page": 47
   },
   "feat:pact-of-the-living-pact": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7454"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7454",
+    "page": 47
   },
   "feat:pact-of-the-nightblossom": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7449"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7449",
+    "page": 46
   },
   "feat:pact-of-the-rune-dragon": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7453"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7453",
+    "page": 47
   },
   "feat:performers-treatment": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7491"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7491",
+    "page": 91
   },
   "feat:raging-stories": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7441"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7441",
+    "page": 35
   },
   "feat:reflective-ripple-stance": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7493"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7493",
+    "page": 80
   },
   "feat:rippling-spin": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7499"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7499",
+    "page": 80
   },
   "feat:rise-my-creature": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7474"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7474",
+    "page": 94
   },
   "feat:rod-of-rule": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7485"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7485",
+    "page": 116
   },
   "feat:runelord-dedication": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7482"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7482",
+    "page": 116
   },
   "feat:ruthless-orator": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7465"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7465",
+    "page": 58
   },
   "feat:shattering-spellstrike": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7467"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7467",
+    "page": 83
   },
   "feat:sin-counterspell": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7488"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7488",
+    "page": 117
   },
   "feat:sin-reservoir": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7487"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7487",
+    "page": 117
   },
   "feat:sinbladed-spell": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7486"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7486",
+    "page": 116
   },
   "feat:snakebirds-shadow": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7500"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7500",
+    "page": 81
   },
   "feat:stand-back-im-a-doctor": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7480"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7480",
+    "page": 95
   },
   "feat:stasian-charge": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7479"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7479",
+    "page": 95
   },
   "feat:stories-of-home": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7446"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7446",
+    "page": 35
   },
   "feat:student-of-water": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7494"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7494",
+    "page": 80
   },
   "feat:stunt-performer-stance": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7461"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7461",
+    "page": 58
   },
   "feat:surface-tension": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7468"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7468",
+    "page": 83
   },
   "feat:sympathetic-portrayal": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7462"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7462",
+    "page": 59
   },
   "feat:talent-envy": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7455"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7455",
+    "page": 55
   },
   "feat:tales-of-the-road": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7445"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7445",
+    "page": 35
   },
   "feat:the-dead-tell-tales": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7439"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7439",
+    "page": 35
   },
   "feat:tributary-circulation": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7497"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7497",
+    "page": 80
   },
   "feat:wake-to-strife": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7501"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7501",
+    "page": 81
   },
   "feat:waterfowl-stance": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7495"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7495",
+    "page": 80
   },
   "feat:wave-dashes-rocks": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7503"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7503",
+    "page": 81
   },
   "feat:wave-spiral": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7504"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7504",
+    "page": 81
   },
   "feat:whirlpools-pull": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7470"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7470",
+    "page": 83
   },
   "ritual:retreat-among-the-rains": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=201"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=201",
+    "page": 78
   },
   "spell:all-encompassing-hunger": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2318"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2318",
+    "page": 117
   },
   "spell:annunciation-of-the-outer-gate": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2334"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2334",
+    "page": 90
   },
   "spell:beseech-the-sphinx": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2314"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2314",
+    "page": 100
   },
   "spell:bridge-of-vines": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2294"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2294",
+    "page": 32
   },
   "spell:buzzing-servants": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2315"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2315",
+    "page": 102
   },
   "spell:call-the-ten": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2304"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2304",
+    "page": 68
   },
   "spell:censure-falsehoods": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2302"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2302",
+    "page": 45
   },
   "spell:chrysopoetic-curse": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2326"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2326",
+    "page": 119
   },
   "spell:coiling-dance": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2316"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2316",
+    "page": 109
   },
   "spell:crescent-scepter": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2319"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2319",
+    "page": 117
   },
   "spell:cutting-eye": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2320"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2320",
+    "page": 117
   },
   "spell:devouring-void": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2327"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2327",
+    "page": 119
   },
   "spell:disruptive-transfer": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2317"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2317",
+    "page": 110
   },
   "spell:domoras-defense": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2305"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2305",
+    "page": 70
   },
   "spell:grasping-vine": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2292"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2292",
+    "page": 32
   },
   "spell:halcyon-mists": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2303"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2303",
+    "page": 68
   },
   "spell:hearts-hook": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2321"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2321",
+    "page": 117
   },
   "spell:ibexs-harvest": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2307"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2307",
+    "page": 70
   },
   "spell:indolent-haze": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2328"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2328",
+    "page": 119
   },
   "spell:information-overload": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2300"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2300",
+    "page": 44
   },
   "spell:kgalaserkes-axes": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2308"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2308",
+    "page": 71
   },
   "spell:loves-sacrifice": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2329"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2329",
+    "page": 119
   },
   "spell:mental-map": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2295"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2295",
+    "page": 32
   },
   "spell:mimic-spell": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2298"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2298",
+    "page": 33
   },
   "spell:overwhelming-memory": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2296"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2296",
+    "page": 33
   },
   "spell:personal-runewell": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2325"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2325",
+    "page": 118
   },
   "spell:pocket-library": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2291"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2291",
+    "page": 31
   },
   "spell:precious-gleam": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2322"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2322",
+    "page": 117
   },
   "spell:ranages-circle": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2310"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2310",
+    "page": 71
   },
   "spell:recall-legacy": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2299"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2299",
+    "page": 42
   },
   "spell:reclined-apport": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2323"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2323",
+    "page": 117
   },
   "spell:restore-ground": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2297"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2297",
+    "page": 33
   },
   "spell:the-four-hunters": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2306"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2306",
+    "page": 70
   },
   "spell:the-parrots-whisper": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2309"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2309",
+    "page": 71
   },
   "spell:the-queens-rainbow": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2332"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2332",
+    "page": 71
   },
   "spell:thief-of-fortune": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2330"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2330",
+    "page": 119
   },
   "spell:threefold-limb": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2312"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2312",
+    "page": 83
   },
   "spell:turbulent-tide": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2311"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2311",
+    "page": 82
   },
   "spell:unbroken-panoply": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2313"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2313",
+    "page": 83
   },
   "spell:unravel-knowledge": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2301"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2301",
+    "page": 45
   },
   "spell:unsettling-knowledge": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2293"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2293",
+    "page": 32
   },
   "spell:vengeful-glare": {
     "book": "rival-academies",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2324"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2324",
+    "page": 118
   }
 }

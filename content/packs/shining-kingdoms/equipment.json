@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3766"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3766",
+        "page": 100
       }
     ],
     "description": [
@@ -92,7 +93,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3776"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3776",
+        "page": 172
       }
     ],
     "description": [
@@ -209,7 +211,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3780"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3780",
+        "page": 173
       }
     ],
     "description": [
@@ -346,7 +349,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3767"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3767",
+        "page": 101
       }
     ],
     "description": [
@@ -505,7 +509,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3781"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3781",
+        "page": 173
       }
     ],
     "description": [
@@ -627,7 +632,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3774"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3774",
+        "page": 149
       }
     ],
     "description": [
@@ -764,7 +770,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3775"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3775",
+        "page": 149
       }
     ],
     "description": [
@@ -988,7 +995,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3772"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3772",
+        "page": 124
       }
     ],
     "description": [
@@ -1153,7 +1161,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3779"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3779",
+        "page": 173
       }
     ],
     "description": [
@@ -1268,7 +1277,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3765"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3765",
+        "page": 52
       }
     ],
     "description": [

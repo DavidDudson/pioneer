@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=207"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=207",
+        "page": 36
       }
     ],
     "description": [
@@ -45,7 +46,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=211"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=211",
+        "page": 42
       }
     ],
     "description": [
@@ -95,7 +97,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=221"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=221",
+        "page": 54
       }
     ],
     "description": [
@@ -129,7 +132,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=204"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=204",
+        "page": 28
       }
     ],
     "description": [
@@ -191,7 +195,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=205"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=205",
+        "page": 28
       }
     ],
     "description": [
@@ -223,7 +228,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=225"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=225",
+        "page": 60
       }
     ],
     "description": [
@@ -273,7 +279,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=208"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=208",
+        "page": 36
       }
     ],
     "description": [
@@ -328,7 +335,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=216"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=216",
+        "page": 48
       }
     ],
     "description": [
@@ -383,7 +391,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=226"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=226",
+        "page": 60
       }
     ],
     "description": [
@@ -438,7 +447,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=222"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=222",
+        "page": 54
       }
     ],
     "description": [
@@ -488,7 +498,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=212"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=212",
+        "page": 42
       }
     ],
     "description": [
@@ -539,7 +550,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=213"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=213",
+        "page": 42
       }
     ],
     "description": [
@@ -589,7 +601,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=227"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=227",
+        "page": 60
       }
     ],
     "description": [
@@ -639,7 +652,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=228"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=228",
+        "page": 60
       }
     ],
     "description": [
@@ -691,7 +705,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=223"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=223",
+        "page": 54
       }
     ],
     "description": [
@@ -725,7 +740,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=217"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=217",
+        "page": 48
       }
     ],
     "description": [
@@ -828,7 +844,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=229"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=229",
+        "page": 60
       }
     ],
     "description": [
@@ -862,7 +879,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=209"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=209",
+        "page": 36
       }
     ],
     "description": [
@@ -965,7 +983,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=206"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=206",
+        "page": 28
       }
     ],
     "description": [
@@ -1015,7 +1034,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=210"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=210",
+        "page": 36
       }
     ],
     "description": [
@@ -1062,7 +1082,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=218"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=218",
+        "page": 48
       }
     ],
     "description": [
@@ -1096,7 +1117,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=214"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=214",
+        "page": 42
       }
     ],
     "description": [
@@ -1143,7 +1165,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=230"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=230",
+        "page": 60
       }
     ],
     "description": [
@@ -1224,7 +1247,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=219"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=219",
+        "page": 48
       }
     ],
     "description": [
@@ -1271,7 +1295,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=224"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=224",
+        "page": 54
       }
     ],
     "description": [
@@ -1313,7 +1338,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=220"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=220",
+        "page": 48
       }
     ],
     "description": [
@@ -1360,7 +1386,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=215"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=215",
+        "page": 42
       }
     ],
     "description": [

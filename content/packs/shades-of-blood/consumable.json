@@ -321,7 +321,8 @@
       {
         "kind": "book",
         "book": "shades-of-blood",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790",
+        "page": 82
       }
     ],
     "description": [
@@ -375,7 +376,8 @@
       {
         "kind": "book",
         "book": "shades-of-blood",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790",
+        "page": 82
       }
     ],
     "description": [
@@ -429,7 +431,8 @@
       {
         "kind": "book",
         "book": "shades-of-blood",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790",
+        "page": 82
       }
     ],
     "description": [

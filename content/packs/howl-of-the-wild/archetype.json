@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=221"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=221",
+        "page": 68
       }
     ],
     "description": [
@@ -54,7 +55,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=222"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=222",
+        "page": 70
       }
     ],
     "description": [
@@ -105,7 +107,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=223"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=223",
+        "page": 72
       }
     ],
     "description": [
@@ -165,7 +168,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=224"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=224",
+        "page": 74
       }
     ],
     "description": [
@@ -276,7 +280,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=225"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=225",
+        "page": 76
       }
     ],
     "description": [
@@ -842,7 +847,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=226"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=226",
+        "page": 80
       }
     ],
     "description": [
@@ -917,7 +923,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=227"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=227",
+        "page": 82
       }
     ],
     "description": [

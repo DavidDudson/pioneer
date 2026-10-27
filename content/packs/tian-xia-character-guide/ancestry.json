@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=88"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=88",
+        "page": 52
       }
     ],
     "description": [
@@ -226,7 +227,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=89"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=89",
+        "page": 58
       }
     ],
     "description": [
@@ -439,7 +441,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=90"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=90",
+        "page": 64
       }
     ],
     "description": [
@@ -660,7 +663,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=91"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=91",
+        "page": 70
       }
     ],
     "description": [
@@ -869,7 +873,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=92"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=92",
+        "page": 76
       }
     ],
     "description": [
@@ -1077,7 +1082,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=93"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=93",
+        "page": 82
       }
     ],
     "description": [

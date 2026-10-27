@@ -1,1378 +1,1722 @@
 {
   "archetype:alter-ego": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=344"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=344",
+    "page": 126
   },
   "archetype:chronoskimmer": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=349"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=349",
+    "page": 186
   },
   "archetype:curse-maelstrom": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=347"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=347",
+    "page": 168
   },
   "archetype:living-vessel": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=345"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=345",
+    "page": 140
   },
   "archetype:mind-smith": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=351"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=351",
+    "page": 204
   },
   "archetype:pactbinder": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=346"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=346",
+    "page": 166
   },
   "archetype:psychic-duelist": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=350"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=350",
+    "page": 203
   },
   "archetype:sleepwalker": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=352"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=352",
+    "page": 206
   },
   "archetype:thaumaturge": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=343"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=343",
+    "page": 49
   },
   "archetype:time-mage": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=348"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=348",
+    "page": 184
   },
   "background:empty-whispers": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=588"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=588",
+    "page": 92
   },
   "background:legacy-of-the-hammer": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=589"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=589",
+    "page": 135
   },
   "background:reborn-soul": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=590"
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=590",
+    "page": 176
   },
   "class:thaumaturge": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Classes.aspx?ID=69"
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=69",
+    "page": 31
   },
   "consumable:baleblood-draft": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4111"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4111",
+    "page": 62
   },
   "consumable:chimera-thread": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4113"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4113",
+    "page": 62
   },
   "consumable:conrasu-coin-arbiter": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4138"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4138",
+    "page": 155
   },
   "consumable:conrasu-coin-bythos": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4138"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4138",
+    "page": 155
   },
   "consumable:forgetful-drops": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4120"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4120",
+    "page": 82
   },
   "consumable:gift-of-the-poisoned-heart": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4141"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4141",
+    "page": 160
   },
   "consumable:mistranslators-draft": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4143"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4143",
+    "page": 161
   },
   "consumable:moonlit-ink": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4123"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4123",
+    "page": 82
   },
   "consumable:parchment-of-secrets": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4124"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4124",
+    "page": 82
   },
   "consumable:rose-of-loves-lost": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4145"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4145",
+    "page": 161
   },
   "consumable:sampling-ammunition": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4117"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4117",
+    "page": 63
   },
   "consumable:self-immolating-note": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4125"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4125",
+    "page": 83
   },
   "consumable:swirling-sand": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4118"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4118",
+    "page": 72
   },
   "consumable:wine-of-the-blood": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4134"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4134",
+    "page": 114
   },
   "equipment:book-of-lost-days": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4139"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4139",
+    "page": 160
   },
   "equipment:bottomless-purse": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4148"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4148",
+    "page": 164
   },
   "equipment:calamity-glass": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4140"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4140",
+    "page": 160
   },
   "equipment:chaos-collar": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4112"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4112",
+    "page": 62
   },
   "equipment:cloak-of-the-false-foe": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4114"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4114",
+    "page": 62
   },
   "equipment:compass-of-transpositional-awareness": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4137"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4137",
+    "page": 154
   },
   "equipment:cryolite-eye": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4149"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4149",
+    "page": 164
   },
   "equipment:false-bottomed-mug": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4119"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4119",
+    "page": 82
   },
   "equipment:glittering-scarab": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4121"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4121",
+    "page": 82
   },
   "equipment:golden-goose": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4142"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4142",
+    "page": 160
   },
   "equipment:hand-hewed-face": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4150"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4150",
+    "page": 164
   },
   "equipment:hoax-hunters-kit": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4115"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4115",
+    "page": 63
   },
   "equipment:horn-of-the-aoyin": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4135"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4135",
+    "page": 115
   },
   "equipment:key-to-the-stomach": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4151"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4151",
+    "page": 165
   },
   "equipment:lost-ember": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4152"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4152",
+    "page": 165
   },
   "equipment:membership-cords": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4122"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4122",
+    "page": 82
   },
   "equipment:old-tillimaquin": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4116"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4116",
+    "page": 63
   },
   "equipment:ring-of-sneering-charity": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4144"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4144",
+    "page": 161
   },
   "equipment:self-emptying-pocket": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4155"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4155",
+    "page": 165
   },
   "equipment:siblings-coin": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4126"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4126",
+    "page": 83
   },
   "equipment:silent-bell": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4127"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4127",
+    "page": 83
   },
   "equipment:society-portrait": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4128"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4128",
+    "page": 83
   },
   "equipment:stone-of-unrivaled-skill": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4153"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4153",
+    "page": 165
   },
   "equipment:tablet-of-chained-souls": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4146"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4146",
+    "page": 161
   },
   "equipment:taletellers-ring": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4147"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4147",
+    "page": 161
   },
   "equipment:traitors-ring": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4129"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4129",
+    "page": 83
   },
   "equipment:vial-of-the-immortal-wellspring": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4154"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4154",
+    "page": 165
   },
   "feat:accursed-magic": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8474"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8474",
+    "page": 169
   },
   "feat:advanced-thaumaturgy": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8400"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8400",
+    "page": 49
   },
   "feat:all-in-your-head": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8346"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8346",
+    "page": 29
   },
   "feat:alter-ego-dedication": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8448"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8448",
+    "page": 126
   },
   "feat:ammunition-thaumaturgy": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8353"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8353",
+    "page": 42
   },
   "feat:amp-focus": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8336"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8336",
+    "page": 28
   },
   "feat:ancestral-mind": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8310"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8310",
+    "page": 24
   },
   "feat:astral-tether": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8317"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8317",
+    "page": 24
   },
   "feat:aura-sight": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8425"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8425",
+    "page": 78
   },
   "feat:automatic-writing": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8426"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8426",
+    "page": 78
   },
   "feat:awakened-power": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8024"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8024",
+    "page": 100
   },
   "feat:basic-thaumaturgy": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8399"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8399",
+    "page": 49
   },
   "feat:become-thought": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8348"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8348",
+    "page": 29
   },
   "feat:bizarre-transformation": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8424"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8424",
+    "page": 65
   },
   "feat:blasting-beams": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8026"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8026",
+    "page": 100
   },
   "feat:bone-spikes": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8038"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8038",
+    "page": 101
   },
   "feat:borrow-memories": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8455"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8455",
+    "page": 127
   },
   "feat:borrow-time": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8494"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8494",
+    "page": 186
   },
   "feat:brain-drain": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8326"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8326",
+    "page": 26
   },
   "feat:breached-defenses": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8363"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8363",
+    "page": 43
   },
   "feat:call-implement": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8359"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8359",
+    "page": 42
   },
   "feat:cant-you-see": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8418"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8418",
+    "page": 64
   },
   "feat:change-of-face": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8449"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8449",
+    "page": 126
   },
   "feat:chromotherapy": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8427"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8427",
+    "page": 78
   },
   "feat:chronomancers-secrets": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8482"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8482",
+    "page": 185
   },
   "feat:chronoskimmer-dedication": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8489"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8489",
+    "page": 186
   },
   "feat:clone-risen": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8433"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8433",
+    "page": 120
   },
   "feat:combat-premonition": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8496"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8496",
+    "page": 187
   },
   "feat:conscious-spell-specialization": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8340"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8340",
+    "page": 28
   },
   "feat:constant-levitation": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8343"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8343",
+    "page": 29
   },
   "feat:consume-energy": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8027"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8027",
+    "page": 100
   },
   "feat:counter-curse": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8475"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8475",
+    "page": 169
   },
   "feat:counter-thought": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8311"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8311",
+    "page": 24
   },
   "feat:cranial-detonation": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8347"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8347",
+    "page": 29
   },
   "feat:cryptic-spell": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8416"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8416",
+    "page": 64
   },
   "feat:crystal-healing": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8428"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8428",
+    "page": 78
   },
   "feat:curse-maelstrom-dedication": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8470"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8470",
+    "page": 168
   },
   "feat:cursed-effigy": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8370"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8370",
+    "page": 45
   },
   "feat:dark-personas-presence": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8327"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8327",
+    "page": 26
   },
   "feat:deep-roots": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8341"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8341",
+    "page": 28
   },
   "feat:devils-eye": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8404"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8404",
+    "page": 55
   },
   "feat:distant-wandering": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8045"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8045",
+    "page": 103
   },
   "feat:diverse-lore": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8354"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8354",
+    "page": 42
   },
   "feat:divine-disharmony": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8355"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8355",
+    "page": 42
   },
   "feat:dream-guise": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8332"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8332",
+    "page": 27
   },
   "feat:dream-logic": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8522"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8522",
+    "page": 207
   },
   "feat:dream-magic": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8518"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8518",
+    "page": 206
   },
   "feat:duel-spell-advantage": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8501"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8501",
+    "page": 203
   },
   "feat:echo-of-the-fallen": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8405"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8405",
+    "page": 55
   },
   "feat:eerie-environs": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8419"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8419",
+    "page": 65
   },
   "feat:eerie-flicker": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8042"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8042",
+    "page": 102
   },
   "feat:eerie-proclamation": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8422"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8422",
+    "page": 65
   },
   "feat:eerie-traces": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8420"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8420",
+    "page": 65
   },
   "feat:elaborate-scroll-esoterica": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8375"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8375",
+    "page": 46
   },
   "feat:elaborate-talisman-esoterica": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8371"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8371",
+    "page": 45
   },
   "feat:elysiums-cadence": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8407"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8407",
+    "page": 56
   },
   "feat:emotional-surge": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8333"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8333",
+    "page": 27
   },
   "feat:enervating-wail": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8044"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8044",
+    "page": 102
   },
   "feat:entitys-strike": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8457"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8457",
+    "page": 140
   },
   "feat:escape-timeline": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8497"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8497",
+    "page": 187
   },
   "feat:esoteric-reflexes": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8379"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8379",
+    "page": 46
   },
   "feat:esoteric-warden": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8360"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8360",
+    "page": 42
   },
   "feat:ever-dreaming": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8524"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8524",
+    "page": 207
   },
   "feat:exude-demonic-corruption": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8459"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8459",
+    "page": 141
   },
   "feat:fake-it-till-you-make-it": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8450"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8450",
+    "page": 127
   },
   "feat:familiar-oddities": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8471"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8471",
+    "page": 169
   },
   "feat:fey-life": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8414"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8414",
+    "page": 57
   },
   "feat:feys-trickery": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8460"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8460",
+    "page": 141
   },
   "feat:folk-dowsing": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8429"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8429",
+    "page": 78
   },
   "feat:foreseen-failure": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8337"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8337",
+    "page": 28
   },
   "feat:forgotten-presence": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8421"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8421",
+    "page": 65
   },
   "feat:future-spell-learning": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8483"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8483",
+    "page": 185
   },
   "feat:ghost-blade": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8506"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8506",
+    "page": 205
   },
   "feat:ghostly-grasp-deviant": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8043"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8043",
+    "page": 102
   },
   "feat:gift-of-the-hoard": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8409"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8409",
+    "page": 56
   },
   "feat:grand-scroll-esoterica": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8385"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8385",
+    "page": 47
   },
   "feat:grand-talisman-esoterica": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8380"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8380",
+    "page": 46
   },
   "feat:greater-awakened-power": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8025"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8025",
+    "page": 100
   },
   "feat:guide-the-timeline": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8491"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8491",
+    "page": 186
   },
   "feat:haunt-ingenuity": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8356"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8356",
+    "page": 42
   },
   "feat:high-speed-regeneration": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8040"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8040",
+    "page": 101
   },
   "feat:homing-beacon": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8318"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8318",
+    "page": 24
   },
   "feat:implement-initiate": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8401"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8401",
+    "page": 49
   },
   "feat:implements-assault": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8386"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8386",
+    "page": 47
   },
   "feat:implements-flight": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8382"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8382",
+    "page": 47
   },
   "feat:impose-order-psychic": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8334"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8334",
+    "page": 27
   },
   "feat:in-plain-sight": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8451"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8451",
+    "page": 127
   },
   "feat:inertial-barrier": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8322"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8322",
+    "page": 25
   },
   "feat:infiltrate-dream": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8516"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8516",
+    "page": 206
   },
   "feat:instigate-psychic-duel": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8503"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8503",
+    "page": 203
   },
   "feat:intense-implement": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8387"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8387",
+    "page": 47
   },
   "feat:intensify-investiture": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8376"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8376",
+    "page": 46
   },
   "feat:into-the-future": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8485"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8485",
+    "page": 185
   },
   "feat:jelly-body": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8408"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8408",
+    "page": 56
   },
   "feat:just-the-tool": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8507"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8507",
+    "page": 205
   },
   "feat:lingering-chill": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8406"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8406",
+    "page": 55
   },
   "feat:living-vessel-dedication": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8456"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8456",
+    "page": 140
   },
   "feat:magical-knowledge": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8402"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8402",
+    "page": 49
   },
   "feat:malleable-form": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8445"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8445",
+    "page": 121
   },
   "feat:malleable-mental-forge": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8510"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8510",
+    "page": 205
   },
   "feat:malleable-movement": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8505"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8505",
+    "page": 205
   },
   "feat:mental-balm": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8314"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8314",
+    "page": 24
   },
   "feat:mental-buffer": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8312"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8312",
+    "page": 24
   },
   "feat:mental-forge": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8508"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8508",
+    "page": 205
   },
   "feat:metallic-envisionment": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8513"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8513",
+    "page": 205
   },
   "feat:mind-over-matter": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8349"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8349",
+    "page": 29
   },
   "feat:mind-projectiles": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8511"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8511",
+    "page": 205
   },
   "feat:mind-shards": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8509"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8509",
+    "page": 205
   },
   "feat:mind-smith-dedication": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8504"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8504",
+    "page": 204
   },
   "feat:mirror-refuge": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8442"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8442",
+    "page": 121
   },
   "feat:mirror-risen": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8434"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8434",
+    "page": 120
   },
   "feat:mistaken-identity": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8438"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8438",
+    "page": 120
   },
   "feat:morph-risen": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8435"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8435",
+    "page": 120
   },
   "feat:morphic-manipulation": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8430"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8430",
+    "page": 79
   },
   "feat:muscle-mimicry": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8453"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8453",
+    "page": 127
   },
   "feat:no": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8338"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8338",
+    "page": 28
   },
   "feat:obscured-emergence": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8423"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8423",
+    "page": 65
   },
   "feat:on-borrowed-time": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8527"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8527",
+    "page": 189
   },
   "feat:one-more-activation": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8367"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8367",
+    "page": 44
   },
   "feat:oneiric-influence": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8520"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8520",
+    "page": 206
   },
   "feat:pact-of-draconic-fury": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8466"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8466",
+    "page": 166
   },
   "feat:pact-of-eldritch-eyes": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8469"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8469",
+    "page": 167
   },
   "feat:pact-of-fey-glamour": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8465"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8465",
+    "page": 166
   },
   "feat:pact-of-infernal-prowess": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8467"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8467",
+    "page": 167
   },
   "feat:pact-of-the-final-breath": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8468"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8468",
+    "page": 167
   },
   "feat:pactbinder-dedication": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8463"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8463",
+    "page": 166
   },
   "feat:paired-link": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8365"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8365",
+    "page": 44
   },
   "feat:parallel-breakthrough": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8323"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8323",
+    "page": 25
   },
   "feat:petrified-skin": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8411"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8411",
+    "page": 56
   },
   "feat:progenitor-lore": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8436"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8436",
+    "page": 120
   },
   "feat:propulsive-leap": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8029"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8029",
+    "page": 101
   },
   "feat:psi-burst": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8315"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8315",
+    "page": 24
   },
   "feat:psi-catastrophe": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8339"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8339",
+    "page": 28
   },
   "feat:psi-strikes": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8319"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8319",
+    "page": 25
   },
   "feat:psychic-duelist-dedication": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8500"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8500",
+    "page": 203
   },
   "feat:psychic-rapport": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8313"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8313",
+    "page": 24
   },
   "feat:purge-of-moments": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8487"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8487",
+    "page": 185
   },
   "feat:read-psychometric-resonance": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8431"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8431",
+    "page": 79
   },
   "feat:redirect-attention": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8446"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8446",
+    "page": 121
   },
   "feat:reflect-foe": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8447"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8447",
+    "page": 121
   },
   "feat:reflective-pocket": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8439"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8439",
+    "page": 120
   },
   "feat:remove-presence": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8329"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8329",
+    "page": 27
   },
   "feat:replicate": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8440"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8440",
+    "page": 121
   },
   "feat:reset-the-past": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8499"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8499",
+    "page": 187
   },
   "feat:resolute": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8403"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8403",
+    "page": 49
   },
   "feat:reverse-curse": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8477"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8477",
+    "page": 169
   },
   "feat:reversing-charge": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8492"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8492",
+    "page": 186
   },
   "feat:root-to-life": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8357"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8357",
+    "page": 42
   },
   "feat:runic-mind-smithing": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8512"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8512",
+    "page": 205
   },
   "feat:sacral-lord": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8478"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8478",
+    "page": 177
   },
   "feat:sacral-monarch": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8479"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8479",
+    "page": 177
   },
   "feat:scour-the-library": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8335"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8335",
+    "page": 27
   },
   "feat:scroll-esoterica": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8368"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8368",
+    "page": 44
   },
   "feat:scroll-thaumaturgy": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8358"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8358",
+    "page": 42
   },
   "feat:seven-part-link": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8383"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8383",
+    "page": 47
   },
   "feat:sever-magic": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8384"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8384",
+    "page": 47
   },
   "feat:share-burden": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8473"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8473",
+    "page": 169
   },
   "feat:share-weakness": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8372"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8372",
+    "page": 45
   },
   "feat:shared-dream": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8523"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8523",
+    "page": 207
   },
   "feat:shared-warding": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8377"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8377",
+    "page": 46
   },
   "feat:sink-and-swim": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8413"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8413",
+    "page": 57
   },
   "feat:siphon-life": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8410"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8410",
+    "page": 56
   },
   "feat:sixth-sense": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8324"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8324",
+    "page": 26
   },
   "feat:skeptics-defense": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8432"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8432",
+    "page": 79
   },
   "feat:sleepwalker-dedication": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8515"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8515",
+    "page": 206
   },
   "feat:sociable-vow": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8464"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8464",
+    "page": 166
   },
   "feat:sound-mirror": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8452"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8452",
+    "page": 127
   },
   "feat:space-time-shift": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8498"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8498",
+    "page": 187
   },
   "feat:spell-acceleration": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8486"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8486",
+    "page": 185
   },
   "feat:steal-time": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8495"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8495",
+    "page": 186
   },
   "feat:storming-breath": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8028"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8028",
+    "page": 100
   },
   "feat:strain-mind": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8325"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8325",
+    "page": 26
   },
   "feat:superimpose-time-duplicates": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8493"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8493",
+    "page": 186
   },
   "feat:supreme-psychic-center": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8502"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8502",
+    "page": 203
   },
   "feat:swap-reflections": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8454"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8454",
+    "page": 127
   },
   "feat:sympathetic-vulnerabilities": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8369"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8369",
+    "page": 45
   },
   "feat:talisman-esoterica": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8361"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8361",
+    "page": 43
   },
   "feat:tap-vitality": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8458"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8458",
+    "page": 140
   },
   "feat:target-of-psychic-ire": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8344"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8344",
+    "page": 29
   },
   "feat:tectonic-stomp": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8041"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8041",
+    "page": 101
   },
   "feat:thaumaturge-dedication": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8398"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8398",
+    "page": 49
   },
   "feat:thaumaturges-demesne": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8378"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8378",
+    "page": 46
   },
   "feat:thaumaturges-investiture": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8373"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8373",
+    "page": 45
   },
   "feat:thoughtform-summoning": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8320"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8320",
+    "page": 25
   },
   "feat:thoughtsense": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8330"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8330",
+    "page": 27
   },
   "feat:time-mage-dedication": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8480"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8480",
+    "page": 184
   },
   "feat:timeline-splitting-spell": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8488"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8488",
+    "page": 185
   },
   "feat:titan-swing": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8039"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8039",
+    "page": 101
   },
   "feat:trance-of-celerity": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8526"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8526",
+    "page": 189
   },
   "feat:trespass-teleportation": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8381"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8381",
+    "page": 47
   },
   "feat:turn-away-misfortune": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8362"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8362",
+    "page": 43
   },
   "feat:turn-back-the-clock": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8490"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8490",
+    "page": 186
   },
   "feat:twin-psyche": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8350"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8350",
+    "page": 29
   },
   "feat:twin-weakness": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8374"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8374",
+    "page": 45
   },
   "feat:ubiquitous-weakness": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8388"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8388",
+    "page": 47
   },
   "feat:unlimited-demesne": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8389"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8389",
+    "page": 47
   },
   "feat:unlimited-potential": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8351"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8351",
+    "page": 29
   },
   "feat:unnerving-expansion": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8472"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8472",
+    "page": 169
   },
   "feat:unyielding-disguise": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8444"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8444",
+    "page": 121
   },
   "feat:vessels-form": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8462"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8462",
+    "page": 141
   },
   "feat:violent-unleash": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8321"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8321",
+    "page": 25
   },
   "feat:vision-of-foresight": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8517"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8517",
+    "page": 206
   },
   "feat:waking-dream": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8519"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8519",
+    "page": 206
   },
   "feat:wandering-thoughts": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8345"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8345",
+    "page": 29
   },
   "feat:ward-slumber": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8521"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8521",
+    "page": 207
   },
   "feat:warp-likeness": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8441"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8441",
+    "page": 121
   },
   "feat:warp-space": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8316"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8316",
+    "page": 24
   },
   "feat:warped-constriction": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8461"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8461",
+    "page": 141
   },
   "feat:warped-reflection": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8437"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8437",
+    "page": 120
   },
   "feat:what-could-have-been": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8484"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8484",
+    "page": 185
   },
   "feat:whispering-steps": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8331"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8331",
+    "page": 27
   },
   "feat:wolf-in-sheeps-clothing": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8417"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8417",
+    "page": 64
   },
   "feat:wonder-worker": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8390"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8390",
+    "page": 47
   },
   "heritage:reflection": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=428"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=428",
+    "page": 120
   },
   "ritual:bacchanalia": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=225"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=225",
+    "page": 145
   },
   "ritual:construct-mindscape": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=231"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=231",
+    "page": 199
   },
   "ritual:contact-friends": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=226"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=226",
+    "page": 145
   },
   "ritual:oblivious-expulsion": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=227"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=227",
+    "page": 145
   },
   "ritual:recall-past-life": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=228"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=228",
+    "page": 145
   },
   "ritual:supreme-connection": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=229"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=229",
+    "page": 146
   },
   "spell:astral-rain": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2560"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2560",
+    "page": 22
   },
   "spell:awaken-entropy": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2600"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2600",
+    "page": 181
   },
   "spell:behold-the-weave": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2601"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2601",
+    "page": 181
   },
   "spell:bilocation": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2566"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2566",
+    "page": 104
   },
   "spell:bracing-tendrils": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2567"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2567",
+    "page": 104
   },
   "spell:cinder-gaze": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2584"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2584",
+    "page": 142
   },
   "spell:contagious-idea": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2558"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2558",
+    "page": 21
   },
   "spell:dancing-blade": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2549"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2549",
+    "page": 17
   },
   "spell:distortion-lens": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2562"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2562",
+    "page": 23
   },
   "spell:empty-pack": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2568"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2568",
+    "page": 105
   },
   "spell:entropic-wheel": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2554"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2554",
+    "page": 20
   },
   "spell:etheric-shards": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2569"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2569",
+    "page": 105
   },
   "spell:euphoric-renewal": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2585"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2585",
+    "page": 142
   },
   "spell:falling-sky": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2570"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2570",
+    "page": 105
   },
   "spell:false-nature": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2565"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2565",
+    "page": 93
   },
   "spell:focusing-hum": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2571"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2571",
+    "page": 105
   },
   "spell:forbidden-thought": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2556"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2556",
+    "page": 21
   },
   "spell:foresee-the-path": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2552"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2552",
+    "page": 18
   },
   "spell:frenzied-revelry": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2586"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2586",
+    "page": 142
   },
   "spell:ghostly-shift": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2563"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2563",
+    "page": 23
   },
   "spell:glimpse-weakness": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2550"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2550",
+    "page": 18
   },
   "spell:hollow-heart": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2587"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2587",
+    "page": 142
   },
   "spell:hologram-cage": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2561"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2561",
+    "page": 22
   },
   "spell:imaginary-weapon": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2559"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2559",
+    "page": 22
   },
   "spell:implement-of-destruction": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2572"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2572",
+    "page": 105
   },
   "spell:inevitable-destination": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2589"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2589",
+    "page": 143
   },
   "spell:isolation": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2588"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2588",
+    "page": 143
   },
   "spell:kinetic-ram": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2573"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2573",
+    "page": 105
   },
   "spell:loose-times-arrow": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2602"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2602",
+    "page": 182
   },
   "spell:manifold-lives": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2615"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2615",
+    "page": 189
   },
   "spell:momentary-recovery": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2574"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2574",
+    "page": 106
   },
   "spell:morass-of-ages": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2603"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2603",
+    "page": 182
   },
   "spell:moths-supper": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2575"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2575",
+    "page": 106
   },
   "spell:omnidirectional-scan": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2551"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2551",
+    "page": 18
   },
   "spell:over-the-coals": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2599"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2599",
+    "page": 159
   },
   "spell:path-of-least-resistance": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2612"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2612",
+    "page": 185
   },
   "spell:phase-bolt": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2576"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2576",
+    "page": 106
   },
   "spell:poltergeists-fury": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2577"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2577",
+    "page": 106
   },
   "spell:purifying-veil": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2590"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2590",
+    "page": 143
   },
   "spell:quicken-time": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2604"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2604",
+    "page": 182
   },
   "spell:rally-point": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2578"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2578",
+    "page": 106
   },
   "spell:redistribute-potential": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2555"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2555",
+    "page": 20
   },
   "spell:return-the-favor": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2598"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2598",
+    "page": 159
   },
   "spell:sea-of-thought": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2579"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2579",
+    "page": 106
   },
   "spell:shadow-spy": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2580"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2580",
+    "page": 107
   },
   "spell:shaken-confidence": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2591"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2591",
+    "page": 143
   },
   "spell:shatter-mind": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2557"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2557",
+    "page": 21
   },
   "spell:soft-landing": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2581"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2581",
+    "page": 107
   },
   "spell:stagnate-time": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2605"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2605",
+    "page": 182
   },
   "spell:string-of-fate": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2592"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2592",
+    "page": 143
   },
   "spell:summon-irii": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2606"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2606",
+    "page": 182
   },
   "spell:suspended-retribution": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2607"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2607",
+    "page": 183
   },
   "spell:telekinetic-bombardment": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2582"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2582",
+    "page": 107
   },
   "spell:telekinetic-rend": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2547"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2547",
+    "page": 17
   },
   "spell:temporal-distortion": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2613"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2613",
+    "page": 189
   },
   "spell:temporal-twin": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2608"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2608",
+    "page": 183
   },
   "spell:tesseract-tunnel": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2564"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2564",
+    "page": 23
   },
   "spell:thermal-stasis": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2553"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2553",
+    "page": 20
   },
   "spell:time-beacon": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2609"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2609",
+    "page": 183
   },
   "spell:time-pocket": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2610"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2610",
+    "page": 183
   },
   "spell:time-sense": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2611"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2611",
+    "page": 183
   },
   "spell:time-skip": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2614"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2614",
+    "page": 189
   },
   "spell:vector-screen": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2548"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2548",
+    "page": 17
   },
   "spell:victory-cry": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2593"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2593",
+    "page": 143
   },
   "spell:waking-dream": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2616"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2616",
+    "page": 207
   },
   "spell:warp-step": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2583"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2583",
+    "page": 107
   },
   "spell:weaponize-secret": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2594"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2594",
+    "page": 143
   },
   "spell:wind-whispers": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2595"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2595",
+    "page": 144
   },
   "spell:wordsmith": {
     "book": "dark-archive-remastered",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2596"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2596",
+    "page": 144
   }
 }

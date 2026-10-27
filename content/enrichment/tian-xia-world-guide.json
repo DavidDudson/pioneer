@@ -1,110 +1,137 @@
 {
   "creature:animated-kite": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2762"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2762",
+    "page": 278
   },
   "creature:animated-wine-vessel": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2764"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2764",
+    "page": 279
   },
   "creature:aoyin": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2765"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2765",
+    "page": 280
   },
   "creature:aso-berang": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2766"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2766",
+    "page": 281
   },
   "creature:bul-gae": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2767"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2767",
+    "page": 282
   },
   "creature:five-color-orchid-mantis": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2779"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2779",
+    "page": 293
   },
   "creature:gau-cho-rong": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2768"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2768",
+    "page": 283
   },
   "creature:giant-orchid-mantis": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2777"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2777",
+    "page": 292
   },
   "creature:hopping-head": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2770"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2770",
+    "page": 286
   },
   "creature:ijhyeojin": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2783"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2783",
+    "page": 297
   },
   "creature:imugi": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2772"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2772",
+    "page": 287
   },
   "creature:inkdrop": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2761"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2761",
+    "page": 278
   },
   "creature:jiidon": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2773"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2773",
+    "page": 288
   },
   "creature:joseung-saja": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2782"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2782",
+    "page": 296
   },
   "creature:kun": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2774"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2774",
+    "page": 289
   },
   "creature:manananggal": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2775"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2775",
+    "page": 290
   },
   "creature:nue": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2776"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2776",
+    "page": 291
   },
   "creature:orchid-mantis-swarm": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2778"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2778",
+    "page": 292
   },
   "creature:peng": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2780"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2780",
+    "page": 294
   },
   "creature:pixiu": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2781"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2781",
+    "page": 295
   },
   "creature:shui-gui": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2784"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2784",
+    "page": 298
   },
   "creature:the-great-flood": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2769"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2769",
+    "page": 285
   },
   "creature:yeongno": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2785"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2785",
+    "page": 299
   },
   "ritual:perfection-of-essence": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=133"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=133",
+    "page": 50
   },
   "ritual:power-of-the-beasts": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=134"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=134",
+    "page": 50
   },
   "ritual:seed-of-mercy": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=135"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=135",
+    "page": 50
   },
   "ritual:wild-allegiance": {
     "book": "tian-xia-world-guide",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=137"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=137",
+    "page": 51
   }
 }

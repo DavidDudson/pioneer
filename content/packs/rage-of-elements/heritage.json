@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=232"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=232",
+        "page": 47
       }
     ],
     "description": [
@@ -62,7 +63,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=233"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=233",
+        "page": 51
       }
     ],
     "description": [

@@ -1,3798 +1,4747 @@
 {
   "armor:bastion-plate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=17"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=17",
+    "page": 9
   },
   "armor:ceramic-plate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=19"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=19",
+    "page": 10
   },
   "armor:coral-armor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=20"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=20",
+    "page": 10
   },
   "armor:fortress-plate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=21"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=21",
+    "page": 10
   },
   "armor:gi": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=22"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=22",
+    "page": 10
   },
   "armor:hellknight-breastplate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=23"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=23",
+    "page": 10
   },
   "armor:hellknight-half-plate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=24"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=24",
+    "page": 10
   },
   "armor:hellknight-plate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=25"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=25",
+    "page": 10
   },
   "armor:lamellar-breastplate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=26"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=26",
+    "page": 10
   },
   "armor:leaf-weave": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=28"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=28",
+    "page": 10
   },
   "armor:leather-lamellar": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=29"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=29",
+    "page": 11
   },
   "armor:mantis-shell": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=30"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=30",
+    "page": 11
   },
   "armor:niyahaat": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=56"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=56",
+    "page": 11
   },
   "armor:o-yoroi": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=32"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=32",
+    "page": 11
   },
   "armor:quilted-armor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=33"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=33",
+    "page": 11
   },
   "armor:scroll-robes": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=35"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=35",
+    "page": 11
   },
   "armor:wooden-breastplate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Armor.aspx?ID=36"
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=36",
+    "page": 11
   },
   "consumable:achaekeks-kiss": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1988"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1988",
+    "page": 66
   },
   "consumable:affliction-suppressant-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1956"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1956",
+    "page": 58
   },
   "consumable:affliction-suppressant-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1956"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1956",
+    "page": 58
   },
   "consumable:affliction-suppressant-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1956"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1956",
+    "page": 58
   },
   "consumable:affliction-suppressant-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1956"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1956",
+    "page": 58
   },
   "consumable:amnemonic-charm": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2096"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2096",
+    "page": 92
   },
   "consumable:anathema-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2029"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2029",
+    "page": 76
   },
   "consumable:animal-repellent-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1936"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1936",
+    "page": 52
   },
   "consumable:animal-repellent-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1936"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1936",
+    "page": 52
   },
   "consumable:animal-repellent-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1936"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1936",
+    "page": 52
   },
   "consumable:animal-repellent-minor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1936"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1936",
+    "page": 52
   },
   "consumable:animal-repellent-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1936"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1936",
+    "page": 52
   },
   "consumable:anticorrosion-oil": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2067"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2067",
+    "page": 86
   },
   "consumable:antipode-oil": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1989"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1989",
+    "page": 67
   },
   "consumable:arbor-wine": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1908"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1908",
+    "page": 47
   },
   "consumable:astringent-venom": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1990"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1990",
+    "page": 67
   },
   "consumable:auric-noodles": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1909"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1909",
+    "page": 47
   },
   "consumable:bane-ammunition-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1895"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1895",
+    "page": 42
   },
   "consumable:bane-ammunition-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1895"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1895",
+    "page": 42
   },
   "consumable:bane-ammunition-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1895"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1895",
+    "page": 42
   },
   "consumable:bane-oil": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2068"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2068",
+    "page": 86
   },
   "consumable:bargainers-instrument": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2116"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2116",
+    "page": 96
   },
   "consumable:bendy-arm-mutagen-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1958"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1958",
+    "page": 59
   },
   "consumable:bendy-arm-mutagen-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1958"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1958",
+    "page": 59
   },
   "consumable:bendy-arm-mutagen-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1958"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1958",
+    "page": 59
   },
   "consumable:bendy-arm-mutagen-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1958"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1958",
+    "page": 59
   },
   "consumable:bewildering-spellgun": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2117"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2117",
+    "page": 96
   },
   "consumable:black-tendril-shot-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2045",
+    "page": 80
   },
   "consumable:black-tendril-shot-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2045",
+    "page": 80
   },
   "consumable:black-tendril-shot-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2045",
+    "page": 80
   },
   "consumable:blending-brooch": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2097"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2097",
+    "page": 92
   },
   "consumable:blister-ammunition-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1896"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1896",
+    "page": 42
   },
   "consumable:blister-ammunition-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1896"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1896",
+    "page": 42
   },
   "consumable:blister-ammunition-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1896"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1896",
+    "page": 42
   },
   "consumable:blisterwort": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1991"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1991",
+    "page": 67
   },
   "consumable:blood-booster-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1957"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1957",
+    "page": 59
   },
   "consumable:blood-booster-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1957"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1957",
+    "page": 59
   },
   "consumable:blood-booster-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1957"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1957",
+    "page": 59
   },
   "consumable:blue-dragonfly-poison": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1992"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1992",
+    "page": 67
   },
   "consumable:bola-shot": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2046"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2046",
+    "page": 80
   },
   "consumable:bottled-roc": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1947"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1947",
+    "page": 56
   },
   "consumable:bower-fruit": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2375"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2375",
+    "page": 190
   },
   "consumable:breathtaking-vapor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1993"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1993",
+    "page": 67
   },
   "consumable:brightshade": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1994"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1994",
+    "page": 67
   },
   "consumable:burial-oil": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2069"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2069",
+    "page": 86
   },
   "consumable:burial-oil-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2069"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2069",
+    "page": 86
   },
   "consumable:camouflage-dye-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1937"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1937",
+    "page": 52
   },
   "consumable:camouflage-dye-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1937"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1937",
+    "page": 52
   },
   "consumable:captivating-bauble": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2098"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2098",
+    "page": 92
   },
   "consumable:captivating-score": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2060"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2060",
+    "page": 84
   },
   "consumable:careless-delight": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1995"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1995",
+    "page": 67
   },
   "consumable:caydens-brew": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2079"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2079",
+    "page": 88
   },
   "consumable:caydens-brew-double": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2079"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2079",
+    "page": 88
   },
   "consumable:caydens-brew-triple": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2079"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2079",
+    "page": 88
   },
   "consumable:chain-of-stars": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2099"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2099",
+    "page": 92
   },
   "consumable:choleric-contagion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1996"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1996",
+    "page": 67
   },
   "consumable:chromatic-jellyfish-oil-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1959"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1959",
+    "page": 59
   },
   "consumable:chromatic-jellyfish-oil-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1959"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1959",
+    "page": 59
   },
   "consumable:chromatic-jellyfish-oil-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1959"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1959",
+    "page": 59
   },
   "consumable:cinnamon-seers": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1910"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1910",
+    "page": 47
   },
   "consumable:cloning-potion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2080"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2080",
+    "page": 88
   },
   "consumable:clown-monarch": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1997"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1997",
+    "page": 68
   },
   "consumable:clubhead-poison": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1998"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1998",
+    "page": 68
   },
   "consumable:colorful-coating-blue": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938",
+    "page": 52
   },
   "consumable:colorful-coating-green": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938",
+    "page": 52
   },
   "consumable:colorful-coating-indigo": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938",
+    "page": 52
   },
   "consumable:colorful-coating-orange": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938",
+    "page": 52
   },
   "consumable:colorful-coating-red": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938",
+    "page": 52
   },
   "consumable:colorful-coating-violet": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938",
+    "page": 52
   },
   "consumable:colorful-coating-yellow": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1938",
+    "page": 52
   },
   "consumable:conduit-shot-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2047"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2047",
+    "page": 80
   },
   "consumable:conduit-shot-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2047"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2047",
+    "page": 80
   },
   "consumable:conduit-shot-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2047"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2047",
+    "page": 80
   },
   "consumable:contagion-metabolizer-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1960"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1960",
+    "page": 59
   },
   "consumable:contagion-metabolizer-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1960"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1960",
+    "page": 59
   },
   "consumable:contagion-metabolizer-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1960"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1960",
+    "page": 59
   },
   "consumable:cooperative-waffles": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1911"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1911",
+    "page": 47
   },
   "consumable:cooperative-waffles-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1911"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1911",
+    "page": 47
   },
   "consumable:copper-penny": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2100"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2100",
+    "page": 92
   },
   "consumable:crackling-bubble-gum-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1912"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1912",
+    "page": 47
   },
   "consumable:crackling-bubble-gum-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1912"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1912",
+    "page": 47
   },
   "consumable:crackling-bubble-gum-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1912"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1912",
+    "page": 47
   },
   "consumable:crackling-bubble-gum-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1912"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1912",
+    "page": 47
   },
   "consumable:curare": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1999"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1999",
+    "page": 68
   },
   "consumable:dancing-lamentation": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2000"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2000",
+    "page": 68
   },
   "consumable:deadlock-mint": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2021"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2021",
+    "page": 74
   },
   "consumable:deadlock-mint-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2021"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2021",
+    "page": 74
   },
   "consumable:deadweight-mutagen-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1961"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1961",
+    "page": 59
   },
   "consumable:deadweight-mutagen-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1961"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1961",
+    "page": 59
   },
   "consumable:deadweight-mutagen-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1961"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1961",
+    "page": 59
   },
   "consumable:deadweight-mutagen-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1961"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1961",
+    "page": 59
   },
   "consumable:delve-scale": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1913"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1913",
+    "page": 47
   },
   "consumable:demolition-fulu-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2030"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2030",
+    "page": 76
   },
   "consumable:demolition-fulu-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2030"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2030",
+    "page": 76
   },
   "consumable:demolition-fulu-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2030"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2030",
+    "page": 76
   },
   "consumable:dimension-shot": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2049"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2049",
+    "page": 81
   },
   "consumable:diplomats-charcuterie": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1914"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1914",
+    "page": 47
   },
   "consumable:discord-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2031"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2031",
+    "page": 77
   },
   "consumable:dragon-breath-scale": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2022"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2022",
+    "page": 74
   },
   "consumable:dragonclaw-scutcheon": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2101"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2101",
+    "page": 92
   },
   "consumable:dragonfly-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2032"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2032",
+    "page": 77
   },
   "consumable:dragonscale-cameo": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2102"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2102",
+    "page": 93
   },
   "consumable:dragontooth-trophy": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2103"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2103",
+    "page": 93
   },
   "consumable:egg-cream-fizz": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1915"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1915",
+    "page": 48
   },
   "consumable:eidetic-potion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2081"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2081",
+    "page": 89
   },
   "consumable:elder-seed": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2370"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2370",
+    "page": 187
   },
   "consumable:eldritch-flare": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2002"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2002",
+    "page": 68
   },
   "consumable:elemental-ammunition-greater-acid": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-greater-cold": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-greater-electricity": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-greater-fire": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-greater-poison": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-lesser-acid": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-lesser-cold": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-lesser-electricity": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-lesser-fire": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-lesser-poison": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-moderate-acid": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-moderate-cold": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-moderate-electricity": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-moderate-fire": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elemental-ammunition-moderate-poison": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1897",
+    "page": 42
   },
   "consumable:elysian-dew": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2082"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2082",
+    "page": 89
   },
   "consumable:emergency-eye": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2104"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2104",
+    "page": 93
   },
   "consumable:emetic-paste-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1939"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1939",
+    "page": 53
   },
   "consumable:emetic-paste-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1939"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1939",
+    "page": 53
   },
   "consumable:emetic-paste-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1939"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1939",
+    "page": 53
   },
   "consumable:empaths-cordial": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2083"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2083",
+    "page": 89
   },
   "consumable:energizing-treat": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2118"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2118",
+    "page": 96
   },
   "consumable:energy-mutagen-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1962"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1962",
+    "page": 60
   },
   "consumable:energy-mutagen-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1962"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1962",
+    "page": 60
   },
   "consumable:energy-mutagen-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1962"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1962",
+    "page": 60
   },
   "consumable:energy-mutagen-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1962"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1962",
+    "page": 60
   },
   "consumable:energy-toxin-bottle": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2378"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2378",
+    "page": 191
   },
   "consumable:enigma-sight-potion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2084"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2084",
+    "page": 89
   },
   "consumable:ensnaring-disk": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2105"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2105",
+    "page": 93
   },
   "consumable:escape-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2033"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2033",
+    "page": 77
   },
   "consumable:euphoric-loop": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2023"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2023",
+    "page": 74
   },
   "consumable:euphoric-loop-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2023"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2023",
+    "page": 74
   },
   "consumable:execution-powder": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2001"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2001",
+    "page": 68
   },
   "consumable:explosive-missive": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2061"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2061",
+    "page": 84
   },
   "consumable:false-death-vial": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2106"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2106",
+    "page": 93
   },
   "consumable:false-death-vial-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2106"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2106",
+    "page": 93
   },
   "consumable:false-hope": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2003"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2003",
+    "page": 68
   },
   "consumable:familiar-morsel": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2119"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2119",
+    "page": 96
   },
   "consumable:fate-shot": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2050"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2050",
+    "page": 81
   },
   "consumable:fey-dragonet-liqueur": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2085"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2085",
+    "page": 89
   },
   "consumable:fey-dragonet-liqueur-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2085"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2085",
+    "page": 89
   },
   "consumable:fey-dragonet-liqueur-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2085"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2085",
+    "page": 89
   },
   "consumable:firefoot-popcorn": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1916"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1916",
+    "page": 48
   },
   "consumable:fraudslayer-oil": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2006"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2006",
+    "page": 69
   },
   "consumable:freeze-ammunition": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1898"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1898",
+    "page": 42
   },
   "consumable:fundamental-oil": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2070"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2070",
+    "page": 86
   },
   "consumable:fury-cocktail-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1917"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1917",
+    "page": 48
   },
   "consumable:fury-cocktail-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1917"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1917",
+    "page": 48
   },
   "consumable:fury-cocktail-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1917"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1917",
+    "page": 48
   },
   "consumable:galvanic-chew": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1918"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1918",
+    "page": 48
   },
   "consumable:garrote-shot": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2051"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2051",
+    "page": 81
   },
   "consumable:gearbinder-oil-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1940"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1940",
+    "page": 54
   },
   "consumable:gearbinder-oil-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1940"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1940",
+    "page": 54
   },
   "consumable:gearbinder-oil-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1940"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1940",
+    "page": 54
   },
   "consumable:ghost-ampoule": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1948"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1948",
+    "page": 56
   },
   "consumable:ghost-courier-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2034"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2034",
+    "page": 77
   },
   "consumable:ghost-delivery-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2035"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2035",
+    "page": 77
   },
   "consumable:ghostcracker": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2024"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2024",
+    "page": 74
   },
   "consumable:ginger-chew": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1919"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1919",
+    "page": 49
   },
   "consumable:glimmering-missive": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2062"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2062",
+    "page": 85
   },
   "consumable:gnawbone-toxin": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2005"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2005",
+    "page": 69
   },
   "consumable:golden-breath-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2036"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2036",
+    "page": 77
   },
   "consumable:gorgons-breath": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2004"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2004",
+    "page": 69
   },
   "consumable:gravemist-taper": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2025"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2025",
+    "page": 74
   },
   "consumable:grinning-pugwampi": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2107"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2107",
+    "page": 94
   },
   "consumable:grudgestone": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2108"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2108",
+    "page": 94
   },
   "consumable:grudgestone-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2108"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2108",
+    "page": 94
   },
   "consumable:healing-vapor-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1941",
+    "page": 54
   },
   "consumable:healing-vapor-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1941",
+    "page": 54
   },
   "consumable:healing-vapor-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1941",
+    "page": 54
   },
   "consumable:healing-vapor-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1941",
+    "page": 54
   },
   "consumable:heartblood-ring": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2371"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2371",
+    "page": 187
   },
   "consumable:heartening-missive-bull": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2063"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2063",
+    "page": 85
   },
   "consumable:heartening-missive-butterfly": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2063"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2063",
+    "page": 85
   },
   "consumable:heartening-missive-rabbit": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2063"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2063",
+    "page": 85
   },
   "consumable:heartening-missive-turtle": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2063"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2063",
+    "page": 85
   },
   "consumable:hippogriff-in-a-jar": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1949"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1949",
+    "page": 56
   },
   "consumable:hovering-potion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2086"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2086",
+    "page": 90
   },
   "consumable:hungering-maw": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2109"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2109",
+    "page": 94
   },
   "consumable:immovable-potion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2087"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2087",
+    "page": 90
   },
   "consumable:imp-shot": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2052"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2052",
+    "page": 82
   },
   "consumable:implosion-dust-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1942"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1942",
+    "page": 54
   },
   "consumable:implosion-dust-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1942"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1942",
+    "page": 54
   },
   "consumable:implosion-dust-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1942"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1942",
+    "page": 54
   },
   "consumable:insight-coffee-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1920"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1920",
+    "page": 49
   },
   "consumable:insight-coffee-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1920"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1920",
+    "page": 49
   },
   "consumable:insight-coffee-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1920"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1920",
+    "page": 49
   },
   "consumable:inventors-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2037"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2037",
+    "page": 78
   },
   "consumable:journeybread": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1921"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1921",
+    "page": 49
   },
   "consumable:journeybread-power": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1921"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1921",
+    "page": 49
   },
   "consumable:kaiju-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2038"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2038",
+    "page": 78
   },
   "consumable:kraken-bottle": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1950"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1950",
+    "page": 56
   },
   "consumable:life-boosting-oil-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2071"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2071",
+    "page": 86
   },
   "consumable:life-boosting-oil-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2071"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2071",
+    "page": 86
   },
   "consumable:life-boosting-oil-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2071"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2071",
+    "page": 86
   },
   "consumable:life-boosting-oil-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2071"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2071",
+    "page": 86
   },
   "consumable:life-shot-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1899"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1899",
+    "page": 43
   },
   "consumable:life-shot-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1899"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1899",
+    "page": 43
   },
   "consumable:life-shot-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1899"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1899",
+    "page": 43
   },
   "consumable:life-shot-minor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1899"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1899",
+    "page": 43
   },
   "consumable:life-shot-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1899"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1899",
+    "page": 43
   },
   "consumable:life-shot-true": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1899"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1899",
+    "page": 43
   },
   "consumable:lightning-rod-shot": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2053"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2053",
+    "page": 82
   },
   "consumable:looters-lethargy": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2007"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2007",
+    "page": 69
   },
   "consumable:magnetic-shot-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2054"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2054",
+    "page": 82
   },
   "consumable:magnetic-shot-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2054"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2054",
+    "page": 82
   },
   "consumable:magnetic-shot-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2054"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2054",
+    "page": 82
   },
   "consumable:menders-soup": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1922"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1922",
+    "page": 49
   },
   "consumable:merciful-balm": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2072"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2072",
+    "page": 86
   },
   "consumable:messenger-missive": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2064"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2064",
+    "page": 85
   },
   "consumable:messenger-missive-multiple": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2064"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2064",
+    "page": 85
   },
   "consumable:mind-swap-potion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2088"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2088",
+    "page": 90
   },
   "consumable:mindlock-shot": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2055",
+    "page": 82
   },
   "consumable:miraculous-paintbrush": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2120"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2120",
+    "page": 97
   },
   "consumable:missive-mint": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1923"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1923",
+    "page": 49
   },
   "consumable:moonlit-spellgun-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2121"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2121",
+    "page": 97
   },
   "consumable:moonlit-spellgun-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2121"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2121",
+    "page": 97
   },
   "consumable:moonlit-spellgun-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2121"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2121",
+    "page": 97
   },
   "consumable:moonlit-spellgun-minor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2121"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2121",
+    "page": 97
   },
   "consumable:moonlit-spellgun-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2121"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2121",
+    "page": 97
   },
   "consumable:mortalis-coin": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2110"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2110",
+    "page": 94
   },
   "consumable:mourners-dawnlight-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2039"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2039",
+    "page": 78
   },
   "consumable:mukradi-jar": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1951"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1951",
+    "page": 56
   },
   "consumable:mustard-powder": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2008"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2008",
+    "page": 70
   },
   "consumable:neophytes-fipple": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2122"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2122",
+    "page": 97
   },
   "consumable:nevercold": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2026"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2026",
+    "page": 75
   },
   "consumable:nevercold-compressed": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2026"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2026",
+    "page": 75
   },
   "consumable:nevercold-refined": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2026"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2026",
+    "page": 75
   },
   "consumable:nightmare-salt": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2009"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2009",
+    "page": 70
   },
   "consumable:nightpitch": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2027"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2027",
+    "page": 75
   },
   "consumable:numbing-tonic-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1963"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1963",
+    "page": 60
   },
   "consumable:numbing-tonic-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1963"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1963",
+    "page": 60
   },
   "consumable:numbing-tonic-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1963"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1963",
+    "page": 60
   },
   "consumable:numbing-tonic-minor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1963"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1963",
+    "page": 60
   },
   "consumable:numbing-tonic-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1963"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1963",
+    "page": 60
   },
   "consumable:numbing-tonic-true": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1963"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1963",
+    "page": 60
   },
   "consumable:octopus-bottle": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1952"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1952",
+    "page": 57
   },
   "consumable:oil-of-ownership-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2073"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2073",
+    "page": 86
   },
   "consumable:oil-of-ownership-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2073"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2073",
+    "page": 86
   },
   "consumable:oil-of-ownership-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2073"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2073",
+    "page": 86
   },
   "consumable:oil-of-skating": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2074"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2074",
+    "page": 87
   },
   "consumable:oil-of-swiftness": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2075"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2075",
+    "page": 87
   },
   "consumable:ooze-ammunition-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1900"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1900",
+    "page": 43
   },
   "consumable:ooze-ammunition-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1900"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1900",
+    "page": 43
   },
   "consumable:ooze-ammunition-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1900"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1900",
+    "page": 43
   },
   "consumable:ooze-ammunition-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1900"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1900",
+    "page": 43
   },
   "consumable:owl-screech-egg": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1924"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1924",
+    "page": 50
   },
   "consumable:pale-fade": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2010"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2010",
+    "page": 70
   },
   "consumable:phantom-roll": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1925"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1925",
+    "page": 50
   },
   "consumable:phoenix-cinder": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2372"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2372",
+    "page": 188
   },
   "consumable:poison-fizz-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1926"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1926",
+    "page": 50
   },
   "consumable:poison-fizz-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1926"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1926",
+    "page": 50
   },
   "consumable:poison-fizz-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1926"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1926",
+    "page": 50
   },
   "consumable:poracha-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2040"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2040",
+    "page": 78
   },
   "consumable:potion-patch-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2123"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2123",
+    "page": 97
   },
   "consumable:potion-patch-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2123"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2123",
+    "page": 97
   },
   "consumable:potion-patch-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2123"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2123",
+    "page": 97
   },
   "consumable:pucker-pickle": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1927"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1927",
+    "page": 50
   },
   "consumable:pummel-growth-toxin": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2011"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2011",
+    "page": 70
   },
   "consumable:quenching-potion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2089"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2089",
+    "page": 90
   },
   "consumable:ranging-shot": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2056"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2056",
+    "page": 82
   },
   "consumable:reapers-spellgun": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2124"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2124",
+    "page": 97
   },
   "consumable:rebirth-potion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2090"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2090",
+    "page": 90
   },
   "consumable:red-handed-missive": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2065"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2065",
+    "page": 85
   },
   "consumable:reflected-moonlight-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2041"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2041",
+    "page": 78
   },
   "consumable:reflecting-shard": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2111"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2111",
+    "page": 94
   },
   "consumable:reflecting-shard-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2111"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2111",
+    "page": 94
   },
   "consumable:revealing-mist-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1943"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1943",
+    "page": 54
   },
   "consumable:revealing-mist-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1943"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1943",
+    "page": 54
   },
   "consumable:reverberating-stone": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2112"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2112",
+    "page": 94
   },
   "consumable:reverberating-stone-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2112"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2112",
+    "page": 94
   },
   "consumable:roaring-potion-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2091"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2091",
+    "page": 90
   },
   "consumable:roaring-potion-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2091"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2091",
+    "page": 90
   },
   "consumable:roaring-potion-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2091"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2091",
+    "page": 90
   },
   "consumable:rovagugs-mud": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2092"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2092",
+    "page": 90
   },
   "consumable:rovagugs-mud-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2092"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2092",
+    "page": 90
   },
   "consumable:ruby-capacitor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2113"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2113",
+    "page": 95
   },
   "consumable:ruby-capacitor-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2113"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2113",
+    "page": 95
   },
   "consumable:ruby-capacitor-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2113"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2113",
+    "page": 95
   },
   "consumable:rusting-ammunition-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1901"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1901",
+    "page": 43
   },
   "consumable:rusting-ammunition-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1901"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1901",
+    "page": 43
   },
   "consumable:saboteurs-friend": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1928"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1928",
+    "page": 50
   },
   "consumable:sanguine-mutagen-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1964"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1964",
+    "page": 60
   },
   "consumable:sanguine-mutagen-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1964"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1964",
+    "page": 60
   },
   "consumable:sanguine-mutagen-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1964"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1964",
+    "page": 60
   },
   "consumable:sanguine-mutagen-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1964"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1964",
+    "page": 60
   },
   "consumable:scarlet-mist": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2012"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2012",
+    "page": 70
   },
   "consumable:scholars-drop": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1929"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1929",
+    "page": 50
   },
   "consumable:sense-dulling-hood-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1944"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1944",
+    "page": 54
   },
   "consumable:sense-dulling-hood-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1944"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1944",
+    "page": 54
   },
   "consumable:sentry-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2042"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2042",
+    "page": 78
   },
   "consumable:serpent-oil-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2076"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2076",
+    "page": 87
   },
   "consumable:serpent-oil-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2076"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2076",
+    "page": 87
   },
   "consumable:serpent-oil-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2076"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2076",
+    "page": 87
   },
   "consumable:serpent-oil-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2076"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2076",
+    "page": 87
   },
   "consumable:serpent-oil-true": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2076"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2076",
+    "page": 87
   },
   "consumable:seventh-prism-pentagonal": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2028"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2028",
+    "page": 75
   },
   "consumable:seventh-prism-triangular": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2028"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2028",
+    "page": 75
   },
   "consumable:sighting-shot": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2057"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2057",
+    "page": 82
   },
   "consumable:sightless-tincture": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2013"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2013",
+    "page": 70
   },
   "consumable:silver-crescent-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1930"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1930",
+    "page": 50
   },
   "consumable:silver-crescent-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1930"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1930",
+    "page": 50
   },
   "consumable:silver-crescent-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1930"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1930",
+    "page": 50
   },
   "consumable:smother-shroud": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2014"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2014",
+    "page": 70
   },
   "consumable:snarling-badger-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2114"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2114",
+    "page": 95
   },
   "consumable:snarling-badger-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2114"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2114",
+    "page": 95
   },
   "consumable:snarling-badger-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2114"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2114",
+    "page": 95
   },
   "consumable:soothing-powder-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1945"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1945",
+    "page": 54
   },
   "consumable:soothing-powder-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1945"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1945",
+    "page": 54
   },
   "consumable:soothing-toddy": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1931"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1931",
+    "page": 51
   },
   "consumable:soothing-tonic-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1965"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1965",
+    "page": 60
   },
   "consumable:soothing-tonic-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1965"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1965",
+    "page": 60
   },
   "consumable:soothing-tonic-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1965"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1965",
+    "page": 60
   },
   "consumable:soothing-tonic-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1965"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1965",
+    "page": 60
   },
   "consumable:sparking-spellgun-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2125"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2125",
+    "page": 98
   },
   "consumable:sparking-spellgun-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2125"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2125",
+    "page": 98
   },
   "consumable:sparking-spellgun-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2125"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2125",
+    "page": 98
   },
   "consumable:sparkler": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1946"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1946",
+    "page": 54
   },
   "consumable:spear-frog-poison": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2015"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2015",
+    "page": 71
   },
   "consumable:spell-echo-shot": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2058"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2058",
+    "page": 83
   },
   "consumable:spiderfoot-brew-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1966"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1966",
+    "page": 61
   },
   "consumable:spiderfoot-brew-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1966"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1966",
+    "page": 61
   },
   "consumable:spiderfoot-brew-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1966"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1966",
+    "page": 61
   },
   "consumable:spiritual-warhorn-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2126"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2126",
+    "page": 98
   },
   "consumable:spiritual-warhorn-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2126"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2126",
+    "page": 98
   },
   "consumable:spiritual-warhorn-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2126"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2126",
+    "page": 98
   },
   "consumable:spiritual-warhorn-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2126"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2126",
+    "page": 98
   },
   "consumable:sprite-apple-chartreuse": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1932"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1932",
+    "page": 51
   },
   "consumable:sprite-apple-golden": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1932"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1932",
+    "page": 51
   },
   "consumable:sprite-apple-pink": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1932"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1932",
+    "page": 51
   },
   "consumable:sprite-apple-teal": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1932"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1932",
+    "page": 51
   },
   "consumable:stage-fright-missive": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2066"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2066",
+    "page": 85
   },
   "consumable:starsong-nectar": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2093"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2093",
+    "page": 91
   },
   "consumable:stone-body-mutagen-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1967"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1967",
+    "page": 61
   },
   "consumable:stone-body-mutagen-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1967"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1967",
+    "page": 61
   },
   "consumable:stone-body-mutagen-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1967"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1967",
+    "page": 61
   },
   "consumable:stumbling-fulu": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2043"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2043",
+    "page": 79
   },
   "consumable:stupor-poison": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2016"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2016",
+    "page": 71
   },
   "consumable:sure-step-potion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2094"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2094",
+    "page": 91
   },
   "consumable:talespinners-lyre": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2127"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2127",
+    "page": 98
   },
   "consumable:tasters-folly": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2017"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2017",
+    "page": 71
   },
   "consumable:tentacle-potion-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2095"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2095",
+    "page": 91
   },
   "consumable:tentacle-potion-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2095"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2095",
+    "page": 91
   },
   "consumable:tentacle-potion-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2095"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2095",
+    "page": 91
   },
   "consumable:theatrical-mutagen-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1968"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1968",
+    "page": 61
   },
   "consumable:theatrical-mutagen-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1968"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1968",
+    "page": 61
   },
   "consumable:theatrical-mutagen-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1968"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1968",
+    "page": 61
   },
   "consumable:theatrical-mutagen-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1968"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1968",
+    "page": 61
   },
   "consumable:thousand-pains-fulu-blade": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2044"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2044",
+    "page": 79
   },
   "consumable:thousand-pains-fulu-burl": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2044"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2044",
+    "page": 79
   },
   "consumable:thousand-pains-fulu-icicle": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2044"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2044",
+    "page": 79
   },
   "consumable:thousand-pains-fulu-needle": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2044"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2044",
+    "page": 79
   },
   "consumable:thousand-pains-fulu-stone": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2044"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2044",
+    "page": 79
   },
   "consumable:thousand-pains-fulu-void": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2044"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2044",
+    "page": 79
   },
   "consumable:torrent-spellgun-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2128"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2128",
+    "page": 98
   },
   "consumable:torrent-spellgun-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2128"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2128",
+    "page": 98
   },
   "consumable:torrent-spellgun-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2128"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2128",
+    "page": 98
   },
   "consumable:torrent-spellgun-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2128"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2128",
+    "page": 98
   },
   "consumable:trackers-stew": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1933"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1933",
+    "page": 51
   },
   "consumable:tyrant-ampoule": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1953"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1953",
+    "page": 57
   },
   "consumable:unending-itch": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2018"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2018",
+    "page": 71
   },
   "consumable:vaccine-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1969"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1969",
+    "page": 61
   },
   "consumable:vaccine-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1969"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1969",
+    "page": 61
   },
   "consumable:vaccine-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1969"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1969",
+    "page": 61
   },
   "consumable:vaccine-minor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1969"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1969",
+    "page": 61
   },
   "consumable:vaccine-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1969"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1969",
+    "page": 61
   },
   "consumable:violet-venom": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2019"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2019",
+    "page": 71
   },
   "consumable:void-fragment": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2373"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2373",
+    "page": 189
   },
   "consumable:wand-of-choking-mist-2nd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2272"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2272",
+    "page": 138
   },
   "consumable:wand-of-choking-mist-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2272"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2272",
+    "page": 138
   },
   "consumable:wand-of-chromatic-burst-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2273"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2273",
+    "page": 138
   },
   "consumable:wand-of-chromatic-burst-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2273"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2273",
+    "page": 138
   },
   "consumable:wand-of-clinging-rime-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2274"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2274",
+    "page": 139
   },
   "consumable:wand-of-clinging-rime-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2274"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2274",
+    "page": 139
   },
   "consumable:wand-of-clinging-rime-9th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2274"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2274",
+    "page": 139
   },
   "consumable:wand-of-contagious-frailty": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2275"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2275",
+    "page": 139
   },
   "consumable:wand-of-crushing-leaps": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2276"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2276",
+    "page": 139
   },
   "consumable:wand-of-dazzling-rays-3rd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277",
+    "page": 139
   },
   "consumable:wand-of-dazzling-rays-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277",
+    "page": 139
   },
   "consumable:wand-of-dazzling-rays-5th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277",
+    "page": 139
   },
   "consumable:wand-of-dazzling-rays-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277",
+    "page": 139
   },
   "consumable:wand-of-dazzling-rays-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277",
+    "page": 139
   },
   "consumable:wand-of-dazzling-rays-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277",
+    "page": 139
   },
   "consumable:wand-of-dazzling-rays-9th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2277",
+    "page": 139
   },
   "consumable:wand-of-dumbfounding-doom-3rd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278",
+    "page": 139
   },
   "consumable:wand-of-dumbfounding-doom-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278",
+    "page": 139
   },
   "consumable:wand-of-dumbfounding-doom-5th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278",
+    "page": 139
   },
   "consumable:wand-of-dumbfounding-doom-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278",
+    "page": 139
   },
   "consumable:wand-of-dumbfounding-doom-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278",
+    "page": 139
   },
   "consumable:wand-of-dumbfounding-doom-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278",
+    "page": 139
   },
   "consumable:wand-of-dumbfounding-doom-9th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2278",
+    "page": 139
   },
   "consumable:wand-of-hawthorn-2nd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2279"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2279",
+    "page": 140
   },
   "consumable:wand-of-hawthorn-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2279"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2279",
+    "page": 140
   },
   "consumable:wand-of-hawthorn-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2279"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2279",
+    "page": 140
   },
   "consumable:wand-of-hawthorn-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2279"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2279",
+    "page": 140
   },
   "consumable:wand-of-mental-purification-1st-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282",
+    "page": 140
   },
   "consumable:wand-of-mental-purification-2nd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282",
+    "page": 140
   },
   "consumable:wand-of-mental-purification-3rd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282",
+    "page": 140
   },
   "consumable:wand-of-mental-purification-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282",
+    "page": 140
   },
   "consumable:wand-of-mental-purification-5th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282",
+    "page": 140
   },
   "consumable:wand-of-mental-purification-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282",
+    "page": 140
   },
   "consumable:wand-of-mental-purification-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282",
+    "page": 140
   },
   "consumable:wand-of-mental-purification-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282",
+    "page": 140
   },
   "consumable:wand-of-mental-purification-9th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2282",
+    "page": 140
   },
   "consumable:wand-of-noisome-acid-2nd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2284"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2284",
+    "page": 141
   },
   "consumable:wand-of-noisome-acid-4nd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2284"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2284",
+    "page": 141
   },
   "consumable:wand-of-noisome-acid-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2284"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2284",
+    "page": 141
   },
   "consumable:wand-of-noisome-acid-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2284"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2284",
+    "page": 141
   },
   "consumable:wand-of-paralytic-shock-3rd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2285"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2285",
+    "page": 141
   },
   "consumable:wand-of-paralytic-shock-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2285"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2285",
+    "page": 141
   },
   "consumable:wand-of-pernicious-poison-1st-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2286"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2286",
+    "page": 141
   },
   "consumable:wand-of-pernicious-poison-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2286"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2286",
+    "page": 141
   },
   "consumable:wand-of-refracting-rays-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2288"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2288",
+    "page": 142
   },
   "consumable:wand-of-refracting-rays-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2288"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2288",
+    "page": 142
   },
   "consumable:wand-of-rolling-flames-2nd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289",
+    "page": 142
   },
   "consumable:wand-of-rolling-flames-3rd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289",
+    "page": 142
   },
   "consumable:wand-of-rolling-flames-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289",
+    "page": 142
   },
   "consumable:wand-of-rolling-flames-5th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289",
+    "page": 142
   },
   "consumable:wand-of-rolling-flames-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289",
+    "page": 142
   },
   "consumable:wand-of-rolling-flames-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289",
+    "page": 142
   },
   "consumable:wand-of-rolling-flames-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289",
+    "page": 142
   },
   "consumable:wand-of-rolling-flames-9th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2289",
+    "page": 142
   },
   "consumable:wand-of-shocking-haze": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2290"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2290",
+    "page": 142
   },
   "consumable:wand-of-shrouded-step": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2291"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2291",
+    "page": 142
   },
   "consumable:wand-of-teeming-ghosts-2nd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292",
+    "page": 142
   },
   "consumable:wand-of-teeming-ghosts-3rd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292",
+    "page": 142
   },
   "consumable:wand-of-teeming-ghosts-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292",
+    "page": 142
   },
   "consumable:wand-of-teeming-ghosts-5th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292",
+    "page": 142
   },
   "consumable:wand-of-teeming-ghosts-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292",
+    "page": 142
   },
   "consumable:wand-of-teeming-ghosts-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292",
+    "page": 142
   },
   "consumable:wand-of-teeming-ghosts-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292",
+    "page": 142
   },
   "consumable:wand-of-teeming-ghosts-9th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2292",
+    "page": 142
   },
   "consumable:wand-of-the-ash-puppet": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2293"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2293",
+    "page": 143
   },
   "consumable:wand-of-the-pampered-pet": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2294"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2294",
+    "page": 143
   },
   "consumable:wand-of-tormented-slumber": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2295"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2295",
+    "page": 143
   },
   "consumable:wand-of-toxic-blades-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2296"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2296",
+    "page": 143
   },
   "consumable:wand-of-toxic-blades-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2296"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2296",
+    "page": 143
   },
   "consumable:wand-of-toxic-blades-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2296"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2296",
+    "page": 143
   },
   "consumable:wand-of-traitorous-thoughts": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2297"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2297",
+    "page": 143
   },
   "consumable:wand-of-wearying-dance": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2298"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2298",
+    "page": 143
   },
   "consumable:warding-element-draught": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1934"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1934",
+    "page": 51
   },
   "consumable:warpwobble-poison": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2020"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2020",
+    "page": 71
   },
   "consumable:watchful-portrait": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2129"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2129",
+    "page": 98
   },
   "consumable:weapon-shot-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2059"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2059",
+    "page": 83
   },
   "consumable:weapon-shot-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2059"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2059",
+    "page": 83
   },
   "consumable:weapon-shot-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2059"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2059",
+    "page": 83
   },
   "consumable:weapon-shot-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2059"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2059",
+    "page": 83
   },
   "consumable:weapon-weird-oil": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2077"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2077",
+    "page": 87
   },
   "consumable:whelming-scrimshaw": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2130"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2130",
+    "page": 99
   },
   "consumable:whirlwind-vial": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1954"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1954",
+    "page": 57
   },
   "consumable:wind-ocarina": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2131"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2131",
+    "page": 99
   },
   "consumable:witchs-finger": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1935"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1935",
+    "page": 51
   },
   "consumable:wooden-nickel": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2115"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2115",
+    "page": 95
   },
   "consumable:worm-vial": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1955"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1955",
+    "page": 57
   },
   "consumable:wounding-oil": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2078"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2078",
+    "page": 87
   },
   "equipment:accompaniment-cloak": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2318"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2318",
+    "page": 147
   },
   "equipment:aether-appendage": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2160"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2160",
+    "page": 108
   },
   "equipment:alchemical-chart-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1970"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1970",
+    "page": 62
   },
   "equipment:alchemical-chart-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1970"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1970",
+    "page": 62
   },
   "equipment:alchemical-chart-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1970"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1970",
+    "page": 62
   },
   "equipment:alchemists-flamethrower": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1972"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1972",
+    "page": 63
   },
   "equipment:alchemists-haversack": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2305"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2305",
+    "page": 145
   },
   "equipment:amazing-pop-up-book": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2170"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2170",
+    "page": 110
   },
   "equipment:amulet-of-the-third-eye": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2132"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2132",
+    "page": 102
   },
   "equipment:ancestral-geometry": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2202"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2202",
+    "page": 119
   },
   "equipment:anchor-of-aquatic-exploration": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2186"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2186",
+    "page": 114
   },
   "equipment:apparition-gloves": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2165"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2165",
+    "page": 109
   },
   "equipment:architects-pattern-book": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2171"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2171",
+    "page": 110
   },
   "equipment:armbands-of-the-gorgon": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2133"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2133",
+    "page": 102
   },
   "equipment:armor-latches": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1824"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1824",
+    "page": 11
   },
   "equipment:armory-bracelet-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2340"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2340",
+    "page": 153
   },
   "equipment:armory-bracelet-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2340"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2340",
+    "page": 153
   },
   "equipment:armory-bracelet-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2340"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2340",
+    "page": 153
   },
   "equipment:armory-bracelet-minor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2340"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2340",
+    "page": 153
   },
   "equipment:armory-bracelet-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2340"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2340",
+    "page": 153
   },
   "equipment:artificer-spectacles": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2134"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2134",
+    "page": 102
   },
   "equipment:avalanche-boots": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2135"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2135",
+    "page": 102
   },
   "equipment:bagpipes-of-turmoil": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2265"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2265",
+    "page": 136
   },
   "equipment:bagpipes-of-turmoil-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2265"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2265",
+    "page": 136
   },
   "equipment:bagpipes-of-turmoil-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2265"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2265",
+    "page": 136
   },
   "equipment:basic-companion-chair": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2147"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2147",
+    "page": 105
   },
   "equipment:basic-face-mask": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2152"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2152",
+    "page": 105
   },
   "equipment:battle-medics-baton": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2187"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2187",
+    "page": 114
   },
   "equipment:beastmasters-sigil": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2226"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2226",
+    "page": 124
   },
   "equipment:beastmasters-sigil-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2226"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2226",
+    "page": 124
   },
   "equipment:beastmasters-sigil-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2226"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2226",
+    "page": 124
   },
   "equipment:beguiling-crown": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2136"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2136",
+    "page": 103
   },
   "equipment:bellflower-toolbelt": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2308"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2308",
+    "page": 145
   },
   "equipment:bewitching-bloom-amaranth": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203",
+    "page": 119
   },
   "equipment:bewitching-bloom-bellflower": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203",
+    "page": 119
   },
   "equipment:bewitching-bloom-cherry-blossom": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203",
+    "page": 119
   },
   "equipment:bewitching-bloom-lilac": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203",
+    "page": 119
   },
   "equipment:bewitching-bloom-lotus": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203",
+    "page": 119
   },
   "equipment:bewitching-bloom-magnolia": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203",
+    "page": 119
   },
   "equipment:bewitching-bloom-purple-iris": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203",
+    "page": 119
   },
   "equipment:bewitching-bloom-red-rose": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203",
+    "page": 119
   },
   "equipment:bewitching-bloom-white-poppy": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2203",
+    "page": 119
   },
   "equipment:bleachguard-doll": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2393"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2393",
+    "page": 194
   },
   "equipment:bloodline-robe": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2319"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2319",
+    "page": 147
   },
   "equipment:bomb-coagulant-alembic": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1973"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1973",
+    "page": 63
   },
   "equipment:book-of-warding-prayers": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2172"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2172",
+    "page": 111
   },
   "equipment:bootstrap-respirator": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2153"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2153",
+    "page": 105
   },
   "equipment:boozy-bottle": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2204"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2204",
+    "page": 119
   },
   "equipment:bracers-of-devotion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2320"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2320",
+    "page": 148
   },
   "equipment:bravery-baldric-fleet": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309",
+    "page": 145
   },
   "equipment:bravery-baldric-flight": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309",
+    "page": 145
   },
   "equipment:bravery-baldric-greater-healthful": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309",
+    "page": 145
   },
   "equipment:bravery-baldric-haste": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309",
+    "page": 145
   },
   "equipment:bravery-baldric-healthful": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309",
+    "page": 145
   },
   "equipment:bravery-baldric-stone": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2309",
+    "page": 145
   },
   "equipment:brightbloom-posy": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2227"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2227",
+    "page": 125
   },
   "equipment:brightbloom-posy-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2227"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2227",
+    "page": 125
   },
   "equipment:brightbloom-posy-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2227"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2227",
+    "page": 125
   },
   "equipment:bring-me-near": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2188"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2188",
+    "page": 114
   },
   "equipment:candlecap": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2332"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2332",
+    "page": 151
   },
   "equipment:cassisian-helmet": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2333"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2333",
+    "page": 151
   },
   "equipment:chair-of-inventions": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2167"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2167",
+    "page": 109
   },
   "equipment:clarity-goggles-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2314"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2314",
+    "page": 146
   },
   "equipment:clarity-goggles-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2314"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2314",
+    "page": 146
   },
   "equipment:clarity-goggles-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2314"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2314",
+    "page": 146
   },
   "equipment:clockwork-cloak": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2310"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2310",
+    "page": 146
   },
   "equipment:codex-of-destruction-and-renewal": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2173"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2173",
+    "page": 111
   },
   "equipment:collar-of-the-shifting-spider": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1975"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1975",
+    "page": 63
   },
   "equipment:communion-mat": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2174"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2174",
+    "page": 111
   },
   "equipment:confabulator": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2166"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2166",
+    "page": 109
   },
   "equipment:corpseward-pendant": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2341"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2341",
+    "page": 153
   },
   "equipment:corrosive-engravings": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2175"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2175",
+    "page": 111
   },
   "equipment:corruption-cassock": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2376"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2376",
+    "page": 190
   },
   "equipment:courtiers-pillow-book": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2176"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2176",
+    "page": 112
   },
   "equipment:crown-of-the-companion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2334"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2334",
+    "page": 151
   },
   "equipment:cube-of-recall": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2189"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2189",
+    "page": 114
   },
   "equipment:dawnflower-beads": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2394"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2394",
+    "page": 194
   },
   "equipment:desolation-locket": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2228"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2228",
+    "page": 125
   },
   "equipment:desolation-locket-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2228"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2228",
+    "page": 125
   },
   "equipment:desolation-locket-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2228"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2228",
+    "page": 125
   },
   "equipment:dragon-rune-bracelet": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2322"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2322",
+    "page": 148
   },
   "equipment:draxies-recipe-book": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2177"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2177",
+    "page": 112
   },
   "equipment:dread-helm": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1976"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1976",
+    "page": 63
   },
   "equipment:druids-crown": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2335"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2335",
+    "page": 151
   },
   "equipment:drums-of-war": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2266"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2266",
+    "page": 136
   },
   "equipment:drums-of-war-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2266"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2266",
+    "page": 136
   },
   "equipment:drums-of-war-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2266"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2266",
+    "page": 136
   },
   "equipment:dullahan-codex": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2379"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2379",
+    "page": 191
   },
   "equipment:eidolon-cape": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2323"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2323",
+    "page": 148
   },
   "equipment:empathy-charm": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2151"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2151",
+    "page": 105
   },
   "equipment:enigma-mirror": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2229"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2229",
+    "page": 125
   },
   "equipment:enigma-mirror-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2229"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2229",
+    "page": 125
   },
   "equipment:enigma-mirror-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2229"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2229",
+    "page": 125
   },
   "equipment:entertainers-lute": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2267"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2267",
+    "page": 136
   },
   "equipment:entertainers-lute-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2267"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2267",
+    "page": 136
   },
   "equipment:entertainers-lute-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2267"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2267",
+    "page": 136
   },
   "equipment:ethersight-ring": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2342"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2342",
+    "page": 153
   },
   "equipment:everyneed-pack": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2306"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2306",
+    "page": 145
   },
   "equipment:everyneed-pack-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2306"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2306",
+    "page": 145
   },
   "equipment:extendable-tail": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2163"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2163",
+    "page": 108
   },
   "equipment:eye-slash": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2206"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2206",
+    "page": 120
   },
   "equipment:eye-slash-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2206"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2206",
+    "page": 120
   },
   "equipment:eye-slash-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2206"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2206",
+    "page": 120
   },
   "equipment:eye-slash-true": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2206"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2206",
+    "page": 120
   },
   "equipment:faith-tattoo": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2207"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2207",
+    "page": 120
   },
   "equipment:faith-tattoo-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2207"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2207",
+    "page": 120
   },
   "equipment:faith-tattoo-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2207"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2207",
+    "page": 120
   },
   "equipment:faith-tattoo-true": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2207"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2207",
+    "page": 120
   },
   "equipment:falconsight-eye": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2157"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2157",
+    "page": 108
   },
   "equipment:fan-of-the-four-winds": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2405"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2405",
+    "page": 204
   },
   "equipment:fauna-guardian": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2205"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2205",
+    "page": 120
   },
   "equipment:fearless-sash": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2311"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2311",
+    "page": 146
   },
   "equipment:fiddle-of-the-maestro": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2268"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2268",
+    "page": 136
   },
   "equipment:forgotten-signet": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2362"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2362",
+    "page": 179
   },
   "equipment:fortunes-coin": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2190"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2190",
+    "page": 114
   },
   "equipment:fortunes-coin-platinum": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2190"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2190",
+    "page": 114
   },
   "equipment:fortunes-favor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2406"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2406",
+    "page": 204
   },
   "equipment:frostwalker-pattern": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2208"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2208",
+    "page": 120
   },
   "equipment:gaffe-glasses": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2380"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2380",
+    "page": 191
   },
   "equipment:gelid-shard": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2369"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2369",
+    "page": 184
   },
   "equipment:ghost-lantern": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2191"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2191",
+    "page": 115
   },
   "equipment:ghostcallers-planchette": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2230"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2230",
+    "page": 125
   },
   "equipment:ghostcallers-planchette-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2230"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2230",
+    "page": 125
   },
   "equipment:gossips-eye": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2158"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2158",
+    "page": 108
   },
   "equipment:goz-mask": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2348"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2348",
+    "page": 154
   },
   "equipment:goz-mask-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2348"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2348",
+    "page": 154
   },
   "equipment:goz-mask-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2348"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2348",
+    "page": 154
   },
   "equipment:guide-harness": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2149"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2149",
+    "page": 105
   },
   "equipment:handkerchief-of-disagreeable-disguise": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2381"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2381",
+    "page": 191
   },
   "equipment:handkerchief-of-disagreeable-disguise-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2381"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2381",
+    "page": 191
   },
   "equipment:harrow-spellcards": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2178"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2178",
+    "page": 112
   },
   "equipment:headbands-of-translocation": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2336"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2336",
+    "page": 152
   },
   "equipment:heckling-tools": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2382"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2382",
+    "page": 192
   },
   "equipment:herd-mask": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2349"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2349",
+    "page": 154
   },
   "equipment:hexing-jar": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2324"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2324",
+    "page": 148
   },
   "equipment:homeward-swallow": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2209"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2209",
+    "page": 120
   },
   "equipment:horrid-figurine": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2192"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2192",
+    "page": 115
   },
   "equipment:hunters-arrowhead": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2343"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2343",
+    "page": 153
   },
   "equipment:illuminated-folio": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2179"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2179",
+    "page": 112
   },
   "equipment:injection-reservoir": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1977"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1977",
+    "page": 63
   },
   "equipment:inquisitive-quill": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2396"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2396",
+    "page": 194
   },
   "equipment:instinct-crown-animal": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338",
+    "page": 152
   },
   "equipment:instinct-crown-dragon": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338",
+    "page": 152
   },
   "equipment:instinct-crown-fury": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338",
+    "page": 152
   },
   "equipment:instinct-crown-giant": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338",
+    "page": 152
   },
   "equipment:instinct-crown-spirit": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338",
+    "page": 152
   },
   "equipment:instinct-crown-superstition": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2338",
+    "page": 152
   },
   "equipment:inventors-chair": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2407"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2407",
+    "page": 205
   },
   "equipment:jolt-coil": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2231"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2231",
+    "page": 126
   },
   "equipment:jolt-coil-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2231"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2231",
+    "page": 126
   },
   "equipment:jolt-coil-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2231"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2231",
+    "page": 126
   },
   "equipment:jug-of-fond-remembrance": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2193"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2193",
+    "page": 115
   },
   "equipment:jyotis-feather": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2233"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2233",
+    "page": 126
   },
   "equipment:jyotis-feather-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2233"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2233",
+    "page": 126
   },
   "equipment:jyotis-feather-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2233"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2233",
+    "page": 126
   },
   "equipment:kindled-tome": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2397"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2397",
+    "page": 195
   },
   "equipment:laurel-of-the-empath": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2139"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2139",
+    "page": 103
   },
   "equipment:legerdemain-handkerchief": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2194"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2194",
+    "page": 115
   },
   "equipment:lightweave-scarf": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2234"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2234",
+    "page": 127
   },
   "equipment:lightweave-scarf-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2234"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2234",
+    "page": 127
   },
   "equipment:lightweave-scarf-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2234"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2234",
+    "page": 127
   },
   "equipment:linguists-dictionary": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2180"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2180",
+    "page": 112
   },
   "equipment:linguists-dictionary-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2180"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2180",
+    "page": 112
   },
   "equipment:luckless-dice": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2383"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2383",
+    "page": 192
   },
   "equipment:magical-prosthetic-eye": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2156"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2156",
+    "page": 105
   },
   "equipment:majordomo-torc": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2398"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2398",
+    "page": 195
   },
   "equipment:mala-beads-of-foresight": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2325"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2325",
+    "page": 150
   },
   "equipment:mantle-of-amazing-health": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2140"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2140",
+    "page": 104
   },
   "equipment:mask-of-mercy": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2350"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2350",
+    "page": 154
   },
   "equipment:mask-of-the-cursed-eye": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2351"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2351",
+    "page": 155
   },
   "equipment:mask-of-uncanny-breath": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2326"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2326",
+    "page": 150
   },
   "equipment:master-magus-ring": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2327"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2327",
+    "page": 150
   },
   "equipment:maw-of-hungry-shadows": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2181"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2181",
+    "page": 112
   },
   "equipment:memoir-map": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2210"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2210",
+    "page": 120
   },
   "equipment:menacing": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2300"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2300",
+    "page": 144
   },
   "equipment:menacing-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2300"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2300",
+    "page": 144
   },
   "equipment:minds-light-circlet": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2328"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2328",
+    "page": 150
   },
   "equipment:mirror-goggles-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2315"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2315",
+    "page": 147
   },
   "equipment:mirror-goggles-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2315"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2315",
+    "page": 147
   },
   "equipment:mirror-goggles-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2315"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2315",
+    "page": 147
   },
   "equipment:mortal-chronicle": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2211"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2211",
+    "page": 121
   },
   "equipment:mother-maw": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2384"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2384",
+    "page": 192
   },
   "equipment:navigators-star": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2212"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2212",
+    "page": 121
   },
   "equipment:nemesis-name": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2213"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2213",
+    "page": 121
   },
   "equipment:olfactory-stimulators": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2150"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2150",
+    "page": 105
   },
   "equipment:one-hundred-victories": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2214"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2214",
+    "page": 121
   },
   "equipment:oracular-crown": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2329"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2329",
+    "page": 151
   },
   "equipment:pactmasters-grace": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2344"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2344",
+    "page": 153
   },
   "equipment:pathfinders-mentor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2399"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2399",
+    "page": 196
   },
   "equipment:perfected-robes": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2364"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2364",
+    "page": 179
   },
   "equipment:phantasmal-doorknob": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2235"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2235",
+    "page": 127
   },
   "equipment:phantasmal-doorknob-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2235"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2235",
+    "page": 127
   },
   "equipment:phantasmal-doorknob-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2235"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2235",
+    "page": 127
   },
   "equipment:phantom-piano": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2400"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2400",
+    "page": 196
   },
   "equipment:phistophilus-fiddle": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2408"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2408",
+    "page": 205
   },
   "equipment:pilferers-gloves": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2141"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2141",
+    "page": 104
   },
   "equipment:pipes-of-compulsion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2269"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2269",
+    "page": 137
   },
   "equipment:pipes-of-compulsion-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2269"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2269",
+    "page": 137
   },
   "equipment:pipes-of-compulsion-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2269"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2269",
+    "page": 137
   },
   "equipment:planar-tunnel": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2195"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2195",
+    "page": 115
   },
   "equipment:poison-concentrator-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1981"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1981",
+    "page": 64
   },
   "equipment:poison-concentrator-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1981"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1981",
+    "page": 64
   },
   "equipment:poison-concentrator-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1981"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1981",
+    "page": 64
   },
   "equipment:poison-concentrator-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1981"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1981",
+    "page": 64
   },
   "equipment:pontoon": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2301"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2301",
+    "page": 144
   },
   "equipment:preserving": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2302"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2302",
+    "page": 144
   },
   "equipment:preserving-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2302"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2302",
+    "page": 144
   },
   "equipment:radiant-prism": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2236"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2236",
+    "page": 127
   },
   "equipment:radiant-prism-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2236"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2236",
+    "page": 127
   },
   "equipment:radiant-prism-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2236"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2236",
+    "page": 127
   },
   "equipment:reading-glyphs": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2215"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2215",
+    "page": 121
   },
   "equipment:remote-trigger": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1983"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1983",
+    "page": 65
   },
   "equipment:resonating-fork": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2237"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2237",
+    "page": 128
   },
   "equipment:resonating-fork-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2237"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2237",
+    "page": 128
   },
   "equipment:resonating-fork-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2237"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2237",
+    "page": 128
   },
   "equipment:rhinoceros-mask": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2352"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2352",
+    "page": 155
   },
   "equipment:rhinoceros-mask-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2352"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2352",
+    "page": 155
   },
   "equipment:rime-crystal": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2238"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2238",
+    "page": 128
   },
   "equipment:rime-crystal-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2238"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2238",
+    "page": 128
   },
   "equipment:rime-crystal-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2238"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2238",
+    "page": 128
   },
   "equipment:ring-of-discretion": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2345"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2345",
+    "page": 154
   },
   "equipment:ring-of-ravenousness": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2385"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2385",
+    "page": 192
   },
   "equipment:sandals-of-the-stag": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2142"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2142",
+    "page": 104
   },
   "equipment:sanguine-fang": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2239"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2239",
+    "page": 128
   },
   "equipment:sanguine-fang-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2239"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2239",
+    "page": 128
   },
   "equipment:sanguine-fang-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2239"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2239",
+    "page": 128
   },
   "equipment:saurian-spike": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2240"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2240",
+    "page": 128
   },
   "equipment:saurian-spike-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2240"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2240",
+    "page": 128
   },
   "equipment:saurian-spike-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2240"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2240",
+    "page": 128
   },
   "equipment:seers-flute": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2270"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2270",
+    "page": 137
   },
   "equipment:seers-flute-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2270"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2270",
+    "page": 137
   },
   "equipment:seers-flute-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2270"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2270",
+    "page": 137
   },
   "equipment:sextant-of-the-night": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2196"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2196",
+    "page": 116
   },
   "equipment:shadowmist-cape": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2143"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2143",
+    "page": 104
   },
   "equipment:shapespeak-mask": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2353"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2353",
+    "page": 155
   },
   "equipment:shrieking-key": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2387"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2387",
+    "page": 192
   },
   "equipment:skinsaw-mask": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2354"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2354",
+    "page": 155
   },
   "equipment:skittering-mask": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2355"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2355",
+    "page": 155
   },
   "equipment:skittering-mask-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2355"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2355",
+    "page": 155
   },
   "equipment:sleuths-pipe": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2409"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2409",
+    "page": 205
   },
   "equipment:sluggish-bracelet": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2388"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2388",
+    "page": 193
   },
   "equipment:soaring-wings": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2216"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2216",
+    "page": 121
   },
   "equipment:soaring-wings-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2216"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2216",
+    "page": 121
   },
   "equipment:soaring-wings-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2216"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2216",
+    "page": 121
   },
   "equipment:spectacles-of-inquiry": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2316"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2316",
+    "page": 147
   },
   "equipment:spectacles-of-piercing-sight": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2317"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2317",
+    "page": 147
   },
   "equipment:spell-duelists-siphon": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2182"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2182",
+    "page": 113
   },
   "equipment:spiritsight-ring": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2346"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2346",
+    "page": 154
   },
   "equipment:splatrope-extruder": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1985"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1985",
+    "page": 65
   },
   "equipment:spring-heel": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2161"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2161",
+    "page": 108
   },
   "equipment:spurned-lute": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2389"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2389",
+    "page": 193
   },
   "equipment:spyglass-eye": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2159"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2159",
+    "page": 108
   },
   "equipment:standard-of-the-primeval-howl": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2197"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2197",
+    "page": 116
   },
   "equipment:starfaring-cloak": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2366"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2366",
+    "page": 180
   },
   "equipment:staring-skull": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2217"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2217",
+    "page": 122
   },
   "equipment:storage": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1825"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1825",
+    "page": 11
   },
   "equipment:sun-dazzler": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1984"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1984",
+    "page": 65
   },
   "equipment:sun-sight": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2218"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2218",
+    "page": 122
   },
   "equipment:sure-step-crampons": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2312"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2312",
+    "page": 146
   },
   "equipment:swarmeaters-clasp": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2347"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2347",
+    "page": 154
   },
   "equipment:tacticians-helm": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2339"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2339",
+    "page": 152
   },
   "equipment:tattletale-orb-clear-quartz": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2390"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2390",
+    "page": 193
   },
   "equipment:tattletale-orb-moonstone": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2390"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2390",
+    "page": 193
   },
   "equipment:tattletale-orb-obsidian": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2390"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2390",
+    "page": 193
   },
   "equipment:tattletale-orb-peridot": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2390"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2390",
+    "page": 193
   },
   "equipment:tattletale-orb-selenite": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2390"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2390",
+    "page": 193
   },
   "equipment:thrasher-tail": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2164"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2164",
+    "page": 109
   },
   "equipment:throwers-bandolier": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2313"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2313",
+    "page": 146
   },
   "equipment:thunderblast-slippers": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2331"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2331",
+    "page": 151
   },
   "equipment:thunderblast-slippers-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2331"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2331",
+    "page": 151
   },
   "equipment:tlil-mask": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2356"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2356",
+    "page": 155
   },
   "equipment:tlil-mask-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2356"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2356",
+    "page": 155
   },
   "equipment:tome-of-restorative-cleansing-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2183"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2183",
+    "page": 113
   },
   "equipment:tome-of-restorative-cleansing-lesser": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2183"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2183",
+    "page": 113
   },
   "equipment:tome-of-restorative-cleansing-moderate": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2183"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2183",
+    "page": 113
   },
   "equipment:tome-of-scintillating-sleet": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2184"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2184",
+    "page": 113
   },
   "equipment:toolkit-of-bronze-whispers": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2402"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2402",
+    "page": 197
   },
   "equipment:tooth-and-claw-tattoo": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2219"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2219",
+    "page": 122
   },
   "equipment:tooth-and-claw-tattoo-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2219"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2219",
+    "page": 122
   },
   "equipment:tooth-and-claw-tattoo-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2219"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2219",
+    "page": 122
   },
   "equipment:toshigami-blossom": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2403"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2403",
+    "page": 197
   },
   "equipment:trackless": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2304"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2304",
+    "page": 145
   },
   "equipment:trackless-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2304"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2304",
+    "page": 145
   },
   "equipment:tradecraft-tattoo": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2220"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2220",
+    "page": 122
   },
   "equipment:tradecraft-tattoo-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2220"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2220",
+    "page": 122
   },
   "equipment:traveling-companions-chair": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2148"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2148",
+    "page": 105
   },
   "equipment:tremorsensors": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2168"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2168",
+    "page": 109
   },
   "equipment:triangular-teeth": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2221"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2221",
+    "page": 122
   },
   "equipment:tricksters-mandolin": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2271"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2271",
+    "page": 137
   },
   "equipment:tricksters-mandolin-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2271"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2271",
+    "page": 137
   },
   "equipment:tricksters-mandolin-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2271"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2271",
+    "page": 137
   },
   "equipment:troubadours-cap": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2144"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2144",
+    "page": 104
   },
   "equipment:unbreakable-heart": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2222"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2222",
+    "page": 122
   },
   "equipment:undertakers-manifest": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2185"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2185",
+    "page": 113
   },
   "equipment:unfathomable-stargazer": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2391"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2391",
+    "page": 193
   },
   "equipment:unifying-emblem-lyrune-quah": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223",
+    "page": 123
   },
   "equipment:unifying-emblem-shadde-quah": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223",
+    "page": 123
   },
   "equipment:unifying-emblem-shriikirri-quah": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223",
+    "page": 123
   },
   "equipment:unifying-emblem-shundar-quah": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223",
+    "page": 123
   },
   "equipment:unifying-emblem-sklar-quah": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223",
+    "page": 123
   },
   "equipment:unifying-emblem-skoan-quah": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223",
+    "page": 123
   },
   "equipment:unifying-emblem-tamiir-quah": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2223",
+    "page": 123
   },
   "equipment:ursine-avenger-hood": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2368"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2368",
+    "page": 183
   },
   "equipment:vaporous-pipe": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2198"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2198",
+    "page": 116
   },
   "equipment:vaultbreakers-harness": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2307"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2307",
+    "page": 145
   },
   "equipment:verdant-branch": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2162"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2162",
+    "page": 108
   },
   "equipment:vigilant-eye": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2241"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2241",
+    "page": 129
   },
   "equipment:vigilant-eye-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2241"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2241",
+    "page": 129
   },
   "equipment:vigilant-eye-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2241"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2241",
+    "page": 129
   },
   "equipment:violin-of-the-waves": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2199"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2199",
+    "page": 116
   },
   "equipment:voice-from-the-grave": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2200"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2200",
+    "page": 117
   },
   "equipment:voicebox": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2169"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2169",
+    "page": 109
   },
   "equipment:wand-cane": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2154"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2154",
+    "page": 105
   },
   "equipment:wand-of-hybrid-form-2nd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280",
+    "page": 140
   },
   "equipment:wand-of-hybrid-form-3rd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280",
+    "page": 140
   },
   "equipment:wand-of-hybrid-form-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280",
+    "page": 140
   },
   "equipment:wand-of-hybrid-form-5th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280",
+    "page": 140
   },
   "equipment:wand-of-hybrid-form-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280",
+    "page": 140
   },
   "equipment:wand-of-hybrid-form-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280",
+    "page": 140
   },
   "equipment:wand-of-hybrid-form-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280",
+    "page": 140
   },
   "equipment:wand-of-hybrid-form-9th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2280",
+    "page": 140
   },
   "equipment:wand-of-legerdemain-1st-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281",
+    "page": 140
   },
   "equipment:wand-of-legerdemain-2nd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281",
+    "page": 140
   },
   "equipment:wand-of-legerdemain-3rd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281",
+    "page": 140
   },
   "equipment:wand-of-legerdemain-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281",
+    "page": 140
   },
   "equipment:wand-of-legerdemain-5th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281",
+    "page": 140
   },
   "equipment:wand-of-legerdemain-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281",
+    "page": 140
   },
   "equipment:wand-of-legerdemain-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281",
+    "page": 140
   },
   "equipment:wand-of-legerdemain-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281",
+    "page": 140
   },
   "equipment:wand-of-legerdemain-9th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2281",
+    "page": 140
   },
   "equipment:wand-of-mercy-1st-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283",
+    "page": 141
   },
   "equipment:wand-of-mercy-2nd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283",
+    "page": 141
   },
   "equipment:wand-of-mercy-3rd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283",
+    "page": 141
   },
   "equipment:wand-of-mercy-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283",
+    "page": 141
   },
   "equipment:wand-of-mercy-5th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283",
+    "page": 141
   },
   "equipment:wand-of-mercy-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283",
+    "page": 141
   },
   "equipment:wand-of-mercy-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283",
+    "page": 141
   },
   "equipment:wand-of-mercy-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283",
+    "page": 141
   },
   "equipment:wand-of-mercy-9th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2283",
+    "page": 141
   },
   "equipment:wand-of-reaching-1st-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287",
+    "page": 141
   },
   "equipment:wand-of-reaching-2nd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287",
+    "page": 141
   },
   "equipment:wand-of-reaching-3rd-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287",
+    "page": 141
   },
   "equipment:wand-of-reaching-4th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287",
+    "page": 141
   },
   "equipment:wand-of-reaching-5th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287",
+    "page": 141
   },
   "equipment:wand-of-reaching-6th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287",
+    "page": 141
   },
   "equipment:wand-of-reaching-7th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287",
+    "page": 141
   },
   "equipment:wand-of-reaching-8th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287",
+    "page": 141
   },
   "equipment:wand-of-reaching-9th-rank": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2287",
+    "page": 141
   },
   "equipment:wardens-signet": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2330"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2330",
+    "page": 151
   },
   "equipment:warding-statuette": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2242"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2242",
+    "page": 129
   },
   "equipment:warding-statuette-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2242"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2242",
+    "page": 129
   },
   "equipment:watch-of-lost-ages": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2410"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2410",
+    "page": 205
   },
   "equipment:weapon-harness": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1826"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1826",
+    "page": 11
   },
   "equipment:weapon-siphon": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1987"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1987",
+    "page": 65
   },
   "equipment:wildwood-ink": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2224"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2224",
+    "page": 123
   },
   "equipment:wildwood-ink-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2224"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2224",
+    "page": 123
   },
   "equipment:wildwood-ink-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2224"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2224",
+    "page": 123
   },
   "equipment:wind-at-your-back": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2201"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2201",
+    "page": 117
   },
   "equipment:wrestlers-armbands": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2404"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2404",
+    "page": 197
   },
   "equipment:wyrm-spindle": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2243"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2243",
+    "page": 129
   },
   "equipment:wyrm-spindle-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2243"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2243",
+    "page": 129
   },
   "equipment:wyrm-spindle-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2243"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2243",
+    "page": 129
   },
   "equipment:wyrms-wingspan": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2225"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2225",
+    "page": 123
   },
   "equipment:wyrms-wingspan-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2225"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2225",
+    "page": 123
   },
   "equipment:wyrms-wingspan-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2225"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2225",
+    "page": 123
   },
   "feat:bear-empathy": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4090"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4090",
+    "page": 184
   },
   "feat:call-ursine-ally": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4089"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4089",
+    "page": 184
   },
   "feat:expert-snowcasting": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4101"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4101",
+    "page": 185
   },
   "feat:fearsome-fangs": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4093"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4093",
+    "page": 184
   },
   "feat:first-frost": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4096"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4096",
+    "page": 185
   },
   "feat:frozen-breadth": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4099"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4099",
+    "page": 185
   },
   "feat:great-bear": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4091"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4091",
+    "page": 184
   },
   "feat:greater-snow-step": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4103"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4103",
+    "page": 185
   },
   "feat:icy-apotheosis": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4105"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4105",
+    "page": 185
   },
   "feat:immortal-bear": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4095"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4095",
+    "page": 184
   },
   "feat:legendary-tattoo-artist": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4083"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4083",
+    "page": 118
   },
   "feat:master-snowcasting": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4104"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4104",
+    "page": 185
   },
   "feat:mighty-bear": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4094"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4094",
+    "page": 184
   },
   "feat:quick-setup": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4085"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4085",
+    "page": 159
   },
   "feat:senses-of-the-bear": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4087"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4087",
+    "page": 183
   },
   "feat:snow-step": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4098"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4098",
+    "page": 185
   },
   "feat:snowcaster": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4097"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4097",
+    "page": 185
   },
   "feat:terrible-transformation": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4092"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4092",
+    "page": 184
   },
   "feat:ursine-avenger-form": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4086"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4086",
+    "page": 183
   },
   "feat:winters-embrace": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4100"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4100",
+    "page": 185
   },
   "feat:winters-kiss": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4102"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4102",
+    "page": 185
   },
   "rune:advancing": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1827"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1827",
+    "page": 12
   },
   "rune:advancing-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1827"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1827",
+    "page": 12
   },
   "rune:aim-aiding": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1828"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1828",
+    "page": 12
   },
   "rune:assisting": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1829"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1829",
+    "page": 12
   },
   "rune:coating": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1865"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1865",
+    "page": 32
   },
   "rune:earthbinding": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1866"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1866",
+    "page": 33
   },
   "rune:energy-adaptive": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1830"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1830",
+    "page": 12
   },
   "rune:gliding": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1831"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1831",
+    "page": 12
   },
   "rune:immovable": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1832"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1832",
+    "page": 12
   },
   "rune:impossible": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1868"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1868",
+    "page": 33
   },
   "rune:magnetizing": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1833"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1833",
+    "page": 13
   },
   "rune:merciful": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1869"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1869",
+    "page": 33
   },
   "rune:misleading": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1834"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1834",
+    "page": 13
   },
   "rune:pacifying": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1870"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1870",
+    "page": 33
   },
   "rune:portable": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1835"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1835",
+    "page": 13
   },
   "rune:quenching": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1836"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1836",
+    "page": 13
   },
   "rune:quenching-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1836"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1836",
+    "page": 13
   },
   "rune:quenching-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1836"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1836",
+    "page": 13
   },
   "rune:quenching-true": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1836"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1836",
+    "page": 13
   },
   "rune:spellwatch": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1837"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1837",
+    "page": 13
   },
   "rune:swallow-spike": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1838"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1838",
+    "page": 13
   },
   "rune:swallow-spike-greater": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1838"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1838",
+    "page": 13
   },
   "rune:swallow-spike-major": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1838"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1838",
+    "page": 13
   },
   "rune:swarming": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1871"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1871",
+    "page": 33
   },
   "shield:casters-targe": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Shields.aspx?ID=5"
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=5",
+    "page": 20
   },
   "shield:dart-shield": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Shields.aspx?ID=6"
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=6",
+    "page": 20
   },
   "shield:fortress-shield": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Shields.aspx?ID=7"
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=7",
+    "page": 20
   },
   "shield:gauntlet-buckler": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Shields.aspx?ID=8"
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=8",
+    "page": 20
   },
   "shield:harnessed-shield": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Shields.aspx?ID=9"
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=9",
+    "page": 20
   },
   "shield:heavy-rondache": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Shields.aspx?ID=10"
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=10",
+    "page": 20
   },
   "shield:hide-shield": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Shields.aspx?ID=11"
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=11",
+    "page": 20
   },
   "shield:klar": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Shields.aspx?ID=12"
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=12",
+    "page": 20
   },
   "shield:meteor-shield": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Shields.aspx?ID=13"
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=13",
+    "page": 21
   },
   "shield:razor-disc": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Shields.aspx?ID=14"
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=14",
+    "page": 21
   },
   "shield:salvo-shield": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Shields.aspx?ID=15"
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=15",
+    "page": 21
   },
   "shield:swordstealer-shield": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Shields.aspx?ID=16"
+    "aon": "https://2e.aonprd.com/Shields.aspx?ID=16",
+    "page": 21
   },
   "spell:frosts-touch": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1274"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1274",
+    "page": 185
   },
   "weapon:barricade-buster": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=330"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=330",
+    "page": 30
   },
   "weapon:battle-saddle": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=271"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=271",
+    "page": 26
   },
   "weapon:bec-de-corbin": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=272"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=272",
+    "page": 26
   },
   "weapon:bladed-scarf": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=273"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=273",
+    "page": 26
   },
   "weapon:boomerang": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=332"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=332",
+    "page": 30
   },
   "weapon:bow-staff": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=344"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=344",
+    "page": 31
   },
   "weapon:butterfly-sword": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=275"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=275",
+    "page": 26
   },
   "weapon:chain-sword": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=276"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=276",
+    "page": 26
   },
   "weapon:chakri": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=333"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=333",
+    "page": 30
   },
   "weapon:combat-lure": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=277"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=277",
+    "page": 26
   },
   "weapon:corset-knife": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=278"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=278",
+    "page": 26
   },
   "weapon:crescent-cross": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=345"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=345",
+    "page": 31
   },
   "weapon:dancers-spear": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=279"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=279",
+    "page": 26
   },
   "weapon:dwarven-dorn-dergar": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=280"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=280",
+    "page": 27
   },
   "weapon:earthbreaker": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=281"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=281",
+    "page": 27
   },
   "weapon:falcata": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=282"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=282",
+    "page": 27
   },
   "weapon:feng-huo-lun": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=283"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=283",
+    "page": 27
   },
   "weapon:fighting-fan": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=284"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=284",
+    "page": 27
   },
   "weapon:flyssa": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=285"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=285",
+    "page": 27
   },
   "weapon:frying-pan": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=286"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=286",
+    "page": 27
   },
   "weapon:harpoon": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=336"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=336",
+    "page": 31
   },
   "weapon:hook-sword": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=287"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=287",
+    "page": 27
   },
   "weapon:jiu-huan-dao": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=288"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=288",
+    "page": 27
   },
   "weapon:karambit": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=289"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=289",
+    "page": 27
   },
   "weapon:kusarigama": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=291"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=291",
+    "page": 27
   },
   "weapon:lancer": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=346"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=346",
+    "page": 31
   },
   "weapon:leiomano": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=292"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=292",
+    "page": 27
   },
   "weapon:long-hammer": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=293"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=293",
+    "page": 27
   },
   "weapon:machete": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=294"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=294",
+    "page": 27
   },
   "weapon:meteor-hammer": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=296"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=296",
+    "page": 27
   },
   "weapon:mikazuki": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=347"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=347",
+    "page": 31
   },
   "weapon:naginata": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=297"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=297",
+    "page": 27
   },
   "weapon:nodachi": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=298"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=298",
+    "page": 27
   },
   "weapon:panabas": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=299"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=299",
+    "page": 27
   },
   "weapon:phalanx-piercer": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=337"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=337",
+    "page": 31
   },
   "weapon:polytool": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=300"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=300",
+    "page": 27
   },
   "weapon:rope-dart": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=301"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=301",
+    "page": 27
   },
   "weapon:rotary-bow": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=338"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=338",
+    "page": 31
   },
   "weapon:sansetsukon": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=302"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=302",
+    "page": 27
   },
   "weapon:scizore": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=303"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=303",
+    "page": 27
   },
   "weapon:shield-bow": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=339"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=339",
+    "page": 31
   },
   "weapon:sukgung": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=341"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=341",
+    "page": 31
   },
   "weapon:tekko-kagi": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=304"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=304",
+    "page": 27
   },
   "weapon:urumi": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=306"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=306",
+    "page": 30
   },
   "weapon:war-razor": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=307"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=307",
+    "page": 30
   },
   "weapon:whipstaff": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=308"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=308",
+    "page": 30
   },
   "weapon:wrecker": {
     "book": "treasure-vault",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=348"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=348",
+    "page": 31
   }
 }

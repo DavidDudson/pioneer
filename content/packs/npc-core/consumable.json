@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "npc-core",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586",
+        "page": 65
       }
     ],
     "description": [
@@ -120,7 +121,8 @@
       {
         "kind": "book",
         "book": "npc-core",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586",
+        "page": 65
       }
     ],
     "description": [
@@ -228,7 +230,8 @@
       {
         "kind": "book",
         "book": "npc-core",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586",
+        "page": 65
       }
     ],
     "description": [
@@ -336,7 +339,8 @@
       {
         "kind": "book",
         "book": "npc-core",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586",
+        "page": 65
       }
     ],
     "description": [
@@ -444,7 +448,8 @@
       {
         "kind": "book",
         "book": "npc-core",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586",
+        "page": 65
       }
     ],
     "description": [

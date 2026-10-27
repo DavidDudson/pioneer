@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1030"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1030",
+        "page": 175
       }
     ],
     "description": [
@@ -93,7 +94,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1033"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1033",
+        "page": 176
       }
     ],
     "description": [

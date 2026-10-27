@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=66"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=66",
+        "page": 21
       }
     ],
     "description": [
@@ -1036,7 +1037,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=67"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=67",
+        "page": 37
       }
     ],
     "description": [

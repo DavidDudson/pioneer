@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "impossible-magic",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=438"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=438",
+        "page": 110
       }
     ],
     "description": [
@@ -48,7 +49,8 @@
       {
         "kind": "book",
         "book": "impossible-magic",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=439"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=439",
+        "page": 110
       }
     ],
     "description": [

@@ -1,610 +1,762 @@
 {
   "archetype:golden-legionnaire": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=373"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=373",
+    "page": 32
   },
   "archetype:hellknight": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=372"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=372",
+    "page": 24
   },
   "archetype:nidalese-horselord": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=381"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=381",
+    "page": 32
   },
   "archetype:pure-legion-enforcer": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=377"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=377",
+    "page": 60
   },
   "archetype:rose-warden": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=378"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=378",
+    "page": 84
   },
   "archetype:sister-of-the-golden-erinys": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=380"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=380",
+    "page": 32
   },
   "archetype:starstone-aspirant": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=376"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=376",
+    "page": 48
   },
   "archetype:steel-falcon": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=374"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=374",
+    "page": 34
   },
   "archetype:twilight-talon": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=375"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=375",
+    "page": 36
   },
   "archetype:undersea-privateer": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=379"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=379",
+    "page": 32
   },
   "consumable:freezing-embrace-snare": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4340"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4340",
+    "page": 73
   },
   "consumable:glittering-lights-snare": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4341"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4341",
+    "page": 73
   },
   "consumable:mocking-mirror-snare": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4342"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4342",
+    "page": 73
   },
   "consumable:pit-illusion-snare": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4343"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4343",
+    "page": 73
   },
   "consumable:puddle-shove-snare": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4344"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4344",
+    "page": 73
   },
   "consumable:shadow-cloak-snare": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4345"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4345",
+    "page": 73
   },
   "feat:advanced-deific-power": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8883"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8883",
+    "page": 49
   },
   "feat:advanced-order-training": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8827"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8827",
+    "page": 26
   },
   "feat:anchor-stance": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8916"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8916",
+    "page": 96
   },
   "feat:ardent-armiger": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8813"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8813",
+    "page": 24
   },
   "feat:armed-and-armored": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8839"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8839",
+    "page": 33
   },
   "feat:armigers-protection": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8814"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8814",
+    "page": 25
   },
   "feat:arodens-innovation": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8884"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8884",
+    "page": 49
   },
   "feat:barricade-snare": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8902"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8902",
+    "page": 72
   },
   "feat:blade-of-law": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8824"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8824",
+    "page": 26
   },
   "feat:blessed-thorn-strike": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8907"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8907",
+    "page": 84
   },
   "feat:bloom-cabaret-entrance": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8874"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8874",
+    "page": 47
   },
   "feat:boarding-party": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8922"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8922",
+    "page": 97
   },
   "feat:branding-spell": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8834"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8834",
+    "page": 27
   },
   "feat:brastlewark-snare-engineering": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8901"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8901",
+    "page": 72
   },
   "feat:broad-snare": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8904"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8904",
+    "page": 72
   },
   "feat:burn-identity": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8867"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8867",
+    "page": 37
   },
   "feat:caydens-freedom": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8881"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8881",
+    "page": 48
   },
   "feat:commitment-to-protection": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8836"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8836",
+    "page": 33
   },
   "feat:commitment-to-valor": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8840"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8840",
+    "page": 33
   },
   "feat:commitment-to-vigilance": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8844"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8844",
+    "page": 33
   },
   "feat:conjure-hell": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8828"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8828",
+    "page": 26
   },
   "feat:crack-retort": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8841"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8841",
+    "page": 33
   },
   "feat:cruel-piercing": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8934"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8934",
+    "page": 109
   },
   "feat:deceptive-deduction": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8862"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8862",
+    "page": 37
   },
   "feat:defy-chains": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8946"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8946",
+    "page": 121
   },
   "feat:denounce-tyranny": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8849"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8849",
+    "page": 35
   },
   "feat:diabolic-certitude": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8815"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8815",
+    "page": 25
   },
   "feat:dismounting-strike": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8942"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8942",
+    "page": 121
   },
   "feat:do-you-know-who-i-am": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8876"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8876",
+    "page": 47
   },
   "feat:domino-effect": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8905"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8905",
+    "page": 73
   },
   "feat:edict-of-mortality": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8892"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8892",
+    "page": 61
   },
   "feat:eye-for-smugglers": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8854"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8854",
+    "page": 35
   },
   "feat:eye-for-weakness": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8931"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8931",
+    "page": 109
   },
   "feat:fabricated-credentials": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8861"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8861",
+    "page": 37
   },
   "feat:face-your-fears": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8938"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8938",
+    "page": 120
   },
   "feat:fast-swimmer": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8917"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8917",
+    "page": 96
   },
   "feat:fear-no-pain": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8940"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8940",
+    "page": 121
   },
   "feat:feign-innocence": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8865"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8865",
+    "page": 37
   },
   "feat:fiendish-brand": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8932"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8932",
+    "page": 109
   },
   "feat:float-free": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8919"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8919",
+    "page": 97
   },
   "feat:flower-street-infamy": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8875"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8875",
+    "page": 47
   },
   "feat:for-the-fallen": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8878"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8878",
+    "page": 48
   },
   "feat:frightening-indignation": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8857"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8857",
+    "page": 35
   },
   "feat:gallop-across-shadow": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8947"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8947",
+    "page": 121
   },
   "feat:gather-disciples": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8885"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8885",
+    "page": 49
   },
   "feat:gaze-of-veracity": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8825"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8825",
+    "page": 26
   },
   "feat:godless-healing": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8888"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8888",
+    "page": 60
   },
   "feat:golden-erinys-stance": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8930"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8930",
+    "page": 109
   },
   "feat:golden-legionnaire-dedication": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8835"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8835",
+    "page": 32
   },
   "feat:gray-corsair-training": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8850"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8850",
+    "page": 35
   },
   "feat:greater-deific-power": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8886"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8886",
+    "page": 49
   },
   "feat:hell-lancer-shot": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8842"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8842",
+    "page": 33
   },
   "feat:hellknight-dedication": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8812"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8812",
+    "page": 24
   },
   "feat:hellknight-errant": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8817"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8817",
+    "page": 25
   },
   "feat:hellknight-mobility": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8820"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8820",
+    "page": 25
   },
   "feat:hellknight-preferment": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8818"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8818",
+    "page": 25
   },
   "feat:hellknight-signifer-preferment": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8819"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8819",
+    "page": 25
   },
   "feat:hells-armaments": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8829"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8829",
+    "page": 27
   },
   "feat:hidden-intentions": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8863"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8863",
+    "page": 37
   },
   "feat:holy-bloom": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8908"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8908",
+    "page": 84
   },
   "feat:holy-flower": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8913"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8913",
+    "page": 85
   },
   "feat:horselords-bond": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8944"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8944",
+    "page": 121
   },
   "feat:infernal-interference": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8833"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8833",
+    "page": 27
   },
   "feat:inked-cache": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8864"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8864",
+    "page": 37
   },
   "feat:instant-credentials": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8866"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8866",
+    "page": 37
   },
   "feat:iomedaes-valor": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8882"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8882",
+    "page": 49
   },
   "feat:ivy-district-influencer": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8868"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8868",
+    "page": 46
   },
   "feat:ivy-playhouse-strike": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8869"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8869",
+    "page": 46
   },
   "feat:lasting-protection": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8843"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8843",
+    "page": 33
   },
   "feat:legions-aim": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8837"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8837",
+    "page": 33
   },
   "feat:liberated-mind": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8911"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8911",
+    "page": 85
   },
   "feat:libertys-devotion": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8855"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8855",
+    "page": 35
   },
   "feat:libertys-promise": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8851"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8851",
+    "page": 35
   },
   "feat:magpie-manor-recovery": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8873"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8873",
+    "page": 47
   },
   "feat:major-deific-power": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8887"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8887",
+    "page": 49
   },
   "feat:make-do": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8860"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8860",
+    "page": 37
   },
   "feat:march-of-law": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8831"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8831",
+    "page": 27
   },
   "feat:masked-casting": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8821"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8821",
+    "page": 25
   },
   "feat:minor-deific-power": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8879"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8879",
+    "page": 48
   },
   "feat:mortal-healing": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8889"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8889",
+    "page": 60
   },
   "feat:mortal-possibility": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8900"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8900",
+    "page": 61
   },
   "feat:mortification": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8816"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8816",
+    "page": 25
   },
   "feat:nidalese-horselord-dedication": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8937"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8937",
+    "page": 120
   },
   "feat:no-gods-only-mortals": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8894"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8894",
+    "page": 61
   },
   "feat:no-need-to-fear": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8847"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8847",
+    "page": 33
   },
   "feat:norgorbers-secret": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8880"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8880",
+    "page": 48
   },
   "feat:officers-protection": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8846"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8846",
+    "page": 33
   },
   "feat:order-cross-training": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8830"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8830",
+    "page": 27
   },
   "feat:order-training": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8822"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8822",
+    "page": 26
   },
   "feat:paragon-battle-medicine": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8890"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8890",
+    "page": 60
   },
   "feat:perplex": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8856"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8856",
+    "page": 35
   },
   "feat:petal-district-socialite": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8872"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8872",
+    "page": 47
   },
   "feat:polished-distraction": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8838"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8838",
+    "page": 33
   },
   "feat:promise-of-pain": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8935"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8935",
+    "page": 109
   },
   "feat:propelled-leap": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8925"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8925",
+    "page": 97
   },
   "feat:pure-legion-enforcer-dedication": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8891"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8891",
+    "page": 60
   },
   "feat:remote-detonation-snarecrafter": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8903"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8903",
+    "page": 72
   },
   "feat:repel-darkness": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8939"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8939",
+    "page": 121
   },
   "feat:repelling-enforcer": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8899"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8899",
+    "page": 61
   },
   "feat:riptide-undersea-privateer": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8923"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8923",
+    "page": 97
   },
   "feat:rise-up": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8914"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8914",
+    "page": 85
   },
   "feat:rose-warden-dedication": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8906"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8906",
+    "page": 84
   },
   "feat:sailfish-strike": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8927"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8927",
+    "page": 97
   },
   "feat:salt-kissed": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8852"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8852",
+    "page": 35
   },
   "feat:sense-iniquity": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8823"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8823",
+    "page": 26
   },
   "feat:shadowpiercing-charge": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8945"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8945",
+    "page": 121
   },
   "feat:shake-off-the-gods": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8896"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8896",
+    "page": 61
   },
   "feat:ships-shadow": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8924"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8924",
+    "page": 97
   },
   "feat:shroud-of-the-seas": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8926"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8926",
+    "page": 97
   },
   "feat:signifers-sight": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8826"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8826",
+    "page": 26
   },
   "feat:sister-of-the-golden-erinys-dedication": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8929"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8929",
+    "page": 109
   },
   "feat:slippery-as-an-eel": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8920"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8920",
+    "page": 97
   },
   "feat:starstone-aspirant-dedication": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8877"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8877",
+    "page": 48
   },
   "feat:stealthy-as-an-octopus": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8921"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8921",
+    "page": 97
   },
   "feat:steel-falcon-dedication": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8848"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8848",
+    "page": 34
   },
   "feat:such-a-disgrace": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8870"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8870",
+    "page": 46
   },
   "feat:sundown-street-posturing": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8871"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8871",
+    "page": 47
   },
   "feat:swallow-pain": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8943"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8943",
+    "page": 121
   },
   "feat:swift-support": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8941"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8941",
+    "page": 121
   },
   "feat:talons-mark": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8859"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8859",
+    "page": 36
   },
   "feat:throttle-the-divine": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8897"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8897",
+    "page": 61
   },
   "feat:tidal-wave": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8928"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8928",
+    "page": 97
   },
   "feat:traces-of-the-divine": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8895"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8895",
+    "page": 61
   },
   "feat:trained-swimmer": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8918"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8918",
+    "page": 97
   },
   "feat:twilight-talon-dedication": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8858"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8858",
+    "page": 36
   },
   "feat:unassailable-enforcer": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8893"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8893",
+    "page": 61
   },
   "feat:unbalancing-appearance": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8909"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8909",
+    "page": 85
   },
   "feat:uncanny-prediction": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8853"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8853",
+    "page": 35
   },
   "feat:undersea-privateer-dedication": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8915"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8915",
+    "page": 96
   },
   "feat:unfetter-sight": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8832"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8832",
+    "page": 27
   },
   "feat:unfettering-strike": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8910"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8910",
+    "page": 85
   },
   "feat:vengeance-strike": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8933"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8933",
+    "page": 109
   },
   "feat:wall-of-roses": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8912"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8912",
+    "page": 85
   },
   "feat:watch-your-back-golden-legionnaire": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8845"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8845",
+    "page": 33
   },
   "feat:wrath-against-the-divine": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8898"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8898",
+    "page": 61
   },
   "feat:wrathful-presence": {
     "book": "hellfire-dispatches",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8936"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8936",
+    "page": 109
   }
 }

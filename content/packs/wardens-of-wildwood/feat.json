@@ -107,7 +107,8 @@
       {
         "kind": "book",
         "book": "wardens-of-wildwood",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7607"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7607",
+        "page": 80
       }
     ],
     "description": [
@@ -290,7 +291,8 @@
       {
         "kind": "book",
         "book": "wardens-of-wildwood",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7610"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7610",
+        "page": 80
       }
     ],
     "description": [
@@ -1785,7 +1787,8 @@
       {
         "kind": "book",
         "book": "wardens-of-wildwood",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7611"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7611",
+        "page": 80
       }
     ],
     "description": [
@@ -2129,7 +2132,8 @@
       {
         "kind": "book",
         "book": "wardens-of-wildwood",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7608"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7608",
+        "page": 80
       }
     ],
     "description": [
@@ -2447,7 +2451,8 @@
       {
         "kind": "book",
         "book": "wardens-of-wildwood",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7609"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7609",
+        "page": 80
       }
     ],
     "description": [
@@ -2521,7 +2526,8 @@
       {
         "kind": "book",
         "book": "wardens-of-wildwood",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7606"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7606",
+        "page": 79
       }
     ],
     "description": [

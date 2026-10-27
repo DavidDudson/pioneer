@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=698"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=698",
+        "page": 23
       }
     ],
     "description": [

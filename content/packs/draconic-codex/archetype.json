@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=333"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=333",
+        "page": 218
       }
     ],
     "description": [
@@ -62,7 +63,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=334"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=334",
+        "page": 220
       }
     ],
     "description": [

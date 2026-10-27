@@ -1,82 +1,102 @@
 {
   "archetype:chelaxian-scion": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=384"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=384",
+    "page": 222
   },
   "consumable:golden-liberators-feather": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4954"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4954",
+    "page": 226
   },
   "equipment:banner-of-common-cause": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4952"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4952",
+    "page": 225
   },
   "equipment:the-eye-of-the-slumberer": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4953"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4953",
+    "page": 225
   },
   "equipment:warpriests-cascade": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4956"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4956",
+    "page": 226
   },
   "equipment:warpriests-cascade-greater": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4956"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4956",
+    "page": 226
   },
   "equipment:warpriests-cascade-major": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4956"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4956",
+    "page": 226
   },
   "feat:adventurous-outfitter": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8980"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8980",
+    "page": 230
   },
   "feat:aristocratic-arms": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8973"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8973",
+    "page": 223
   },
   "feat:as-on-the-board-so-on-the-battlefield": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8981"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8981",
+    "page": 231
   },
   "feat:burning-demand": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8977"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8977",
+    "page": 228
   },
   "feat:chelaxian-scion-dedication": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8971"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8971",
+    "page": 222
   },
   "feat:drowning-mist": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8978"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8978",
+    "page": 228
   },
   "feat:improvise-strategy": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8982"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8982",
+    "page": 231
   },
   "feat:liberating-dive": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8979"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8979",
+    "page": 229
   },
   "feat:patronize-the-arts": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8975"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8975",
+    "page": 223
   },
   "feat:seasoned-command": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8983"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8983",
+    "page": 232
   },
   "feat:stoic-as-hell": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8976"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8976",
+    "page": 223
   },
   "feat:tactical-acumen": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8984"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8984",
+    "page": 232
   },
   "spell:wish-market": {
     "book": "hells-destiny",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2620"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2620",
+    "page": 227
   }
 }

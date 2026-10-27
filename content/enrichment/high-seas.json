@@ -1,374 +1,467 @@
 {
   "archetype:marine-marauder": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=385"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=385",
+    "page": 106
   },
   "consumable:sanguine-ammunition": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4964"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4964",
+    "page": 64
   },
   "deity:surveyors-of-the-deep": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=731"
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=731",
+    "page": 25
   },
   "equipment:amaranthine-visage": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4967"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4967",
+    "page": 78
   },
   "equipment:bloodstride-boots": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4962"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4962",
+    "page": 64
   },
   "equipment:cloak-of-social-graces": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4957"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4957",
+    "page": 50
   },
   "equipment:cloak-of-social-graces-greater": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4957"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4957",
+    "page": 50
   },
   "equipment:cloak-of-social-graces-major": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4957"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4957",
+    "page": 50
   },
   "equipment:coral-aspect": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4968"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4968",
+    "page": 78
   },
   "equipment:crown-of-the-master": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4972"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4972",
+    "page": 108
   },
   "equipment:crown-of-the-master-greater": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4972"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4972",
+    "page": 108
   },
   "equipment:gaze-of-the-mantis": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4963"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4963",
+    "page": 64
   },
   "equipment:gloves-of-precision": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4958"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4958",
+    "page": 50
   },
   "equipment:gloves-of-precision-greater": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4958"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4958",
+    "page": 50
   },
   "equipment:golden-wings": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4959"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4959",
+    "page": 50
   },
   "equipment:golden-wings-greater": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4959"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4959",
+    "page": 50
   },
   "equipment:golden-wings-major": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4959"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4959",
+    "page": 50
   },
   "equipment:golden-wings-true": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4959"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4959",
+    "page": 50
   },
   "equipment:helm-of-the-tides": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4973"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4973",
+    "page": 108
   },
   "equipment:hydration-cloak": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4974"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4974",
+    "page": 108
   },
   "equipment:kinetic-wraps-of-strength": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4960"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4960",
+    "page": 50
   },
   "equipment:kinetic-wraps-of-strength-greater": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4960"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4960",
+    "page": 50
   },
   "equipment:mariners-mien-greater": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4969"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4969",
+    "page": 78
   },
   "equipment:mariners-mien-lesser": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4969"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4969",
+    "page": 78
   },
   "equipment:mordant-mask": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4970"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4970",
+    "page": 78
   },
   "equipment:whispering-veil": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4971"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4971",
+    "page": 78
   },
   "feat:appraisers-eye": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8996"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8996",
+    "page": 20
   },
   "feat:aquatic-elf-warrior": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8991"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8991",
+    "page": 19
   },
   "feat:aquatic-passage": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9036"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9036",
+    "page": 106
   },
   "feat:aquatic-pirouette": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9031"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9031",
+    "page": 106
   },
   "feat:bitter-taste-of-betrayal": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9016"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9016",
+    "page": 92
   },
   "feat:bounce-boost": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9001"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9001",
+    "page": 21
   },
   "feat:bullet-and-a-broadside": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9021"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9021",
+    "page": 92
   },
   "feat:burrowing-tripkee": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9004"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9004",
+    "page": 21
   },
   "feat:cannonball-fall": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9026"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9026",
+    "page": 93
   },
   "feat:cheaters-always-prosper": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9023"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9023",
+    "page": 92
   },
   "feat:coerce-the-current": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8988"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8988",
+    "page": 18
   },
   "feat:concealing-currents": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9037"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9037",
+    "page": 106
   },
   "feat:cutthroat-grapple": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9013"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9013",
+    "page": 65
   },
   "feat:deadly-casework": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9008"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9008",
+    "page": 65
   },
   "feat:decisive-swimmer": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8985"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8985",
+    "page": 18
   },
   "feat:deduce-habits": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9014"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9014",
+    "page": 65
   },
   "feat:eyes-of-the-sea": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8995"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8995",
+    "page": 19
   },
   "feat:fight-or-flight": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9024"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9024",
+    "page": 93
   },
   "feat:fog-cloak": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9009"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9009",
+    "page": 65
   },
   "feat:forensic-countermeasures": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9012"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9012",
+    "page": 65
   },
   "feat:form-of-the-sea": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8990"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8990",
+    "page": 18
   },
   "feat:friend-of-the-sea": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8992"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8992",
+    "page": 19
   },
   "feat:frog-geyser": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9003"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9003",
+    "page": 21
   },
   "feat:hallucinogenic-ink": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8999"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8999",
+    "page": 20
   },
   "feat:halyard-strike": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9028"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9028",
+    "page": 93
   },
   "feat:heartless-debilitations": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9011"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9011",
+    "page": 65
   },
   "feat:inner-sea-privateer": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9017"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9017",
+    "page": 92
   },
   "feat:into-the-storm": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9018"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9018",
+    "page": 92
   },
   "feat:like-a-fish-in-water": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9032"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9032",
+    "page": 106
   },
   "feat:marine-combat-training": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9033"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9033",
+    "page": 106
   },
   "feat:marine-jet": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9041"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9041",
+    "page": 107
   },
   "feat:marine-marauder-dedication": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9030"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9030",
+    "page": 106
   },
   "feat:personalized-poisoning": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9007"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9007",
+    "page": 65
   },
   "feat:pirates-pet": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9019"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9019",
+    "page": 92
   },
   "feat:pressure-change": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9039"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9039",
+    "page": 107
   },
   "feat:razorsharp-bite": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8986"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8986",
+    "page": 18
   },
   "feat:reactive-tangle": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9034"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9034",
+    "page": 106
   },
   "feat:reel-em-in": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9042"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9042",
+    "page": 107
   },
   "feat:rock-the-boat": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9027"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9027",
+    "page": 93
   },
   "feat:sanguine-evasion": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9015"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9015",
+    "page": 65
   },
   "feat:sawtooth-grapple": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9010"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9010",
+    "page": 65
   },
   "feat:sea-swarmer": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8989"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8989",
+    "page": 18
   },
   "feat:seize-an-advantage": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9025"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9025",
+    "page": 93
   },
   "feat:shark-attack": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9038"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9038",
+    "page": 107
   },
   "feat:sharkskin-grip": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9020"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9020",
+    "page": 92
   },
   "feat:songs-of-the-seas-wrath": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9000"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9000",
+    "page": 20
   },
   "feat:spray-ink": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8997"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8997",
+    "page": 20
   },
   "feat:stay-here": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9040"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9040",
+    "page": 107
   },
   "feat:steal-for-the-depths": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8998"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8998",
+    "page": 20
   },
   "feat:submerged-stillness": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8994"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8994",
+    "page": 19
   },
   "feat:surface-rush": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9035"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9035",
+    "page": 106
   },
   "feat:swan-dive": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9022"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9022",
+    "page": 92
   },
   "feat:swimming-charge": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8987"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8987",
+    "page": 18
   },
   "feat:take-in-the-catch": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9043"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9043",
+    "page": 107
   },
   "feat:think-twice": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9029"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9029",
+    "page": 93
   },
   "feat:touch-of-the-sea": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8993"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8993",
+    "page": 19
   },
   "feat:waterweave-tripkee": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9002"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9002",
+    "page": 21
   },
   "heritage:aquatic-elf": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=435"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=435",
+    "page": 19
   },
   "heritage:benthic-athamaru": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=434"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=434",
+    "page": 18
   },
   "heritage:camouflage-tripkee": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=437"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=437",
+    "page": 21
   },
   "heritage:cecaelia-merfolk": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=436"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=436",
+    "page": 20
   },
   "spell:anchoring-air": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2621"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2621",
+    "page": 79
   },
   "spell:connective-current": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2622"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2622",
+    "page": 79
   },
   "spell:shipwreck": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2623"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2623",
+    "page": 79
   },
   "spell:undertow": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2624"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2624",
+    "page": 79
   },
   "spell:whispers-of-a-dead-goddess": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2625"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2625",
+    "page": 79
   },
   "spell:with-friends-like-these": {
     "book": "high-seas",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2626"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2626",
+    "page": 79
   }
 }

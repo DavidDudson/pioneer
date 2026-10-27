@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=866"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=866",
+        "page": 90
       }
     ],
     "description": [
@@ -194,7 +195,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=874"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=874",
+        "page": 92
       }
     ],
     "description": [
@@ -364,7 +366,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1063"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1063",
+        "page": 247
       }
     ],
     "description": [
@@ -442,7 +445,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=881"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=881",
+        "page": 95
       }
     ],
     "description": [
@@ -678,7 +682,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=882"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=882",
+        "page": 95
       }
     ],
     "description": [
@@ -871,7 +876,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=883"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=883",
+        "page": 95
       }
     ],
     "description": [
@@ -1287,7 +1293,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1064"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1064",
+        "page": 247
       }
     ],
     "description": [
@@ -1400,7 +1407,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=888"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=888",
+        "page": 97
       }
     ],
     "description": [
@@ -1495,7 +1503,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1060"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1060",
+        "page": 227
       }
     ],
     "description": [
@@ -1669,7 +1678,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=895"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=895",
+        "page": 100
       }
     ],
     "description": [
@@ -1849,7 +1859,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=897"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=897",
+        "page": 101
       }
     ],
     "description": [
@@ -2019,7 +2030,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=907"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=907",
+        "page": 104
       }
     ],
     "description": [
@@ -2072,7 +2084,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=913"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=913",
+        "page": 106
       }
     ],
     "description": [
@@ -2200,7 +2213,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=915"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=915",
+        "page": 106
       }
     ],
     "description": [
@@ -2536,7 +2550,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=919"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=919",
+        "page": 108
       }
     ],
     "description": [
@@ -2668,7 +2683,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=925"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=925",
+        "page": 109
       }
     ],
     "description": [
@@ -2735,7 +2751,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=929"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=929",
+        "page": 110
       }
     ],
     "description": [
@@ -2945,7 +2962,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=931"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=931",
+        "page": 111
       }
     ],
     "description": [
@@ -3080,7 +3098,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1061"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1061",
+        "page": 227
       }
     ],
     "description": [
@@ -3198,7 +3217,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=936"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=936",
+        "page": 112
       }
     ],
     "description": [
@@ -3263,7 +3283,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1065"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1065",
+        "page": 247
       }
     ],
     "description": [
@@ -3325,7 +3346,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=948"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=948",
+        "page": 115
       }
     ],
     "description": [
@@ -3400,7 +3422,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=951"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=951",
+        "page": 117
       }
     ],
     "description": [
@@ -3506,7 +3529,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=959"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=959",
+        "page": 118
       }
     ],
     "description": [
@@ -3570,7 +3594,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=961"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=961",
+        "page": 119
       }
     ],
     "description": [
@@ -3647,7 +3672,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=962"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=962",
+        "page": 119
       }
     ],
     "description": [
@@ -4115,7 +4141,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=963"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=963",
+        "page": 120
       }
     ],
     "description": [
@@ -4200,7 +4227,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=971"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=971",
+        "page": 122
       }
     ],
     "description": [
@@ -4256,7 +4284,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=972"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=972",
+        "page": 122
       }
     ],
     "description": [
@@ -4426,7 +4455,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=973"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=973",
+        "page": 122
       }
     ],
     "description": [
@@ -4534,7 +4564,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=974"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=974",
+        "page": 122
       }
     ],
     "description": [
@@ -4600,7 +4631,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=979"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=979",
+        "page": 124
       }
     ],
     "description": [
@@ -4784,7 +4816,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=980"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=980",
+        "page": 124
       }
     ],
     "description": [
@@ -4843,7 +4876,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=982"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=982",
+        "page": 125
       }
     ],
     "description": [
@@ -4995,7 +5029,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=983"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=983",
+        "page": 125
       }
     ],
     "description": [
@@ -5069,7 +5104,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=997"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=997",
+        "page": 129
       }
     ],
     "description": [
@@ -5179,7 +5215,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1001"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1001",
+        "page": 130
       }
     ],
     "description": [
@@ -5254,7 +5291,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1003"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1003",
+        "page": 130
       }
     ],
     "description": [
@@ -5361,7 +5399,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1004"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1004",
+        "page": 131
       }
     ],
     "description": [
@@ -5485,7 +5524,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1006"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1006",
+        "page": 131
       }
     ],
     "description": [
@@ -5609,7 +5649,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1016"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1016",
+        "page": 136
       }
     ],
     "description": [
@@ -5721,7 +5762,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1022"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1022",
+        "page": 137
       }
     ],
     "description": [
@@ -5839,7 +5881,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1023"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1023",
+        "page": 137
       }
     ],
     "description": [
@@ -5921,7 +5964,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1025"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1025",
+        "page": 138
       }
     ],
     "description": [
@@ -6078,7 +6122,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1026"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1026",
+        "page": 138
       }
     ],
     "description": [
@@ -6215,7 +6260,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1028"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1028",
+        "page": 139
       }
     ],
     "description": [
@@ -6284,7 +6330,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1033"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1033",
+        "page": 141
       }
     ],
     "description": [
@@ -6464,7 +6511,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1035"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1035",
+        "page": 141
       }
     ],
     "description": [

@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=198"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=198",
+        "page": 224
       }
     ],
     "description": [
@@ -71,7 +72,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=197"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=197",
+        "page": 108
       }
     ],
     "description": [

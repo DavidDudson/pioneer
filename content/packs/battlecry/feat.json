@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7928"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7928",
+        "page": 58
       }
     ],
     "description": [
@@ -62,7 +63,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7991"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7991",
+        "page": 71
       }
     ],
     "description": [
@@ -117,7 +119,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7797"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7797",
+        "page": 30
       }
     ],
     "description": [
@@ -183,7 +186,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7995"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7995",
+        "page": 82
       }
     ],
     "description": [
@@ -248,7 +252,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7895"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7895",
+        "page": 53
       }
     ],
     "description": [
@@ -313,7 +318,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7889"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7889",
+        "page": 52
       }
     ],
     "description": [
@@ -378,7 +384,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7899"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7899",
+        "page": 54
       }
     ],
     "description": [
@@ -482,7 +489,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7901"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7901",
+        "page": 54
       }
     ],
     "description": [
@@ -576,7 +584,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7903"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7903",
+        "page": 54
       }
     ],
     "description": [
@@ -703,7 +712,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7911"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7911",
+        "page": 55
       }
     ],
     "description": [
@@ -828,7 +838,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7907"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7907",
+        "page": 55
       }
     ],
     "description": [
@@ -891,7 +902,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7980"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7980",
+        "page": 68
       }
     ],
     "description": [
@@ -957,7 +969,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7844"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7844",
+        "page": 42
       }
     ],
     "description": [
@@ -992,7 +1005,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7867"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7867",
+        "page": 46
       }
     ],
     "description": [
@@ -1117,7 +1131,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7868"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7868",
+        "page": 46
       }
     ],
     "description": [
@@ -1218,7 +1233,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7845"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7845",
+        "page": 43
       }
     ],
     "description": [
@@ -1345,7 +1361,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7897"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7897",
+        "page": 53
       }
     ],
     "description": [
@@ -1407,7 +1424,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7803"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7803",
+        "page": 31
       }
     ],
     "description": [
@@ -1454,7 +1472,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7804"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7804",
+        "page": 31
       }
     ],
     "description": [
@@ -1517,7 +1536,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7893"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7893",
+        "page": 53
       }
     ],
     "description": [
@@ -1586,7 +1606,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7887"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7887",
+        "page": 52
       }
     ],
     "description": [
@@ -1655,7 +1676,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7815"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7815",
+        "page": 32
       }
     ],
     "description": [
@@ -1726,7 +1748,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7808"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7808",
+        "page": 31
       }
     ],
     "description": [
@@ -1780,7 +1803,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7985"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7985",
+        "page": 69
       }
     ],
     "description": [
@@ -1826,7 +1850,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7938"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7938",
+        "page": 61
       }
     ],
     "description": [
@@ -1975,7 +2000,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7862"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7862",
+        "page": 45
       }
     ],
     "description": [
@@ -2082,7 +2108,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7873"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7873",
+        "page": 48
       }
     ],
     "description": [
@@ -2174,7 +2201,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7874"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7874",
+        "page": 48
       }
     ],
     "description": [
@@ -2292,7 +2320,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7831"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7831",
+        "page": 40
       }
     ],
     "description": [
@@ -2353,7 +2382,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7781"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7781",
+        "page": 14
       }
     ],
     "description": [
@@ -2420,7 +2450,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7963"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7963",
+        "page": 65
       }
     ],
     "description": [
@@ -2469,7 +2500,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7998"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7998",
+        "page": 83
       }
     ],
     "description": [
@@ -2533,7 +2565,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7776"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7776",
+        "page": 13
       }
     ],
     "description": [
@@ -2601,7 +2634,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7994"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7994",
+        "page": 82
       }
     ],
     "description": [
@@ -2699,7 +2733,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7769"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7769",
+        "page": 13
       }
     ],
     "description": [
@@ -2749,7 +2784,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7770"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7770",
+        "page": 13
       }
     ],
     "description": [
@@ -2841,7 +2877,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7809"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7809",
+        "page": 31
       }
     ],
     "description": [
@@ -2946,7 +2983,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7877"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7877",
+        "page": 48
       }
     ],
     "description": [
@@ -3020,7 +3058,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7878"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7878",
+        "page": 49
       }
     ],
     "description": [
@@ -3109,7 +3148,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7886"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7886",
+        "page": 52
       }
     ],
     "description": [
@@ -3191,7 +3231,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7793"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7793",
+        "page": 30
       }
     ],
     "description": [
@@ -3243,7 +3284,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7824"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7824",
+        "page": 34
       }
     ],
     "description": [
@@ -3320,7 +3362,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7821"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7821",
+        "page": 34
       }
     ],
     "description": [
@@ -3374,7 +3417,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8001"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8001",
+        "page": 83
       }
     ],
     "description": [
@@ -3421,7 +3465,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7837"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7837",
+        "page": 42
       }
     ],
     "description": [
@@ -3459,7 +3504,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7914"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7914",
+        "page": 56
       }
     ],
     "description": [
@@ -3531,7 +3577,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7913"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7913",
+        "page": 56
       }
     ],
     "description": [
@@ -3624,7 +3671,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7986"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7986",
+        "page": 70
       }
     ],
     "description": [
@@ -3742,7 +3790,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7971"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7971",
+        "page": 67
       }
     ],
     "description": [
@@ -3855,7 +3904,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7988"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7988",
+        "page": 70
       }
     ],
     "description": [
@@ -3912,7 +3962,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7974"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7974",
+        "page": 67
       }
     ],
     "description": [
@@ -4028,7 +4079,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7941"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7941",
+        "page": 61
       }
     ],
     "description": [
@@ -4097,7 +4149,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7968"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7968",
+        "page": 67
       }
     ],
     "description": [
@@ -4152,7 +4205,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7794"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7794",
+        "page": 30
       }
     ],
     "description": [
@@ -4246,7 +4300,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7798"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7798",
+        "page": 30
       }
     ],
     "description": [
@@ -4345,7 +4400,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7811"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7811",
+        "page": 32
       }
     ],
     "description": [
@@ -4392,7 +4448,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7826"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7826",
+        "page": 35
       }
     ],
     "description": [
@@ -4553,7 +4610,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7880"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7880",
+        "page": 49
       }
     ],
     "description": [
@@ -4695,7 +4753,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7822"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7822",
+        "page": 34
       }
     ],
     "description": [
@@ -4806,7 +4865,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7910"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7910",
+        "page": 55
       }
     ],
     "description": [
@@ -4892,7 +4952,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7869"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7869",
+        "page": 47
       }
     ],
     "description": [
@@ -5042,7 +5103,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7851"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7851",
+        "page": 43
       }
     ],
     "description": [
@@ -5145,7 +5207,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7965"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7965",
+        "page": 66
       }
     ],
     "description": [
@@ -5242,7 +5305,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7816"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7816",
+        "page": 33
       }
     ],
     "description": [
@@ -5296,7 +5360,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7900"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7900",
+        "page": 54
       }
     ],
     "description": [
@@ -5343,7 +5408,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7902"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7902",
+        "page": 54
       }
     ],
     "description": [
@@ -5451,7 +5517,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7908"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7908",
+        "page": 55
       }
     ],
     "description": [
@@ -5562,7 +5629,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7810"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7810",
+        "page": 31
       }
     ],
     "description": [
@@ -5597,7 +5665,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7846"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7846",
+        "page": 43
       }
     ],
     "description": [
@@ -5651,7 +5720,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7946"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7946",
+        "page": 62
       }
     ],
     "description": [
@@ -5762,7 +5832,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8002"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8002",
+        "page": 83
       }
     ],
     "description": [
@@ -5809,7 +5880,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7996"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7996",
+        "page": 82
       }
     ],
     "description": [
@@ -5873,7 +5945,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7923"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7923",
+        "page": 58
       }
     ],
     "description": [
@@ -5980,7 +6053,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7992"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7992",
+        "page": 71
       }
     ],
     "description": [
@@ -6057,7 +6131,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7922"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7922",
+        "page": 58
       }
     ],
     "description": [
@@ -6164,7 +6239,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7847"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7847",
+        "page": 43
       }
     ],
     "description": [
@@ -6259,7 +6335,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7959"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7959",
+        "page": 65
       }
     ],
     "description": [
@@ -6308,7 +6385,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7819"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7819",
+        "page": 33
       }
     ],
     "description": [
@@ -6379,7 +6457,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7939"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7939",
+        "page": 61
       }
     ],
     "description": [
@@ -6548,7 +6627,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7863"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7863",
+        "page": 45
       }
     ],
     "description": [
@@ -6602,7 +6682,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7969"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7969",
+        "page": 67
       }
     ],
     "description": [
@@ -6649,7 +6730,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7829"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7829",
+        "page": 35
       }
     ],
     "description": [
@@ -6702,7 +6784,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7966"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7966",
+        "page": 67
       }
     ],
     "description": [
@@ -6765,7 +6848,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7884"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7884",
+        "page": 49
       }
     ],
     "description": [
@@ -6808,7 +6892,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7857"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7857",
+        "page": 45
       }
     ],
     "description": [
@@ -6896,7 +6981,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7892"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7892",
+        "page": 53
       }
     ],
     "description": [
@@ -7028,7 +7114,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7894"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7894",
+        "page": 53
       }
     ],
     "description": [
@@ -7075,7 +7162,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7896"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7896",
+        "page": 53
       }
     ],
     "description": [
@@ -7130,7 +7218,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7931"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7931",
+        "page": 60
       }
     ],
     "description": [
@@ -7278,7 +7367,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7932"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7932",
+        "page": 60
       }
     ],
     "description": [
@@ -7345,7 +7435,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7799"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7799",
+        "page": 30
       }
     ],
     "description": [
@@ -7420,7 +7511,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7838"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7838",
+        "page": 42
       }
     ],
     "description": [
@@ -7467,7 +7559,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7934"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7934",
+        "page": 60
       }
     ],
     "description": [
@@ -7553,7 +7646,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7785"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7785",
+        "page": 14
       }
     ],
     "description": [
@@ -7596,7 +7690,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7782"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7782",
+        "page": 14
       }
     ],
     "description": [
@@ -7735,7 +7830,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7975"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7975",
+        "page": 67
       }
     ],
     "description": [
@@ -7845,7 +7941,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7919"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7919",
+        "page": 57
       }
     ],
     "description": [
@@ -7931,7 +8028,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7921"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7921",
+        "page": 57
       }
     ],
     "description": [
@@ -8043,7 +8141,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7916"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7916",
+        "page": 56
       }
     ],
     "description": [
@@ -8109,7 +8208,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7981"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7981",
+        "page": 69
       }
     ],
     "description": [
@@ -8176,7 +8276,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7925"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7925",
+        "page": 58
       }
     ],
     "description": [
@@ -8295,7 +8396,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7926"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7926",
+        "page": 58
       }
     ],
     "description": [
@@ -8400,7 +8502,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7943"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7943",
+        "page": 62
       }
     ],
     "description": [
@@ -8499,7 +8602,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7898"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7898",
+        "page": 53
       }
     ],
     "description": [
@@ -8552,7 +8656,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7772"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7772",
+        "page": 13
       }
     ],
     "description": [
@@ -8605,7 +8710,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7773"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7773",
+        "page": 13
       }
     ],
     "description": [
@@ -8693,7 +8799,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7774"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7774",
+        "page": 13
       }
     ],
     "description": [
@@ -8761,7 +8868,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7777"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7777",
+        "page": 13
       }
     ],
     "description": [
@@ -8800,7 +8908,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7783"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7783",
+        "page": 14
       }
     ],
     "description": [
@@ -8866,7 +8975,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7771"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7771",
+        "page": 13
       }
     ],
     "description": [
@@ -8917,7 +9027,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7778"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7778",
+        "page": 14
       }
     ],
     "description": [
@@ -8974,7 +9085,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7789"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7789",
+        "page": 15
       }
     ],
     "description": [
@@ -9078,7 +9190,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7786"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7786",
+        "page": 15
       }
     ],
     "description": [
@@ -9132,7 +9245,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7790"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7790",
+        "page": 15
       }
     ],
     "description": [
@@ -9175,7 +9289,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7858"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7858",
+        "page": 45
       }
     ],
     "description": [
@@ -9241,7 +9356,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7875"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7875",
+        "page": 48
       }
     ],
     "description": [
@@ -9334,7 +9450,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7832"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7832",
+        "page": 41
       }
     ],
     "description": [
@@ -9409,7 +9526,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7997"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7997",
+        "page": 82
       }
     ],
     "description": [
@@ -9456,7 +9574,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8003"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8003",
+        "page": 83
       }
     ],
     "description": [
@@ -9558,7 +9677,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7947"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7947",
+        "page": 63
       }
     ],
     "description": [
@@ -9613,7 +9733,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7949"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7949",
+        "page": 63
       }
     ],
     "description": [
@@ -9707,7 +9828,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7950"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7950",
+        "page": 63
       }
     ],
     "description": [
@@ -9785,7 +9907,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7944"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7944",
+        "page": 62
       }
     ],
     "description": [
@@ -9844,7 +9967,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7945"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7945",
+        "page": 62
       }
     ],
     "description": [
@@ -9902,7 +10026,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7955"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7955",
+        "page": 63
       }
     ],
     "description": [
@@ -9949,7 +10074,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7951"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7951",
+        "page": 63
       }
     ],
     "description": [
@@ -10036,7 +10162,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7953"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7953",
+        "page": 63
       }
     ],
     "description": [
@@ -10083,7 +10210,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7918"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7918",
+        "page": 57
       }
     ],
     "description": [
@@ -10146,7 +10274,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7853"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7853",
+        "page": 43
       }
     ],
     "description": [
@@ -10239,7 +10368,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7940"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7940",
+        "page": 61
       }
     ],
     "description": [
@@ -10358,7 +10488,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7833"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7833",
+        "page": 41
       }
     ],
     "description": [
@@ -10393,7 +10524,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7977"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7977",
+        "page": 68
       }
     ],
     "description": [
@@ -10486,7 +10618,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7930"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7930",
+        "page": 58
       }
     ],
     "description": [
@@ -10533,7 +10666,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7827"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7827",
+        "page": 35
       }
     ],
     "description": [
@@ -10698,7 +10832,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=6413"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=6413",
+        "page": 45
       }
     ],
     "description": [
@@ -10763,7 +10898,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7864"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7864",
+        "page": 45
       }
     ],
     "description": [
@@ -10815,7 +10951,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7987"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7987",
+        "page": 70
       }
     ],
     "description": [
@@ -10908,7 +11045,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7958"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7958",
+        "page": 65
       }
     ],
     "description": [
@@ -10976,7 +11114,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7964"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7964",
+        "page": 66
       }
     ],
     "description": [
@@ -11086,7 +11225,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7879"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7879",
+        "page": 49
       }
     ],
     "description": [
@@ -11137,7 +11277,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7848"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7848",
+        "page": 43
       }
     ],
     "description": [
@@ -11314,7 +11455,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7805"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7805",
+        "page": 31
       }
     ],
     "description": [
@@ -11394,7 +11536,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7812"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7812",
+        "page": 32
       }
     ],
     "description": [
@@ -11468,7 +11611,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7890"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7890",
+        "page": 52
       }
     ],
     "description": [
@@ -11521,7 +11665,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7891"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7891",
+        "page": 52
       }
     ],
     "description": [
@@ -11574,7 +11719,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7795"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7795",
+        "page": 30
       }
     ],
     "description": [
@@ -11657,7 +11803,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7906"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7906",
+        "page": 55
       }
     ],
     "description": [
@@ -11843,7 +11990,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8004"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8004",
+        "page": 83
       }
     ],
     "description": [
@@ -11912,7 +12060,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7825"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7825",
+        "page": 35
       }
     ],
     "description": [
@@ -12049,7 +12198,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7830"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7830",
+        "page": 35
       }
     ],
     "description": [
@@ -12117,7 +12267,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7881"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7881",
+        "page": 49
       }
     ],
     "description": [
@@ -12195,7 +12346,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7820"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7820",
+        "page": 34
       }
     ],
     "description": [
@@ -12294,7 +12446,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7779"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7779",
+        "page": 14
       }
     ],
     "description": [
@@ -12354,7 +12507,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7791"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7791",
+        "page": 15
       }
     ],
     "description": [
@@ -12449,7 +12603,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7787"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7787",
+        "page": 15
       }
     ],
     "description": [
@@ -12519,7 +12674,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7784"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7784",
+        "page": 14
       }
     ],
     "description": [
@@ -12582,7 +12738,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7775"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7775",
+        "page": 13
       }
     ],
     "description": [
@@ -12659,7 +12816,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7796"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7796",
+        "page": 30
       }
     ],
     "description": [
@@ -12751,7 +12909,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7935"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7935",
+        "page": 60
       }
     ],
     "description": [
@@ -12845,7 +13004,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7780"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7780",
+        "page": 14
       }
     ],
     "description": [
@@ -12940,7 +13100,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7828"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7828",
+        "page": 35
       }
     ],
     "description": [
@@ -12994,7 +13155,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7924"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7924",
+        "page": 58
       }
     ],
     "description": [
@@ -13111,7 +13273,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7970"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7970",
+        "page": 67
       }
     ],
     "description": [
@@ -13214,7 +13377,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7849"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7849",
+        "page": 43
       }
     ],
     "description": [
@@ -13301,7 +13465,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7834"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7834",
+        "page": 41
       }
     ],
     "description": [
@@ -13428,7 +13593,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7954"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7954",
+        "page": 63
       }
     ],
     "description": [
@@ -13531,7 +13697,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7882"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7882",
+        "page": 49
       }
     ],
     "description": [
@@ -13601,7 +13768,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7823"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7823",
+        "page": 34
       }
     ],
     "description": [
@@ -13668,7 +13836,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7840"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7840",
+        "page": 42
       }
     ],
     "description": [
@@ -13727,7 +13896,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7936"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7936",
+        "page": 60
       }
     ],
     "description": [
@@ -13813,7 +13983,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7813"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7813",
+        "page": 32
       }
     ],
     "description": [
@@ -13894,7 +14065,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7800"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7800",
+        "page": 31
       }
     ],
     "description": [
@@ -13968,7 +14140,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7990"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7990",
+        "page": 71
       }
     ],
     "description": [
@@ -14091,7 +14264,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7962"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7962",
+        "page": 65
       }
     ],
     "description": [
@@ -14193,7 +14367,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7917"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7917",
+        "page": 57
       }
     ],
     "description": [
@@ -14288,7 +14463,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7948"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7948",
+        "page": 63
       }
     ],
     "description": [
@@ -14406,7 +14582,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7915"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7915",
+        "page": 56
       }
     ],
     "description": [
@@ -14470,7 +14647,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7859"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7859",
+        "page": 45
       }
     ],
     "description": [
@@ -14563,7 +14741,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7854"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7854",
+        "page": 44
       }
     ],
     "description": [
@@ -14609,7 +14788,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7870"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7870",
+        "page": 47
       }
     ],
     "description": [
@@ -14671,7 +14851,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7855"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7855",
+        "page": 44
       }
     ],
     "description": [
@@ -14859,7 +15040,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7905"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7905",
+        "page": 55
       }
     ],
     "description": [
@@ -14946,7 +15128,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7871"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7871",
+        "page": 47
       }
     ],
     "description": [
@@ -15020,7 +15203,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7984"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7984",
+        "page": 69
       }
     ],
     "description": [
@@ -15066,7 +15250,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7952"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7952",
+        "page": 63
       }
     ],
     "description": [
@@ -15144,7 +15329,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7801"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7801",
+        "page": 31
       }
     ],
     "description": [
@@ -15190,7 +15376,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7967"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7967",
+        "page": 67
       }
     ],
     "description": [
@@ -15237,7 +15424,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7957"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7957",
+        "page": 63
       }
     ],
     "description": [
@@ -15284,7 +15472,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7860"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7860",
+        "page": 45
       }
     ],
     "description": [
@@ -15392,7 +15581,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7883"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7883",
+        "page": 49
       }
     ],
     "description": [
@@ -15497,7 +15687,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7978"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7978",
+        "page": 68
       }
     ],
     "description": [
@@ -15608,7 +15799,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7861"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7861",
+        "page": 45
       }
     ],
     "description": [
@@ -15741,7 +15933,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7835"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7835",
+        "page": 41
       }
     ],
     "description": [
@@ -15776,7 +15969,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7841"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7841",
+        "page": 42
       }
     ],
     "description": [
@@ -15863,7 +16057,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7850"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7850",
+        "page": 43
       }
     ],
     "description": [
@@ -15938,7 +16133,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7806"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7806",
+        "page": 31
       }
     ],
     "description": [
@@ -16009,7 +16205,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7982"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7982",
+        "page": 69
       }
     ],
     "description": [
@@ -16063,7 +16260,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7842"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7842",
+        "page": 42
       }
     ],
     "description": [
@@ -16145,7 +16343,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7972"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7972",
+        "page": 67
       }
     ],
     "description": [
@@ -16241,7 +16440,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7836"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7836",
+        "page": 42
       }
     ],
     "description": [
@@ -16376,7 +16576,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7961"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7961",
+        "page": 65
       }
     ],
     "description": [
@@ -16461,7 +16662,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7979"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7979",
+        "page": 68
       }
     ],
     "description": [
@@ -16524,7 +16726,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7956"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7956",
+        "page": 63
       }
     ],
     "description": [
@@ -16574,7 +16777,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7788"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7788",
+        "page": 15
       }
     ],
     "description": [
@@ -16630,7 +16834,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7933"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7933",
+        "page": 60
       }
     ],
     "description": [
@@ -16690,7 +16895,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7983"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7983",
+        "page": 69
       }
     ],
     "description": [
@@ -16757,7 +16963,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7817"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7817",
+        "page": 33
       }
     ],
     "description": [
@@ -16904,7 +17111,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7993"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7993",
+        "page": 71
       }
     ],
     "description": [
@@ -16989,7 +17197,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7856"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7856",
+        "page": 44
       }
     ],
     "description": [
@@ -17136,7 +17345,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7865"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7865",
+        "page": 46
       }
     ],
     "description": [
@@ -17178,7 +17388,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7912"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7912",
+        "page": 55
       }
     ],
     "description": [
@@ -17267,7 +17478,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7888"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7888",
+        "page": 52
       }
     ],
     "description": [
@@ -17385,7 +17597,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7802"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7802",
+        "page": 31
       }
     ],
     "description": [
@@ -17503,7 +17716,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7999"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7999",
+        "page": 83
       }
     ],
     "description": [
@@ -17559,7 +17773,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7818"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7818",
+        "page": 33
       }
     ],
     "description": [
@@ -17630,7 +17845,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7843"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7843",
+        "page": 42
       }
     ],
     "description": [
@@ -17668,7 +17884,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7909"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7909",
+        "page": 55
       }
     ],
     "description": [
@@ -17742,7 +17959,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7942"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7942",
+        "page": 61
       }
     ],
     "description": [
@@ -17805,7 +18023,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7929"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7929",
+        "page": 58
       }
     ],
     "description": [
@@ -17870,7 +18089,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7866"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7866",
+        "page": 46
       }
     ],
     "description": [
@@ -17955,7 +18175,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7904"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7904",
+        "page": 55
       }
     ],
     "description": [
@@ -18065,7 +18286,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7814"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7814",
+        "page": 32
       }
     ],
     "description": [
@@ -18127,7 +18349,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7920"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7920",
+        "page": 57
       }
     ],
     "description": [
@@ -18198,7 +18421,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7807"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7807",
+        "page": 31
       }
     ],
     "description": [
@@ -18245,7 +18469,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7885"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7885",
+        "page": 49
       }
     ],
     "description": [
@@ -18291,7 +18516,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7989"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7989",
+        "page": 71
       }
     ],
     "description": [
@@ -18348,7 +18574,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7937"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7937",
+        "page": 60
       }
     ],
     "description": [
@@ -18408,7 +18635,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8000"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8000",
+        "page": 83
       }
     ],
     "description": [
@@ -18455,7 +18683,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7973"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7973",
+        "page": 67
       }
     ],
     "description": [
@@ -18670,7 +18899,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7976"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7976",
+        "page": 68
       }
     ],
     "description": [
@@ -18747,7 +18977,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7872"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7872",
+        "page": 47
       }
     ],
     "description": [
@@ -18811,7 +19042,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7960"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7960",
+        "page": 65
       }
     ],
     "description": [

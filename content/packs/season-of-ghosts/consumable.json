@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4082"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4082",
+        "page": 301
       }
     ],
     "description": [
@@ -104,7 +105,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4068"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4068",
+        "page": 298
       }
     ],
     "description": [
@@ -183,7 +185,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4075"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4075",
+        "page": 299
       }
     ],
     "description": [
@@ -306,7 +309,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4055"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4055",
+        "page": 295
       }
     ],
     "description": [
@@ -486,7 +490,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4076"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4076",
+        "page": 300
       }
     ],
     "description": [
@@ -591,7 +596,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4083"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4083",
+        "page": 301
       }
     ],
     "description": [
@@ -706,7 +712,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4110"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4110",
+        "page": 342
       }
     ],
     "description": [
@@ -768,7 +775,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4056"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4056",
+        "page": 295
       }
     ],
     "description": [
@@ -855,7 +863,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4077"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4077",
+        "page": 300
       }
     ],
     "description": [
@@ -977,7 +986,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4057"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4057",
+        "page": 295
       }
     ],
     "description": [
@@ -1083,7 +1093,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4078"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4078",
+        "page": 300
       }
     ],
     "description": [
@@ -1241,7 +1252,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4069"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4069",
+        "page": 298
       }
     ],
     "description": [
@@ -1329,7 +1341,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4079"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4079",
+        "page": 300
       }
     ],
     "description": [
@@ -1425,7 +1438,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4084"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4084",
+        "page": 301
       }
     ],
     "description": [
@@ -1504,7 +1518,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4084"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4084",
+        "page": 301
       }
     ],
     "description": [
@@ -1567,7 +1582,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4084"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4084",
+        "page": 301
       }
     ],
     "description": [
@@ -1646,7 +1662,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4080"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4080",
+        "page": 300
       }
     ],
     "description": [
@@ -1760,7 +1777,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4070"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4070",
+        "page": 298
       }
     ],
     "description": [
@@ -1957,7 +1975,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4071"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4071",
+        "page": 298
       }
     ],
     "description": [
@@ -2105,7 +2124,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4081"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4081",
+        "page": 300
       }
     ],
     "description": [
@@ -2222,7 +2242,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4072"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4072",
+        "page": 299
       }
     ],
     "description": [
@@ -2323,7 +2344,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4073"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4073",
+        "page": 299
       }
     ],
     "description": [
@@ -2429,7 +2451,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4085"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4085",
+        "page": 301
       }
     ],
     "description": [
@@ -2545,7 +2568,8 @@
       {
         "kind": "book",
         "book": "season-of-ghosts",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4074"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4074",
+        "page": 299
       }
     ],
     "description": [

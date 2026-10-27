@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "bastion-of-blasphemies",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5196"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5196",
+        "page": 238
       }
     ],
     "description": [
@@ -109,7 +110,8 @@
       {
         "kind": "book",
         "book": "bastion-of-blasphemies",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5203"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5203",
+        "page": 241
       }
     ],
     "description": [
@@ -163,7 +165,8 @@
       {
         "kind": "book",
         "book": "bastion-of-blasphemies",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5203"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5203",
+        "page": 241
       }
     ],
     "description": [
@@ -217,7 +220,8 @@
       {
         "kind": "book",
         "book": "bastion-of-blasphemies",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5203"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5203",
+        "page": 241
       }
     ],
     "description": [

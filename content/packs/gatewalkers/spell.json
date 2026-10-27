@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2534"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2534",
+        "page": 233
       }
     ],
     "description": [
@@ -234,7 +235,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2535"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2535",
+        "page": 233
       }
     ],
     "description": [
@@ -368,7 +370,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2536"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2536",
+        "page": 234
       }
     ],
     "description": [
@@ -479,7 +482,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2533"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2533",
+        "page": 231
       }
     ],
     "description": [

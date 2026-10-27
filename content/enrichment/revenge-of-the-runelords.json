@@ -1,278 +1,347 @@
 {
   "consumable:elixir-of-the-peaks-greater": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042",
+    "page": 69
   },
   "consumable:elixir-of-the-peaks-lesser": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042",
+    "page": 69
   },
   "consumable:elixir-of-the-peaks-major": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042",
+    "page": 69
   },
   "consumable:elixir-of-the-peaks-moderate": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042",
+    "page": 69
   },
   "equipment:cyrusian-wand-1st-rank-spell": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045",
+    "page": 70
   },
   "equipment:cyrusian-wand-2nd-rank-spell": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045",
+    "page": 70
   },
   "equipment:cyrusian-wand-3rd-rank-spell": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045",
+    "page": 70
   },
   "equipment:cyrusian-wand-4th-rank-spell": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045",
+    "page": 70
   },
   "equipment:cyrusian-wand-5th-rank-spell": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045",
+    "page": 70
   },
   "equipment:cyrusian-wand-6th-rank-spell": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045",
+    "page": 70
   },
   "equipment:cyrusian-wand-7th-rank-spell": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045",
+    "page": 70
   },
   "equipment:cyrusian-wand-8th-rank-spell": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045",
+    "page": 70
   },
   "equipment:cyrusian-wand-9th-rank-spell": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4045",
+    "page": 70
   },
   "equipment:paradigm-cube": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4041"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4041",
+    "page": 70
   },
   "equipment:sihedron-medallion": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4043"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4043",
+    "page": 69
   },
   "equipment:sihedron-medallion-greater": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4043"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4043",
+    "page": 69
   },
   "equipment:sihedron-medallion-major": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4043"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4043",
+    "page": 69
   },
   "equipment:sihedron-ring": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4044"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4044",
+    "page": 70
   },
   "equipment:sihedron-ring-greater": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4044"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4044",
+    "page": 70
   },
   "feat:advanced-runelord-magic": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8148"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8148",
+    "page": 75
   },
   "feat:apocalyptic-visions": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8149"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8149",
+    "page": 75
   },
   "feat:athletes-ally": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8179"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8179",
+    "page": 85
   },
   "feat:autonomous-arms": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8145"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8145",
+    "page": 74
   },
   "feat:avenging-runelord-dedication": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8139"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8139",
+    "page": 72
   },
   "feat:avoid-fates-gaze": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8152"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8152",
+    "page": 77
   },
   "feat:be-right-back": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8167"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8167",
+    "page": 81
   },
   "feat:bolstered-recovery": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8172"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8172",
+    "page": 82
   },
   "feat:craft-runewell": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8150"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8150",
+    "page": 75
   },
   "feat:daunting-spell": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8158"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8158",
+    "page": 78
   },
   "feat:divide-and-conquer": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8184"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8184",
+    "page": 86
   },
   "feat:echoing-fury": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8173"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8173",
+    "page": 82
   },
   "feat:eternal-hero": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8165"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8165",
+    "page": 79
   },
   "feat:expanded-runelord-magic": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8140"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8140",
+    "page": 73
   },
   "feat:final-shot-knows-the-way": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8187"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8187",
+    "page": 87
   },
   "feat:heroic-scion-dedication": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8151"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8151",
+    "page": 77
   },
   "feat:i-am-the-weapon": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8189"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8189",
+    "page": 87
   },
   "feat:indomitable-shot": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8185"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8185",
+    "page": 86
   },
   "feat:internal-dialogue": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8154"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8154",
+    "page": 78
   },
   "feat:ive-been-here-before": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8153"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8153",
+    "page": 77
   },
   "feat:let-death-be-my-weapon": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8159"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8159",
+    "page": 78
   },
   "feat:lightless-sight": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8180"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8180",
+    "page": 85
   },
   "feat:live-off-borrowed-time": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8168"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8168",
+    "page": 81
   },
   "feat:momentary-respite": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8160"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8160",
+    "page": 78
   },
   "feat:my-reputation-precedes-me": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8155"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8155",
+    "page": 78
   },
   "feat:not-this-time": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8176"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8176",
+    "page": 83
   },
   "feat:now-you-see-me": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8169"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8169",
+    "page": 81
   },
   "feat:on-my-best-day": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8162"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8162",
+    "page": 79
   },
   "feat:prescient-parry": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8186"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8186",
+    "page": 87
   },
   "feat:preserve-the-moment": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8174"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8174",
+    "page": 82
   },
   "feat:reincarnated-companion": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8156"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8156",
+    "page": 78
   },
   "feat:reliable-magic": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8141"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8141",
+    "page": 73
   },
   "feat:second-sight": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8170"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8170",
+    "page": 82
   },
   "feat:shining-runes": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8142"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8142",
+    "page": 73
   },
   "feat:steadfast-grip": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8181"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8181",
+    "page": 85
   },
   "feat:subjugation": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8146"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8146",
+    "page": 74
   },
   "feat:telling-blow": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8163"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8163",
+    "page": 79
   },
   "feat:temporal-fury": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8171"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8171",
+    "page": 82
   },
   "feat:throw-and-catch": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8188"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8188",
+    "page": 87
   },
   "feat:timelessness": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8177"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8177",
+    "page": 83
   },
   "feat:timewracked-dedication": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8166"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8166",
+    "page": 80
   },
   "feat:to-me": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8164"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8164",
+    "page": 79
   },
   "feat:to-thine-own-self": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8157"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8157",
+    "page": 78
   },
   "feat:transmute-weapon": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8182"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8182",
+    "page": 86
   },
   "feat:vigorous-victor": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8161"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8161",
+    "page": 79
   },
   "feat:vindictive-thoughts": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8147"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8147",
+    "page": 75
   },
   "feat:warshard-rune": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8183"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8183",
+    "page": 86
   },
   "feat:warshard-warrior-dedication": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8178"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8178",
+    "page": 84
   },
   "feat:willing-runes": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8143"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8143",
+    "page": 73
   },
   "feat:writhing-runelord-weapon": {
     "book": "revenge-of-the-runelords",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8144"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8144",
+    "page": 74
   }
 }

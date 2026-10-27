@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "dark-archive-remastered",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=225"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=225",
+        "page": 145
       }
     ],
     "description": [
@@ -150,7 +151,8 @@
       {
         "kind": "book",
         "book": "dark-archive-remastered",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=231"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=231",
+        "page": 199
       }
     ],
     "description": [
@@ -325,7 +327,8 @@
       {
         "kind": "book",
         "book": "dark-archive-remastered",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=226"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=226",
+        "page": 145
       }
     ],
     "description": [
@@ -462,7 +465,8 @@
       {
         "kind": "book",
         "book": "dark-archive-remastered",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=227"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=227",
+        "page": 145
       }
     ],
     "description": [
@@ -645,7 +649,8 @@
       {
         "kind": "book",
         "book": "dark-archive-remastered",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=228"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=228",
+        "page": 145
       }
     ],
     "description": [
@@ -797,7 +802,8 @@
       {
         "kind": "book",
         "book": "dark-archive-remastered",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=229"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=229",
+        "page": 146
       }
     ],
     "description": [

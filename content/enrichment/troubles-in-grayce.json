@@ -1,34 +1,42 @@
 {
   "consumable:cinnamon-nostalgia-bun": {
     "book": "troubles-in-grayce",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5190"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5190",
+    "page": 87
   },
   "consumable:guardian-rose": {
     "book": "troubles-in-grayce",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4943"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4943",
+    "page": 117
   },
   "consumable:hagbane-biscuit": {
     "book": "troubles-in-grayce",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5192"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5192",
+    "page": 87
   },
   "consumable:last-word-stone": {
     "book": "troubles-in-grayce",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4944"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4944",
+    "page": 117
   },
   "consumable:tearaway-paper-doll": {
     "book": "troubles-in-grayce",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4947"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4947",
+    "page": 118
   },
   "equipment:floppy-rag-doll": {
     "book": "troubles-in-grayce",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4942"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4942",
+    "page": 117
   },
   "equipment:sweet-hags-eye": {
     "book": "troubles-in-grayce",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4946"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4946",
+    "page": 118
   },
   "equipment:vagabonds-teapot": {
     "book": "troubles-in-grayce",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4948"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4948",
+    "page": 118
   }
 }

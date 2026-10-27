@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7673"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7673",
+        "page": 51
       }
     ],
     "description": [
@@ -76,7 +77,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7681"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7681",
+        "page": 74
       }
     ],
     "description": [
@@ -123,7 +125,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7692"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7692",
+        "page": 76
       }
     ],
     "description": [
@@ -201,7 +204,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7690"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7690",
+        "page": 76
       }
     ],
     "description": [
@@ -279,7 +283,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7689"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7689",
+        "page": 76
       }
     ],
     "description": [
@@ -377,7 +382,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7717"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7717",
+        "page": 146
       }
     ],
     "description": [
@@ -459,7 +465,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7671"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7671",
+        "page": 51
       }
     ],
     "description": [
@@ -555,7 +562,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7695"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7695",
+        "page": 77
       }
     ],
     "description": [
@@ -634,7 +642,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7667"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7667",
+        "page": 50
       }
     ],
     "description": [
@@ -786,7 +795,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7669"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7669",
+        "page": 50
       }
     ],
     "description": [
@@ -870,7 +880,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7670"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7670",
+        "page": 51
       }
     ],
     "description": [
@@ -972,7 +983,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7727"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7727",
+        "page": 170
       }
     ],
     "description": [
@@ -1019,7 +1031,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7736"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7736",
+        "page": 172
       }
     ],
     "description": [
@@ -1088,7 +1101,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7715"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7715",
+        "page": 146
       }
     ],
     "description": [
@@ -1135,7 +1149,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7705"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7705",
+        "page": 125
       }
     ],
     "description": [
@@ -1198,7 +1213,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7666"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7666",
+        "page": 50
       }
     ],
     "description": [
@@ -1300,7 +1316,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7723"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7723",
+        "page": 148
       }
     ],
     "description": [
@@ -1384,7 +1401,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7675"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7675",
+        "page": 51
       }
     ],
     "description": [
@@ -1472,7 +1490,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7728"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7728",
+        "page": 170
       }
     ],
     "description": [
@@ -1561,7 +1580,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7686"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7686",
+        "page": 75
       }
     ],
     "description": [
@@ -1614,7 +1634,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7720"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7720",
+        "page": 147
       }
     ],
     "description": [
@@ -1726,7 +1747,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7732"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7732",
+        "page": 171
       }
     ],
     "description": [
@@ -1793,7 +1815,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7700"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7700",
+        "page": 122
       }
     ],
     "description": [
@@ -1943,7 +1966,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7683"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7683",
+        "page": 74
       }
     ],
     "description": [
@@ -2052,7 +2076,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7722"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7722",
+        "page": 148
       }
     ],
     "description": [
@@ -2087,7 +2112,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7703"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7703",
+        "page": 123
       }
     ],
     "description": [
@@ -2166,7 +2192,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7738"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7738",
+        "page": 172
       }
     ],
     "description": [
@@ -2270,7 +2297,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7737"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7737",
+        "page": 172
       }
     ],
     "description": [
@@ -2354,7 +2382,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7712"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7712",
+        "page": 125
       }
     ],
     "description": [
@@ -2458,7 +2487,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7701"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7701",
+        "page": 122
       }
     ],
     "description": [
@@ -2513,7 +2543,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7699"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7699",
+        "page": 122
       }
     ],
     "description": [
@@ -2598,7 +2629,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7709"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7709",
+        "page": 125
       }
     ],
     "description": [
@@ -2711,7 +2743,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7676"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7676",
+        "page": 51
       }
     ],
     "description": [
@@ -2766,7 +2799,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7677"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7677",
+        "page": 53
       }
     ],
     "description": [
@@ -2820,7 +2854,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7725"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7725",
+        "page": 170
       }
     ],
     "description": [
@@ -2891,7 +2926,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7711"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7711",
+        "page": 125
       }
     ],
     "description": [
@@ -2982,7 +3018,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7668"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7668",
+        "page": 50
       }
     ],
     "description": [
@@ -3032,7 +3069,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7729"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7729",
+        "page": 170
       }
     ],
     "description": [
@@ -3078,7 +3116,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7702"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7702",
+        "page": 122
       }
     ],
     "description": [
@@ -3162,7 +3201,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7693"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7693",
+        "page": 76
       }
     ],
     "description": [
@@ -3234,7 +3274,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7708"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7708",
+        "page": 125
       }
     ],
     "description": [
@@ -3348,7 +3389,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7724"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7724",
+        "page": 170
       }
     ],
     "description": [
@@ -3466,7 +3508,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7730"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7730",
+        "page": 171
       }
     ],
     "description": [
@@ -3528,7 +3571,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7726"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7726",
+        "page": 170
       }
     ],
     "description": [
@@ -3600,7 +3644,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7687"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7687",
+        "page": 75
       }
     ],
     "description": [
@@ -3655,7 +3700,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7688"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7688",
+        "page": 75
       }
     ],
     "description": [
@@ -3708,7 +3754,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7691"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7691",
+        "page": 76
       }
     ],
     "description": [
@@ -3797,7 +3844,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7694"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7694",
+        "page": 77
       }
     ],
     "description": [
@@ -3885,7 +3933,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7696"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7696",
+        "page": 77
       }
     ],
     "description": [
@@ -3977,7 +4026,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7718"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7718",
+        "page": 146
       }
     ],
     "description": [
@@ -4058,7 +4108,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7684"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7684",
+        "page": 74
       }
     ],
     "description": [
@@ -4105,7 +4156,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7680"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7680",
+        "page": 74
       }
     ],
     "description": [
@@ -4217,7 +4269,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7685"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7685",
+        "page": 74
       }
     ],
     "description": [
@@ -4272,7 +4325,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7741"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7741",
+        "page": 172
       }
     ],
     "description": [
@@ -4350,7 +4404,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7721"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7721",
+        "page": 147
       }
     ],
     "description": [
@@ -4423,7 +4478,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7733"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7733",
+        "page": 171
       }
     ],
     "description": [
@@ -4582,7 +4638,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7682"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7682",
+        "page": 74
       }
     ],
     "description": [
@@ -4657,7 +4714,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7706"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7706",
+        "page": 125
       }
     ],
     "description": [
@@ -4743,7 +4801,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7713"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7713",
+        "page": 125
       }
     ],
     "description": [
@@ -4862,7 +4921,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7707"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7707",
+        "page": 125
       }
     ],
     "description": [
@@ -4923,7 +4983,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7704"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7704",
+        "page": 124
       }
     ],
     "description": [
@@ -5051,7 +5112,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7731"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7731",
+        "page": 171
       }
     ],
     "description": [
@@ -5146,7 +5208,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7698"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7698",
+        "page": 98
       }
     ],
     "description": [
@@ -5207,7 +5270,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7697"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7697",
+        "page": 98
       }
     ],
     "description": [
@@ -5333,7 +5397,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7678"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7678",
+        "page": 53
       }
     ],
     "description": [
@@ -5379,7 +5444,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7672"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7672",
+        "page": 51
       }
     ],
     "description": [
@@ -5429,7 +5495,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7734"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7734",
+        "page": 171
       }
     ],
     "description": [
@@ -5602,7 +5669,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7674"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7674",
+        "page": 51
       }
     ],
     "description": [
@@ -5715,7 +5783,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7740"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7740",
+        "page": 172
       }
     ],
     "description": [
@@ -5793,7 +5862,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7735"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7735",
+        "page": 172
       }
     ],
     "description": [
@@ -5900,7 +5970,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7679"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7679",
+        "page": 53
       }
     ],
     "description": [
@@ -6037,7 +6108,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7719"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7719",
+        "page": 146
       }
     ],
     "description": [
@@ -6165,7 +6237,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7739"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7739",
+        "page": 172
       }
     ],
     "description": [
@@ -6251,7 +6324,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7714"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7714",
+        "page": 146
       }
     ],
     "description": [
@@ -6353,7 +6427,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7716"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7716",
+        "page": 146
       }
     ],
     "description": [

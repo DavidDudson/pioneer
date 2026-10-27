@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2128"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2128",
+        "page": 109
       }
     ],
     "description": [
@@ -139,7 +140,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2123"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2123",
+        "page": 99
       }
     ],
     "description": [
@@ -231,7 +233,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2124"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2124",
+        "page": 99
       }
     ],
     "description": [
@@ -458,7 +461,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2130"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2130",
+        "page": 100
       }
     ],
     "description": [
@@ -598,7 +602,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2129"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2129",
+        "page": 109
       }
     ],
     "description": [
@@ -652,7 +657,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2125"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2125",
+        "page": 99
       }
     ],
     "description": [
@@ -827,7 +833,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2126"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2126",
+        "page": 100
       }
     ],
     "description": [
@@ -957,7 +964,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2127"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2127",
+        "page": 100
       }
     ],
     "description": [
@@ -1131,7 +1139,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2131"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2131",
+        "page": 100
       }
     ],
     "description": [

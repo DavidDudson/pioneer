@@ -1,3682 +1,4602 @@
 {
   "archetype:captivator": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=390"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=390",
+    "page": 92
   },
   "archetype:hedge-mage": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=391"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=391",
+    "page": 94
   },
   "archetype:living-nexus": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=392"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=392",
+    "page": 96
   },
   "archetype:necromancer": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=387"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=387",
+    "page": 89
   },
   "archetype:runesmith": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=388"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=388",
+    "page": 90
   },
   "archetype:soulforger": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=393"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=393",
+    "page": 98
   },
   "archetype:spellshifter": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=394"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=394",
+    "page": 102
   },
   "archetype:summoner": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=389"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=389",
+    "page": 91
   },
   "archetype:veil-dancer": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=395"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=395",
+    "page": 104
   },
   "archetype:world-rouser": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=396"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=396",
+    "page": 106
   },
   "class:magus": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Classes.aspx?ID=74"
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=74",
+    "page": 9
   },
   "class:necromancer": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Classes.aspx?ID=75"
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=75",
+    "page": 27
   },
   "class:runesmith": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Classes.aspx?ID=76"
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=76",
+    "page": 43
   },
   "class:summoner": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Classes.aspx?ID=77"
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=77",
+    "page": 63
   },
   "consumable:apotropaic-fulu": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5071"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5071",
+    "page": 218
   },
   "consumable:backdraft-bead": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5044"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5044",
+    "page": 214
   },
   "consumable:beetle-gel": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5089"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5089",
+    "page": 222
   },
   "consumable:beetle-gel-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5089"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5089",
+    "page": 222
   },
   "consumable:binding-coil": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5101"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5101",
+    "page": 224
   },
   "consumable:binding-coil-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5101"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5101",
+    "page": 224
   },
   "consumable:bottled-melody": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5095"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5095",
+    "page": 223
   },
   "consumable:cantrip-deck-5-pack": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5140"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5140",
+    "page": 232
   },
   "consumable:cantrip-deck-full-pack": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5140"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5140",
+    "page": 232
   },
   "consumable:consecrated-shield": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5045"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5045",
+    "page": 214
   },
   "consumable:couriers-cryptex": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5046"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5046",
+    "page": 214
   },
   "consumable:daybreak-ammunition": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5033"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5033",
+    "page": 212
   },
   "consumable:dazzling-rosary": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5047"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5047",
+    "page": 214
   },
   "consumable:dazzling-rosary-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5047"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5047",
+    "page": 214
   },
   "consumable:detect-anathema-fulu": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5072"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5072",
+    "page": 218
   },
   "consumable:dimensional-knot": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5048"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5048",
+    "page": 214
   },
   "consumable:discordant-strings": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5049"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5049",
+    "page": 214
   },
   "consumable:dispersing-bullet": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5034"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5034",
+    "page": 212
   },
   "consumable:disruption-ammunition": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5035"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5035",
+    "page": 212
   },
   "consumable:disruption-ammunition-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5035"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5035",
+    "page": 212
   },
   "consumable:dragonbone-arrowhead": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5102"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5102",
+    "page": 224
   },
   "consumable:echoing-theater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5050"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5050",
+    "page": 214
   },
   "consumable:escalation-ammunition": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5036"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5036",
+    "page": 212
   },
   "consumable:eye-of-enlightenment": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5103"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5103",
+    "page": 224
   },
   "consumable:firestarter-pellets": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5051"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5051",
+    "page": 215
   },
   "consumable:firestarter-pellets-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5051"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5051",
+    "page": 215
   },
   "consumable:firestarter-pellets-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5051"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5051",
+    "page": 215
   },
   "consumable:flame-layer-balm": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5090"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5090",
+    "page": 222
   },
   "consumable:force-tiles": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5052"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5052",
+    "page": 215
   },
   "consumable:frigid-rebuke": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5053"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5053",
+    "page": 215
   },
   "consumable:fu-water": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5087"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5087",
+    "page": 221
   },
   "consumable:fulu-of-concealment": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5073"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5073",
+    "page": 218
   },
   "consumable:fulu-of-fire-suppression": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5075"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5075",
+    "page": 219
   },
   "consumable:fulu-of-flood-suppression": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5076"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5076",
+    "page": 219
   },
   "consumable:fulu-of-the-drunken-monkey": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5074"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5074",
+    "page": 219
   },
   "consumable:fulu-of-the-stoic-ox": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5077"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5077",
+    "page": 219
   },
   "consumable:ghostbane-fulu": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5078"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5078",
+    "page": 219
   },
   "consumable:ghostly-legerdemain": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5054"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5054",
+    "page": 215
   },
   "consumable:ghostly-portal-paint": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5091"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5091",
+    "page": 222
   },
   "consumable:golden-chrysalis": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5037"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5037",
+    "page": 212
   },
   "consumable:gravebane-ammunition": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5038"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5038",
+    "page": 213
   },
   "consumable:gravebane-ammunition-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5038"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5038",
+    "page": 213
   },
   "consumable:healers-gel": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5055",
+    "page": 215
   },
   "consumable:healers-gel-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5055",
+    "page": 215
   },
   "consumable:healers-gel-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5055",
+    "page": 215
   },
   "consumable:hundred-stings": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5056"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5056",
+    "page": 215
   },
   "consumable:leaden-weight": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5057"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5057",
+    "page": 215
   },
   "consumable:lion-claw": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5104"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5104",
+    "page": 224
   },
   "consumable:literate-lemur": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5058"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5058",
+    "page": 215
   },
   "consumable:lockpickers-oil": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5092"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5092",
+    "page": 222
   },
   "consumable:lockpickers-oil-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5092"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5092",
+    "page": 222
   },
   "consumable:lockpickers-oil-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5092"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5092",
+    "page": 222
   },
   "consumable:look-me-not": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5105"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5105",
+    "page": 224
   },
   "consumable:magekiller-bullet": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5039"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5039",
+    "page": 213
   },
   "consumable:magical-lock-fulu": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5079"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5079",
+    "page": 219
   },
   "consumable:matchmaker-fulu": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5080"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5080",
+    "page": 220
   },
   "consumable:mistwalkers-instinct": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5059"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5059",
+    "page": 215
   },
   "consumable:noxious-incense": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5060"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5060",
+    "page": 216
   },
   "consumable:noxious-incense-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5060"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5060",
+    "page": 216
   },
   "consumable:odious-token": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5061"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5061",
+    "page": 216
   },
   "consumable:orchestral-brooch": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5106"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5106",
+    "page": 224
   },
   "consumable:phoenix-flask": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5096"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5096",
+    "page": 223
   },
   "consumable:possums-play": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5107"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5107",
+    "page": 225
   },
   "consumable:possums-play-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5107"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5107",
+    "page": 225
   },
   "consumable:possums-play-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5107"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5107",
+    "page": 225
   },
   "consumable:potion-of-grounding": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5097"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5097",
+    "page": 223
   },
   "consumable:potion-of-minute-echoes": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5099"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5099",
+    "page": 223
   },
   "consumable:potion-of-stable-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5100"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5100",
+    "page": 223
   },
   "consumable:potion-of-stable-form-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5100"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5100",
+    "page": 223
   },
   "consumable:preserved-alecost": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5062"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5062",
+    "page": 216
   },
   "consumable:rebound-fulu": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5081"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5081",
+    "page": 220
   },
   "consumable:resonating-ammunition": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5040"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5040",
+    "page": 213
   },
   "consumable:restful-sleep-fulu": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5082"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5082",
+    "page": 220
   },
   "consumable:retrieval-prism": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5108"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5108",
+    "page": 225
   },
   "consumable:retrieval-prism-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5108"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5108",
+    "page": 225
   },
   "consumable:runeveil-ammunition": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5041"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5041",
+    "page": 213
   },
   "consumable:salve-of-mental-pattern": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5093"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5093",
+    "page": 222
   },
   "consumable:shatterpoint-ammunition": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5042"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5042",
+    "page": 213
   },
   "consumable:shatterpoint-ammunition-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5042"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5042",
+    "page": 213
   },
   "consumable:shatterpoint-ammunition-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5042"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5042",
+    "page": 213
   },
   "consumable:shimmering-dust": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5063"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5063",
+    "page": 216
   },
   "consumable:soothing-scents": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5064"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5064",
+    "page": 216
   },
   "consumable:spiral-labyrinth": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5109"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5109",
+    "page": 225
   },
   "consumable:spirit-sealing-fulu": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5083"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5083",
+    "page": 221
   },
   "consumable:spirit-sealing-fulu-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5083"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5083",
+    "page": 221
   },
   "consumable:steel-cloud-road": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5065"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5065",
+    "page": 216
   },
   "consumable:stolen-countenance": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5066"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5066",
+    "page": 216
   },
   "consumable:stormbreaker-fulu": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5084"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5084",
+    "page": 221
   },
   "consumable:stormfeather": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5110"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5110",
+    "page": 225
   },
   "consumable:three-bird-pinion": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5111"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5111",
+    "page": 225
   },
   "consumable:thunderbird-tuft-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5067"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5067",
+    "page": 217
   },
   "consumable:thunderbird-tuft-lesser": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5067"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5067",
+    "page": 217
   },
   "consumable:thunderbird-tuft-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5067"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5067",
+    "page": 217
   },
   "consumable:thunderbird-tuft-moderate": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5067"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5067",
+    "page": 217
   },
   "consumable:topology-protoplasm": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5094"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5094",
+    "page": 222
   },
   "consumable:tracking-fulu": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5085"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5085",
+    "page": 221
   },
   "consumable:undertakers-spade": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5068"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5068",
+    "page": 217
   },
   "consumable:vapor-sphere": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5112"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5112",
+    "page": 225
   },
   "consumable:venomous-cure-fulu": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5086"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5086",
+    "page": 221
   },
   "consumable:wardens-eye": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5069"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5069",
+    "page": 217
   },
   "consumable:waterproofing-wax": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5070"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5070",
+    "page": 217
   },
   "consumable:wormhole-shot": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5043"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5043",
+    "page": 213
   },
   "equipment:all-seeing-eye": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5147"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5147",
+    "page": 234
   },
   "equipment:all-seeing-eye-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5147"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5147",
+    "page": 234
   },
   "equipment:anointed-waterskin": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5139"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5139",
+    "page": 232
   },
   "equipment:archivists-gaze": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5113"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5113",
+    "page": 226
   },
   "equipment:arclord-eye": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5173"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5173",
+    "page": 241
   },
   "equipment:arclords-codex": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5119"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5119",
+    "page": 228
   },
   "equipment:backfire-mantle": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5182"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5182",
+    "page": 244
   },
   "equipment:backfire-mantle-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5182"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5182",
+    "page": 244
   },
   "equipment:bestiary-of-metamorphosis": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5120"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5120",
+    "page": 228
   },
   "equipment:bloodstained-treatise": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5121"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5121",
+    "page": 228
   },
   "equipment:book-of-endless-walls": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5122"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5122",
+    "page": 228
   },
   "equipment:book-of-lingering-blaze": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5123"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5123",
+    "page": 229
   },
   "equipment:calamitys-bane-tattoo": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5174"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5174",
+    "page": 241
   },
   "equipment:calligraphic-illumination": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5124"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5124",
+    "page": 229
   },
   "equipment:cerebral-barbell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5148"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5148",
+    "page": 234
   },
   "equipment:cerebral-barbell-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5148"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5148",
+    "page": 234
   },
   "equipment:cerebral-barbell-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5148"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5148",
+    "page": 234
   },
   "equipment:chapbook-of-terrors": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5125"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5125",
+    "page": 229
   },
   "equipment:chapbook-of-terrors-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5125"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5125",
+    "page": 229
   },
   "equipment:chapbook-of-terrors-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5125"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5125",
+    "page": 229
   },
   "equipment:cheery-chime": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5149"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5149",
+    "page": 234
   },
   "equipment:cheery-chime-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5149"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5149",
+    "page": 234
   },
   "equipment:cheery-chime-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5149"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5149",
+    "page": 234
   },
   "equipment:chiromantic-lines": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5175"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5175",
+    "page": 242
   },
   "equipment:cloak-of-feline-rest": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5183"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5183",
+    "page": 244
   },
   "equipment:codebreakers-parchment": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5141"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5141",
+    "page": 232
   },
   "equipment:codebreakers-parchment-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5141"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5141",
+    "page": 232
   },
   "equipment:codebreakers-parchment-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5141"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5141",
+    "page": 232
   },
   "equipment:codex-of-unimpeded-sight": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5126"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5126",
+    "page": 229
   },
   "equipment:codex-of-unimpeded-sight-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5126"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5126",
+    "page": 229
   },
   "equipment:collar-of-the-eternal-bond": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5184"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5184",
+    "page": 244
   },
   "equipment:deathbane-crescent": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5150"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5150",
+    "page": 234
   },
   "equipment:deathbane-crescent-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5150"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5150",
+    "page": 234
   },
   "equipment:deathbane-crescent-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5150"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5150",
+    "page": 234
   },
   "equipment:deck-of-mischief": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5142"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5142",
+    "page": 232
   },
   "equipment:dreamers-butterfly": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5176"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5176",
+    "page": 242
   },
   "equipment:emberheart": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5114"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5114",
+    "page": 226
   },
   "equipment:endless-grimoire": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5127"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5127",
+    "page": 229
   },
   "equipment:endless-grimoire-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5127"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5127",
+    "page": 229
   },
   "equipment:endless-grimoire-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5127"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5127",
+    "page": 229
   },
   "equipment:endless-grimoire-true": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5127"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5127",
+    "page": 229
   },
   "equipment:energizing-vial": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5151"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5151",
+    "page": 235
   },
   "equipment:energizing-vial-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5151"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5151",
+    "page": 235
   },
   "equipment:energizing-vial-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5151"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5151",
+    "page": 235
   },
   "equipment:familiar-tattoo": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5177"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5177",
+    "page": 242
   },
   "equipment:five-feather-wreath": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5152"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5152",
+    "page": 235
   },
   "equipment:five-feather-wreath-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5152"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5152",
+    "page": 235
   },
   "equipment:five-feather-wreath-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5152"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5152",
+    "page": 235
   },
   "equipment:flaming-star": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5153"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5153",
+    "page": 235
   },
   "equipment:flaming-star-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5153"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5153",
+    "page": 235
   },
   "equipment:flaming-star-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5153"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5153",
+    "page": 235
   },
   "equipment:flask-of-fellowship": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5143"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5143",
+    "page": 232
   },
   "equipment:fulu-compendium": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5088"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5088",
+    "page": 221
   },
   "equipment:glasses-of-sociability": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5185"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5185",
+    "page": 244
   },
   "equipment:golden-souled-yang-na": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5178"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5178",
+    "page": 243
   },
   "equipment:grim-sandglass": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5154"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5154",
+    "page": 236
   },
   "equipment:grim-sandglass-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5154"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5154",
+    "page": 236
   },
   "equipment:grim-sandglass-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5154"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5154",
+    "page": 236
   },
   "equipment:grudge-journal": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5128"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5128",
+    "page": 229
   },
   "equipment:hat-of-many-minds": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5186"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5186",
+    "page": 244
   },
   "equipment:helping-hand": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5155"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5155",
+    "page": 236
   },
   "equipment:helping-hand-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5155"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5155",
+    "page": 236
   },
   "equipment:helping-hand-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5155"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5155",
+    "page": 236
   },
   "equipment:hydrating-pinwheel": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5156"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5156",
+    "page": 236
   },
   "equipment:hydrating-pinwheel-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5156"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5156",
+    "page": 236
   },
   "equipment:hydrating-pinwheel-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5156"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5156",
+    "page": 236
   },
   "equipment:ice-gliders": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5187"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5187",
+    "page": 245
   },
   "equipment:ice-gliders-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5187"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5187",
+    "page": 245
   },
   "equipment:instructions-for-lasting-agony": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5129"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5129",
+    "page": 229
   },
   "equipment:jar-of-shifting-sands": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5144"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5144",
+    "page": 233
   },
   "equipment:keymaking-tools": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5145"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5145",
+    "page": 233
   },
   "equipment:mask-of-allure": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5115"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5115",
+    "page": 226
   },
   "equipment:mercurial-mantle": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5116"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5116",
+    "page": 226
   },
   "equipment:nine-void-sleeves": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5179"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5179",
+    "page": 243
   },
   "equipment:perfect-droplet": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5157"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5157",
+    "page": 236
   },
   "equipment:perfect-droplet-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5157"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5157",
+    "page": 236
   },
   "equipment:perfect-droplet-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5157"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5157",
+    "page": 236
   },
   "equipment:psalter-of-the-blessed": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5130"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5130",
+    "page": 230
   },
   "equipment:quicksilver-cloak": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5188"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5188",
+    "page": 245
   },
   "equipment:radiant-tome": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5131"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5131",
+    "page": 230
   },
   "equipment:rune-of-sin": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5180"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5180",
+    "page": 243
   },
   "equipment:sages-lash": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5117"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5117",
+    "page": 227
   },
   "equipment:silver-tongue": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5158"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5158",
+    "page": 236
   },
   "equipment:silver-tongue-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5158"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5158",
+    "page": 236
   },
   "equipment:sparking-grimoire": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5132"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5132",
+    "page": 230
   },
   "equipment:sparking-grimoire-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5132"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5132",
+    "page": 230
   },
   "equipment:spellbook-of-redundant-enchantment": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5133"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5133",
+    "page": 230
   },
   "equipment:stampede-medallion": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5189"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5189",
+    "page": 245
   },
   "equipment:stampede-medallion-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5189"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5189",
+    "page": 245
   },
   "equipment:stampede-medallion-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5189"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5189",
+    "page": 245
   },
   "equipment:storytellers-opus": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5134"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5134",
+    "page": 230
   },
   "equipment:summoning-handscroll": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5135"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5135",
+    "page": 230
   },
   "equipment:thirsty-chalice": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5159"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5159",
+    "page": 237
   },
   "equipment:thirsty-chalice-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5159"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5159",
+    "page": 237
   },
   "equipment:thirsty-chalice-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5159"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5159",
+    "page": 237
   },
   "equipment:thousand-blade-thesis": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5146"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5146",
+    "page": 233
   },
   "equipment:titans-grasp": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5118"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5118",
+    "page": 227
   },
   "equipment:trinity-geode": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5160"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5160",
+    "page": 237
   },
   "equipment:trinity-geode-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5160"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5160",
+    "page": 237
   },
   "equipment:trinity-geode-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5160"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5160",
+    "page": 237
   },
   "equipment:verdant-leaves": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5136"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5136",
+    "page": 231
   },
   "equipment:verdant-leaves-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5136"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5136",
+    "page": 231
   },
   "equipment:verdant-leaves-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5136"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5136",
+    "page": 231
   },
   "equipment:warding-tablets": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5137"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5137",
+    "page": 231
   },
   "equipment:warding-tattoo": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5181"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5181",
+    "page": 243
   },
   "equipment:warding-tattoo-fiend": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5181"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5181",
+    "page": 243
   },
   "equipment:warding-tattoo-trail": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5181"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5181",
+    "page": 243
   },
   "equipment:warding-tattoo-wave": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5181"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5181",
+    "page": 243
   },
   "equipment:whispering-spirit-tome": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5138"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5138",
+    "page": 231
   },
   "feat:a-hush-falls-over-the-world": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9383"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9383",
+    "page": 107
   },
   "feat:advanced-death-dealing": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9298"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9298",
+    "page": 89
   },
   "feat:advanced-martial-magic": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9289"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9289",
+    "page": 88
   },
   "feat:advanced-rune-magic": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9303"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9303",
+    "page": 90
   },
   "feat:advanced-synergy": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9311"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9311",
+    "page": 91
   },
   "feat:advanced-weaponry": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9221"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9221",
+    "page": 78
   },
   "feat:aerial-flash": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9373"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9373",
+    "page": 105
   },
   "feat:aether-beam": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9345"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9345",
+    "page": 97
   },
   "feat:aether-blast": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9340"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9340",
+    "page": 96
   },
   "feat:afterimage": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9374"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9374",
+    "page": 105
   },
   "feat:airborne-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9265"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9265",
+    "page": 83
   },
   "feat:alacritous-action": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9229"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9229",
+    "page": 79
   },
   "feat:all-returns-to-slumber": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9379"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9379",
+    "page": 106
   },
   "feat:amalgamate": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9144"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9144",
+    "page": 39
   },
   "feat:amphibious-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9230"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9230",
+    "page": 79
   },
   "feat:analyze-magic": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9356"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9356",
+    "page": 102
   },
   "feat:anatomical-quartering": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9151"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9151",
+    "page": 40
   },
   "feat:annihilating-compound-invocation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9214"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9214",
+    "page": 53
   },
   "feat:arcane-fists": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9044"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9044",
+    "page": 16
   },
   "feat:arcane-shroud": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9083"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9083",
+    "page": 24
   },
   "feat:artists-attendance": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9181"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9181",
+    "page": 49
   },
   "feat:astral-compound-invocation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9202"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9202",
+    "page": 52
   },
   "feat:awake-with-a-roar": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9386"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9386",
+    "page": 107
   },
   "feat:backup-runic-enhancement": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9168"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9168",
+    "page": 47
   },
   "feat:basic-captivator-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9316"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9316",
+    "page": 92
   },
   "feat:basic-death-dealing": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9293"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9293",
+    "page": 89
   },
   "feat:basic-hedge-mage-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9327"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9327",
+    "page": 94
   },
   "feat:basic-magus-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9285"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9285",
+    "page": 88
   },
   "feat:basic-martial-magic": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9286"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9286",
+    "page": 88
   },
   "feat:basic-necromancer-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9294"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9294",
+    "page": 89
   },
   "feat:basic-rune-magic": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9302"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9302",
+    "page": 90
   },
   "feat:basic-summoner-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9308"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9308",
+    "page": 91
   },
   "feat:basic-synergy": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9309"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9309",
+    "page": 91
   },
   "feat:beckoning-dirge": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9152"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9152",
+    "page": 40
   },
   "feat:become-as-spirit": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9137"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9137",
+    "page": 38
   },
   "feat:beguiling-aura": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9322"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9322",
+    "page": 93
   },
   "feat:bind-heroic-spirit": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9114"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9114",
+    "page": 35
   },
   "feat:blood-frenzy": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9244"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9244",
+    "page": 81
   },
   "feat:blood-pool": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9145"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9145",
+    "page": 39
   },
   "feat:bloodletting-claws": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9235"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9235",
+    "page": 80
   },
   "feat:bloody-tendrils": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9115"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9115",
+    "page": 35
   },
   "feat:blossoming-gore": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9130"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9130",
+    "page": 37
   },
   "feat:bodily-disintegration": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9404"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9404",
+    "page": 111
   },
   "feat:body-shield": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9106"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9106",
+    "page": 35
   },
   "feat:bone-burst": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9116"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9116",
+    "page": 35
   },
   "feat:bone-speaker": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9098"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9098",
+    "page": 33
   },
   "feat:bony-barrage": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9107"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9107",
+    "page": 35
   },
   "feat:boost-summons": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9251"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9251",
+    "page": 82
   },
   "feat:bridge-of-graves": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9138"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9138",
+    "page": 38
   },
   "feat:burning-cascade": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9051"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9051",
+    "page": 18
   },
   "feat:burrowing-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9258"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9258",
+    "page": 83
   },
   "feat:by-your-name": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9210"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9210",
+    "page": 52
   },
   "feat:calcification": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9157"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9157",
+    "page": 41
   },
   "feat:cantrip-supremacy": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9332"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9332",
+    "page": 95
   },
   "feat:captivating-intensity": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9318"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9318",
+    "page": 93
   },
   "feat:captivator-dedication": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9315"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9315",
+    "page": 92
   },
   "feat:capture-magic": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9066"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9066",
+    "page": 21
   },
   "feat:cascading-ray": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9071"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9071",
+    "page": 22
   },
   "feat:chain-of-words": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9197"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9197",
+    "page": 51
   },
   "feat:clashing-compound-invocation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9198"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9198",
+    "page": 51
   },
   "feat:collateral-reinforcement": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9117"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9117",
+    "page": 36
   },
   "feat:come-in-from-the-wilderness": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9384"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9384",
+    "page": 107
   },
   "feat:community-needs": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9336"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9336",
+    "page": 95
   },
   "feat:conflux-focus": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9080"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9080",
+    "page": 24
   },
   "feat:conglomerate-of-limbs": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9123"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9123",
+    "page": 37
   },
   "feat:conjurer-of-corpses": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9118"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9118",
+    "page": 36
   },
   "feat:conjurers-countermeasure": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9061"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9061",
+    "page": 21
   },
   "feat:constricting-hold": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9252"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9252",
+    "page": 82
   },
   "feat:contingency-leap": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9364"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9364",
+    "page": 104
   },
   "feat:corrupted-ground": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9119"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9119",
+    "page": 36
   },
   "feat:countercharm": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9319"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9319",
+    "page": 93
   },
   "feat:dance-of-bloody-ink": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9206"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9206",
+    "page": 52
   },
   "feat:dart-between": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9369"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9369",
+    "page": 104
   },
   "feat:dazzling-block": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9072"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9072",
+    "page": 23
   },
   "feat:death-speaker": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9092"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9092",
+    "page": 32
   },
   "feat:deathly-scream": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9099"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9099",
+    "page": 34
   },
   "feat:defend-summoner": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9236"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9236",
+    "page": 80
   },
   "feat:define-the-canvas": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9207"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9207",
+    "page": 52
   },
   "feat:desperate-revival": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9153"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9153",
+    "page": 40
   },
   "feat:desperate-surge": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9131"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9131",
+    "page": 37
   },
   "feat:devastating-manifestation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9354"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9354",
+    "page": 98
   },
   "feat:devastating-spellstrike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9052"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9052",
+    "page": 19
   },
   "feat:diacritic-fluency": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9187"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9187",
+    "page": 49
   },
   "feat:dimensional-disappearance": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9073"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9073",
+    "page": 23
   },
   "feat:dimensional-pilfer": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9365"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9365",
+    "page": 104
   },
   "feat:dismantle-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9359"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9359",
+    "page": 103
   },
   "feat:dispelling-spellstrike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9086"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9086",
+    "page": 25
   },
   "feat:distant-invocation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9203"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9203",
+    "page": 52
   },
   "feat:distracting-spellstrike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9053"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9053",
+    "page": 19
   },
   "feat:dizzying-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9387"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9387",
+    "page": 108
   },
   "feat:draining-strike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9100"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9100",
+    "page": 34
   },
   "feat:drawn-in-vital-ink": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9193"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9193",
+    "page": 50
   },
   "feat:dread-mosquito-storm": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9158"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9158",
+    "page": 41
   },
   "feat:dual-energy-heart": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9237"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9237",
+    "page": 80
   },
   "feat:dual-studies": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9222"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9222",
+    "page": 78
   },
   "feat:dust-cloud": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9381"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9381",
+    "page": 107
   },
   "feat:ectoplasmic-aura": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9159"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9159",
+    "page": 41
   },
   "feat:edifying-trace": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9194"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9194",
+    "page": 50
   },
   "feat:effortless-captivation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9323"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9323",
+    "page": 93
   },
   "feat:eidolons-retort": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9245"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9245",
+    "page": 81
   },
   "feat:eidolons-trample": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9276"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9276",
+    "page": 85
   },
   "feat:eidolons-wrath": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9246"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9246",
+    "page": 81
   },
   "feat:elemental-defense": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9388"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9388",
+    "page": 108
   },
   "feat:elemental-revision": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9195"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9195",
+    "page": 51
   },
   "feat:emergency-targe": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9054"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9054",
+    "page": 19
   },
   "feat:endless-return": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9139"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9139",
+    "page": 38
   },
   "feat:energy-heart": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9223"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9223",
+    "page": 78
   },
   "feat:energy-resistance": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9253"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9253",
+    "page": 82
   },
   "feat:engraving-maneuver": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9188"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9188",
+    "page": 49
   },
   "feat:engraving-strike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9169"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9169",
+    "page": 47
   },
   "feat:enhance-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9361"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9361",
+    "page": 103
   },
   "feat:enhanced-glyph-familiar": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9176"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9176",
+    "page": 48
   },
   "feat:enhanced-undead-familiar": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9101"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9101",
+    "page": 34
   },
   "feat:eternal-boost": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9281"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9281",
+    "page": 85
   },
   "feat:ever-vigilant-senses": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9277"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9277",
+    "page": 85
   },
   "feat:expanded-glossary": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9204"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9204",
+    "page": 52
   },
   "feat:expanded-necromancy": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9132"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9132",
+    "page": 37
   },
   "feat:expanded-repertoire": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9305"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9305",
+    "page": 90
   },
   "feat:expanded-senses": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9224"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9224",
+    "page": 78
   },
   "feat:expansive-spellstrike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9047"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9047",
+    "page": 17
   },
   "feat:expert-captivator-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9320"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9320",
+    "page": 93
   },
   "feat:expert-combat-eidolon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9312"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9312",
+    "page": 91
   },
   "feat:expert-hedge-mage-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9335"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9335",
+    "page": 95
   },
   "feat:expert-magus-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9290"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9290",
+    "page": 88
   },
   "feat:expert-necromancer-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9299"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9299",
+    "page": 89
   },
   "feat:expert-summoner-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9313"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9313",
+    "page": 91
   },
   "feat:exploding-bullet": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9055"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9055",
+    "page": 19
   },
   "feat:expressive-face": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9396"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9396",
+    "page": 110
   },
   "feat:extend-boost": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9225"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9225",
+    "page": 78
   },
   "feat:fade-presence": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9367"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9367",
+    "page": 104
   },
   "feat:final-spite": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9124"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9124",
+    "page": 37
   },
   "feat:final-union": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9162"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9162",
+    "page": 41
   },
   "feat:flesh-tsunami": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9155"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9155",
+    "page": 40
   },
   "feat:flexible-nexus": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9342"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9342",
+    "page": 97
   },
   "feat:flexible-transmogrification": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9266"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9266",
+    "page": 83
   },
   "feat:force-fang": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9048"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9048",
+    "page": 18
   },
   "feat:forge-new-word": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9217"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9217",
+    "page": 53
   },
   "feat:fortifying-knock": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9177"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9177",
+    "page": 48
   },
   "feat:fused-staff": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9067"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9067",
+    "page": 21
   },
   "feat:generational-rune-singer": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9218"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9218",
+    "page": 53
   },
   "feat:ghostly-resonance": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9182"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9182",
+    "page": 49
   },
   "feat:ghostly-stride": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9108"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9108",
+    "page": 35
   },
   "feat:glider-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9226"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9226",
+    "page": 78
   },
   "feat:glyph-familiar": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9170"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9170",
+    "page": 48
   },
   "feat:gossamer-blade": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9366"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9366",
+    "page": 104
   },
   "feat:grasping-limbs": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9267"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9267",
+    "page": 83
   },
   "feat:grave-focus": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9140"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9140",
+    "page": 39
   },
   "feat:greater-expanded-repertoire": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9306"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9306",
+    "page": 90
   },
   "feat:guiding-retort": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9271"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9271",
+    "page": 84
   },
   "feat:hallowed-earth": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9120"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9120",
+    "page": 36
   },
   "feat:hardened-chassis": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9400"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9400",
+    "page": 111
   },
   "feat:harness-natural-magic": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9343"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9343",
+    "page": 97
   },
   "feat:hasted-assault": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9084"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9084",
+    "page": 25
   },
   "feat:healing-nexus": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9346"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9346",
+    "page": 97
   },
   "feat:hedge-mage-dedication": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9326"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9326",
+    "page": 94
   },
   "feat:heightened-captivation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9317"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9317",
+    "page": 93
   },
   "feat:henge-gate": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9208"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9208",
+    "page": 52
   },
   "feat:hobbling-criticals": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9278"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9278",
+    "page": 85
   },
   "feat:hulking-size": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9254"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9254",
+    "page": 82
   },
   "feat:humble-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9330"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9330",
+    "page": 94
   },
   "feat:hush": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9375"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9375",
+    "page": 105
   },
   "feat:hybrid-study-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9287"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9287",
+    "page": 88
   },
   "feat:incriminating-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9389"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9389",
+    "page": 108
   },
   "feat:inevitable-thralls": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9297"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9297",
+    "page": 89
   },
   "feat:initial-eidolon-ability": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9310"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9310",
+    "page": 91
   },
   "feat:inscribed-blast": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9402"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9402",
+    "page": 111
   },
   "feat:inspired-memory": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9339"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9339",
+    "page": 96
   },
   "feat:instant-army": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9163"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9163",
+    "page": 41
   },
   "feat:instinctual-creation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9146"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9146",
+    "page": 39
   },
   "feat:interstitial-escape": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9372"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9372",
+    "page": 105
   },
   "feat:invert-harm": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9102"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9102",
+    "page": 34
   },
   "feat:invisible-ink": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9178"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9178",
+    "page": 48
   },
   "feat:keepsake-of-power": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9334"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9334",
+    "page": 95
   },
   "feat:killshots-report": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9074"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9074",
+    "page": 23
   },
   "feat:knockback-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9390"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9390",
+    "page": 109
   },
   "feat:legendary-summoner": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9282"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9282",
+    "page": 85
   },
   "feat:lifelink-surge": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9238"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9238",
+    "page": 80
   },
   "feat:link-focus": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9268"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9268",
+    "page": 83
   },
   "feat:living-graveyard": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9164"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9164",
+    "page": 41
   },
   "feat:living-lexicon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9215"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9215",
+    "page": 53
   },
   "feat:living-nexus-dedication": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9338"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9338",
+    "page": 96
   },
   "feat:look-again": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9325"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9325",
+    "page": 93
   },
   "feat:lunging-spellstrike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9075"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9075",
+    "page": 23
   },
   "feat:magic-sense-magus": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5044"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5044",
+    "page": 24
   },
   "feat:magical-adept": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9255"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9255",
+    "page": 82
   },
   "feat:magical-master": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9279"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9279",
+    "page": 85
   },
   "feat:magical-onslaught": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9259"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9259",
+    "page": 83
   },
   "feat:magical-understudy": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9231"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9231",
+    "page": 79
   },
   "feat:maguss-analysis": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9045"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9045",
+    "page": 17
   },
   "feat:march-of-the-dead": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9126"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9126",
+    "page": 37
   },
   "feat:master-captivator-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9324"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9324",
+    "page": 93
   },
   "feat:master-hedge-mage-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9337"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9337",
+    "page": 95
   },
   "feat:master-magus-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9291"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9291",
+    "page": 88
   },
   "feat:master-necromancer-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9300"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9300",
+    "page": 89
   },
   "feat:master-summoner": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9247"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9247",
+    "page": 81
   },
   "feat:master-summoner-spellcasting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9314"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9314",
+    "page": 91
   },
   "feat:maze-of-runes": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9211"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9211",
+    "page": 53
   },
   "feat:meld-into-eidolon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9227"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9227",
+    "page": 78
   },
   "feat:merciless-rend": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9260"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9260",
+    "page": 83
   },
   "feat:messenger": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9397"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9397",
+    "page": 110
   },
   "feat:meteoric-spellstrike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9076"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9076",
+    "page": 23
   },
   "feat:miniaturize": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9256"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9256",
+    "page": 83
   },
   "feat:mobile-thralls": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9109"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9109",
+    "page": 35
   },
   "feat:mortem-ultimatum": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9165"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9165",
+    "page": 41
   },
   "feat:muscle-barrier": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9103"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9103",
+    "page": 34
   },
   "feat:natures-embrace": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9377"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9377",
+    "page": 106
   },
   "feat:necromancer-dedication": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9292"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9292",
+    "page": 89
   },
   "feat:necromantic-lifesense": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9133"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9133",
+    "page": 37
   },
   "feat:necrotic-bomber": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9295"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9295",
+    "page": 89
   },
   "feat:nimble-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9261"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9261",
+    "page": 83
   },
   "feat:null-field": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9347"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9347",
+    "page": 97
   },
   "feat:ocular-flesh": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9147"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9147",
+    "page": 39
   },
   "feat:orbiting-runestone": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9205"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9205",
+    "page": 52
   },
   "feat:ostentatious-arrival": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9248"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9248",
+    "page": 81
   },
   "feat:osteo-armaments": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9110"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9110",
+    "page": 35
   },
   "feat:overburdening-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9134"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9134",
+    "page": 37
   },
   "feat:overburn": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9405"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9405",
+    "page": 111
   },
   "feat:overloaded-ammunition": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9199"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9199",
+    "page": 51
   },
   "feat:overwhelming-harm": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9111"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9111",
+    "page": 35
   },
   "feat:overwhelming-spellstrike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9081"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9081",
+    "page": 24
   },
   "feat:pattern-flight": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9179"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9179",
+    "page": 48
   },
   "feat:peer-past-the-hedge": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9328"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9328",
+    "page": 94
   },
   "feat:perfected-thrall": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9166"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9166",
+    "page": 41
   },
   "feat:phase-out": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9249"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9249",
+    "page": 81
   },
   "feat:piercing-jab": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9272"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9272",
+    "page": 84
   },
   "feat:poison-drinker": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9127"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9127",
+    "page": 37
   },
   "feat:power-hungry": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9160"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9160",
+    "page": 41
   },
   "feat:powerful-tail": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9398"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9398",
+    "page": 110
   },
   "feat:practical-magic": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9331"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9331",
+    "page": 95
   },
   "feat:preternatural-parry": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9085"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9085",
+    "page": 25
   },
   "feat:prodigal-rune-singer": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9200"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9200",
+    "page": 51
   },
   "feat:protective-bond": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9262"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9262",
+    "page": 83
   },
   "feat:purge-system": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9406"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9406",
+    "page": 111
   },
   "feat:quick-absorption": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9349"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9349",
+    "page": 97
   },
   "feat:raise-a-tome": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9046"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9046",
+    "page": 17
   },
   "feat:ranged-combatant": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9232"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9232",
+    "page": 79
   },
   "feat:rapid-manifestation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9352"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9352",
+    "page": 98
   },
   "feat:rapid-recharge": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9077"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9077",
+    "page": 23
   },
   "feat:reach-of-the-dead": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9094"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9094",
+    "page": 32
   },
   "feat:reactive-charm": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9321"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9321",
+    "page": 93
   },
   "feat:reactive-dismissal": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9239"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9239",
+    "page": 81
   },
   "feat:reactive-spellshift": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9360"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9360",
+    "page": 103
   },
   "feat:reanimate-foe": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9161"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9161",
+    "page": 41
   },
   "feat:recharging-flurry": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9056"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9056",
+    "page": 19
   },
   "feat:reclaim-power": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9121"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9121",
+    "page": 36
   },
   "feat:recurring-nightmare": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9148"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9148",
+    "page": 39
   },
   "feat:redirect-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9362"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9362",
+    "page": 103
   },
   "feat:redirect-teleportation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9391"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9391",
+    "page": 109
   },
   "feat:reinforce-eidolon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9233"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9233",
+    "page": 80
   },
   "feat:reinforced-skeleton": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9141"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9141",
+    "page": 39
   },
   "feat:remote-detonation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9171"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9171",
+    "page": 48
   },
   "feat:resilient-chassis": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9403"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9403",
+    "page": 111
   },
   "feat:resilient-shell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9273"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9273",
+    "page": 84
   },
   "feat:resounding-cascade": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9087"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9087",
+    "page": 25
   },
   "feat:return-unto-runes": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9212"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9212",
+    "page": 53
   },
   "feat:rune-singer": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9173"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9173",
+    "page": 48
   },
   "feat:rune-ward": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9172"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9172",
+    "page": 48
   },
   "feat:runesight": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9213"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9213",
+    "page": 53
   },
   "feat:runesmith-dedication": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9301"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9301",
+    "page": 90
   },
   "feat:runic-correspondence": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9201"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9201",
+    "page": 51
   },
   "feat:runic-expertise": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9418"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9418",
+    "page": 90
   },
   "feat:runic-impression": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9068"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9068",
+    "page": 21
   },
   "feat:runic-reprisal": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9189"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9189",
+    "page": 49
   },
   "feat:runic-tattoo": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9180"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9180",
+    "page": 48
   },
   "feat:running-recharge": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9057"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9057",
+    "page": 19
   },
   "feat:sanguine-mastery": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9142"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9142",
+    "page": 39
   },
   "feat:sanguine-transference": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9128"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9128",
+    "page": 37
   },
   "feat:seek-the-hidden-glyphs": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9174"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9174",
+    "page": 48
   },
   "feat:shades-of-meaning": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9219"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9219",
+    "page": 53
   },
   "feat:share-eidolon-magic": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9274"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9274",
+    "page": 84
   },
   "feat:shared-focus": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9392"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9392",
+    "page": 109
   },
   "feat:sheltering-hand": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9380"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9380",
+    "page": 106
   },
   "feat:shielded-tome": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9063"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9063",
+    "page": 21
   },
   "feat:shrink-down": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9240"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9240",
+    "page": 81
   },
   "feat:shrink-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9393"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9393",
+    "page": 109
   },
   "feat:simple-mastery": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9333"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9333",
+    "page": 95
   },
   "feat:skeletal-extension": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9135"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9135",
+    "page": 38
   },
   "feat:skeletal-lancers": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9149"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9149",
+    "page": 39
   },
   "feat:skilled-partner": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9241"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9241",
+    "page": 81
   },
   "feat:smithing-weapons": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9175"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9175",
+    "page": 48
   },
   "feat:song-of-glorious-invocation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9183"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9183",
+    "page": 49
   },
   "feat:song-of-the-soul": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9104"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9104",
+    "page": 34
   },
   "feat:soul-arsenal": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9353"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9353",
+    "page": 98
   },
   "feat:soul-flare": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9351"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9351",
+    "page": 98
   },
   "feat:soul-thief": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9167"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9167",
+    "page": 41
   },
   "feat:soulforger-dedication": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9350"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9350",
+    "page": 98
   },
   "feat:spatial-awareness": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9394"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9394",
+    "page": 109
   },
   "feat:speak-with-days-long-dead": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9136"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9136",
+    "page": 38
   },
   "feat:spell-crash": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9064"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9064",
+    "page": 21
   },
   "feat:spell-repelling-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9275"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9275",
+    "page": 85
   },
   "feat:spell-retaliation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9065"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9065",
+    "page": 21
   },
   "feat:spell-swipe": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9069"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9069",
+    "page": 22
   },
   "feat:spellbinding-speech": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9395"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9395",
+    "page": 109
   },
   "feat:spellshifter-dedication": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9355"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9355",
+    "page": 102
   },
   "feat:spellstriker": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9288"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9288",
+    "page": 88
   },
   "feat:spirit-sheath": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9050"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9050",
+    "page": 18
   },
   "feat:split-spellstrike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9078"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9078",
+    "page": 23
   },
   "feat:sprinting-spellstrike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9082"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9082",
+    "page": 24
   },
   "feat:standby-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9070"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9070",
+    "page": 22
   },
   "feat:starlit-eyes": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9058"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9058",
+    "page": 19
   },
   "feat:steady-spellcasting-magus": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4602"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4602",
+    "page": 20
   },
   "feat:steal-magics-breath": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9348"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9348",
+    "page": 97
   },
   "feat:steed-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9234"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9234",
+    "page": 80
   },
   "feat:stolen-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9088"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9088",
+    "page": 25
   },
   "feat:stone-forge-of-the-first": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9220"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9220",
+    "page": 54
   },
   "feat:strikers-scroll": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9059"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9059",
+    "page": 20
   },
   "feat:student-of-the-staff": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9060"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9060",
+    "page": 20
   },
   "feat:subtle-shift": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9358"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9358",
+    "page": 103
   },
   "feat:summoner-dedication": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9307"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9307",
+    "page": 91
   },
   "feat:summoners-call": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9269"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9269",
+    "page": 84
   },
   "feat:supreme-spellstrike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9090"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9090",
+    "page": 25
   },
   "feat:surging-smash": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9344"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9344",
+    "page": 97
   },
   "feat:surprising-leap": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9257"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9257",
+    "page": 83
   },
   "feat:sustaining-steel": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9079"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9079",
+    "page": 23
   },
   "feat:swiping-trace": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9196"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9196",
+    "page": 51
   },
   "feat:system-override": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9407"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9407",
+    "page": 111
   },
   "feat:tandem-movement": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9242"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9242",
+    "page": 81
   },
   "feat:tandem-strike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9250"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9250",
+    "page": 82
   },
   "feat:tattoo-artist": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2962"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=2962",
+    "page": 241
   },
   "feat:temporary-possession": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9156"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9156",
+    "page": 40
   },
   "feat:tender-ministrations": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9329"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9329",
+    "page": 94
   },
   "feat:terrifying-invocation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9184"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9184",
+    "page": 49
   },
   "feat:the-hallowed-dead": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9093"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9093",
+    "page": 32
   },
   "feat:the-taste-of-magic": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9341"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9341",
+    "page": 96
   },
   "feat:the-unholy-dead": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9096"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9096",
+    "page": 32
   },
   "feat:the-world-devours": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9385"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9385",
+    "page": 107
   },
   "feat:the-world-whispers": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9378"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9378",
+    "page": 106
   },
   "feat:thick-skin": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9143"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9143",
+    "page": 39
   },
   "feat:thrall-charger": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9296"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9296",
+    "page": 89
   },
   "feat:towering-size": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9270"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9270",
+    "page": 84
   },
   "feat:tracing-studies": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9304"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9304",
+    "page": 90
   },
   "feat:tracing-trance": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9190"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9190",
+    "page": 50
   },
   "feat:translocational-adept": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9371"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9371",
+    "page": 105
   },
   "feat:transpose": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9263"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9263",
+    "page": 83
   },
   "feat:transpose-etching": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9185"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9185",
+    "page": 49
   },
   "feat:true-transmogrification": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9280"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9280",
+    "page": 85
   },
   "feat:twin-eidolon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9283"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9283",
+    "page": 85
   },
   "feat:unbounded-invocations": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9216"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9216",
+    "page": 53
   },
   "feat:undead-creator": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9105"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9105",
+    "page": 35
   },
   "feat:undead-familiar": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9095"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9095",
+    "page": 32
   },
   "feat:undead-hunter": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9399"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9399",
+    "page": 111
   },
   "feat:unerring-runic-attraction": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9209"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9209",
+    "page": 52
   },
   "feat:unfetter-eidolon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9228"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9228",
+    "page": 79
   },
   "feat:unholy-resurrection": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9150"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9150",
+    "page": 39
   },
   "feat:vampiric-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9112"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9112",
+    "page": 35
   },
   "feat:veil-dancer-dedication": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9363"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9363",
+    "page": 104
   },
   "feat:veil-of-eternity": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9370"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9370",
+    "page": 105
   },
   "feat:versatile-spellstrike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9089"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9089",
+    "page": 25
   },
   "feat:vibration-sense": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9243"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9243",
+    "page": 81
   },
   "feat:vital-compound-invocation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9191"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9191",
+    "page": 50
   },
   "feat:void-siphon-necromancer": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9113"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9113",
+    "page": 35
   },
   "feat:wake-and-tremble": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9382"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9382",
+    "page": 107
   },
   "feat:warp-path": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9368"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9368",
+    "page": 104
   },
   "feat:weighty-impact": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9264"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9264",
+    "page": 83
   },
   "feat:whirlwind-spell": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9091"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9091",
+    "page": 25
   },
   "feat:widespread-fascination": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9097"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9097",
+    "page": 33
   },
   "feat:wings-of-bone-and-sinew": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9129"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9129",
+    "page": 37
   },
   "feat:words-fly-free": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9192"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9192",
+    "page": 50
   },
   "feat:world-rouser-dedication": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9376"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9376",
+    "page": 106
   },
   "feat:writing-on-the-wall": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9186"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9186",
+    "page": 49
   },
   "feat:zombie-horde-necromancer": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9122"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9122",
+    "page": 37
   },
   "heritage:defensive-automaton": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=438"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=438",
+    "page": 110
   },
   "heritage:newly-minted-automaton": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=439"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=439",
+    "page": 110
   },
   "ritual:awaken-object": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=245"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=245",
+    "page": 188
   },
   "ritual:bathe-in-blood": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=246"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=246",
+    "page": 189
   },
   "ritual:cloudborne-haven": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=248"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=248",
+    "page": 190
   },
   "ritual:dread-ambience": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=251"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=251",
+    "page": 191
   },
   "ritual:elemental-sentinel": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=252"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=252",
+    "page": 192
   },
   "ritual:garden-of-death": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=253"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=253",
+    "page": 192
   },
   "ritual:ideal-mimicry": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=257"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=257",
+    "page": 193
   },
   "ritual:loyaltys-ward": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=258"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=258",
+    "page": 194
   },
   "ritual:mind-swap": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=259"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=259",
+    "page": 194
   },
   "ritual:mystic-carriage": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=260"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=260",
+    "page": 195
   },
   "ritual:portrait-of-spite": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=262"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=262",
+    "page": 196
   },
   "ritual:purify-soul-path": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=243"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=243",
+    "page": 101
   },
   "ritual:resolute-obliteration": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=264"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=264",
+    "page": 197
   },
   "ritual:rolling-boulders": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=265"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=265",
+    "page": 197
   },
   "ritual:separation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=267"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=267",
+    "page": 198
   },
   "ritual:still-life-storage": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=269"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=269",
+    "page": 198
   },
   "ritual:uncouple-memory": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=270"
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=270",
+    "page": 198
   },
   "rune:bane": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4986"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4986",
+    "page": 204
   },
   "rune:convincing": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4987"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4987",
+    "page": 204
   },
   "rune:convincing-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4987"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4987",
+    "page": 204
   },
   "rune:convincing-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4987"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4987",
+    "page": 204
   },
   "rune:deflecting": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4988"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4988",
+    "page": 204
   },
   "rune:energy-vulnerability": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4989"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4989",
+    "page": 204
   },
   "rune:energy-vulnerability-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4989"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4989",
+    "page": 204
   },
   "rune:impactful": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4990"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4990",
+    "page": 204
   },
   "rune:impactful-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4990"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4990",
+    "page": 204
   },
   "rune:mobile": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4991"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4991",
+    "page": 204
   },
   "rune:moonweave": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4992"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4992",
+    "page": 204
   },
   "rune:moonweave-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4992"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4992",
+    "page": 204
   },
   "rune:moonweave-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4992"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4992",
+    "page": 204
   },
   "rune:safeguarding": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4993"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4993",
+    "page": 204
   },
   "rune:self-sealing": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4994"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4994",
+    "page": 205
   },
   "rune:sidestepping": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4995"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4995",
+    "page": 205
   },
   "rune:sunweave": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4996"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4996",
+    "page": 205
   },
   "rune:sunweave-greater": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4996"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4996",
+    "page": 205
   },
   "rune:sunweave-major": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4996"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4996",
+    "page": 205
   },
   "rune:unnerving": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4997"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4997",
+    "page": 205
   },
   "spell:aberrant-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2627"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2627",
+    "page": 122
   },
   "spell:amalgamizing-leap": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2628"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2628",
+    "page": 122
   },
   "spell:angel-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2629"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2629",
+    "page": 122
   },
   "spell:animal-allies": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2630"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2630",
+    "page": 123
   },
   "spell:appeal-to-authority": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2920"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2920",
+    "page": 186
   },
   "spell:approximate": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2631"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2631",
+    "page": 123
   },
   "spell:artistic-recollection": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2632"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2632",
+    "page": 123
   },
   "spell:ash-cloud": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2633"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2633",
+    "page": 123
   },
   "spell:befitting-attire": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2634"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2634",
+    "page": 123
   },
   "spell:begone": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2635"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2635",
+    "page": 124
   },
   "spell:bind-heroic-spirit": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2886"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2886",
+    "page": 180
   },
   "spell:biting-words": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2636"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2636",
+    "page": 124
   },
   "spell:blazing-dive": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2637"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2637",
+    "page": 124
   },
   "spell:blazing-fissure": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2638"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2638",
+    "page": 124
   },
   "spell:blessing-of-defiance": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2639"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2639",
+    "page": 124
   },
   "spell:blessing-of-vigor": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2640"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2640",
+    "page": 124
   },
   "spell:blink-charge": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2641"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2641",
+    "page": 124
   },
   "spell:blood-chestnuts": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2642"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2642",
+    "page": 125
   },
   "spell:blood-infusion": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2887"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2887",
+    "page": 180
   },
   "spell:blood-runs-cold": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2643"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2643",
+    "page": 125
   },
   "spell:bloodspray-curse": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2644"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2644",
+    "page": 125
   },
   "spell:bloody-tendrils": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2888"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2888",
+    "page": 180
   },
   "spell:blossoming-gore": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2889"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2889",
+    "page": 180
   },
   "spell:bone-moths-kiss": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2645"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2645",
+    "page": 126
   },
   "spell:bone-shield": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2646"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2646",
+    "page": 126
   },
   "spell:bone-spear": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2890"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2890",
+    "page": 181
   },
   "spell:bone-spray": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2647"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2647",
+    "page": 126
   },
   "spell:bony-barrage": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2891"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2891",
+    "page": 181
   },
   "spell:booming-blast": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2875"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2875",
+    "page": 179
   },
   "spell:boost-eidolon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2913"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2913",
+    "page": 185
   },
   "spell:bottomless-stomach": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2648"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2648",
+    "page": 126
   },
   "spell:breadcrumbs": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2649"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2649",
+    "page": 126
   },
   "spell:bridge-of-graves": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2892"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2892",
+    "page": 181
   },
   "spell:burning-blossoms": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2650"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2650",
+    "page": 126
   },
   "spell:burning-trail": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2651"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2651",
+    "page": 127
   },
   "spell:calcification": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2893"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2893",
+    "page": 181
   },
   "spell:calcium-rain": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2652"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2652",
+    "page": 127
   },
   "spell:call-of-the-quenching": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2870"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2870",
+    "page": 175
   },
   "spell:cast-into-time": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2653"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2653",
+    "page": 128
   },
   "spell:chosen-gravity": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2654"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2654",
+    "page": 128
   },
   "spell:cinder-scribe": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2655"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2655",
+    "page": 128
   },
   "spell:circle-of-weakness": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2926"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2926",
+    "page": 187
   },
   "spell:claim-curse": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2656"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2656",
+    "page": 128
   },
   "spell:clone-companion": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2657"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2657",
+    "page": 128
   },
   "spell:comet-charge": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2658"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2658",
+    "page": 128
   },
   "spell:companions-shadow": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2659"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2659",
+    "page": 129
   },
   "spell:conglomerate-of-limbs": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2894"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2894",
+    "page": 181
   },
   "spell:conjurers-countermeasure": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2876"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2876",
+    "page": 179
   },
   "spell:coral-eruption": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2660"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2660",
+    "page": 129
   },
   "spell:corpse-bloom": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2661"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2661",
+    "page": 129
   },
   "spell:cosmic-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2662"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2662",
+    "page": 129
   },
   "spell:cradle-aloft": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2663"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2663",
+    "page": 130
   },
   "spell:create-earthen-facsimile": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2664"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2664",
+    "page": 130
   },
   "spell:create-thrall": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2895"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2895",
+    "page": 181
   },
   "spell:crucible-of-iron": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2665"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2665",
+    "page": 130
   },
   "spell:cryostasis": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2666"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2666",
+    "page": 130
   },
   "spell:crystallized-vapors": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2667"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2667",
+    "page": 130
   },
   "spell:daemon-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2668"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2668",
+    "page": 130
   },
   "spell:days-weight": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2669"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2669",
+    "page": 131
   },
   "spell:dead-weight": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2896"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2896",
+    "page": 181
   },
   "spell:deathly-scream": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2897"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2897",
+    "page": 182
   },
   "spell:decompose": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2670"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2670",
+    "page": 131
   },
   "spell:defensive-prescience": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2671"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2671",
+    "page": 131
   },
   "spell:defy-the-gods": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2672"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2672",
+    "page": 131
   },
   "spell:deitys-strike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2673"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2673",
+    "page": 131
   },
   "spell:demon-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2674"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2674",
+    "page": 132
   },
   "spell:devil-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2675"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2675",
+    "page": 132
   },
   "spell:dimensional-assault": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2877"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2877",
+    "page": 179
   },
   "spell:dimensional-drop": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2676"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2676",
+    "page": 132
   },
   "spell:disintegrating-puddle": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2677"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2677",
+    "page": 133
   },
   "spell:disorienting-flash": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2678"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2678",
+    "page": 133
   },
   "spell:divine-armageddon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2679"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2679",
+    "page": 133
   },
   "spell:dome-of-tranquility": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2680"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2680",
+    "page": 133
   },
   "spell:doom-mark": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2681"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2681",
+    "page": 133
   },
   "spell:draw-blood": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2682"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2682",
+    "page": 133
   },
   "spell:draw-the-lightning": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2683"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2683",
+    "page": 134
   },
   "spell:dread-mosquito-storm": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2898"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2898",
+    "page": 182
   },
   "spell:earthbreaker-stride": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2684"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2684",
+    "page": 134
   },
   "spell:echoing-weapon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2685"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2685",
+    "page": 134
   },
   "spell:eidolons-wrath": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2914"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2914",
+    "page": 185
   },
   "spell:electrostatic-glider": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2686"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2686",
+    "page": 134
   },
   "spell:element-embodied": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2687"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2687",
+    "page": 134
   },
   "spell:elemental-absorption": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2688"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2688",
+    "page": 135
   },
   "spell:elemental-confluence": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2689"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2689",
+    "page": 135
   },
   "spell:elemental-gift": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2690"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2690",
+    "page": 136
   },
   "spell:elemental-zone": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2691"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2691",
+    "page": 136
   },
   "spell:ember-doppelganger": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2692"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2692",
+    "page": 136
   },
   "spell:envenom-companion": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2693"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2693",
+    "page": 136
   },
   "spell:evolution-surge": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2915"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2915",
+    "page": 185
   },
   "spell:explosive-dust": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2694"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2694",
+    "page": 136
   },
   "spell:expunge-blood": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2695"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2695",
+    "page": 137
   },
   "spell:extend-boost": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2916"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2916",
+    "page": 185
   },
   "spell:extradimensional-cover": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2924"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2924",
+    "page": 186
   },
   "spell:fact-check": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2922"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2922",
+    "page": 186
   },
   "spell:familiars-call": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2696"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2696",
+    "page": 137
   },
   "spell:familiars-resurrection": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2697"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2697",
+    "page": 137
   },
   "spell:far-reach": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2698"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2698",
+    "page": 137
   },
   "spell:fated-confrontation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2699"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2699",
+    "page": 137
   },
   "spell:feral-shades": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2700"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2700",
+    "page": 137
   },
   "spell:fetch": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2701"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2701",
+    "page": 138
   },
   "spell:fey-form": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2702"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2702",
+    "page": 138
   },
   "spell:fiendish-rift": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2703"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2703",
+    "page": 138
   },
   "spell:fishing-spot": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2704"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2704",
+    "page": 138
   },
   "spell:flame-vortex": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2705"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2705",
+    "page": 138
   },
   "spell:flame-wisp": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2706"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2706",
+    "page": 139
   },
   "spell:flesh-tsunami": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2899"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2899",
+    "page": 182
   },
   "spell:floating-harness": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2707"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2707",
+    "page": 139
   },
   "spell:flowing-strike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2708"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2708",
+    "page": 139
   },
   "spell:force-fang": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2878"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2878",
+    "page": 179
   },
   "spell:force-fling": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2879"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2879",
+    "page": 179
   },
   "spell:force-rain": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2709"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2709",
+    "page": 139
   },
   "spell:fractious-echo": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2710"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2710",
+    "page": 139
   },
   "spell:freezing-touch": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2711"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2711",
+    "page": 139
   },
   "spell:friends-to-foes": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2712"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2712",
+    "page": 140
   },
   "spell:frigid-flurry": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2713"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2713",
+    "page": 140
   },
   "spell:frozen-lungs": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2714"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2714",
+    "page": 140
   },
   "spell:fulminating-impact": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2715"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2715",
+    "page": 140
   },
   "spell:garden-of-stone": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2716"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2716",
+    "page": 141
   },
   "spell:geyser": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2717"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2717",
+    "page": 141
   },
   "spell:ghost-rush": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2718"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2718",
+    "page": 141
   },
   "spell:glacial-causeway": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2719"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2719",
+    "page": 141
   },
   "spell:glacial-skewer": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2720"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2720",
+    "page": 141
   },
   "spell:gleaming-pet": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2721"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2721",
+    "page": 141
   },
   "spell:glossolalia": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2722"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2722",
+    "page": 142
   },
   "spell:gravitational-pull": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2723"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2723",
+    "page": 142
   },
   "spell:gravity-wave": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2724"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2724",
+    "page": 142
   },
   "spell:groom-companion": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2725"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2725",
+    "page": 142
   },
   "spell:guiding-star": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2726"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2726",
+    "page": 142
   },
   "spell:hasted-assault": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2880"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2880",
+    "page": 179
   },
   "spell:haunting-spirit": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2727"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2727",
+    "page": 142
   },
   "spell:healing-well": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2728"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2728",
+    "page": 142
   },
   "spell:heartbolt": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2729"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2729",
+    "page": 143
   },
   "spell:helpful-scribe": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2730"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2730",
+    "page": 143
   },
   "spell:hop-skip-jump": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2731"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2731",
+    "page": 143
   },
   "spell:horizons-veil": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2733"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2733",
+    "page": 144
   },
   "spell:hot-air": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2921"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2921",
+    "page": 186
   },
   "spell:ignite-fireworks": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2734"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2734",
+    "page": 144
   },
   "spell:imprinting-hand": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2735"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2735",
+    "page": 144
   },
   "spell:incarnate-ancient-specter": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2736"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2736",
+    "page": 144
   },
   "spell:incarnate-archmage": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2737"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2737",
+    "page": 145
   },
   "spell:incarnate-deific-herald": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2738"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2738",
+    "page": 145
   },
   "spell:incarnate-draconic-legion": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2739"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2739",
+    "page": 146
   },
   "spell:incarnate-faerie-revelers": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2740"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2740",
+    "page": 146
   },
   "spell:incarnate-kaiju": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2741"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2741",
+    "page": 146
   },
   "spell:incarnate-shadow-minuet": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2742"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2742",
+    "page": 147
   },
   "spell:incarnate-skeletal-giant": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2743"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2743",
+    "page": 147
   },
   "spell:incarnate-tempest-of-shades": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2744"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2744",
+    "page": 148
   },
   "spell:incarnate-wild-rose": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2745"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2745",
+    "page": 148
   },
   "spell:inertia-lock": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2746"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2746",
+    "page": 148
   },
   "spell:inevitable-disaster": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2747"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2747",
+    "page": 148
   },
   "spell:infectious-enthusiasm": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2748"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2748",
+    "page": 148
   },
   "spell:infectious-melody": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2749"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2749",
+    "page": 149
   },
   "spell:infinitesimal-collapse-field": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2750"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2750",
+    "page": 149
   },
   "spell:invent-code": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2752"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2752",
+    "page": 150
   },
   "spell:iron-rain": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2753"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2753",
+    "page": 150
   },
   "spell:juvenile-companion": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2754"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2754",
+    "page": 150
   },
   "spell:life-connection": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2755"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2755",
+    "page": 150
   },
   "spell:life-tap": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2900"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2900",
+    "page": 183
   },
   "spell:lifelink-surge": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2917"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2917",
+    "page": 185
   },
   "spell:lightning-lasso": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2756"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2756",
+    "page": 151
   },
   "spell:lively-flight": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2757"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2757",
+    "page": 151
   },
   "spell:living-graveyard": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2901"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2901",
+    "page": 183
   },
   "spell:living-terrain": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2758"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2758",
+    "page": 151
   },
   "spell:living-thunderbolt": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2759"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2759",
+    "page": 151
   },
   "spell:lose-the-path": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2760"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2760",
+    "page": 151
   },
   "spell:lucky-number": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2761"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2761",
+    "page": 152
   },
   "spell:magic-mailbox": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2762"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2762",
+    "page": 152
   },
   "spell:magnetize": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2763"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2763",
+    "page": 152
   },
   "spell:mantle-of-the-frozen-heart": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2764"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2764",
+    "page": 152
   },
   "spell:mantle-of-the-magma-heart": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2765"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2765",
+    "page": 152
   },
   "spell:metal-merged": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2766"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2766",
+    "page": 153
   },
   "spell:metal-reverberation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2767"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2767",
+    "page": 153
   },
   "spell:mind-of-menace": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2769"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2769",
+    "page": 153
   },
   "spell:mirror-malefactors": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2770"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2770",
+    "page": 154
   },
   "spell:mist-sight": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2771"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2771",
+    "page": 154
   },
   "spell:murder-of-crows": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2772"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2772",
+    "page": 154
   },
   "spell:murderous-vine": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2773"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2773",
+    "page": 154
   },
   "spell:muscle-barrier": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2902"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2902",
+    "page": 183
   },
   "spell:musical-accompaniment": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2774"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2774",
+    "page": 154
   },
   "spell:necromancers-generosity": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2775"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2775",
+    "page": 154
   },
   "spell:necrotic-bomb": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2903"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2903",
+    "page": 183
   },
   "spell:necrotize": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2776"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2776",
+    "page": 154
   },
   "spell:nudge-the-odds": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2777"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2777",
+    "page": 155
   },
   "spell:nullify": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2778"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2778",
+    "page": 155
   },
   "spell:one-with-the-land": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2779"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2779",
+    "page": 155
   },
   "spell:overload-connection": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2780"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2780",
+    "page": 155
   },
   "spell:painful-vibrations": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2781"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2781",
+    "page": 156
   },
   "spell:palm-held-sun": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2782"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2782",
+    "page": 156
   },
   "spell:patrons-protector": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2783"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2783",
+    "page": 156
   },
   "spell:perfected-thrall": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2904"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2904",
+    "page": 183
   },
   "spell:pernicious-poltergeist": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2784"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2784",
+    "page": 156
   },
   "spell:persistent-servant": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2785"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2785",
+    "page": 156
   },
   "spell:petal-storm": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2786"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2786",
+    "page": 156
   },
   "spell:phantom-crowd": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2787"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2787",
+    "page": 157
   },
   "spell:phantom-prison": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2788"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2788",
+    "page": 157
   },
   "spell:pierce-the-sky": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2789"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2789",
+    "page": 157
   },
   "spell:planar-collision": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2790"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2790",
+    "page": 157
   },
   "spell:plasma-whirl": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2791"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2791",
+    "page": 157
   },
   "spell:propelling-air-stream": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2792"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2792",
+    "page": 158
   },
   "spell:protect-companion": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2793"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2793",
+    "page": 158
   },
   "spell:proximal-shift": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2794"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2794",
+    "page": 158
   },
   "spell:puppet-strings": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2796"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2796",
+    "page": 158
   },
   "spell:pyroclastic-truth": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2872"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2872",
+    "page": 176
   },
   "spell:quantic-dampening": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2927"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2927",
+    "page": 187
   },
   "spell:quick-sort": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2797"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2797",
+    "page": 158
   },
   "spell:read-the-air": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2798"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2798",
+    "page": 159
   },
   "spell:reanimate-foe": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2905"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2905",
+    "page": 183
   },
   "spell:reblooded": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2799"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2799",
+    "page": 159
   },
   "spell:recurring-nightmare": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2906"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2906",
+    "page": 184
   },
   "spell:reinforce-eidolon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2918"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2918",
+    "page": 185
   },
   "spell:remake-physiology": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2800"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2800",
+    "page": 159
   },
   "spell:rend-magic": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2801"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2801",
+    "page": 159
   },
   "spell:restraining-chains": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2802"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2802",
+    "page": 159
   },
   "spell:restyle": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2803"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2803",
+    "page": 160
   },
   "spell:retrieving-hook": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2804"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2804",
+    "page": 160
   },
   "spell:rewinding-step": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2805"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2805",
+    "page": 160
   },
   "spell:rip-the-spirit": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2806"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2806",
+    "page": 160
   },
   "spell:roaring-applause": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2807"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2807",
+    "page": 160
   },
   "spell:runic-impression": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2881"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2881",
+    "page": 179
   },
   "spell:sacred-covenant": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2808"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2808",
+    "page": 160
   },
   "spell:sanguine-mist": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2809"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2809",
+    "page": 161
   },
   "spell:sanguine-transference": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2907"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2907",
+    "page": 184
   },
   "spell:seashell-of-stolen-sound": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2810"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2810",
+    "page": 161
   },
   "spell:shadow-army": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2811"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2811",
+    "page": 161
   },
   "spell:shadow-projectile": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2812"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2812",
+    "page": 161
   },
   "spell:shadow-raid": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2813"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2813",
+    "page": 161
   },
   "spell:shadow-strike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2814"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2814",
+    "page": 162
   },
   "spell:shielding-strike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2882"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2882",
+    "page": 179
   },
   "spell:shift-perspective": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2815"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2815",
+    "page": 162
   },
   "spell:shooting-star": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2883"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2883",
+    "page": 180
   },
   "spell:skeletal-lancers": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2908"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2908",
+    "page": 184
   },
   "spell:sky-sight": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2816"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2816",
+    "page": 162
   },
   "spell:skyglass-prison": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2817"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2817",
+    "page": 162
   },
   "spell:sonata-span": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2818"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2818",
+    "page": 162
   },
   "spell:song-of-the-soul": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2909"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2909",
+    "page": 184
   },
   "spell:soothing-blossoms": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2819"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2819",
+    "page": 162
   },
   "spell:soothing-spring": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2820"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2820",
+    "page": 162
   },
   "spell:soul-cutter": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2821"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2821",
+    "page": 163
   },
   "spell:space-fold-gate": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2822"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2822",
+    "page": 163
   },
   "spell:speak-with-magic": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2823"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2823",
+    "page": 163
   },
   "spell:speak-with-water": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2824"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2824",
+    "page": 163
   },
   "spell:spectral-blade": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2825"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2825",
+    "page": 163
   },
   "spell:spiked-carapace": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2826"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2826",
+    "page": 164
   },
   "spell:spinning-staff": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2884"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2884",
+    "page": 180
   },
   "spell:spontaneous-cartography": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2827"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2827",
+    "page": 164
   },
   "spell:stars-of-another-sky": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2828"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2828",
+    "page": 164
   },
   "spell:stick-on": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2829"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2829",
+    "page": 164
   },
   "spell:stop-heart": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2830"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2830",
+    "page": 164
   },
   "spell:sudden-swarm": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2831"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2831",
+    "page": 164
   },
   "spell:summoners-precaution": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2832"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2832",
+    "page": 165
   },
   "spell:summoners-visage": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2833"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2833",
+    "page": 165
   },
   "spell:synchronize": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2834"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2834",
+    "page": 166
   },
   "spell:tacky-pine-sap": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2835"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2835",
+    "page": 166
   },
   "spell:tame": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2836"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2836",
+    "page": 166
   },
   "spell:tear-the-veil": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2837"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2837",
+    "page": 166
   },
   "spell:temporary-possession": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2910"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2910",
+    "page": 184
   },
   "spell:tentacular-innervation": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2838"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2838",
+    "page": 166
   },
   "spell:the-everfull-moon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2871"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2871",
+    "page": 176
   },
   "spell:theogeny": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2839"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2839",
+    "page": 166
   },
   "spell:thicket-of-knives": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2840"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2840",
+    "page": 167
   },
   "spell:thrall-charge": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2911"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2911",
+    "page": 184
   },
   "spell:thunder-echo": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2841"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2841",
+    "page": 167
   },
   "spell:thundering-dominance": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2842"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2842",
+    "page": 167
   },
   "spell:thunderous-strike": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2885"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2885",
+    "page": 180
   },
   "spell:time-jump": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2843"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2843",
+    "page": 167
   },
   "spell:timely-reminder": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2844"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2844",
+    "page": 167
   },
   "spell:timely-tutor": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2845"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2845",
+    "page": 167
   },
   "spell:tiny-wings": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2846"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2846",
+    "page": 167
   },
   "spell:tornadic-gale": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2847"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2847",
+    "page": 168
   },
   "spell:tortoise-and-the-hare": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2848"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2848",
+    "page": 168
   },
   "spell:tracing-bond": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2849"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2849",
+    "page": 168
   },
   "spell:tracking-mayflies": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2850"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2850",
+    "page": 168
   },
   "spell:tree-of-life-and-death": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2851"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2851",
+    "page": 168
   },
   "spell:unbounded-sphere": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2925"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2925",
+    "page": 187
   },
   "spell:uncover-device": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2852"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2852",
+    "page": 168
   },
   "spell:under-sunless-skies": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2873"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2873",
+    "page": 176
   },
   "spell:unexpected-transposition": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2853"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2853",
+    "page": 168
   },
   "spell:unfetter-eidolon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2919"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2919",
+    "page": 185
   },
   "spell:unravel-existence": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2854"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2854",
+    "page": 169
   },
   "spell:unrelenting-gravity": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2855"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2855",
+    "page": 169
   },
   "spell:unsettling-perspective": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2923"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2923",
+    "page": 186
   },
   "spell:vanish-weapon": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2857"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2857",
+    "page": 170
   },
   "spell:veil-of-broken-reality": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2874"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2874",
+    "page": 177
   },
   "spell:vital-seed": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2858"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2858",
+    "page": 170
   },
   "spell:voracious-gestalt": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2859"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2859",
+    "page": 170
   },
   "spell:warding-aggression": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2860"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2860",
+    "page": 170
   },
   "spell:warriors-regret": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2861"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2861",
+    "page": 171
   },
   "spell:warshard-shot": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2862"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2862",
+    "page": 171
   },
   "spell:wash-your-luck": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2863"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2863",
+    "page": 171
   },
   "spell:watchdog": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2864"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2864",
+    "page": 172
   },
   "spell:web-of-eyes": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2866"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2866",
+    "page": 172
   },
   "spell:weight-of-the-world": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2867"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2867",
+    "page": 173
   },
   "spell:widows-bite": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2868"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2868",
+    "page": 173
   },
   "spell:winning-streak": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2869"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2869",
+    "page": 173
   },
   "spell:zombie-horde": {
     "book": "impossible-magic",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2912"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2912",
+    "page": 184
   }
 }
