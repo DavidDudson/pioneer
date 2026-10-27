@@ -71,3 +71,19 @@ export function shuffle<Item>(source: PickSource, items: readonly Item[]): reado
   }
   return result;
 }
+
+/** How finely a weighted shuffle tells apart the draws it orders entries by. */
+const DRAW_RESOLUTION = PickBound.parse(1_048_576);
+
+/**
+ * `entries` in a random order in which an entry comes earlier the heavier its weight: each draws a number from the
+ * source and is ordered by that number's exponential race against its weight (Efraimidis and Spirakis). Equal weights
+ * give each order equal odds, and an entry of any positive weight can come first. An entry of weight zero comes last.
+ */
+export function weightedShuffle<Item>(source: PickSource, entries: readonly Weighted<Item>[]): readonly Item[] {
+  const raced = entries.map(({ item, weight }) => {
+    const draw = (source.below(DRAW_RESOLUTION) + ONE) / (DRAW_RESOLUTION + ONE);
+    return { item, time: weight === NONE ? Infinity : -Math.log(draw) / weight };
+  });
+  return raced.toSorted((left, right) => left.time - right.time).map(({ item }) => item);
+}

@@ -2,6 +2,7 @@ import type { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import type { Temporal } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { weighCandidates } from './candidate-weights';
 import type { Character } from './character';
 import { CharacterLevel } from './character-fields';
 import { CharacterPatchField } from './character-patch';
@@ -9,10 +10,11 @@ import { SlotStatus } from './character-slot';
 import type { CharacterSlot } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { generateGear } from './generate-gear';
+import type { GenerationTheme } from './generation-theme';
 import type { ItemContent } from './inventory-content';
 import { seededPicks } from './pick-source';
 import type { PickSource, Seed } from './pick-source';
-import { shuffle } from './picks';
+import { shuffle, weightedShuffle } from './picks';
 import { slotCandidates } from './slot-candidates';
 import { slotRefusal } from './slot-offer';
 import type { SlotContent } from './slot-offer';
@@ -26,6 +28,8 @@ export interface GenerateInput {
   readonly level: CharacterLevel;
   readonly content: SlotContent;
   /** The items on sale: when given, the character is outfitted for its level once its slots are filled (`generateGear`). */
+  /** Weights for what the picks raise or use: the favoured ones are picked more often. Absent, every pick is as likely. */
+  readonly theme?: GenerationTheme | undefined;
   readonly items?: ItemContent | undefined;
   /** What a character of each level may own; the core rules' by default. */
   readonly treasure?: TreasureByLevel | undefined;
@@ -61,6 +65,8 @@ interface Search {
   readonly source: PickSource;
   readonly now: Temporal.Instant;
   readonly target: CharacterLevel;
+  /** The theme the picks are weighed by; undefined for none. */
+  readonly theme: GenerationTheme | undefined;
   /** Whether a slot whose every pick leads to a dead end is left open, rather than backed out of. */
   readonly lenient: boolean;
   /** Dead ends still to back out of; undefined for no limit. */
@@ -128,8 +134,17 @@ function backOut(search: Search): boolean {
  * What `slot` offers that the builder accepts, in random order, each checked only when asked for.
  * @yields {ChoiceValue} a candidate of `slot` that `slotRefusal` accepts.
  */
-function* acceptable(character: Character, slot: OpenSlot, { content, source }: Search): Generator<ChoiceValue> {
-  for (const selection of shuffle(source, slotCandidates(character.document, content, slot))) {
+/** The candidates of `slot` in the order they are tried: random, and heaviest first by chance when a theme weighs them. */
+function tryOrder(character: Character, slot: OpenSlot, { content, source, theme }: Search): readonly ChoiceValue[] {
+  const candidates = slotCandidates(character.document, content, slot);
+  return theme === undefined
+    ? shuffle(source, candidates)
+    : weightedShuffle(source, weighCandidates(slot, candidates, { theme, content }));
+}
+
+function* acceptable(character: Character, slot: OpenSlot, search: Search): Generator<ChoiceValue> {
+  const { content } = search;
+  for (const selection of tryOrder(character, slot, search)) {
     if (slotRefusal(character.document, content, { slot: slot.key, selection }) === undefined) {
       yield selection;
     }
@@ -165,9 +180,18 @@ function pickSlot(node: Node, slot: OpenSlot, search: Search): Generated | undef
  * fills every slot within the search's budget (a feat whose own choices undo each other, say), the search runs again
  * leaving such slots open. The same seed and character give the same one.
  */
-export function generateCharacter({ start, seed, level, content, now, items, treasure }: GenerateInput): Generated {
+export function generateCharacter({
+  start,
+  seed,
+  level,
+  content,
+  now,
+  items,
+  treasure,
+  theme,
+}: GenerateInput): Generated {
   const source = seededPicks(seed);
-  const base = { content, source, now, target: level };
+  const base = { content, source, now, target: level, theme };
   const root: Node = { character: start, skipped: [] };
   const built = extend(root, { ...base, lenient: false, left: BACKTRACKS_MAX }) ??
     extend(root, { ...base, lenient: true, left: undefined }) ?? { character: start, unfilled: [] };
