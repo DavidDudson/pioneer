@@ -264,6 +264,7 @@ describe(ContentSidePanel, () => {
       opened.fixture.detectChanges();
       expect(opened.input.value).toBe('tough');
     });
+    // The restore searches the new words but leaves the list closed.
     await press(opened, 'ArrowDown');
     await vi.waitFor(() => {
       opened.fixture.detectChanges();
@@ -274,9 +275,8 @@ describe(ContentSidePanel, () => {
   it('links the entry being read to the full content page, with its kind and the words', async () => {
     const opened = await open('/?sq=attack&se=feat:power-attack');
     await readEntry(opened, 'Strike with all your might.');
-    const link = [...opened.root.querySelectorAll('a')].find(
-      (anchor) => anchor.textContent.trim() === OPEN_IN_BROWSER_LABEL,
-    );
+    const link = opened.root.querySelector('a[href^="/content/"]');
+    expect(link?.textContent.trim()).toBe(OPEN_IN_BROWSER_LABEL);
     expect(link?.getAttribute('href')).toBe('/content/feat/power-attack?kind=feat&q=attack');
   });
 

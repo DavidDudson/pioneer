@@ -82,6 +82,7 @@ export class ContentSidePanel {
   });
   /** Where the entry page's way back leads: this page, drawer and all. */
   protected readonly origin = computed(() => {
+    // The router URL is not a signal: the address changing is what makes it current.
     this.#params();
     return { [ORIGIN_STATE]: this.#router.url };
   });
