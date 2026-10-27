@@ -718,6 +718,7 @@ export {
   type EnvironmentContent,
   environmentContent,
   type RestrictionInPlay,
+  restrictionBlocking,
   restrictionsHolding,
   restrictionsInPlay,
   ENVIRONMENTS_MAX,

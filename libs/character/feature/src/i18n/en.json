@@ -161,7 +161,8 @@
       "heading": "Environments",
       "hint": "Situations the character is in, such as underwater or in the dark. Each can forbid things, and says why.",
       "none": "No environments in the content yet",
-      "lifted": "{reason} Lifted by {source}."
+      "lifted": "{reason} Lifted by {source}.",
+      "blocked": "{reason}"
     },
     "skills": {
       "formTraits": "Your form gives you the traits {traits} on this roll."

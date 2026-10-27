@@ -2,16 +2,25 @@ import {
   actionCosts,
   characterActionContext,
   characterActions,
+  restrictionBlocking,
   SpendCount,
   SpendKind,
   turnAllows,
 } from '@pioneer/character/domain';
-import type { ActionCostRange, Character, ResourcesSpent, SpendCost, TurnState } from '@pioneer/character/domain';
+import type {
+  ActionCostRange,
+  Character,
+  ResourcesSpent,
+  RestrictionInPlay,
+  SpendCost,
+  TurnState,
+} from '@pioneer/character/domain';
 import { ActionOriginKind, ActionStatus } from '@pioneer/rules/engine';
 import type { AvailableAction } from '@pioneer/rules/engine';
 import { ACTION_COUNT, ActionCost, ContentKind, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import type { ActionLine } from '@pioneer/rules/ui';
+import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { offTurnWithoutTrigger, turnReason } from './sheet-action-turn';
@@ -25,9 +34,16 @@ export const ACTION_CONTENT_KINDS: readonly ContentKind[] = [
   ContentKind.Action,
   ContentKind.Feat,
   ContentKind.Effect,
+  ContentKind.Environment,
 ];
 
 const ATTACK = Trait.parse('attack');
+
+/** Message keys for why an environment forbids an action. */
+export const EnvironmentReasonMessage = {
+  /** The reason of the restriction that forbids the action, as the content words it. */
+  Blocked: 'character.sheet.environments.blocked',
+} as const;
 
 /** Whether the entry `id` has the attack trait, so using it is an attack that moves the multiple attack penalty on. */
 export function makesAttack(registry: ContentRegistry, id: ContentId): boolean {
@@ -48,10 +64,17 @@ function traitsOf(entry: ContentEntry | undefined, names: ReadonlyMap<Trait, str
   return (entry?.traits ?? []).map((trait) => names.get(Trait.parse(trait)) ?? trait);
 }
 
+/** The trait slugs an entry carries, to match against what an environment forbids. */
+function traitSlugs(entry: ContentEntry | undefined): readonly Trait[] {
+  return (entry?.traits ?? []).map((trait) => Trait.parse(trait));
+}
+
 /** What the actions are worked out against: the uses spent, and the turn that decides what can be afforded now. */
 export interface SheetActionsPlay {
   readonly resources: Pick<ResourcesSpent, 'uses'>;
   readonly turn?: TurnState | undefined;
+  /** The restrictions that hold now, from the environments the character is in; an action they forbid is unavailable. */
+  readonly restrictions?: readonly RestrictionInPlay[] | undefined;
 }
 
 /**
@@ -74,6 +97,7 @@ export function sheetActions(
   return actions.map((action: AvailableAction): ActionLine => {
     const range = costs.get(action.action);
     const fit = turnFit(play.turn, action.cost, range);
+    const blocked = restrictionBlocking(play.restrictions ?? [], traitSlugs(entries.get(action.action)));
     return {
       id: action.action,
       name: entries.get(action.action)?.name ?? action.action,
@@ -83,8 +107,12 @@ export function sheetActions(
       origin: action.origin,
       source:
         action.origin.kind === ActionOriginKind.Granted ? entries.get(action.origin.source.entry)?.name : undefined,
-      status: fit.affordable === false ? ActionStatus.Unavailable : action.status,
-      reasons: [...action.reasons, ...fit.reasons],
+      status: fit.affordable === false || blocked !== undefined ? ActionStatus.Unavailable : action.status,
+      reasons: [
+        ...action.reasons,
+        ...fit.reasons,
+        ...(blocked === undefined ? [] : [message(EnvironmentReasonMessage.Blocked, { reason: blocked.reason })]),
+      ],
       roll: action.roll,
       priority: priorities.get(action.action),
       dormant: context.dormant.has(action.action),

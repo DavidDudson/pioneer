@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import { restrictionsHolding } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion } from '@pioneer/frontier';
 import type { ActionMode } from '@pioneer/rules/sdk';
 import { ActionsView, ActionsViewKind } from '@pioneer/rules/ui';
@@ -7,6 +8,7 @@ import type { ActionLine } from '@pioneer/rules/ui';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { ACTION_CONTENT_KINDS, sheetActions } from '../sheet-actions';
+import { sheetRestrictions } from '../sheet-environments';
 import { SheetSpender } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
 
@@ -41,8 +43,15 @@ export class SheetActions {
     const registry = this.registry.data();
     const character = this.#sheet.character();
     const read = this.#play.play.data();
-    return registry === undefined || character === undefined || read === undefined
-      ? undefined
-      : sheetActions(registry, character, { resources: read.play.resources, turn: this.#spender.turn() });
+    if (registry === undefined || character === undefined || read === undefined) {
+      return undefined;
+    }
+    const engine = this.#sheet.engine();
+    const restrictions = sheetRestrictions({ registry, engine, character }, read.play.environments);
+    return sheetActions(registry, character, {
+      resources: read.play.resources,
+      turn: this.#spender.turn(),
+      restrictions: restrictionsHolding(restrictions),
+    });
   });
 }

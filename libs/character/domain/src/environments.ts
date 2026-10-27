@@ -1,7 +1,7 @@
 import type { LiftedRestriction } from '@pioneer/rules/engine';
 import type { GrantRoot } from '@pioneer/rules/grants';
 import { ContentId, ContentKind, OriginHopKind } from '@pioneer/rules/sdk';
-import type { ContentRegistry, ContentText, EnvironmentData, Origin, Slug } from '@pioneer/rules/sdk';
+import type { ContentRegistry, ContentText, EnvironmentData, Origin, Slug, Trait } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -79,6 +79,8 @@ export interface RestrictionInPlay {
   readonly environment: ContentId;
   readonly id: Slug;
   readonly reason: ContentText;
+  /** The action traits it forbids; none for a restriction that is text only. */
+  readonly blocks: readonly Trait[];
   /** What lifts the restriction; empty while it holds. */
   readonly liftedBy: readonly Origin[];
 }
@@ -98,13 +100,22 @@ export function restrictionsInPlay(
   lifted: readonly LiftedRestriction[] = [],
 ): readonly RestrictionInPlay[] {
   return environments.flatMap((environment) =>
-    (content.get(environment)?.restrictions ?? []).map(({ id, reason }) => ({
+    (content.get(environment)?.restrictions ?? []).map(({ id, reason, blocks }) => ({
       environment,
       id,
       reason,
+      blocks,
       liftedBy: lifted.filter((lift) => lifts(lift, environment, id)).flatMap((lift) => lift.origins),
     })),
   );
+}
+
+/** The restriction in `restrictions` that forbids an action with one of `traits`, if one does. */
+export function restrictionBlocking(
+  restrictions: readonly RestrictionInPlay[],
+  traits: readonly Trait[],
+): RestrictionInPlay | undefined {
+  return restrictions.find(({ blocks }) => blocks.some((trait) => traits.includes(trait)));
 }
 
 /** The restrictions that hold: those of `restrictions` nothing lifts. */

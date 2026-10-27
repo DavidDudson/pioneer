@@ -1,20 +1,19 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import {
-  characterLiftedRestrictions,
-  EnvironmentCommandField,
-  environmentContent,
-  restrictionsInPlay,
-} from '@pioneer/character/domain';
+import { EnvironmentCommandField } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Skeleton, Stack, Text, ToggleButton } from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { SheetBreath } from '../sheet-breath/sheet-breath.component';
-import { ENVIRONMENT_CONTENT_KINDS, environmentOptions, restrictionRows } from '../sheet-environments';
+import {
+  ENVIRONMENT_CONTENT_KINDS,
+  environmentOptions,
+  restrictionRows,
+  sheetRestrictions,
+} from '../sheet-environments';
 import type { EnvironmentOption, RestrictionRow } from '../sheet-environments';
-import { sheetSources } from '../sheet-sources';
 import { SheetState } from '../sheet-state';
 
 /**
@@ -53,11 +52,7 @@ export class SheetEnvironments {
     if (registry === undefined || environments === undefined) {
       return [];
     }
-    const lifted =
-      engine === undefined || character === undefined
-        ? []
-        : characterLiftedRestrictions(character.document, sheetSources(engine, character));
-    return restrictionRows(engine ?? registry, restrictionsInPlay(environments, environmentContent(registry), lifted));
+    return restrictionRows(engine ?? registry, sheetRestrictions({ registry, engine, character }, environments));
   });
 
   protected readonly set = async (environment: ContentId, active: boolean): Promise<void> => {

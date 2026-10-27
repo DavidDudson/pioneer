@@ -177,7 +177,8 @@
       "restrictions": [
         {
           "id": "fire-effects",
-          "reason": "You can't cast fire spells or use actions with the fire trait underwater."
+          "reason": "You can't cast fire spells or use actions with the fire trait underwater.",
+          "blocks": ["fire"]
         },
         {
           "id": "speech",
