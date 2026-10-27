@@ -12,6 +12,11 @@
   @if (state(); as shown) {
     <fr-stack direction="horizontal">
       <fr-button (pressed)="back()">{{ Message.Back | transloco }}</fr-button>
+      @if (browserLink(); as open) {
+        <fr-link [to]="open.commands" [queryParams]="open.queryParams" [state]="origin()">{{
+          Message.OpenInBrowser | transloco
+        }}</fr-link>
+      }
     </fr-stack>
     <pio-content-browser [tier]="tier" [state]="shown" />
   }

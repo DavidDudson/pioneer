@@ -27,6 +27,7 @@ export {
   type TableViewOptions,
   type TableViewState,
 } from './lib/data/table-view/table-view-state';
+export { TableViewKey } from './lib/data/table-view/table-view-keys';
 export { tableViewColumns } from './lib/data/table-view/table-view-schema';
 export type {
   TableView,

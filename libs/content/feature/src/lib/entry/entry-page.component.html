@@ -2,7 +2,12 @@
   <fr-page-header [title]="Message.Title | transloco" />
   <fr-page-body>
     <fr-stack gap="md">
-      <fr-link [to]="browse">{{ Message.Back | transloco }}</fr-link>
+      <fr-stack direction="horizontal">
+        @if (origin) {
+          <fr-button (pressed)="backToOrigin()">{{ Message.BackToOrigin | transloco }}</fr-button>
+        }
+        <fr-link [to]="browse" [queryParams]="browseParams()">{{ Message.Back | transloco }}</fr-link>
+      </fr-stack>
       <fr-async-region [errorMessage]="Message.LoadError | transloco">
         <ng-template frAsyncPending>
           <fr-stack gap="xs">

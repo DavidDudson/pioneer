@@ -22,10 +22,12 @@
   },
   "entry": {
     "back": "Back to the content list",
+    "backToOrigin": "Back to where you were",
     "loadError": "The entry could not be loaded."
   },
   "sidePanel": {
-    "back": "Back to results"
+    "back": "Back to results",
+    "openInBrowser": "Open in browser"
   },
   "column": {
     "name": "Name",

@@ -50,6 +50,9 @@ async function headed(root: HTMLElement): Promise<string> {
 const linkNamed = (root: HTMLElement, name: string): HTMLAnchorElement | undefined =>
   [...root.querySelectorAll<HTMLAnchorElement>('pio-entry-preview a')].find((each) => each.textContent.trim() === name);
 
+const backToOrigin = (root: HTMLElement): HTMLButtonElement | undefined =>
+  [...root.querySelectorAll('button')].find((each) => each.textContent.trim() === 'Back to where you were');
+
 describe('EntryPage', () => {
   beforeAll(async () => {
     await prebuildContentTesting([BROWSE_LOADER]);
@@ -99,6 +102,31 @@ describe('EntryPage', () => {
       expect(harness.routeNativeElement?.querySelector('pio-entry-preview h2')?.textContent.trim()).toBe(
         'Power-attack',
       );
+    });
+  });
+
+  it('keeps the kind and words in the way back to the content list', async () => {
+    const { root } = await open('/content/feat/shield-block?kind=feat&q=shield');
+    await headed(root);
+    const back = [...root.querySelectorAll('a')].find((each) => each.textContent.trim() === 'Back to the content list');
+    expect(back?.getAttribute('href')).toBe('/content?kind=feat&q=shield');
+  });
+
+  it('offers the way back to the page it was opened from, and only then', async () => {
+    const { root, harness } = await open('/content/feat/shield-block');
+    await headed(root);
+    expect(backToOrigin(root)).toBeUndefined();
+
+    // A new page, as following the panel's link makes.
+    const router = TestBed.inject(Router);
+    await router.navigateByUrl('/content');
+    await router.navigateByUrl('/content/feat/power-attack', { state: { origin: '/content?kind=spell&drawer=open' } });
+    await vi.waitFor(() => {
+      expect(backToOrigin(present(harness.routeNativeElement))).toBeDefined();
+    });
+    present(backToOrigin(present(harness.routeNativeElement))).click();
+    await vi.waitFor(() => {
+      expect(router.url).toBe('/content?kind=spell&drawer=open');
     });
   });
 

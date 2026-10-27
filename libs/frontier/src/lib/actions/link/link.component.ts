@@ -83,6 +83,8 @@ export class Link {
   public readonly to = input<LinkTarget | undefined>(undefined);
   /** Query parameters added to the `to` page's URL. */
   public readonly queryParams = input<Params | undefined>(undefined);
+  /** History state the navigation carries, for the page it opens to read (where the link was followed from). */
+  public readonly state = input<Readonly<Record<string, unknown>> | undefined>(undefined);
   /** Only the `to` page itself is current, not the pages under it. For a root link, which is under nothing. */
   public readonly exact = input(false, { transform: booleanAttribute });
   public readonly href = input<string | undefined>(undefined);

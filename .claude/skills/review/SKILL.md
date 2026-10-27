@@ -1,6 +1,9 @@
 ---
 name: review
-description: Pioneer's pre-PR code review. Runs only the persona reviewers the diff needs, each a clean-context Sonnet agent, each checking the repo's rules and ADRs, then verifies every finding against the code before reporting or fixing. Use before creating a PR, when the user says "review this", "review my changes", "check this before PR", or when the create-pr, work-issue or pickup skills reach their review step.
+description: Pioneer's pre-PR code review. Runs only the persona reviewers the diff needs, each a clean-context Sonnet
+agent, each checking the repo's rules and ADRs, then verifies every finding against the code before reporting or
+fixing. Use before creating a PR, when the user says "review this", "review my changes", "check this before PR", or
+when the create-pr, work-issue or pickup skills reach their review step.
 argument-hint: '[base-ref] [--fix]'
 ---
 
@@ -99,12 +102,14 @@ Agent; only the files a finding names): open the file at the line, read enough s
 the evidence and the rule. Discard anything that does not hold up. Tag survivors `CONFIRMED`; tag ones that are
 likely but need a human judgement call `PLAUSIBLE`.
 
-Then run the mechanical checks, which outrank opinions:
+Then run the small local checks, which outrank opinions. Keep them cheap and narrow, each run through
+`.claude/scripts/run-check.sh` (it waits for CPU and queues behind other workspaces): never `bun run affected`, `nx
+affected` or `bun run lint:workspace` (CI runs those, and the affected space is large).
 
 ```sh
-just db-up            # db tests need Postgres
-bun run affected      # lint, lint-templates, typecheck, test, build, verify-styles for touched projects
-bun run lint:workspace
+.claude/scripts/run-check.sh bunx oxlint <changed files>
+.claude/scripts/run-check.sh bunx nx run <project>:typecheck          # one project at a time
+.claude/scripts/run-check.sh bunx nx run <project>:test --include="**/<name>.spec.ts"   # specs near the change
 ```
 
 Failures here are blockers.

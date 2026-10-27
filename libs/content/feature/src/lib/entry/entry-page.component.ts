@@ -1,13 +1,16 @@
+import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import type { Params } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ContentEntryView } from '@pioneer/content/ui';
 import {
   AsyncData,
   AsyncPending,
   AsyncRegion,
+  Button,
   HeadingLevel,
   Link,
   Page,
@@ -16,11 +19,14 @@ import {
   Skeleton,
   Stack,
 } from '@pioneer/frontier';
+import { TableViewKey } from '@pioneer/frontier/data';
 import type { ContentEntry, ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
 import { ENTRY_PREVIEWS, RICH_TEXT_LINKS } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/rules/ui';
 import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
 
+import { KIND_PARAM } from '../browser/browse-kinds';
+import { originOf } from '../panel/open-in-browser';
 import { injectEntryDescription } from './entry-description';
 import { entryCard, entryIndex, entryLinks, entryPreviews, findEntry, kindOfParam } from './entry-lookup';
 import { injectEntryRegistry } from './entry-registry';
@@ -28,6 +34,7 @@ import { injectEntryRegistry } from './entry-registry';
 const EntryMessage = {
   Title: 'content.page.title',
   Back: 'content.entry.back',
+  BackToOrigin: 'content.entry.backToOrigin',
   LoadError: 'content.entry.loadError',
 } as const;
 
@@ -46,6 +53,7 @@ const LOADING_ROWS = ['first', 'second', 'third'];
     AsyncData,
     AsyncPending,
     AsyncRegion,
+    Button,
     ContentEntryView,
     Link,
     Page,
@@ -97,6 +105,25 @@ export class EntryPage {
     return entry === undefined ? undefined : entryCard(entry, this.#description.data());
   });
 
+  readonly #router = inject(Router);
+  readonly #query = toSignal(inject(ActivatedRoute).queryParamMap, { requireSync: true });
+
   protected readonly browse: readonly string[] = ['/content'];
+  /** The kind and words the entry was opened from, so the list is as it was left. */
+  protected readonly browseParams = computed((): Params => {
+    const query = this.#query();
+    return {
+      [KIND_PARAM]: query.get(KIND_PARAM) ?? undefined,
+      [TableViewKey.Search]: query.get(TableViewKey.Search) ?? undefined,
+    };
+  });
+  /** The page this one was opened from, when it was the sheet's side panel. */
+  protected readonly origin = originOf(inject(Location).getState());
   protected readonly headingLevel = HeadingLevel.Two;
+
+  protected async backToOrigin(): Promise<void> {
+    if (this.origin !== undefined) {
+      await this.#router.navigateByUrl(this.origin);
+    }
+  }
 }

@@ -38,6 +38,7 @@ const SHELL_MESSAGES = {
 };
 const SEARCH_LABEL = SHELL_MESSAGES['shell.search.label'];
 const BACK_LABEL = contentMessages.sidePanel.back;
+const OPEN_IN_BROWSER_LABEL = contentMessages.sidePanel.openInBrowser;
 
 interface Opened {
   readonly fixture: ComponentFixture<ContentSidePanel>;
@@ -269,6 +270,14 @@ describe(ContentSidePanel, () => {
       opened.fixture.detectChanges();
       expect(listed(opened)).toStrictEqual(['Toughness']);
     });
+  });
+
+  it('links the entry being read to the full content page, with its kind and the words', async () => {
+    const opened = await open('/?sq=attack&se=feat:power-attack');
+    await readEntry(opened, 'Strike with all your might.');
+    const link = opened.root.querySelector('a[href^="/content/"]');
+    expect(link?.textContent.trim()).toBe(OPEN_IN_BROWSER_LABEL);
+    expect(link?.getAttribute('href')).toBe('/content/feat/power-attack?kind=feat&q=attack');
   });
 
   it('drops the words from the address when the box is emptied', async () => {

@@ -1,6 +1,9 @@
 ---
 name: pickup
-description: Continue in-progress Pioneer work - an open PR or an In progress / In review ticket. Checks it out, rebases onto the latest main, resolves conflicts, reruns checks, works through CodeRabbit and Copilot feedback, and carries on with the work-issue loop until the PR is ready to merge. Use when the user says "pickup", "pick up #n", "continue this PR", "carry on with the ticket", or "what was I doing".
+description: Continue in-progress Pioneer work - an open PR or an In progress / In review ticket. Checks it out,
+rebases onto the latest main, resolves conflicts, reruns checks, works through CodeRabbit and Copilot feedback, and
+carries on with the work-issue loop until the PR is ready to merge. Use when the user says "pickup", "pick up #n",
+"continue this PR", "carry on with the ticket", or "what was I doing".
 argument-hint: '[pr-number | issue-number]'
 ---
 
@@ -52,7 +55,8 @@ generated files: rerun drizzle-kit for migration snapshots and journal (renumber
 main's), and `bun install` for `bun.lock`. Continue with `git rebase --continue`. If a conflict needs a product
 decision, `git rebase --abort` and ask.
 
-Then rerun `bun run affected` and `bun run lint:workspace` (`just db-up` first if db tests are affected), fix
+Then rerun the small local checks through `.claude/scripts/run-check.sh` (oxlint, typecheck and specs of the projects
+the conflicts touched; never `bun run affected` or `bun run lint:workspace`, CI runs those), fix
 anything the new main broke, and push with `git push --force-with-lease`.
 
 ## 4. Feedback

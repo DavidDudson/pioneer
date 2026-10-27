@@ -1,7 +1,7 @@
 import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
-import { describe, expect, it, onTestFinished } from 'vitest';
+import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
 import { TextVariant } from '../../text/text.variants';
 import { Link, LinkAppearance } from './link.component';
@@ -60,6 +60,16 @@ describe(Link, () => {
   it('adds query parameters to the page it links to', async () => {
     const anchor = await render({ to: '/account/report-bug', queryParams: { character: 'abc', name: 'Valeros Rhys' } });
     expect(anchor.getAttribute('href')).toBe('/account/report-bug?character=abc&name=Valeros%20Rhys');
+  });
+
+  it('carries state to the page it links to', async () => {
+    const anchor = await render({ to: '/content/feat/power-attack', state: { origin: '/characters/1' } });
+    anchor.click();
+    await vi.waitFor(() => {
+      expect(TestBed.inject(Router).lastSuccessfulNavigation()?.extras.state).toStrictEqual({
+        origin: '/characters/1',
+      });
+    });
   });
 
   it('opens another site with rel="noopener"', async () => {
