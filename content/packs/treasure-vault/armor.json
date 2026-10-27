@@ -617,7 +617,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=17"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=17",
+        "page": 9
       }
     ],
     "description": [
@@ -1767,7 +1768,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=19"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=19",
+        "page": 10
       }
     ],
     "description": [
@@ -2377,7 +2379,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=20"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=20",
+        "page": 10
       }
     ],
     "description": [
@@ -3282,7 +3285,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=21"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=21",
+        "page": 10
       }
     ],
     "description": [
@@ -3330,7 +3334,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=22"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=22",
+        "page": 10
       }
     ],
     "description": [
@@ -3375,7 +3380,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=23"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=23",
+        "page": 10
       }
     ],
     "description": [
@@ -3432,7 +3438,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=24"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=24",
+        "page": 10
       }
     ],
     "description": [
@@ -3489,7 +3496,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=25"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=25",
+        "page": 10
       }
     ],
     "description": [
@@ -3773,7 +3781,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=26"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=26",
+        "page": 10
       }
     ],
     "description": [
@@ -3821,7 +3830,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=28"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=28",
+        "page": 10
       }
     ],
     "description": [
@@ -3868,7 +3878,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=29"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=29",
+        "page": 11
       }
     ],
     "description": [
@@ -4583,7 +4594,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=30"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=30",
+        "page": 11
       }
     ],
     "description": [
@@ -4630,7 +4642,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=56"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=56",
+        "page": 11
       }
     ],
     "description": [
@@ -4678,7 +4691,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=32"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=32",
+        "page": 11
       }
     ],
     "description": [
@@ -5306,7 +5320,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=33"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=33",
+        "page": 11
       }
     ],
     "description": [
@@ -5894,7 +5909,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=35"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=35",
+        "page": 11
       }
     ],
     "description": [
@@ -6980,7 +6996,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=36"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=36",
+        "page": 11
       }
     ],
     "description": [

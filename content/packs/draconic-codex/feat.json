@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8076"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8076",
+        "page": 216
       }
     ],
     "description": [
@@ -83,7 +84,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8089"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8089",
+        "page": 217
       }
     ],
     "description": [
@@ -143,7 +145,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8053"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8053",
+        "page": 212
       }
     ],
     "description": [
@@ -189,7 +192,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8064"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8064",
+        "page": 214
       }
     ],
     "description": [
@@ -255,7 +259,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8069"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8069",
+        "page": 215
       }
     ],
     "description": [
@@ -321,7 +326,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8095"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8095",
+        "page": 219
       }
     ],
     "description": [
@@ -423,7 +429,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8079"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8079",
+        "page": 216
       }
     ],
     "description": [
@@ -516,7 +523,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8057"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8057",
+        "page": 212
       }
     ],
     "description": [
@@ -564,7 +572,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8072"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8072",
+        "page": 215
       }
     ],
     "description": [
@@ -642,7 +651,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8100"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8100",
+        "page": 219
       }
     ],
     "description": [
@@ -706,7 +716,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8046"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8046",
+        "page": 210
       }
     ],
     "description": [
@@ -788,7 +799,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8062"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8062",
+        "page": 213
       }
     ],
     "description": [
@@ -874,7 +886,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8109"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8109",
+        "page": 220
       }
     ],
     "description": [
@@ -960,7 +973,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8087"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8087",
+        "page": 217
       }
     ],
     "description": [
@@ -1042,7 +1056,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8097"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8097",
+        "page": 219
       }
     ],
     "description": [
@@ -1107,7 +1122,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8073"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8073",
+        "page": 215
       }
     ],
     "description": [
@@ -1175,7 +1191,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8090"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8090",
+        "page": 218
       }
     ],
     "description": [
@@ -1296,7 +1313,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8093"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8093",
+        "page": 219
       }
     ],
     "description": [
@@ -1356,7 +1374,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8091"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8091",
+        "page": 218
       }
     ],
     "description": [
@@ -1491,7 +1510,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8074"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8074",
+        "page": 215
       }
     ],
     "description": [
@@ -1605,7 +1625,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8092"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8092",
+        "page": 219
       }
     ],
     "description": [
@@ -1711,7 +1732,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8065"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8065",
+        "page": 214
       }
     ],
     "description": [
@@ -1761,7 +1783,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8047"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8047",
+        "page": 211
       }
     ],
     "description": [
@@ -2051,7 +2074,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8063"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8063",
+        "page": 213
       }
     ],
     "description": [
@@ -2110,7 +2134,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8048"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8048",
+        "page": 211
       }
     ],
     "description": [
@@ -2165,7 +2190,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8066"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8066",
+        "page": 214
       }
     ],
     "description": [
@@ -2260,7 +2286,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8102"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8102",
+        "page": 220
       }
     ],
     "description": [
@@ -2315,7 +2342,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8080"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8080",
+        "page": 216
       }
     ],
     "description": [
@@ -2389,7 +2417,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8075"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8075",
+        "page": 215
       }
     ],
     "description": [
@@ -2451,7 +2480,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8083"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8083",
+        "page": 217
       }
     ],
     "description": [
@@ -2538,7 +2568,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8094"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8094",
+        "page": 219
       }
     ],
     "description": [
@@ -2658,7 +2689,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8058"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8058",
+        "page": 213
       }
     ],
     "description": [
@@ -2777,7 +2809,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8105"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8105",
+        "page": 220
       }
     ],
     "description": [
@@ -2827,7 +2860,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8060"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8060",
+        "page": 213
       }
     ],
     "description": [
@@ -2896,7 +2930,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8099"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8099",
+        "page": 219
       }
     ],
     "description": [
@@ -3087,7 +3122,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8111"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8111",
+        "page": 221
       }
     ],
     "description": [
@@ -3190,7 +3226,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8088"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8088",
+        "page": 217
       }
     ],
     "description": [
@@ -3258,7 +3295,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8101"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8101",
+        "page": 219
       }
     ],
     "description": [
@@ -3332,7 +3370,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8067"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8067",
+        "page": 214
       }
     ],
     "description": [
@@ -3395,7 +3434,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8084"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8084",
+        "page": 217
       }
     ],
     "description": [
@@ -3452,7 +3492,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8107"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8107",
+        "page": 220
       }
     ],
     "description": [
@@ -3499,7 +3540,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8054"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8054",
+        "page": 212
       }
     ],
     "description": [
@@ -3568,7 +3610,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8059"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8059",
+        "page": 213
       }
     ],
     "description": [
@@ -3614,7 +3657,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8055"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8055",
+        "page": 212
       }
     ],
     "description": [
@@ -3696,7 +3740,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8068"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8068",
+        "page": 215
       }
     ],
     "description": [
@@ -3832,7 +3877,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8070"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8070",
+        "page": 215
       }
     ],
     "description": [
@@ -3935,7 +3981,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8103"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8103",
+        "page": 220
       }
     ],
     "description": [
@@ -4007,7 +4054,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8049"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8049",
+        "page": 211
       }
     ],
     "description": [
@@ -4064,7 +4112,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8085"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8085",
+        "page": 217
       }
     ],
     "description": [
@@ -4118,7 +4167,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8050"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8050",
+        "page": 211
       }
     ],
     "description": [
@@ -4194,7 +4244,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8096"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8096",
+        "page": 219
       }
     ],
     "description": [
@@ -4346,7 +4397,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8098"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8098",
+        "page": 219
       }
     ],
     "description": [
@@ -4424,7 +4476,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8051"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8051",
+        "page": 212
       }
     ],
     "description": [
@@ -4496,7 +4549,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8086"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8086",
+        "page": 217
       }
     ],
     "description": [
@@ -4554,7 +4608,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8110"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8110",
+        "page": 221
       }
     ],
     "description": [
@@ -4653,7 +4708,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8077"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8077",
+        "page": 216
       }
     ],
     "description": [
@@ -4732,7 +4788,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8052"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8052",
+        "page": 212
       }
     ],
     "description": [
@@ -4809,7 +4866,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8081"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8081",
+        "page": 216
       }
     ],
     "description": [
@@ -4888,7 +4946,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8078"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8078",
+        "page": 216
       }
     ],
     "description": [
@@ -4930,7 +4989,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8071"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8071",
+        "page": 215
       }
     ],
     "description": [
@@ -4981,7 +5041,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8082"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8082",
+        "page": 216
       }
     ],
     "description": [
@@ -5035,7 +5096,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8106"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8106",
+        "page": 220
       }
     ],
     "description": [
@@ -5094,7 +5156,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8108"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8108",
+        "page": 220
       }
     ],
     "description": [
@@ -5141,7 +5204,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8104"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8104",
+        "page": 220
       }
     ],
     "description": [
@@ -5196,7 +5260,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8056"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8056",
+        "page": 212
       }
     ],
     "description": [

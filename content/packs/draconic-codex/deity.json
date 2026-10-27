@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=715"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=715",
+        "page": 27
       }
     ],
     "description": [
@@ -196,7 +197,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=723"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=723",
+        "page": 35
       }
     ],
     "description": [
@@ -330,7 +332,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=716"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=716",
+        "page": 29
       }
     ],
     "description": [
@@ -506,7 +509,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=717"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=717",
+        "page": 30
       }
     ],
     "description": [
@@ -691,7 +695,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=718"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=718",
+        "page": 31
       }
     ],
     "description": [
@@ -867,7 +872,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=719"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=719",
+        "page": 32
       }
     ],
     "description": [
@@ -1056,7 +1062,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=722"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=722",
+        "page": 35
       }
     ],
     "description": [
@@ -1186,7 +1193,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=720"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=720",
+        "page": 33
       }
     ],
     "description": [
@@ -1362,7 +1370,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=721"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=721",
+        "page": 34
       }
     ],
     "description": [

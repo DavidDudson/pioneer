@@ -2735,7 +2735,8 @@
       {
         "kind": "book",
         "book": "shades-of-blood",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3850"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3850",
+        "page": 88
       }
     ],
     "description": [
@@ -29965,7 +29966,8 @@
       {
         "kind": "book",
         "book": "shades-of-blood",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3851"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3851",
+        "page": 89
       }
     ],
     "description": [],

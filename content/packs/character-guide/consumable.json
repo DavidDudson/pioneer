@@ -57,7 +57,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=522"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=522",
+        "page": 110
       }
     ],
     "description": [
@@ -152,7 +153,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=516"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=516",
+        "page": 92
       }
     ],
     "description": [
@@ -232,7 +234,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=512"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=512",
+        "page": 73
       }
     ],
     "description": [

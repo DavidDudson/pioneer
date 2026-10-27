@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2428"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2428",
+        "page": 287
       }
     ],
     "description": [
@@ -164,7 +165,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2339"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2339",
+        "page": 256
       }
     ],
     "description": [
@@ -258,7 +260,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2340"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2340",
+        "page": 256
       }
     ],
     "description": [
@@ -343,7 +346,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2377"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2377",
+        "page": 262
       }
     ],
     "description": [
@@ -448,7 +452,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2378"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2378",
+        "page": 262
       }
     ],
     "description": [
@@ -537,7 +542,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2341"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2341",
+        "page": 256
       }
     ],
     "description": [
@@ -692,7 +698,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2342"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2342",
+        "page": 256
       }
     ],
     "description": [
@@ -838,7 +845,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2343"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2343",
+        "page": 256
       }
     ],
     "description": [
@@ -922,7 +930,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2421"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2421",
+        "page": 271
       }
     ],
     "description": [
@@ -1040,7 +1049,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2425"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2425",
+        "page": 287
       }
     ],
     "description": [
@@ -1125,7 +1135,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2423"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2423",
+        "page": 286
       }
     ],
     "description": [
@@ -1225,7 +1236,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2412"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2412",
+        "page": 269
       }
     ],
     "description": [
@@ -1337,7 +1349,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2344"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2344",
+        "page": 256
       }
     ],
     "description": [
@@ -1460,7 +1473,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2345"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2345",
+        "page": 256
       }
     ],
     "description": [
@@ -1528,7 +1542,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2396"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2396",
+        "page": 267
       }
     ],
     "description": [
@@ -1667,7 +1682,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2438"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2438",
+        "page": 299
       }
     ],
     "description": [
@@ -1825,7 +1841,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2395"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2395",
+        "page": 267
       }
     ],
     "description": [
@@ -1972,7 +1989,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2399"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2399",
+        "page": 267
       }
     ],
     "description": [
@@ -2151,7 +2169,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2346"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2346",
+        "page": 256
       }
     ],
     "description": [
@@ -2238,7 +2257,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2383"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2383",
+        "page": 264
       }
     ],
     "description": [
@@ -2426,7 +2446,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2394"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2394",
+        "page": 266
       }
     ],
     "description": [
@@ -2525,7 +2546,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2347"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2347",
+        "page": 257
       }
     ],
     "description": [
@@ -2667,7 +2689,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2415"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2415",
+        "page": 270
       }
     ],
     "description": [
@@ -2749,7 +2772,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2380"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2380",
+        "page": 263
       }
     ],
     "description": [
@@ -2840,7 +2864,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2403"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2403",
+        "page": 268
       }
     ],
     "description": [
@@ -3017,7 +3042,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2402"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2402",
+        "page": 268
       }
     ],
     "description": [
@@ -3163,7 +3189,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2385"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2385",
+        "page": 264
       }
     ],
     "description": [
@@ -3255,7 +3282,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2388"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2388",
+        "page": 265
       }
     ],
     "description": [
@@ -3361,7 +3389,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2390"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2390",
+        "page": 265
       }
     ],
     "description": [
@@ -3461,7 +3490,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2410"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2410",
+        "page": 269
       }
     ],
     "description": [
@@ -3516,7 +3546,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2409"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2409",
+        "page": 269
       }
     ],
     "description": [
@@ -3628,7 +3659,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2401"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2401",
+        "page": 268
       }
     ],
     "description": [
@@ -3687,7 +3719,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2348"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2348",
+        "page": 257
       }
     ],
     "description": [
@@ -3775,7 +3808,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2432"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2432",
+        "page": 295
       }
     ],
     "description": [
@@ -3872,7 +3906,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2433"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2433",
+        "page": 295
       }
     ],
     "description": [
@@ -3957,7 +3992,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2384"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2384",
+        "page": 264
       }
     ],
     "description": [
@@ -4127,7 +4163,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2349"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2349",
+        "page": 257
       }
     ],
     "description": [
@@ -4265,7 +4302,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2382"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2382",
+        "page": 263
       }
     ],
     "description": [
@@ -4385,7 +4423,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2350"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2350",
+        "page": 257
       }
     ],
     "description": [
@@ -4539,7 +4578,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2376"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2376",
+        "page": 262
       }
     ],
     "description": [
@@ -4712,7 +4752,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2351"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2351",
+        "page": 257
       }
     ],
     "description": [
@@ -4870,7 +4911,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2406"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2406",
+        "page": 268
       }
     ],
     "description": [
@@ -4969,7 +5011,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2404"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2404",
+        "page": 268
       }
     ],
     "description": [
@@ -5093,7 +5136,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2352"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2352",
+        "page": 257
       }
     ],
     "description": [
@@ -5183,7 +5227,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2392"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2392",
+        "page": 266
       }
     ],
     "description": [
@@ -5260,7 +5305,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2353"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2353",
+        "page": 258
       }
     ],
     "description": [
@@ -5315,7 +5361,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2393"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2393",
+        "page": 266
       }
     ],
     "description": [
@@ -5409,7 +5456,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2424"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2424",
+        "page": 286
       }
     ],
     "description": [
@@ -5575,7 +5623,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2407"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2407",
+        "page": 269
       }
     ],
     "description": [
@@ -5664,7 +5713,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2354"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2354",
+        "page": 258
       }
     ],
     "description": [
@@ -5717,7 +5767,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2375"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2375",
+        "page": 262
       }
     ],
     "description": [
@@ -5871,7 +5922,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2355"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2355",
+        "page": 258
       }
     ],
     "description": [
@@ -5954,7 +6006,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2356"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2356",
+        "page": 258
       }
     ],
     "description": [
@@ -6031,7 +6084,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2357"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2357",
+        "page": 258
       }
     ],
     "description": [
@@ -6213,7 +6267,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2358"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2358",
+        "page": 258
       }
     ],
     "description": [
@@ -6359,7 +6414,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2419"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2419",
+        "page": 271
       }
     ],
     "description": [
@@ -6431,7 +6487,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2408"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2408",
+        "page": 269
       }
     ],
     "description": [
@@ -6573,7 +6630,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2436"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2436",
+        "page": 298
       }
     ],
     "description": [
@@ -6723,7 +6781,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2387"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2387",
+        "page": 265
       }
     ],
     "description": [
@@ -6883,7 +6942,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2359"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2359",
+        "page": 258
       }
     ],
     "description": [
@@ -6986,7 +7046,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2360"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2360",
+        "page": 259
       }
     ],
     "description": [
@@ -7104,7 +7165,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2417"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2417",
+        "page": 271
       }
     ],
     "description": [
@@ -7184,7 +7246,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2361"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2361",
+        "page": 259
       }
     ],
     "description": [
@@ -7288,7 +7351,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2391"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2391",
+        "page": 266
       }
     ],
     "description": [
@@ -7369,7 +7433,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2362"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2362",
+        "page": 259
       }
     ],
     "description": [
@@ -7450,7 +7515,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2420"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2420",
+        "page": 271
       }
     ],
     "description": [
@@ -7557,7 +7623,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2398"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2398",
+        "page": 267
       }
     ],
     "description": [
@@ -7628,7 +7695,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2386"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2386",
+        "page": 265
       }
     ],
     "description": [
@@ -7759,7 +7827,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2397"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2397",
+        "page": 267
       }
     ],
     "description": [
@@ -7829,7 +7898,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2405"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2405",
+        "page": 268
       }
     ],
     "description": [
@@ -7901,7 +7971,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2363"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2363",
+        "page": 259
       }
     ],
     "description": [
@@ -8008,7 +8079,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2434"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2434",
+        "page": 297
       }
     ],
     "description": [
@@ -8094,7 +8166,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2364"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2364",
+        "page": 259
       }
     ],
     "description": [
@@ -8200,7 +8273,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2365"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2365",
+        "page": 259
       }
     ],
     "description": [
@@ -8419,7 +8493,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2366"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2366",
+        "page": 260
       }
     ],
     "description": [
@@ -8564,7 +8639,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2400"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2400",
+        "page": 267
       }
     ],
     "description": [
@@ -8654,7 +8730,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2367"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2367",
+        "page": 260
       }
     ],
     "description": [
@@ -8722,7 +8799,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2368"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2368",
+        "page": 260
       }
     ],
     "description": [
@@ -8786,7 +8864,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2437"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2437",
+        "page": 299
       }
     ],
     "description": [
@@ -8857,7 +8936,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2416"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2416",
+        "page": 270
       }
     ],
     "description": [
@@ -8970,7 +9050,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2414"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2414",
+        "page": 270
       }
     ],
     "description": [
@@ -9043,7 +9124,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2413"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2413",
+        "page": 270
       }
     ],
     "description": [
@@ -9132,7 +9214,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2389"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2389",
+        "page": 265
       }
     ],
     "description": [
@@ -9227,7 +9310,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2369"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2369",
+        "page": 260
       }
     ],
     "description": [
@@ -9269,7 +9353,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2370"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2370",
+        "page": 260
       }
     ],
     "description": [
@@ -9410,7 +9495,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2418"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2418",
+        "page": 271
       }
     ],
     "description": [
@@ -9469,7 +9555,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2435"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2435",
+        "page": 297
       }
     ],
     "description": [
@@ -9577,7 +9664,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2426"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2426",
+        "page": 287
       }
     ],
     "description": [
@@ -9740,7 +9828,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2373"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2373",
+        "page": 261
       }
     ],
     "description": [
@@ -9830,7 +9919,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2374"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2374",
+        "page": 261
       }
     ],
     "description": [
@@ -9894,7 +9984,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2379"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2379",
+        "page": 263
       }
     ],
     "description": [
@@ -10012,7 +10103,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2381"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2381",
+        "page": 263
       }
     ],
     "description": [
@@ -10144,7 +10236,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2422"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2422",
+        "page": 271
       }
     ],
     "description": [
@@ -10208,7 +10301,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2411"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2411",
+        "page": 269
       }
     ],
     "description": [

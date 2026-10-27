@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "mwangi-expanse",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=42"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=42",
+        "page": 102
       }
     ],
     "description": [
@@ -223,7 +224,8 @@
       {
         "kind": "book",
         "book": "mwangi-expanse",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=43"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=43",
+        "page": 106
       }
     ],
     "description": [
@@ -462,7 +464,8 @@
       {
         "kind": "book",
         "book": "mwangi-expanse",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=45"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=45",
+        "page": 114
       }
     ],
     "description": [
@@ -671,7 +674,8 @@
       {
         "kind": "book",
         "book": "mwangi-expanse",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=47"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=47",
+        "page": 122
       }
     ],
     "description": [

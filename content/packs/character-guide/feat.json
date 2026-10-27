@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1138"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1138",
+        "page": 114
       }
     ],
     "description": [
@@ -108,7 +109,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1104"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1104",
+        "page": 101
       }
     ],
     "description": [
@@ -155,7 +157,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1012"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1012",
+        "page": 44
       }
     ],
     "description": [
@@ -222,7 +225,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1095"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1095",
+        "page": 94
       }
     ],
     "description": [
@@ -313,7 +317,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1002"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1002",
+        "page": 38
       }
     ],
     "description": [
@@ -406,7 +411,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=938"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=938",
+        "page": 11
       }
     ],
     "description": [
@@ -506,7 +512,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=964"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=964",
+        "page": 20
       }
     ],
     "description": [
@@ -613,7 +620,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=971"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=971",
+        "page": 21
       }
     ],
     "description": [
@@ -677,7 +685,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1101"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1101",
+        "page": 95
       }
     ],
     "description": [
@@ -740,7 +749,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1068"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1068",
+        "page": 74
       }
     ],
     "description": [
@@ -832,7 +842,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=999"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=999",
+        "page": 37
       }
     ],
     "description": [
@@ -891,7 +902,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1070"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1070",
+        "page": 75
       }
     ],
     "description": [
@@ -1008,7 +1020,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=984"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=984",
+        "page": 27
       }
     ],
     "description": [
@@ -1074,7 +1087,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1105"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1105",
+        "page": 101
       }
     ],
     "description": [
@@ -1170,7 +1184,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1110"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1110",
+        "page": 103
       }
     ],
     "description": [
@@ -1217,7 +1232,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1120"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1120",
+        "page": 104
       }
     ],
     "description": [
@@ -1272,7 +1288,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1003"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1003",
+        "page": 38
       }
     ],
     "description": [
@@ -1343,7 +1360,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=968"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=968",
+        "page": 20
       }
     ],
     "description": [
@@ -1403,7 +1421,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=965"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=965",
+        "page": 20
       }
     ],
     "description": [
@@ -1469,7 +1488,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1022"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1022",
+        "page": 45
       }
     ],
     "description": [
@@ -1504,7 +1524,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=939"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=939",
+        "page": 11
       }
     ],
     "description": [
@@ -1609,7 +1630,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1019"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1019",
+        "page": 45
       }
     ],
     "description": [
@@ -1651,7 +1673,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1074"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1074",
+        "page": 75
       }
     ],
     "description": [
@@ -1715,7 +1738,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1069"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1069",
+        "page": 74
       }
     ],
     "description": [
@@ -1789,7 +1813,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1072"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1072",
+        "page": 75
       }
     ],
     "description": [
@@ -1852,7 +1877,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=950"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=950",
+        "page": 13
       }
     ],
     "description": [
@@ -1907,7 +1933,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1142"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1142",
+        "page": 115
       }
     ],
     "description": [
@@ -2003,7 +2030,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=980"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=980",
+        "page": 26
       }
     ],
     "description": [
@@ -2087,7 +2115,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1073"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1073",
+        "page": 75
       }
     ],
     "description": [
@@ -2134,7 +2163,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=940"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=940",
+        "page": 11
       }
     ],
     "description": [
@@ -2236,7 +2266,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=953"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=953",
+        "page": 14
       }
     ],
     "description": [
@@ -2290,7 +2321,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=941"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=941",
+        "page": 12
       }
     ],
     "description": [
@@ -2352,7 +2384,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1116"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1116",
+        "page": 104
       }
     ],
     "description": [
@@ -2410,7 +2443,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1016"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1016",
+        "page": 44
       }
     ],
     "description": [
@@ -2478,7 +2512,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=995"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=995",
+        "page": 33
       }
     ],
     "description": [
@@ -2548,7 +2583,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1129"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1129",
+        "page": 112
       }
     ],
     "description": [
@@ -2594,7 +2630,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=975"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=975",
+        "page": 26
       }
     ],
     "description": [
@@ -2674,7 +2711,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=981"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=981",
+        "page": 27
       }
     ],
     "description": [
@@ -2717,7 +2755,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=976"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=976",
+        "page": 26
       }
     ],
     "description": [
@@ -2791,7 +2830,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1106"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1106",
+        "page": 102
       }
     ],
     "description": [
@@ -2838,7 +2878,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1111"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1111",
+        "page": 103
       }
     ],
     "description": [
@@ -2894,7 +2935,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1094"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1094",
+        "page": 94
       }
     ],
     "description": [
@@ -3021,7 +3063,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=972"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=972",
+        "page": 21
       }
     ],
     "description": [
@@ -3103,7 +3146,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1066"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1066",
+        "page": 72
       }
     ],
     "description": [
@@ -3212,7 +3256,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1087"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1087",
+        "page": 90
       }
     ],
     "description": [
@@ -3287,7 +3332,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1088"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1088",
+        "page": 90
       }
     ],
     "description": [
@@ -3373,7 +3419,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1128"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1128",
+        "page": 112
       }
     ],
     "description": [
@@ -3450,7 +3497,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1020"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1020",
+        "page": 45
       }
     ],
     "description": [
@@ -3530,7 +3578,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1000"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1000",
+        "page": 37
       }
     ],
     "description": [
@@ -3612,7 +3661,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1067"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1067",
+        "page": 74
       }
     ],
     "description": [
@@ -3689,7 +3739,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1121"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1121",
+        "page": 105
       }
     ],
     "description": [
@@ -3736,7 +3787,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1133"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1133",
+        "page": 113
       }
     ],
     "description": [
@@ -3791,7 +3843,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1126"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1126",
+        "page": 112
       }
     ],
     "description": [
@@ -3860,7 +3913,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=982"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=982",
+        "page": 27
       }
     ],
     "description": [
@@ -3953,7 +4007,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=966"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=966",
+        "page": 20
       }
     ],
     "description": [
@@ -4021,7 +4076,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1035"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1035",
+        "page": 51
       }
     ],
     "description": [
@@ -4067,7 +4123,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1032"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1032",
+        "page": 51
       }
     ],
     "description": [
@@ -4122,7 +4179,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=998"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=998",
+        "page": 33
       }
     ],
     "description": [
@@ -4193,7 +4251,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1007"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1007",
+        "page": 39
       }
     ],
     "description": [
@@ -4313,7 +4372,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1123"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1123",
+        "page": 105
       }
     ],
     "description": [
@@ -4360,7 +4420,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=942"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=942",
+        "page": 12
       }
     ],
     "description": [
@@ -4411,7 +4472,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=987"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=987",
+        "page": 31
       }
     ],
     "description": [
@@ -4459,7 +4521,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1071"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1071",
+        "page": 75
       }
     ],
     "description": [
@@ -4506,7 +4569,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=988"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=988",
+        "page": 32
       }
     ],
     "description": [
@@ -4570,7 +4634,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1115"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1115",
+        "page": 104
       }
     ],
     "description": [
@@ -4626,7 +4691,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1122"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1122",
+        "page": 105
       }
     ],
     "description": [
@@ -4679,7 +4745,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1118"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1118",
+        "page": 104
       }
     ],
     "description": [
@@ -4726,7 +4793,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1124"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1124",
+        "page": 105
       }
     ],
     "description": [
@@ -4779,7 +4847,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1017"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1017",
+        "page": 44
       }
     ],
     "description": [
@@ -4825,7 +4894,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1001"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1001",
+        "page": 37
       }
     ],
     "description": [
@@ -4887,7 +4957,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1140"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1140",
+        "page": 115
       }
     ],
     "description": [
@@ -4982,7 +5053,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=954"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=954",
+        "page": 14
       }
     ],
     "description": [
@@ -5028,7 +5100,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1021"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1021",
+        "page": 45
       }
     ],
     "description": [
@@ -5071,7 +5144,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=973"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=973",
+        "page": 21
       }
     ],
     "description": [
@@ -5123,7 +5197,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1008"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1008",
+        "page": 39
       }
     ],
     "description": [
@@ -5187,7 +5262,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1091"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1091",
+        "page": 90
       }
     ],
     "description": [
@@ -5245,7 +5321,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1023"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1023",
+        "page": 45
       }
     ],
     "description": [
@@ -5308,7 +5385,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1013"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1013",
+        "page": 44
       }
     ],
     "description": [
@@ -5383,7 +5461,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1014"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1014",
+        "page": 44
       }
     ],
     "description": [
@@ -5451,7 +5530,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=996"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=996",
+        "page": 33
       }
     ],
     "description": [
@@ -5555,7 +5635,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=989"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=989",
+        "page": 32
       }
     ],
     "description": [
@@ -5614,7 +5695,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1098"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1098",
+        "page": 95
       }
     ],
     "description": [
@@ -5675,7 +5757,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=957"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=957",
+        "page": 14
       }
     ],
     "description": [
@@ -5735,7 +5818,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=943"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=943",
+        "page": 12
       }
     ],
     "description": [
@@ -5832,7 +5916,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=974"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=974",
+        "page": 21
       }
     ],
     "description": [
@@ -5930,7 +6015,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1096"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1096",
+        "page": 94
       }
     ],
     "description": [
@@ -5983,7 +6069,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1097"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1097",
+        "page": 95
       }
     ],
     "description": [
@@ -6111,7 +6198,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=944"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=944",
+        "page": 12
       }
     ],
     "description": [
@@ -6209,7 +6297,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=990"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=990",
+        "page": 32
       }
     ],
     "description": [
@@ -6294,7 +6383,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1089"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1089",
+        "page": 90
       }
     ],
     "description": [
@@ -6337,7 +6427,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1131"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1131",
+        "page": 113
       }
     ],
     "description": [
@@ -6414,7 +6505,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1102"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1102",
+        "page": 101
       }
     ],
     "description": [
@@ -6510,7 +6602,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1103"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1103",
+        "page": 101
       }
     ],
     "description": [
@@ -6571,7 +6664,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=997"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=997",
+        "page": 33
       }
     ],
     "description": [
@@ -6641,7 +6735,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=991"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=991",
+        "page": 32
       }
     ],
     "description": [
@@ -6676,7 +6771,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=951"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=951",
+        "page": 13
       }
     ],
     "description": [
@@ -6722,7 +6818,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=962"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=962",
+        "page": 15
       }
     ],
     "description": [
@@ -6778,7 +6875,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1117"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1117",
+        "page": 104
       }
     ],
     "description": [
@@ -6842,7 +6940,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=969"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=969",
+        "page": 21
       }
     ],
     "description": [
@@ -6927,7 +7026,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=945"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=945",
+        "page": 12
       }
     ],
     "description": [
@@ -7075,7 +7175,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1112"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1112",
+        "page": 103
       }
     ],
     "description": [
@@ -7125,7 +7226,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1107"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1107",
+        "page": 102
       }
     ],
     "description": [
@@ -7181,7 +7283,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1100"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1100",
+        "page": 95
       }
     ],
     "description": [
@@ -7228,7 +7331,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1127"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1127",
+        "page": 112
       }
     ],
     "description": [
@@ -7432,7 +7536,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=960"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=960",
+        "page": 15
       }
     ],
     "description": [
@@ -7495,7 +7600,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=946"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=946",
+        "page": 12
       }
     ],
     "description": [
@@ -7594,7 +7700,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1010"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1010",
+        "page": 39
       }
     ],
     "description": [
@@ -7662,7 +7769,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1130"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1130",
+        "page": 113
       }
     ],
     "description": [
@@ -7727,7 +7835,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=985"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=985",
+        "page": 27
       }
     ],
     "description": [
@@ -7781,7 +7890,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=958"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=958",
+        "page": 14
       }
     ],
     "description": [
@@ -7856,7 +7966,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=977"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=977",
+        "page": 26
       }
     ],
     "description": [
@@ -7899,7 +8010,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1018"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1018",
+        "page": 45
       }
     ],
     "description": [
@@ -7953,7 +8065,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1119"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1119",
+        "page": 104
       }
     ],
     "description": [
@@ -8000,7 +8113,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=959"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=959",
+        "page": 15
       }
     ],
     "description": [
@@ -8060,7 +8174,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=955"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=955",
+        "page": 14
       }
     ],
     "description": [
@@ -8114,7 +8229,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1141"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1141",
+        "page": 115
       }
     ],
     "description": [
@@ -8192,7 +8308,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1086"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1086",
+        "page": 85
       }
     ],
     "description": [
@@ -8238,7 +8355,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=961"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=961",
+        "page": 15
       }
     ],
     "description": [
@@ -8291,7 +8409,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1134"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1134",
+        "page": 114
       }
     ],
     "description": [
@@ -8363,7 +8482,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1137"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1137",
+        "page": 114
       }
     ],
     "description": [
@@ -8410,7 +8530,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1090"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1090",
+        "page": 90
       }
     ],
     "description": [
@@ -8479,7 +8600,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=967"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=967",
+        "page": 20
       }
     ],
     "description": [
@@ -8549,7 +8671,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1135"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1135",
+        "page": 114
       }
     ],
     "description": [
@@ -8609,7 +8732,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1099"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1099",
+        "page": 95
       }
     ],
     "description": [
@@ -8671,7 +8795,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1139"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1139",
+        "page": 115
       }
     ],
     "description": [
@@ -8735,7 +8860,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1125"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1125",
+        "page": 105
       }
     ],
     "description": [
@@ -8785,7 +8911,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1004"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1004",
+        "page": 38
       }
     ],
     "description": [
@@ -8849,7 +8976,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1108"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1108",
+        "page": 102
       }
     ],
     "description": [
@@ -8899,7 +9027,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1113"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1113",
+        "page": 103
       }
     ],
     "description": [
@@ -8977,7 +9106,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=992"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=992",
+        "page": 32
       }
     ],
     "description": [
@@ -9069,7 +9199,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=970"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=970",
+        "page": 21
       }
     ],
     "description": [
@@ -9143,7 +9274,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1005"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1005",
+        "page": 38
       }
     ],
     "description": [
@@ -9237,7 +9369,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1006"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1006",
+        "page": 38
       }
     ],
     "description": [
@@ -9291,7 +9424,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=947"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=947",
+        "page": 13
       }
     ],
     "description": [
@@ -9362,7 +9496,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=963"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=963",
+        "page": 15
       }
     ],
     "description": [
@@ -9428,7 +9563,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1015"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1015",
+        "page": 44
       }
     ],
     "description": [
@@ -9488,7 +9624,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1011"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1011",
+        "page": 39
       }
     ],
     "description": [
@@ -9542,7 +9679,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=993"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=993",
+        "page": 32
       }
     ],
     "description": [
@@ -9644,7 +9782,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1132"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1132",
+        "page": 113
       }
     ],
     "description": [
@@ -9691,7 +9830,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1093"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1093",
+        "page": 94
       }
     ],
     "description": [
@@ -9753,7 +9893,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1114"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1114",
+        "page": 103
       }
     ],
     "description": [
@@ -9803,7 +9944,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1109"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1109",
+        "page": 102
       }
     ],
     "description": [
@@ -9853,7 +9995,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=994"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=994",
+        "page": 33
       }
     ],
     "description": [
@@ -9939,7 +10082,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=948"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=948",
+        "page": 13
       }
     ],
     "description": [
@@ -10019,7 +10163,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=956"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=956",
+        "page": 14
       }
     ],
     "description": [
@@ -10065,7 +10210,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=986"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=986",
+        "page": 27
       }
     ],
     "description": [
@@ -10135,7 +10281,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1136"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1136",
+        "page": 114
       }
     ],
     "description": [
@@ -10213,7 +10360,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=952"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=952",
+        "page": 13
       }
     ],
     "description": [
@@ -10280,7 +10428,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=983"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=983",
+        "page": 27
       }
     ],
     "description": [
@@ -10350,7 +10499,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=978"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=978",
+        "page": 26
       }
     ],
     "description": [
@@ -10402,7 +10552,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=949"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=949",
+        "page": 13
       }
     ],
     "description": [
@@ -10500,7 +10651,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=979"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=979",
+        "page": 26
       }
     ],
     "description": [

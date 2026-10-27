@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "tian-xia-world-guide",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=133"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=133",
+        "page": 50
       }
     ],
     "description": [
@@ -329,7 +330,8 @@
       {
         "kind": "book",
         "book": "tian-xia-world-guide",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=134"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=134",
+        "page": 50
       }
     ],
     "description": [
@@ -483,7 +485,8 @@
       {
         "kind": "book",
         "book": "tian-xia-world-guide",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=135"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=135",
+        "page": 50
       }
     ],
     "description": [
@@ -634,7 +637,8 @@
       {
         "kind": "book",
         "book": "tian-xia-world-guide",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=137"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=137",
+        "page": 51
       }
     ],
     "description": [

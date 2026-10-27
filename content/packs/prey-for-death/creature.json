@@ -2063,7 +2063,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3389"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3389",
+        "page": 110
       }
     ],
     "description": [
@@ -2375,7 +2376,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3393"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3393",
+        "page": 114
       }
     ],
     "description": [
@@ -4084,7 +4086,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3390"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3390",
+        "page": 111
       }
     ],
     "description": [],
@@ -4587,7 +4590,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3392"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3392",
+        "page": 113
       }
     ],
     "description": [
@@ -9871,7 +9875,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3394"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3394",
+        "page": 115
       }
     ],
     "description": [
@@ -11508,7 +11513,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3396"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3396",
+        "page": 118
       }
     ],
     "description": [
@@ -12916,7 +12922,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3395"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3395",
+        "page": 117
       }
     ],
     "description": [
@@ -13486,7 +13493,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3391"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3391",
+        "page": 112
       }
     ],
     "description": [
@@ -14915,7 +14923,8 @@
       {
         "kind": "book",
         "book": "prey-for-death",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3397"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3397",
+        "page": 119
       }
     ],
     "description": [],

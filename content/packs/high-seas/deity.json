@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "high-seas",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=731"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=731",
+        "page": 25
       }
     ],
     "description": [

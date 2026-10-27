@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=556"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=556",
+        "page": 90
       }
     ],
     "description": [
@@ -72,7 +73,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=557"
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=557",
+        "page": 91
       }
     ],
     "description": [

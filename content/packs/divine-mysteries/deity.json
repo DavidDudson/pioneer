@@ -173,7 +173,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=277"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=277",
+        "page": 34
       }
     ],
     "description": [
@@ -331,7 +332,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=425"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=425",
+        "page": 302
       }
     ],
     "description": [
@@ -513,7 +515,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=402"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=402",
+        "page": 300
       }
     ],
     "description": [
@@ -663,7 +666,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=325"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=325",
+        "page": 124
       }
     ],
     "description": [
@@ -978,7 +982,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=490"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=490",
+        "page": 310
       }
     ],
     "description": [
@@ -1136,7 +1141,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=403"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=403",
+        "page": 300
       }
     ],
     "description": [
@@ -1294,7 +1300,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=327"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=327",
+        "page": 125
       }
     ],
     "description": [
@@ -1606,7 +1613,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=510"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=510",
+        "page": 312
       }
     ],
     "description": [
@@ -1751,7 +1759,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=328"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=328",
+        "page": 126
       }
     ],
     "description": [
@@ -1905,7 +1914,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=605"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=605",
+        "page": 322
       }
     ],
     "description": [
@@ -2063,7 +2073,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=329"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=329",
+        "page": 127
       }
     ],
     "description": [
@@ -2238,7 +2249,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=404"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=404",
+        "page": 300
       }
     ],
     "description": [
@@ -2567,7 +2579,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=592"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=592",
+        "page": 320
       }
     ],
     "description": [
@@ -2725,7 +2738,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=464"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=464",
+        "page": 308
       }
     ],
     "description": [
@@ -3045,7 +3059,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=444"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=444",
+        "page": 304
       }
     ],
     "description": [
@@ -3208,7 +3223,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=416"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=416",
+        "page": 302
       }
     ],
     "description": [
@@ -3366,7 +3382,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=511"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=511",
+        "page": 312
       }
     ],
     "description": [
@@ -3524,7 +3541,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=581"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=581",
+        "page": 320
       }
     ],
     "description": [
@@ -3830,7 +3848,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=390"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=390",
+        "page": 300
       }
     ],
     "description": [
@@ -4155,7 +4174,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=326"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=326",
+        "page": 38
       }
     ],
     "description": [
@@ -4322,7 +4342,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=588"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=588",
+        "page": 320
       }
     ],
     "description": [
@@ -4480,7 +4501,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=426"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=426",
+        "page": 302
       }
     ],
     "description": [
@@ -4638,7 +4660,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=512"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=512",
+        "page": 312
       }
     ],
     "description": [
@@ -4935,7 +4958,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=465"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=465",
+        "page": 308
       }
     ],
     "description": [
@@ -5107,7 +5131,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=610"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=610",
+        "page": 322
       }
     ],
     "description": [
@@ -5261,7 +5286,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=466"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=466",
+        "page": 308
       }
     ],
     "description": [
@@ -5419,7 +5445,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=611"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=611",
+        "page": 322
       }
     ],
     "description": [
@@ -5577,7 +5604,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=278"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=278",
+        "page": 42
       }
     ],
     "description": [
@@ -5805,7 +5833,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=686"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=686",
+        "page": 306
       }
     ],
     "description": [
@@ -5963,7 +5992,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=331"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=331",
+        "page": 129
       }
     ],
     "description": [
@@ -6122,7 +6152,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=533"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=533",
+        "page": 314
       }
     ],
     "description": [
@@ -6272,7 +6303,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=687"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=687",
+        "page": 306
       }
     ],
     "description": [
@@ -6430,7 +6462,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=567"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=567",
+        "page": 318
       }
     ],
     "description": [
@@ -6584,7 +6617,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=394"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=394",
+        "page": 300
       }
     ],
     "description": [
@@ -7044,7 +7078,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=427"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=427",
+        "page": 302
       }
     ],
     "description": [
@@ -7202,7 +7237,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=395"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=395",
+        "page": 300
       }
     ],
     "description": [
@@ -7360,7 +7396,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=534"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=534",
+        "page": 314
       }
     ],
     "description": [
@@ -7667,7 +7704,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=396"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=396",
+        "page": 300
       }
     ],
     "description": [
@@ -7825,7 +7863,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=491"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=491",
+        "page": 310
       }
     ],
     "description": [
@@ -8136,7 +8175,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=332"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=332",
+        "page": 130
       }
     ],
     "description": [
@@ -8294,7 +8334,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=467"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=467",
+        "page": 308
       }
     ],
     "description": [
@@ -8461,7 +8502,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=525"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=525",
+        "page": 314
       }
     ],
     "description": [
@@ -8619,7 +8661,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=468"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=468",
+        "page": 308
       }
     ],
     "description": [
@@ -8777,7 +8820,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=365"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=365",
+        "page": 238
       }
     ],
     "description": [
@@ -8899,7 +8943,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=568"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=568",
+        "page": 318
       }
     ],
     "description": [
@@ -9053,7 +9098,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=445"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=445",
+        "page": 304
       }
     ],
     "description": [
@@ -9216,7 +9262,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=366"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=366",
+        "page": 238
       }
     ],
     "description": [
@@ -9342,7 +9389,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=333"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=333",
+        "page": 131
       }
     ],
     "description": [
@@ -9500,7 +9548,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=279"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=279",
+        "page": 46
       }
     ],
     "description": [
@@ -9825,7 +9874,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=335"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=335",
+        "page": 133
       }
     ],
     "description": [
@@ -9988,7 +10038,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=280"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=280",
+        "page": 50
       }
     ],
     "description": [
@@ -10146,7 +10197,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=513"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=513",
+        "page": 312
       }
     ],
     "description": [
@@ -10304,7 +10356,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=535"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=535",
+        "page": 314
       }
     ],
     "description": [
@@ -10454,7 +10507,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=336"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=336",
+        "page": 134
       }
     ],
     "description": [
@@ -10608,7 +10662,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=593"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=593",
+        "page": 320
       }
     ],
     "description": [
@@ -10766,7 +10821,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=612"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=612",
+        "page": 322
       }
     ],
     "description": [
@@ -10951,7 +11007,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=594"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=594",
+        "page": 320
       }
     ],
     "description": [
@@ -11105,7 +11162,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=391"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=391",
+        "page": 300
       }
     ],
     "description": [
@@ -11263,7 +11321,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=582"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=582",
+        "page": 320
       }
     ],
     "description": [
@@ -11421,7 +11480,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=376"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=376",
+        "page": 242
       }
     ],
     "description": [
@@ -11704,7 +11764,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=413"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=413",
+        "page": 302
       }
     ],
     "description": [
@@ -11862,7 +11923,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=417"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=417",
+        "page": 302
       }
     ],
     "description": [
@@ -12016,7 +12078,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=502"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=502",
+        "page": 312
       }
     ],
     "description": [
@@ -12318,7 +12381,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=418"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=418",
+        "page": 302
       }
     ],
     "description": [
@@ -12476,7 +12540,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=377"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=377",
+        "page": 242
       }
     ],
     "description": [
@@ -12606,7 +12671,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=452"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=452",
+        "page": 306
       }
     ],
     "description": [
@@ -12760,7 +12826,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=569"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=569",
+        "page": 318
       }
     ],
     "description": [
@@ -12910,7 +12977,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=428"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=428",
+        "page": 304
       }
     ],
     "description": [
@@ -13068,7 +13136,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=595"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=595",
+        "page": 320
       }
     ],
     "description": [
@@ -13222,7 +13291,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=429"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=429",
+        "page": 304
       }
     ],
     "description": [
@@ -13708,7 +13778,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=338"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=338",
+        "page": 136
       }
     ],
     "description": [
@@ -13866,7 +13937,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=469"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=469",
+        "page": 308
       }
     ],
     "description": [
@@ -14024,7 +14096,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=536"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=536",
+        "page": 314
       }
     ],
     "description": [
@@ -14313,7 +14386,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=281"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=281",
+        "page": 54
       }
     ],
     "description": [
@@ -14471,7 +14545,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=613"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=613",
+        "page": 322
       }
     ],
     "description": [
@@ -14620,7 +14695,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=614"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=614",
+        "page": 322
       }
     ],
     "description": [
@@ -14796,7 +14872,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=397"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=397",
+        "page": 300
       }
     ],
     "description": [
@@ -14954,7 +15031,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=606"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=606",
+        "page": 322
       }
     ],
     "description": [
@@ -15135,7 +15213,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=589"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=589",
+        "page": 320
       }
     ],
     "description": [
@@ -15293,7 +15372,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=537"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=537",
+        "page": 314
       }
     ],
     "description": [
@@ -15439,7 +15519,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=446"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=446",
+        "page": 304
       }
     ],
     "description": [
@@ -15602,7 +15683,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=447"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=447",
+        "page": 304
       }
     ],
     "description": [
@@ -15787,7 +15869,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=590"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=590",
+        "page": 320
       }
     ],
     "description": [
@@ -15945,7 +16028,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=405"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=405",
+        "page": 300
       }
     ],
     "description": [
@@ -16099,7 +16183,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=340"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=340",
+        "page": 138
       }
     ],
     "description": [
@@ -16266,7 +16351,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=341"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=341",
+        "page": 139
       }
     ],
     "description": [
@@ -16593,7 +16679,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=282"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=282",
+        "page": 58
       }
     ],
     "description": [
@@ -16751,7 +16838,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=564"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=564",
+        "page": 318
       }
     ],
     "description": [
@@ -16905,7 +16993,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=470"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=470",
+        "page": 308
       }
     ],
     "description": [
@@ -17063,7 +17152,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=362"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=362",
+        "page": 200
       }
     ],
     "description": [
@@ -17354,7 +17444,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=367"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=367",
+        "page": 238
       }
     ],
     "description": [
@@ -17494,7 +17585,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=492"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=492",
+        "page": 310
       }
     ],
     "description": [
@@ -17648,7 +17740,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=688"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=688",
+        "page": 306
       }
     ],
     "description": [
@@ -17789,7 +17882,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=461"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=461",
+        "page": 308
       }
     ],
     "description": [
@@ -17947,7 +18041,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=448"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=448",
+        "page": 304
       }
     ],
     "description": [
@@ -18110,7 +18205,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=378"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=378",
+        "page": 242
       }
     ],
     "description": [
@@ -18397,7 +18493,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=526"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=526",
+        "page": 314
       }
     ],
     "description": [
@@ -18856,7 +18953,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=342"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=342",
+        "page": 140
       }
     ],
     "description": [
@@ -19023,7 +19121,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=398"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=398",
+        "page": 300
       }
     ],
     "description": [
@@ -19181,7 +19280,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=343"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=343",
+        "page": 141
       }
     ],
     "description": [
@@ -19335,7 +19435,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=321"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=321",
+        "page": 304
       }
     ],
     "description": [
@@ -19493,7 +19594,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=368"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=368",
+        "page": 239
       }
     ],
     "description": [
@@ -19623,7 +19725,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=283"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=283",
+        "page": 312
       }
     ],
     "description": [
@@ -19781,7 +19884,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=284"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=284",
+        "page": 62
       }
     ],
     "description": [
@@ -19935,7 +20039,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=344"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=344",
+        "page": 142
       }
     ],
     "description": [
@@ -20242,7 +20347,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=555"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=555",
+        "page": 316
       }
     ],
     "description": [
@@ -20569,7 +20675,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=298"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=298",
+        "page": 246
       }
     ],
     "description": [
@@ -20852,7 +20959,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=345"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=345",
+        "page": 143
       }
     ],
     "description": [
@@ -21018,7 +21126,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=346"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=346",
+        "page": 144
       }
     ],
     "description": [
@@ -21193,7 +21302,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=514"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=514",
+        "page": 312
       }
     ],
     "description": [
@@ -21363,7 +21473,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=379"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=379",
+        "page": 243
       }
     ],
     "description": [
@@ -21489,7 +21600,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=515"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=515",
+        "page": 312
       }
     ],
     "description": [
@@ -21647,7 +21759,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=430"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=430",
+        "page": 304
       }
     ],
     "description": [
@@ -21801,7 +21914,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=527"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=527",
+        "page": 314
       }
     ],
     "description": [
@@ -21964,7 +22078,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=503"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=503",
+        "page": 312
       }
     ],
     "description": [
@@ -22131,7 +22246,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=493"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=493",
+        "page": 310
       }
     ],
     "description": [
@@ -22438,7 +22554,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=347"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=347",
+        "page": 145
       }
     ],
     "description": [
@@ -22596,7 +22713,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=570"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=570",
+        "page": 318
       }
     ],
     "description": [
@@ -22750,7 +22868,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=596"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=596",
+        "page": 320
       }
     ],
     "description": [
@@ -23065,7 +23184,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=307"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=307",
+        "page": 146
       }
     ],
     "description": [
@@ -23223,7 +23343,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=516"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=516",
+        "page": 312
       }
     ],
     "description": [
@@ -23377,7 +23498,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=689"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=689",
+        "page": 306
       }
     ],
     "description": [
@@ -23704,7 +23826,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=597"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=597",
+        "page": 320
       }
     ],
     "description": [
@@ -23862,7 +23985,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=538"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=538",
+        "page": 314
       }
     ],
     "description": [
@@ -24012,7 +24136,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=454"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=454",
+        "page": 306
       }
     ],
     "description": [
@@ -24166,7 +24291,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=364"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=364",
+        "page": 235
       }
     ],
     "description": [
@@ -24615,7 +24741,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=539"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=539",
+        "page": 314
       }
     ],
     "description": [
@@ -24756,7 +24883,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=285"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=285",
+        "page": 66
       }
     ],
     "description": [
@@ -24914,7 +25042,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=472"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=472",
+        "page": 308
       }
     ],
     "description": [
@@ -25068,7 +25197,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=286"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=286",
+        "page": 70
       }
     ],
     "description": [
@@ -25226,7 +25356,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=517"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=517",
+        "page": 312
       }
     ],
     "description": [
@@ -25404,7 +25535,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=583"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=583",
+        "page": 320
       }
     ],
     "description": [
@@ -25562,7 +25694,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=348"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=348",
+        "page": 147
       }
     ],
     "description": [
@@ -25716,7 +25849,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=406"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=406",
+        "page": 300
       }
     ],
     "description": [
@@ -26036,7 +26170,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=431"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=431",
+        "page": 304
       }
     ],
     "description": [
@@ -26343,7 +26478,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=556"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=556",
+        "page": 316
       }
     ],
     "description": [
@@ -26506,7 +26642,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=432"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=432",
+        "page": 304
       }
     ],
     "description": [
@@ -26664,7 +26801,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=607"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=607",
+        "page": 322
       }
     ],
     "description": [
@@ -26822,7 +26960,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=349"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=349",
+        "page": 148
       }
     ],
     "description": [
@@ -27146,7 +27285,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=350"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=350",
+        "page": 149
       }
     ],
     "description": [
@@ -27313,7 +27453,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=473"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=473",
+        "page": 308
       }
     ],
     "description": [
@@ -27467,7 +27608,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=690"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=690",
+        "page": 306
       }
     ],
     "description": [
@@ -27625,7 +27767,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=474"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=474",
+        "page": 308
       }
     ],
     "description": [
@@ -27775,7 +27918,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=462"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=462",
+        "page": 308
       }
     ],
     "description": [
@@ -28370,7 +28514,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=449"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=449",
+        "page": 304
       }
     ],
     "description": [
@@ -28533,7 +28678,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=475"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=475",
+        "page": 308
       }
     ],
     "description": [
@@ -28687,7 +28833,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=351"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=351",
+        "page": 150
       }
     ],
     "description": [
@@ -29490,7 +29637,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=615"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=615",
+        "page": 322
       }
     ],
     "description": [
@@ -29639,7 +29787,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=419"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=419",
+        "page": 302
       }
     ],
     "description": [
@@ -29797,7 +29946,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=476"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=476",
+        "page": 308
       }
     ],
     "description": [
@@ -29955,7 +30105,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=287"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=287",
+        "page": 74
       }
     ],
     "description": [
@@ -30261,7 +30412,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=691"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=691",
+        "page": 306
       }
     ],
     "description": [
@@ -30411,7 +30563,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=386"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=386",
+        "page": 247
       }
     ],
     "description": [
@@ -30496,7 +30649,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=369"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=369",
+        "page": 239
       }
     ],
     "description": [
@@ -30622,7 +30776,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=540"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=540",
+        "page": 316
       }
     ],
     "description": [
@@ -30772,7 +30927,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=616"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=616",
+        "page": 322
       }
     ],
     "description": [
@@ -31271,7 +31427,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=477"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=477",
+        "page": 308
       }
     ],
     "description": [
@@ -31896,7 +32053,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=504"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=504",
+        "page": 312
       }
     ],
     "description": [
@@ -32185,7 +32343,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=692"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=692",
+        "page": 306
       }
     ],
     "description": [
@@ -32343,7 +32502,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=518"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=518",
+        "page": 312
       }
     ],
     "description": [
@@ -32488,7 +32648,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=457"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=457",
+        "page": 306
       }
     ],
     "description": [
@@ -32638,7 +32799,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=450"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=450",
+        "page": 306
       }
     ],
     "description": [
@@ -32805,7 +32967,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=591"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=591",
+        "page": 320
       }
     ],
     "description": [
@@ -32963,7 +33126,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=557"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=557",
+        "page": 316
       }
     ],
     "description": [
@@ -33122,7 +33286,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=528"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=528",
+        "page": 314
       }
     ],
     "description": [
@@ -33280,7 +33445,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=399"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=399",
+        "page": 300
       }
     ],
     "description": [
@@ -33596,7 +33762,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=617"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=617",
+        "page": 322
       }
     ],
     "description": [
@@ -33902,7 +34069,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=400"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=400",
+        "page": 300
       }
     ],
     "description": [
@@ -34056,7 +34224,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=519"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=519",
+        "page": 312
       }
     ],
     "description": [
@@ -34201,7 +34370,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=571"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=571",
+        "page": 318
       }
     ],
     "description": [
@@ -34351,7 +34521,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=352"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=352",
+        "page": 151
       }
     ],
     "description": [
@@ -34509,7 +34680,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=494"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=494",
+        "page": 310
       }
     ],
     "description": [
@@ -34663,7 +34835,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=541"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=541",
+        "page": 316
       }
     ],
     "description": [
@@ -34817,7 +34990,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=542"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=542",
+        "page": 316
       }
     ],
     "description": [
@@ -34971,7 +35145,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=543"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=543",
+        "page": 316
       }
     ],
     "description": [
@@ -35287,7 +35462,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=408"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=408",
+        "page": 300
       }
     ],
     "description": [
@@ -35749,7 +35925,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=598"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=598",
+        "page": 320
       }
     ],
     "description": [
@@ -36051,7 +36228,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=544"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=544",
+        "page": 316
       }
     ],
     "description": [
@@ -36489,7 +36667,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=529"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=529",
+        "page": 314
       }
     ],
     "description": [
@@ -36643,7 +36822,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=478"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=478",
+        "page": 308
       }
     ],
     "description": [
@@ -36801,7 +36981,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=288"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=288",
+        "page": 78
       }
     ],
     "description": [
@@ -36983,7 +37164,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=458"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=458",
+        "page": 306
       }
     ],
     "description": [
@@ -37137,7 +37319,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=572"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=572",
+        "page": 318
       }
     ],
     "description": [
@@ -37458,7 +37641,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=354"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=354",
+        "page": 153
       }
     ],
     "description": [
@@ -37612,7 +37796,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=355"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=355",
+        "page": 154
       }
     ],
     "description": [
@@ -37779,7 +37964,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=289"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=289",
+        "page": 82
       }
     ],
     "description": [
@@ -38081,7 +38267,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=558"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=558",
+        "page": 316
       }
     ],
     "description": [
@@ -38235,7 +38422,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=433"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=433",
+        "page": 304
       }
     ],
     "description": [
@@ -38546,7 +38734,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=573"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=573",
+        "page": 318
       }
     ],
     "description": [
@@ -38729,7 +38918,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=574"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=574",
+        "page": 318
       }
     ],
     "description": [
@@ -38903,7 +39093,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=575"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=575",
+        "page": 318
       }
     ],
     "description": [
@@ -39081,7 +39272,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=584"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=584",
+        "page": 320
       }
     ],
     "description": [
@@ -39235,7 +39427,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=585"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=585",
+        "page": 320
       }
     ],
     "description": [
@@ -39393,7 +39586,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=356"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=356",
+        "page": 155
       }
     ],
     "description": [
@@ -39556,7 +39750,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=479"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=479",
+        "page": 308
       }
     ],
     "description": [
@@ -39706,7 +39901,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=409"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=409",
+        "page": 302
       }
     ],
     "description": [
@@ -39860,7 +40056,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=576"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=576",
+        "page": 318
       }
     ],
     "description": [
@@ -40010,7 +40207,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=520"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=520",
+        "page": 314
       }
     ],
     "description": [
@@ -40159,7 +40357,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=599"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=599",
+        "page": 320
       }
     ],
     "description": [
@@ -40317,7 +40516,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=414"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=414",
+        "page": 302
       }
     ],
     "description": [
@@ -40475,7 +40675,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=420"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=420",
+        "page": 302
       }
     ],
     "description": [
@@ -40633,7 +40834,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=434"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=434",
+        "page": 304
       }
     ],
     "description": [
@@ -40791,7 +40993,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=290"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=290",
+        "page": 86
       }
     ],
     "description": [
@@ -41102,7 +41305,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=546"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=546",
+        "page": 316
       }
     ],
     "description": [
@@ -41427,7 +41631,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=387"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=387",
+        "page": 248
       }
     ],
     "description": [
@@ -41652,7 +41857,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=480"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=480",
+        "page": 308
       }
     ],
     "description": [
@@ -41950,7 +42156,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=521"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=521",
+        "page": 314
       }
     ],
     "description": [
@@ -42095,7 +42302,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=380"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=380",
+        "page": 243
       }
     ],
     "description": [
@@ -42211,7 +42419,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=459"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=459",
+        "page": 306
       }
     ],
     "description": [
@@ -42361,7 +42570,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=481"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=481",
+        "page": 310
       }
     ],
     "description": [
@@ -42519,7 +42729,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=618"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=618",
+        "page": 322
       }
     ],
     "description": [
@@ -42695,7 +42906,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=693"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=693",
+        "page": 306
       }
     ],
     "description": [
@@ -42853,7 +43065,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=619"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=619",
+        "page": 322
       }
     ],
     "description": [
@@ -43002,7 +43215,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=620"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=620",
+        "page": 322
       }
     ],
     "description": [
@@ -43160,7 +43374,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=357"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=357",
+        "page": 156
       }
     ],
     "description": [
@@ -43536,7 +43751,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=482"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=482",
+        "page": 310
       }
     ],
     "description": [
@@ -43694,7 +43910,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=577"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=577",
+        "page": 318
       }
     ],
     "description": [
@@ -43848,7 +44065,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=608"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=608",
+        "page": 322
       }
     ],
     "description": [
@@ -44002,7 +44220,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=388"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=388",
+        "page": 249
       }
     ],
     "description": [
@@ -44276,7 +44495,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=291"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=291",
+        "page": 90
       }
     ],
     "description": [
@@ -44600,7 +44820,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=559"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=559",
+        "page": 316
       }
     ],
     "description": [
@@ -44758,7 +44979,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=694"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=694",
+        "page": 306
       }
     ],
     "description": [
@@ -44916,7 +45138,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=547"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=547",
+        "page": 316
       }
     ],
     "description": [
@@ -45070,7 +45293,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=292"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=292",
+        "page": 94
       }
     ],
     "description": [
@@ -45228,7 +45452,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=410"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=410",
+        "page": 302
       }
     ],
     "description": [
@@ -45678,7 +45903,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=483"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=483",
+        "page": 310
       }
     ],
     "description": [
@@ -45985,7 +46211,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=372"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=372",
+        "page": 240
       }
     ],
     "description": [
@@ -46115,7 +46342,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=373"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=373",
+        "page": 240
       }
     ],
     "description": [
@@ -46233,7 +46461,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=600"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=600",
+        "page": 320
       }
     ],
     "description": [
@@ -46387,7 +46616,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=435"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=435",
+        "page": 304
       }
     ],
     "description": [
@@ -46693,7 +46923,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=293"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=293",
+        "page": 98
       }
     ],
     "description": [
@@ -46851,7 +47082,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=436"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=436",
+        "page": 304
       }
     ],
     "description": [
@@ -47005,7 +47237,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=315"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=315",
+        "page": 157
       }
     ],
     "description": [
@@ -47163,7 +47396,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=695"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=695",
+        "page": 306
       }
     ],
     "description": [
@@ -47335,7 +47569,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=460"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=460",
+        "page": 306
       }
     ],
     "description": [
@@ -47485,7 +47720,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=411"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=411",
+        "page": 302
       }
     ],
     "description": [
@@ -47643,7 +47879,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=437"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=437",
+        "page": 304
       }
     ],
     "description": [
@@ -47801,7 +48038,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=438"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=438",
+        "page": 304
       }
     ],
     "description": [
@@ -47955,7 +48193,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=358"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=358",
+        "page": 158
       }
     ],
     "description": [
@@ -48109,7 +48348,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=495"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=495",
+        "page": 310
       }
     ],
     "description": [
@@ -48267,7 +48507,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=496"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=496",
+        "page": 310
       }
     ],
     "description": [
@@ -48425,7 +48666,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=522"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=522",
+        "page": 314
       }
     ],
     "description": [
@@ -48722,7 +48964,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=484"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=484",
+        "page": 310
       }
     ],
     "description": [
@@ -48880,7 +49123,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=381"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=381",
+        "page": 244
       }
     ],
     "description": [
@@ -49176,7 +49420,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=548"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=548",
+        "page": 316
       }
     ],
     "description": [
@@ -49326,7 +49571,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=609"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=609",
+        "page": 322
       }
     ],
     "description": [
@@ -49480,7 +49726,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=382"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=382",
+        "page": 244
       }
     ],
     "description": [
@@ -49610,7 +49857,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=523"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=523",
+        "page": 314
       }
     ],
     "description": [
@@ -49908,7 +50156,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=621"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=621",
+        "page": 322
       }
     ],
     "description": [
@@ -50053,7 +50302,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=392"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=392",
+        "page": 300
       }
     ],
     "description": [
@@ -50211,7 +50461,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=383"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=383",
+        "page": 244
       }
     ],
     "description": [
@@ -50481,7 +50732,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=505"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=505",
+        "page": 312
       }
     ],
     "description": [
@@ -50639,7 +50891,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=549"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=549",
+        "page": 316
       }
     ],
     "description": [
@@ -50965,7 +51218,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=550"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=550",
+        "page": 316
       }
     ],
     "description": [
@@ -51280,7 +51534,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=566"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=566",
+        "page": 318
       }
     ],
     "description": [
@@ -51425,7 +51680,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=339"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=339",
+        "page": 137
       }
     ],
     "description": [
@@ -51583,7 +51839,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=453"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=453",
+        "page": 306
       }
     ],
     "description": [
@@ -51890,7 +52147,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=455"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=455",
+        "page": 306
       }
     ],
     "description": [
@@ -52044,7 +52302,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=456"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=456",
+        "page": 306
       }
     ],
     "description": [
@@ -52198,7 +52457,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=545"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=545",
+        "page": 316
       }
     ],
     "description": [
@@ -52348,7 +52608,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=370"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=370",
+        "page": 239
       }
     ],
     "description": [
@@ -52474,7 +52735,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=371"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=371",
+        "page": 240
       }
     ],
     "description": [
@@ -52600,7 +52862,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=363"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=363",
+        "page": 235
       }
     ],
     "description": [
@@ -52897,7 +53160,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=524"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=524",
+        "page": 314
       }
     ],
     "description": [
@@ -53042,7 +53306,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=497"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=497",
+        "page": 310
       }
     ],
     "description": [
@@ -53192,7 +53457,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=586"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=586",
+        "page": 320
       }
     ],
     "description": [
@@ -53350,7 +53616,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=530"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=530",
+        "page": 314
       }
     ],
     "description": [
@@ -53504,7 +53771,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=498"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=498",
+        "page": 310
       }
     ],
     "description": [
@@ -53811,7 +54079,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=415"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=415",
+        "page": 302
       }
     ],
     "description": [
@@ -53956,7 +54225,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=294"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=294",
+        "page": 102
       }
     ],
     "description": [
@@ -54114,7 +54384,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=374"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=374",
+        "page": 241
       }
     ],
     "description": [
@@ -54240,7 +54511,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=324"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=324",
+        "page": 159
       }
     ],
     "description": [
@@ -54398,7 +54670,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=393"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=393",
+        "page": 300
       }
     ],
     "description": [
@@ -54565,7 +54838,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=421"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=421",
+        "page": 302
       }
     ],
     "description": [
@@ -54719,7 +54993,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=451"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=451",
+        "page": 306
       }
     ],
     "description": [
@@ -54886,7 +55161,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=317"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=317",
+        "page": 160
       }
     ],
     "description": [
@@ -55044,7 +55320,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=560"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=560",
+        "page": 316
       }
     ],
     "description": [
@@ -55198,7 +55475,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=412"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=412",
+        "page": 302
       }
     ],
     "description": [
@@ -55352,7 +55630,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=499"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=499",
+        "page": 310
       }
     ],
     "description": [
@@ -55506,7 +55785,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=295"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=295",
+        "page": 106
       }
     ],
     "description": [
@@ -55664,7 +55944,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=485"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=485",
+        "page": 310
       }
     ],
     "description": [
@@ -55814,7 +56095,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=531"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=531",
+        "page": 314
       }
     ],
     "description": [
@@ -56125,7 +56407,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=486"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=486",
+        "page": 310
       }
     ],
     "description": [
@@ -56279,7 +56562,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=551"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=551",
+        "page": 316
       }
     ],
     "description": [
@@ -56429,7 +56713,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=532"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=532",
+        "page": 314
       }
     ],
     "description": [
@@ -56583,7 +56868,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=561"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=561",
+        "page": 318
       }
     ],
     "description": [
@@ -56737,7 +57023,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=552"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=552",
+        "page": 316
       }
     ],
     "description": [
@@ -56887,7 +57174,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=601"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=601",
+        "page": 320
       }
     ],
     "description": [
@@ -57041,7 +57329,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=506"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=506",
+        "page": 312
       }
     ],
     "description": [
@@ -57199,7 +57488,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=696"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=696",
+        "page": 306
       }
     ],
     "description": [
@@ -57502,7 +57792,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=487"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=487",
+        "page": 310
       }
     ],
     "description": [
@@ -57660,7 +57951,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=622"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=622",
+        "page": 322
       }
     ],
     "description": [
@@ -57832,7 +58124,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=553"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=553",
+        "page": 316
       }
     ],
     "description": [
@@ -57978,7 +58271,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=422"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=422",
+        "page": 302
       }
     ],
     "description": [
@@ -58145,7 +58439,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=359"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=359",
+        "page": 161
       }
     ],
     "description": [
@@ -58303,7 +58598,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=439"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=439",
+        "page": 304
       }
     ],
     "description": [
@@ -58762,7 +59058,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=375"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=375",
+        "page": 241
       }
     ],
     "description": [
@@ -58888,7 +59185,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=384"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=384",
+        "page": 245
       }
     ],
     "description": [
@@ -59023,7 +59321,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=385"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=385",
+        "page": 245
       }
     ],
     "description": [
@@ -59158,7 +59457,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=389"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=389",
+        "page": 250
       }
     ],
     "description": [
@@ -59387,7 +59687,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=562"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=562",
+        "page": 318
       }
     ],
     "description": [
@@ -59559,7 +59860,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=578"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=578",
+        "page": 318
       }
     ],
     "description": [
@@ -59875,7 +60177,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=440"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=440",
+        "page": 304
       }
     ],
     "description": [
@@ -60033,7 +60336,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=423"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=423",
+        "page": 302
       }
     ],
     "description": [
@@ -60331,7 +60635,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=587"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=587",
+        "page": 320
       }
     ],
     "description": [
@@ -60629,7 +60934,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=554"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=554",
+        "page": 316
       }
     ],
     "description": [
@@ -60779,7 +61085,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=323"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=323",
+        "page": 314
       }
     ],
     "description": [
@@ -61094,7 +61401,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=441"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=441",
+        "page": 304
       }
     ],
     "description": [
@@ -61239,7 +61547,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=579"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=579",
+        "page": 318
       }
     ],
     "description": [
@@ -61389,7 +61698,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=488"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=488",
+        "page": 310
       }
     ],
     "description": [
@@ -61547,7 +61857,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=697"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=697",
+        "page": 306
       }
     ],
     "description": [
@@ -61705,7 +62016,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=580"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=580",
+        "page": 318
       }
     ],
     "description": [
@@ -61864,7 +62176,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=500"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=500",
+        "page": 312
       }
     ],
     "description": [
@@ -62022,7 +62335,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=463"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=463",
+        "page": 308
       }
     ],
     "description": [
@@ -62196,7 +62510,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=507"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=507",
+        "page": 312
       }
     ],
     "description": [
@@ -62354,7 +62669,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=424"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=424",
+        "page": 302
       }
     ],
     "description": [
@@ -62512,7 +62828,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=442"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=442",
+        "page": 304
       }
     ],
     "description": [
@@ -62827,7 +63144,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=360"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=360",
+        "page": 162
       }
     ],
     "description": [
@@ -62985,7 +63303,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=508"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=508",
+        "page": 312
       }
     ],
     "description": [
@@ -63143,7 +63462,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=489"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=489",
+        "page": 310
       }
     ],
     "description": [
@@ -63301,7 +63621,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=296"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=296",
+        "page": 110
       }
     ],
     "description": [
@@ -63459,7 +63780,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=509"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=509",
+        "page": 312
       }
     ],
     "description": [
@@ -63771,7 +64093,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=501"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=501",
+        "page": 312
       }
     ],
     "description": [
@@ -63925,7 +64248,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=361"
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=361",
+        "page": 163
       }
     ],
     "description": [

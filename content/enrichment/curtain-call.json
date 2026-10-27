@@ -1,106 +1,132 @@
 {
   "consumable:netherwalk-incense": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3629"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3629",
+    "page": 79
   },
   "creature:anguish-siktempora": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3743"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3743",
+    "page": 89
   },
   "creature:azarpal": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3738"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3738",
+    "page": 84
   },
   "creature:furnerico": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3739"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3739",
+    "page": 85
   },
   "creature:hellshadow": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3740"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3740",
+    "page": 86
   },
   "creature:ockomlire": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3741"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3741",
+    "page": 87
   },
   "creature:rezzelki": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3742"
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3742",
+    "page": 88
   },
   "equipment:crooners-cravat": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3632"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3632",
+    "page": 80
   },
   "equipment:heralds-ring": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3633"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3633",
+    "page": 80
   },
   "equipment:mockers-swazzle": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3630"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3630",
+    "page": 80
   },
   "equipment:spectacles-of-discernment": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3631"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3631",
+    "page": 80
   },
   "equipment:stage-magicians-cloak": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3634"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3634",
+    "page": 81
   },
   "equipment:tumblers-belt": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3635"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3635",
+    "page": 81
   },
   "feat:costume-change": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7640"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7640",
+    "page": 82
   },
   "feat:fight-choreography": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7644"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7644",
+    "page": 83
   },
   "feat:fit-for-the-role": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7641"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7641",
+    "page": 82
   },
   "feat:gladiators-roar": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7634"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7634",
+    "page": 81
   },
   "feat:its-not-over": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7642"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7642",
+    "page": 83
   },
   "feat:more-real-than-real": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7646"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7646",
+    "page": 83
   },
   "feat:operatic-adventurer": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7635"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7635",
+    "page": 82
   },
   "feat:perfect-pitch": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7636"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7636",
+    "page": 82
   },
   "feat:play-to-the-crowd-dandy": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7637"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7637",
+    "page": 82
   },
   "feat:primadonna": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7638"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7638",
+    "page": 82
   },
   "feat:tempo-shift": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7643"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7643",
+    "page": 83
   },
   "feat:tragic-lament": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7645"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7645",
+    "page": 83
   },
   "feat:virtuosic-dancer": {
     "book": "curtain-call",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7639"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7639",
+    "page": 82
   }
 }

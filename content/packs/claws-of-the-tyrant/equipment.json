@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "claws-of-the-tyrant",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3787"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3787",
+        "page": 110
       }
     ],
     "description": [
@@ -157,7 +158,8 @@
       {
         "kind": "book",
         "book": "claws-of-the-tyrant",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3783"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3783",
+        "page": 109
       }
     ],
     "description": [
@@ -425,7 +427,8 @@
       {
         "kind": "book",
         "book": "claws-of-the-tyrant",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3784"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3784",
+        "page": 109
       }
     ],
     "description": [
@@ -673,7 +676,8 @@
       {
         "kind": "book",
         "book": "claws-of-the-tyrant",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3785"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3785",
+        "page": 109
       }
     ],
     "description": [
@@ -993,7 +997,8 @@
       {
         "kind": "book",
         "book": "claws-of-the-tyrant",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3786"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3786",
+        "page": 110
       }
     ],
     "description": [

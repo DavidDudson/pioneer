@@ -1,406 +1,507 @@
 {
   "ancestry:dragonet": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=96"
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=96",
+    "page": 208
   },
   "archetype:draconic-acolyte": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=333"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=333",
+    "page": 218
   },
   "archetype:drake-rider": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=334"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=334",
+    "page": 220
   },
   "consumable:dragon-eye": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4014"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4014",
+    "page": 223
   },
   "consumable:dragon-scute-greater": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015",
+    "page": 223
   },
   "consumable:dragon-scute-lesser": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015",
+    "page": 223
   },
   "consumable:dragon-scute-moderate": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015",
+    "page": 223
   },
   "deity:brixori": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=715"
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=715",
+    "page": 27
   },
   "deity:essence-dancers": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=723"
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=723",
+    "page": 35
   },
   "deity:gaasham": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=716"
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=716",
+    "page": 29
   },
   "deity:garhaazh": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=717"
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=717",
+    "page": 30
   },
   "deity:otilaz": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=718"
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=718",
+    "page": 31
   },
   "deity:sarshallatu": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=719"
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=719",
+    "page": 32
   },
   "deity:the-anointing-of-kings": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=722"
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=722",
+    "page": 35
   },
   "deity:turvu": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=720"
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=720",
+    "page": 33
   },
   "deity:yluma": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=721"
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=721",
+    "page": 34
   },
   "equipment:dragon-pearl-draconic-codex": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4011"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4011",
+    "page": 222
   },
   "equipment:duty-of-the-oathsworn": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4017"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4017",
+    "page": 227
   },
   "equipment:enkindled-quintessence": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4019"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4019",
+    "page": 227
   },
   "equipment:pact-of-the-agonized-destroyer": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4020"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4020",
+    "page": 227
   },
   "equipment:pact-of-the-herald-and-host": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4016"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4016",
+    "page": 226
   },
   "equipment:the-timeless-bond": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4018"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4018",
+    "page": 227
   },
   "feat:aqueous-dragonblood": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8076"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8076",
+    "page": 216
   },
   "feat:ascendant-blood": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8089"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8089",
+    "page": 217
   },
   "feat:ascended-dragonet-heritage": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8053"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8053",
+    "page": 212
   },
   "feat:benefactors-resistance": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8064"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8064",
+    "page": 214
   },
   "feat:benefactors-strike": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8069"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8069",
+    "page": 215
   },
   "feat:benefactors-wings": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8095"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8095",
+    "page": 219
   },
   "feat:blood-and-spirit": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8079"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8079",
+    "page": 216
   },
   "feat:bond-companion": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8057"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8057",
+    "page": 212
   },
   "feat:breath-unleashed": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8072"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8072",
+    "page": 215
   },
   "feat:call-draconic-ally": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8100"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8100",
+    "page": 219
   },
   "feat:covet-hoard": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8046"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8046",
+    "page": 210
   },
   "feat:dazzling-dragonet-disappearance": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8062"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8062",
+    "page": 213
   },
   "feat:death-dive": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8109"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8109",
+    "page": 220
   },
   "feat:debilitating-breath": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8087"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8087",
+    "page": 217
   },
   "feat:deepening-devotion": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8097"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8097",
+    "page": 219
   },
   "feat:dracomancer": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8073"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8073",
+    "page": 215
   },
   "feat:draconic-acolyte-dedication": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8090"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8090",
+    "page": 218
   },
   "feat:draconic-familiar": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8093"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8093",
+    "page": 219
   },
   "feat:draconic-fury": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8091"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8091",
+    "page": 218
   },
   "feat:draconic-paragon": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8074"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8074",
+    "page": 215
   },
   "feat:draconic-resilience": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8092"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8092",
+    "page": 219
   },
   "feat:draconic-sycophant": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8065"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8065",
+    "page": 214
   },
   "feat:dragonet-breath": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8047"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8047",
+    "page": 211
   },
   "feat:dragonet-immunities": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8063"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8063",
+    "page": 213
   },
   "feat:dragonet-resistances": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8048"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8048",
+    "page": 211
   },
   "feat:dragonscaled-lore": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8066"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8066",
+    "page": 214
   },
   "feat:drake-rider-dedication": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8102"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8102",
+    "page": 220
   },
   "feat:earthbond": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8080"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8080",
+    "page": 216
   },
   "feat:elite-dracomancer": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8075"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8075",
+    "page": 215
   },
   "feat:energize-bite": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8083"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8083",
+    "page": 217
   },
   "feat:essence-overflow": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8094"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8094",
+    "page": 219
   },
   "feat:ferocious-will": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8058"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8058",
+    "page": 213
   },
   "feat:flair-rider-stance": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8105"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8105",
+    "page": 220
   },
   "feat:form-a-flock": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8060"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8060",
+    "page": 213
   },
   "feat:frightening-power": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8099"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8099",
+    "page": 219
   },
   "feat:guided-hover": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8111"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8111",
+    "page": 221
   },
   "feat:heart-of-earth": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8088"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8088",
+    "page": 217
   },
   "feat:hidden-hoard": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8101"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8101",
+    "page": 219
   },
   "feat:hoarders-craw": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8067"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8067",
+    "page": 214
   },
   "feat:home-in-the-deep": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8084"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8084",
+    "page": 217
   },
   "feat:incredible-dragon-companion": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8107"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8107",
+    "page": 220
   },
   "feat:inhale-exhale": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8054"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8054",
+    "page": 212
   },
   "feat:into-the-sky": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8059"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8059",
+    "page": 213
   },
   "feat:jealous-grip": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8055"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8055",
+    "page": 212
   },
   "feat:kobold-breath": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8068"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8068",
+    "page": 215
   },
   "feat:kobold-momentum": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8070"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8070",
+    "page": 215
   },
   "feat:mature-dragon-companion": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8103"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8103",
+    "page": 220
   },
   "feat:mighty-dragonet": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8049"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8049",
+    "page": 211
   },
   "feat:mineral-deposits": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8085"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8085",
+    "page": 217
   },
   "feat:my-claws-are-daggers": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8050"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8050",
+    "page": 211
   },
   "feat:reactive-resilience": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8096"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8096",
+    "page": 219
   },
   "feat:reflexive-devotion": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8098"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8098",
+    "page": 219
   },
   "feat:scales-of-steel": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8051"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8051",
+    "page": 212
   },
   "feat:sheltering-wing": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8086"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8086",
+    "page": 217
   },
   "feat:strafing-breath": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8110"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8110",
+    "page": 221
   },
   "feat:summiting-dragonblood": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8077"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8077",
+    "page": 216
   },
   "feat:take-wing": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8052"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8052",
+    "page": 212
   },
   "feat:tenacious-jaws": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8081"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8081",
+    "page": 216
   },
   "feat:terra-dragonblood": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8078"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8078",
+    "page": 216
   },
   "feat:tip-the-scales": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8071"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8071",
+    "page": 215
   },
   "feat:voice-of-the-elements": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8082"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8082",
+    "page": 216
   },
   "feat:war-rider-stance": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8106"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8106",
+    "page": 220
   },
   "feat:wing-rider": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8108"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8108",
+    "page": 220
   },
   "feat:winged-leap": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8104"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8104",
+    "page": 220
   },
   "feat:zip-zoom": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8056"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8056",
+    "page": 212
   },
   "heritage:fey-dragonet": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=422"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=422",
+    "page": 210
   },
   "heritage:homing-drake": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=423"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=423",
+    "page": 210
   },
   "heritage:house-drake": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=424"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=424",
+    "page": 210
   },
   "heritage:pearl-dragonet": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=425"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=425",
+    "page": 210
   },
   "heritage:tidepool-dragonet": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=426"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=426",
+    "page": 210
   },
   "spell:armor-of-thorn-and-claw": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2524"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2524",
+    "page": 224
   },
   "spell:blood-feasting-breath": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2525"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2525",
+    "page": 224
   },
   "spell:channel-arrogance": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2526"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2526",
+    "page": 224
   },
   "spell:cloud-current": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2527"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2527",
+    "page": 224
   },
   "spell:divine-dragons-watch": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2528"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2528",
+    "page": 224
   },
   "spell:dragon-turret": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2529"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2529",
+    "page": 225
   },
   "spell:earth-and-sky": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2530"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2530",
+    "page": 225
   },
   "spell:horde-of-underlings": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2531"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2531",
+    "page": 225
   },
   "spell:orb-of-twisting-fate": {
     "book": "draconic-codex",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2532"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2532",
+    "page": 225
   }
 }

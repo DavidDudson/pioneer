@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=51"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=51",
+        "page": 146
       }
     ],
     "description": [
@@ -59,7 +60,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=54"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=54",
+        "page": 146
       }
     ],
     "description": [
@@ -107,7 +109,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=52"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=52",
+        "page": 146
       }
     ],
     "description": [
@@ -154,7 +157,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Armor.aspx?ID=53"
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=53",
+        "page": 146
       }
     ],
     "description": [

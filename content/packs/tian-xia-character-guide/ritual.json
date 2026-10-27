@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=169"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=169",
+        "page": 102
       }
     ],
     "description": [
@@ -198,7 +199,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=170"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=170",
+        "page": 102
       }
     ],
     "description": [
@@ -406,7 +408,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=171"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=171",
+        "page": 103
       }
     ],
     "description": [

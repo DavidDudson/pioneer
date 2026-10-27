@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=335"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=335",
+        "page": 238
       }
     ],
     "description": [
@@ -153,7 +154,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=337"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=337",
+        "page": 242
       }
     ],
     "description": [

@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=508"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=508",
+        "page": 147
       }
     ],
     "description": [
@@ -64,7 +65,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=505"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=505",
+        "page": 147
       }
     ],
     "description": [
@@ -374,7 +376,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=510"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=510",
+        "page": 147
       }
     ],
     "description": [
@@ -598,7 +601,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=513"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=513",
+        "page": 147
       }
     ],
     "description": [
@@ -656,7 +660,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=511"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=511",
+        "page": 147
       }
     ],
     "description": [
@@ -708,7 +713,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=506"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=506",
+        "page": 147
       }
     ],
     "description": [
@@ -1367,7 +1373,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=507"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=507",
+        "page": 147
       }
     ],
     "description": [
@@ -1419,7 +1426,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=512"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=512",
+        "page": 147
       }
     ],
     "description": [

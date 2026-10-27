@@ -1,1722 +1,2152 @@
 {
   "ancestry:athamaru": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=71"
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=71",
+    "page": 16
   },
   "ancestry:awakened-animal": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=72"
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=72",
+    "page": 22
   },
   "ancestry:centaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=73"
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=73",
+    "page": 28
   },
   "ancestry:merfolk": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=74"
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=74",
+    "page": 34
   },
   "ancestry:minotaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=75"
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=75",
+    "page": 40
   },
   "ancestry:surki": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=76"
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=76",
+    "page": 46
   },
   "archetype:clawdancer": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=221"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=221",
+    "page": 68
   },
   "archetype:ostilli-host": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=222"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=222",
+    "page": 70
   },
   "archetype:swarmkeeper": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=223"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=223",
+    "page": 72
   },
   "archetype:thlipit-contestant": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=224"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=224",
+    "page": 74
   },
   "archetype:werecreature": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=225"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=225",
+    "page": 76
   },
   "archetype:wild-mimic": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=226"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=226",
+    "page": 80
   },
   "archetype:winged-warrior": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=227"
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=227",
+    "page": 82
   },
   "consumable:alicorn-hair": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3254"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3254",
+    "page": 118
   },
   "consumable:amphisbaena-spittle": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3255"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3255",
+    "page": 118
   },
   "consumable:animal-pheromones-greater": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3228"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3228",
+    "page": 108
   },
   "consumable:animal-pheromones-lesser": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3228"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3228",
+    "page": 108
   },
   "consumable:animal-pheromones-moderate": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3228"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3228",
+    "page": 108
   },
   "consumable:aroma-concealer": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3229"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3229",
+    "page": 109
   },
   "consumable:broken-rams-thorn": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3256"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3256",
+    "page": 118
   },
   "consumable:chaos-falcon-feather": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3257"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3257",
+    "page": 118
   },
   "consumable:dischoran-rubble": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3258"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3258",
+    "page": 118
   },
   "consumable:essence-of-mandragora": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3239"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3239",
+    "page": 111
   },
   "consumable:frogskin-tincture": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3234"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3234",
+    "page": 110
   },
   "consumable:hippogriff-feather": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3259"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3259",
+    "page": 118
   },
   "consumable:hive-mother-bottle": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3231"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3231",
+    "page": 109
   },
   "consumable:hydra-mutagen": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3235"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3235",
+    "page": 110
   },
   "consumable:kirin-echo-chime": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3260"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3260",
+    "page": 118
   },
   "consumable:kushtaka-relic": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3261"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3261",
+    "page": 118
   },
   "consumable:ogre-spider-filament": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3262"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3262",
+    "page": 119
   },
   "consumable:ommatophoric-mutagen": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3236"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3236",
+    "page": 110
   },
   "consumable:pallesthetic-mutagen": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3237"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3237",
+    "page": 110
   },
   "consumable:pheromone-flare-greater": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3230"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3230",
+    "page": 109
   },
   "consumable:pheromone-flare-lesser": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3230"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3230",
+    "page": 109
   },
   "consumable:pheromone-flare-moderate": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3230"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3230",
+    "page": 109
   },
   "consumable:sargassum-phial": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3232"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3232",
+    "page": 109
   },
   "consumable:silvered-marp-fur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3263"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3263",
+    "page": 119
   },
   "consumable:skyfisher-vapors": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3264"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3264",
+    "page": 119
   },
   "consumable:sportlebore-capsule": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3240"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3240",
+    "page": 111
   },
   "consumable:tarantula-ampoule": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3233"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3233",
+    "page": 110
   },
   "consumable:tatzlwyrms-gasp": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3241"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3241",
+    "page": 111
   },
   "consumable:viperous-elixir-greater": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3238"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3238",
+    "page": 111
   },
   "consumable:viperous-elixir-lesser": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3238"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3238",
+    "page": 111
   },
   "consumable:viperous-elixir-moderate": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3238"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3238",
+    "page": 111
   },
   "consumable:wemmuth-trinket": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3265"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3265",
+    "page": 119
   },
   "consumable:witchwarg-fur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3266"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3266",
+    "page": 119
   },
   "consumable:wolliped-fleece": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3267"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3267",
+    "page": 119
   },
   "equipment:alluring-lantern": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3177"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3177",
+    "page": 97
   },
   "equipment:amulet-of-the-hellcat": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3224"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3224",
+    "page": 106
   },
   "equipment:animal-blind": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3242"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3242",
+    "page": 112
   },
   "equipment:animal-call": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3243"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3243",
+    "page": 112
   },
   "equipment:arachnolute": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3220"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3220",
+    "page": 105
   },
   "equipment:atmospheric-breathing-suit": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3244"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3244",
+    "page": 112
   },
   "equipment:bioluminescent-stripes": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3178"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3178",
+    "page": 97
   },
   "equipment:bleeding-canines": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3187"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3187",
+    "page": 98
   },
   "equipment:bristling-spines-greater": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3179"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3179",
+    "page": 97
   },
   "equipment:bristling-spines-lesser": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3179"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3179",
+    "page": 97
   },
   "equipment:bristling-spines-moderate": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3179"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3179",
+    "page": 97
   },
   "equipment:camouflaging-chromatophores-greater": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3180"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3180",
+    "page": 98
   },
   "equipment:camouflaging-chromatophores-lesser": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3180"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3180",
+    "page": 98
   },
   "equipment:catch-pole": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3245"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3245",
+    "page": 112
   },
   "equipment:cauthooj-bagpipes": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3221"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3221",
+    "page": 105
   },
   "equipment:clothing-desert": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2715"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2715",
+    "page": 112
   },
   "equipment:compound-eyes": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3181"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3181",
+    "page": 98
   },
   "equipment:constricting-whip-tail": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3195"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3195",
+    "page": 99
   },
   "equipment:deadly-slashing-claws": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3188"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3188",
+    "page": 98
   },
   "equipment:distracting-carapace": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3182"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3182",
+    "page": 98
   },
   "equipment:dweomerveil": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3225"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3225",
+    "page": 106
   },
   "equipment:echo-receptors": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3183"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3183",
+    "page": 98
   },
   "equipment:field-guide": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3246"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3246",
+    "page": 112
   },
   "equipment:flash-beetle-lantern": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3222"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3222",
+    "page": 106
   },
   "equipment:flower-press": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3247"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3247",
+    "page": 113
   },
   "equipment:giant-catch-pole": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3245"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3245",
+    "page": 112
   },
   "equipment:gills": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3184"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3184",
+    "page": 98
   },
   "equipment:gliding-membranes-greater": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3185"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3185",
+    "page": 98
   },
   "equipment:gliding-membranes-lesser": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3185"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3185",
+    "page": 98
   },
   "equipment:goring-horn": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3186"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3186",
+    "page": 98
   },
   "equipment:high-contrast-goggles": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3248"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3248",
+    "page": 113
   },
   "equipment:mantle-of-the-tikbalang": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3226"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3226",
+    "page": 106
   },
   "equipment:oilskin-pouch": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3249"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3249",
+    "page": 113
   },
   "equipment:orm-choker": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3227"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3227",
+    "page": 106
   },
   "equipment:pelagic-helmet": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3250"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3250",
+    "page": 113
   },
   "equipment:piercing-horn": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3186"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3186",
+    "page": 98
   },
   "equipment:portable-animal-blind": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3242"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3242",
+    "page": 112
   },
   "equipment:sharpened-canines": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3187"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3187",
+    "page": 98
   },
   "equipment:sifting-pan": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3251"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3251",
+    "page": 113
   },
   "equipment:slashing-claws": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3188"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3188",
+    "page": 98
   },
   "equipment:spry-sinews-greater": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3189"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3189",
+    "page": 99
   },
   "equipment:spry-sinews-lesser": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3189"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3189",
+    "page": 99
   },
   "equipment:squid-ink-sac": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3190"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3190",
+    "page": 99
   },
   "equipment:superior-catch-pole": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3245"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3245",
+    "page": 112
   },
   "equipment:swooping-wings": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3191"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3191",
+    "page": 99
   },
   "equipment:toxic-blood": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3192"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3192",
+    "page": 99
   },
   "equipment:tracking-tag": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3252"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3252",
+    "page": 113
   },
   "equipment:trundle-wheel": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3253"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3253",
+    "page": 113
   },
   "equipment:tubeworm-gland": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3193"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3193",
+    "page": 99
   },
   "equipment:venom-glands": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3194"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3194",
+    "page": 99
   },
   "equipment:whip-tail": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3195"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3195",
+    "page": 99
   },
   "feat:abscission-shards": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5440"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5440",
+    "page": 68
   },
   "feat:accommodating-mount": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5327"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5327",
+    "page": 32
   },
   "feat:alarming-disappearance": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5369"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5369",
+    "page": 43
   },
   "feat:animal-fleetness": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5487"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5487",
+    "page": 76
   },
   "feat:animal-strength": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5410"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5410",
+    "page": 59
   },
   "feat:animal-summoner": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5314"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5314",
+    "page": 27
   },
   "feat:antler-rush": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5490"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5490",
+    "page": 76
   },
   "feat:aphet-flash": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5464"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5464",
+    "page": 72
   },
   "feat:apprentice-sea-witch": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5349"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5349",
+    "page": 37
   },
   "feat:artisanal-crafter": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5361"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5361",
+    "page": 42
   },
   "feat:athamaru-lore": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5273"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5273",
+    "page": 18
   },
   "feat:athamaru-weapon-familiarity": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5274"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5274",
+    "page": 18
   },
   "feat:attuned-electroreceptors": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5290"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5290",
+    "page": 20
   },
   "feat:awaken-others": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5316"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5316",
+    "page": 27
   },
   "feat:awakened-animal-lore": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5297"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5297",
+    "page": 24
   },
   "feat:awakened-magic": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5298"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5298",
+    "page": 25
   },
   "feat:awakened-stride": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5319"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5319",
+    "page": 27
   },
   "feat:battering-wings": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5528"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5528",
+    "page": 82
   },
   "feat:bear-hug-werecreature": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5491"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5491",
+    "page": 77
   },
   "feat:beast-of-burden": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5370"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5370",
+    "page": 43
   },
   "feat:beastkin-resilience": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5488"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5488",
+    "page": 76
   },
   "feat:begin-stampede": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5382"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5382",
+    "page": 45
   },
   "feat:bestial-protection": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5424"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5424",
+    "page": 66
   },
   "feat:bestial-snarling": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5416"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5416",
+    "page": 65
   },
   "feat:billowing-wings": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5433"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5433",
+    "page": 67
   },
   "feat:bombing-run": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5539"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5539",
+    "page": 83
   },
   "feat:brutal-crush": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5399"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5399",
+    "page": 56
   },
   "feat:buzzing-death-cicadas": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5472"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5472",
+    "page": 73
   },
   "feat:carried-with-the-swarm": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5469"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5469",
+    "page": 73
   },
   "feat:cattle-speech": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5362"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5362",
+    "page": 42
   },
   "feat:cellular-reconstruction": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5462"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5462",
+    "page": 71
   },
   "feat:centaur-lore": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5322"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5322",
+    "page": 31
   },
   "feat:centaur-weapon-familiarity": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5323"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5323",
+    "page": 31
   },
   "feat:chaining-mutation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5458"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5458",
+    "page": 71
   },
   "feat:chemical-trail": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5389"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5389",
+    "page": 50
   },
   "feat:chorus-companion": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5420"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5420",
+    "page": 65
   },
   "feat:claw-and-talon-flow": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5448"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5448",
+    "page": 69
   },
   "feat:claw-snag": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5437"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5437",
+    "page": 68
   },
   "feat:clawdancer-dedication": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5436"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5436",
+    "page": 68
   },
   "feat:cleansing-transformation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5406"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5406",
+    "page": 57
   },
   "feat:cloaking-pulse": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5455"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5455",
+    "page": 70
   },
   "feat:community-minded": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5275"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5275",
+    "page": 19
   },
   "feat:consume-magic": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5392"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5392",
+    "page": 50
   },
   "feat:coral-detoxification": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5286"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5286",
+    "page": 20
   },
   "feat:coral-growth": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5281"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5281",
+    "page": 19
   },
   "feat:coral-lifeline": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5294"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5294",
+    "page": 21
   },
   "feat:coral-reserve": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5291"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5291",
+    "page": 20
   },
   "feat:coral-symbiotes": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5276"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5276",
+    "page": 19
   },
   "feat:cornered-animal": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5499"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5499",
+    "page": 78
   },
   "feat:cratering-drop": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5540"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5540",
+    "page": 83
   },
   "feat:creature-comforts": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5400"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5400",
+    "page": 56
   },
   "feat:dashing-pounce": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5438"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5438",
+    "page": 68
   },
   "feat:deadly-mutation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5459"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5459",
+    "page": 71
   },
   "feat:death-roll": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5492"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5492",
+    "page": 77
   },
   "feat:defensive-dismissal": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5404"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5404",
+    "page": 56
   },
   "feat:deflecting-pulse": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5456"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5456",
+    "page": 70
   },
   "feat:digger": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5317"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5317",
+    "page": 27
   },
   "feat:dire-growth": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5503"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5503",
+    "page": 78
   },
   "feat:distant-archer": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5328"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5328",
+    "page": 32
   },
   "feat:distracting-bites": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5467"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5467",
+    "page": 73
   },
   "feat:doom-of-sailors": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5359"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5359",
+    "page": 39
   },
   "feat:ears-of-the-forest": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5418"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5418",
+    "page": 65
   },
   "feat:echolocation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5493"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5493",
+    "page": 77
   },
   "feat:electrogenesis": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5518"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5518",
+    "page": 80
   },
   "feat:elver-pet": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5277"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5277",
+    "page": 19
   },
   "feat:emergency-regeneration": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5526"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5526",
+    "page": 81
   },
   "feat:emissary-assistance": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5287"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5287",
+    "page": 20
   },
   "feat:emit-defensive-odor": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5278"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5278",
+    "page": 19
   },
   "feat:environmental-adaptability": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5521"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5521",
+    "page": 81
   },
   "feat:expanded-swarm": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5473"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5473",
+    "page": 73
   },
   "feat:explosive-metamorphosis": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5405"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5405",
+    "page": 56
   },
   "feat:eye-for-masonry": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5363"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5363",
+    "page": 43
   },
   "feat:falcon-swoop": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5535"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5535",
+    "page": 83
   },
   "feat:fascinated-by-society": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5299"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5299",
+    "page": 25
   },
   "feat:fearful-symmetry": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5494"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5494",
+    "page": 77
   },
   "feat:fearsome-form": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5320"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5320",
+    "page": 27
   },
   "feat:feathered-flechettes": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5532"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5532",
+    "page": 83
   },
   "feat:feeding-frenzy": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5495"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5495",
+    "page": 78
   },
   "feat:feline-dance": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5445"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5445",
+    "page": 69
   },
   "feat:feral-lunge": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5504"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5504",
+    "page": 78
   },
   "feat:feral-mending": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5500"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5500",
+    "page": 78
   },
   "feat:feral-scramble": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5505"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5505",
+    "page": 79
   },
   "feat:feral-senses": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5489"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5489",
+    "page": 76
   },
   "feat:feral-toss": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5506"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5506",
+    "page": 79
   },
   "feat:ferocious-charge": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5428"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5428",
+    "page": 66
   },
   "feat:ferocity-mimicry": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5516"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5516",
+    "page": 80
   },
   "feat:fierce-competitor": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5332"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5332",
+    "page": 32
   },
   "feat:fierce-grasp": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5307"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5307",
+    "page": 26
   },
   "feat:fishblooded": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5350"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5350",
+    "page": 37
   },
   "feat:fly-swat": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5475"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5475",
+    "page": 74
   },
   "feat:force-of-nature": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5514"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5514",
+    "page": 79
   },
   "feat:friendly-fling": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5375"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5375",
+    "page": 44
   },
   "feat:friendly-nudge": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5364"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5364",
+    "page": 43
   },
   "feat:full-flight": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5315"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5315",
+    "page": 27
   },
   "feat:generation-digger": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5395"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5395",
+    "page": 51
   },
   "feat:goring-charge": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5376"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5376",
+    "page": 44
   },
   "feat:graft-technician": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5542"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5542",
+    "page": 97
   },
   "feat:grand-metamorphosis": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5393"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5393",
+    "page": 51
   },
   "feat:growing-eel-friend": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5282"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5282",
+    "page": 19
   },
   "feat:gusting-spell": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5529"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5529",
+    "page": 82
   },
   "feat:healing-flesh": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5351"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5351",
+    "page": 37
   },
   "feat:heightened-instincts": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5434"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5434",
+    "page": 67
   },
   "feat:herbal-forager": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5331"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5331",
+    "page": 32
   },
   "feat:hindquarter-kick": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5442"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5442",
+    "page": 68
   },
   "feat:hunting-snag": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5446"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5446",
+    "page": 69
   },
   "feat:ill-tide": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5353"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5353",
+    "page": 38
   },
   "feat:incredible-sprint": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5338"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5338",
+    "page": 33
   },
   "feat:into-the-labyrinth": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5383"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5383",
+    "page": 45
   },
   "feat:keen-nose": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5365"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5365",
+    "page": 43
   },
   "feat:krakens-call": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5360"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5360",
+    "page": 39
   },
   "feat:labyrinthine-echoes": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5371"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5371",
+    "page": 43
   },
   "feat:land-legs": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5300"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5300",
+    "page": 25
   },
   "feat:lassoing-lash": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5476"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5476",
+    "page": 74
   },
   "feat:late-awakener": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5308"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5308",
+    "page": 26
   },
   "feat:learn-by-watching": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5301"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5301",
+    "page": 25
   },
   "feat:levered-swing": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5479"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5479",
+    "page": 74
   },
   "feat:magitaxis": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5396"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5396",
+    "page": 51
   },
   "feat:mentor-of-legends": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5333"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5333",
+    "page": 32
   },
   "feat:merfolk-lore": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5343"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5343",
+    "page": 36
   },
   "feat:merfolk-weapon-familiarity": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5344"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5344",
+    "page": 36
   },
   "feat:merge-with-the-source": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5341"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5341",
+    "page": 33
   },
   "feat:minotaur-lore": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5366"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5366",
+    "page": 43
   },
   "feat:minotaur-weapon-familiarity": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5367"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5367",
+    "page": 43
   },
   "feat:miraculous-medic": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5339"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5339",
+    "page": 33
   },
   "feat:misty-transformation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5402"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5402",
+    "page": 56
   },
   "feat:mobile-swarm": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5468"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5468",
+    "page": 73
   },
   "feat:moray-ambush": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5295"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5295",
+    "page": 21
   },
   "feat:moray-eel-mount": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5288"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5288",
+    "page": 20
   },
   "feat:musical-summons": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5421"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5421",
+    "page": 65
   },
   "feat:natural-ambassador": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5309"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5309",
+    "page": 26
   },
   "feat:natural-conduit": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5409"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5409",
+    "page": 59
   },
   "feat:natural-orienteering": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5372"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5372",
+    "page": 43
   },
   "feat:natural-senses": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5302"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5302",
+    "page": 25
   },
   "feat:nature-prowler": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5411"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5411",
+    "page": 59
   },
   "feat:natures-precision": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5425"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5425",
+    "page": 66
   },
   "feat:nodal-healing": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5394"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5394",
+    "page": 51
   },
   "feat:nodal-regeneration": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5398"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5398",
+    "page": 51
   },
   "feat:noxious-odor": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5283"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5283",
+    "page": 20
   },
   "feat:ocean-wariness": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5279"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5279",
+    "page": 19
   },
   "feat:oceans-bite": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5345"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5345",
+    "page": 36
   },
   "feat:offensive-odor": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5296"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5296",
+    "page": 21
   },
   "feat:ostilli-host-dedication": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5451"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5451",
+    "page": 70
   },
   "feat:pack-attack": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5496"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5496",
+    "page": 78
   },
   "feat:pack-movement": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5427"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5427",
+    "page": 66
   },
   "feat:pack-performance": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5422"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5422",
+    "page": 65
   },
   "feat:pack-takedown": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5435"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5435",
+    "page": 67
   },
   "feat:pantheon-magic": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5368"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5368",
+    "page": 43
   },
   "feat:persistent-odor": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5289"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5289",
+    "page": 20
   },
   "feat:petrifying-gaze-mimicry": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5522"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5522",
+    "page": 81
   },
   "feat:phantom-charm": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5379"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5379",
+    "page": 45
   },
   "feat:pheromonal-message": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5280"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5280",
+    "page": 19
   },
   "feat:plague-rat": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5497"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5497",
+    "page": 78
   },
   "feat:pluck-from-the-sky": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5533"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5533",
+    "page": 83
   },
   "feat:portents-of-the-haruspex": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5413"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5413",
+    "page": 63
   },
   "feat:pounce-mimicry": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5525"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5525",
+    "page": 81
   },
   "feat:pouncing-transformation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5508"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5508",
+    "page": 79
   },
   "feat:powerful-lash": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5477"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5477",
+    "page": 74
   },
   "feat:practiced-brawn": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5324"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5324",
+    "page": 31
   },
   "feat:precise-hooks": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5449"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5449",
+    "page": 69
   },
   "feat:primal-proportions": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5519"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5519",
+    "page": 80
   },
   "feat:propulsive-mutation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5457"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5457",
+    "page": 71
   },
   "feat:proud-mentor": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5329"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5329",
+    "page": 32
   },
   "feat:pummeling-whirlpool": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5357"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5357",
+    "page": 39
   },
   "feat:puzzle-solver": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5373"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5373",
+    "page": 43
   },
   "feat:pyre-ant-sting": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5465"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5465",
+    "page": 73
   },
   "feat:rapid-hybridization": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5513"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5513",
+    "page": 79
   },
   "feat:rapid-pheromone-recovery": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5292"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5292",
+    "page": 21
   },
   "feat:redirecting-draft": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5536"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5536",
+    "page": 83
   },
   "feat:reflexive-grapple": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5483"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5483",
+    "page": 75
   },
   "feat:rend-mimicry": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5517"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5517",
+    "page": 80
   },
   "feat:ride-on": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5334"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5334",
+    "page": 33
   },
   "feat:rip-and-tear": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5401"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5401",
+    "page": 56
   },
   "feat:riptide-mount": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5284"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5284",
+    "page": 20
   },
   "feat:roar-mimicry": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5524"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5524",
+    "page": 81
   },
   "feat:running-kick": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5429"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5429",
+    "page": 67
   },
   "feat:rushing-boar": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5498"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5498",
+    "page": 78
   },
   "feat:scarred-hide": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5512"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5512",
+    "page": 79
   },
   "feat:scatter-swarm": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5412"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5412",
+    "page": 63
   },
   "feat:scurry": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5310"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5310",
+    "page": 26
   },
   "feat:sea-legs": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5303"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5303",
+    "page": 25
   },
   "feat:sea-witch": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5358"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5358",
+    "page": 39
   },
   "feat:seasong": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5346"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5346",
+    "page": 36
   },
   "feat:secondary-adaptation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5390"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5390",
+    "page": 50
   },
   "feat:sequestered-spell": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5384"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5384",
+    "page": 50
   },
   "feat:shared-tide": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5509"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5509",
+    "page": 79
   },
   "feat:sharpened-senses": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5318"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5318",
+    "page": 27
   },
   "feat:shift-the-little-ones": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5380"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5380",
+    "page": 45
   },
   "feat:shore-gift": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5354"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5354",
+    "page": 38
   },
   "feat:sinking-jaws": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5430"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5430",
+    "page": 67
   },
   "feat:siphon-torment": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5377"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5377",
+    "page": 44
   },
   "feat:siren-song": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5355"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5355",
+    "page": 38
   },
   "feat:skilled-herbalist": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5325"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5325",
+    "page": 31
   },
   "feat:skilled-swimmer": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5285"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5285",
+    "page": 20
   },
   "feat:slingshot-maneuver": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5482"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5482",
+    "page": 75
   },
   "feat:slurp-up": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5480"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5480",
+    "page": 75
   },
   "feat:small-speak": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5385"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5385",
+    "page": 50
   },
   "feat:smooth-hover": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5537"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5537",
+    "page": 83
   },
   "feat:snap-falling-fruit": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5478"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5478",
+    "page": 74
   },
   "feat:songbirds-call": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5419"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5419",
+    "page": 65
   },
   "feat:sonic-strafe": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5541"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5541",
+    "page": 83
   },
   "feat:soothing-pulse": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5452"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5452",
+    "page": 70
   },
   "feat:speaker-in-training": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5330"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5330",
+    "page": 32
   },
   "feat:speakers-defense": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5335"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5335",
+    "page": 33
   },
   "feat:spell-swallow": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5460"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5460",
+    "page": 71
   },
   "feat:spinning-release": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5484"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5484",
+    "page": 75
   },
   "feat:spinning-stand": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5443"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5443",
+    "page": 68
   },
   "feat:spirit-of-the-beast": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5423"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5423",
+    "page": 66
   },
   "feat:sportlebore-choke": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5470"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5470",
+    "page": 73
   },
   "feat:spraying-mutation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5461"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5461",
+    "page": 71
   },
   "feat:springboard": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5447"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5447",
+    "page": 69
   },
   "feat:starshot-arrow": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5342"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5342",
+    "page": 33
   },
   "feat:steelhoof": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5326"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5326",
+    "page": 31
   },
   "feat:stone-passage": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5378"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5378",
+    "page": 44
   },
   "feat:storm-of-claws": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5450"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5450",
+    "page": 69
   },
   "feat:stretching-reach": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5374"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5374",
+    "page": 44
   },
   "feat:strong-of-wing": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5311"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5311",
+    "page": 26
   },
   "feat:strong-tail": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5352"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5352",
+    "page": 38
   },
   "feat:stubborn-defiance": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5336"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5336",
+    "page": 33
   },
   "feat:sunbird-glare": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5531"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5531",
+    "page": 82
   },
   "feat:surki-lore": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5386"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5386",
+    "page": 50
   },
   "feat:surki-weapon-familiarity": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5387"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5387",
+    "page": 50
   },
   "feat:swarmkeeper-dedication": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5463"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5463",
+    "page": 72
   },
   "feat:sweeping-tail": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5431"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5431",
+    "page": 67
   },
   "feat:swift-eel-mount": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5293"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5293",
+    "page": 21
   },
   "feat:swimmers-guidance": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5347"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5347",
+    "page": 37
   },
   "feat:tactile-magic-feedback": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5453"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5453",
+    "page": 70
   },
   "feat:tail-guard": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5481"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5481",
+    "page": 75
   },
   "feat:take-flight": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5304"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5304",
+    "page": 25
   },
   "feat:talon-sweep": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5439"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5439",
+    "page": 68
   },
   "feat:tear-tendons": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5444"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5444",
+    "page": 69
   },
   "feat:tears-of-pearl": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5356"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5356",
+    "page": 38
   },
   "feat:tenacious-endurance": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5426"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5426",
+    "page": 66
   },
   "feat:terrifying-transformation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5501"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5501",
+    "page": 78
   },
   "feat:thlipit-contestant-dedication": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5474"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5474",
+    "page": 74
   },
   "feat:threatening-pursuit": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5381"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5381",
+    "page": 45
   },
   "feat:thunderous-landing": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5538"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5538",
+    "page": 83
   },
   "feat:too-much-to-swallow": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5408"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5408",
+    "page": 57
   },
   "feat:tooth-and-claw": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5305"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5305",
+    "page": 26
   },
   "feat:toppling-transformation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5403"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5403",
+    "page": 56
   },
   "feat:touch-of-lunacy": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5507"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5507",
+    "page": 79
   },
   "feat:towering-transformation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5407"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5407",
+    "page": 57
   },
   "feat:trample-centaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5340"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5340",
+    "page": 33
   },
   "feat:trample-mimicry": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5523"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5523",
+    "page": 81
   },
   "feat:true-senses": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5321"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5321",
+    "page": 27
   },
   "feat:tunnel-roll": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5391"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5391",
+    "page": 50
   },
   "feat:undying-beast": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5510"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5510",
+    "page": 79
   },
   "feat:unlimited-pluripotency": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5397"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5397",
+    "page": 51
   },
   "feat:urban-jungle": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5312"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5312",
+    "page": 26
   },
   "feat:veil-of-bugs": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5471"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5471",
+    "page": 73
   },
   "feat:versatile-mutation": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5454"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5454",
+    "page": 70
   },
   "feat:vestigial-magicsense": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5388"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5388",
+    "page": 50
   },
   "feat:vicious-rend": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5432"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5432",
+    "page": 67
   },
   "feat:wave-speaker": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5348"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5348",
+    "page": 37
   },
   "feat:weavers-web": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5466"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5466",
+    "page": 73
   },
   "feat:werecreature-dedication": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5486"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5486",
+    "page": 76
   },
   "feat:wheeling-grab": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5441"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5441",
+    "page": 68
   },
   "feat:whirling-clobber": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5485"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5485",
+    "page": 75
   },
   "feat:wild-mimic-dedication": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5515"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5515",
+    "page": 80
   },
   "feat:wild-speech": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5520"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5520",
+    "page": 80
   },
   "feat:wild-stride": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5313"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5313",
+    "page": 26
   },
   "feat:wild-witchs-armaments": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5414"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5414",
+    "page": 63
   },
   "feat:wing-bounce": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5530"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5530",
+    "page": 82
   },
   "feat:wing-shove": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5534"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5534",
+    "page": 83
   },
   "feat:winged-warrior-dedication": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5527"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5527",
+    "page": 82
   },
   "feat:wings-of-the-moon": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5511"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5511",
+    "page": 79
   },
   "feat:you-dont-smell-right": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5502"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5502",
+    "page": 78
   },
   "feat:youre-so-cute": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5306"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5306",
+    "page": 26
   },
   "feat:zoophonic-communication": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5415"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5415",
+    "page": 65
   },
   "feat:zoophonic-composition": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5417"
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5417",
+    "page": 65
   },
   "heritage:abyssal-merfolk": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=298"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=298",
+    "page": 35
   },
   "heritage:breaker-surki": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=309"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=309",
+    "page": 48
   },
   "heritage:budding-speaker-centaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=292"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=292",
+    "page": 30
   },
   "heritage:carcharodon-merfolk": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=299"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=299",
+    "page": 35
   },
   "heritage:climbing-animal": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=288"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=288",
+    "page": 24
   },
   "heritage:coral-athamaru": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=284"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=284",
+    "page": 18
   },
   "heritage:elytron-surki": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=310"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=310",
+    "page": 49
   },
   "heritage:fleetwind-centaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=293"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=293",
+    "page": 30
   },
   "heritage:flying-animal": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=289"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=289",
+    "page": 24
   },
   "heritage:ghost-bull-minotaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=303"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=303",
+    "page": 42
   },
   "heritage:glacier-cavern-minotaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=304"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=304",
+    "page": 42
   },
   "heritage:hardshell-surki": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=311"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=311",
+    "page": 49
   },
   "heritage:hopeful-athamaru": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=285"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=285",
+    "page": 18
   },
   "heritage:ironhoof-centaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=294"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=294",
+    "page": 30
   },
   "heritage:kaleidoscopic-athamaru": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=286"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=286",
+    "page": 18
   },
   "heritage:lantern-surki": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=312"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=312",
+    "page": 49
   },
   "heritage:littlehorn-minotaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=305"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=305",
+    "page": 42
   },
   "heritage:mottle-coat-centaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=295"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=295",
+    "page": 31
   },
   "heritage:pelagic-merfolk": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=300"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=300",
+    "page": 36
   },
   "heritage:ponygait-centaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=296"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=296",
+    "page": 31
   },
   "heritage:quilled-athamaru": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=287"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=287",
+    "page": 18
   },
   "heritage:reef-merfolk": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=301"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=301",
+    "page": 36
   },
   "heritage:roaming-minotaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=306"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=306",
+    "page": 42
   },
   "heritage:running-animal": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=290"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=290",
+    "page": 24
   },
   "heritage:sailfish-merfolk": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=302"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=302",
+    "page": 36
   },
   "heritage:slabsoul-minotaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=307"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=307",
+    "page": 42
   },
   "heritage:stalker-minotaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=308"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=308",
+    "page": 42
   },
   "heritage:stoutheart-centaur": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=297"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=297",
+    "page": 31
   },
   "heritage:swimming-animal": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=291"
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=291",
+    "page": 24
   },
   "spell:albatross-curse": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1946"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1946",
+    "page": 84
   },
   "spell:antlion-trap": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1947"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1947",
+    "page": 84
   },
   "spell:blood-in-the-water": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1941"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1941",
+    "page": 61
   },
   "spell:camel-spit": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1948"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1948",
+    "page": 84
   },
   "spell:canopy-crawler": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1931"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1931",
+    "page": 59
   },
   "spell:claws-of-the-otter": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1949"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1949",
+    "page": 84
   },
   "spell:confusing-cry": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1950"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1950",
+    "page": 84
   },
   "spell:croak-voice": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1951"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1951",
+    "page": 84
   },
   "spell:distracting-decoy": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1928"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1928",
+    "page": 59
   },
   "spell:foraging-friends": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1952"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1952",
+    "page": 85
   },
   "spell:frog-tongue": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1953"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1953",
+    "page": 85
   },
   "spell:gluttonous-growth": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1935"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1935",
+    "page": 60
   },
   "spell:hidebound": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1954"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1954",
+    "page": 85
   },
   "spell:hippocampus-retreat": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1955"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1955",
+    "page": 86
   },
   "spell:imitate-fauna": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1932"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1932",
+    "page": 59
   },
   "spell:keen-smell": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1929"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1929",
+    "page": 59
   },
   "spell:luring-wail": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1956"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1956",
+    "page": 86
   },
   "spell:murmuration": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1940"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1940",
+    "page": 61
   },
   "spell:mycological-malady": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1942"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1942",
+    "page": 61
   },
   "spell:pack-breaker": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1936"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1936",
+    "page": 60
   },
   "spell:primal-chorus": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1957"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1957",
+    "page": 86
   },
   "spell:pulverizing-wake": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1937"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1937",
+    "page": 60
   },
   "spell:sacred-beasts": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1958"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1958",
+    "page": 86
   },
   "spell:scroungers-glee": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1938"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1938",
+    "page": 61
   },
   "spell:sheltering-wings": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1943"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1943",
+    "page": 61
   },
   "spell:slime-spit": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1930"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1930",
+    "page": 59
   },
   "spell:snake-fangs": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1959"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1959",
+    "page": 86
   },
   "spell:songbirds-call": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1944"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1944",
+    "page": 65
   },
   "spell:spirit-of-the-beast": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1945"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1945",
+    "page": 67
   },
   "spell:sting-of-the-sea": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1939"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1939",
+    "page": 61
   },
   "spell:summon-stampede": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1960"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1960",
+    "page": 87
   },
   "spell:summon-warden-of-the-wild": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1961"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1961",
+    "page": 87
   },
   "spell:threatening-mimicry": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1933"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1933",
+    "page": 60
   },
   "spell:warning-stripes": {
     "book": "howl-of-the-wild",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1934"
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=1934",
+    "page": 60
   }
 }

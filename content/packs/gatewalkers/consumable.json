@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4025"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4025",
+        "page": 231
       }
     ],
     "description": [
@@ -100,7 +101,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4026"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4026",
+        "page": 231
       }
     ],
     "description": [
@@ -196,7 +198,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4038"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4038",
+        "page": 237
       }
     ],
     "description": [
@@ -264,7 +267,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4034"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4034",
+        "page": 235
       }
     ],
     "description": [
@@ -342,7 +346,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4040"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4040",
+        "page": 237
       }
     ],
     "description": [
@@ -458,7 +463,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4035"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4035",
+        "page": 235
       }
     ],
     "description": [

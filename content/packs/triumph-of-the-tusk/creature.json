@@ -598,7 +598,8 @@
       {
         "kind": "book",
         "book": "triumph-of-the-tusk",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3753"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3753",
+        "page": 82
       }
     ],
     "description": [
@@ -3415,7 +3416,8 @@
       {
         "kind": "book",
         "book": "triumph-of-the-tusk",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3754"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3754",
+        "page": 83
       }
     ],
     "description": [
@@ -7250,7 +7252,8 @@
       {
         "kind": "book",
         "book": "triumph-of-the-tusk",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3755"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3755",
+        "page": 85
       }
     ],
     "description": [
@@ -13832,7 +13835,8 @@
       {
         "kind": "book",
         "book": "triumph-of-the-tusk",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3758"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3758",
+        "page": 87
       }
     ],
     "description": [
@@ -14965,7 +14969,8 @@
       {
         "kind": "book",
         "book": "triumph-of-the-tusk",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3757"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3757",
+        "page": 86
       }
     ],
     "description": [
@@ -15673,7 +15678,8 @@
       {
         "kind": "book",
         "book": "triumph-of-the-tusk",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3756"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3756",
+        "page": 86
       }
     ],
     "description": [
@@ -18724,7 +18730,8 @@
       {
         "kind": "book",
         "book": "triumph-of-the-tusk",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3759"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3759",
+        "page": 88
       }
     ],
     "description": [],
@@ -19843,7 +19850,8 @@
       {
         "kind": "book",
         "book": "triumph-of-the-tusk",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3760"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3760",
+        "page": 89
       }
     ],
     "description": [

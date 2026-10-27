@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3280"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3280",
+        "page": 200
       }
     ],
     "description": [
@@ -99,7 +100,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3115"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3115",
+        "page": 49
       }
     ],
     "description": [
@@ -164,7 +166,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3055"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3055",
+        "page": 26
       }
     ],
     "description": [
@@ -210,7 +213,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3221"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3221",
+        "page": 127
       }
     ],
     "description": [
@@ -267,7 +271,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3169"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3169",
+        "page": 113
       }
     ],
     "description": [
@@ -302,7 +307,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3217"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3217",
+        "page": 127
       }
     ],
     "description": [
@@ -367,7 +373,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3165"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3165",
+        "page": 112
       }
     ],
     "description": [
@@ -442,7 +449,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3099"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3099",
+        "page": 41
       }
     ],
     "description": [
@@ -518,7 +526,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3091"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3091",
+        "page": 40
       }
     ],
     "description": [
@@ -567,7 +576,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3092"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3092",
+        "page": 40
       }
     ],
     "description": [
@@ -648,7 +658,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3105"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3105",
+        "page": 42
       }
     ],
     "description": [
@@ -742,7 +753,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3100"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3100",
+        "page": 41
       }
     ],
     "description": [
@@ -824,7 +836,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3096"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3096",
+        "page": 41
       }
     ],
     "description": [
@@ -886,7 +899,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3101"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3101",
+        "page": 41
       }
     ],
     "description": [
@@ -1084,7 +1098,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3222"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3222",
+        "page": 128
       }
     ],
     "description": [
@@ -1140,7 +1155,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3106"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3106",
+        "page": 42
       }
     ],
     "description": [
@@ -1197,7 +1213,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3090"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3090",
+        "page": 39
       }
     ],
     "description": [
@@ -1295,7 +1312,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3093"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3093",
+        "page": 40
       }
     ],
     "description": [
@@ -1387,7 +1405,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3109"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3109",
+        "page": 43
       }
     ],
     "description": [
@@ -1489,7 +1508,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3230"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3230",
+        "page": 131
       }
     ],
     "description": [
@@ -1536,7 +1556,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3113"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3113",
+        "page": 49
       }
     ],
     "description": [
@@ -1605,7 +1626,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3117"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3117",
+        "page": 49
       }
     ],
     "description": [
@@ -1652,7 +1674,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3216"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3216",
+        "page": 127
       }
     ],
     "description": [
@@ -1721,7 +1744,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3131"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3131",
+        "page": 53
       }
     ],
     "description": [
@@ -1793,7 +1817,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3229"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3229",
+        "page": 130
       }
     ],
     "description": [
@@ -1912,7 +1937,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3237"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3237",
+        "page": 132
       }
     ],
     "description": [
@@ -2023,7 +2049,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3166"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3166",
+        "page": 112
       }
     ],
     "description": [
@@ -2138,7 +2165,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3271"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3271",
+        "page": 141
       }
     ],
     "description": [
@@ -2215,7 +2243,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3154"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3154",
+        "page": 111
       }
     ],
     "description": [
@@ -2345,7 +2374,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3285"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3285",
+        "page": 200
       }
     ],
     "description": [
@@ -2440,7 +2470,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3197"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3197",
+        "page": 117
       }
     ],
     "description": [
@@ -2565,7 +2596,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3190"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3190",
+        "page": 116
       }
     ],
     "description": [
@@ -2647,7 +2679,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3073"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3073",
+        "page": 29
       }
     ],
     "description": [
@@ -2878,7 +2911,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3114"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3114",
+        "page": 49
       }
     ],
     "description": [
@@ -2925,7 +2959,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3044"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3044",
+        "page": 24
       }
     ],
     "description": [
@@ -2960,7 +2995,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3236"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3236",
+        "page": 132
       }
     ],
     "description": [
@@ -3054,7 +3090,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3235"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3235",
+        "page": 132
       }
     ],
     "description": [
@@ -3157,7 +3194,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3238"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3238",
+        "page": 132
       }
     ],
     "description": [
@@ -3251,7 +3289,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3177"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3177",
+        "page": 114
       }
     ],
     "description": [
@@ -3335,7 +3374,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3269"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3269",
+        "page": 141
       }
     ],
     "description": [
@@ -3395,7 +3435,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3182"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3182",
+        "page": 115
       }
     ],
     "description": [
@@ -3548,7 +3589,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3225"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3225",
+        "page": 129
       }
     ],
     "description": [
@@ -3631,7 +3673,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3170"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3170",
+        "page": 113
       }
     ],
     "description": [
@@ -3697,7 +3740,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3281"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3281",
+        "page": 200
       }
     ],
     "description": [
@@ -3778,7 +3822,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3060"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3060",
+        "page": 27
       }
     ],
     "description": [
@@ -3917,7 +3962,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3051"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3051",
+        "page": 25
       }
     ],
     "description": [
@@ -3994,7 +4040,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3052"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3052",
+        "page": 25
       }
     ],
     "description": [
@@ -4052,7 +4099,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3244"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3244",
+        "page": 133
       }
     ],
     "description": [
@@ -4171,7 +4219,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3198"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3198",
+        "page": 117
       }
     ],
     "description": [
@@ -4226,7 +4275,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3266"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3266",
+        "page": 139
       }
     ],
     "description": [
@@ -4351,7 +4401,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3061"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3061",
+        "page": 27
       }
     ],
     "description": [
@@ -4406,7 +4457,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3074"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3074",
+        "page": 29
       }
     ],
     "description": [
@@ -4461,7 +4513,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3125"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3125",
+        "page": 51
       }
     ],
     "description": [
@@ -4542,7 +4595,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3243"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3243",
+        "page": 133
       }
     ],
     "description": [
@@ -4622,7 +4676,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3233"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3233",
+        "page": 131
       }
     ],
     "description": [
@@ -4711,7 +4766,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3126"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3126",
+        "page": 51
       }
     ],
     "description": [
@@ -4789,7 +4845,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3102"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3102",
+        "page": 42
       }
     ],
     "description": [
@@ -4849,7 +4906,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3110"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3110",
+        "page": 43
       }
     ],
     "description": [
@@ -4934,7 +4992,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3107"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3107",
+        "page": 43
       }
     ],
     "description": [
@@ -5116,7 +5175,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3155"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3155",
+        "page": 111
       }
     ],
     "description": [
@@ -5200,7 +5260,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3289"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3289",
+        "page": 201
       }
     ],
     "description": [
@@ -5309,7 +5370,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3156"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3156",
+        "page": 111
       }
     ],
     "description": [
@@ -5373,7 +5435,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3199"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3199",
+        "page": 117
       }
     ],
     "description": [
@@ -5474,7 +5537,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3253"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3253",
+        "page": 136
       }
     ],
     "description": [
@@ -5540,7 +5604,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3191"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3191",
+        "page": 117
       }
     ],
     "description": [
@@ -5603,7 +5668,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3075"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3075",
+        "page": 29
       }
     ],
     "description": [
@@ -5833,7 +5899,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3160"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3160",
+        "page": 111
       }
     ],
     "description": [
@@ -5901,7 +5968,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3183"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3183",
+        "page": 115
       }
     ],
     "description": [
@@ -5992,7 +6060,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3287"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3287",
+        "page": 201
       }
     ],
     "description": [
@@ -6044,7 +6113,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3240"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3240",
+        "page": 133
       }
     ],
     "description": [
@@ -6124,7 +6194,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3085"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3085",
+        "page": 31
       }
     ],
     "description": [
@@ -6173,7 +6244,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3200"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3200",
+        "page": 118
       }
     ],
     "description": [
@@ -6219,7 +6291,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3069"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3069",
+        "page": 28
       }
     ],
     "description": [
@@ -6336,7 +6409,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3056"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3056",
+        "page": 26
       }
     ],
     "description": [
@@ -6382,7 +6456,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3282"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3282",
+        "page": 200
       }
     ],
     "description": [
@@ -6434,7 +6509,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3231"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3231",
+        "page": 131
       }
     ],
     "description": [
@@ -6530,7 +6606,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3171"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3171",
+        "page": 113
       }
     ],
     "description": [
@@ -6607,7 +6684,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3146"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3146",
+        "page": 55
       }
     ],
     "description": [
@@ -6693,7 +6771,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3057"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3057",
+        "page": 26
       }
     ],
     "description": [
@@ -6793,7 +6872,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3262"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3262",
+        "page": 139
       }
     ],
     "description": [
@@ -6880,7 +6960,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3220"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3220",
+        "page": 127
       }
     ],
     "description": [
@@ -6933,7 +7014,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3265"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3265",
+        "page": 139
       }
     ],
     "description": [
@@ -7004,7 +7086,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3151"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3151",
+        "page": 57
       }
     ],
     "description": [
@@ -7051,7 +7134,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3070"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3070",
+        "page": 29
       }
     ],
     "description": [
@@ -7173,7 +7257,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3094"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3094",
+        "page": 40
       }
     ],
     "description": [
@@ -7222,7 +7307,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3148"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3148",
+        "page": 56
       }
     ],
     "description": [
@@ -7283,7 +7369,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3086"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3086",
+        "page": 31
       }
     ],
     "description": [
@@ -7341,7 +7428,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3108"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3108",
+        "page": 43
       }
     ],
     "description": [
@@ -7426,7 +7514,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3232"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3232",
+        "page": 131
       }
     ],
     "description": [
@@ -7525,7 +7614,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3260"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3260",
+        "page": 137
       }
     ],
     "description": [
@@ -7603,7 +7693,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3116"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3116",
+        "page": 49
       }
     ],
     "description": [
@@ -7650,7 +7741,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3242"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3242",
+        "page": 133
       }
     ],
     "description": [
@@ -7705,7 +7797,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3290"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3290",
+        "page": 201
       }
     ],
     "description": [
@@ -7768,7 +7861,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3045"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3045",
+        "page": 24
       }
     ],
     "description": [
@@ -7823,7 +7917,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3078"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3078",
+        "page": 30
       }
     ],
     "description": [
@@ -7900,7 +7995,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3283"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3283",
+        "page": 200
       }
     ],
     "description": [
@@ -7980,7 +8076,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3141"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3141",
+        "page": 55
       }
     ],
     "description": [
@@ -8027,7 +8124,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3161"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3161",
+        "page": 112
       }
     ],
     "description": [
@@ -8126,7 +8224,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3204"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3204",
+        "page": 118
       }
     ],
     "description": [
@@ -8169,7 +8268,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3226"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3226",
+        "page": 129
       }
     ],
     "description": [
@@ -8216,7 +8316,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3208"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3208",
+        "page": 119
       }
     ],
     "description": [
@@ -8337,7 +8438,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3139"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3139",
+        "page": 54
       }
     ],
     "description": [
@@ -8384,7 +8486,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3284"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3284",
+        "page": 200
       }
     ],
     "description": [
@@ -8593,7 +8696,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3192"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3192",
+        "page": 117
       }
     ],
     "description": [
@@ -8687,7 +8791,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3123"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3123",
+        "page": 51
       }
     ],
     "description": [
@@ -8791,7 +8896,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3292"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3292",
+        "page": 201
       }
     ],
     "description": [
@@ -8938,7 +9044,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3088"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3088",
+        "page": 32
       }
     ],
     "description": [
@@ -9051,7 +9158,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3268"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3268",
+        "page": 141
       }
     ],
     "description": [
@@ -9122,7 +9230,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3058"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3058",
+        "page": 26
       }
     ],
     "description": [
@@ -9177,7 +9286,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3135"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3135",
+        "page": 54
       }
     ],
     "description": [
@@ -9224,7 +9334,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3064"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3064",
+        "page": 27
       }
     ],
     "description": [
@@ -9357,7 +9468,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3076"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3076",
+        "page": 30
       }
     ],
     "description": [
@@ -9462,7 +9574,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3111"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3111",
+        "page": 43
       }
     ],
     "description": [
@@ -9590,7 +9703,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3178"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3178",
+        "page": 115
       }
     ],
     "description": [
@@ -9688,7 +9802,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3252"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3252",
+        "page": 135
       }
     ],
     "description": [
@@ -9814,7 +9929,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3215"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3215",
+        "page": 127
       }
     ],
     "description": [
@@ -9908,7 +10024,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3205"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3205",
+        "page": 118
       }
     ],
     "description": [
@@ -9979,7 +10096,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3046"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3046",
+        "page": 25
       }
     ],
     "description": [
@@ -10025,7 +10143,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3201"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3201",
+        "page": 118
       }
     ],
     "description": [
@@ -10113,7 +10232,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3071"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3071",
+        "page": 29
       }
     ],
     "description": [
@@ -10231,7 +10351,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3157"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3157",
+        "page": 111
       }
     ],
     "description": [
@@ -10327,7 +10448,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3254"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3254",
+        "page": 136
       }
     ],
     "description": [
@@ -10453,7 +10575,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3278"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3278",
+        "page": 143
       }
     ],
     "description": [
@@ -10572,7 +10695,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3152"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3152",
+        "page": 57
       }
     ],
     "description": [
@@ -10619,7 +10743,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3065"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3065",
+        "page": 28
       }
     ],
     "description": [
@@ -10665,7 +10790,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3167"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3167",
+        "page": 112
       }
     ],
     "description": [
@@ -10731,7 +10857,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3206"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3206",
+        "page": 119
       }
     ],
     "description": [
@@ -10830,7 +10957,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3097"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3097",
+        "page": 41
       }
     ],
     "description": [
@@ -10896,7 +11024,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3112"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3112",
+        "page": 49
       }
     ],
     "description": [
@@ -11095,7 +11224,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3082"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3082",
+        "page": 31
       }
     ],
     "description": [
@@ -11153,7 +11283,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3179"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3179",
+        "page": 115
       }
     ],
     "description": [
@@ -11207,7 +11338,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3103"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3103",
+        "page": 42
       }
     ],
     "description": [
@@ -11303,7 +11435,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3227"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3227",
+        "page": 129
       }
     ],
     "description": [
@@ -11366,7 +11499,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3072"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3072",
+        "page": 29
       }
     ],
     "description": [
@@ -11424,7 +11558,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3273"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3273",
+        "page": 142
       }
     ],
     "description": [
@@ -11519,7 +11654,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3098"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3098",
+        "page": 41
       }
     ],
     "description": [
@@ -11619,7 +11755,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3066"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3066",
+        "page": 28
       }
     ],
     "description": [
@@ -11665,7 +11802,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3234"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3234",
+        "page": 131
       }
     ],
     "description": [
@@ -11718,7 +11856,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3228"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3228",
+        "page": 129
       }
     ],
     "description": [
@@ -11778,7 +11917,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3124"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3124",
+        "page": 51
       }
     ],
     "description": [
@@ -11831,7 +11971,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3059"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3059",
+        "page": 27
       }
     ],
     "description": [
@@ -12000,7 +12141,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3062"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3062",
+        "page": 27
       }
     ],
     "description": [
@@ -12139,7 +12281,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3153"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3153",
+        "page": 57
       }
     ],
     "description": [
@@ -12186,7 +12329,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3128"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3128",
+        "page": 53
       }
     ],
     "description": [
@@ -12259,7 +12403,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3158"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3158",
+        "page": 111
       }
     ],
     "description": [
@@ -12322,7 +12467,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3172"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3172",
+        "page": 113
       }
     ],
     "description": [
@@ -12381,7 +12527,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3223"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3223",
+        "page": 128
       }
     ],
     "description": [
@@ -12437,7 +12584,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3087"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3087",
+        "page": 31
       }
     ],
     "description": [
@@ -12537,7 +12685,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3274"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3274",
+        "page": 142
       }
     ],
     "description": [
@@ -12583,7 +12732,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3047"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3047",
+        "page": 25
       }
     ],
     "description": [
@@ -12694,7 +12844,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3067"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3067",
+        "page": 28
       }
     ],
     "description": [
@@ -12780,7 +12931,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3118"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3118",
+        "page": 50
       }
     ],
     "description": [
@@ -12868,7 +13020,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3168"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3168",
+        "page": 112
       }
     ],
     "description": [
@@ -12943,7 +13096,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3079"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3079",
+        "page": 30
       }
     ],
     "description": [
@@ -12989,7 +13143,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3149"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3149",
+        "page": 56
       }
     ],
     "description": [
@@ -13049,7 +13204,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3184"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3184",
+        "page": 115
       }
     ],
     "description": [
@@ -13115,7 +13271,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3212"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3212",
+        "page": 119
       }
     ],
     "description": [
@@ -13163,7 +13320,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3083"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3083",
+        "page": 31
       }
     ],
     "description": [
@@ -13209,7 +13367,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3173"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3173",
+        "page": 113
       }
     ],
     "description": [
@@ -13286,7 +13445,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3270"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3270",
+        "page": 141
       }
     ],
     "description": [
@@ -13372,7 +13532,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3255"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3255",
+        "page": 136
       }
     ],
     "description": [
@@ -13436,7 +13597,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3209"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3209",
+        "page": 119
       }
     ],
     "description": [
@@ -13486,7 +13648,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3251"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3251",
+        "page": 135
       }
     ],
     "description": [
@@ -13571,7 +13734,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3162"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3162",
+        "page": 112
       }
     ],
     "description": [
@@ -13664,7 +13828,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3174"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3174",
+        "page": 114
       }
     ],
     "description": [
@@ -13784,7 +13949,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3129"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3129",
+        "page": 53
       }
     ],
     "description": [
@@ -13834,7 +14000,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3143"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3143",
+        "page": 55
       }
     ],
     "description": [
@@ -13912,7 +14079,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3219"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3219",
+        "page": 127
       }
     ],
     "description": [
@@ -13967,7 +14135,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3185"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3185",
+        "page": 115
       }
     ],
     "description": [
@@ -14013,7 +14182,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3136"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3136",
+        "page": 54
       }
     ],
     "description": [
@@ -14060,7 +14230,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3048"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3048",
+        "page": 25
       }
     ],
     "description": [
@@ -14095,7 +14266,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3144"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3144",
+        "page": 55
       }
     ],
     "description": [
@@ -14142,7 +14314,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3104"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3104",
+        "page": 42
       }
     ],
     "description": [
@@ -14269,7 +14442,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3239"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3239",
+        "page": 132
       }
     ],
     "description": [
@@ -14355,7 +14529,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3256"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3256",
+        "page": 136
       }
     ],
     "description": [
@@ -14441,7 +14616,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3211"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3211",
+        "page": 119
       }
     ],
     "description": [
@@ -14512,7 +14688,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3186"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3186",
+        "page": 115
       }
     ],
     "description": [
@@ -14642,7 +14819,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3187"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3187",
+        "page": 116
       }
     ],
     "description": [
@@ -14741,7 +14919,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3095"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3095",
+        "page": 40
       }
     ],
     "description": [
@@ -14813,7 +14992,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3138"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3138",
+        "page": 54
       }
     ],
     "description": [
@@ -14860,7 +15040,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3053"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3053",
+        "page": 25
       }
     ],
     "description": [
@@ -14923,7 +15104,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3213"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3213",
+        "page": 119
       }
     ],
     "description": [
@@ -15006,7 +15188,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3207"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3207",
+        "page": 119
       }
     ],
     "description": [
@@ -15068,7 +15251,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3193"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3193",
+        "page": 117
       }
     ],
     "description": [
@@ -15106,7 +15290,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3163"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3163",
+        "page": 112
       }
     ],
     "description": [
@@ -15172,7 +15357,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3145"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3145",
+        "page": 55
       }
     ],
     "description": [
@@ -15257,7 +15443,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=4875"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=4875",
+        "page": 112
       }
     ],
     "description": [
@@ -15303,7 +15490,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3241"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3241",
+        "page": 133
       }
     ],
     "description": [
@@ -15350,7 +15538,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3175"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3175",
+        "page": 114
       }
     ],
     "description": [
@@ -15453,7 +15642,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3291"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3291",
+        "page": 201
       }
     ],
     "description": [
@@ -15574,7 +15764,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3054"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3054",
+        "page": 26
       }
     ],
     "description": [
@@ -15651,7 +15842,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3077"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3077",
+        "page": 30
       }
     ],
     "description": [
@@ -15706,7 +15898,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3194"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3194",
+        "page": 117
       }
     ],
     "description": [
@@ -15793,7 +15986,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3195"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3195",
+        "page": 117
       }
     ],
     "description": [
@@ -15863,7 +16057,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3224"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3224",
+        "page": 129
       }
     ],
     "description": [
@@ -15910,7 +16105,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3202"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3202",
+        "page": 118
       }
     ],
     "description": [
@@ -15972,7 +16168,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3218"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3218",
+        "page": 127
       }
     ],
     "description": [
@@ -16027,7 +16224,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3214"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3214",
+        "page": 119
       }
     ],
     "description": [
@@ -16062,7 +16260,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3180"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3180",
+        "page": 115
       }
     ],
     "description": [
@@ -16145,7 +16344,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3288"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3288",
+        "page": 201
       }
     ],
     "description": [
@@ -16222,7 +16422,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3176"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3176",
+        "page": 114
       }
     ],
     "description": [
@@ -16308,7 +16509,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3258"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3258",
+        "page": 137
       }
     ],
     "description": [
@@ -16373,7 +16575,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3080"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3080",
+        "page": 30
       }
     ],
     "description": [
@@ -16419,7 +16622,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3133"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3133",
+        "page": 53
       }
     ],
     "description": [
@@ -16479,7 +16683,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3286"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3286",
+        "page": 200
       }
     ],
     "description": [
@@ -16564,7 +16769,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7437"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7437",
+        "page": 141
       }
     ],
     "description": [
@@ -16623,7 +16829,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3267"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3267",
+        "page": 140
       }
     ],
     "description": [
@@ -16721,7 +16928,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3119"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3119",
+        "page": 50
       }
     ],
     "description": [
@@ -16768,7 +16976,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3181"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3181",
+        "page": 115
       }
     ],
     "description": [
@@ -16847,7 +17056,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3130"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3130",
+        "page": 53
       }
     ],
     "description": [
@@ -17016,7 +17226,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3127"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3127",
+        "page": 52
       }
     ],
     "description": [
@@ -17162,7 +17373,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3150"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3150",
+        "page": 57
       }
     ],
     "description": [
@@ -17315,7 +17527,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3120"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3120",
+        "page": 50
       }
     ],
     "description": [
@@ -17450,7 +17663,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3159"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3159",
+        "page": 111
       }
     ],
     "description": [
@@ -17553,7 +17767,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3264"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3264",
+        "page": 139
       }
     ],
     "description": [
@@ -17631,7 +17846,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3142"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3142",
+        "page": 55
       }
     ],
     "description": [
@@ -17709,7 +17925,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3049"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3049",
+        "page": 25
       }
     ],
     "description": [
@@ -17846,7 +18063,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3261"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3261",
+        "page": 137
       }
     ],
     "description": [
@@ -17896,7 +18114,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3275"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3275",
+        "page": 142
       }
     ],
     "description": [
@@ -17999,7 +18218,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3121"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3121",
+        "page": 51
       }
     ],
     "description": [
@@ -18088,7 +18308,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3134"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3134",
+        "page": 54
       }
     ],
     "description": [
@@ -18160,7 +18381,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3259"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3259",
+        "page": 137
       }
     ],
     "description": [
@@ -18231,7 +18453,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3140"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3140",
+        "page": 55
       }
     ],
     "description": [
@@ -18287,7 +18510,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3188"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3188",
+        "page": 116
       }
     ],
     "description": [
@@ -18424,7 +18648,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3189"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3189",
+        "page": 116
       }
     ],
     "description": [
@@ -18498,7 +18723,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3203"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3203",
+        "page": 118
       }
     ],
     "description": [
@@ -18564,7 +18790,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3068"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3068",
+        "page": 28
       }
     ],
     "description": [
@@ -18628,7 +18855,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3089"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3089",
+        "page": 32
       }
     ],
     "description": [
@@ -18674,7 +18902,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3277"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3277",
+        "page": 143
       }
     ],
     "description": [
@@ -18728,7 +18957,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3210"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3210",
+        "page": 119
       }
     ],
     "description": [
@@ -18773,7 +19003,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3196"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3196",
+        "page": 117
       }
     ],
     "description": [
@@ -18846,7 +19077,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3081"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3081",
+        "page": 31
       }
     ],
     "description": [
@@ -18921,7 +19153,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3263"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3263",
+        "page": 139
       }
     ],
     "description": [
@@ -18976,7 +19209,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3050"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3050",
+        "page": 25
       }
     ],
     "description": [
@@ -19020,7 +19254,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3147"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3147",
+        "page": 56
       }
     ],
     "description": [
@@ -19076,7 +19311,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3063"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3063",
+        "page": 27
       }
     ],
     "description": [
@@ -19153,7 +19389,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3164"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3164",
+        "page": 112
       }
     ],
     "description": [
@@ -19238,7 +19475,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3257"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3257",
+        "page": 136
       }
     ],
     "description": [
@@ -19390,7 +19628,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3122"
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3122",
+        "page": 51
       }
     ],
     "description": [

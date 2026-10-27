@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=71"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=71",
+        "page": 16
       }
     ],
     "description": [
@@ -218,7 +219,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=72"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=72",
+        "page": 22
       }
     ],
     "description": [
@@ -432,7 +434,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=73"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=73",
+        "page": 28
       }
     ],
     "description": [
@@ -644,7 +647,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=74"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=74",
+        "page": 34
       }
     ],
     "description": [
@@ -860,7 +864,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=75"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=75",
+        "page": 40
       }
     ],
     "description": [
@@ -1066,7 +1071,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=76"
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=76",
+        "page": 46
       }
     ],
     "description": [

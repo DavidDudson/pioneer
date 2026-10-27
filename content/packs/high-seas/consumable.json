@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "high-seas",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4964"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4964",
+        "page": 64
       }
     ],
     "description": [

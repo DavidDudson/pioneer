@@ -2435,7 +2435,8 @@
       {
         "kind": "book",
         "book": "spore-war",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3776"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3776",
+        "page": 82
       }
     ],
     "description": [
@@ -3866,7 +3867,8 @@
       {
         "kind": "book",
         "book": "spore-war",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3777"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3777",
+        "page": 83
       }
     ],
     "description": [
@@ -6739,7 +6741,8 @@
       {
         "kind": "book",
         "book": "spore-war",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3778"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3778",
+        "page": 84
       }
     ],
     "description": [
@@ -14701,7 +14704,8 @@
       {
         "kind": "book",
         "book": "spore-war",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3779"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3779",
+        "page": 85
       }
     ],
     "description": [
@@ -16793,7 +16797,8 @@
       {
         "kind": "book",
         "book": "spore-war",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3780"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3780",
+        "page": 86
       }
     ],
     "description": [],
@@ -23942,7 +23947,8 @@
       {
         "kind": "book",
         "book": "spore-war",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3781"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3781",
+        "page": 87
       }
     ],
     "description": [
