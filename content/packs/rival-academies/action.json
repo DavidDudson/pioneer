@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rival-academies"
+        "book": "rival-academies",
+        "page": 46,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3059"
       }
     ],
     "description": [
@@ -128,7 +130,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rival-academies"
+        "book": "rival-academies",
+        "page": 47,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3060"
       }
     ],
     "description": [
@@ -188,7 +192,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rival-academies"
+        "book": "rival-academies",
+        "page": 47,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3061"
       }
     ],
     "description": [
@@ -306,7 +312,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rival-academies"
+        "book": "rival-academies",
+        "page": 34,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3058"
       }
     ],
     "description": [

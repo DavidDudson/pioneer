@@ -79,7 +79,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3013"
       }
     ],
     "description": [
@@ -172,7 +174,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 47,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3028"
       }
     ],
     "description": [
@@ -247,7 +251,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 46,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3024"
       }
     ],
     "description": [
@@ -442,7 +448,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3009"
       }
     ],
     "description": [
@@ -599,7 +607,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3012"
       }
     ],
     "description": [
@@ -714,7 +724,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 46,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3023"
       }
     ],
     "description": [
@@ -873,7 +885,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3010"
       }
     ],
     "description": [
@@ -948,7 +962,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3011"
       }
     ],
     "description": [
@@ -1035,7 +1051,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3016"
       }
     ],
     "description": [
@@ -1086,7 +1104,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3015"
       }
     ],
     "description": [
@@ -1322,7 +1342,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3014"
       }
     ],
     "description": [
@@ -1439,7 +1461,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 46,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3027"
       }
     ],
     "description": [
@@ -1490,7 +1514,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 46,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3025"
       }
     ],
     "description": [
@@ -1553,7 +1579,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 60,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3065"
       }
     ],
     "description": [
@@ -1817,7 +1845,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3022"
       }
     ],
     "description": [
@@ -2005,7 +2035,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 46,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3026"
       }
     ],
     "description": [
@@ -3278,7 +3310,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3021"
       }
     ],
     "description": [
@@ -3326,7 +3360,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 47,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3029"
       }
     ],
     "description": [
@@ -3581,7 +3617,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3017"
       }
     ],
     "description": [
@@ -3624,7 +3662,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3018"
       }
     ],
     "description": [
@@ -3750,7 +3790,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2983"
       }
     ],
     "description": [
@@ -4053,7 +4095,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3030"
       }
     ],
     "description": [
@@ -4406,7 +4450,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3019"
       }
     ],
     "description": [
@@ -4481,7 +4527,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3020"
       }
     ],
     "description": [

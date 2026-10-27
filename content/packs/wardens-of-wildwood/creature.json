@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "page": 91,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3699"
       }
     ],
     "description": [],
@@ -2970,7 +2972,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "page": 35,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3686"
       }
     ],
     "description": [],
@@ -7649,7 +7653,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "page": 92,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3700"
       }
     ],
     "description": [],
@@ -12601,7 +12607,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3689"
       }
     ],
     "description": [
@@ -19429,7 +19437,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "page": 39,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3687"
       }
     ],
     "description": [],
@@ -20657,7 +20667,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "page": 34,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3685"
       }
     ],
     "description": [],
@@ -20926,7 +20938,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "page": 16,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3683"
       }
     ],
     "description": [],
@@ -25571,7 +25585,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "page": 30,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3684"
       }
     ],
     "description": [],

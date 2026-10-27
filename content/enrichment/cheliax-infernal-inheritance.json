@@ -1,1042 +1,1047 @@
 {
   "ancestry:bugbear": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=99",
-    "page": 26
+    "page": 26,
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=99"
   },
   "ancestry:fetchling": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=100",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=100"
   },
   "ancestry:strix": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=101",
-    "page": 38
+    "page": 38,
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=101"
   },
   "archetype:bellflower-tiller": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=400",
-    "page": 174
+    "page": 174,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=400"
   },
   "background:asmodean-apostate": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=679",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=679"
   },
   "background:brastlewark-student": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=680",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=680"
   },
   "background:chelaxian-trouper": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=681",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=681"
   },
   "background:chitterwood-refugee": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=691",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=691"
   },
   "background:council-of-thieves-agent": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=682",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=682"
   },
   "background:hellknight-deserter": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=683",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=683"
   },
   "background:hinji-beachcomber": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=685",
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=685"
+  },
+  "background:lived-through-hell": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=686",
     "page": 44
   },
   "background:mount-spire-guide": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=687",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=687"
   },
   "background:ravounelian-civil-servant": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=688",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=688"
   },
   "background:secret-scion": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=692",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=692"
   },
   "background:shadowcaller-outcast": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=689",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=689"
   },
   "background:sisterhood-orphan": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=693",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=693"
   },
   "background:whisperwood-warden": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=690",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=690"
   },
   "consumable:blast-off-bottle-greater": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5253",
-    "page": 198
+    "page": 198,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5253"
   },
   "consumable:blast-off-bottle-lesser": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5253",
-    "page": 198
+    "page": 198,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5253"
   },
   "consumable:blast-off-bottle-moderate": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5253",
-    "page": 198
+    "page": 198,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5253"
   },
   "consumable:devils-trap": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5247",
-    "page": 176
+    "page": 176,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5247"
   },
   "consumable:energy-ointment-greater": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5254",
-    "page": 198
+    "page": 198,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5254"
   },
   "consumable:energy-ointment-lesser": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5254",
-    "page": 198
+    "page": 198,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5254"
   },
   "consumable:energy-ointment-moderate": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5254",
-    "page": 198
+    "page": 198,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5254"
   },
   "consumable:flask-of-elemental-air": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5243",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5243"
   },
   "consumable:flask-of-elemental-earth": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5243",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5243"
   },
   "consumable:flask-of-elemental-water": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5243",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5243"
   },
   "consumable:martial-mayhem-mutagen-greater": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255",
-    "page": 198
+    "page": 198,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
   },
   "consumable:martial-mayhem-mutagen-lesser": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255",
-    "page": 198
+    "page": 198,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
   },
   "consumable:martial-mayhem-mutagen-major": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255",
-    "page": 198
+    "page": 198,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
   },
   "consumable:martial-mayhem-mutagen-moderate": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255",
-    "page": 198
+    "page": 198,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
   },
   "consumable:megaphone-mutagen-greater": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256",
-    "page": 199
+    "page": 199,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
   },
   "consumable:megaphone-mutagen-lesser": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256",
-    "page": 199
+    "page": 199,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
   },
   "consumable:megaphone-mutagen-major": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256",
-    "page": 199
+    "page": 199,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
   },
   "consumable:megaphone-mutagen-moderate": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256",
-    "page": 199
+    "page": 199,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
   },
   "consumable:night-sky-elixir-greater": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250",
-    "page": 176
+    "page": 176,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250"
   },
   "consumable:night-sky-elixir-lesser": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250",
-    "page": 176
+    "page": 176,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250"
   },
   "consumable:night-sky-elixir-moderate": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250",
-    "page": 176
+    "page": 176,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250"
   },
   "deity:insight-of-ego-triumphant": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=735",
-    "page": 50
+    "page": 50,
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=735"
   },
   "deity:the-battered-chains": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=733",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=733"
   },
   "deity:the-circle-of-the-damned": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Deities.aspx?ID=734",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=734"
   },
   "equipment:accursed-fame": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5231",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5231"
   },
   "equipment:bracelet-of-buoyancy": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5237",
-    "page": 103
+    "page": 103,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5237"
   },
   "equipment:embedded-eye": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5242",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5242"
   },
   "equipment:exploitative-wealth": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5232",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5232"
   },
   "equipment:illicit-knowledge": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5233",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5233"
   },
   "equipment:lily-pad-platform": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5239",
-    "page": 103
+    "page": 103,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5239"
   },
   "equipment:limitless-power": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5234",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5234"
   },
   "equipment:mark-of-the-torrent": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5252",
-    "page": 177
+    "page": 177,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5252"
   },
   "equipment:pits-protection": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5235",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5235"
   },
   "equipment:sea-retrieval-line": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5240",
-    "page": 103
+    "page": 103,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5240"
   },
   "equipment:unholy-skill": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5236",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5236"
   },
   "equipment:wind-up-widget-hand-powered-digger": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5244",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5244"
   },
   "equipment:wind-up-widget-thieves-friend": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5244",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5244"
   },
   "equipment:wind-up-widget-wind-up-spy": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5244",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5244"
   },
   "feat:abrasive-drag": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9517",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9517"
   },
   "feat:ancestors-transformation": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9474",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9474"
   },
   "feat:and-yet-it-still-hurts": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9508",
-    "page": 151
+    "page": 151,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9508"
   },
   "feat:annul-compulsion": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9492",
-    "page": 126
+    "page": 126,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9492"
   },
   "feat:archdiabolic-usurpation": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9498",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9498"
   },
   "feat:balm-bomb": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9535",
-    "page": 199
+    "page": 199,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9535"
   },
   "feat:basic-pactbreaker-spellcasting": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9489",
-    "page": 126
+    "page": 126,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9489"
   },
   "feat:become-as-shadow": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9460",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9460"
   },
   "feat:bellflower-tiller-dedication": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9518",
-    "page": 174
+    "page": 174,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9518"
   },
   "feat:blazing-mutagen": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9533",
-    "page": 199
+    "page": 199,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9533"
   },
   "feat:born-in-the-saddle": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9514",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9514"
   },
   "feat:bugbear-lore": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9421",
-    "page": 28
+    "page": 28,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9421"
   },
   "feat:bugbear-weapon-familiarity": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9422",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9422"
   },
   "feat:bushwhack": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9423",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9423"
   },
   "feat:call-hellfire": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9483",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9483"
   },
   "feat:chiardmar-steed": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9512",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9512"
   },
   "feat:clarify-hellfire": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9496",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9496"
   },
   "feat:clever-shadow": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9450",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9450"
   },
   "feat:combustible-poison": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9532",
-    "page": 199
+    "page": 199,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9532"
   },
   "feat:commandeer-hellmouth": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9500",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9500"
   },
   "feat:condemn-soul": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9494",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9494"
   },
   "feat:contract-blade": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9490",
-    "page": 126
+    "page": 126,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9490"
   },
   "feat:coursing-weave": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9476",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9476"
   },
   "feat:crop-protection": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9519",
-    "page": 174
+    "page": 174,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9519"
   },
   "feat:crush-their-spirits": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9439",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9439"
   },
   "feat:cut-the-bonds": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9529",
-    "page": 175
+    "page": 175,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9529"
   },
   "feat:death-of-hope": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9442",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9442"
   },
   "feat:devil-in-disguise": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9481",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9481"
   },
   "feat:devils-wings": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9487",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9487"
   },
   "feat:diabolic-usurpation": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9491",
-    "page": 126
+    "page": 126,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9491"
   },
   "feat:dispute-terms": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9485",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9485"
   },
   "feat:expert-pactbreaker-spellcasting": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9499",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9499"
   },
   "feat:extinguish-light": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9451",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9451"
   },
   "feat:eyes-of-night-midnight-illusionist": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9503",
-    "page": 150
+    "page": 150,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9503"
   },
   "feat:fearsense": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9424",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9424"
   },
   "feat:feathered-cloak": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9466",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9466"
   },
   "feat:ferocious-gust": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9470",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9470"
   },
   "feat:fetchling-lore": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9444",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9444"
   },
   "feat:fiend-worshipper": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9425",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9425"
   },
   "feat:fiendish-arms": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9479",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9479"
   },
   "feat:fine-print": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9495",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9495"
   },
   "feat:fledgling-flight": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9462",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9462"
   },
   "feat:flock-as-one": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9477",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9477"
   },
   "feat:friend-of-fear": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9429",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9429"
   },
   "feat:frightful-figment": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9426",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9426"
   },
   "feat:fully-flighted": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9471",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9471"
   },
   "feat:fumigate": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9530",
-    "page": 175
+    "page": 175,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9530"
   },
   "feat:galloping-launch": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9511",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9511"
   },
   "feat:garden-path": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9524",
-    "page": 174
+    "page": 174,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9524"
   },
   "feat:glimpse-the-netherworld": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9507",
-    "page": 151
+    "page": 151,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9507"
   },
   "feat:hard-to-fool": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9445",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9445"
   },
   "feat:hardening-necrosis": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9435",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9435"
   },
   "feat:harvest-moon": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9520",
-    "page": 174
+    "page": 174,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9520"
   },
   "feat:hefting-shadow": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9454",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9454"
   },
   "feat:hellbound-aspirant-dedication": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9478",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9478"
   },
   "feat:icy-influence": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9427",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9427"
   },
   "feat:infernal-anguish": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9484",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9484"
   },
   "feat:infernal-magic": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9482",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9482"
   },
   "feat:infernal-pactbreaker-dedication": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9488",
-    "page": 126
+    "page": 126,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9488"
   },
   "feat:juvenile-flight": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9467",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9467"
   },
   "feat:know-i-approach": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9440",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9440"
   },
   "feat:leave-no-trace": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9430",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9430"
   },
   "feat:lightless-litheness": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9452",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9452"
   },
   "feat:lingering-bomb": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9534",
-    "page": 199
+    "page": 199,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9534"
   },
   "feat:longshanks-slam": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9531",
-    "page": 199
+    "page": 199,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9531"
   },
   "feat:looming-gait": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9431",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9431"
   },
   "feat:master-pactbreaker-spellcasting": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9501",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9501"
   },
   "feat:midnight-illusionist-dedication": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9502",
-    "page": 150
+    "page": 150,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9502"
   },
   "feat:mocking-invisibility": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9436",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9436"
   },
   "feat:nidarrmar-steed": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9513",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9513"
   },
   "feat:painful-spell": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9504",
-    "page": 150
+    "page": 150,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9504"
   },
   "feat:pierce-the-light": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9461",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9461"
   },
   "feat:pin-the-spears-in-the-lamb": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9505",
-    "page": 150
+    "page": 150,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9505"
   },
   "feat:plan-the-hunt": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9432",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9432"
   },
   "feat:practiced-guidance": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9525",
-    "page": 175
+    "page": 175,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9525"
   },
   "feat:prey-disguise": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9433",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9433"
   },
   "feat:proscribe-devilry": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9497",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9497"
   },
   "feat:quick-harvest": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9522",
-    "page": 174
+    "page": 174,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9522"
   },
   "feat:reckless-riding-lunge": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9515",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9515"
   },
   "feat:ride-by-recovery": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9516",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9516"
   },
   "feat:rokoan-arts": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9472",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9472"
   },
   "feat:savor-the-hunt": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9428",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9428"
   },
   "feat:scarecrow": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9526",
-    "page": 175
+    "page": 175,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9526"
   },
   "feat:sculpt-shadows": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9455",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9455"
   },
   "feat:shadow-blending": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9446",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9446"
   },
   "feat:shadow-sight": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9456",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9456"
   },
   "feat:shadows-assault": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9457",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9457"
   },
   "feat:shadowy-disguise": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9453",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9453"
   },
   "feat:shrouded-magic": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9447",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9447"
   },
   "feat:shrouded-mien": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9448",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9448"
   },
   "feat:silo-crop": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9523",
-    "page": 174
+    "page": 174,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9523"
   },
   "feat:skirt-the-light": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9458",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9458"
   },
   "feat:slink": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9449",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9449"
   },
   "feat:story-crooner": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9463",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9463"
   },
   "feat:stranglehold": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9437",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9437"
   },
   "feat:strix-defender": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9464",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9464"
   },
   "feat:strix-lore": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9465",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9465"
   },
   "feat:strix-vengeance": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9468",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9468"
   },
   "feat:submit-to-shadow": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9510",
-    "page": 151
+    "page": 151,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9510"
   },
   "feat:sunless-slide": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9509",
-    "page": 151
+    "page": 151,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9509"
   },
   "feat:swamp-gas-form": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9441",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9441"
   },
   "feat:swift-sower": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9527",
-    "page": 175
+    "page": 175,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9527"
   },
   "feat:symphony-of-agony": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9506",
-    "page": 150
+    "page": 150,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9506"
   },
   "feat:terrorize": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9438",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9438"
   },
   "feat:the-devil-inside": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9486",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9486"
   },
   "feat:thrown-voice": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9469",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9469"
   },
   "feat:tillers-aid": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9528",
-    "page": 175
+    "page": 175,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9528"
   },
   "feat:umbra-ally": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9459",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9459"
   },
   "feat:unassuming-laborer": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9521",
-    "page": 174
+    "page": 174,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9521"
   },
   "feat:unfaltering-ranks": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9443",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9443"
   },
   "feat:unholy-pact": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9480",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9480"
   },
   "feat:unrelenting-terror": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9434",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9434"
   },
   "feat:wing-step": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9473",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9473"
   },
   "feat:winged-mantle": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9475",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9475"
   },
   "heritage:bright-fetchling": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=446",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=446"
   },
   "heritage:deep-fetchling": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=447",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=447"
   },
   "heritage:kardan-bugbear": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=440",
-    "page": 28
+    "page": 28,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=440"
   },
   "heritage:koblak-bugbear": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=441",
-    "page": 28
+    "page": 28,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=441"
   },
   "heritage:liminal-fetchling": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=448",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=448"
   },
   "heritage:murd-bugbear": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=442",
-    "page": 28
+    "page": 28,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=442"
   },
   "heritage:predator-strix": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=452",
-    "page": 40
+    "page": 40,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=452"
   },
   "heritage:resolute-fetchling": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=449",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=449"
   },
   "heritage:scavenger-strix": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=453",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=453"
   },
   "heritage:shoreline-strix": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=454",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=454"
   },
   "heritage:slate-stalker-bugbear": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=443",
-    "page": 28
+    "page": 28,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=443"
   },
   "heritage:songbird-strix": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=455",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=455"
   },
   "heritage:towering-bugbear": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=444",
-    "page": 28
+    "page": 28,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=444"
   },
   "heritage:wikkawak-bugbear": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=445",
-    "page": 28
+    "page": 28,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=445"
   },
   "heritage:wisp-fetchling": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=450",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=450"
   },
   "spell:brimstone-rain": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2928",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2928"
   },
   "spell:choking-fog": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2939",
-    "page": 103
+    "page": 103,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2939"
   },
   "spell:control-currents": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2938",
-    "page": 103
+    "page": 103,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2938"
   },
   "spell:curse-of-slippery-steps": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2932",
-    "page": 102
+    "page": 102,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2932"
   },
   "spell:devils-horseshoe": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2940",
-    "page": 128
+    "page": 128,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2940"
   },
   "spell:diabolical-mantle": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2929",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2929"
   },
   "spell:gift-of-dusk": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2947",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2947"
   },
   "spell:glimpse-the-netherworld": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2946",
-    "page": 151
+    "page": 151,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2946"
   },
   "spell:gloom-mantle": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2948",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2948"
   },
   "spell:infernal-supervision": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2930",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2930"
   },
   "spell:kiss-the-ring": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2931",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2931"
   },
   "spell:piercing-jet": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2933",
-    "page": 102
+    "page": 102,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2933"
   },
   "spell:pin-the-spears-in-the-lamb": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2945",
-    "page": 151
+    "page": 151,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2945"
   },
   "spell:roar-of-freedom": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2941",
-    "page": 128
+    "page": 128,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2941"
   },
   "spell:rude-awakening": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2934",
-    "page": 102
+    "page": 102,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2934"
   },
   "spell:saturate": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2935",
-    "page": 102
+    "page": 102,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2935"
   },
   "spell:searing-rain": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2936",
-    "page": 102
+    "page": 102,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2936"
   },
   "spell:shadow-form": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2949",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2949"
   },
   "spell:silver-spear": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2942",
-    "page": 128
+    "page": 128,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2942"
   },
   "spell:spray-of-salt": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2943",
-    "page": 128
+    "page": 128,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2943"
   },
   "spell:tenebrous-freedom": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2951",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2951"
   },
   "spell:the-night-is-mine": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2950",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2950"
   },
   "spell:turnip-lantern": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2944",
-    "page": 128
+    "page": 128,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2944"
   },
   "spell:unending-tears": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2937",
-    "page": 102
+    "page": 102,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2937"
   }
 }

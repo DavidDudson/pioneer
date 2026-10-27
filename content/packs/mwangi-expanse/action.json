@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "mwangi-expanse"
+        "book": "mwangi-expanse",
+        "page": 103,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=729"
       }
     ],
     "description": [
@@ -66,7 +68,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "mwangi-expanse"
+        "book": "mwangi-expanse",
+        "page": 123,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=733"
       }
     ],
     "description": [
@@ -184,7 +188,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "mwangi-expanse"
+        "book": "mwangi-expanse",
+        "page": 107,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=731"
       }
     ],
     "description": [
@@ -261,7 +267,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "mwangi-expanse"
+        "book": "mwangi-expanse",
+        "page": 103,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=730"
       }
     ],
     "description": [

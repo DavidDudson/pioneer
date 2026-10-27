@@ -102,7 +102,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 241,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2396"
       }
     ],
     "description": [
@@ -294,7 +296,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 416,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2292"
       }
     ],
     "description": [
@@ -608,7 +612,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 418,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2308"
       }
     ],
     "description": [
@@ -713,7 +719,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 419,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2309"
       }
     ],
     "description": [
@@ -749,7 +757,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 438,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2622"
       }
     ],
     "description": [
@@ -802,7 +812,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 233,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2369"
       }
     ],
     "description": [
@@ -1038,7 +1050,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 234,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2373"
       }
     ],
     "description": [
@@ -1114,7 +1128,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 419,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2310"
       }
     ],
     "description": [
@@ -1210,7 +1226,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2254"
       }
     ],
     "description": [
@@ -1319,7 +1337,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 299,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2734"
       }
     ],
     "description": [
@@ -1430,7 +1450,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 234,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2374"
       }
     ],
     "description": [
@@ -1694,7 +1716,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 240,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2394"
       }
     ],
     "description": [
@@ -1915,7 +1939,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 242,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2400"
       }
     ],
     "description": [
@@ -2080,7 +2106,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 244,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2403"
       }
     ],
     "description": [
@@ -2212,7 +2240,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 246,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2407"
       }
     ],
     "description": [
@@ -2274,7 +2304,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 237,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2385"
       }
     ],
     "description": [
@@ -2487,7 +2519,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 416,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2293"
       }
     ],
     "description": [
@@ -2559,7 +2593,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 237,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2387"
       }
     ],
     "description": [
@@ -2687,7 +2723,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 244,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2402"
       }
     ],
     "description": [
@@ -2903,7 +2941,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 168,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2258"
       }
     ],
     "description": [
@@ -3013,7 +3053,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 228,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2363"
       }
     ],
     "description": [
@@ -3275,7 +3317,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 438,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2623"
       }
     ],
     "description": [
@@ -3319,7 +3363,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 416,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2294"
       }
     ],
     "description": [
@@ -3400,7 +3446,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 240,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2395"
       }
     ],
     "description": [
@@ -3495,7 +3543,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 438,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2624"
       }
     ],
     "description": [
@@ -3538,7 +3588,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 247,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2411"
       }
     ],
     "description": [
@@ -3638,7 +3690,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 236,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2383"
       }
     ],
     "description": [
@@ -3774,7 +3828,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 419,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2311"
       }
     ],
     "description": [
@@ -3922,7 +3978,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 197,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2260"
       }
     ],
     "description": [
@@ -4003,7 +4061,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 416,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2295"
       }
     ],
     "description": [
@@ -4047,7 +4107,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 228,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2364"
       }
     ],
     "description": [
@@ -5358,7 +5420,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 416,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2296"
       }
     ],
     "description": [
@@ -5890,7 +5954,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2390"
       }
     ],
     "description": [
@@ -6050,7 +6116,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 419,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2312"
       }
     ],
     "description": [
@@ -6147,7 +6215,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 438,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2625"
       }
     ],
     "description": [
@@ -6209,7 +6279,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 234,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2375"
       }
     ],
     "description": [
@@ -6526,7 +6598,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2391"
       }
     ],
     "description": [
@@ -6695,7 +6769,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 419,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2313"
       }
     ],
     "description": [
@@ -6837,7 +6913,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 235,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2376"
       }
     ],
     "description": [
@@ -7045,7 +7123,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 244,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2404"
       }
     ],
     "description": [
@@ -7190,7 +7270,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 235,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2377"
       }
     ],
     "description": [
@@ -7311,7 +7393,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 154,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2257"
       }
     ],
     "description": [
@@ -7408,7 +7492,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 438,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2626"
       }
     ],
     "description": [
@@ -7443,7 +7529,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 237,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2386"
       }
     ],
     "description": [
@@ -7569,7 +7657,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 230,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2365"
       }
     ],
     "description": [
@@ -7665,7 +7755,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 238,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2388"
       }
     ],
     "description": [
@@ -7944,7 +8036,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 416,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2297"
       }
     ],
     "description": [
@@ -7980,7 +8074,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 439,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2627"
       }
     ],
     "description": [
@@ -8015,7 +8111,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 59,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2255"
       }
     ],
     "description": [
@@ -8273,7 +8371,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 230,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2366"
       }
     ],
     "description": [
@@ -8777,7 +8877,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 238,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2389"
       }
     ],
     "description": [
@@ -8902,7 +9004,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 235,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2378"
       }
     ],
     "description": [
@@ -9009,7 +9113,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 440,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2633"
       }
     ],
     "description": [
@@ -9085,7 +9191,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2392"
       }
     ],
     "description": [
@@ -9292,7 +9400,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 233,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2371"
       }
     ],
     "description": [
@@ -9524,7 +9634,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 169,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2259"
       }
     ],
     "description": [
@@ -9739,7 +9851,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 419,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2314"
       }
     ],
     "description": [
@@ -9803,7 +9917,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 246,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2409"
       }
     ],
     "description": [
@@ -10103,7 +10219,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 243,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2401"
       }
     ],
     "description": [
@@ -10509,7 +10627,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 247,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2412"
       }
     ],
     "description": [
@@ -10750,7 +10870,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 419,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2315"
       }
     ],
     "description": [
@@ -11003,7 +11125,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 419,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2316"
       }
     ],
     "description": [
@@ -11068,7 +11192,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 138,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2256"
       }
     ],
     "description": [
@@ -11131,7 +11257,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 417,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2299"
       }
     ],
     "description": [
@@ -11209,7 +11337,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 231,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2367"
       }
     ],
     "description": [
@@ -11287,7 +11417,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 298,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2621"
       }
     ],
     "description": [
@@ -11350,7 +11482,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 417,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2300"
       }
     ],
     "description": [
@@ -11403,7 +11537,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 236,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2384"
       }
     ],
     "description": [
@@ -11522,7 +11658,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 439,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2628"
       }
     ],
     "description": [
@@ -11573,7 +11711,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 235,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2379"
       }
     ],
     "description": [
@@ -11692,7 +11832,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2393"
       }
     ],
     "description": [
@@ -11972,7 +12114,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 440,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2634"
       }
     ],
     "description": [
@@ -12131,7 +12275,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 439,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2629"
       }
     ],
     "description": [
@@ -12175,7 +12321,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 439,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2630"
       }
     ],
     "description": [
@@ -12226,7 +12374,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 417,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2301"
       }
     ],
     "description": [
@@ -12352,7 +12502,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 246,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2406"
       }
     ],
     "description": [
@@ -12532,7 +12684,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 417,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2302"
       }
     ],
     "description": [
@@ -12756,7 +12910,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 235,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2380"
       }
     ],
     "description": [
@@ -12979,7 +13135,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 245,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2405"
       }
     ],
     "description": [
@@ -13276,7 +13434,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 233,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2372"
       }
     ],
     "description": [
@@ -13414,7 +13574,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 418,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2303"
       }
     ],
     "description": [
@@ -13458,7 +13620,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 246,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2410"
       }
     ],
     "description": [
@@ -13553,7 +13717,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 418,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2304"
       }
     ],
     "description": [
@@ -13734,7 +13900,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 418,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2305"
       }
     ],
     "description": [
@@ -13770,7 +13938,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 418,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2306"
       }
     ],
     "description": [
@@ -13837,7 +14007,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 232,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2368"
       }
     ],
     "description": [
@@ -14063,7 +14235,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 419,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2317"
       }
     ],
     "description": [
@@ -14117,7 +14291,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 439,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2631"
       }
     ],
     "description": [
@@ -14168,7 +14344,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 235,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2381"
       }
     ],
     "description": [
@@ -14348,7 +14526,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 418,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2307"
       }
     ],
     "description": [
@@ -14559,7 +14739,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 246,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2408"
       }
     ],
     "description": [
@@ -14763,7 +14945,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 242,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2397"
       }
     ],
     "description": [
@@ -14899,7 +15083,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 242,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2398"
       }
     ],
     "description": [
@@ -15036,7 +15222,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 242,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2399"
       }
     ],
     "description": [
@@ -15244,7 +15432,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 236,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2382"
       }
     ],
     "description": [
@@ -15473,7 +15663,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 233,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2370"
       }
     ],
     "description": [

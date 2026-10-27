@@ -1,977 +1,992 @@
 {
+  "action:absorb-into-the-aegis": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=321",
+    "page": 94
+  },
+  "action:call-upon-the-brightness": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=320",
+    "page": 27
+  },
+  "action:energy-emanation": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=315",
+    "page": 19
+  },
   "archetype:firebrand-braggart": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=24",
-    "page": 74
+    "page": 74,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=24"
   },
   "archetype:halcyon-speaker": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=30",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=30"
   },
   "archetype:knight-reclaimant": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=28",
-    "page": 95
+    "page": 95,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=28"
   },
   "archetype:knight-vigilant": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=27",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=27"
   },
   "archetype:magaambyan-attendant": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=29",
-    "page": 101
+    "page": 101,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=29"
   },
   "archetype:scrollmaster": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=31",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=31"
   },
   "archetype:spellmaster": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=32",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=32"
   },
   "archetype:swordmaster": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=33",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=33"
   },
   "consumable:fortifying-pebble": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=522",
-    "page": 110
+    "page": 110,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=522"
   },
   "consumable:lastwall-soup": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=516",
-    "page": 92
+    "page": 92,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=516"
   },
   "consumable:snapleaf": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=512",
-    "page": 73
+    "page": 73,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=512"
   },
   "equipment:arcane-scroll-case-of-simplicity": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=525",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=525"
   },
   "equipment:armored-skirt": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=514",
-    "page": 91
+    "page": 91,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=514"
   },
   "equipment:bi-resonant-wayfinder": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=470",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=470"
   },
   "equipment:cloak-of-repute": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=510",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=510"
   },
   "equipment:cloak-of-repute-greater": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=510",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=510"
   },
   "equipment:cloak-of-repute-major": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=510",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=510"
   },
   "equipment:divine-scroll-case-of-simplicity": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=525",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=525"
   },
   "equipment:insistent-door-knocker": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=511",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=511"
   },
   "equipment:insistent-door-knocker-greater": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=511",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=511"
   },
   "equipment:insistent-door-knocker-major": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=511",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=511"
   },
   "equipment:occult-scroll-case-of-simplicity": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=525",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=525"
   },
   "equipment:pathfinders-coin": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=523",
-    "page": 110
+    "page": 110,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=523"
   },
   "equipment:pathfinders-pouch": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=524",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=524"
   },
   "equipment:primal-scroll-case-of-simplicity": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=525",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=525"
   },
   "equipment:serrating": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=519",
-    "page": 93
+    "page": 93,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=519"
   },
   "equipment:shining-wayfinder": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=470",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=470"
   },
   "equipment:sinister-knight": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=518",
-    "page": 92
+    "page": 92,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=518"
   },
   "equipment:unmemorable-mantle": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=513",
-    "page": 73
+    "page": 73,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=513"
   },
   "equipment:unmemorable-mantle-greater": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=513",
-    "page": 73
+    "page": 73,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=513"
   },
   "equipment:unmemorable-mantle-major": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=513",
-    "page": 73
+    "page": 73,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=513"
   },
   "equipment:vanishing-wayfinder": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=470",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=470"
   },
   "feat:absorb-spell": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1138",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1138"
   },
   "feat:adaptive-mask-familiar": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1104",
-    "page": 101
+    "page": 101,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1104"
   },
   "feat:adroit-manipulation": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1012",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1012"
   },
   "feat:aegis-of-arnisant": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1095",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1095"
   },
   "feat:ankle-bite": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1002",
-    "page": 38
+    "page": 38,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1002"
   },
   "feat:arcane-tattoos": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=938",
-    "page": 11
+    "page": 11,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=938"
   },
   "feat:avenge-in-glory": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=964",
-    "page": 20
+    "page": 20,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=964"
   },
   "feat:battleforger": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=971",
-    "page": 21
+    "page": 21,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=971"
   },
   "feat:blade-of-the-crimson-oath": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1101",
-    "page": 95
+    "page": 95,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1101"
   },
   "feat:boasters-challenge": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1068",
-    "page": 74
+    "page": 74,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1068"
   },
   "feat:bouncy-goblin": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=999",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=999"
   },
   "feat:bravos-determination": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1070",
-    "page": 75
+    "page": 75,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1070"
   },
   "feat:brightness-seeker": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=984",
-    "page": 27
+    "page": 27,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=984"
   },
   "feat:cascade-bearers-flexibility": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1105",
-    "page": 101
+    "page": 101,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1105"
   },
   "feat:cascade-bearers-spellcasting": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1110",
-    "page": 103
+    "page": 103,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1110"
   },
   "feat:charged-creation": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1120",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1120"
   },
   "feat:chosen-of-lamashtu": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1003",
-    "page": 38
+    "page": 38,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1003"
   },
   "feat:clan-protector": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=968",
-    "page": 20
+    "page": 20,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=968"
   },
   "feat:clans-edge": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=965",
-    "page": 20
+    "page": 20,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=965"
   },
   "feat:cobble-dancer": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1022",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1022"
   },
   "feat:courteous-comeback": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=939",
-    "page": 11
+    "page": 11,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=939"
   },
   "feat:cunning-climber": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1019",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1019"
   },
   "feat:daredevils-gambit": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1074",
-    "page": 75
+    "page": 75,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1074"
   },
   "feat:daring-act": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1069",
-    "page": 74
+    "page": 74,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1069"
   },
   "feat:daring-flourish": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1072",
-    "page": 75
+    "page": 75,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1072"
   },
   "feat:darkseer": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=950",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=950"
   },
   "feat:deaths-door": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1142",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1142"
   },
   "feat:defiance-unto-death": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=980",
-    "page": 26
+    "page": 26,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=980"
   },
   "feat:demanding-challenge": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1073",
-    "page": 75
+    "page": 75,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1073"
   },
   "feat:devils-advocate": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=940",
-    "page": 11
+    "page": 11,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=940"
   },
   "feat:dragon-prince": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=953",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=953"
   },
   "feat:dragon-spit": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=941",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=941"
   },
   "feat:dualistic-synergy": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1116",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1116"
   },
   "feat:easily-dismissed": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1016",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1016"
   },
   "feat:eclectic-obsession": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=995",
-    "page": 33
+    "page": 33,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=995"
   },
   "feat:educated-assessment": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1129",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1129"
   },
   "feat:elemental-wrath": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=975",
-    "page": 26
+    "page": 26,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=975"
   },
   "feat:elven-instincts": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=981",
-    "page": 27
+    "page": 27,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=981"
   },
   "feat:elven-verve": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=976",
-    "page": 26
+    "page": 26,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=976"
   },
   "feat:emerald-boughs-accustomation": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1106",
-    "page": 102
+    "page": 102,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1106"
   },
   "feat:emerald-boughs-hideaway": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1111",
-    "page": 103
+    "page": 103,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1111"
   },
   "feat:endure-deaths-touch": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1094",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1094"
   },
   "feat:energy-blessed": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=972",
-    "page": 21
+    "page": 21,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=972"
   },
   "feat:entourage": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1066",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1066"
   },
   "feat:everstand-stance": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1087",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1087"
   },
   "feat:everstand-strike": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1088",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1088"
   },
   "feat:everyone-duck": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1128",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1128"
   },
   "feat:fade-away": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1020",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1020"
   },
   "feat:fang-sharpener": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1000",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1000"
   },
   "feat:firebrand-braggart-dedication": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1067",
-    "page": 74
+    "page": 74,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1067"
   },
   "feat:flexible-halcyon-spellcasting": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1121",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1121"
   },
   "feat:font-of-knowledge": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1133",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1133"
   },
   "feat:forced-entry": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1126",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1126"
   },
   "feat:forest-stealth": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=982",
-    "page": 27
+    "page": 27,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=982"
   },
   "feat:forge-days-rest": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=966",
-    "page": 20
+    "page": 20,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=966"
   },
   "feat:formation-master": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1035",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1035"
   },
   "feat:formation-training": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1032",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1032"
   },
   "feat:fortuitous-shift": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=998",
-    "page": 33
+    "page": 33,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=998"
   },
   "feat:freeze-it": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1007",
-    "page": 39
+    "page": 39,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1007"
   },
   "feat:fulminating-synergy": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1123",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1123"
   },
   "feat:gloomseer": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=942",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=942"
   },
   "feat:gnome-polyglot": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=987",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=987"
   },
   "feat:great-boaster": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1071",
-    "page": 75
+    "page": 75,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1071"
   },
   "feat:grim-insight": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=988",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=988"
   },
   "feat:halcyon-speaker-dedication": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1115",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1115"
   },
   "feat:halcyon-spellcasting-adept": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1122",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1122"
   },
   "feat:halcyon-spellcasting-initiate": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1118",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1118"
   },
   "feat:halcyon-spellcasting-sage": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1124",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1124"
   },
   "feat:halfling-ingenuity": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1017",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1017"
   },
   "feat:hard-tail": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1001",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1001"
   },
   "feat:harrying-strike": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1140",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1140"
   },
   "feat:heir-of-the-saoc": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=954",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=954"
   },
   "feat:helpful-halfling": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1021",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1021"
   },
   "feat:heroes-call": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=973",
-    "page": 21
+    "page": 21,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=973"
   },
   "feat:hungry-goblin": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1008",
-    "page": 39
+    "page": 39,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1008"
   },
   "feat:impassable-wall-stance": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1091",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1091"
   },
   "feat:incredible-luck-halfling": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1023",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1023"
   },
   "feat:innocuous": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1013",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1013"
   },
   "feat:intuitive-cooperation": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1014",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1014"
   },
   "feat:intuitive-illusions": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=996",
-    "page": 33
+    "page": 33,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=996"
   },
   "feat:inventive-offensive": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=989",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=989"
   },
   "feat:invoke-the-crimson-oath": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1098",
-    "page": 95
+    "page": 95,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1098"
   },
   "feat:irriseni-ice-witch": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=957",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=957"
   },
   "feat:keep-up-appearances": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=943",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=943"
   },
   "feat:kneel-for-no-god": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=974",
-    "page": 21
+    "page": 21,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=974"
   },
   "feat:knight-in-shining-armor": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1096",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1096"
   },
   "feat:knight-reclaimant-dedication": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1097",
-    "page": 95
+    "page": 95,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1097"
   },
   "feat:know-oneself": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=944",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=944"
   },
   "feat:life-giving-magic": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=990",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=990"
   },
   "feat:light-of-revelation": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1089",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1089"
   },
   "feat:lore-seeker": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1131",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1131"
   },
   "feat:magaambyan-attendant-dedication": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1102",
-    "page": 101
+    "page": 101,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1102"
   },
   "feat:mask-familiar": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1103",
-    "page": 101
+    "page": 101,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1103"
   },
   "feat:natural-illusionist": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=997",
-    "page": 33
+    "page": 33,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=997"
   },
   "feat:natural-performer": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=991",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=991"
   },
   "feat:ornate-tattoo": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=951",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=951"
   },
   "feat:overlooked-mastermind": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=962",
-    "page": 15
+    "page": 15,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=962"
   },
   "feat:persistent-creation": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1117",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1117"
   },
   "feat:protective-sheath": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=969",
-    "page": 21
+    "page": 21,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=969"
   },
   "feat:quah-bond": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=945",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=945"
   },
   "feat:rain-scribe-mobility": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1112",
-    "page": 103
+    "page": 103,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1112"
   },
   "feat:rain-scribe-sustenance": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1107",
-    "page": 102
+    "page": 102,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1107"
   },
   "feat:reaper-of-repose": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1100",
-    "page": 95
+    "page": 95,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1100"
   },
   "feat:recognize-threat": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1127",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1127"
   },
   "feat:round-ears": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=960",
-    "page": 15
+    "page": 15,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=960"
   },
   "feat:saoc-astrology": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=946",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=946"
   },
   "feat:scalding-spit": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1010",
-    "page": 39
+    "page": 39,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1010"
   },
   "feat:scrollmaster-dedication": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1130",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1130"
   },
   "feat:sense-thoughts": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=985",
-    "page": 27
+    "page": 27,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=985"
   },
   "feat:shadow-pact": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=958",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=958"
   },
   "feat:share-thoughts": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=977",
-    "page": 26
+    "page": 26,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=977"
   },
   "feat:shared-luck-halfling": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1018",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1018"
   },
   "feat:shared-synergy": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1119",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1119"
   },
   "feat:shory-aerialist": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=959",
-    "page": 15
+    "page": 15,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=959"
   },
   "feat:shory-aeromancer": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=955",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=955"
   },
   "feat:shoulder-catastrophe": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1141",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1141"
   },
   "feat:signifer-armor-expertise": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1086",
-    "page": 85
+    "page": 85,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1086"
   },
   "feat:sociable": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=961",
-    "page": 15
+    "page": 15,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=961"
   },
   "feat:spellmaster-dedication": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1134",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1134"
   },
   "feat:spellmasters-resilience": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1137",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1137"
   },
   "feat:sun-blade": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1090",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1090"
   },
   "feat:surface-culture": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=967",
-    "page": 20
+    "page": 20,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=967"
   },
   "feat:surreptitious-spellcaster": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1135",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1135"
   },
   "feat:survivor-of-desolation": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1099",
-    "page": 95
+    "page": 95,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1099"
   },
   "feat:swordmaster-dedication": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1139",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1139"
   },
   "feat:synergistic-spell": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1125",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1125"
   },
   "feat:tail-spin": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1004",
-    "page": 38
+    "page": 38,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1004"
   },
   "feat:tempest-sun-redirection": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1108",
-    "page": 102
+    "page": 102,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1108"
   },
   "feat:tempest-sun-shielding": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1113",
-    "page": 103
+    "page": 103,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1113"
   },
   "feat:theoretical-acumen": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=992",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=992"
   },
   "feat:tomb-watchers-glare": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=970",
-    "page": 21
+    "page": 21,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=970"
   },
   "feat:torch-goblin": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1005",
-    "page": 38
+    "page": 38,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1005"
   },
   "feat:tree-climber-goblin": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1006",
-    "page": 38
+    "page": 38,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1006"
   },
   "feat:tupilaq-carver": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=947",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=947"
   },
   "feat:tusks-half-orc": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=963",
-    "page": 15
+    "page": 15,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=963"
   },
   "feat:unassuming-dedication": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1015",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1015"
   },
   "feat:unbreakable-er-goblin": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1011",
-    "page": 39
+    "page": 39,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1011"
   },
   "feat:unexpected-shift": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=993",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=993"
   },
   "feat:unravel-mysteries": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1132",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1132"
   },
   "feat:unshakable-idealism": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1093",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1093"
   },
   "feat:uzunjati-recollection": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1114",
-    "page": 103
+    "page": 103,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1114"
   },
   "feat:uzunjati-storytelling": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1109",
-    "page": 102
+    "page": 102,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1109"
   },
   "feat:vibrant-display": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=994",
-    "page": 33
+    "page": 33,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=994"
   },
   "feat:viking-shieldbearer": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=948",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=948"
   },
   "feat:virtue-forged-tattoos": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=956",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=956"
   },
   "feat:wandering-heart": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=986",
-    "page": 27
+    "page": 27,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=986"
   },
   "feat:ward-casting": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1136",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=1136"
   },
   "feat:wavetouched-paragon": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=952",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=952"
   },
   "feat:wildborn-adept": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=983",
-    "page": 27
+    "page": 27,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=983"
   },
   "feat:wildborn-magic": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=978",
-    "page": 26
+    "page": 26,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=978"
   },
   "feat:witch-warden": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=949",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=949"
   },
   "feat:woodcraft": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=979",
-    "page": 26
+    "page": 26,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=979"
   },
   "heritage:anvil-dwarf": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=31",
-    "page": 19
+    "page": 19,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=31"
   },
   "heritage:desert-elf": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=35",
-    "page": 25
+    "page": 25,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=35"
   },
   "heritage:elemental-heart-dwarf": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=32",
-    "page": 19
+    "page": 19,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=32"
   },
   "heritage:oathkeeper-dwarf": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=33",
-    "page": 19
+    "page": 19,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=33"
   },
   "heritage:observant-halfling": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=39",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=39"
   },
   "heritage:tailed-goblin": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=37",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=37"
   },
   "heritage:treedweller-goblin": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=38",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=38"
   },
   "heritage:vivacious-gnome": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=36",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=36"
   },
   "heritage:wintertouched-human": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=30",
-    "page": 11
+    "page": 11,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=30"
   },
   "spell:invoke-the-crimson-oath": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=556",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=556"
   },
   "spell:light-of-revelation": {
     "book": "character-guide",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=557",
-    "page": 91
+    "page": 91,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=557"
   }
 }

@@ -70,7 +70,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 74,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3528"
       }
     ],
     "description": [
@@ -104,7 +106,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 85,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3534"
       }
     ],
     "description": [
@@ -240,7 +244,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 74,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3527"
       }
     ],
     "description": [
@@ -367,7 +373,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 77,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3529"
       }
     ],
     "description": [
@@ -642,7 +650,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3532"
       }
     ],
     "description": [
@@ -710,7 +720,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3533"
       }
     ],
     "description": [
@@ -786,7 +798,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3526"
       }
     ],
     "description": [
@@ -878,7 +892,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3530"
       }
     ],
     "description": [
@@ -970,7 +986,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3531"
       }
     ],
     "description": [
@@ -1246,7 +1264,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 85,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3535"
       }
     ],
     "description": [

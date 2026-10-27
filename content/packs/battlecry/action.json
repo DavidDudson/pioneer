@@ -246,7 +246,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3454"
       }
     ],
     "description": [
@@ -615,7 +617,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 76,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3453"
       }
     ],
     "description": [
@@ -1119,7 +1123,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 72,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3306"
       }
     ],
     "description": [
@@ -1343,7 +1349,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 38,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3305"
       }
     ],
     "description": [
@@ -2226,7 +2234,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 72,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3308"
       }
     ],
     "description": [
@@ -2781,7 +2791,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3309"
       }
     ],
     "description": [
@@ -3912,7 +3924,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 72,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3307"
       }
     ],
     "description": [
@@ -4116,7 +4130,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 38,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3304"
       }
     ],
     "description": [

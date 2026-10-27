@@ -1,212 +1,322 @@
 {
   "archetype:hellbreaker": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=353",
-    "page": 216
+    "page": 216,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=353"
   },
   "consumable:bortled-favorite-lesser": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4167",
-    "page": 209
+    "page": 209,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4167"
   },
   "consumable:bortled-favorite-moderate": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4167",
-    "page": 209
+    "page": 209,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4167"
   },
   "consumable:greased-axle": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4172",
-    "page": 210
+    "page": 210,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4172"
   },
   "consumable:harpys-talon": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4173",
-    "page": 210
+    "page": 210,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4173"
   },
   "consumable:impelling-symbol": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4174",
-    "page": 210
+    "page": 210,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4174"
   },
   "consumable:restful-salve": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4175",
-    "page": 210
+    "page": 210,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4175"
   },
   "consumable:serene-smelling-salts": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4168",
-    "page": 209
+    "page": 209,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4168"
   },
   "consumable:smugglers-padlock": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4176",
-    "page": 210
+    "page": 210,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4176"
   },
   "consumable:thorn-of-milani-lesser": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4177",
-    "page": 210
+    "page": 210,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4177"
   },
   "consumable:thorn-of-milani-moderate": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4177",
-    "page": 210
+    "page": 210,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4177"
   },
   "consumable:unassuming-face-paint": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4178",
-    "page": 211
+    "page": 211,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4178"
   },
   "consumable:verdant-poultice": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4170",
-    "page": 209
+    "page": 209,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4170"
   },
   "consumable:warding-paste": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4171",
-    "page": 210
+    "page": 210,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4171"
+  },
+  "creature:adiutor": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4721",
+    "page": 222
+  },
+  "creature:alceo-demetrias": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4739",
+    "page": 244
+  },
+  "creature:aurocan": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4722",
+    "page": 223
+  },
+  "creature:brakknap": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4735",
+    "page": 236
+  },
+  "creature:caeto-vulaunex": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4736",
+    "page": 239
+  },
+  "creature:drude": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4730",
+    "page": 231
+  },
+  "creature:ezio-gaeta": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4737",
+    "page": 241
+  },
+  "creature:gliding-river-snake": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4729",
+    "page": 230
+  },
+  "creature:godclaw-hellcrown": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4731",
+    "page": 232
+  },
+  "creature:insidiator": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4723",
+    "page": 224
+  },
+  "creature:instillo": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4724",
+    "page": 225
+  },
+  "creature:kylix": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4725",
+    "page": 226
+  },
+  "creature:odvolos": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4726",
+    "page": 227
+  },
+  "creature:sarcovalt": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4733",
+    "page": 234
+  },
+  "creature:sarcovalt-swarm": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4734",
+    "page": 235
+  },
+  "creature:skeletal-hellknight-bonesinger": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4732",
+    "page": 233
+  },
+  "creature:stumpfield-war-chanter-choir": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4717",
+    "page": 218
+  },
+  "creature:stumpfield-war-saboteurs": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4718",
+    "page": 219
+  },
+  "creature:swiftrun-clergy": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4719",
+    "page": 220
+  },
+  "creature:umok-beastspeaker-circle": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4720",
+    "page": 221
+  },
+  "creature:velavi": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4727",
+    "page": 228
+  },
+  "creature:viro-ahala": {
+    "book": "hellbreakers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4741",
+    "page": 247
   },
   "equipment:devilwing-badge": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4179",
-    "page": 211
+    "page": 211,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4179"
   },
   "equipment:devilwing-badge-greater": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4179",
-    "page": 211
+    "page": 211,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4179"
   },
   "equipment:devilwing-badge-major": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4179",
-    "page": 211
+    "page": 211,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4179"
   },
   "equipment:hellhusk-shroud": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4180",
-    "page": 211
+    "page": 211,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4180"
   },
   "equipment:lazybones-pendant": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4181",
-    "page": 211
+    "page": 211,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4181"
   },
   "equipment:pallid-crystal": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4198",
-    "page": 199
+    "page": 199,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4198"
   },
   "equipment:platter-of-putrid-dreams": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4199",
-    "page": 199
+    "page": 199,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4199"
   },
   "equipment:ring-of-fair-assessment": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4182",
-    "page": 212
+    "page": 212,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4182"
   },
   "equipment:robe-of-the-erinys": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4183",
-    "page": 212
+    "page": 212,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4183"
   },
   "equipment:robe-of-the-erinys-greater": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4183",
-    "page": 212
+    "page": 212,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4183"
   },
   "equipment:robe-of-the-erinys-major": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4183",
-    "page": 212
+    "page": 212,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4183"
   },
   "equipment:shacklebreaker": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4184",
-    "page": 212
+    "page": 212,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4184"
   },
   "equipment:shacklebreaker-greater": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4184",
-    "page": 212
+    "page": 212,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4184"
   },
   "equipment:token-of-salt-and-earth": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4185",
-    "page": 212
+    "page": 212,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4185"
   },
   "equipment:whispering-wire": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4186",
-    "page": 212
+    "page": 212,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4186"
   },
   "equipment:whispering-wire-greater": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4186",
-    "page": 212
+    "page": 212,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4186"
   },
   "equipment:woe": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4197",
-    "page": 170
+    "page": 170,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4197"
   },
   "feat:battle-scars": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8541",
-    "page": 217
+    "page": 217,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8541"
   },
   "feat:defy-hell": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8542",
-    "page": 217
+    "page": 217,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8542"
   },
   "feat:devil-you-know": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8535",
-    "page": 216
+    "page": 216,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8535"
   },
   "feat:hellbreaker-dedication": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8534",
-    "page": 216
+    "page": 216,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8534"
   },
   "feat:hellbreakers-resolve": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8536",
-    "page": 216
+    "page": 216,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8536"
   },
   "feat:hells-bane": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8539",
-    "page": 217
+    "page": 217,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8539"
   },
   "feat:high-alert": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8537",
-    "page": 216
+    "page": 216,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8537"
   },
   "feat:rend-armor": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8540",
-    "page": 217
+    "page": 217,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8540"
   },
   "feat:return-to-the-pit": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8543",
-    "page": 217
+    "page": 217,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8543"
   },
   "feat:thorn-in-hells-side": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8544",
-    "page": 217
+    "page": 217,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8544"
   },
   "ritual:divine-keystone": {
     "book": "hellbreakers",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=242",
-    "page": 215
+    "page": 215,
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=242"
   }
 }

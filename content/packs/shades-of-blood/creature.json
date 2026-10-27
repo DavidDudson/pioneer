@@ -525,7 +525,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "page": 58,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3857"
       }
     ],
     "description": [],
@@ -3226,7 +3228,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "page": 34,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3856"
       }
     ],
     "description": [],
@@ -13705,7 +13709,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3852"
       }
     ],
     "description": [],
@@ -15247,7 +15253,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "page": 29,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3855"
       }
     ],
     "description": [],
@@ -15647,7 +15655,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "page": 18,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3854"
       }
     ],
     "description": [
@@ -20699,7 +20709,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "page": 93,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3853"
       }
     ],
     "description": [],
@@ -26298,7 +26310,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3858"
       }
     ],
     "description": [

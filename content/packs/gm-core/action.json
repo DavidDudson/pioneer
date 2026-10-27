@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 263,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2632"
       }
     ],
     "description": [
@@ -295,7 +297,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 212,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3516"
       }
     ],
     "description": [
@@ -642,7 +646,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 203,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3475"
       }
     ],
     "description": [
@@ -730,7 +736,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 203,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3479"
       }
     ],
     "description": [
@@ -910,7 +918,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 203,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3476"
       }
     ],
     "description": [
@@ -998,7 +1008,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 187,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2726"
       }
     ],
     "description": [
@@ -1191,7 +1203,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 203,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3478"
       }
     ],
     "description": [
@@ -1998,7 +2012,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 187,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2725"
       }
     ],
     "description": [
@@ -2091,7 +2107,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 219,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2799"
       }
     ],
     "description": [
@@ -3001,7 +3019,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 212,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3518"
       }
     ],
     "description": [
@@ -3216,7 +3236,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 203,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3477"
       }
     ],
     "description": [
@@ -3304,7 +3326,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 212,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3519"
       }
     ],
     "description": [
@@ -3365,7 +3389,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gm-core"
+        "book": "gm-core",
+        "page": 212,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3520"
       }
     ],
     "description": [

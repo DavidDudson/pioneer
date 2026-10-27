@@ -1,127 +1,237 @@
 {
+  "creature:chained-norn": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3849",
+    "page": 96
+  },
+  "creature:chernasardo-ranger": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3838",
+    "page": 44
+  },
+  "creature:commander-arsiella-dei": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3831",
+    "page": 122
+  },
+  "creature:divine-warden-of-arazni": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3844",
+    "page": 73
+  },
+  "creature:divine-warden-of-iomedae": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3842",
+    "page": 71
+  },
+  "creature:engerra": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3823",
+    "page": 114
+  },
   "creature:garrholdion": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3824",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3824"
+  },
+  "creature:knight-reclaimant": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3839",
+    "page": 44
+  },
+  "creature:lady-siccale": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3847",
+    "page": 93
+  },
+  "creature:mirmicette": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3825",
+    "page": 116
+  },
+  "creature:moldering-steed": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3826",
+    "page": 117
+  },
+  "creature:oceanius-and-glory-arcely": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3843",
+    "page": 73
+  },
+  "creature:omelia": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3837",
+    "page": 36
+  },
+  "creature:ossuary-warden": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3841",
+    "page": 67
+  },
+  "creature:radiant-veranallia": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3848",
+    "page": 95
+  },
+  "creature:raised-cavalry": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3827",
+    "page": 118
+  },
+  "creature:skeletal-rat-swarm": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3834",
+    "page": 27
+  },
+  "creature:splinter-officer": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3828",
+    "page": 119
+  },
+  "creature:stelemora": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3829",
+    "page": 120
+  },
+  "creature:tallusian": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3830",
+    "page": 121
+  },
+  "creature:undead-murder": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3836",
+    "page": 32
+  },
+  "creature:zombie-bear": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3835",
+    "page": 29
+  },
+  "creature:zombie-desecrator": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3846",
+    "page": 85
   },
   "equipment:chalice-of-ozem": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3787",
-    "page": 110
+    "page": 110,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3787"
   },
   "equipment:heart-bloodstone-of-arazni": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3783",
-    "page": 109
+    "page": 109,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3783"
   },
   "equipment:liver-bloodstone-of-arazni": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3784",
-    "page": 109
+    "page": 109,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3784"
   },
   "equipment:lung-bloodstone-of-arazni": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3785",
-    "page": 109
+    "page": 109,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3785"
   },
   "equipment:spleen-bloodstone-of-arazni": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3786",
-    "page": 110
+    "page": 110,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3786"
   },
   "feat:adept-storyteller": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7756",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7756"
   },
   "feat:body-barrier": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7752",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7752"
   },
   "feat:cautious-word": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7757",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7757"
   },
   "feat:cenotaph-stance": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7755",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7755"
   },
   "feat:crusaders-masquerade": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7758",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7758"
   },
   "feat:cut-them-down-burn-them-out": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7748",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7748"
   },
   "feat:faith-in-the-fallen": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7759",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7759"
   },
   "feat:grave-threat": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7747",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7747"
   },
   "feat:i-knew-the-heroes": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7760",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7760"
   },
   "feat:may-death-itself-reconsider": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7749",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7749"
   },
   "feat:preternatural-polish": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7751",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7751"
   },
   "feat:rallying-charge-knight-vigilant": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7750",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7750"
   },
   "feat:shattered-sacrament": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7742",
-    "page": 110
+    "page": 110,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7742"
   },
   "feat:speak-for-the-gravelands": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7743",
-    "page": 110
+    "page": 110,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7743"
   },
   "feat:spirit-of-vigil": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7753",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7753"
   },
   "feat:tripartite-omen": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7745",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7745"
   },
   "feat:uncanny-vitae": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7754",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7754"
   },
   "feat:vellumis-excision": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7744",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7744"
   },
   "feat:vigils-palisades": {
     "book": "claws-of-the-tyrant",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7746",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7746"
   }
 }

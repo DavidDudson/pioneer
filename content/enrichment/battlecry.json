@@ -1,2287 +1,2327 @@
 {
+  "action:call-follower": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=3454",
+    "page": 83
+  },
+  "action:direct-follower": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=3453",
+    "page": 76
+  },
+  "action:haunting-visage": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=3306",
+    "page": 72
+  },
+  "action:intercept-attack": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=3305",
+    "page": 38
+  },
+  "action:redistribute": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=3308",
+    "page": 72
+  },
+  "action:sickening-assault": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=3309",
+    "page": 73
+  },
+  "action:swarming-assault": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=3307",
+    "page": 72
+  },
+  "action:taunt": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=3304",
+    "page": 38
+  },
   "ancestry:jotunborn": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=95",
-    "page": 10
+    "page": 10,
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=95"
   },
   "archetype:aldori-duelist": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=324",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=324"
   },
   "archetype:captain": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=332",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=332"
   },
   "archetype:commander": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=322",
-    "page": 52
+    "page": 52,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=322"
   },
   "archetype:crossbow-infiltrator": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=325",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=325"
   },
   "archetype:field-propagandist": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=326",
-    "page": 58
+    "page": 58,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=326"
   },
   "archetype:guardian": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=323",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=323"
   },
   "archetype:guerrilla": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=327",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=327"
   },
   "archetype:iridian-choirmaster": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=328",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=328"
   },
   "archetype:necrologist": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=330",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=330"
   },
   "background:aeronaut": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=542",
-    "page": 17
+    "page": 17,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=542"
   },
   "background:arcane-revolutionary": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=543",
-    "page": 17
+    "page": 17,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=543"
   },
   "background:battle-mechanic": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=533",
-    "page": 16
+    "page": 16,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=533"
   },
   "background:battlefield-scrounger": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=548",
-    "page": 17
+    "page": 17,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=548"
   },
   "background:combat-carpenter": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=534",
-    "page": 16
+    "page": 16,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=534"
   },
   "background:combat-chaplain": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=535",
-    "page": 16
+    "page": 16,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=535"
   },
   "background:conscript": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=536",
-    "page": 16
+    "page": 16,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=536"
   },
   "background:martial-musician": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=549",
-    "page": 17
+    "page": 17,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=549"
   },
   "background:plague-doctor": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=537",
-    "page": 17
+    "page": 17,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=537"
   },
   "background:quartermaster": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=538",
-    "page": 17
+    "page": 17,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=538"
   },
   "background:report-runner": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=539",
-    "page": 17
+    "page": 17,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=539"
   },
   "background:veteran": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=540",
-    "page": 17
+    "page": 17,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=540"
   },
   "background:war-orphan": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=541",
-    "page": 17
+    "page": 17,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=541"
   },
   "class:commander": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Classes.aspx?ID=66",
-    "page": 21
+    "page": 21,
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=66"
   },
   "class:guardian": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Classes.aspx?ID=67",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=67"
   },
   "consumable:analysis-eye": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3875",
-    "page": 134
+    "page": 134,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3875"
   },
   "consumable:battering-ammunition": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3862",
-    "page": 132
+    "page": 132,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3862"
   },
   "consumable:blade-phantoms-guide": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3876",
-    "page": 134
+    "page": 134,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3876"
   },
   "consumable:burrowing-bolt": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3863",
-    "page": 132
+    "page": 132,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3863"
   },
   "consumable:burrowing-bolt-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3863",
-    "page": 132
+    "page": 132,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3863"
   },
   "consumable:chivalric-emblem": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3877",
-    "page": 134
+    "page": 134,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3877"
   },
   "consumable:chroma-kaleidoscope": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3878",
-    "page": 134
+    "page": 134,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3878"
   },
   "consumable:dimensional-cleavestone": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3879",
-    "page": 134
+    "page": 134,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3879"
   },
   "consumable:ethereal-crescent": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3880",
-    "page": 135
+    "page": 135,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3880"
   },
   "consumable:ethereal-crescent-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3880",
-    "page": 135
+    "page": 135,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3880"
   },
   "consumable:extinguishing-ball": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3864",
-    "page": 132
+    "page": 132,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3864"
   },
   "consumable:featherlight-fletching": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3881",
-    "page": 135
+    "page": 135,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3881"
   },
   "consumable:foe-sensing-rod": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3882",
-    "page": 135
+    "page": 135,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3882"
   },
   "consumable:frenzied-quintessence": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3883",
-    "page": 135
+    "page": 135,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3883"
   },
   "consumable:hand-of-mercy": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3884",
-    "page": 135
+    "page": 135,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3884"
   },
   "consumable:key-of-unwinding": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3885",
-    "page": 135
+    "page": 135,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3885"
   },
   "consumable:leeching-fangs": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3886",
-    "page": 135
+    "page": 135,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3886"
   },
   "consumable:limning-gem": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3887",
-    "page": 136
+    "page": 136,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3887"
   },
   "consumable:mighty-counterweight": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3888",
-    "page": 136
+    "page": 136,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3888"
   },
   "consumable:morph-jewel": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3889",
-    "page": 136
+    "page": 136,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3889"
   },
   "consumable:penultimate-heartbeat": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3890",
-    "page": 136
+    "page": 136,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3890"
   },
   "consumable:phasing-trine": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3891",
-    "page": 136
+    "page": 136,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3891"
   },
   "consumable:pinpoint-arrowhead": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3892",
-    "page": 136
+    "page": 136,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3892"
   },
   "consumable:preserving-shot": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3865",
-    "page": 132
+    "page": 132,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3865"
   },
   "consumable:reactive-flash": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3893",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3893"
   },
   "consumable:scouting-arrow": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3866",
-    "page": 132
+    "page": 132,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3866"
   },
   "consumable:slayers-stone": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3894",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3894"
   },
   "consumable:spellslasher": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3895",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3895"
   },
   "consumable:toothy-knife": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3896",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3896"
   },
   "consumable:toothy-knife-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3896",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3896"
   },
   "consumable:transmuting-ingot-adamantine": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3897",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3897"
   },
   "consumable:transmuting-ingot-cold-iron": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3897",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3897"
   },
   "consumable:transmuting-ingot-silver": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3897",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3897"
   },
   "consumable:valorous-coin": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3898",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3898"
   },
   "consumable:windstep-sheath": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3901",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3901"
   },
   "equipment:abidance-blinders": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3953",
-    "page": 148
+    "page": 148,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3953"
   },
   "equipment:admirals-bicorne": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3954",
-    "page": 148
+    "page": 148,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3954"
   },
   "equipment:allys-kerchief": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3955",
-    "page": 148
+    "page": 148,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3955"
   },
   "equipment:arcane-standard": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3902",
-    "page": 138
+    "page": 138,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3902"
   },
   "equipment:arcane-standard-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3902",
-    "page": 138
+    "page": 138,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3902"
   },
   "equipment:atlas-arcane": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3922",
-    "page": 142
+    "page": 142,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3922"
   },
   "equipment:banner-of-creeping-death-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3903",
-    "page": 138
+    "page": 138,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3903"
   },
   "equipment:banner-of-creeping-death-lesser": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3903",
-    "page": 138
+    "page": 138,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3903"
   },
   "equipment:banner-of-creeping-death-major": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3903",
-    "page": 138
+    "page": 138,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3903"
   },
   "equipment:banner-of-creeping-death-moderate": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3903",
-    "page": 138
+    "page": 138,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3903"
   },
   "equipment:banner-of-piercing-shards": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3904",
-    "page": 138
+    "page": 138,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3904"
   },
   "equipment:banner-of-piercing-shards-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3904",
-    "page": 138
+    "page": 138,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3904"
   },
   "equipment:banner-of-piercing-shards-major": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3904",
-    "page": 138
+    "page": 138,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3904"
   },
   "equipment:banner-of-the-restful": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3905",
-    "page": 139
+    "page": 139,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3905"
   },
   "equipment:banner-of-the-restful-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3905",
-    "page": 139
+    "page": 139,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3905"
   },
   "equipment:banner-of-the-restful-major": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3905",
-    "page": 139
+    "page": 139,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3905"
   },
   "equipment:banner-of-the-rising-star": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3906",
-    "page": 139
+    "page": 139,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3906"
   },
   "equipment:barding-saddle": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3956",
-    "page": 148
+    "page": 148,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3956"
   },
   "equipment:baton-of-the-fallen": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3923",
-    "page": 142
+    "page": 142,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3923"
   },
   "equipment:beacon-of-the-wilds": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3907",
-    "page": 139
+    "page": 139,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3907"
   },
   "equipment:bedroll-of-deep-slumber": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3924",
-    "page": 142
+    "page": 142,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3924"
   },
   "equipment:bellows-pipes": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3925",
-    "page": 142
+    "page": 142,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3925"
   },
   "equipment:benthic-drums": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3926",
-    "page": 142
+    "page": 142,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3926"
   },
   "equipment:blakenshipper": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3927",
-    "page": 142
+    "page": 142,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3927"
   },
   "equipment:blazing-banner": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3908",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3908"
   },
   "equipment:blazing-banner-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3908",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3908"
   },
   "equipment:blazing-banner-major": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3908",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3908"
   },
   "equipment:bloodstained-waistcoat": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3957",
-    "page": 148
+    "page": 148,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3957"
   },
   "equipment:booming-bell": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3928",
-    "page": 143
+    "page": 143,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3928"
   },
   "equipment:boots-of-quick-marching": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3958",
-    "page": 148
+    "page": 148,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3958"
   },
   "equipment:boots-of-the-dead": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3959",
-    "page": 149
+    "page": 149,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3959"
   },
   "equipment:boots-of-the-secret-blade": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3960",
-    "page": 149
+    "page": 149,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3960"
   },
   "equipment:boots-of-the-secret-blade-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3960",
-    "page": 149
+    "page": 149,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3960"
   },
   "equipment:boots-of-the-secret-blade-major": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3960",
-    "page": 149
+    "page": 149,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3960"
   },
   "equipment:bottle-of-infinite-dust": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3929",
-    "page": 143
+    "page": 143,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3929"
   },
   "equipment:constant-crosier": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3930",
-    "page": 143
+    "page": 143,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3930"
   },
   "equipment:core-bugle": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3931",
-    "page": 143
+    "page": 143,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3931"
   },
   "equipment:cornucopia-of-plenty": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3932",
-    "page": 143
+    "page": 143,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3932"
   },
   "equipment:dawnfire-beacon": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3909",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3909"
   },
   "equipment:dawnfire-beacon-major": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3909",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3909"
   },
   "equipment:doom-switch": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3933",
-    "page": 143
+    "page": 143,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3933"
   },
   "equipment:draconic-verge": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3934",
-    "page": 144
+    "page": 144,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3934"
   },
   "equipment:endless-quiver": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3962",
-    "page": 149
+    "page": 149,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3962"
   },
   "equipment:endless-quiver-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3962",
-    "page": 149
+    "page": 149,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3962"
   },
   "equipment:fife-of-the-faithful": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3936",
-    "page": 144
+    "page": 144,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3936"
   },
   "equipment:fireproof-gloves": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3963",
-    "page": 149
+    "page": 149,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3963"
   },
   "equipment:fireproof-gloves-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3963",
-    "page": 149
+    "page": 149,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3963"
   },
   "equipment:flag-of-the-stronghold": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3910",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3910"
   },
   "equipment:flag-of-the-stronghold-major": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3910",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3910"
   },
   "equipment:gas-mask-of-clean-air": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3964",
-    "page": 149
+    "page": 149,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3964"
   },
   "equipment:golden-greaves": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3965",
-    "page": 150
+    "page": 150,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3965"
   },
   "equipment:grippy-gloves": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3966",
-    "page": 150
+    "page": 150,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3966"
   },
   "equipment:guangu-of-the-steppe": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3937",
-    "page": 144
+    "page": 144,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3937"
   },
   "equipment:hexwise-banner": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3911",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3911"
   },
   "equipment:hexwise-banner-major": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3911",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3911"
   },
   "equipment:horn-of-the-archon": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3938",
-    "page": 144
+    "page": 144,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3938"
   },
   "equipment:horrific-effigy": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3939",
-    "page": 144
+    "page": 144,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3939"
   },
   "equipment:hungry-lantern": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3940",
-    "page": 145
+    "page": 145,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3940"
   },
   "equipment:instrument-harness": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3967",
-    "page": 150
+    "page": 150,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3967"
   },
   "equipment:killers-belt": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3968",
-    "page": 150
+    "page": 150,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3968"
   },
   "equipment:killers-belt-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3968",
-    "page": 150
+    "page": 150,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3968"
   },
   "equipment:knaves-standard": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3912",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3912"
   },
   "equipment:knaves-standard-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3912",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3912"
   },
   "equipment:knaves-standard-major": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3912",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3912"
   },
   "equipment:lieutenants-sash": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3969",
-    "page": 150
+    "page": 150,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3969"
   },
   "equipment:locket-of-love-left-behind": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3970",
-    "page": 150
+    "page": 150,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3970"
   },
   "equipment:marshals-baton": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3941",
-    "page": 145
+    "page": 145,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3941"
   },
   "equipment:medics-armband": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3972",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3972"
   },
   "equipment:medics-armband-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3972",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3972"
   },
   "equipment:motion-seeking-lenses": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3973",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3973"
   },
   "equipment:name-pendant": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3974",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3974"
   },
   "equipment:pocket-watch-of-stethelos": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3942",
-    "page": 146
+    "page": 146,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3942"
   },
   "equipment:pristine-epaulets": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3975",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3975"
   },
   "equipment:protective-netting": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3976",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3976"
   },
   "equipment:quickened-standard": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3913",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3913"
   },
   "equipment:repeater-bandolier": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3987",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3987"
   },
   "equipment:sailors-collar": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3977",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3977"
   },
   "equipment:sailors-collar-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3977",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3977"
   },
   "equipment:satchel-of-numberless-seeds": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3944",
-    "page": 146
+    "page": 146,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3944"
   },
   "equipment:semaphore-of-slanders": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3945",
-    "page": 146
+    "page": 146,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3945"
   },
   "equipment:shining-hackle": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3978",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3978"
   },
   "equipment:sinuous-recorder": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3946",
-    "page": 146
+    "page": 146,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3946"
   },
   "equipment:snare-of-speed": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3947",
-    "page": 147
+    "page": 147,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3947"
   },
   "equipment:spotless-spats": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3979",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3979"
   },
   "equipment:squires-tabard": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3980",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3980"
   },
   "equipment:stalwarts-banner": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3914",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3914"
   },
   "equipment:stalwarts-banner-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3914",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3914"
   },
   "equipment:stalwarts-banner-major": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3914",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3914"
   },
   "equipment:standard-of-the-sure-footed": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3915",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3915"
   },
   "equipment:standard-of-the-true-ally": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3916",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3916"
   },
   "equipment:sturdy-neck-stock": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3981",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3981"
   },
   "equipment:swagger-stick": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3948",
-    "page": 147
+    "page": 147,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3948"
   },
   "equipment:swift-standard": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3917",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3917"
   },
   "equipment:swift-standard-greater": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3917",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3917"
   },
   "equipment:swift-standard-major": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3917",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3917"
   },
   "equipment:tasset-of-flexibility": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3982",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3982"
   },
   "equipment:timepiece-standard": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3918",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3918"
   },
   "equipment:timepiece-standard-major": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3918",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3918"
   },
   "equipment:timpani-of-panic": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3949",
-    "page": 147
+    "page": 147,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3949"
   },
   "equipment:titans-standard": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3919",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3919"
   },
   "equipment:trusty-helmet": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3983",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3983"
   },
   "equipment:underbrush-cloak": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3984",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3984"
   },
   "equipment:vandals-banner": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3920",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3920"
   },
   "equipment:vine-baton": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3950",
-    "page": 147
+    "page": 147,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3950"
   },
   "equipment:war-saddle": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3988",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3988"
   },
   "equipment:warming-parka": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3985",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3985"
   },
   "equipment:warpipes": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3951",
-    "page": 147
+    "page": 147,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3951"
   },
   "equipment:watchers-armband": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3986",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3986"
   },
   "equipment:wyvern-nafir": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3952",
-    "page": 147
+    "page": 147,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3952"
   },
   "equipment:zealous-banner": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3921",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3921"
   },
   "feat:a-tale-to-believe-in": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7928",
-    "page": 58
+    "page": 58,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7928"
   },
   "feat:acclimated-mount": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7991",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7991"
   },
   "feat:adaptive-stratagem": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7797",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7797"
   },
   "feat:additional-follower": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7995",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7995"
   },
   "feat:advanced-defender": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7895",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7895"
   },
   "feat:advanced-field-training": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7889",
-    "page": 52
+    "page": 52,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7889"
   },
   "feat:aldori-duelist-dedication": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7899",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7899"
   },
   "feat:aldori-parry": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7901",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7901"
   },
   "feat:aldori-riposte": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7903",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7903"
   },
   "feat:aldori-swordlord": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7911",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7911"
   },
   "feat:aldoris-retort": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7907",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7907"
   },
   "feat:arcana-of-iron": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7980",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7980"
   },
   "feat:area-armor": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7844",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7844"
   },
   "feat:armor-break": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7867",
-    "page": 46
+    "page": 46,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7867"
   },
   "feat:armored-counterattack": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7868",
-    "page": 46
+    "page": 46,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7868"
   },
   "feat:armored-courage": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7845",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7845"
   },
   "feat:armored-resistance": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7897",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7897"
   },
   "feat:banner-twirl": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7803",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7803"
   },
   "feat:banners-inspiration": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7804",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7804"
   },
   "feat:basic-defender": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7893",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7893"
   },
   "feat:basic-field-training": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7887",
-    "page": 52
+    "page": 52,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7887"
   },
   "feat:battle-hardened-companion": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7815",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7815"
   },
   "feat:battle-tested-companion": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7808",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7808"
   },
   "feat:battlefield-arcana": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7985",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7985"
   },
   "feat:battlefront-sabotage": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7938",
-    "page": 61
+    "page": 61,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7938"
   },
   "feat:belly-flop": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7862",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7862"
   },
   "feat:blanket-defense": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7873",
-    "page": 48
+    "page": 48,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7873"
   },
   "feat:bloody-denial": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7874",
-    "page": 48
+    "page": 48,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7874"
   },
   "feat:bodyguard": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7831",
-    "page": 40
+    "page": 40,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7831"
   },
   "feat:build-the-first-walls": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7781",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7781"
   },
   "feat:burrowing-shot": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7963",
-    "page": 65
+    "page": 65,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7963"
   },
   "feat:cadre": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7998",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7998"
   },
   "feat:call-the-first-tools": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7776",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7776"
   },
   "feat:captain-dedication": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7994",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7994"
   },
   "feat:caretakers-intuition": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7769",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7769"
   },
   "feat:caretakers-restoration": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7770",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7770"
   },
   "feat:claim-the-field": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7809",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7809"
   },
   "feat:clang": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7877",
-    "page": 48
+    "page": 48,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7877"
   },
   "feat:clobber": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7878",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7878"
   },
   "feat:commander-dedication": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7886",
-    "page": 52
+    "page": 52,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7886"
   },
   "feat:commanders-companion": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7793",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7793"
   },
   "feat:confusing-commands": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7824",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7824"
   },
   "feat:contact-with-the-enemy": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7821",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7821"
   },
   "feat:coordinated-tactics": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8001",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8001"
   },
   "feat:covering-stance": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7837",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7837"
   },
   "feat:crescent-cross-training": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7914",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7914"
   },
   "feat:crossbow-infiltrator-dedication": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7913",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7913"
   },
   "feat:cushion-landing": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7986",
-    "page": 70
+    "page": 70,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7986"
   },
   "feat:danse-macabre": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7971",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7971"
   },
   "feat:dashing-pickup": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7988",
-    "page": 70
+    "page": 70,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7988"
   },
   "feat:death-rattle": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7974",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7974"
   },
   "feat:deathblow": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7941",
-    "page": 61
+    "page": 61,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7941"
   },
   "feat:deathguard": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7968",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7968"
   },
   "feat:deceptive-tactics": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7794",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7794"
   },
   "feat:defensive-swap": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7798",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7798"
   },
   "feat:defiant-banner": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7811",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7811"
   },
   "feat:demand-surrender": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7826",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7826"
   },
   "feat:demolish-defenses": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7880",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7880"
   },
   "feat:desperate-resuscitation": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7822",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7822"
   },
   "feat:devastating-duelist": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7910",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7910"
   },
   "feat:devastating-shield-wallop": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7869",
-    "page": 47
+    "page": 47,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7869"
   },
   "feat:disarming-intercept": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7851",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7851"
   },
   "feat:dismal-harvest": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7965",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7965"
   },
   "feat:drilled-reflexes": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7816",
-    "page": 33
+    "page": 33,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7816"
   },
   "feat:dueling-acumen": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7900",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7900"
   },
   "feat:duelists-edge": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7902",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7902"
   },
   "feat:duelists-form": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7908",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7908"
   },
   "feat:efficient-preparation": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7810",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7810"
   },
   "feat:energy-interceptor": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7846",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7846"
   },
   "feat:ensnaring-disarm": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7946",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7946"
   },
   "feat:exceptional-follower": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8002",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8002"
   },
   "feat:experienced-follower": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7996",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7996"
   },
   "feat:fabricate-truth": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7923",
-    "page": 58
+    "page": 58,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7923"
   },
   "feat:faithful-stride": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7992",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7992"
   },
   "feat:field-propagandist-dedication": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7922",
-    "page": 58
+    "page": 58,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7922"
   },
   "feat:flying-tackle": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7847",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7847"
   },
   "feat:focused-fire": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7959",
-    "page": 65
+    "page": 65,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7959"
   },
   "feat:fortunate-blow": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7819",
-    "page": 33
+    "page": 33,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7819"
   },
   "feat:frightful-attrition": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7939",
-    "page": 61
+    "page": 61,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7939"
   },
   "feat:get-behind-me": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7863",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7863"
   },
   "feat:ghostsong": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7969",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7969"
   },
   "feat:glorious-banner": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7829",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7829"
   },
   "feat:grasping-corpses": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7966",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7966"
   },
   "feat:great-shield-mastery": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7884",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7884"
   },
   "feat:group-taunt": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7857",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7857"
   },
   "feat:guardian-dedication": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7892",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7892"
   },
   "feat:guardian-resiliency": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7894",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7894"
   },
   "feat:guardians-intercept": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7896",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7896"
   },
   "feat:guerrilla-dedication": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7931",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7931"
   },
   "feat:guerrilla-weaponry": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7932",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7932"
   },
   "feat:guiding-shot": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7799",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7799"
   },
   "feat:hampering-stance": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7838",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7838"
   },
   "feat:hit-and-run": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7934",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7934"
   },
   "feat:iivlars-boundary-break": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7785",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7785"
   },
   "feat:iivlars-deflection": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7782",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7782"
   },
   "feat:in-the-hordes-grip": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7975",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7975"
   },
   "feat:infiltration-assassination": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7919",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7919"
   },
   "feat:infiltrators-blitz": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7921",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7921"
   },
   "feat:infiltrators-reload": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7916",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7916"
   },
   "feat:intimidating-spell": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7981",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7981"
   },
   "feat:invented-vulnerability": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7925",
-    "page": 58
+    "page": 58,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7925"
   },
   "feat:invincible-army": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7926",
-    "page": 58
+    "page": 58,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7926"
   },
   "feat:iridian-choirmaster-dedication": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7943",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7943"
   },
   "feat:ironclad-fortitude": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7898",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7898"
   },
   "feat:jotunborn-grappler": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7772",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7772"
   },
   "feat:jotunborn-lore": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7773",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7773"
   },
   "feat:jotunborn-weapon-familiarity": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7774",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7774"
   },
   "feat:jotuns-battle-stance": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7777",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7777"
   },
   "feat:jotuns-boost": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7783",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7783"
   },
   "feat:jotuns-eyes": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7771",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7771"
   },
   "feat:jotuns-grasp": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7778",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7778"
   },
   "feat:jotuns-heart": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7789",
-    "page": 15
+    "page": 15,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7789"
   },
   "feat:jotuns-restoration": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7786",
-    "page": 15
+    "page": 15,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7786"
   },
   "feat:jotuns-transposition": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7790",
-    "page": 15
+    "page": 15,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7790"
   },
   "feat:juggernaut-charge": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7858",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7858"
   },
   "feat:keep-up-the-good-fight": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7875",
-    "page": 48
+    "page": 48,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7875"
   },
   "feat:larger-than-life-guardian": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7832",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7832"
   },
   "feat:leader-of-all": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7997",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7997"
   },
   "feat:legendary-leader": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8003",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8003"
   },
   "feat:lesson-of-bonded-eyes": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7947",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7947"
   },
   "feat:lesson-of-mutual-gambits": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7949",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7949"
   },
   "feat:lesson-of-sympathetic-vulnerability": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7950",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7950"
   },
   "feat:lesson-of-the-broken-wing": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7944",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7944"
   },
   "feat:lesson-of-the-circling-gale": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7945",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7945"
   },
   "feat:lesson-of-the-hurricanes-might": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7955",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7955"
   },
   "feat:lesson-of-the-splintered-aegis": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7951",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7951"
   },
   "feat:lesson-of-unified-elusion": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7953",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7953"
   },
   "feat:lethargy-poisoner": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7918",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7918"
   },
   "feat:lock-down": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7853",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7853"
   },
   "feat:lonely-army": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7940",
-    "page": 61
+    "page": 61,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7940"
   },
   "feat:long-distance-taunt": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7833",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7833"
   },
   "feat:mages-field-dressing": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7977",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7977"
   },
   "feat:mass-delusion": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7930",
-    "page": 58
+    "page": 58,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7930"
   },
   "feat:mercenary-reversal": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7827",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7827"
   },
   "feat:mighty-bulwark": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6413",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6413"
   },
   "feat:momentum-strike": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7864",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7864"
   },
   "feat:mounting-leap": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7987",
-    "page": 70
+    "page": 70,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7987"
   },
   "feat:munitions-master-dedication": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7958",
-    "page": 65
+    "page": 65,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7958"
   },
   "feat:necrologist-dedication": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7964",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7964"
   },
   "feat:never": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7879",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7879"
   },
   "feat:not-so-fast": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7848",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7848"
   },
   "feat:observational-analysis": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7805",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7805"
   },
   "feat:officers-education": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7812",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7812"
   },
   "feat:officers-expertise": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7890",
-    "page": 52
+    "page": 52,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7890"
   },
   "feat:officers-mastery": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7891",
-    "page": 52
+    "page": 52,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7891"
   },
   "feat:officers-medical-training": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7795",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7795"
   },
   "feat:one-on-one": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7906",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7906"
   },
   "feat:peerless-captain": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8004",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8004"
   },
   "feat:peerless-mascot-companion": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7825",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7825"
   },
   "feat:pennant-of-victory": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7830",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7830"
   },
   "feat:perfect-protection": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7881",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7881"
   },
   "feat:perfected-evaluations": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7820",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7820"
   },
   "feat:planar-resilience": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7779",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7779"
   },
   "feat:planar-traveler": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7791",
-    "page": 15
+    "page": 15,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7791"
   },
   "feat:plane-hop": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7787",
-    "page": 15
+    "page": 15,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7787"
   },
   "feat:plane-step": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7784",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7784"
   },
   "feat:plane-stepping-dash": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7775",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7775"
   },
   "feat:plant-banner": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7796",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7796"
   },
   "feat:poisoned-sticks-and-stones": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7935",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7935"
   },
   "feat:pounding-leap": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7780",
-    "page": 14
+    "page": 14,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7780"
   },
   "feat:practiced-reflexes": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7828",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7828"
   },
   "feat:predispose-settlement": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7924",
-    "page": 58
+    "page": 58,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7924"
   },
   "feat:preserve-the-horde": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7970",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7970"
   },
   "feat:proud-nail": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7849",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7849"
   },
   "feat:punishing-shove": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7834",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7834"
   },
   "feat:pupils-guard": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7954",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7954"
   },
   "feat:quick-vengeance": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7882",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7882"
   },
   "feat:quickening-banner": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7823",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7823"
   },
   "feat:raise-haft": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7840",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7840"
   },
   "feat:rally-support": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7936",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7936"
   },
   "feat:rallying-banner": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7813",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7813"
   },
   "feat:rapid-assessment": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7800",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7800"
   },
   "feat:rearing-display": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7990",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7990"
   },
   "feat:recoiling-relocation": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7962",
-    "page": 65
+    "page": 65,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7962"
   },
   "feat:reloading-trick": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7917",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7917"
   },
   "feat:repeat-lesson": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7948",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7948"
   },
   "feat:repeating-hand-crossbow-training": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7915",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7915"
   },
   "feat:repositioning-block": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7859",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7859"
   },
   "feat:retaliating-rescue": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7854",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7854"
   },
   "feat:right-where-you-want-them": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7870",
-    "page": 47
+    "page": 47,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7870"
   },
   "feat:ring-their-bell": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7855",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7855"
   },
   "feat:saving-slash": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7905",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7905"
   },
   "feat:scattering-charge": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7871",
-    "page": 47
+    "page": 47,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7871"
   },
   "feat:secrets-of-steel": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7984",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7984"
   },
   "feat:seize-advantage": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7952",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7952"
   },
   "feat:set-up-strike": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7801",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7801"
   },
   "feat:shambling-march": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7967",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7967"
   },
   "feat:shared-mind-shared-heart": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7957",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7957"
   },
   "feat:shield-from-arrows": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7860",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7860"
   },
   "feat:shield-from-spells": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7883",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7883"
   },
   "feat:shield-spell-reinforcement": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7978",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7978"
   },
   "feat:shield-wallop": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7861",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7861"
   },
   "feat:shield-warfare": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7835",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7835"
   },
   "feat:shield-your-eyes": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7841",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7841"
   },
   "feat:shielded-attrition": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7850",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7850"
   },
   "feat:shielded-recovery": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7806",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7806"
   },
   "feat:shielding-formation": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7982",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7982"
   },
   "feat:shielding-taunt": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7842",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7842"
   },
   "feat:shift-horde": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7972",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7972"
   },
   "feat:shoulder-check": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7836",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7836"
   },
   "feat:siege-celerity": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7961",
-    "page": 65
+    "page": 65,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7961"
   },
   "feat:siege-ritualist": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7979",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7979"
   },
   "feat:simultaneous-strike": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7956",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7956"
   },
   "feat:smoothing-stomp": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7788",
-    "page": 15
+    "page": 15,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7788"
   },
   "feat:snare-expert": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7933",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7933"
   },
   "feat:spellshield": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7983",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7983"
   },
   "feat:standard-bearers-sacrifice": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7817",
-    "page": 33
+    "page": 33,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7817"
   },
   "feat:steeds-toppling-strike": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7993",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7993"
   },
   "feat:stomp-ground": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7856",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7856"
   },
   "feat:sure-footed": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7865",
-    "page": 46
+    "page": 46,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7865"
   },
   "feat:swordlord-exile": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7912",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7912"
   },
   "feat:tactical-excellence": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7888",
-    "page": 52
+    "page": 52,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7888"
   },
   "feat:tactical-expansion": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7802",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7802"
   },
   "feat:tactical-guidance": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7999",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7999"
   },
   "feat:targeting-strike": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7818",
-    "page": 33
+    "page": 33,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7818"
   },
   "feat:taunting-strike": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7843",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7843"
   },
   "feat:tempo-duelist": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7909",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7909"
   },
   "feat:terrain-ghost": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7942",
-    "page": 61
+    "page": 61,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7942"
   },
   "feat:the-truth-as-i-see-it": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7929",
-    "page": 58
+    "page": 58,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7929"
   },
   "feat:tough-cookie": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7866",
-    "page": 46
+    "page": 46,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7866"
   },
   "feat:unnerving-prowess": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7904",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7904"
   },
   "feat:unrivaled-analysis": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7814",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7814"
   },
   "feat:unseen-shot": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7920",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7920"
   },
   "feat:unsteadying-strike": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7807",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7807"
   },
   "feat:unyielding-force": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7885",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7885"
   },
   "feat:vaulting-gallop": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7989",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7989"
   },
   "feat:venomous-weapons": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7937",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7937"
   },
   "feat:veteran-follower": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8000",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8000"
   },
   "feat:wailing-dead": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7973",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7973"
   },
   "feat:war-mage-dedication": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7976",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7976"
   },
   "feat:weakening-assault": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7872",
-    "page": 47
+    "page": 47,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7872"
   },
   "feat:wrapped-in-smoke": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7960",
-    "page": 65
+    "page": 65,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7960"
   },
   "heritage:keeper-jotunborn": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=417",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=417"
   },
   "heritage:plane-hopper-jotunborn": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=418",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=418"
   },
   "heritage:sage-jotunborn": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=419",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=419"
   },
   "heritage:warrior-jotunborn": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=420",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=420"
   },
   "heritage:weaver-jotunborn": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=421",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=421"
   },
   "ritual:army-of-shadows": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=208",
-    "page": 93
+    "page": 93,
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=208"
   },
   "ritual:encroaching-woods": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=209",
-    "page": 93
+    "page": 93,
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=209"
   },
   "ritual:halt-death": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=210",
-    "page": 93
+    "page": 93,
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=210"
   },
   "ritual:plague-shot": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=212",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=212"
   },
   "ritual:reinforced-rations": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=213",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=213"
   },
   "ritual:secure-siege-weapons": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=214",
-    "page": 95
+    "page": 95,
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=214"
   },
   "ritual:sleepless-season": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=215",
-    "page": 95
+    "page": 95,
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=215"
   },
   "ritual:sprawling-tunnels": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=216",
-    "page": 95
+    "page": 95,
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=216"
   },
   "spell:barbed-spear": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2490",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2490"
   },
   "spell:blinding-bottle": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2493",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2493"
   },
   "spell:blister-bomb": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2494",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2494"
   },
   "spell:boots-on-the-ground": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2495",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2495"
   },
   "spell:clockwork-devotion": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2496",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2496"
   },
   "spell:conquering-soldiers": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2497",
-    "page": 85
+    "page": 85,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2497"
   },
   "spell:curse-of-recoil": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2498",
-    "page": 85
+    "page": 85,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2498"
   },
   "spell:dancing-shield": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2499",
-    "page": 85
+    "page": 85,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2499"
   },
   "spell:desperate-repair": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2500",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2500"
   },
   "spell:dividing-trench": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2501",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2501"
   },
   "spell:explosive-barrage": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2502",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2502"
   },
   "spell:fallen-soldiers-lament": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2503",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2503"
   },
   "spell:filter-air": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2504",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2504"
   },
   "spell:forced-mercy": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2505",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2505"
   },
   "spell:frozen-fog": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2506",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2506"
   },
   "spell:helpful-reload": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2507",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2507"
   },
   "spell:holy-host": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2508",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2508"
   },
   "spell:instant-minefield": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2509",
-    "page": 88
+    "page": 88,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2509"
   },
   "spell:jassims-allegiance": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2510",
-    "page": 88
+    "page": 88,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2510"
   },
   "spell:let-not-the-fallen-rest": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2492",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2492"
   },
   "spell:lock-item": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2511",
-    "page": 88
+    "page": 88,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2511"
   },
   "spell:pest-swarm": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2512",
-    "page": 89
+    "page": 89,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2512"
   },
   "spell:shielding-formation": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2489",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2489"
   },
   "spell:shock-and-awe": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2513",
-    "page": 89
+    "page": 89,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2513"
   },
   "spell:siege-weapons-blessing": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2514",
-    "page": 89
+    "page": 89,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2514"
   },
   "spell:skeleton-army": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2515",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2515"
   },
   "spell:steel-fortifications": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2516",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2516"
   },
   "spell:sticky-fire": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2517",
-    "page": 91
+    "page": 91,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2517"
   },
   "spell:unholy-army": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2518",
-    "page": 91
+    "page": 91,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2518"
   },
   "spell:wings-of-the-valkyrie": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2491",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2491"
   },
   "weapon:aldori-dueling-sword": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=535",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=535"
   },
   "weapon:battle-lute": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=528",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=528"
   },
   "weapon:bladed-gauntlet": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=532",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=532"
   },
   "weapon:bladesweeper": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=536",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=536"
   },
   "weapon:fauchard": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=529",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=529"
   },
   "weapon:gaff": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=530",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=530"
   },
   "weapon:gauntlet-bow": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=538",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=538"
   },
   "weapon:lion-scythe": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=533",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=533"
   },
   "weapon:maul-spade": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=537",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=537"
   },
   "weapon:repeating-hand-crossbow": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=539",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=539"
   },
   "weapon:scourge": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=531",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=531"
   },
   "weapon:war-lance": {
     "book": "battlecry",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=534",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=534"
   }
 }

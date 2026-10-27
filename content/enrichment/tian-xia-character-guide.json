@@ -1,2052 +1,2097 @@
 {
+  "action:blazing-conflagration": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=2914",
+    "page": 117
+  },
+  "action:create-familiar-fulu": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=2945",
+    "page": 116
+  },
+  "action:cycle-elemental-stance": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=2908",
+    "page": 90
+  },
+  "action:disarming-interception": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=2944",
+    "page": 93
+  },
+  "action:enlightenment-in-adversity": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=2935",
+    "page": 12
+  },
+  "action:lightning-armillary": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=2913",
+    "page": 117
+  },
+  "action:lightning-needles": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=2912",
+    "page": 116
+  },
+  "action:name-drop": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=2936",
+    "page": 12
+  },
+  "action:path-of-the-tempest": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=2911",
+    "page": 116
+  },
   "ancestry:samsaran": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=88",
-    "page": 52
+    "page": 52,
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=88"
   },
   "ancestry:sarangay": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=89",
-    "page": 58
+    "page": 58,
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=89"
   },
   "ancestry:tanuki": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=90",
-    "page": 64
+    "page": 64,
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=90"
   },
   "ancestry:wayang": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=91",
-    "page": 70
+    "page": 70,
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=91"
   },
   "ancestry:yaksha": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=92",
-    "page": 76
+    "page": 76,
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=92"
   },
   "ancestry:yaoguai": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=93",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=93"
   },
   "archetype:cultivator": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=278",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=278"
   },
   "archetype:familiar-sage": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=279",
-    "page": 116
+    "page": 116,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=279"
   },
   "archetype:fan-dancer": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=276",
-    "page": 98
+    "page": 98,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=276"
   },
   "archetype:five-breath-vanguard": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=272",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=272"
   },
   "archetype:spirit-warrior": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=274",
-    "page": 92
+    "page": 92,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=274"
   },
   "archetype:starlit-sentinel": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=275",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=275"
   },
   "archetype:wandering-chef": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=277",
-    "page": 100
+    "page": 100,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=277"
   },
   "background:acupuncturist": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=471",
-    "page": 10
+    "page": 10,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=471"
   },
   "background:bachuan-revolutionary": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=472",
-    "page": 10
+    "page": 10,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=472"
   },
   "background:banished-celestial": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=483",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=483"
   },
   "background:eagle-hunter": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=484",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=484"
   },
   "background:fated-rival": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=485",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=485"
   },
   "background:favored": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=486",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=486"
   },
   "background:gossip": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=473",
-    "page": 10
+    "page": 10,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=473"
   },
   "background:jeweler": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=474",
-    "page": 10
+    "page": 10,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=474"
   },
   "background:kaiju-stalker": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=488",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=488"
   },
   "background:ocean-diver": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=475",
-    "page": 10
+    "page": 10,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=475"
   },
   "background:professional-letter-writer": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=489",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=489"
   },
   "background:remittance-agent": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=477",
-    "page": 10
+    "page": 10,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=477"
   },
   "background:runaway-noble": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=476",
-    "page": 10
+    "page": 10,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=476"
   },
   "background:silk-farmer": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=478",
-    "page": 11
+    "page": 11,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=478"
   },
   "background:streetfood-vendor": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=479",
-    "page": 11
+    "page": 11,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=479"
   },
   "background:tiffin-box-deliverer": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=480",
-    "page": 11
+    "page": 11,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=480"
   },
   "background:traveling-gourmand": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=482",
-    "page": 11
+    "page": 11,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=482"
   },
   "background:warded-by-kami": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=487",
-    "page": 12
+    "page": 12,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=487"
   },
   "background:weaver": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=481",
-    "page": 11
+    "page": 11,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=481"
   },
   "background:zodiac-bound": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=490",
-    "page": 13
+    "page": 13,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=490"
   },
   "consumable:chilled-fire-noodles": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3458",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3458"
   },
   "consumable:chilled-fire-noodles-greater": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3458",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3458"
   },
   "consumable:cloud-buns": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3459",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3459"
   },
   "consumable:cloud-buns-greater": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3459",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3459"
   },
   "consumable:dragon-pearl": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3482",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3482"
   },
   "consumable:ghost-fowl-porridge": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3460",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3460"
   },
   "consumable:iron-wine": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3455",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3455"
   },
   "consumable:peachwood-talisman": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3471",
-    "page": 130
+    "page": 130,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3471"
   },
   "consumable:preserved-moonflower": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3457",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3457"
   },
   "consumable:rainbow-vinegar-greater": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3456",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3456"
   },
   "consumable:rainbow-vinegar-moderate": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3456",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3456"
   },
   "equipment:cloak-of-waves-clouds": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3463",
-    "page": 128
+    "page": 128,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3463"
   },
   "equipment:kotodama-bells": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3468",
-    "page": 129
+    "page": 129,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3468"
   },
   "equipment:kotodama-whistle": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3469",
-    "page": 129
+    "page": 129,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3469"
   },
   "equipment:navaratna-of-the-solar-ruby": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3480",
-    "page": 131
+    "page": 131,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3480"
   },
   "equipment:peachwood-branch": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3470",
-    "page": 129
+    "page": 129,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3470"
   },
   "equipment:peachwood-lumber": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3470",
-    "page": 129
+    "page": 129,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3470"
   },
   "equipment:sun-heralds-stylus": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3473",
-    "page": 130
+    "page": 130,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3473"
   },
   "equipment:wand-of-purification-2nd-rank-spell": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476",
-    "page": 130
+    "page": 130,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
   },
   "equipment:wand-of-purification-3rd-rank-spell": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476",
-    "page": 130
+    "page": 130,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
   },
   "equipment:wand-of-purification-4th-rank-spell": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476",
-    "page": 130
+    "page": 130,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
   },
   "equipment:wand-of-purification-5th-rank-spell": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476",
-    "page": 130
+    "page": 130,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
   },
   "equipment:wand-of-purification-6th-rank-spell": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476",
-    "page": 130
+    "page": 130,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
   },
   "equipment:wand-of-purification-7th-rank-spell": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476",
-    "page": 130
+    "page": 130,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
   },
   "equipment:wand-of-purification-8th-rank-spell": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476",
-    "page": 130
+    "page": 130,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
   },
   "equipment:wand-of-purification-9th-rank-spell": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476",
-    "page": 130
+    "page": 130,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3476"
   },
   "feat:abjure-the-false-kin": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6979",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6979"
   },
   "feat:acupuncturist": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7066",
-    "page": 108
+    "page": 108,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7066"
   },
   "feat:adamantine-body": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7116",
-    "page": 121
+    "page": 121,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7116"
   },
   "feat:adamantine-mantra": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6985",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6985"
   },
   "feat:additional-servings": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7055",
-    "page": 100
+    "page": 100,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7055"
   },
   "feat:advanced-monastic-weaponry": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7108",
-    "page": 120
+    "page": 120,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7108"
   },
   "feat:aegis-of-the-dissolution": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6949",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6949"
   },
   "feat:all-this-has-happened-before": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6900",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6900"
   },
   "feat:all-this-will-happen-again": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6894",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6894"
   },
   "feat:along-the-deep-river": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6871",
-    "page": 47
+    "page": 47,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6871"
   },
   "feat:among-humanity": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6996",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6996"
   },
   "feat:ancestral-form": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6863",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6863"
   },
   "feat:ancestral-healer": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6922",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6922"
   },
   "feat:and-will-do-so-once-more": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6901",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6901"
   },
   "feat:arboreal-conversationalist": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6846",
-    "page": 39
+    "page": 39,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6846"
   },
   "feat:ash-piercing-gaze": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6967",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6967"
   },
   "feat:avowed-insight": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6968",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6968"
   },
   "feat:awaken-the-obake": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6878",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6878"
   },
   "feat:awakened-jewel": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6912",
-    "page": 61
+    "page": 61,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6912"
   },
   "feat:awakened-yaoguai-heritage": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6997",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6997"
   },
   "feat:bamboo-and-silt-repose": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6969",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6969"
   },
   "feat:blade-of-the-heart": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7036",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7036"
   },
   "feat:blood-like-water": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6902",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6902"
   },
   "feat:blood-must-have-blood": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6839",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6839"
   },
   "feat:bloodsoaked-dash": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6836",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6836"
   },
   "feat:bold-defiance": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6998",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6998"
   },
   "feat:brilliant-vision": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7002",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7002"
   },
   "feat:briny-beverage": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6844",
-    "page": 39
+    "page": 39,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6844"
   },
   "feat:celestial-cacophony": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7080",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7080"
   },
   "feat:charmed-sleep": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6868",
-    "page": 47
+    "page": 47,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6868"
   },
   "feat:childlike-plant": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6853",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6853"
   },
   "feat:close-formation": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7047",
-    "page": 98
+    "page": 98,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7047"
   },
   "feat:colugos-traversal": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6975",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6975"
   },
   "feat:combined-form": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6944",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6944"
   },
   "feat:convocation-of-earth-and-moon": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6928",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6928"
   },
   "feat:cosmic-cocktail": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7059",
-    "page": 101
+    "page": 101,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7059"
   },
   "feat:crawling-form": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6990",
-    "page": 85
+    "page": 85,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6990"
   },
   "feat:crocodiles-twin": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6861",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6861"
   },
   "feat:crown-of-bone": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6913",
-    "page": 61
+    "page": 61,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6913"
   },
   "feat:cultivator-dedication": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7085",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7085"
   },
   "feat:cultivators-keen-eye": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7090",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7090"
   },
   "feat:cutting-heaven-crushing-earth": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7024",
-    "page": 92
+    "page": 92,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7024"
   },
   "feat:dalangs-ally": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6961",
-    "page": 74
+    "page": 74,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6961"
   },
   "feat:dance-of-the-jester": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6962",
-    "page": 75
+    "page": 75,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6962"
   },
   "feat:dance-of-the-mousedeer": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6950",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6950"
   },
   "feat:dance-of-the-tiger": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6957",
-    "page": 74
+    "page": 74,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6957"
   },
   "feat:deflecting-jewel": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6917",
-    "page": 61
+    "page": 61,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6917"
   },
   "feat:desperate-wish": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7037",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7037"
   },
   "feat:dissolutions-clarity": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6955",
-    "page": 74
+    "page": 74,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6955"
   },
   "feat:dissolutions-sight": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6958",
-    "page": 74
+    "page": 74,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6958"
   },
   "feat:dissolutions-sovereignty": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6965",
-    "page": 75
+    "page": 75,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6965"
   },
   "feat:distant-waterbirds-poise": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7081",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7081"
   },
   "feat:dizzying-spin-dance": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7048",
-    "page": 99
+    "page": 99,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7048"
   },
   "feat:dokkaebi-fire": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6530",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6530"
   },
   "feat:dragons-journey": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7052",
-    "page": 99
+    "page": 99,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7052"
   },
   "feat:duck": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6849",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6849"
   },
   "feat:duo-dragon-kick": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7075",
-    "page": 110
+    "page": 110,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7075"
   },
   "feat:echoing-violence": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7117",
-    "page": 121
+    "page": 121,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7117"
   },
   "feat:elemental-spark": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6870",
-    "page": 47
+    "page": 47,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6870"
   },
   "feat:elucidating-vision": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6895",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6895"
   },
   "feat:elucidation": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7006",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7006"
   },
   "feat:energy-fortification": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7067",
-    "page": 108
+    "page": 108,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7067"
   },
   "feat:everyday-form": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6930",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6930"
   },
   "feat:false-priest-form": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6935",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6935"
   },
   "feat:familiar-ritualist": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7099",
-    "page": 116
+    "page": 116,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7099"
   },
   "feat:familiar-sage-dedication": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7095",
-    "page": 116
+    "page": 116,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7095"
   },
   "feat:familiars-resolve": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7096",
-    "page": 116
+    "page": 116,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7096"
   },
   "feat:fan-dancer-dedication": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7039",
-    "page": 98
+    "page": 98,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7039"
   },
   "feat:feast-planner": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7057",
-    "page": 101
+    "page": 101,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7057"
   },
   "feat:fermenting-liquors": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7062",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7062"
   },
   "feat:ferry-through-waves": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6865",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6865"
   },
   "feat:fiend-trampling-stature": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6980",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6980"
   },
   "feat:fisheye": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6843",
-    "page": 38
+    "page": 38,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6843"
   },
   "feat:five-breath-vanguard-dedication": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7011",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7011"
   },
   "feat:five-breaths-one-death": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7015",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7015"
   },
   "feat:five-gods-ram": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7112",
-    "page": 120
+    "page": 120,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7112"
   },
   "feat:flames-of-vision": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6831",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6831"
   },
   "feat:flower-chimera": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6859",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6859"
   },
   "feat:flowing-palm-deflection": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7025",
-    "page": 92
+    "page": 92,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7025"
   },
   "feat:fluttering-distraction": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7049",
-    "page": 99
+    "page": 99,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7049"
   },
   "feat:fluttering-misdirection": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7043",
-    "page": 98
+    "page": 98,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7043"
   },
   "feat:folk-healer": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6914",
-    "page": 61
+    "page": 61,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6914"
   },
   "feat:food-preservation": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7056",
-    "page": 100
+    "page": 100,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7056"
   },
   "feat:forever-among-humanity": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7003",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7003"
   },
   "feat:form-of-the-beloved-mother": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6893",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6893"
   },
   "feat:form-up": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7018",
-    "page": 91
+    "page": 91,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7018"
   },
   "feat:four-armed-aspect": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6981",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6981"
   },
   "feat:fox-arson": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6882",
-    "page": 50
+    "page": 50,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6882"
   },
   "feat:fox-possession": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6885",
-    "page": 50
+    "page": 50,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6885"
   },
   "feat:friend-of-the-family": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6850",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6850"
   },
   "feat:fulu-familiar": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7097",
-    "page": 116
+    "page": 116,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7097"
   },
   "feat:generals-gambit": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7019",
-    "page": 91
+    "page": 91,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7019"
   },
   "feat:gentle-death-and-rebirth": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7009",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7009"
   },
   "feat:geobukseon-retaliation": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7079",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7079"
   },
   "feat:germination-of-resolve": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6986",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6986"
   },
   "feat:ghost-path-epiphany": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7091",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7091"
   },
   "feat:glitter-crystals": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7063",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7063"
   },
   "feat:glorious-gamtu": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6828",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6828"
   },
   "feat:goblin-club": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6829",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6829"
   },
   "feat:gods-palm": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7028",
-    "page": 93
+    "page": 93,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7028"
   },
   "feat:golden-dragons-bounty": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7100",
-    "page": 116
+    "page": 116,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7100"
   },
   "feat:greater-transformation": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7118",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7118"
   },
   "feat:green-dash": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6857",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6857"
   },
   "feat:guardian-lion-roar": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7078",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7078"
   },
   "feat:hasty-celebration": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6936",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6936"
   },
   "feat:heaven-earth-encompassing-sleeves": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7082",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7082"
   },
   "feat:horn-and-bone-incantation": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6982",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6982"
   },
   "feat:howling-aspect": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6970",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6970"
   },
   "feat:hungry-eyes": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6833",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6833"
   },
   "feat:hypnotic-gaze": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6891",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6891"
   },
   "feat:i-will-return": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6904",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6904"
   },
   "feat:immobile-form": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6999",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6999"
   },
   "feat:immortal-lightness": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7086",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7086"
   },
   "feat:imperial-dragon-potion": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6851",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6851"
   },
   "feat:improved-signature-weapon": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7007",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7007"
   },
   "feat:induce-imbalance": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7013",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7013"
   },
   "feat:inherit-the-dreaming-heirloom": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6951",
-    "page": 73
+    "page": 73,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6951"
   },
   "feat:innate-understanding": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6896",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6896"
   },
   "feat:insulated-poppet": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6875",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6875"
   },
   "feat:intensified-element-stance": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7070",
-    "page": 109
+    "page": 109,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7070"
   },
   "feat:intercepting-hand": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7031",
-    "page": 93
+    "page": 93,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7031"
   },
   "feat:iron-belly": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6931",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6931"
   },
   "feat:it-takes-a-village": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6886",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6886"
   },
   "feat:kaiju-defense-oath": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7021",
-    "page": 92
+    "page": 92,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7021"
   },
   "feat:kaiju-stance": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7110",
-    "page": 120
+    "page": 120,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7110"
   },
   "feat:kaijus-footfalls": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6852",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6852"
   },
   "feat:kijimuna-whistle": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6847",
-    "page": 39
+    "page": 39,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6847"
   },
   "feat:kin-hunter": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7000",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7000"
   },
   "feat:kishin-rage": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6842",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6842"
   },
   "feat:know-your-enemy": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7017",
-    "page": 91
+    "page": 91,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7017"
   },
   "feat:kodama-call": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6856",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6856"
   },
   "feat:koi-secrets": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6848",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6848"
   },
   "feat:landscape-form": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6947",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6947"
   },
   "feat:leaf-transformation": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6937",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6937"
   },
   "feat:legendary-monster": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7010",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7010"
   },
   "feat:lifes-blood": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6905",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6905"
   },
   "feat:light-bending-jewel": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6925",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6925"
   },
   "feat:lightning-rings-intervention": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7101",
-    "page": 116
+    "page": 116,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7101"
   },
   "feat:lightning-rings-overcharge": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7103",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7103"
   },
   "feat:made-for-combat": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6872",
-    "page": 48
+    "page": 48,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6872"
   },
   "feat:majestic-proclamation": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6741",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6741"
   },
   "feat:many-faces": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6940",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6940"
   },
   "feat:many-guises-kitsune": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6883",
-    "page": 50
+    "page": 50,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6883"
   },
   "feat:meditate-on-this": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7072",
-    "page": 109
+    "page": 109,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7072"
   },
   "feat:memory-of-mastery": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6908",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6908"
   },
   "feat:memory-of-skill": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6906",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6906"
   },
   "feat:metabolic-control": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6889",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6889"
   },
   "feat:meticulous-restorer": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6971",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6971"
   },
   "feat:minuscule-mentee": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6874",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6874"
   },
   "feat:momentous-charge": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7109",
-    "page": 120
+    "page": 120,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7109"
   },
   "feat:mooneater": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6867",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6867"
   },
   "feat:morning-side-dishes": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7054",
-    "page": 100
+    "page": 100,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7054"
   },
   "feat:morphic-strike": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6991",
-    "page": 85
+    "page": 85,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6991"
   },
   "feat:mud-boats-passage": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6941",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6941"
   },
   "feat:nalinivatis-light": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6887",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6887"
   },
   "feat:natural-mutagen": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6992",
-    "page": 85
+    "page": 85,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6992"
   },
   "feat:noble-bloom": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6855",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6855"
   },
   "feat:nourishing-symbiosis": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6682",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6682"
   },
   "feat:numbing-spice-exhalation": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7061",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7061"
   },
   "feat:oil-fire": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7073",
-    "page": 110
+    "page": 110,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7073"
   },
   "feat:oni-form": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6835",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6835"
   },
   "feat:oni-rampage": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6841",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6841"
   },
   "feat:oni-weapon-familiarity": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6834",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6834"
   },
   "feat:onis-mask": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6837",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6837"
   },
   "feat:packed-with-flavor": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7058",
-    "page": 101
+    "page": 101,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7058"
   },
   "feat:palm-leaf-silhouette": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6963",
-    "page": 75
+    "page": 75,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6963"
   },
   "feat:paralyzing-jewel": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6923",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6923"
   },
   "feat:pei-zing-adept": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7068",
-    "page": 109
+    "page": 109,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7068"
   },
   "feat:peonys-flourish": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7051",
-    "page": 99
+    "page": 99,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7051"
   },
   "feat:perfected-gamtu": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6832",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6832"
   },
   "feat:petal-step": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7040",
-    "page": 98
+    "page": 98,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7040"
   },
   "feat:phantom-orchestra": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6942",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6942"
   },
   "feat:phantom-resemblance": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6827",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6827"
   },
   "feat:phantom-visage": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6825",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6825"
   },
   "feat:phoenixs-flight": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7105",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7105"
   },
   "feat:polymorphic-escape": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6993",
-    "page": 85
+    "page": 85,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6993"
   },
   "feat:ponpoko": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6938",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6938"
   },
   "feat:ponpoko-pon": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6945",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6945"
   },
   "feat:prepare-elemental-medicine": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7065",
-    "page": 106
+    "page": 106,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7065"
   },
   "feat:protective-cycle": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7014",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7014"
   },
   "feat:protective-pose": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7071",
-    "page": 109
+    "page": 109,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7071"
   },
   "feat:pushing-wind": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7045",
-    "page": 98
+    "page": 98,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7045"
   },
   "feat:refined-motion-in-darkness": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6952",
-    "page": 73
+    "page": 73,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6952"
   },
   "feat:regional-specialty": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7060",
-    "page": 101
+    "page": 101,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7060"
   },
   "feat:rejuvenating-embrace": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6926",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6926"
   },
   "feat:rekindled-light": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6880",
-    "page": 50
+    "page": 50,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6880"
   },
   "feat:remnants-of-the-past": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6897",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6897"
   },
   "feat:renewing-cycle": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7012",
-    "page": 90
+    "page": 90,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7012"
   },
   "feat:return-to-the-seed": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6860",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6860"
   },
   "feat:river-adaptation": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6864",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6864"
   },
   "feat:rolling-white-bottle-form": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6943",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6943"
   },
   "feat:rouse-the-dreaming-relic": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6959",
-    "page": 74
+    "page": 74,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6959"
   },
   "feat:rushing-goat-stance": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7106",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7106"
   },
   "feat:sacred-wilds-oath": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7022",
-    "page": 92
+    "page": 92,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7022"
   },
   "feat:sage-of-scattered-leaves": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6972",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6972"
   },
   "feat:samsaran-lore": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6898",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6898"
   },
   "feat:samsaran-weapon-memory": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6899",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6899"
   },
   "feat:sarangay-lore": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6915",
-    "page": 61
+    "page": 61,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6915"
   },
   "feat:sash-of-the-wind": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6858",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6858"
   },
   "feat:scarlet-strands": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6845",
-    "page": 39
+    "page": 39,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6845"
   },
   "feat:scattering-in-spring": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7111",
-    "page": 120
+    "page": 120,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7111"
   },
   "feat:scorched-on-the-crackling-mountain": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6932",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6932"
   },
   "feat:seal-of-the-golden-dragon": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7102",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7102"
   },
   "feat:secrets-of-the-past": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6907",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6907"
   },
   "feat:sentinels-orbit": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7038",
-    "page": 95
+    "page": 95,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7038"
   },
   "feat:seven-changes-performance": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6879",
-    "page": 50
+    "page": 50,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6879"
   },
   "feat:sever-the-dreaming-shadow": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6966",
-    "page": 75
+    "page": 75,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6966"
   },
   "feat:shadow-tempo": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6960",
-    "page": 74
+    "page": 74,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6960"
   },
   "feat:shadowplay": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6956",
-    "page": 74
+    "page": 74,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6956"
   },
   "feat:sheltering-jewel": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6927",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6927"
   },
   "feat:sheltering-pulse": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7029",
-    "page": 93
+    "page": 93,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7029"
   },
   "feat:signature-weapon": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7001",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7001"
   },
   "feat:silk-bracelet": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7076",
-    "page": 110
+    "page": 110,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7076"
   },
   "feat:slay-giants-unseen": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6964",
-    "page": 75
+    "page": 75,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6964"
   },
   "feat:smoke-through-bamboo": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6919",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6919"
   },
   "feat:solidarity": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6877",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6877"
   },
   "feat:solo-dancer": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7041",
-    "page": 98
+    "page": 98,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7041"
   },
   "feat:sour-bomb": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7064",
-    "page": 104
+    "page": 104,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7064"
   },
   "feat:speak-with-the-sleeping": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6869",
-    "page": 47
+    "page": 47,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6869"
   },
   "feat:special-sentinel-technique": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7034",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7034"
   },
   "feat:spirit-coffin": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6862",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6862"
   },
   "feat:spirit-of-the-blade": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7026",
-    "page": 93
+    "page": 93,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7026"
   },
   "feat:spirit-warrior-dedication": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7020",
-    "page": 92
+    "page": 92,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7020"
   },
   "feat:spiritual-echo": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6924",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6924"
   },
   "feat:spiritual-headhunter": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6572",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6572"
   },
   "feat:splendid-illusion": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6946",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6946"
   },
   "feat:starlit-sentinel-dedication": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7033",
-    "page": 94
+    "page": 94,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7033"
   },
   "feat:start-the-festival": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6948",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6948"
   },
   "feat:statue-form": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6939",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6939"
   },
   "feat:stem-the-tide": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6977",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6977"
   },
   "feat:storming-gaze": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6838",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6838"
   },
   "feat:strategist-stance": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7016",
-    "page": 91
+    "page": 91,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7016"
   },
   "feat:strength-of-eight-legions": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6988",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6988"
   },
   "feat:sudden-terror": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6873",
-    "page": 48
+    "page": 48,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6873"
   },
   "feat:sweeping-fan-block": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7044",
-    "page": 98
+    "page": 98,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7044"
   },
   "feat:sweeping-fan-redirection": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7050",
-    "page": 99
+    "page": 99,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7050"
   },
   "feat:sword-light-wave": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7027",
-    "page": 93
+    "page": 93,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7027"
   },
   "feat:sword-of-sealing": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7032",
-    "page": 93
+    "page": 93,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7032"
   },
   "feat:synchronous-slither": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6892",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6892"
   },
   "feat:tangle-of-limbs": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6826",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6826"
   },
   "feat:tangle-tongues-wit": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6973",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6973"
   },
   "feat:tanuki-lore": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6933",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6933"
   },
   "feat:teakettle-form": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6934",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6934"
   },
   "feat:temperature-adjustment": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7069",
-    "page": 109
+    "page": 109,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7069"
   },
   "feat:tempest-clouds-speed": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7098",
-    "page": 116
+    "page": 116,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7098"
   },
   "feat:tempest-gaze": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6840",
-    "page": 37
+    "page": 37,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6840"
   },
   "feat:the-bitter-scholars-promotion": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7093",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7093"
   },
   "feat:the-cycle-continues": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6910",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6910"
   },
   "feat:the-immortal-attains-the-summit": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7094",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7094"
   },
   "feat:the-moon-weavers-art": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6918",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6918"
   },
   "feat:this-too-shall-pass": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6911",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6911"
   },
   "feat:thousand-year-grudge": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6903",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6903"
   },
   "feat:three-clear-breaths": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7088",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7088"
   },
   "feat:three-pecks-of-dew": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7092",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7092"
   },
   "feat:throat-pocket": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6888",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6888"
   },
   "feat:tikling-bird-twirl": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6920",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6920"
   },
   "feat:trample-sarangay": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6929",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6929"
   },
   "feat:transcend-the-azimuth": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6989",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6989"
   },
   "feat:transcendent-deflection": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7030",
-    "page": 93
+    "page": 93,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7030"
   },
   "feat:travelers-counsel": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6916",
-    "page": 61
+    "page": 61,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6916"
   },
   "feat:tricksterbane-oath": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7023",
-    "page": 92
+    "page": 92,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7023"
   },
   "feat:twilight-dweller": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6994",
-    "page": 85
+    "page": 85,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6994"
   },
   "feat:twirl-through": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7042",
-    "page": 98
+    "page": 98,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7042"
   },
   "feat:twirling-strike": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7046",
-    "page": 98
+    "page": 98,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7046"
   },
   "feat:twisting-petal-stance": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7107",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7107"
   },
   "feat:unassuming-heroes": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6854",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6854"
   },
   "feat:unleash-yaoguai-might": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7005",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7005"
   },
   "feat:unnerving-terror": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7008",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7008"
   },
   "feat:unsheathing-the-sword-light": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7084",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7084"
   },
   "feat:unwavering-guide": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6974",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6974"
   },
   "feat:venom-gulp": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6890",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6890"
   },
   "feat:vexing-tempest": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7104",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7104"
   },
   "feat:vulpine-scamper": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6881",
-    "page": 50
+    "page": 50,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6881"
   },
   "feat:wake-of-devastation": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7115",
-    "page": 121
+    "page": 121,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7115"
   },
   "feat:wandering-chef-dedication": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7053",
-    "page": 100
+    "page": 100,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7053"
   },
   "feat:warding-jewel": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6921",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6921"
   },
   "feat:water-to-water": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6909",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6909"
   },
   "feat:wayang-lore": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6953",
-    "page": 73
+    "page": 73,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6953"
   },
   "feat:wayang-weapon-familiarity": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6954",
-    "page": 73
+    "page": 73,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6954"
   },
   "feat:whirling-in-the-summer-storm": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7113",
-    "page": 121
+    "page": 121,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7113"
   },
   "feat:whispers-in-the-night": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6830",
-    "page": 35
+    "page": 35,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6830"
   },
   "feat:wild-haired-fury": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6987",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6987"
   },
   "feat:wisteria-and-peony-reunion": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7089",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7089"
   },
   "feat:withstand-the-storm": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6978",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6978"
   },
   "feat:witness-of-earth": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6689",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6689"
   },
   "feat:world-breaking-footfall": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7114",
-    "page": 121
+    "page": 121,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7114"
   },
   "feat:world-protectors-hospitality": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6984",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6984"
   },
   "feat:wukong-extension": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7074",
-    "page": 110
+    "page": 110,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7074"
   },
   "feat:xidao-sea-mine-drop": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7077",
-    "page": 110
+    "page": 110,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7077"
   },
   "feat:yaoguai-historian": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6995",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6995"
   },
   "heritage:ascetic-tanuki": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=396",
-    "page": 65
+    "page": 65,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=396"
   },
   "heritage:bakuwa-lizardfolk": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=377",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=377"
   },
   "heritage:born-of-animal": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=412",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=412"
   },
   "heritage:born-of-celestial": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=413",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=413"
   },
   "heritage:born-of-elements": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=414",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=414"
   },
   "heritage:born-of-item": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=415",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=415"
   },
   "heritage:born-of-vegetation": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=416",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=416"
   },
   "heritage:chrysanthemum-leshy": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=375",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=375"
   },
   "heritage:courageous-tanuki": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=398",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=398"
   },
   "heritage:deny-lady-nanbyos-charity": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=407",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=407"
   },
   "heritage:deny-the-firstborn-pursuit": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=406",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=406"
   },
   "heritage:deny-the-traitors-rebirth": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=408",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=408"
   },
   "heritage:dijiang": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=379",
-    "page": 46
+    "page": 46,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=379"
   },
   "heritage:dokkaebi-goblin": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=370",
-    "page": 34
+    "page": 34,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=370"
   },
   "heritage:even-tempered-tanuki": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=397",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=397"
   },
   "heritage:full-moon-sarangay": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=391",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=391"
   },
   "heritage:gandharva": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=380",
-    "page": 46
+    "page": 46,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=380"
   },
   "heritage:half-moon-sarangay": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=392",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=392"
   },
   "heritage:healer-samsaran": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=386",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=386"
   },
   "heritage:heavenscribe-kobold": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=373",
-    "page": 40
+    "page": 40,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=373"
   },
   "heritage:hungerseed": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=371",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=371"
   },
   "heritage:kanchil": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=381",
-    "page": 46
+    "page": 46,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=381"
   },
   "heritage:kijimuna-gnome": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=372",
-    "page": 38
+    "page": 38,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=372"
   },
   "heritage:leungli": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=382",
-    "page": 46
+    "page": 46,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=382"
   },
   "heritage:makari-lizardfolk": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=378",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=378"
   },
   "heritage:mightyfall-kobold": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=374",
-    "page": 40
+    "page": 40,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=374"
   },
   "heritage:mountaineer-samsaran": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=387",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=387"
   },
   "heritage:new-moon-sarangay": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=393",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=393"
   },
   "heritage:oracular-samsaran": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=388",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=388"
   },
   "heritage:palace-echoes-kitsune": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=384",
-    "page": 50
+    "page": 50,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=384"
   },
   "heritage:peachchild-leshy": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=376",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=376"
   },
   "heritage:respite-of-a-thousand-roofs": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=411",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=411"
   },
   "heritage:respite-of-cloudless-paths": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=409",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=409"
   },
   "heritage:respite-of-loam-and-leaf": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=410",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=410"
   },
   "heritage:sanctuary-samsaran": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=389",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=389"
   },
   "heritage:shadow-of-the-courtier": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=401",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=401"
   },
   "heritage:shadow-of-the-hermit": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=402",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=402"
   },
   "heritage:shadow-of-the-sailor": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=403",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=403"
   },
   "heritage:shadow-of-the-smith": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=404",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=404"
   },
   "heritage:shadow-of-the-wanderer": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=405",
-    "page": 72
+    "page": 72,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=405"
   },
   "heritage:shimmertongue-nagaji": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=385",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=385"
   },
   "heritage:steadfast-tanuki": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=399",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=399"
   },
   "heritage:tsukumogami-poppet": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=383",
-    "page": 48
+    "page": 48,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=383"
   },
   "heritage:virtuous-tanuki": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=400",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=400"
   },
   "heritage:waning-moon-sarangay": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=394",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=394"
   },
   "heritage:waxing-moon-sarangay": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=395",
-    "page": 60
+    "page": 60,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=395"
   },
   "heritage:wilderness-samsaran": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=390",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=390"
   },
   "ritual:bonding-meal": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=169",
-    "page": 102
+    "page": 102,
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=169"
   },
   "ritual:butterfly-bender": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=170",
-    "page": 102
+    "page": 102,
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=170"
   },
   "ritual:feast-of-supplication": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=171",
-    "page": 103
+    "page": 103,
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=171"
   },
   "spell:home-among-mulberry-leaves": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2134",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2134"
   },
   "spell:luminous-stardust-healing": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2132",
-    "page": 95
+    "page": 95,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2132"
   },
   "spell:shining-starlight-attack": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2133",
-    "page": 95
+    "page": 95,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2133"
   },
   "spell:sky-laughs-at-waves": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2135",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2135"
   },
   "weapon:gakgung": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=334",
-    "page": 128
+    "page": 128,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=334"
   },
   "weapon:liuyedao": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=491",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=491"
   },
   "weapon:ogre-hook": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=495",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=495"
   },
   "weapon:shuan-ji": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=492",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=492"
   },
   "weapon:tetsubo": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=493",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=493"
   },
   "weapon:tri-bladed-katar": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=540",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=540"
   },
   "weapon:zhuazhi-bang": {
     "book": "tian-xia-character-guide",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=494",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=494"
   }
 }

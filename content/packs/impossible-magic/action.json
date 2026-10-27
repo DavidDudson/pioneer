@@ -103,7 +103,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=4268"
       }
     ],
     "description": [
@@ -235,7 +237,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 12,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=4261"
       }
     ],
     "description": [
@@ -333,7 +337,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 101,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=4270"
       }
     ],
     "description": [
@@ -694,7 +700,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 11,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=4262"
       }
     ],
     "description": [
@@ -1516,7 +1524,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 174,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=4271"
       }
     ],
     "description": [
@@ -1626,7 +1636,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=4263"
       }
     ],
     "description": [
@@ -1687,7 +1699,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=4265"
       }
     ],
     "description": [
@@ -1720,7 +1734,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=4267"
       }
     ],
     "description": [
@@ -2328,7 +2344,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=4269"
       }
     ],
     "description": [
@@ -2516,7 +2534,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 11,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=4260"
       }
     ],
     "description": [
@@ -2766,7 +2786,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=4264"
       }
     ],
     "description": [

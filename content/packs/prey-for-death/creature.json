@@ -529,7 +529,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 86,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3388"
       }
     ],
     "description": [
@@ -3736,7 +3738,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 65,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3386"
       }
     ],
     "description": [],
@@ -5168,7 +5172,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3375"
       }
     ],
     "description": [
@@ -5596,7 +5602,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3376"
       }
     ],
     "description": [
@@ -6009,7 +6017,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3373"
       }
     ],
     "description": [],
@@ -6289,7 +6299,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3374"
       }
     ],
     "description": [],
@@ -6570,7 +6582,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 51,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3382"
       }
     ],
     "description": [],
@@ -6918,7 +6932,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3385"
       }
     ],
     "description": [
@@ -7345,7 +7361,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 35,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3377"
       }
     ],
     "description": [],
@@ -7935,7 +7953,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 23,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3371"
       }
     ],
     "description": [],
@@ -8203,7 +8223,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 38,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3379"
       }
     ],
     "description": [],
@@ -8616,7 +8638,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3380"
       }
     ],
     "description": [],
@@ -9030,7 +9054,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 74,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3387"
       }
     ],
     "description": [
@@ -9508,7 +9534,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 23,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3372"
       }
     ],
     "description": [
@@ -10593,7 +10621,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 123,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3399"
       }
     ],
     "description": [],
@@ -11156,7 +11186,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 54,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3383"
       }
     ],
     "description": [],
@@ -11842,7 +11874,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 48,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3381"
       }
     ],
     "description": [],
@@ -12341,7 +12375,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 38,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3378"
       }
     ],
     "description": [],
@@ -15453,7 +15489,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 120,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3398"
       }
     ],
     "description": [
@@ -16497,7 +16535,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 54,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3384"
       }
     ],
     "description": [],

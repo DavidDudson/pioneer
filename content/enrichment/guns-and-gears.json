@@ -1,2522 +1,2642 @@
 {
+  "action:automaton-aim": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=903",
+    "page": 36
+  },
+  "action:chassis-deflection": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=904",
+    "page": 40
+  },
+  "action:clear-a-path": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=918",
+    "page": 110
+  },
+  "action:command-a-construct": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=3632",
+    "page": 32
+  },
+  "action:covered-reload": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=914",
+    "page": 109
+  },
+  "action:dispelling-bullet": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=925",
+    "page": 140
+  },
+  "action:drifters-wake": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=909",
+    "page": 109
+  },
+  "action:energy-shot": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=923",
+    "page": 140
+  },
+  "action:finish-the-job": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=908",
+    "page": 108
+  },
+  "action:ghost-shot": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=917",
+    "page": 110
+  },
+  "action:grim-swagger": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=913",
+    "page": 109
+  },
+  "action:into-the-fray": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=907",
+    "page": 108
+  },
+  "action:living-fortification": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=919",
+    "page": 110
+  },
+  "action:one-shot-one-kill": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=915",
+    "page": 110
+  },
+  "action:overdrive": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=901",
+    "page": 16
+  },
+  "action:raconteurs-reload": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=910",
+    "page": 109
+  },
+  "action:recall-ammunition": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=924",
+    "page": 140
+  },
+  "action:reloading-strike": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=906",
+    "page": 108
+  },
+  "action:resist-magic": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=905",
+    "page": 41
+  },
+  "action:siegebreaker": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=921",
+    "page": 110
+  },
+  "action:spinning-crush": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=920",
+    "page": 110
+  },
+  "action:ten-paces": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=911",
+    "page": 109
+  },
+  "action:thoughtful-reload": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=922",
+    "page": 140
+  },
+  "action:vital-shot": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=916",
+    "page": 110
+  },
   "ancestry:automaton": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=48",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=48"
   },
   "archetype:artillerist": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=115",
-    "page": 128
+    "page": 128,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=115"
   },
   "archetype:beast-gunner": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=116",
-    "page": 130
+    "page": 130,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=116"
   },
   "archetype:bullet-dancer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=117",
-    "page": 132
+    "page": 132,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=117"
   },
   "archetype:demolitionist": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=118",
-    "page": 133
+    "page": 133,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=118"
   },
   "archetype:firework-technician": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=119",
-    "page": 134
+    "page": 134,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=119"
   },
   "archetype:gunslinger": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=114",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=114"
   },
   "archetype:inventor": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=108",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=108"
   },
   "archetype:overwatch": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=109",
-    "page": 50
+    "page": 50,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=109"
   },
   "archetype:pistol-phenom": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=120",
-    "page": 136
+    "page": 136,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=120"
   },
   "archetype:sniping-duo": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=121",
-    "page": 138
+    "page": 138,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=121"
   },
   "archetype:sterling-dynamo": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=110",
-    "page": 52
+    "page": 52,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=110"
   },
   "archetype:trapsmith": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=111",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=111"
   },
   "archetype:trick-driver": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=112",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=112"
   },
   "archetype:vehicle-mechanic": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=113",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=113"
   },
   "background:alkenstar-outlaw": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=280",
-    "page": 124
+    "page": 124,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=280"
   },
   "background:alkenstar-sojourner": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=281",
-    "page": 124
+    "page": 124,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=281"
   },
   "background:anti-tech-activist": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=249",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=249"
   },
   "background:back-alley-doctor": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=267",
-    "page": 122
+    "page": 122,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=267"
   },
   "background:cannoneer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=268",
-    "page": 122
+    "page": 122,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=268"
   },
   "background:circuit-judge": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=282",
-    "page": 124
+    "page": 124,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=282"
   },
   "background:clockfighter": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=250",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=250"
   },
   "background:clockwork-researcher": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=251",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=251"
   },
   "background:codebreaker": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=252",
-    "page": 44
+    "page": 44,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=252"
   },
   "background:deputy": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=269",
-    "page": 122
+    "page": 122,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=269"
   },
   "background:disciple-of-the-gear": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=253",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=253"
   },
   "background:driver": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=254",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=254"
   },
   "background:farmsteader": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=273",
-    "page": 123
+    "page": 123,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=273"
   },
   "background:fireworks-performer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=270",
-    "page": 122
+    "page": 122,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=270"
   },
   "background:goldhand-arms-dealer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=283",
-    "page": 124
+    "page": 124,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=283"
   },
   "background:gunsmith": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=271",
-    "page": 122
+    "page": 122,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=271"
   },
   "background:hired-killer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=272",
-    "page": 122
+    "page": 122,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=272"
   },
   "background:hounded-thief": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=255",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=255"
   },
   "background:junk-collector": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=274",
-    "page": 123
+    "page": 123,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=274"
   },
   "background:junker": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=256",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=256"
   },
   "background:mechanic": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=257",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=257"
   },
   "background:mechanical-symbiosis": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=263",
-    "page": 46
+    "page": 46,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=263"
   },
   "background:medicinal-clocksmith": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=258",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=258"
   },
   "background:otherworldly-mission": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=286",
-    "page": 125
+    "page": 125,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=286"
   },
   "background:press-ganged-g-g": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=284",
-    "page": 124
+    "page": 124,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=284"
   },
   "background:printer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=259",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=259"
   },
   "background:revenant": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=287",
-    "page": 125
+    "page": 125,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=287"
   },
   "background:saloon-entertainer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=275",
-    "page": 123
+    "page": 123,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=275"
   },
   "background:saved-by-clockwork": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=264",
-    "page": 47
+    "page": 47,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=264"
   },
   "background:sheriff": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=285",
-    "page": 124
+    "page": 124,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=285"
   },
   "background:spotter": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=276",
-    "page": 123
+    "page": 123,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=276"
   },
   "background:tall-tale": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=288",
-    "page": 125
+    "page": 125,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=288"
   },
   "background:tech-reliant": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=265",
-    "page": 47
+    "page": 47,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=265"
   },
   "background:toymaker": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=261",
-    "page": 45
+    "page": 45,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=261"
   },
   "background:undertaker": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=277",
-    "page": 123
+    "page": 123,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=277"
   },
   "background:wandering-preacher": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=278",
-    "page": 123
+    "page": 123,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=278"
   },
   "background:waste-walker": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=279",
-    "page": 123
+    "page": 123,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=279"
   },
   "background:wished-alive": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=266",
-    "page": 47
+    "page": 47,
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=266"
   },
   "class:gunslinger": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Classes.aspx?ID=20",
-    "page": 105
+    "page": 105,
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=20"
   },
   "class:inventor": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Classes.aspx?ID=19",
-    "page": 15
+    "page": 15,
+    "aon": "https://2e.aonprd.com/Classes.aspx?ID=19"
   },
   "consumable:ablative-armor-plating-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
   },
   "consumable:ablative-armor-plating-lesser": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
   },
   "consumable:ablative-armor-plating-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
   },
   "consumable:ablative-armor-plating-moderate": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
   },
   "consumable:ablative-armor-plating-true": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102",
-    "page": 66
+    "page": 66,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
   },
   "consumable:ablative-shield-plating-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
   },
   "consumable:ablative-shield-plating-lesser": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
   },
   "consumable:ablative-shield-plating-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
   },
   "consumable:ablative-shield-plating-moderate": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
   },
   "consumable:ablative-shield-plating-true": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
   },
   "consumable:acid-spitter": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1121",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1121"
   },
   "consumable:adaptive-cogwheel": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1225",
-    "page": 184
+    "page": 184,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1225"
   },
   "consumable:admonishing-band": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1226",
-    "page": 184
+    "page": 184,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1226"
   },
   "consumable:aromatic-ammunition": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1188",
-    "page": 168
+    "page": 168,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1188"
   },
   "consumable:binding-snare": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1122",
-    "page": 78
+    "page": 78,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1122"
   },
   "consumable:black-powder-dose": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190",
-    "page": 169
+    "page": 169,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190"
   },
   "consumable:black-powder-horn": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190",
-    "page": 169
+    "page": 169,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190"
   },
   "consumable:black-powder-keg": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190",
-    "page": 169
+    "page": 169,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190"
   },
   "consumable:blast-boots-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
   },
   "consumable:blast-boots-lesser": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
   },
   "consumable:blast-boots-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
   },
   "consumable:blast-boots-moderate": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
   },
   "consumable:breech-ejectors": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1222",
-    "page": 183
+    "page": 183,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1222"
   },
   "consumable:cauterizing-torch": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1105",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1105"
   },
   "consumable:chameleon-suit": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1106",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1106"
   },
   "consumable:chameleon-suit-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1106",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1106"
   },
   "consumable:chameleon-suit-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1106",
-    "page": 67
+    "page": 67,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1106"
   },
   "consumable:clockwork-chirper": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1123",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1123"
   },
   "consumable:clockwork-goggles": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1107",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1107"
   },
   "consumable:clockwork-goggles-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1107",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1107"
   },
   "consumable:clockwork-monkey": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1124",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1124"
   },
   "consumable:cryomister-lesser": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1108",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1108"
   },
   "consumable:cryomister-moderate": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1108",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1108"
   },
   "consumable:death-coil": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1125",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1125"
   },
   "consumable:detonating-gears-snare": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1126",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1126"
   },
   "consumable:dreaming-round": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1191",
-    "page": 169
+    "page": 169,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1191"
   },
   "consumable:electromuscular-stimulator": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1109",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1109"
   },
   "consumable:energized-cartridge": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1227",
-    "page": 184
+    "page": 184,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1227"
   },
   "consumable:eroding-bullet": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1192",
-    "page": 169
+    "page": 169,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1192"
   },
   "consumable:etheric-essence-disruptor-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
   },
   "consumable:etheric-essence-disruptor-lesser": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
   },
   "consumable:etheric-essence-disruptor-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
   },
   "consumable:etheric-essence-disruptor-moderate": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110",
-    "page": 68
+    "page": 68,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
   },
   "consumable:explosive-mine-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
   },
   "consumable:explosive-mine-lesser": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
   },
   "consumable:explosive-mine-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
   },
   "consumable:explosive-mine-moderate": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
   },
   "consumable:exsanguinating-ammunition": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1193",
-    "page": 170
+    "page": 170,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1193"
   },
   "consumable:exsanguinating-ammunition-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1193",
-    "page": 170
+    "page": 170,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1193"
   },
   "consumable:exsanguinating-ammunition-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1193",
-    "page": 170
+    "page": 170,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1193"
   },
   "consumable:fairy-bullet": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1194",
-    "page": 170
+    "page": 170,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1194"
   },
   "consumable:fire-box": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1128",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1128"
   },
   "consumable:flame-drake-snare": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1127",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1127"
   },
   "consumable:flare-beacon-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
   },
   "consumable:flare-beacon-lesser": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
   },
   "consumable:flare-beacon-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
   },
   "consumable:flare-beacon-moderate": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112",
-    "page": 69
+    "page": 69,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
   },
   "consumable:frost-worm-snare": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1129",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1129"
   },
   "consumable:gadget-skates": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1113",
-    "page": 70
+    "page": 70,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1113"
   },
   "consumable:galvasphere": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1136",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1136"
   },
   "consumable:gecko-pads": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1114",
-    "page": 70
+    "page": 70,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1114"
   },
   "consumable:gecko-pads-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1114",
-    "page": 70
+    "page": 70,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1114"
   },
   "consumable:ghostshot-wrapping": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1228",
-    "page": 184
+    "page": 184,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1228"
   },
   "consumable:glue-bullet": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1195",
-    "page": 170
+    "page": 170,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1195"
   },
   "consumable:goblin-eye-orb": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1229",
-    "page": 184
+    "page": 184,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1229"
   },
   "consumable:impact-foam-chassis-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115",
-    "page": 70
+    "page": 70,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
   },
   "consumable:impact-foam-chassis-lesser": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115",
-    "page": 70
+    "page": 70,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
   },
   "consumable:impact-foam-chassis-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115",
-    "page": 70
+    "page": 70,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
   },
   "consumable:impact-foam-chassis-moderate": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115",
-    "page": 70
+    "page": 70,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
   },
   "consumable:indomitable-keepsake": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1230",
-    "page": 186
+    "page": 186,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1230"
   },
   "consumable:indomitable-keepsake-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1230",
-    "page": 186
+    "page": 186,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1230"
   },
   "consumable:indomitable-keepsake-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1230",
-    "page": 186
+    "page": 186,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1230"
   },
   "consumable:instant-spy": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1116",
-    "page": 70
+    "page": 70,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1116"
   },
   "consumable:magnetic-suit": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1117",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1117"
   },
   "consumable:magnetic-suit-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1117",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1117"
   },
   "consumable:magnetic-suit-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1117",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1117"
   },
   "consumable:material-essence-disruptor-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
   },
   "consumable:material-essence-disruptor-lesser": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
   },
   "consumable:material-essence-disruptor-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
   },
   "consumable:material-essence-disruptor-moderate": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
   },
   "consumable:meteor-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1196",
-    "page": 171
+    "page": 171,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1196"
   },
   "consumable:meteor-shot-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1196",
-    "page": 171
+    "page": 171,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1196"
   },
   "consumable:meteor-shot-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1196",
-    "page": 171
+    "page": 171,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1196"
   },
   "consumable:noisemaker-snare": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1130",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1130"
   },
   "consumable:peacemaker": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1231",
-    "page": 186
+    "page": 186,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1231"
   },
   "consumable:persistent-lodestone": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1232",
-    "page": 186
+    "page": 186,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1232"
   },
   "consumable:puff-dragon": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1131",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1131"
   },
   "consumable:shockguard-coil": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1137",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1137"
   },
   "consumable:shrapnel-snare": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1132",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1132"
   },
   "consumable:shrieking-skull": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1233",
-    "page": 186
+    "page": 186,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1233"
   },
   "consumable:silencing-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1197",
-    "page": 171
+    "page": 171,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1197"
   },
   "consumable:silver-tripod": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1235",
-    "page": 186
+    "page": 186,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1235"
   },
   "consumable:smoke-fan": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1119",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1119"
   },
   "consumable:smoke-fan-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1119",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1119"
   },
   "consumable:snipers-bead": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1234",
-    "page": 186
+    "page": 186,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1234"
   },
   "consumable:snipers-bead-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1234",
-    "page": 186
+    "page": 186,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1234"
   },
   "consumable:snipers-bead-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1234",
-    "page": 186
+    "page": 186,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1234"
   },
   "consumable:spirit-snare": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1133",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1133"
   },
   "consumable:stepping-stone-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1198",
-    "page": 171
+    "page": 171,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1198"
   },
   "consumable:stepping-stone-shot-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1198",
-    "page": 171
+    "page": 171,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1198"
   },
   "consumable:tin-cobra": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1134",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1134"
   },
   "consumable:trustworthy-round": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1199",
-    "page": 171
+    "page": 171,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1199"
   },
   "consumable:wind-up-cart": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1120",
-    "page": 71
+    "page": 71,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1120"
   },
   "equipment:air-cartridge-firing-system": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1220",
-    "page": 183
+    "page": 183,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1220"
   },
   "equipment:aquarium-lamp": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1140",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1140"
   },
   "equipment:blade-launcher": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1096",
-    "page": 64
+    "page": 64,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1096"
   },
   "equipment:bomb-launcher": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1097",
-    "page": 64
+    "page": 64,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1097"
   },
   "equipment:camouflage-suit": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1201",
-    "page": 178
+    "page": 178,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1201"
   },
   "equipment:camouflage-suit-superb": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1201",
-    "page": 178
+    "page": 178,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1201"
   },
   "equipment:clockwork-bookshelf": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1141",
-    "page": 85
+    "page": 85,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1141"
   },
   "equipment:clockwork-box-packer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1142",
-    "page": 85
+    "page": 85,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1142"
   },
   "equipment:clockwork-megaphone": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1145",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1145"
   },
   "equipment:concealed-holster": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1202",
-    "page": 179
+    "page": 179,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1202"
   },
   "equipment:darkvision-scope": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1212",
-    "page": 180
+    "page": 180,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1212"
   },
   "equipment:darkvision-scope-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1212",
-    "page": 180
+    "page": 180,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1212"
   },
   "equipment:day-goggles": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1146",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1146"
   },
   "equipment:deployable-cover": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1098",
-    "page": 64
+    "page": 64,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1098"
   },
   "equipment:deployable-cover-ballistic-cover": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1098",
-    "page": 64
+    "page": 64,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1098"
   },
   "equipment:earplugs": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1203",
-    "page": 179
+    "page": 179,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1203"
   },
   "equipment:electrocable": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1147",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1147"
   },
   "equipment:firearm-cleaning-kit": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1204",
-    "page": 179
+    "page": 179,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1204"
   },
   "equipment:frog-chair": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1162",
-    "page": 91
+    "page": 91,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1162"
   },
   "equipment:galvanic-mortal-coil": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1135",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1135"
   },
   "equipment:grappling-gun": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1099",
-    "page": 64
+    "page": 64,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1099"
   },
   "equipment:grappling-gun-clockwork": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1099",
-    "page": 64
+    "page": 64,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1099"
   },
   "equipment:gunners-bandolier": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1209",
-    "page": 179
+    "page": 179,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1209"
   },
   "equipment:gunners-saddle": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1217",
-    "page": 182
+    "page": 182,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1217"
   },
   "equipment:heated-cloak": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1149",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1149"
   },
   "equipment:holy-steam-ball": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1150",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1150"
   },
   "equipment:ignitor": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1151",
-    "page": 88
+    "page": 88,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1151"
   },
   "equipment:immaculate-holsters": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1210",
-    "page": 180
+    "page": 180,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1210"
   },
   "equipment:immovable-tripod": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1218",
-    "page": 182
+    "page": 182,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1218"
   },
   "equipment:large-bore-modifications": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1223",
-    "page": 183
+    "page": 183,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1223"
   },
   "equipment:light-writer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1152",
-    "page": 88
+    "page": 88,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1152"
   },
   "equipment:lucky-draw-bandolier": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1211",
-    "page": 180
+    "page": 180,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1211"
   },
   "equipment:magnifying-scope": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1214",
-    "page": 181
+    "page": 181,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1214"
   },
   "equipment:magnifying-scope-greater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1214",
-    "page": 181
+    "page": 181,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1214"
   },
   "equipment:magnifying-scope-major": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1214",
-    "page": 181
+    "page": 181,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1214"
   },
   "equipment:mechanical-torch": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1236",
-    "page": 88
+    "page": 88,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1236"
   },
   "equipment:net-launcher": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1100",
-    "page": 65
+    "page": 65,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1100"
   },
   "equipment:nightbreeze-machine": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1154",
-    "page": 88
+    "page": 88,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1154"
   },
   "equipment:paper-shredder": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1155",
-    "page": 88
+    "page": 88,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1155"
   },
   "equipment:portable-weapon-mount-monopod": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1219",
-    "page": 182
+    "page": 182,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1219"
   },
   "equipment:portable-weapon-mount-shielded-tripod": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1219",
-    "page": 182
+    "page": 182,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1219"
   },
   "equipment:printing-press": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1156",
-    "page": 89
+    "page": 89,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1156"
   },
   "equipment:sambuca": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1200",
-    "page": 177
+    "page": 177,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1200"
   },
   "equipment:scope-of-limning": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1215",
-    "page": 182
+    "page": 182,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1215"
   },
   "equipment:scope-of-truth": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1216",
-    "page": 182
+    "page": 182,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1216"
   },
   "equipment:silencer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1206",
-    "page": 179
+    "page": 179,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1206"
   },
   "equipment:spider-chair": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1163",
-    "page": 91
+    "page": 91,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1163"
   },
   "equipment:spirit-singer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138"
   },
   "equipment:spirit-singer-handheld": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138"
   },
   "equipment:spirit-singer-incredible": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138"
   },
   "equipment:spirit-singer-incredible-handheld": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138"
   },
   "equipment:steam-winch": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1158",
-    "page": 89
+    "page": 89,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1158"
   },
   "equipment:steamflight-pack": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1157",
-    "page": 89
+    "page": 89,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1157"
   },
   "equipment:storm-chair": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1164",
-    "page": 91
+    "page": 91,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1164"
   },
   "equipment:timepiece-desktop-clock": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1159",
-    "page": 89
+    "page": 89,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1159"
   },
   "equipment:timepiece-grand-clock": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1159",
-    "page": 89
+    "page": 89,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1159"
   },
   "equipment:tripod": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1207",
-    "page": 179
+    "page": 179,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1207"
   },
   "equipment:underwater-firing-mechanism": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1224",
-    "page": 184
+    "page": 184,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1224"
   },
   "equipment:violet-ray": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1139",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1139"
   },
   "equipment:wind-up-wings-flutterback": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1101",
-    "page": 65
+    "page": 65,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1101"
   },
   "equipment:wind-up-wings-homing": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1101",
-    "page": 65
+    "page": 65,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1101"
   },
   "feat:adaptive-vision": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3280",
-    "page": 200
+    "page": 200,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3280"
   },
   "feat:advanced-breakthrough": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3115",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3115"
   },
   "feat:advanced-construct-companion": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3055",
-    "page": 26
+    "page": 26,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3055"
   },
   "feat:advanced-firearm-familiarity": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3221",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3221"
   },
   "feat:advanced-shooter": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3169",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3169"
   },
   "feat:advanced-shooting": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3217",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3217"
   },
   "feat:alchemical-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3165",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3165"
   },
   "feat:arcane-camouflage": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3099",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3099"
   },
   "feat:arcane-communication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3091",
-    "page": 40
+    "page": 40,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3091"
   },
   "feat:arcane-eye": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3092",
-    "page": 40
+    "page": 40,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3092"
   },
   "feat:arcane-locomotion": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3105",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3105"
   },
   "feat:arcane-propulsion": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3100",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3100"
   },
   "feat:arcane-safeguards": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3096",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3096"
   },
   "feat:arcane-slam": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3101",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3101"
   },
   "feat:artillerist-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3222",
-    "page": 128
+    "page": 128,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3222"
   },
   "feat:astral-blink": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3106",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3106"
   },
   "feat:automaton-armament": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3090",
-    "page": 39
+    "page": 39,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3090"
   },
   "feat:automaton-lore": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3093",
-    "page": 40
+    "page": 40,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3093"
   },
   "feat:axial-recall": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3109",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3109"
   },
   "feat:basic-beast-gunner-spellcasting": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3230",
-    "page": 131
+    "page": 131,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3230"
   },
   "feat:basic-breakthrough": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3113",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3113"
   },
   "feat:basic-modification": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3117",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3117"
   },
   "feat:basic-shooting": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3216",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3216"
   },
   "feat:beast-dynamo-howl": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3131",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3131"
   },
   "feat:beast-gunner-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3229",
-    "page": 130
+    "page": 130,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3229"
   },
   "feat:black-powder-blaze": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3237",
-    "page": 132
+    "page": 132,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3237"
   },
   "feat:black-powder-boost": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3166",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3166"
   },
   "feat:black-powder-embodiment": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3271",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3271"
   },
   "feat:blast-lock": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3154",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3154"
   },
   "feat:blast-resistance": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3285",
-    "page": 200
+    "page": 200,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3285"
   },
   "feat:blast-tackle": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3197",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3197"
   },
   "feat:blood-in-the-air": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3190",
-    "page": 116
+    "page": 116,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3190"
   },
   "feat:boost-modulation": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3073",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3073"
   },
   "feat:brilliant-crafter": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3114",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3114"
   },
   "feat:built-in-tools": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3044",
-    "page": 24
+    "page": 24,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3044"
   },
   "feat:bullet-dancer-burn": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3236",
-    "page": 132
+    "page": 132,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3236"
   },
   "feat:bullet-dancer-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3235",
-    "page": 132
+    "page": 132,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3235"
   },
   "feat:bullet-dancer-reload": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3238",
-    "page": 132
+    "page": 132,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3238"
   },
   "feat:bullet-split": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3177",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3177"
   },
   "feat:call-gun": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3269",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3269"
   },
   "feat:called-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3182",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3182"
   },
   "feat:cannon-corner-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3225",
-    "page": 129
+    "page": 129,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3225"
   },
   "feat:cauterize": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3170",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3170"
   },
   "feat:clan-pistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3281",
-    "page": 200
+    "page": 200,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3281"
   },
   "feat:clockwork-celerity": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3060",
-    "page": 27
+    "page": 27,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3060"
   },
   "feat:collapse-armor": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3051",
-    "page": 25
+    "page": 25,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3051"
   },
   "feat:collapse-construct": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3052",
-    "page": 25
+    "page": 25,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3052"
   },
   "feat:collapse-wall": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3244",
-    "page": 133
+    "page": 133,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3244"
   },
   "feat:come-at-me": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3198",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3198"
   },
   "feat:concentrated-assault": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3266",
-    "page": 139
+    "page": 139,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3266"
   },
   "feat:construct-shell": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3061",
-    "page": 27
+    "page": 27,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3061"
   },
   "feat:contingency-gadgets": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3074",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3074"
   },
   "feat:control-tower": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3125",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3125"
   },
   "feat:controlled-blast": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3243",
-    "page": 133
+    "page": 133,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3243"
   },
   "feat:controlled-bullet": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3233",
-    "page": 131
+    "page": 131,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3233"
   },
   "feat:converge": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3126",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3126"
   },
   "feat:core-attunement": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3102",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3102"
   },
   "feat:core-cannon": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3110",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3110"
   },
   "feat:core-rejuvenation": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3107",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3107"
   },
   "feat:cover-fire": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3155",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3155"
   },
   "feat:crafters-instinct": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3289",
-    "page": 201
+    "page": 201,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3289"
   },
   "feat:crossbow-crack-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3156",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3156"
   },
   "feat:dance-of-thunder": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3199",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3199"
   },
   "feat:dazzling-bullet": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3253",
-    "page": 136
+    "page": 136,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3253"
   },
   "feat:deadeye": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3191",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3191"
   },
   "feat:deep-freeze": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3075",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3075"
   },
   "feat:defensive-armaments": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3160",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3160"
   },
   "feat:deflecting-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3183",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3183"
   },
   "feat:demolitionist": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3287",
-    "page": 201
+    "page": 201,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3287"
   },
   "feat:demolitionist-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3240",
-    "page": 133
+    "page": 133,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3240"
   },
   "feat:devastating-weaponry": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3085",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3085"
   },
   "feat:disruptive-blur": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3200",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3200"
   },
   "feat:distracting-explosion": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3069",
-    "page": 28
+    "page": 28,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3069"
   },
   "feat:diving-armor": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3056",
-    "page": 26
+    "page": 26,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3056"
   },
   "feat:dongun-education": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3282",
-    "page": 200
+    "page": 200,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3282"
   },
   "feat:drain-vitality": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3231",
-    "page": 131
+    "page": 131,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3231"
   },
   "feat:drifters-juke": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3171",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3171"
   },
   "feat:drive-by-attack": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3146",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3146"
   },
   "feat:dual-form-weapon": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3057",
-    "page": 26
+    "page": 26,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3057"
   },
   "feat:duos-aim": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3262",
-    "page": 139
+    "page": 139,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3262"
   },
   "feat:eagle-eye": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3220",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3220"
   },
   "feat:eagle-eyes": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3265",
-    "page": 139
+    "page": 139,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3265"
   },
   "feat:efficient-controls": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3151",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3151"
   },
   "feat:electrify-armor": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3070",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3070"
   },
   "feat:energy-beam": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3094",
-    "page": 40
+    "page": 40,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3094"
   },
   "feat:engine-bay": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3148",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3148"
   },
   "feat:engine-of-destruction": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3086",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3086"
   },
   "feat:enlarged-chassis": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3108",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3108"
   },
   "feat:expert-beast-gunner-spellcasting": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3232",
-    "page": 131
+    "page": 131,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3232"
   },
   "feat:exploit-opening": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3260",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3260"
   },
   "feat:explosion": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3116",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3116"
   },
   "feat:explosive-entry": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3242",
-    "page": 133
+    "page": 133,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3242"
   },
   "feat:explosive-expert": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3290",
-    "page": 201
+    "page": 201,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3290"
   },
   "feat:explosive-leap": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3045",
-    "page": 24
+    "page": 24,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3045"
   },
   "feat:explosive-maneuver": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3078",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3078"
   },
   "feat:explosive-savant": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3283",
-    "page": 200
+    "page": 200,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3283"
   },
   "feat:express-driver": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3141",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3141"
   },
   "feat:fake-out": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3161",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3161"
   },
   "feat:fatal-bullet": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3204",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3204"
   },
   "feat:field-artillery": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3226",
-    "page": 129
+    "page": 129,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3226"
   },
   "feat:final-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3208",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3208"
   },
   "feat:finessed-features": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3139",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3139"
   },
   "feat:fire-savvy": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3284",
-    "page": 200
+    "page": 200,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3284"
   },
   "feat:flesh-wound": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3192",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3192"
   },
   "feat:forewarn": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3123",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3123"
   },
   "feat:forge-blessed-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3292",
-    "page": 201
+    "page": 201,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3292"
   },
   "feat:full-automation": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3088",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3088"
   },
   "feat:fulminating-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3268",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3268"
   },
   "feat:gadget-specialist": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3058",
-    "page": 26
+    "page": 26,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3058"
   },
   "feat:gear-gnash": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3135",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3135"
   },
   "feat:gigaton-strike": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3064",
-    "page": 27
+    "page": 27,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3064"
   },
   "feat:gigavolt": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3076",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3076"
   },
   "feat:greater-augmentation": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3111",
-    "page": 43
+    "page": 43,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3111"
   },
   "feat:grit-and-tenacity": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3178",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3178"
   },
   "feat:gunpowder-gauntlet": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3252",
-    "page": 135
+    "page": 135,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3252"
   },
   "feat:gunslinger-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3215",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3215"
   },
   "feat:hair-trigger": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3205",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3205"
   },
   "feat:haphazard-repair": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3046",
-    "page": 25
+    "page": 25,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3046"
   },
   "feat:headshot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3201",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3201"
   },
   "feat:helpful-tinkering": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3071",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3071"
   },
   "feat:hit-the-dirt": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3157",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3157"
   },
   "feat:hot-foot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3254",
-    "page": 136
+    "page": 136,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3254"
   },
   "feat:i-meant-to-do-that": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3278",
-    "page": 143
+    "page": 143,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3278"
   },
   "feat:impervious-vehicle": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3152",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3152"
   },
   "feat:incredible-construct-companion": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3065",
-    "page": 28
+    "page": 28,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3065"
   },
   "feat:instant-backup": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3167",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3167"
   },
   "feat:instant-return": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3206",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3206"
   },
   "feat:integrated-armament": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3097",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3097"
   },
   "feat:inventor-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3112",
-    "page": 49
+    "page": 49,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3112"
   },
   "feat:just-the-thing": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3082",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3082"
   },
   "feat:leap-and-fire": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3179",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3179"
   },
   "feat:lesser-augmentation": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3103",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3103"
   },
   "feat:live-ammunition": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3227",
-    "page": 129
+    "page": 129,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3227"
   },
   "feat:lock-on": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3072",
-    "page": 29
+    "page": 29,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3072"
   },
   "feat:lucky-escape": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3273",
-    "page": 142
+    "page": 142,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3273"
   },
   "feat:magical-resistance": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3098",
-    "page": 41
+    "page": 41,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3098"
   },
   "feat:manifold-modifications": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3066",
-    "page": 28
+    "page": 28,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3066"
   },
   "feat:master-beast-gunner-spellcasting": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3234",
-    "page": 131
+    "page": 131,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3234"
   },
   "feat:master-siege-engineer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3228",
-    "page": 129
+    "page": 129,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3228"
   },
   "feat:master-spotter": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3124",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3124"
   },
   "feat:megaton-strike": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3059",
-    "page": 27
+    "page": 27,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3059"
   },
   "feat:megavolt": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3062",
-    "page": 27
+    "page": 27,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3062"
   },
   "feat:miraculous-flight": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3153",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3153"
   },
   "feat:modular-dynamo": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3128",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3128"
   },
   "feat:munitions-crafter": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3158",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3158"
   },
   "feat:munitions-machinist": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3172",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3172"
   },
   "feat:named-artillery": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3223",
-    "page": 128
+    "page": 128,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3223"
   },
   "feat:negate-damage": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3087",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3087"
   },
   "feat:no-hard-feelings": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3274",
-    "page": 142
+    "page": 142,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3274"
   },
   "feat:no-no-i-created-you": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3047",
-    "page": 25
+    "page": 25,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3047"
   },
   "feat:overdrive-ally": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3067",
-    "page": 28
+    "page": 28,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3067"
   },
   "feat:overwatch-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3118",
-    "page": 50
+    "page": 50,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3118"
   },
   "feat:paired-shots": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3168",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3168"
   },
   "feat:paragon-companion": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3079",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3079"
   },
   "feat:patch-job": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3149",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3149"
   },
   "feat:penetrating-fire": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3184",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3184"
   },
   "feat:perfect-readiness": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3212",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3212"
   },
   "feat:persistent-boost": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3083",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3083"
   },
   "feat:phalanx-breaker": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3173",
-    "page": 113
+    "page": 113,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3173"
   },
   "feat:phase-bullet": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3270",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3270"
   },
   "feat:phenoms-verve": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3255",
-    "page": 136
+    "page": 136,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3255"
   },
   "feat:piercing-critical": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3209",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3209"
   },
   "feat:pistol-phenom-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3251",
-    "page": 135
+    "page": 135,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3251"
   },
   "feat:pistol-twirl": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3162",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3162"
   },
   "feat:pistoleros-challenge": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3174",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3174"
   },
   "feat:piston-punch": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3129",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3129"
   },
   "feat:power-slide": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3143",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3143"
   },
   "feat:practiced-reloads": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3219",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3219"
   },
   "feat:precious-munitions": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3185",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3185"
   },
   "feat:propeller-attachment": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3136",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3136"
   },
   "feat:prototype-companion": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3048",
-    "page": 25
+    "page": 25,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3048"
   },
   "feat:push-it": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3144",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3144"
   },
   "feat:rain-of-bolts": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3104",
-    "page": 42
+    "page": 42,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3104"
   },
   "feat:ranged-disarm": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3239",
-    "page": 132
+    "page": 132,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3239"
   },
   "feat:reach-for-the-sky": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3256",
-    "page": 136
+    "page": 136,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3256"
   },
   "feat:reach-for-the-stars": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3211",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3211"
   },
   "feat:rebounding-assault": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3186",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3186"
   },
   "feat:redirecting-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3187",
-    "page": 116
+    "page": 116,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3187"
   },
   "feat:reinforced-chassis": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3095",
-    "page": 40
+    "page": 40,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3095"
   },
   "feat:repurposed-parts": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3138",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3138"
   },
   "feat:reverse-engineer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3053",
-    "page": 25
+    "page": 25,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3053"
   },
   "feat:ricochet-legend": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3213",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3213"
   },
   "feat:ricochet-master": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3207",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3207"
   },
   "feat:ricochet-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3193",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3193"
   },
   "feat:risky-reload": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3163",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3163"
   },
   "feat:roadkill": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3145",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3145"
   },
   "feat:running-reload": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4875",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4875"
   },
   "feat:safety-measures": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3241",
-    "page": 133
+    "page": 133,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3241"
   },
   "feat:scatter-blast": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3175",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3175"
   },
   "feat:scrutinizing-gaze": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3291",
-    "page": 201
+    "page": 201,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3291"
   },
   "feat:searing-restoration": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3054",
-    "page": 26
+    "page": 26,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3054"
   },
   "feat:shared-overdrive": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3077",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3077"
   },
   "feat:shattering-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3194",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3194"
   },
   "feat:shooters-camouflage": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3195",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3195"
   },
   "feat:shorthanded": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3224",
-    "page": 129
+    "page": 129,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3224"
   },
   "feat:showstopper": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3202",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3202"
   },
   "feat:slingers-readiness": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3218",
-    "page": 127
+    "page": 127,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3218"
   },
   "feat:slingers-reflexes": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3214",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3214"
   },
   "feat:smoke-curtain": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3180",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3180"
   },
   "feat:smoke-sight": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3288",
-    "page": 201
+    "page": 201,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3288"
   },
   "feat:snipers-aim": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3176",
-    "page": 114
+    "page": 114,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3176"
   },
   "feat:sniping-duo-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3258",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3258"
   },
   "feat:soaring-armor": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3080",
-    "page": 30
+    "page": 30,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3080"
   },
   "feat:soaring-dynamo": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3133",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3133"
   },
   "feat:spark-fist": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3286",
-    "page": 200
+    "page": 200,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3286"
   },
   "feat:spell-woven-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7437",
-    "page": 141
+    "page": 141,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7437"
   },
   "feat:spellshot-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3267",
-    "page": 140
+    "page": 140,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3267"
   },
   "feat:spyglass-modification": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3119",
-    "page": 50
+    "page": 50,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3119"
   },
   "feat:stab-and-blast": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3181",
-    "page": 115
+    "page": 115,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3181"
   },
   "feat:stasian-smash": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3130",
-    "page": 53
+    "page": 53,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3130"
   },
   "feat:sterling-dynamo-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3127",
-    "page": 52
+    "page": 52,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3127"
   },
   "feat:superior-propulsion": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3150",
-    "page": 57
+    "page": 57,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3150"
   },
   "feat:swift-intervention": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3120",
-    "page": 50
+    "page": 50,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3120"
   },
   "feat:sword-and-pistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3159",
-    "page": 111
+    "page": 111,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3159"
   },
   "feat:tag-team": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3264",
-    "page": 139
+    "page": 139,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3264"
   },
   "feat:take-the-wheel": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3142",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3142"
   },
   "feat:tamper": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3049",
-    "page": 25
+    "page": 25,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3049"
   },
   "feat:targeted-redirection": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3261",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3261"
   },
   "feat:that-was-a-close-one-huh": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3275",
-    "page": 142
+    "page": 142,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3275"
   },
   "feat:topple-giants": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3121",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3121"
   },
   "feat:trapsmith-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3134",
-    "page": 54
+    "page": 54,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3134"
   },
   "feat:triangulate": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3259",
-    "page": 137
+    "page": 137,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3259"
   },
   "feat:trick-driver-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3140",
-    "page": 55
+    "page": 55,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3140"
   },
   "feat:trick-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3188",
-    "page": 116
+    "page": 116,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3188"
   },
   "feat:twin-shot-knockdown": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3189",
-    "page": 116
+    "page": 116,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3189"
   },
   "feat:two-weapon-fusillade": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3203",
-    "page": 118
+    "page": 118,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3203"
   },
   "feat:ubiquitous-gadgets": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3068",
-    "page": 28
+    "page": 28,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3068"
   },
   "feat:ubiquitous-overdrive": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3089",
-    "page": 32
+    "page": 32,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3089"
   },
   "feat:unbelievable-escape": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3277",
-    "page": 143
+    "page": 143,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3277"
   },
   "feat:unerring-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3210",
-    "page": 119
+    "page": 119,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3210"
   },
   "feat:unshakable-grit": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3196",
-    "page": 117
+    "page": 117,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3196"
   },
   "feat:unstable-redundancies": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3081",
-    "page": 31
+    "page": 31,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3081"
   },
   "feat:vantage-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3263",
-    "page": 139
+    "page": 139,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3263"
   },
   "feat:variable-core": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3050",
-    "page": 25
+    "page": 25,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3050"
   },
   "feat:vehicle-mechanic-dedication": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3147",
-    "page": 56
+    "page": 56,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3147"
   },
   "feat:visual-fidelity": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3063",
-    "page": 27
+    "page": 27,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3063"
   },
   "feat:warning-shot": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3164",
-    "page": 112
+    "page": 112,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3164"
   },
   "feat:whirling-knockdown": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3257",
-    "page": 136
+    "page": 136,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3257"
   },
   "feat:wide-overwatch": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3122",
-    "page": 51
+    "page": 51,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3122"
   },
   "heritage:hunter-automaton": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=184",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=184"
   },
   "heritage:mage-automaton": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=185",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=185"
   },
   "heritage:sharpshooter-automaton": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=186",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=186"
   },
   "heritage:warrior-automaton": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=187",
-    "page": 36
+    "page": 36,
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=187"
   },
   "weapon:air-repeater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=188",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=188"
   },
   "weapon:arquebus": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=195",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=195"
   },
   "weapon:axe-musket": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=213",
-    "page": 159
+    "page": 159,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=213"
   },
   "weapon:backpack-ballista": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=447",
-    "page": 62
+    "page": 62,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=447"
   },
   "weapon:backpack-catapult": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=174",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=174"
   },
   "weapon:bayonet": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=186",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=186"
   },
   "weapon:big-boom-gun": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=226",
-    "page": 157
+    "page": 157,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=226"
   },
   "weapon:black-powder-knuckle-dusters": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=214",
-    "page": 159
+    "page": 159,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=214"
   },
   "weapon:blunderbuss": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=196",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=196"
   },
   "weapon:cane-pistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=215",
-    "page": 159
+    "page": 159,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=215"
   },
   "weapon:clan-pistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=197",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=197"
   },
   "weapon:coat-pistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=189",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=189"
   },
   "weapon:dagger-pistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=216",
-    "page": 159
+    "page": 159,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=216"
   },
   "weapon:dart-umbrella": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=175",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=175"
   },
   "weapon:dawnsilver-tree": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=204",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=204"
   },
   "weapon:double-barreled-musket": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=198",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=198"
   },
   "weapon:double-barreled-pistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=199",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=199"
   },
   "weapon:dueling-pistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=201",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=201"
   },
   "weapon:dwarven-scattergun": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=207",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=207"
   },
   "weapon:explosive-dogslicer": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=224",
-    "page": 159
+    "page": 159,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=224"
   },
   "weapon:fire-lance": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=190",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=190"
   },
   "weapon:flingflenser": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=208",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=208"
   },
   "weapon:flintlock-musket": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=191",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=191"
   },
   "weapon:flintlock-pistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=192",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=192"
   },
   "weapon:forked-bipod": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=184",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=184"
   },
   "weapon:gnome-amalgam-musket": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=217",
-    "page": 159
+    "page": 159,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=217"
   },
   "weapon:gun-sword": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=218",
-    "page": 159
+    "page": 159,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=218"
   },
   "weapon:hammer-gun": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=219",
-    "page": 159
+    "page": 159,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=219"
   },
   "weapon:harmona-gun": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=202",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=202"
   },
   "weapon:injection-spear": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=170",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=170"
   },
   "weapon:jezail": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=203",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=203"
   },
   "weapon:knuckle-duster": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=185",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=185"
   },
   "weapon:long-air-repeater": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=194",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=194"
   },
   "weapon:mace-multipistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=220",
-    "page": 159
+    "page": 159,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=220"
   },
   "weapon:pantograph-gauntlet": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=172",
-    "page": 63
+    "page": 63,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=172"
   },
   "weapon:pepperbox": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=205",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=205"
   },
   "weapon:piercing-wind": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=221",
-    "page": 159
+    "page": 159,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=221"
   },
   "weapon:rapier-pistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=222",
-    "page": 159
+    "page": 159,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=222"
   },
   "weapon:reinforced-stock": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=187",
-    "page": 152
+    "page": 152,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=187"
   },
   "weapon:slide-pistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=206",
-    "page": 153
+    "page": 153,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=206"
   },
   "weapon:spoon-gun": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=225",
-    "page": 157
+    "page": 157,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=225"
   },
   "weapon:umbrella-injector": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=171",
-    "page": 64
+    "page": 64,
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=171"
   }
 }

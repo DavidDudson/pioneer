@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 117,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2914"
       }
     ],
     "description": [
@@ -119,7 +121,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 116,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2945"
       }
     ],
     "description": [
@@ -220,7 +224,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2908"
       }
     ],
     "description": [
@@ -375,7 +381,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 93,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2944"
       }
     ],
     "description": [
@@ -488,7 +496,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 12,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2935"
       }
     ],
     "description": [
@@ -716,7 +726,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 117,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2913"
       }
     ],
     "description": [
@@ -764,7 +776,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 116,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2912"
       }
     ],
     "description": [
@@ -904,7 +918,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 12,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2936"
       }
     ],
     "description": [
@@ -1168,7 +1184,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 116,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2911"
       }
     ],
     "description": [

@@ -1,142 +1,182 @@
 {
   "archetype:verduran-shadow": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=312",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=312"
   },
   "consumable:arboreal-wand-rank-2": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718"
   },
   "consumable:arboreal-wand-rank-3": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718"
   },
   "consumable:arboreal-wand-rank-4": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718"
   },
   "consumable:arboreal-wand-rank-5": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718"
   },
   "consumable:arboreal-wand-rank-6": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718"
   },
   "consumable:arboreal-wand-rank-7": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3718"
   },
   "consumable:primal-pollen": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3715",
-    "page": 17
+    "page": 17,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3715"
   },
   "consumable:skitter-knot-greater": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3719",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3719"
   },
   "consumable:skitter-knot-lesser": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3719",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3719"
   },
   "consumable:skitter-knot-major": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3719",
-    "page": 81
+    "page": 81,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3719"
+  },
+  "creature:alyce-quinley": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3699",
+    "page": 91
   },
   "creature:arboreal-sapling": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3690",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3690"
   },
   "creature:arboreal-sapstriker": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3692",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3692"
   },
   "creature:arboreal-shepherd": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3691",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3691"
   },
   "creature:azhana": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3693",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3693"
+  },
+  "creature:besieged-logging-crew": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3686",
+    "page": 35
   },
   "creature:chetamog": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3695",
-    "page": 86
+    "page": 86,
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3695"
   },
   "creature:cythnophorian": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3696",
-    "page": 87
+    "page": 87,
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3696"
+  },
+  "creature:emorga-all-seer": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3700",
+    "page": 92
+  },
+  "creature:lloyd-the-leaper": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3689",
+    "page": 50
   },
   "creature:ohancanu": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3697",
-    "page": 88
+    "page": 88,
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3697"
+  },
+  "creature:sigrid-jandevik": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3687",
+    "page": 39
+  },
+  "creature:splintershank": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3685",
+    "page": 34
+  },
+  "creature:stormdrinker": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3683",
+    "page": 16
   },
   "creature:the-bee-man-of-bellis": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3694",
-    "page": 85
+    "page": 85,
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3694"
   },
   "creature:twigjack-bramble": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3698",
-    "page": 89
+    "page": 89,
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3698"
+  },
+  "creature:wraithvine": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3684",
+    "page": 30
   },
   "equipment:beekeepers-smoker": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3716",
-    "page": 48
+    "page": 48,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3716"
   },
   "feat:canopy-predator": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7607",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7607"
   },
   "feat:death-from-above": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7610",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7610"
   },
   "feat:sense-the-strike": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7611",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7611"
   },
   "feat:underbrush-trailblazer": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7608",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7608"
   },
   "feat:verduran-ambush": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7609",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7609"
   },
   "feat:verduran-shadow-dedication": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7606",
-    "page": 79
+    "page": 79,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7606"
   },
   "spell:bee-mans-summons": {
     "book": "wardens-of-wildwood",
-    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2439",
-    "page": 80
+    "page": 80,
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2439"
   }
 }

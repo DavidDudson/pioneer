@@ -86,7 +86,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "page": 48,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3759"
       }
     ],
     "description": [
@@ -191,7 +193,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3758"
       }
     ],
     "description": [

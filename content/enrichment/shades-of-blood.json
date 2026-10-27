@@ -1,87 +1,122 @@
 {
   "archetype:sanguimancer": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=321",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=321"
   },
   "consumable:moonkeep-hyacinth": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790"
   },
   "consumable:moonkeep-lily": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790"
   },
   "consumable:moonkeep-orchid": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3790"
+  },
+  "creature:alzira-mustanir": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3857",
+    "page": 58
   },
   "creature:batkin-guard": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3850",
-    "page": 88
+    "page": 88,
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3850"
+  },
+  "creature:camazotz-cultist": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3856",
+    "page": 34
+  },
+  "creature:inizkar": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3852",
+    "page": 90
+  },
+  "creature:keeper-of-ancorato": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3855",
+    "page": 29
+  },
+  "creature:lesser-shadow-scamp": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3854",
+    "page": 18
+  },
+  "creature:romi-bracken": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3853",
+    "page": 93
+  },
+  "creature:vampire-servant": {
+    "book": "shades-of-blood",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3858",
+    "page": 67
   },
   "creature:werebat-warrior": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3851",
-    "page": 89
+    "page": 89,
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3851"
   },
   "equipment:aeon-stone-formulating": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
   },
   "equipment:aeon-stone-repairing": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
   },
   "equipment:farlight-stone": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3789",
-    "page": 82
+    "page": 82,
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3789"
   },
   "feat:blood-shield": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7765",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7765"
   },
   "feat:bloodsense": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7761",
-    "page": 83
+    "page": 83,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7761"
   },
   "feat:exsanguinate": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7766",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7766"
   },
   "feat:sanguimancer-dedication": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7764",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7764"
   },
   "feat:sanguine-tenacity": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7762",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7762"
   },
   "feat:transfusion": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7767",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7767"
   },
   "feat:vasodilation": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7763",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7763"
   },
   "feat:venipuncture": {
     "book": "shades-of-blood",
-    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7768",
-    "page": 84
+    "page": 84,
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7768"
   }
 }

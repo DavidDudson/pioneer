@@ -777,7 +777,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 96,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3849"
       }
     ],
     "description": [
@@ -1245,7 +1247,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3838"
       }
     ],
     "description": [],
@@ -1431,7 +1435,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 122,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3831"
       }
     ],
     "description": [],
@@ -1859,7 +1865,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3844"
       }
     ],
     "description": [],
@@ -2126,7 +2134,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3842"
       }
     ],
     "description": [],
@@ -2402,7 +2412,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 114,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3823"
       }
     ],
     "description": [
@@ -3312,7 +3324,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3839"
       }
     ],
     "description": [],
@@ -3588,7 +3602,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 93,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3847"
       }
     ],
     "description": [],
@@ -4255,7 +4271,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 116,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3825"
       }
     ],
     "description": [
@@ -4610,7 +4628,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 117,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3826"
       }
     ],
     "description": [
@@ -5065,7 +5085,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 73,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3843"
       }
     ],
     "description": [],
@@ -5351,7 +5373,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 36,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3837"
       }
     ],
     "description": [],
@@ -6481,7 +6505,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3841"
       }
     ],
     "description": [],
@@ -6926,7 +6952,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3848"
       }
     ],
     "description": [],
@@ -7265,7 +7293,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 118,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3827"
       }
     ],
     "description": [
@@ -8714,7 +8744,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3834"
       }
     ],
     "description": [],
@@ -9035,7 +9067,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 119,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3828"
       }
     ],
     "description": [
@@ -9385,7 +9419,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 120,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3829"
       }
     ],
     "description": [
@@ -9745,7 +9781,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 121,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3830"
       }
     ],
     "description": [
@@ -10145,7 +10183,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 32,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3836"
       }
     ],
     "description": [],
@@ -10342,7 +10382,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 29,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3835"
       }
     ],
     "description": [],
@@ -10575,7 +10617,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 85,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3846"
       }
     ],
     "description": [],
