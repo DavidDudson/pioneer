@@ -1,9 +1,15 @@
 import { applicationConfig } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { StatisticKind } from '@pioneer/rules/sdk';
+import { Proficiency, StatisticKind } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
-import { CONDITIONAL_STATISTICS, CYCLE, ENTRY_NAMES, FIGHTER_STATISTICS } from '../testing/breakdown-fixtures';
+import {
+  CONDITIONAL_STATISTICS,
+  CYCLE,
+  ENTRY_NAMES,
+  FIGHTER_FORTITUDE,
+  FIGHTER_STATISTICS,
+} from '../testing/breakdown-fixtures';
 import { BEATEN_STATISTICS, CLAIMABLE_STATISTICS } from '../testing/conditional-fixtures';
 import { PINNED_STATISTICS } from '../testing/override-fixtures';
 import { STATISTIC_ROLLER } from './statistic-roller';
@@ -112,5 +118,20 @@ export const Claimable: StatisticsStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByRole('button', { name: '+2 circumstance when you Climb (Sure Footing)' })).toBeVisible();
+  },
+};
+
+/** Skills with their proficiency rank as a letter beside the name: untrained, trained, expert. */
+export const Ranked: StatisticsStory = {
+  args: {
+    statistics: [
+      { name: 'Acrobatics', kind: StatisticKind.Check, result: FIGHTER_FORTITUDE, rank: Proficiency.Untrained },
+      { name: 'Athletics', kind: StatisticKind.Check, result: FIGHTER_FORTITUDE, rank: Proficiency.Trained },
+      { name: 'Stealth', kind: StatisticKind.Check, result: FIGHTER_FORTITUDE, rank: Proficiency.Expert },
+    ],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Expert')).toBeInTheDocument();
   },
 };

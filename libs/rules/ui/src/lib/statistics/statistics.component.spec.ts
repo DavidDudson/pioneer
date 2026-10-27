@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
-import { StatisticKind } from '@pioneer/rules/sdk';
+import { Proficiency, StatisticKind } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
 import {
   CONDITIONAL_STATISTICS,
   CYCLE,
   ENTRY_NAMES,
+  FIGHTER_FORTITUDE,
   FIGHTER_STATISTICS,
   GLOOM_WALKER,
 } from '../testing/breakdown-fixtures';
@@ -69,6 +70,11 @@ function conditions(host: HTMLElement): string[][] {
   return itemsOf(host).map((item) =>
     [...item.querySelectorAll('pio-statistic-conditions fr-text')].map((part) => textOf(part)),
   );
+}
+
+/** Fortitude, ranked. */
+function ranked(rank: Proficiency): NamedStatistic {
+  return { name: 'Fortitude', kind: StatisticKind.Check, result: FIGHTER_FORTITUDE, rank };
 }
 
 /** A roller that records what it is asked to roll. */
@@ -256,5 +262,19 @@ describe(StatisticsView, () => {
       expect(rolled.map(({ name }) => name)).toStrictEqual([check?.name]);
       expect(rolled[0]?.statistic).toBe(check?.result);
     });
+  });
+
+  it('shows a rank as its letter beside the name, read out as the rank name', async () => {
+    const host = hostOf(await render([ranked(Proficiency.Expert)]));
+
+    const rank = present(itemsOf(host)[0]?.querySelector('pio-proficiency-rank'));
+    expect(rank.querySelector('[aria-hidden="true"]')?.textContent.trim()).toBe('E');
+    expect(rank.querySelector('.sr-only')?.textContent.trim()).toBe('Expert');
+  });
+
+  it('shows no rank on a statistic that has none', async () => {
+    const host = hostOf(await render(FIGHTER_STATISTICS));
+
+    expect(host.querySelector('pio-proficiency-rank fr-glyph')).toBeNull();
   });
 });

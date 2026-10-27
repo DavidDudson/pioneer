@@ -68,6 +68,7 @@ export function sheetSkills(
   const results = sheetDerivation(registry, character);
   const skills = registry.statistics().filter((entry) => entry.definition.selector.startsWith(SKILL_PREFIX));
   const twice = trainedTwiceNotes(registry, character, translate);
+  const ranks = buildRanks(character.document, sheetSlotContent(registry));
   const traits = formTraits(character.document, itemContent(registry), sheetSlotContent(registry));
   const formNote = traits.length === 0 ? undefined : translate(FORM_TRAITS_KEY, { traits: traits.join(', ') });
   return skills
@@ -78,7 +79,10 @@ export function sheetSkills(
         (each) => each !== undefined,
       );
       const note = notes.length === 0 ? undefined : notes.join(' ');
-      return result === undefined ? [] : [{ name: entry.definition.name, kind: entry.definition.kind, result, note }];
+      const rank = ranks.get(selector) ?? Proficiency.Untrained;
+      return result === undefined
+        ? []
+        : [{ name: entry.definition.name, kind: entry.definition.kind, result, note, rank }];
     })
     .toSorted((left, right) => left.name.localeCompare(right.name));
 }

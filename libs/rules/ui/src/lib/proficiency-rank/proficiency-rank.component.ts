@@ -20,8 +20,11 @@ import { PROFICIENCY_LETTERS, PROFICIENCY_NAMES } from './proficiency-rank-messa
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProficiencyRankView {
-  public readonly rank = input.required<Proficiency>();
+  /** Undefined for a statistic with no rank: nothing is shown. */
+  public readonly rank = input<Proficiency | undefined>();
 
-  protected readonly letter = computed(() => PROFICIENCY_LETTERS[this.rank()]);
-  protected readonly name = computed(() => PROFICIENCY_NAMES[this.rank()]);
+  protected readonly shown = computed(() => {
+    const rank = this.rank();
+    return rank === undefined ? undefined : { letter: PROFICIENCY_LETTERS[rank], name: PROFICIENCY_NAMES[rank] };
+  });
 }

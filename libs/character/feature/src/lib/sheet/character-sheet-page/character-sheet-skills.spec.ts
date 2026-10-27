@@ -40,6 +40,23 @@ function skillRow(root: HTMLElement, name: string): string | undefined {
     .find((text) => text.startsWith(name));
 }
 
+/** A rank as shown: its letter, and the name read out for it. */
+interface ShownRank {
+  readonly letter: string;
+  readonly name: string;
+}
+
+/** The rank letter shown on the Skills section's row for `name`, and the name read out for it. */
+function rankOf(root: HTMLElement, name: string): ShownRank | undefined {
+  const item = [...skillsSection(root).querySelectorAll('fr-list-item')].find((each) =>
+    each.textContent.trim().startsWith(name),
+  );
+  const rank = item?.querySelector('pio-proficiency-rank');
+  const letter = rank?.querySelector('[aria-hidden="true"]')?.textContent.trim();
+  const read = rank?.querySelector('.sr-only')?.textContent.trim();
+  return letter === undefined || read === undefined ? undefined : { letter, name: read };
+}
+
 describe('CharacterSheetPage skills', () => {
   it('asks a fighter for its three trained skills, one picker each', async () => {
     const { root } = await openSheet(fighter());
@@ -124,6 +141,15 @@ describe('CharacterSheetPage skills', () => {
     await vi.waitFor(() => {
       expect(skillRow(trained.root, 'Athletics')).toContain('+4');
     });
+  });
+
+  it('shows each skill rank as its letter, named for assistive tech', async () => {
+    const { root } = await openSheet(fighter({ 'skill-training:1:0': ATHLETICS }));
+
+    await vi.waitFor(() => {
+      expect(rankOf(root, 'Athletics')).toStrictEqual({ letter: 'T', name: 'Trained' });
+    });
+    expect(rankOf(root, 'Acrobatics')).toStrictEqual({ letter: 'U', name: 'Untrained' });
   });
 
   it('names a skill slot in the Choices section by its level', async () => {

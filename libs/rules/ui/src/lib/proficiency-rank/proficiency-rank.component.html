@@ -1,3 +1,5 @@
-<fr-text weight="semibold"
-  ><fr-glyph [label]="name() | transloco">{{ letter() | transloco }}</fr-glyph></fr-text
->
+@if (shown(); as rank) {
+  <fr-text weight="semibold"
+    ><fr-glyph [label]="rank.name | transloco">{{ rank.letter | transloco }}</fr-glyph></fr-text
+  >
+}
