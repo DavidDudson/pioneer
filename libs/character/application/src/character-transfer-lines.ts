@@ -1,4 +1,4 @@
-import type { CharacterId, InventoryItemId } from '@pioneer/character/domain';
+import type { CharacterId, Coins, InventoryItemId } from '@pioneer/character/domain';
 import type { Version } from '@pioneer/shared/kernel';
 
 import type { CharacterRepository } from './character-repository';
@@ -9,8 +9,14 @@ export interface TransferLine {
   readonly version: Version;
 }
 
+/** A purse as an offer sees it: the coins held, and the character's version now. */
+export interface TransferPurse {
+  readonly coins: Coins;
+  readonly version: Version;
+}
+
 /**
- * Reads the lines a campaign's members offer to each other. Like `CharacterKeyItemPromotion`, who may ask is the
+ * Reads the lines and coins a campaign's members offer to each other. Like `CharacterKeyItemPromotion`, who may ask is the
  * campaign context's policy. Framework-free.
  */
 export class CharacterTransferLines {
@@ -18,6 +24,15 @@ export class CharacterTransferLines {
 
   public constructor(characters: CharacterRepository) {
     this.#characters = characters;
+  }
+
+  /** The character's purse and version; none when the character is gone. */
+  public async purse(characterId: CharacterId): Promise<TransferPurse | undefined> {
+    const character = await this.#characters.findById(characterId);
+    if (character === undefined) {
+      return undefined;
+    }
+    return { coins: character.document.inventory.coins, version: character.version };
   }
 
   /** The line and the character's version; none when the character or the line is gone. */

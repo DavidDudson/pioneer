@@ -1,20 +1,25 @@
 import { ItemTransferMessage, ItemTransferRepository } from '@pioneer/campaign/application';
 import { TransferStatus } from '@pioneer/campaign/domain';
-import type { CampaignId, ItemTransfer } from '@pioneer/campaign/domain';
+import type { CampaignId, CoinTransfer, ItemTransfer } from '@pioneer/campaign/domain';
 import { ConflictError, message, Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
 import { stampAudit } from '@pioneer/shared/server';
-import { and, asc, eq } from 'drizzle-orm';
+import { and, asc, eq, isNotNull } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 import { campaignItemTransfers } from './campaign-item-transfer.table';
 
 /** Name the command on the audit row it writes, as a service use case names a command. */
 const OFFER_COMMAND = 'offer-campaign-item-transfer';
+const OFFER_COINS_COMMAND = 'offer-campaign-coin-transfer';
 
 type ItemTransferRow = typeof campaignItemTransfers.$inferSelect;
 
+/** An item offer's row; a coin offer has none of its item. */
 function toTransfer(row: ItemTransferRow): ItemTransfer {
+  if (row.itemId === null) {
+    throw new Error(`Transfer ${row.id} is not an item offer`);
+  }
   return {
     id: row.id,
     from: row.fromCharacterId,
@@ -39,7 +44,11 @@ export class DrizzleItemTransferRepository extends ItemTransferRepository {
       .select()
       .from(campaignItemTransfers)
       .where(
-        and(eq(campaignItemTransfers.campaignId, campaignId), eq(campaignItemTransfers.status, TransferStatus.Pending)),
+        and(
+          eq(campaignItemTransfers.campaignId, campaignId),
+          eq(campaignItemTransfers.status, TransferStatus.Pending),
+          isNotNull(campaignItemTransfers.itemId),
+        ),
       )
       .orderBy(asc(campaignItemTransfers.createdAt), asc(campaignItemTransfers.id));
     return rows.map((row) => toTransfer(row));
@@ -69,6 +78,25 @@ export class DrizzleItemTransferRepository extends ItemTransferRepository {
           message(ItemTransferMessage.AlreadyOffered),
         );
       }
+    });
+  }
+
+  public override async insertCoins(actor: UserId, campaignId: CampaignId, transfer: CoinTransfer): Promise<void> {
+    await this.#db.transaction(async (tx) => {
+      await stampAudit(tx, { actor, command: OFFER_COINS_COMMAND });
+      await tx.insert(campaignItemTransfers).values({
+        id: transfer.id,
+        campaignId,
+        fromCharacterId: transfer.from,
+        toCharacterId: transfer.to,
+        platinum: transfer.coins.pp,
+        gold: transfer.coins.gp,
+        silver: transfer.coins.sp,
+        copper: transfer.coins.cp,
+        giverVersion: transfer.giverVersion,
+        status: transfer.status,
+        createdAt: transfer.createdAt.toString(),
+      });
     });
   }
 }

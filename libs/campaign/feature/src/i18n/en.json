@@ -133,7 +133,8 @@
   "transfers": {
     "keyItemLine": "A key item cannot be offered; the GM controls it.",
     "alreadyOffered": "That item is already on offer.",
-    "sameCharacter": "A character cannot offer to itself."
+    "sameCharacter": "A character cannot offer to itself.",
+    "notEnoughCoins": "The giver does not hold that many coins."
   },
   "keyItems": {
     "heading": "Key items",

@@ -1,4 +1,4 @@
-import type { CampaignId, ItemTransfer } from '@pioneer/campaign/domain';
+import type { CampaignId, CoinTransfer, ItemTransfer } from '@pioneer/campaign/domain';
 import { TransferStatus } from '@pioneer/campaign/domain';
 import { Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
@@ -9,6 +9,7 @@ import { ItemTransferRepository } from './item-transfer-repository';
 export class InMemoryItemTransferRepository extends ItemTransferRepository {
   readonly #transfers = new Map<CampaignId, ItemTransfer[]>();
   readonly #actors: UserId[] = [];
+  readonly #coins: CoinTransfer[] = [];
 
   /** Every actor that wrote an offer, oldest first. */
   public get actors(): readonly UserId[] {
@@ -23,8 +24,18 @@ export class InMemoryItemTransferRepository extends ItemTransferRepository {
       );
   }
 
+  /** Every coin offer stored, oldest first. */
+  public get coinOffers(): readonly CoinTransfer[] {
+    return this.#coins;
+  }
+
   public override async insert(actor: UserId, campaignId: CampaignId, transfer: ItemTransfer): Promise<void> {
     this.#actors.push(actor);
     this.#transfers.set(campaignId, [...(this.#transfers.get(campaignId) ?? []), transfer]);
+  }
+
+  public override async insertCoins(actor: UserId, _campaignId: CampaignId, transfer: CoinTransfer): Promise<void> {
+    this.#actors.push(actor);
+    this.#coins.push(transfer);
   }
 }

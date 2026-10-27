@@ -1,5 +1,6 @@
 import { TransferLines } from '@pioneer/campaign/application';
-import type { OfferableLine } from '@pioneer/campaign/application';
+import type { OfferableLine, OfferablePurse } from '@pioneer/campaign/application';
+import { OfferedCoinsSchema } from '@pioneer/campaign/domain';
 import type { CharacterId as CampaignCharacterId, ReviewedItemId } from '@pioneer/campaign/domain';
 import type { CharacterTransferLines } from '@pioneer/character/application';
 import { CharacterId, InventoryItemId } from '@pioneer/character/domain';
@@ -21,5 +22,10 @@ export class CharacterTransferLinesAdapter extends TransferLines {
     item: ReviewedItemId,
   ): Promise<OfferableLine | undefined> {
     return this.#lines.describe(CharacterId.parse(character), InventoryItemId.parse(item));
+  }
+
+  public override async purse(character: CampaignCharacterId): Promise<OfferablePurse | undefined> {
+    const found = await this.#lines.purse(CharacterId.parse(character));
+    return found === undefined ? undefined : { coins: OfferedCoinsSchema.parse(found.coins), version: found.version };
   }
 }

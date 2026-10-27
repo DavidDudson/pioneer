@@ -3,4 +3,5 @@ export const ItemTransferMessage = {
   KeyItemLine: 'campaign.transfers.keyItemLine',
   AlreadyOffered: 'campaign.transfers.alreadyOffered',
   SameCharacter: 'campaign.transfers.sameCharacter',
+  NotEnoughCoins: 'campaign.transfers.notEnoughCoins',
 } as const;

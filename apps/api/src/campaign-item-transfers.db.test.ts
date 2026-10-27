@@ -1,7 +1,13 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, test } from 'bun:test';
 
-import { CharacterId, ItemTransferId, ReviewedItemId, TransferStatus } from '@pioneer/campaign/domain';
-import type { CampaignId, ItemTransfer } from '@pioneer/campaign/domain';
+import {
+  CharacterId,
+  ItemTransferId,
+  OfferedCoinsSchema,
+  ReviewedItemId,
+  TransferStatus,
+} from '@pioneer/campaign/domain';
+import type { CampaignId, CoinTransfer, ItemTransfer } from '@pioneer/campaign/domain';
 import { CampaignBuilder } from '@pioneer/campaign/domain/testing';
 import { DrizzleCampaignRepository, DrizzleItemTransferRepository } from '@pioneer/campaign/infrastructure';
 import { CharacterCommand } from '@pioneer/character/domain';
@@ -41,6 +47,18 @@ describe.skipIf(adminUrl === undefined)('campaign item transfers over postgres',
       status: TransferStatus.Pending,
       createdAt: clock.now(),
       ...overrides,
+    };
+  }
+
+  function coinOffer(): CoinTransfer {
+    return {
+      id: ItemTransferId.parse(newId()),
+      from: CharacterId.parse(kyra.id),
+      to: CharacterId.parse(mordred.id),
+      coins: OfferedCoinsSchema.parse({ gp: 4, cp: 2 }),
+      giverVersion: GIVER_VERSION,
+      status: TransferStatus.Pending,
+      createdAt: clock.now(),
     };
   }
 
@@ -125,6 +143,37 @@ describe.skipIf(adminUrl === undefined)('campaign item transfers over postgres',
     expect(refused).toHaveLength(1);
     expect(refused[0]?.reason).toBeInstanceOf(ConflictError);
     expect(await repository.listPending(campaignId)).toHaveLength(1);
+  });
+
+  test('a coin offer is stored beside item offers, which never list it', async () => {
+    const first = offer();
+    await repository.insert(amiri, campaignId, first);
+    await repository.insertCoins(amiri, campaignId, coinOffer());
+    await repository.insertCoins(amiri, campaignId, coinOffer());
+
+    const pending = await repository.listPending(campaignId);
+    const stored = await database.db.execute(
+      sql`select count(*)::int as total from campaign_item_transfers where campaign_id = ${campaignId} and item_id is null`,
+    );
+
+    expect(pending).toStrictEqual([first]);
+    expect(stored[0]).toMatchObject({ total: 2 });
+  });
+
+  test('the database refuses an offer that is both a line and coins, or neither', async () => {
+    const both = await rejection(
+      database.db.execute(
+        sql`insert into campaign_item_transfers (id, campaign_id, from_character_id, to_character_id, item_id, gold, giver_version, status, created_at) values (${newId()}, ${campaignId}, ${kyra.id}, ${mordred.id}, ${newId()}, 1, 1, 'pending', ${at})`,
+      ),
+    );
+    const neither = await rejection(
+      database.db.execute(
+        sql`insert into campaign_item_transfers (id, campaign_id, from_character_id, to_character_id, giver_version, status, created_at) values (${newId()}, ${campaignId}, ${kyra.id}, ${mordred.id}, 1, 'pending', ${at})`,
+      ),
+    );
+
+    expect(both).toBeInstanceOf(Error);
+    expect(neither).toBeInstanceOf(Error);
   });
 
   test('the database refuses to delete an offer (ADR-0062)', async () => {

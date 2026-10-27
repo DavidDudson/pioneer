@@ -75,11 +75,17 @@ export {
   ReviewedRuneId,
 } from './campaign-item-approvals';
 export {
+  CoinTransferView,
   ItemTransferId,
   ItemTransferView,
+  OfferCoinsBody,
+  OfferedCoinAmount,
+  OfferedCoinsSchema,
   OfferItemBody,
   TransferStatus,
+  type CoinTransfer,
   type ItemTransfer,
+  type OfferedCoins,
 } from './campaign-item-transfers';
 export {
   CampaignKeyItems,

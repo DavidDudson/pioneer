@@ -1,5 +1,15 @@
 import { ItemTransferId, TransferStatus } from '@pioneer/campaign/domain';
-import type { Campaign, CampaignId, ItemTransfer, ItemTransferView, OfferItemBody } from '@pioneer/campaign/domain';
+import type {
+  Campaign,
+  CampaignId,
+  CoinTransfer,
+  CoinTransferView,
+  ItemTransfer,
+  ItemTransferView,
+  OfferCoinsBody,
+  OfferedCoins,
+  OfferItemBody,
+} from '@pioneer/campaign/domain';
 import { ConflictError, message, newId, NotFoundError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
 
@@ -9,7 +19,12 @@ import type { CampaignRepository } from './campaign-repository';
 import type { CharacterDirectory } from './character-directory';
 import { ItemTransferMessage } from './item-transfer-message';
 import type { ItemTransferRepository } from './item-transfer-repository';
-import type { OfferableLine, TransferLines } from './transfer-lines';
+import type { OfferableLine, OfferablePurse, TransferLines } from './transfer-lines';
+
+/** Whether the purse holds at least every coin offered, denomination by denomination. */
+function covers(held: OfferedCoins, offered: OfferedCoins): boolean {
+  return held.pp >= offered.pp && held.gp >= offered.gp && held.sp >= offered.sp && held.cp >= offered.cp;
+}
 
 /** The ports `CampaignItemTransferService` works through. */
 export interface CampaignItemTransferPorts {
@@ -63,6 +78,40 @@ export class CampaignItemTransferService {
     return { id: transfer.id, from: body.from, to: body.to, item: body.item, status: transfer.status };
   }
 
+  /**
+   * A member offers coins of one of their campaign characters to another character of the campaign, exactly as given per
+   * denomination, and they stay with the giver until the offer is accepted. Not a member, a character outside the party,
+   * or a giver the member does not own: 404. The giver as its own recipient, or more coins than the giver holds of any
+   * denomination: 409. Several offers may be pending at once; the purse is checked again when one is accepted.
+   */
+  public async offerCoins(actor: UserId, id: CampaignId, body: OfferCoinsBody): Promise<CoinTransferView> {
+    await this.#viewed(actor, id);
+    await this.#inParty(id, body);
+    await this.#owned(actor, body);
+    const purse = await this.#held(body);
+    const transfer: CoinTransfer = {
+      id: ItemTransferId.parse(newId()),
+      ...body,
+      giverVersion: purse.version,
+      status: TransferStatus.Pending,
+      createdAt: this.#clock.now(),
+    };
+    await this.#transfers.insertCoins(actor, id, transfer);
+    return { id: transfer.id, from: body.from, to: body.to, coins: body.coins, status: transfer.status };
+  }
+
+  /** The giver's purse, when it holds every coin offered: a missing character is a 404, a short purse a 409. */
+  async #held({ from, coins }: OfferCoinsBody): Promise<OfferablePurse> {
+    const purse = await this.#lines.purse(from);
+    if (purse === undefined) {
+      throw new NotFoundError('Character', from);
+    }
+    if (!covers(purse.coins, coins)) {
+      throw new ConflictError('The giver does not hold that many coins', message(ItemTransferMessage.NotEnoughCoins));
+    }
+    return purse;
+  }
+
   /** The giver's line, when it can go on offer: a missing one is a 404, a key item's or one already offered a 409. */
   async #offerable(id: CampaignId, { from, item }: OfferItemBody): Promise<OfferableLine> {
     const line = await this.#lines.describe(from, item);
@@ -83,7 +132,7 @@ export class CampaignItemTransferService {
   }
 
   /** Both characters are in the campaign's party; one that is not is a 404. The same character twice is a 409. */
-  async #inParty(id: CampaignId, { from, to }: OfferItemBody): Promise<void> {
+  async #inParty(id: CampaignId, { from, to }: Pick<OfferItemBody, 'from' | 'to'>): Promise<void> {
     const party = await this.#party.listForCampaign(id);
     for (const character of [from, to]) {
       if (!party.some((each) => each.characterId === character)) {
@@ -99,7 +148,7 @@ export class CampaignItemTransferService {
    * The giver is the actor's own live character; another user's is a 404, as for characters themselves (ADR-0007), and
    * so is an archived one (ADR-0062).
    */
-  async #owned(actor: UserId, { from }: OfferItemBody): Promise<void> {
+  async #owned(actor: UserId, { from }: Pick<OfferItemBody, 'from'>): Promise<void> {
     const named = await this.#characters.byIds([from]);
     const giver = named.get(from);
     if (giver === undefined || giver.ownerId !== actor || giver.archived) {
