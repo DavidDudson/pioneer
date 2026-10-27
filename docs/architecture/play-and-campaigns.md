@@ -425,8 +425,8 @@ under the environment toggles. A `LiftRestriction` rule element on anything in p
 Combat (Player Core, page 437) in `content/packs/player-core/environment.json`: its rules are the effect's, and its
 restrictions are fire actions and speech (which costs the air). Dim light, darkness and the three kinds of terrain
 (difficult, greater difficult, hazardous) are in the same file, from Player Core pages 432 and 423: the light ones add a
-note to attack and Perception rolls, and the terrain ones are text for the table to apply. Consequences over time are a
-separate story.
+note to attack and Perception rolls, and the terrain ones are text for the table to apply. Heat, cold and other slow
+costs are the environment's `consequences`, below.
 
 Holding the breath (Aquatic Combat, "Drowning and Suffocating") is its own play state, `breath` (`breath.ts`): the
 rounds of air left (5 plus the Constitution modifier when held) and the saves against suffocation made. The
@@ -435,8 +435,17 @@ by the edit that restores the breath before. Ending a turn spends a round of air
 that turn; casting a spell, speaking or a critical hit is told to the sheet (Lose a round, Speak or cast). Out of air,
 the character is suffocating: at each turn end it rolls a Fortitude save against DC 20, 5 more each time. A failure
 takes 1d10 damage, a 1d10 more each time, and a critical failure is death. The sheet says the character is unconscious,
-but the Unconscious condition is not added for it. The environment `consequences` list is for slower costs (heat,
-cold) and is not read.
+but the Unconscious condition is not added for it.
+
+Environment consequences are read when time passes, not at turn end. Play state keeps `exposure`, the rounds spent in
+each environment the character is in: it starts at none when an environment is turned on and is dropped when it is
+turned off (`environment-exposure.ts`). The `passTime` turn command (`environment-time.ts`; 10 minutes and 1 hour
+buttons on the sheet) adds its duration to every clock, then each consequence of the environment happens as often as its
+`after` period was crossed (`repeats` makes it recur; a long wait is capped at 144 times). A consequence either deals
+`damage` (a category and a type) or `applies` a condition. Damage rolls the low end of the GM Core category range
+(minor 1d6, moderate 4d6, major 8d6, massive 16d6), goes through the character's defences and takes Hit Points, with an
+`environmentDamage` event; a condition is applied once with unlimited duration and not again while the character has
+it (`environmentCondition` event). A dead character takes nothing.
 
 ### Rest and daily preparations
 

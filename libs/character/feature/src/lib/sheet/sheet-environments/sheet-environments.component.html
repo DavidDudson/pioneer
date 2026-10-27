@@ -20,6 +20,20 @@
           }}</fr-text>
         }
       }
+      @if (active().size > 0) {
+        <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+          <fr-text>{{ 'character.sheet.environments.passTime.label' | transloco }}</fr-text>
+          <fr-async-button size="sm" [action]="tenMinutes" [describeError]="describeError">
+            {{ 'character.sheet.environments.passTime.tenMinutes' | transloco }}
+          </fr-async-button>
+          <fr-async-button size="sm" [action]="oneHour" [describeError]="describeError">
+            {{ 'character.sheet.environments.passTime.oneHour' | transloco }}
+          </fr-async-button>
+        </fr-stack>
+        @for (line of log(); track $index) {
+          <fr-text>{{ line }}</fr-text>
+        }
+      }
       <pio-sheet-breath />
     </fr-stack>
   </ng-template>

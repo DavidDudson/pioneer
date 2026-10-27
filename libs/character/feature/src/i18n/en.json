@@ -163,7 +163,12 @@
       "none": "No environments in the content yet",
       "lifted": "{reason} Lifted by {source}.",
       "blocked": "{reason}",
-      "active": "In:"
+      "active": "In:",
+      "passTime": {
+        "label": "Time passes:",
+        "tenMinutes": "10 minutes",
+        "oneHour": "1 hour"
+      }
     },
     "skills": {
       "formTraits": "Your form gives you the traits {traits} on this roll."

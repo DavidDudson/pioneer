@@ -612,7 +612,13 @@ export {
 export { reevaluateBadges, type Reevaluation, startTurn, type TurnInputs, type TurnOutcome } from './turn-start';
 export { endTurn, type EndTurnInputs } from './turn-end';
 export { passTime, type PassTimeInputs } from './environment-time';
-export { type Exposure, ExposureRounds, ExposureSchema, occurrences } from './environment-exposure';
+export {
+  type EnvironmentDuration,
+  type Exposure,
+  ExposureRounds,
+  ExposureSchema,
+  occurrences,
+} from './environment-exposure';
 export { RepertoireSwap, repertoireSwap, repertoireSwapRefusal } from './repertoire-swaps';
 export { applyTurnCommand, turnCommandInputs, type TurnCommandInputs, type TurnRun } from './turn-commands';
 export {
