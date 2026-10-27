@@ -1,6 +1,7 @@
 import { computed, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { BACKGROUND_SLOT, BoostSource, CLASS_SLOT, SECOND_CLASS_SLOT } from '@pioneer/character/domain';
+import type { CharacterSenses } from '@pioneer/character/domain';
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import type { Defences } from '@pioneer/rules/engine';
 import type { SlotKey } from '@pioneer/rules/sdk';
@@ -23,6 +24,7 @@ import { sheetDefences } from './sheet-defences';
 import { engineReads, loaded } from './sheet-pick-sources';
 import type { BuildPickSources, EngineReads } from './sheet-pick-sources';
 import { sheetPlannedSlots } from './sheet-planned-slots';
+import { sheetSenses } from './sheet-senses';
 import { markTrainedAgain, sheetTrainedAgain } from './sheet-skill-repeats';
 import { sheetSkillSlots } from './sheet-skills';
 import { slotField, slotFieldsOf } from './sheet-slot-picks';
@@ -62,6 +64,8 @@ export interface BuildPicks extends EngineReads, ClassPicks {
   readonly second: ClassPicks;
   /** Immunities, weaknesses and resistances with the rules in play, a form's among them; undefined while loading. */
   readonly defences: Signal<Defences | undefined>;
+  /** The senses in play, and the character's own when a form replaced them; undefined while loading. */
+  readonly senses: Signal<CharacterSenses | undefined>;
   /** The attribute modifiers and the boosts still to pick; undefined while the character or the content loads. */
   readonly attributes: Signal<SheetAttributes | undefined>;
   /** Undefined while the character or the content loads. */
@@ -172,6 +176,7 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
     hasSecondClass: computed(() => hasSecondClass() ?? false),
     second: classPicks(sources, SECOND_CLASS_SLOT, BoostSource.SecondClass),
     defences: loaded({ ...sources, registry: sources.engineRegistry }, sheetDefences),
+    senses: loaded({ ...sources, registry: sources.engineRegistry }, sheetSenses),
     attributes: loaded(sources, sheetAttributes),
     features: loaded(sources, sheetClassFeatures),
     buildLines: computed(() => {

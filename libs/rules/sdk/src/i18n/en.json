@@ -710,6 +710,18 @@
       "byUnknownAuthor": " by an unknown author",
       "separator": "; "
     },
+    "senses": {
+      "sense": "{name} ({acuity}{hasRange, select, yes {, {range} feet} other {}})",
+      "fromForm": "from {form}",
+      "unnamedForm": "a battle form",
+      "none": "No special senses.",
+      "own": "Your own senses",
+      "acuity": {
+        "precise": "precise",
+        "imprecise": "imprecise",
+        "vague": "vague"
+      }
+    },
     "defences": {
       "immunities": "Immunities",
       "weaknesses": "Weaknesses",

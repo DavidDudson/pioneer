@@ -15,6 +15,8 @@ export interface SenseInPlay {
   readonly range?: Feet;
   /** Every ancestry vision and `Sense` element that gives it with this acuity and range, in the order found. */
   readonly origins: readonly Origin[];
+  /** Set when a battle form gives the sense: the sheet marks it as from the form. */
+  readonly fromForm?: true;
 }
 
 /** The vision an ancestry's data gives (darkvision, low-light vision): precise, with no range. */
@@ -30,6 +32,7 @@ interface SenseGrant {
   readonly acuity: SenseAcuity;
   readonly range: Feet | undefined;
   readonly origin: Origin;
+  readonly fromForm?: true;
 }
 
 const ACUITY_ORDER: readonly SenseAcuity[] = [SenseAcuity.Vague, SenseAcuity.Imprecise, SenseAcuity.Precise];
@@ -81,6 +84,7 @@ function grantsOf({ rules, facts }: ModifierInputs, vision: AncestryVision | und
       acuity,
       range,
       origin: form.origin,
+      fromForm: true,
     }));
   }
   const grants: SenseGrant[] =

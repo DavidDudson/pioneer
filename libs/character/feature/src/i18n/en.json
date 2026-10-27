@@ -38,6 +38,7 @@
     "identityHeading": "Identity",
     "attributesHeading": "Attributes",
     "defencesHeading": "Defences",
+    "sensesHeading": "Senses",
     "strikesHeading": "Strikes",
     "formLimits": {
       "cantCast": "{form}: you can't cast spells."
