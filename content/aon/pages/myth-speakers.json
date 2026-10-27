@@ -34,5 +34,27 @@
     "https://2e.aonprd.com/Spells.aspx?ID=2520": 82,
     "https://2e.aonprd.com/Spells.aspx?ID=2521": 83,
     "https://2e.aonprd.com/Spells.aspx?ID=2522": 83
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3455"
+    },
+    {
+      "type": "Action",
+      "name": "(healing, manipulate, plant)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3456"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3457"
+    },
+    {
+      "type": "Source",
+      "name": "Pathfinder #216: The Acropolis Pyre",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=271"
+    }
+  ]
 }

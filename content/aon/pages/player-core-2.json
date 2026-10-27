@@ -1752,5 +1752,632 @@
     "https://2e.aonprd.com/Weapons.aspx?ID=480": 274,
     "https://2e.aonprd.com/Weapons.aspx?ID=481": 275,
     "https://2e.aonprd.com/Weapons.aspx?ID=482": 275
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Quick Alchemy",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2801"
+    },
+    {
+      "type": "Action",
+      "name": "Rage",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2802"
+    },
+    {
+      "type": "Action",
+      "name": "Quick-Tempered",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2803"
+    },
+    {
+      "type": "Action",
+      "name": "Selfish Shield",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2804"
+    },
+    {
+      "type": "Action",
+      "name": "Flash of Grandeur",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2805"
+    },
+    {
+      "type": "Action",
+      "name": "Destructive Vengeance",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2806"
+    },
+    {
+      "type": "Action",
+      "name": "Retributive Strike",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2807"
+    },
+    {
+      "type": "Action",
+      "name": "Liberating Step",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2808"
+    },
+    {
+      "type": "Action",
+      "name": "Iron Command",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2809"
+    },
+    {
+      "type": "Action",
+      "name": "Glimpse of Redemption",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2810"
+    },
+    {
+      "type": "Action",
+      "name": "Pursue a Lead",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2811"
+    },
+    {
+      "type": "Action",
+      "name": "Clue In",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2812"
+    },
+    {
+      "type": "Action",
+      "name": "Devise a Stratagem",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2813"
+    },
+    {
+      "type": "Action",
+      "name": "Quick Tincture",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2814"
+    },
+    {
+      "type": "Action",
+      "name": "Expeditious Inspection",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2815"
+    },
+    {
+      "type": "Action",
+      "name": "Pointed Question",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2816"
+    },
+    {
+      "type": "Action",
+      "name": "Flurry of Blows",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2817"
+    },
+    {
+      "type": "Action",
+      "name": "Confident Finisher",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2818"
+    },
+    {
+      "type": "Action",
+      "name": "Opportune Riposte",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2819"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2820"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2821"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2822"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2823"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2824"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2825"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2826"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2827"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2828"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2829"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2830"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2837"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2838"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2839"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate,manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2840"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2841"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2842"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2843"
+    },
+    {
+      "type": "Action",
+      "name": "(attack, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2844"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, teleportation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2845"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate,manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2846"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2847"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2848"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2849"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2850"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2851"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2852"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2853"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2854"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate) or 1 or more days",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2855"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2857"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2858"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2859"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2860"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2861"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2862"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2863"
+    },
+    {
+      "type": "Action",
+      "name": "Administer Stitch (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2865"
+    },
+    {
+      "type": "Action",
+      "name": "Stitch Wounds (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2866"
+    },
+    {
+      "type": "Action",
+      "name": "Mark For Death (concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2899"
+    },
+    {
+      "type": "Action",
+      "name": "Call Companion",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2900"
+    },
+    {
+      "type": "Action",
+      "name": "Upstage",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2979"
+    },
+    {
+      "type": "Action",
+      "name": "Influence Rumor",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2980"
+    },
+    {
+      "type": "Background",
+      "name": "Driver",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=254"
+    },
+    {
+      "type": "Background",
+      "name": "Saboteur",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=260"
+    },
+    {
+      "type": "Item",
+      "name": "Philosopher's Stone",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=133"
+    },
+    {
+      "type": "Item",
+      "name": "Acid Flask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2875"
+    },
+    {
+      "type": "Item",
+      "name": "Alchemist's Fire",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2876"
+    },
+    {
+      "type": "Item",
+      "name": "Dread Ampoule",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2877"
+    },
+    {
+      "type": "Item",
+      "name": "Glue Bomb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2878"
+    },
+    {
+      "type": "Item",
+      "name": "Antidote",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2879"
+    },
+    {
+      "type": "Item",
+      "name": "Antiplague",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2880"
+    },
+    {
+      "type": "Item",
+      "name": "Bomber's Eye Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2881"
+    },
+    {
+      "type": "Item",
+      "name": "Bravo's Brew",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2882"
+    },
+    {
+      "type": "Item",
+      "name": "Cat's Eye Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2883"
+    },
+    {
+      "type": "Item",
+      "name": "Cheetah's Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2884"
+    },
+    {
+      "type": "Item",
+      "name": "Darkvision Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2885"
+    },
+    {
+      "type": "Item",
+      "name": "Eagle-Eye Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2886"
+    },
+    {
+      "type": "Item",
+      "name": "Elixir of Life",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    },
+    {
+      "type": "Item",
+      "name": "Mistform Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2888"
+    },
+    {
+      "type": "Item",
+      "name": "Sea Touch Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2889"
+    },
+    {
+      "type": "Item",
+      "name": "Stone Fist Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2890"
+    },
+    {
+      "type": "Item",
+      "name": "Arsenic",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2891"
+    },
+    {
+      "type": "Item",
+      "name": "Black Adder Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2892"
+    },
+    {
+      "type": "Item",
+      "name": "Black Lotus Extract",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2893"
+    },
+    {
+      "type": "Item",
+      "name": "Blightburn Resin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2894"
+    },
+    {
+      "type": "Item",
+      "name": "Brimstone Fumes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2895"
+    },
+    {
+      "type": "Item",
+      "name": "Deathcap Powder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2896"
+    },
+    {
+      "type": "Item",
+      "name": "Fearflower Nectar",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2897"
+    },
+    {
+      "type": "Item",
+      "name": "Giant Centipede Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2898"
+    },
+    {
+      "type": "Item",
+      "name": "Giant Scorpion Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2899"
+    },
+    {
+      "type": "Item",
+      "name": "Graveroot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2900"
+    },
+    {
+      "type": "Item",
+      "name": "Hemlock",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2901"
+    },
+    {
+      "type": "Item",
+      "name": "Lethargy Poison",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2902"
+    },
+    {
+      "type": "Item",
+      "name": "Mindfog Mist",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2903"
+    },
+    {
+      "type": "Item",
+      "name": "Slumber Wine",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2904"
+    },
+    {
+      "type": "Item",
+      "name": "Spider Root",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2905"
+    },
+    {
+      "type": "Item",
+      "name": "Spider Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2906"
+    },
+    {
+      "type": "Item",
+      "name": "Tears of Death",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2907"
+    },
+    {
+      "type": "Item",
+      "name": "Wolfsbane",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2908"
+    },
+    {
+      "type": "Item",
+      "name": "Wyvern Poison",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2909"
+    },
+    {
+      "type": "Item",
+      "name": "Glow Rod",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2910"
+    },
+    {
+      "type": "Item",
+      "name": "Matchstick",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2911"
+    },
+    {
+      "type": "Item",
+      "name": "Silver Salve",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2912"
+    },
+    {
+      "type": "Item",
+      "name": "Smoke Ball",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2913"
+    },
+    {
+      "type": "Item",
+      "name": "Snake Oil",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2914"
+    },
+    {
+      "type": "Item",
+      "name": "Potion of Emergency Escape",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=2947"
+    },
+    {
+      "type": "Item",
+      "name": "Alchemist Goggles",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=408"
+    },
+    {
+      "type": "Feat",
+      "name": "Unstoppable Juggernaut",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1167"
+    },
+    {
+      "type": "Feat",
+      "name": "Form Lock",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1753"
+    },
+    {
+      "type": "Feat",
+      "name": "Water Step",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=455"
+    },
+    {
+      "type": "Feat",
+      "name": "Advanced Monastic Weaponry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=7108"
+    },
+    {
+      "type": "Rules",
+      "name": "Alchemical Archetypes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3282"
+    },
+    {
+      "type": "Rules",
+      "name": "Temporary Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3283"
+    },
+    {
+      "type": "Rules",
+      "name": "Crafting Snares",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3316"
+    },
+    {
+      "type": "Rules",
+      "name": "Detecting Snares",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3317"
+    },
+    {
+      "type": "Rules",
+      "name": "Triggering Snares",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3318"
+    },
+    {
+      "type": "Rules",
+      "name": "Disabling Snares",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3319"
+    },
+    {
+      "type": "Source",
+      "name": "Player Core 2",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=227"
+    },
+    {
+      "type": "Spell",
+      "name": "Imprint Message",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=551"
+    },
+    {
+      "type": "Spell",
+      "name": "Object Reading",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=553"
+    },
+    {
+      "type": "Spell",
+      "name": "Chilling Spray",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=571"
+    },
+    {
+      "type": "Item",
+      "name": "Breaching Pike",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=274"
+    },
+    {
+      "type": "Item",
+      "name": "Khopesh",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=290"
+    },
+    {
+      "type": "Item",
+      "name": "Mambele",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=295"
+    },
+    {
+      "type": "Item",
+      "name": "Thunder Sling",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=343"
+    }
+  ]
 }

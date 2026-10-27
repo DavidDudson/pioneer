@@ -153,5 +153,232 @@
     "https://2e.aonprd.com/Spells.aspx?ID=2624": 79,
     "https://2e.aonprd.com/Spells.aspx?ID=2625": 79,
     "https://2e.aonprd.com/Spells.aspx?ID=2626": 79
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Disengage",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4230"
+    },
+    {
+      "type": "Action",
+      "name": "Crushing Embrace",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4231"
+    },
+    {
+      "type": "Action",
+      "name": "Color Swirl",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4232"
+    },
+    {
+      "type": "Action",
+      "name": "Barbed Dash",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4233"
+    },
+    {
+      "type": "Action",
+      "name": "Ingest Magic",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4234"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4235"
+    },
+    {
+      "type": "Action",
+      "name": "(fortune, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4236"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4237"
+    },
+    {
+      "type": "Action",
+      "name": "(fortune, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4238"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4240"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4244"
+    },
+    {
+      "type": "Action",
+      "name": "(healing)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4245"
+    },
+    {
+      "type": "Action",
+      "name": "(air, concentrate, polymorph)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4246"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, polymorph)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4247"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4248"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4249"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4250"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4252"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4253"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4254"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4255"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4256"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4257"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Cephalopod",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=127"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Iridescent Salamander",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=128"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Pufferfish",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=129"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Silt Frog",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=130"
+    },
+    {
+      "type": "Rules",
+      "name": "Boarding Combat",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3666"
+    },
+    {
+      "type": "Rules",
+      "name": "Starting Boarding Combat",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3667"
+    },
+    {
+      "type": "Rules",
+      "name": "Terrain",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3668"
+    },
+    {
+      "type": "Rules",
+      "name": "Shipboard Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3669"
+    },
+    {
+      "type": "Rules",
+      "name": "Disengaging",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3670"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Arming a Ship",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3671"
+    },
+    {
+      "type": "Rules",
+      "name": "Sailing Combat",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3671"
+    },
+    {
+      "type": "Rules",
+      "name": "Piloting and Initiative",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3672"
+    },
+    {
+      "type": "Rules",
+      "name": "PC Pilot",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3673"
+    },
+    {
+      "type": "Rules",
+      "name": "NPC Pilot",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3674"
+    },
+    {
+      "type": "Rules",
+      "name": "Attack!",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3675"
+    },
+    {
+      "type": "Rules",
+      "name": "Ranged Attack Challenges",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3676"
+    },
+    {
+      "type": "Rules",
+      "name": "NPC Crew Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3677"
+    },
+    {
+      "type": "Rules",
+      "name": "Weather",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3678"
+    },
+    {
+      "type": "Rules",
+      "name": "Abandon Ship!",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3679"
+    },
+    {
+      "type": "Rules",
+      "name": "Naval Chase",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3680"
+    },
+    {
+      "type": "Rules",
+      "name": "Sailing Lore in Naval Chases",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3681"
+    },
+    {
+      "type": "Source",
+      "name": "High Seas",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=351"
+    }
+  ]
 }

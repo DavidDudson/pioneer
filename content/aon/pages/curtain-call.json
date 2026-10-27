@@ -40,5 +40,72 @@
     "https://2e.aonprd.com/Monsters.aspx?ID=3741": 87,
     "https://2e.aonprd.com/Monsters.aspx?ID=3742": 88,
     "https://2e.aonprd.com/Monsters.aspx?ID=3743": 89
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(concentrate, illusion, mental, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3099"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3100"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, emotion, linguistic, manipulate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3101"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, linguistic, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3102"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3103"
+    },
+    {
+      "type": "Action",
+      "name": "(illusion, manipulate, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3104"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, emotion, linguistic)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3105"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3106"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3107"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3108"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, teleportation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3109"
+    },
+    {
+      "type": "Action",
+      "name": "Land With Grace",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3110"
+    },
+    {
+      "type": "Source",
+      "name": "Pathfinder #204: Stage Fright",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=245"
+    }
+  ]
 }

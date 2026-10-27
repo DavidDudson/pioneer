@@ -262,5 +262,197 @@
     "https://2e.aonprd.com/Spells.aspx?ID=2951": 152,
     "https://2e.aonprd.com/Vehicles.aspx?ID=152": 105,
     "https://2e.aonprd.com/Vehicles.aspx?ID=153": 105
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Swing the Censer",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4516"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, emotion, magical, manipulate, mental, subtle)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4517"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4518"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4519"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4520"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4521"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4522"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, magical, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4523"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4524"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4525"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, auditory)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4526"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4527"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4528"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4529"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4530"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4531"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, primal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4532"
+    },
+    {
+      "type": "Action",
+      "name": "(emotion, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4533"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4534"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4535"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4536"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4537"
+    },
+    {
+      "type": "Action",
+      "name": "Slobbering Bite",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4538"
+    },
+    {
+      "type": "Action",
+      "name": "Regurgitate Soil",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4539"
+    },
+    {
+      "type": "Action",
+      "name": "Bellowing Croak",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4540"
+    },
+    {
+      "type": "Action",
+      "name": "Unsettling Stridulatioin",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4541"
+    },
+    {
+      "type": "Action",
+      "name": "Bucking Trample",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4542"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Yzobu",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=112"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Goblin Dog",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=132"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Knurled Worm",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=133"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Regal Toad",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=134"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Thorngrip Shuffler",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=135"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Yzobu",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=136"
+    },
+    {
+      "type": "Background",
+      "name": "Lived Through Hell",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=686"
+    },
+    {
+      "type": "Deity",
+      "name": "Archdevil Abrogail",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=736"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Shadowbound",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=690"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Hellknights",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=691"
+    },
+    {
+      "type": "Source",
+      "name": "Cheliax, Infernal Inheritance",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=372"
+    }
+  ]
 }

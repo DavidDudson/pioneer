@@ -18,5 +18,12 @@
     "https://2e.aonprd.com/Backgrounds.aspx?ID=670": 8,
     "https://2e.aonprd.com/Backgrounds.aspx?ID=671": 8,
     "https://2e.aonprd.com/Backgrounds.aspx?ID=672": 8
-  }
+  },
+  "entries": [
+    {
+      "type": "Source",
+      "name": "Pathfinder Society Clockwork Mystery Player's Guide",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=368"
+    }
+  ]
 }

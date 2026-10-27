@@ -78,5 +78,197 @@
     "https://2e.aonprd.com/NPCs.aspx?ID=3837": 36,
     "https://2e.aonprd.com/NPCs.aspx?ID=3843": 73,
     "https://2e.aonprd.com/NPCs.aspx?ID=3847": 93
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3274"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3275"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3276"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3277"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3278"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, emotion, incapacitation, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3279"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3280"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3281"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3282"
+    },
+    {
+      "type": "Hazard",
+      "name": "Collapsing Bridge",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=267"
+    },
+    {
+      "type": "Hazard",
+      "name": "Collapsing Bridge",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=299"
+    },
+    {
+      "type": "Creature",
+      "name": "Engerra",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3823"
+    },
+    {
+      "type": "Creature",
+      "name": "Mirmicette",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3825"
+    },
+    {
+      "type": "Creature",
+      "name": "Moldering Steed",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3826"
+    },
+    {
+      "type": "Creature",
+      "name": "Raised Cavalry",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3827"
+    },
+    {
+      "type": "Creature",
+      "name": "Splinter Officer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3828"
+    },
+    {
+      "type": "Creature",
+      "name": "Stelemora",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3829"
+    },
+    {
+      "type": "Creature",
+      "name": "Tallusian",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3830"
+    },
+    {
+      "type": "Creature",
+      "name": "Corpselight",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3833"
+    },
+    {
+      "type": "Creature",
+      "name": "Skeletal Rat Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3834"
+    },
+    {
+      "type": "Creature",
+      "name": "Zombie Bear",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3835"
+    },
+    {
+      "type": "Creature",
+      "name": "Undead Murder",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3836"
+    },
+    {
+      "type": "Creature",
+      "name": "Chernasardo Ranger",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3838"
+    },
+    {
+      "type": "Creature",
+      "name": "Knight Reclaimant",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3839"
+    },
+    {
+      "type": "Creature",
+      "name": "Priests Of Iomedae",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3840"
+    },
+    {
+      "type": "Creature",
+      "name": "Ossuary Warden",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3841"
+    },
+    {
+      "type": "Creature",
+      "name": "Divine Warden Of Iomedae",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3842"
+    },
+    {
+      "type": "Creature",
+      "name": "Divine Warden Of Arazni",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3844"
+    },
+    {
+      "type": "Creature",
+      "name": "Last Guard",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3845"
+    },
+    {
+      "type": "Creature",
+      "name": "Zombie Desecrator",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3846"
+    },
+    {
+      "type": "Creature",
+      "name": "Radiant Veranallia",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3848"
+    },
+    {
+      "type": "Creature",
+      "name": "Chained Norn",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3849"
+    },
+    {
+      "type": "Creature",
+      "name": "Commander Arsiella Dei",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3831"
+    },
+    {
+      "type": "Creature",
+      "name": "Seldeg Bhedlis (Claws of the Tyrant)",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3832"
+    },
+    {
+      "type": "Creature",
+      "name": "Omelia",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3837"
+    },
+    {
+      "type": "Creature",
+      "name": "Oceanius And Glory Arcely",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3843"
+    },
+    {
+      "type": "Creature",
+      "name": "Lady Siccale",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3847"
+    },
+    {
+      "type": "Source",
+      "name": "Claws of the Tyrant",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=266"
+    }
+  ]
 }

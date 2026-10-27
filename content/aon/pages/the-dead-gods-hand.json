@@ -66,5 +66,162 @@
     "https://2e.aonprd.com/NPCs.aspx?ID=4946": 164,
     "https://2e.aonprd.com/Rituals.aspx?ID=275": 147,
     "https://2e.aonprd.com/Vehicles.aspx?ID=151": 146
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4483"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4484"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, illusion, manipulate, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4485"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, linguistic, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4486"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4487"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4489"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4490"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4491"
+    },
+    {
+      "type": "Action",
+      "name": "(death, divine, void)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4493"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, death, emotion, fear, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4494"
+    },
+    {
+      "type": "Creature",
+      "name": "Orthux Guard",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4923"
+    },
+    {
+      "type": "Creature",
+      "name": "Shulgurk",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4924"
+    },
+    {
+      "type": "Creature",
+      "name": "Kaltos Orthux",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4925"
+    },
+    {
+      "type": "Creature",
+      "name": "Mullun",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4926"
+    },
+    {
+      "type": "Creature",
+      "name": "Garenne",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4927"
+    },
+    {
+      "type": "Creature",
+      "name": "Lord Pandelay",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4928"
+    },
+    {
+      "type": "Creature",
+      "name": "Ugothol Wretch",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4929"
+    },
+    {
+      "type": "Creature",
+      "name": "Kalatryx",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4930"
+    },
+    {
+      "type": "Creature",
+      "name": "Vidileth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4931"
+    },
+    {
+      "type": "Creature",
+      "name": "Deravon's Ghost",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4932"
+    },
+    {
+      "type": "Creature",
+      "name": "Blostin",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4937"
+    },
+    {
+      "type": "Creature",
+      "name": "Elharris",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4938"
+    },
+    {
+      "type": "Creature",
+      "name": "Greely",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4939"
+    },
+    {
+      "type": "Creature",
+      "name": "Irabel Of Eiseth",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4940"
+    },
+    {
+      "type": "Creature",
+      "name": "Jona Clay",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4941"
+    },
+    {
+      "type": "Creature",
+      "name": "Krell",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4942"
+    },
+    {
+      "type": "Creature",
+      "name": "Labella",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4943"
+    },
+    {
+      "type": "Creature",
+      "name": "Shevala Iorae (Weak)",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4944"
+    },
+    {
+      "type": "Creature",
+      "name": "Shevala Iorae",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4945"
+    },
+    {
+      "type": "Creature",
+      "name": "Thorgrim",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4946"
+    },
+    {
+      "type": "Source",
+      "name": "The Dead God's Hand",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=370"
+    }
+  ]
 }

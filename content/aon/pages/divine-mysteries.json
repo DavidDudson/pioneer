@@ -586,5 +586,137 @@
     "https://2e.aonprd.com/Spells.aspx?ID=559": 271,
     "https://2e.aonprd.com/Spells.aspx?ID=560": 271,
     "https://2e.aonprd.com/Spells.aspx?ID=843": 262
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "({{traits 561 \"concentrate\"}}, {{traits 645 \"manipulate\"}}, {{traits 662 \"occult\"}})",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3231"
+    },
+    {
+      "type": "Deity Category",
+      "name": "Sarkorian Covenants",
+      "url": "https://2e.aonprd.com/DeityCategories.aspx?ID=23"
+    },
+    {
+      "type": "Deity Category",
+      "name": "Covenants",
+      "url": "https://2e.aonprd.com/DeityCategories.aspx?ID=24"
+    },
+    {
+      "type": "Deity Category",
+      "name": "Giant Gods",
+      "url": "https://2e.aonprd.com/DeityCategories.aspx?ID=26"
+    },
+    {
+      "type": "Deity Category",
+      "name": "Goblin Gods",
+      "url": "https://2e.aonprd.com/DeityCategories.aspx?ID=27"
+    },
+    {
+      "type": "Deity Category",
+      "name": "Dead or Missing Deities",
+      "url": "https://2e.aonprd.com/DeityCategories.aspx?ID=34"
+    },
+    {
+      "type": "Deity Category",
+      "name": "Apocalypse Riders",
+      "url": "https://2e.aonprd.com/DeityCategories.aspx?ID=38"
+    },
+    {
+      "type": "Deity Category",
+      "name": "Azlanti Pantheon",
+      "url": "https://2e.aonprd.com/DeityCategories.aspx?ID=39"
+    },
+    {
+      "type": "Deity Category",
+      "name": "Coatl Tribunal",
+      "url": "https://2e.aonprd.com/DeityCategories.aspx?ID=40"
+    },
+    {
+      "type": "Domain",
+      "name": "Duty",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=38"
+    },
+    {
+      "type": "Domain",
+      "name": "Toil",
+      "url": "https://2e.aonprd.com/Domains.aspx?ID=39"
+    },
+    {
+      "type": "Oracle Mystery",
+      "name": "Time",
+      "url": "https://2e.aonprd.com/Mysteries.aspx?ID=23"
+    },
+    {
+      "type": "Witch Patron Theme",
+      "name": "The Unseen Broker",
+      "url": "https://2e.aonprd.com/Patrons.aspx?ID=29"
+    },
+    {
+      "type": "Rules",
+      "name": "Alternate Domains",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3350"
+    },
+    {
+      "type": "Rules",
+      "name": "Changing Faith",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3351"
+    },
+    {
+      "type": "Rules",
+      "name": "Favored Weapon",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3353"
+    },
+    {
+      "type": "Rules",
+      "name": "Worshipping Dead Gods",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3354"
+    },
+    {
+      "type": "Source",
+      "name": "Divine Mysteries",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=234"
+    },
+    {
+      "type": "Spell",
+      "name": "Pact Broker",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2597"
+    },
+    {
+      "type": "Spell",
+      "name": "Time Beacon",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2609"
+    },
+    {
+      "type": "Spell",
+      "name": "Temporal Distortion",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2613"
+    },
+    {
+      "type": "Spell",
+      "name": "Time Skip",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2614"
+    },
+    {
+      "type": "Spell",
+      "name": "Manifold Lives",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2615"
+    },
+    {
+      "type": "Spell",
+      "name": "Practice Makes Perfect",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=559"
+    },
+    {
+      "type": "Spell",
+      "name": "Tireless Worker",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=560"
+    },
+    {
+      "type": "Spell",
+      "name": "Fearful Feast",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=843"
+    }
+  ]
 }

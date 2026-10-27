@@ -4,7 +4,9 @@ import { AonUrl, PageNumber } from '@pioneer/rules/sdk';
 
 import { pageIn, parseHits } from './parse.ts';
 
-const hit = (url: string, markdown?: string): unknown => ({ _source: { url, source_markdown: markdown } });
+const hit = (url: string, markdown?: string, name?: string): unknown => ({
+  _source: { url, name, type: 'Action', source_markdown: markdown },
+});
 const answer = (...hits: unknown[]): unknown => ({ hits: { total: { value: 9 }, hits } });
 
 describe('pageIn', () => {
@@ -38,6 +40,18 @@ describe('parseHits', () => {
       [AonUrl.parse('https://2e.aonprd.com/Spells.aspx?ID=1530'), PageNumber.parse(331)],
     ]);
     expect(parsed).toMatchObject({ total: 9, count: 3, skipped: 2 });
+  });
+
+  test('keeps a named hit as an entry whether or not it has a page', () => {
+    const json = answer(
+      hit('/Actions.aspx?ID=2254', '[Player Core](/Sources.aspx?ID=216)', 'Jinx'),
+      hit('/Rules.aspx'),
+    );
+    const parsed = parseHits(json, '216');
+    expect(parsed.entries.map(({ name, url }) => `${name} ${url}`)).toEqual([
+      'Jinx https://2e.aonprd.com/Actions.aspx?ID=2254',
+    ]);
+    expect(parsed.pages.size).toBe(0);
   });
 
   test('rejects an answer of another shape', () => {

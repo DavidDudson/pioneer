@@ -188,5 +188,47 @@
     "https://2e.aonprd.com/Vehicles.aspx?ID=149": 95,
     "https://2e.aonprd.com/Vehicles.aspx?ID=150": 95,
     "https://2e.aonprd.com/Weapons.aspx?ID=233": 109
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Puncture Flesh",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3758"
+    },
+    {
+      "type": "Action",
+      "name": "Liberate Self",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3759"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Arch of Aroden Troops",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=684"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Aspodean Wall Troops",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=685"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Fangwood Troops",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=686"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Troops in Isger",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=687"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Troops in Nidal",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=688"
+    },
+    {
+      "type": "Source",
+      "name": "Hellfire Dispatches",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=319"
+    }
+  ]
 }

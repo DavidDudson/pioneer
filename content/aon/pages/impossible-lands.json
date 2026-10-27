@@ -306,5 +306,162 @@
     "https://2e.aonprd.com/Weapons.aspx?ID=269": 221,
     "https://2e.aonprd.com/Weapons.aspx?ID=270": 220,
     "https://2e.aonprd.com/Weapons.aspx?ID=299": 221
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Wicked Thorns",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1449"
+    },
+    {
+      "type": "Action",
+      "name": "Raise Neck",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1450"
+    },
+    {
+      "type": "Action",
+      "name": "Envenom",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1451"
+    },
+    {
+      "type": "Action",
+      "name": "Venom Draw",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1452"
+    },
+    {
+      "type": "Action",
+      "name": "Gulp Blood",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1453"
+    },
+    {
+      "type": "Action",
+      "name": "Touch and Go",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1454"
+    },
+    {
+      "type": "Action",
+      "name": "Spring the Trap",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1455"
+    },
+    {
+      "type": "Action",
+      "name": "Wind them Up",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1456"
+    },
+    {
+      "type": "Action",
+      "name": "Break Them Down",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1457"
+    },
+    {
+      "type": "Action",
+      "name": "Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1458"
+    },
+    {
+      "type": "Action",
+      "name": "command, envision",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1459"
+    },
+    {
+      "type": "Action",
+      "name": "command",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1460"
+    },
+    {
+      "type": "Action",
+      "name": "Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1461"
+    },
+    {
+      "type": "Action",
+      "name": "Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1462"
+    },
+    {
+      "type": "Action",
+      "name": "envision (metamagic)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1463"
+    },
+    {
+      "type": "Action",
+      "name": "Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1464"
+    },
+    {
+      "type": "Action",
+      "name": "Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1465"
+    },
+    {
+      "type": "Action",
+      "name": "envision",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1466"
+    },
+    {
+      "type": "Action",
+      "name": "envision",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1467"
+    },
+    {
+      "type": "Action",
+      "name": "command, envision",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1468"
+    },
+    {
+      "type": "Action",
+      "name": "envision",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1469"
+    },
+    {
+      "type": "Action",
+      "name": "envision",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1470"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Water Wraith",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=54"
+    },
+    {
+      "type": "Archetype",
+      "name": "Jalmeri Heavenseeker",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=86"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Mana Wastes Mutant",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=315"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Fleshforged",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=329"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Ratajin",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=330"
+    },
+    {
+      "type": "Source",
+      "name": "Impossible Lands",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=146"
+    },
+    {
+      "type": "Spell",
+      "name": "Speaking Sky",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2617"
+    },
+    {
+      "type": "Spell",
+      "name": "Steal the Sky",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2618"
+    },
+    {
+      "type": "Item",
+      "name": "Panabas",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=299"
+    }
+  ]
 }

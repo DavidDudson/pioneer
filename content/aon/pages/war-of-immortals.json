@@ -567,5 +567,547 @@
     "https://2e.aonprd.com/Weapons.aspx?ID=512": 147,
     "https://2e.aonprd.com/Weapons.aspx?ID=513": 147,
     "https://2e.aonprd.com/Weapons.aspx?ID=515": 147
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Rewrite Fate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2983"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2997"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2998"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2999"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3000"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, incarnate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3001"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, primal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3002"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, primal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3003"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3004"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, divine)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3005"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, healing, manipulate, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3006"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3007"
+    },
+    {
+      "type": "Action",
+      "name": "(downtime, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3008"
+    },
+    {
+      "type": "Action",
+      "name": "Break Free",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3009"
+    },
+    {
+      "type": "Action",
+      "name": "Drink of my Foes",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3010"
+    },
+    {
+      "type": "Action",
+      "name": "Embrace of Destiny",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3011"
+    },
+    {
+      "type": "Action",
+      "name": "Captivating Charm",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3012"
+    },
+    {
+      "type": "Action",
+      "name": "A Moment Unending",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3013"
+    },
+    {
+      "type": "Action",
+      "name": "Flowing Spirit Strike",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3014"
+    },
+    {
+      "type": "Action",
+      "name": "Feral Swing",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3015"
+    },
+    {
+      "type": "Action",
+      "name": "Feed the Masses",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3016"
+    },
+    {
+      "type": "Action",
+      "name": "Raise the Walls",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3017"
+    },
+    {
+      "type": "Action",
+      "name": "Reap the Field",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3018"
+    },
+    {
+      "type": "Action",
+      "name": "Strike, Breathe, Rend",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3019"
+    },
+    {
+      "type": "Action",
+      "name": "Survive the Wilds",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3020"
+    },
+    {
+      "type": "Action",
+      "name": "No Scar but This",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3021"
+    },
+    {
+      "type": "Action",
+      "name": "Liar’s Hidden Blade",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3022"
+    },
+    {
+      "type": "Action",
+      "name": "Crash against Me",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3023"
+    },
+    {
+      "type": "Action",
+      "name": "Bear Allies’ Burdens",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3024"
+    },
+    {
+      "type": "Action",
+      "name": "Giant-Felling Comet",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3025"
+    },
+    {
+      "type": "Action",
+      "name": "Marathon Dash",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3026"
+    },
+    {
+      "type": "Action",
+      "name": "Fracture Mountains",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3027"
+    },
+    {
+      "type": "Action",
+      "name": "Arrow Splits Arrow",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3028"
+    },
+    {
+      "type": "Action",
+      "name": "One Moment till Glory",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3029"
+    },
+    {
+      "type": "Action",
+      "name": "Shift Immanence",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3030"
+    },
+    {
+      "type": "Action",
+      "name": "Rip Guts! Rip Guts!",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3031"
+    },
+    {
+      "type": "Action",
+      "name": "({{traits 561 \"concentrate\"}}, {{traits 645 \"manipulate\"}}, {{traits 676 \"primal\"}})",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3032"
+    },
+    {
+      "type": "Action",
+      "name": "Harvest Blood",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3065"
+    },
+    {
+      "type": "Item",
+      "name": "Lattice Armor",
+      "url": "https://2e.aonprd.com/Armor.aspx?ID=27"
+    },
+    {
+      "type": "Item",
+      "name": "Sankeit",
+      "url": "https://2e.aonprd.com/Armor.aspx?ID=34"
+    },
+    {
+      "type": "Item",
+      "name": "Niyaháat",
+      "url": "https://2e.aonprd.com/Armor.aspx?ID=56"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Mythic Ambusher",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=31"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Mythic Brute",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=32"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Mythic Caster",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=33"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Mythic Striker",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=34"
+    },
+    {
+      "type": "Mythic Calling",
+      "name": "Acrobat's Calling",
+      "url": "https://2e.aonprd.com/MythicCallings.aspx?ID=1"
+    },
+    {
+      "type": "Mythic Calling",
+      "name": "Thespian's Calling",
+      "url": "https://2e.aonprd.com/MythicCallings.aspx?ID=10"
+    },
+    {
+      "type": "Mythic Calling",
+      "name": "Thief's Calling",
+      "url": "https://2e.aonprd.com/MythicCallings.aspx?ID=11"
+    },
+    {
+      "type": "Mythic Calling",
+      "name": "Artisan's Calling",
+      "url": "https://2e.aonprd.com/MythicCallings.aspx?ID=2"
+    },
+    {
+      "type": "Mythic Calling",
+      "name": "Bookkeeper's Calling",
+      "url": "https://2e.aonprd.com/MythicCallings.aspx?ID=3"
+    },
+    {
+      "type": "Mythic Calling",
+      "name": "Caretaker's Calling",
+      "url": "https://2e.aonprd.com/MythicCallings.aspx?ID=4"
+    },
+    {
+      "type": "Mythic Calling",
+      "name": "Demagogue's Calling",
+      "url": "https://2e.aonprd.com/MythicCallings.aspx?ID=5"
+    },
+    {
+      "type": "Mythic Calling",
+      "name": "Guardian's Calling",
+      "url": "https://2e.aonprd.com/MythicCallings.aspx?ID=6"
+    },
+    {
+      "type": "Mythic Calling",
+      "name": "Handler's Calling",
+      "url": "https://2e.aonprd.com/MythicCallings.aspx?ID=7"
+    },
+    {
+      "type": "Mythic Calling",
+      "name": "Hunter's Calling",
+      "url": "https://2e.aonprd.com/MythicCallings.aspx?ID=8"
+    },
+    {
+      "type": "Mythic Calling",
+      "name": "Sage's Calling",
+      "url": "https://2e.aonprd.com/MythicCallings.aspx?ID=9"
+    },
+    {
+      "type": "Ritual",
+      "name": "Awaken Curse",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=188"
+    },
+    {
+      "type": "Ritual",
+      "name": "Band Of Heroes",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=189"
+    },
+    {
+      "type": "Ritual",
+      "name": "City Of Sin",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=190"
+    },
+    {
+      "type": "Ritual",
+      "name": "Create Demiplane",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=191"
+    },
+    {
+      "type": "Ritual",
+      "name": "Curse Of Calamity",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=192"
+    },
+    {
+      "type": "Ritual",
+      "name": "Freedom",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=193"
+    },
+    {
+      "type": "Ritual",
+      "name": "Imprisonment",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=194"
+    },
+    {
+      "type": "Ritual",
+      "name": "Kaiju Ward",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=195"
+    },
+    {
+      "type": "Ritual",
+      "name": "Ocean's Roar",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=196"
+    },
+    {
+      "type": "Ritual",
+      "name": "Unbearable Cacophony",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=197"
+    },
+    {
+      "type": "Ritual",
+      "name": "Void Harvest",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=198"
+    },
+    {
+      "type": "Ritual",
+      "name": "Wild Feast",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=199"
+    },
+    {
+      "type": "Ritual",
+      "name": "World In Shadow",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=200"
+    },
+    {
+      "type": "Spell",
+      "name": "Spellsurge",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2150"
+    },
+    {
+      "type": "Spell",
+      "name": "Arcane Explosion",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2151"
+    },
+    {
+      "type": "Spell",
+      "name": "Banishing Touch",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2152"
+    },
+    {
+      "type": "Spell",
+      "name": "Beseech Arcanotheign",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2153"
+    },
+    {
+      "type": "Spell",
+      "name": "Bounty of The Sky",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2154"
+    },
+    {
+      "type": "Spell",
+      "name": "Final Fate of The Locust Host",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2155"
+    },
+    {
+      "type": "Spell",
+      "name": "Garden Of The Green Man's Growth",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2156"
+    },
+    {
+      "type": "Spell",
+      "name": "It Is Written",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2157"
+    },
+    {
+      "type": "Spell",
+      "name": "Part the Mists To Paradise",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2158"
+    },
+    {
+      "type": "Spell",
+      "name": "Perceive the Threads of Fate",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2159"
+    },
+    {
+      "type": "Spell",
+      "name": "Rainbow's End",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2160"
+    },
+    {
+      "type": "Spell",
+      "name": "Seize Identity",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2161"
+    },
+    {
+      "type": "Spell",
+      "name": "Summon Oliphaunt Of Jandelay",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2162"
+    },
+    {
+      "type": "Spell",
+      "name": "Diadem of Divine Radiance",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2163"
+    },
+    {
+      "type": "Spell",
+      "name": "Travel by Turtle",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2164"
+    },
+    {
+      "type": "Spell",
+      "name": "Trickster's Feathers",
+      "url": "https://2e.aonprd.com/MythicSpells.aspx?ID=2165"
+    },
+    {
+      "type": "Animistic Practice",
+      "name": "Liturgist",
+      "url": "https://2e.aonprd.com/Practices.aspx?ID=1"
+    },
+    {
+      "type": "Animistic Practice",
+      "name": "Medium",
+      "url": "https://2e.aonprd.com/Practices.aspx?ID=2"
+    },
+    {
+      "type": "Animistic Practice",
+      "name": "Seer",
+      "url": "https://2e.aonprd.com/Practices.aspx?ID=3"
+    },
+    {
+      "type": "Animistic Practice",
+      "name": "Shaman",
+      "url": "https://2e.aonprd.com/Practices.aspx?ID=4"
+    },
+    {
+      "type": "Rules",
+      "name": "Mythic Characters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3321"
+    },
+    {
+      "type": "Rules",
+      "name": "Mythic Proficiency",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3322"
+    },
+    {
+      "type": "Rules",
+      "name": "Mythic Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3323"
+    },
+    {
+      "type": "Rules",
+      "name": "Mythic Deeds",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3324"
+    },
+    {
+      "type": "Rules",
+      "name": "Recovering Mythic Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3325"
+    },
+    {
+      "type": "Rules",
+      "name": "Death and Dying as a Mythic Character",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3328"
+    },
+    {
+      "type": "Rules",
+      "name": "Mythic Progression",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3329"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Retraining Callings",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3329"
+    },
+    {
+      "type": "Rules",
+      "name": "Mythic Callings",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3330"
+    },
+    {
+      "type": "Rules",
+      "name": "Edicts and Anathema",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3331"
+    },
+    {
+      "type": "Rules",
+      "name": "Designing Mythic Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3332"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Unlocking New Paths Forward",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3332"
+    },
+    {
+      "type": "Rules",
+      "name": "1st-5th Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3336"
+    },
+    {
+      "type": "Rules",
+      "name": "6th-10th Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3337"
+    },
+    {
+      "type": "Rules",
+      "name": "12th-20th Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3338"
+    },
+    {
+      "type": "Rules",
+      "name": "Mythic Runes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3339"
+    },
+    {
+      "type": "Rules",
+      "name": "Mythic Monster Templates",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3340"
+    },
+    {
+      "type": "Rules",
+      "name": "Basic Mythic Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3341"
+    },
+    {
+      "type": "Source",
+      "name": "War of Immortals",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=232"
+    }
+  ]
 }

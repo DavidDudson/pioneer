@@ -417,5 +417,587 @@
     "https://2e.aonprd.com/Weapons.aspx?ID=523": 50,
     "https://2e.aonprd.com/Weapons.aspx?ID=525": 158,
     "https://2e.aonprd.com/Weapons.aspx?ID=95": 18
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3062"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3063"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate, manipulate, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3064"
+    },
+    {
+      "type": "Creature Ability",
+      "name": "Troop Movement",
+      "url": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=85"
+    },
+    {
+      "type": "Creature Ability",
+      "name": "Troop Defenses",
+      "url": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=86"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Artisan",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=531"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Courtier",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=532"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Criminal",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=533"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Devotee",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=534"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Downtrodden",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=535"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Engineer",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=536"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Explorer",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=537"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Healer",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=538"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Laborer",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=539"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Martial Artist",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=540"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Maverick",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=541"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Mercenary",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=542"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Military",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=543"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Mystic",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=544"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Official",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=545"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Performer",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=546"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Primalist",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=547"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Scholar",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=548"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Seafarer",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=549"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Villain",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=550"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Tripkee",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=551"
+    },
+    {
+      "type": "Creature",
+      "name": "Tripkee Scout",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4589"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Union Organizer",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=35"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Retired",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=36"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Guerrilla",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=37"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Corrupt",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=38"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Athamaru",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=39"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Merfolk",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=40"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Catfolk",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=41"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Dwarf",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=42"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Elf",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=43"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Goblin",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=44"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Gnome",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=45"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Halfling",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=46"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Hobgoblin",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=47"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Kholo",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=48"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Kobold",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=49"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Leshy",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=50"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Lizardfolk",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=51"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Orc",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=52"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Ratfolk",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=53"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Tengu",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=54"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Tripkee",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=55"
+    },
+    {
+      "type": "Rules",
+      "name": "Adjusting Creatures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3356"
+    },
+    {
+      "type": "Rules",
+      "name": "Combat Power",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3357"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Specialist Levels",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3357"
+    },
+    {
+      "type": "Rules",
+      "name": "Elite Adjustments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3358"
+    },
+    {
+      "type": "Rules",
+      "name": "Weak Adjustments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3359"
+    },
+    {
+      "type": "Rules",
+      "name": "Languages",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3360"
+    },
+    {
+      "type": "Rules",
+      "name": "Gear",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3361"
+    },
+    {
+      "type": "Rules",
+      "name": "Skills, Perception, and Proficiency",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3362"
+    },
+    {
+      "type": "Rules",
+      "name": "Troops",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3364"
+    },
+    {
+      "type": "Rules",
+      "name": "Running Troops",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3365"
+    },
+    {
+      "type": "Rules",
+      "name": "Troop Gear",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3366"
+    },
+    {
+      "type": "Rules",
+      "name": "Crossover Ancestry NPCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3368"
+    },
+    {
+      "type": "Rules",
+      "name": "Ancestry Adjustments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3369"
+    },
+    {
+      "type": "Rules",
+      "name": "Pets and Familiars",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3371"
+    },
+    {
+      "type": "Rules",
+      "name": "Aquatic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3372"
+    },
+    {
+      "type": "Rules",
+      "name": "Burrowing",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3373"
+    },
+    {
+      "type": "Rules",
+      "name": "Flying",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3374"
+    },
+    {
+      "type": "Rules",
+      "name": "Scent",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3375"
+    },
+    {
+      "type": "Rules",
+      "name": "Toxic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3376"
+    },
+    {
+      "type": "Rules",
+      "name": "Other Encounter Abilties",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3377"
+    },
+    {
+      "type": "Rules",
+      "name": "Downtime and Exploration Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3378"
+    },
+    {
+      "type": "Rules",
+      "name": "Animal Companions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3379"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Riding Animal Companions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3379"
+    },
+    {
+      "type": "Rules",
+      "name": "Encounter Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3380"
+    },
+    {
+      "type": "Rules",
+      "name": "Common Support Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3381"
+    },
+    {
+      "type": "Rules",
+      "name": "Eidolons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3382"
+    },
+    {
+      "type": "Rules",
+      "name": "Animalist",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3384"
+    },
+    {
+      "type": "Rules",
+      "name": "Conjurer",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3385"
+    },
+    {
+      "type": "Rules",
+      "name": "Earthkeeper",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3386"
+    },
+    {
+      "type": "Rules",
+      "name": "Eldritch Occultist",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3387"
+    },
+    {
+      "type": "Rules",
+      "name": "Hierophant",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3388"
+    },
+    {
+      "type": "Rules",
+      "name": "Magus",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3389"
+    },
+    {
+      "type": "Rules",
+      "name": "Mentalist",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3390"
+    },
+    {
+      "type": "Rules",
+      "name": "Necromancer",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3391"
+    },
+    {
+      "type": "Rules",
+      "name": "Pyromancer",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3392"
+    },
+    {
+      "type": "Rules",
+      "name": "Stormcaller",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3393"
+    },
+    {
+      "type": "Rules",
+      "name": "Warder",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3394"
+    },
+    {
+      "type": "Rules",
+      "name": "Warrior of Faith",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3395"
+    },
+    {
+      "type": "Rules",
+      "name": "War Mage",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3396"
+    },
+    {
+      "type": "Rules",
+      "name": "Connection Subsystem",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3398"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Consent, Safety, and In-Game Relationships",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3398"
+    },
+    {
+      "type": "Rules",
+      "name": "Creating a Connection",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3399"
+    },
+    {
+      "type": "Rules",
+      "name": "Connection Tiers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3400"
+    },
+    {
+      "type": "Rules",
+      "name": "Bonded",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3401"
+    },
+    {
+      "type": "Rules",
+      "name": "Committed",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3402"
+    },
+    {
+      "type": "Rules",
+      "name": "Associated",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3403"
+    },
+    {
+      "type": "Rules",
+      "name": "Acquainted",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3404"
+    },
+    {
+      "type": "Rules",
+      "name": "Avoided",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3405"
+    },
+    {
+      "type": "Rules",
+      "name": "Despised",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3406"
+    },
+    {
+      "type": "Rules",
+      "name": "Vindictive",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3407"
+    },
+    {
+      "type": "Rules",
+      "name": "Connection Advancement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3408"
+    },
+    {
+      "type": "Rules",
+      "name": "Maintaining Relationship and Decay",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3409"
+    },
+    {
+      "type": "Rules",
+      "name": "Tokens",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3410"
+    },
+    {
+      "type": "Rules",
+      "name": "Insults",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3411"
+    },
+    {
+      "type": "Rules",
+      "name": "NPC Advancement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3412"
+    },
+    {
+      "type": "Rules",
+      "name": "When to Advance NPCSs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3413"
+    },
+    {
+      "type": "Rules",
+      "name": "Numerical Advancement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3414"
+    },
+    {
+      "type": "Rules",
+      "name": "Social Advancement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3415"
+    },
+    {
+      "type": "Rules",
+      "name": "Special Perks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3416"
+    },
+    {
+      "type": "Source",
+      "name": "NPC Core",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=236"
+    },
+    {
+      "type": "Item",
+      "name": "Flintlock Musket",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=191"
+    },
+    {
+      "type": "Item",
+      "name": "Flintlock Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=192"
+    },
+    {
+      "type": "Item",
+      "name": "Hand Cannon",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=193"
+    },
+    {
+      "type": "Item",
+      "name": "Arquebus",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=195"
+    },
+    {
+      "type": "Item",
+      "name": "Dueling Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=201"
+    },
+    {
+      "type": "Item",
+      "name": "Frying Pan",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=286"
+    },
+    {
+      "type": "Item",
+      "name": "War Razor",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=307"
+    },
+    {
+      "type": "Item",
+      "name": "Machete",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=95"
+    }
+  ]
 }

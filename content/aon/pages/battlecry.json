@@ -883,5 +883,1052 @@
     "https://2e.aonprd.com/Weapons.aspx?ID=538": 118,
     "https://2e.aonprd.com/Weapons.aspx?ID=539": 118,
     "https://2e.aonprd.com/Weapons.aspx?ID=88": 118
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Taunt",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3304"
+    },
+    {
+      "type": "Action",
+      "name": "Intercept Attack",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3305"
+    },
+    {
+      "type": "Action",
+      "name": "Haunting Visage",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3306"
+    },
+    {
+      "type": "Action",
+      "name": "Swarming Assault",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3307"
+    },
+    {
+      "type": "Action",
+      "name": "Redistribute",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3308"
+    },
+    {
+      "type": "Action",
+      "name": "Sickening Assault",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3309"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, metal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3310"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3311"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3312"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (air, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3313"
+    },
+    {
+      "type": "Action",
+      "name": "(arcane, light, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3314"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3315"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3316"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3317"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3318"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3319"
+    },
+    {
+      "type": "Action",
+      "name": "(concentration, manipulate, primal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3320"
+    },
+    {
+      "type": "Action",
+      "name": "(cold, concentration, manipulate, primal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3321"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3322"
+    },
+    {
+      "type": "Action",
+      "name": "(aura, concentrate, fire)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3323"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3324"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3325"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3326"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3327"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, healing, manipulate, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3328"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3329"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, metal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3330"
+    },
+    {
+      "type": "Action",
+      "name": "(arcane, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3331"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, electricity, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3332"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, shadow)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3333"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, primal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3334"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (manipulate, structure)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3335"
+    },
+    {
+      "type": "Action",
+      "name": "(fire, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3336"
+    },
+    {
+      "type": "Action",
+      "name": "(force, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3337"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3338"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3339"
+    },
+    {
+      "type": "Action",
+      "name": "(darkness, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3340"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, force, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3341"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3342"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, divine, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3343"
+    },
+    {
+      "type": "Action",
+      "name": "(aura, divine)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3344"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3347"
+    },
+    {
+      "type": "Action",
+      "name": "(fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3348"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, linguistic)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3349"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3351"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3352"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3353"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3354"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, linguistic, manipulate, mental, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3355"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3356"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, divine, manipulate, unholy)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3357"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3359"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, unholy, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3360"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, divine, healing, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3361"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3362"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, divine, holy, spirit, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3364"
+    },
+    {
+      "type": "Action",
+      "name": "(arcane)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3366"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, divine, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3368"
+    },
+    {
+      "type": "Action",
+      "name": "(magical, manipulate, teleportation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3369"
+    },
+    {
+      "type": "Action",
+      "name": "(magical, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3370"
+    },
+    {
+      "type": "Action",
+      "name": "(magical, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3371"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3372"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, void)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3373"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3374"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, healing)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3375"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3376"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3377"
+    },
+    {
+      "type": "Action",
+      "name": "(air, concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3378"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3379"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3380"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, detection, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3381"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, occult, void)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3382"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3383"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, emotion, fear, manipulate, mental, sonic)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3384"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3385"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, sonic)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3386"
+    },
+    {
+      "type": "Action",
+      "name": "(earth, manipulate, primal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3387"
+    },
+    {
+      "type": "Action",
+      "name": "(earth, manipulate, primal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3388"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3389"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3390"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3391"
+    },
+    {
+      "type": "Action",
+      "name": "(attack, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3392"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3393"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3394"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3395"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3396"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, incapacitation, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3397"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (auditory, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3398"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3399"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, darkness, death, manipulate, spirit)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3400"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3401"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3402"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3403"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3404"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3405"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, primal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3406"
+    },
+    {
+      "type": "Action",
+      "name": "(healing, manipulate, primal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3407"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, emotion, fear, manipulate, mental, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3408"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3409"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3410"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3411"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3412"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, emotion, fear, manipulate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3413"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3414"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3415"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, manipulate, sonic)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3416"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3417"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3418"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3419"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3420"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3421"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3422"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3423"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3424"
+    },
+    {
+      "type": "Action",
+      "name": "(fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3425"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3426"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fire)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3427"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3428"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, misfortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3429"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3430"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3432"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3433"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3435"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, healing, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3436"
+    },
+    {
+      "type": "Action",
+      "name": "(vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3437"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3438"
+    },
+    {
+      "type": "Action",
+      "name": "(detection, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3439"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3441"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3442"
+    },
+    {
+      "type": "Action",
+      "name": "(air, concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3443"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, light)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3444"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3445"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3446"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3447"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3448"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3449"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3450"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3451"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, detection, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3452"
+    },
+    {
+      "type": "Action",
+      "name": "Direct Follower",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3453"
+    },
+    {
+      "type": "Action",
+      "name": "Call Follower",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3454"
+    },
+    {
+      "type": "Follower",
+      "name": "Berserker",
+      "url": "https://2e.aonprd.com/Followers.aspx?ID=1"
+    },
+    {
+      "type": "Follower",
+      "name": "Medic",
+      "url": "https://2e.aonprd.com/Followers.aspx?ID=2"
+    },
+    {
+      "type": "Follower",
+      "name": "Scout",
+      "url": "https://2e.aonprd.com/Followers.aspx?ID=3"
+    },
+    {
+      "type": "Follower",
+      "name": "Sharpshooter",
+      "url": "https://2e.aonprd.com/Followers.aspx?ID=4"
+    },
+    {
+      "type": "Follower",
+      "name": "Shieldbearer",
+      "url": "https://2e.aonprd.com/Followers.aspx?ID=5"
+    },
+    {
+      "type": "Rules",
+      "name": "Follower Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3423"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Followers vs. Non-Companion NPCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3423"
+    },
+    {
+      "type": "Rules",
+      "name": "Roleplaying Followers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3424"
+    },
+    {
+      "type": "Rules",
+      "name": "Novice Followers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3425"
+    },
+    {
+      "type": "Rules",
+      "name": "Follower Types",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3426"
+    },
+    {
+      "type": "Rules",
+      "name": "War as a Backdrop",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3429"
+    },
+    {
+      "type": "Rules",
+      "name": "War on the Horizon",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3430"
+    },
+    {
+      "type": "Rules",
+      "name": "On the Front Lines",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3431"
+    },
+    {
+      "type": "Rules",
+      "name": "Behind Enemy Lines",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3432"
+    },
+    {
+      "type": "Rules",
+      "name": "What Kind of War?",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3434"
+    },
+    {
+      "type": "Rules",
+      "name": "Where Are the Heroes?",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3435"
+    },
+    {
+      "type": "Rules",
+      "name": "What Do the Heroes Do?",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3436"
+    },
+    {
+      "type": "Rules",
+      "name": "Onward to Victory (Points)!",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3437"
+    },
+    {
+      "type": "Rules",
+      "name": "Being in Command",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3438"
+    },
+    {
+      "type": "Rules",
+      "name": "Shared Space and Movement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3440"
+    },
+    {
+      "type": "Rules",
+      "name": "Shared Space",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3441"
+    },
+    {
+      "type": "Rules",
+      "name": "Combined Movement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3442"
+    },
+    {
+      "type": "Rules",
+      "name": "Five Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3443"
+    },
+    {
+      "type": "Rules",
+      "name": "Boosted Morale",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3444"
+    },
+    {
+      "type": "Rules",
+      "name": "Troops in Skirmishes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3445"
+    },
+    {
+      "type": "Rules",
+      "name": "Routing Troops",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3446"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Unroutable Troops",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3446"
+    },
+    {
+      "type": "Rules",
+      "name": "Loosing a Troop",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3447"
+    },
+    {
+      "type": "Rules",
+      "name": "Losing a Leader",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3448"
+    },
+    {
+      "type": "Rules",
+      "name": "Back-Up Plans",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3449"
+    },
+    {
+      "type": "Rules",
+      "name": "Establishing a New Command",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3450"
+    },
+    {
+      "type": "Rules",
+      "name": "Return of the Leader",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3451"
+    },
+    {
+      "type": "Rules",
+      "name": "Building Skirmish Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3453"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Commanders and Troops",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3453"
+    },
+    {
+      "type": "Rules",
+      "name": "1. Set Objectives",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3454"
+    },
+    {
+      "type": "Rules",
+      "name": "Defend",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3455"
+    },
+    {
+      "type": "Rules",
+      "name": "Eliminate",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3456"
+    },
+    {
+      "type": "Rules",
+      "name": "Seize",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3457"
+    },
+    {
+      "type": "Rules",
+      "name": "2. Pick the Battlefield",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3458"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Playing at a Different Scale",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3458"
+    },
+    {
+      "type": "Rules",
+      "name": "Terrain and Hazards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3459"
+    },
+    {
+      "type": "Rules",
+      "name": "3D Terrain",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3460"
+    },
+    {
+      "type": "Rules",
+      "name": "3. Choose a Difficulty",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3461"
+    },
+    {
+      "type": "Rules",
+      "name": "4. Add the Right Enemies",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3462"
+    },
+    {
+      "type": "Rules",
+      "name": "Troop Variety",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3463"
+    },
+    {
+      "type": "Rules",
+      "name": "Leaders",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3464"
+    },
+    {
+      "type": "Rules",
+      "name": "Wild Cards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3465"
+    },
+    {
+      "type": "Rules",
+      "name": "Special Considerations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3466"
+    },
+    {
+      "type": "Rules",
+      "name": "Lone Wolf PCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3467"
+    },
+    {
+      "type": "Rules",
+      "name": "One Tough Enemy",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3468"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Additional Skirmish Bonds",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3469"
+    },
+    {
+      "type": "Rules",
+      "name": "Customizing Troops",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3469"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Leveling Up Troops",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3469"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Recurring Troops",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3469"
+    },
+    {
+      "type": "Rules",
+      "name": "Quick Skirmish Groups",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3470"
+    },
+    {
+      "type": "Rules",
+      "name": "Undead Soldiers (Level 4)",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3471"
+    },
+    {
+      "type": "Rules",
+      "name": "Clash of Steel (Level 6)",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3472"
+    },
+    {
+      "type": "Rules",
+      "name": "Abominable Armies (Level 8)",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3473"
+    },
+    {
+      "type": "Rules",
+      "name": "Open the Gates of Hell (Level 9)",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3474"
+    },
+    {
+      "type": "Rules",
+      "name": "Glorious Death! (Level 11)",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3475"
+    },
+    {
+      "type": "Rules",
+      "name": "Nature Versus Nature (Level 13)",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3476"
+    },
+    {
+      "type": "Rules",
+      "name": "Downtime",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3477"
+    },
+    {
+      "type": "Source",
+      "name": "Battlecry!",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=268"
+    },
+    {
+      "type": "Item",
+      "name": "Gaff",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=121"
+    },
+    {
+      "type": "Item",
+      "name": "Repeating Hand Crossbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=160"
+    },
+    {
+      "type": "Item",
+      "name": "Repeating Hand Crossbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=177"
+    },
+    {
+      "type": "Item",
+      "name": "Gauntlet Bow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=335"
+    },
+    {
+      "type": "Item",
+      "name": "Aldori Dueling Sword",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=88"
+    }
+  ]
 }

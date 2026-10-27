@@ -100,5 +100,272 @@
     "https://2e.aonprd.com/NPCs.aspx?ID=4740": 245,
     "https://2e.aonprd.com/NPCs.aspx?ID=4741": 247,
     "https://2e.aonprd.com/Rituals.aspx?ID=242": 215
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Lock Jaw",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3634"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3635"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3636"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3637"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3638"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3639"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3640"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3641"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3642"
+    },
+    {
+      "type": "Action",
+      "name": "(illusion, manipulate, occult, subtle)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3643"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3644"
+    },
+    {
+      "type": "Action",
+      "name": "(earth)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3645"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3646"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3647"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, holy)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3648"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, emotion, fear, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3649"
+    },
+    {
+      "type": "Action",
+      "name": "(electricity, manipulate, metal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3650"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3651"
+    },
+    {
+      "type": "Action",
+      "name": "(illusion, manipulate, olfactory, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3652"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3653"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate, exploration, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3654"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Isgeri Boarhound",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=123"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Hellbreaker Troops",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=679"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Sarcovalt",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=680"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Fumecrux",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=681"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Hellcrown",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=682"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Skeletal Hellknight",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=683"
+    },
+    {
+      "type": "Creature",
+      "name": "Stumpfield War Chanter Choir",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4717"
+    },
+    {
+      "type": "Creature",
+      "name": "Stumpfield War Saboteurs",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4718"
+    },
+    {
+      "type": "Creature",
+      "name": "Swiftrun Clergy",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4719"
+    },
+    {
+      "type": "Creature",
+      "name": "Umok Beastspeaker Circle",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4720"
+    },
+    {
+      "type": "Creature",
+      "name": "Adiutor",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4721"
+    },
+    {
+      "type": "Creature",
+      "name": "Aurocan",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4722"
+    },
+    {
+      "type": "Creature",
+      "name": "Insidiator",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4723"
+    },
+    {
+      "type": "Creature",
+      "name": "Instillo",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4724"
+    },
+    {
+      "type": "Creature",
+      "name": "Kylix",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4725"
+    },
+    {
+      "type": "Creature",
+      "name": "Odvolos",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4726"
+    },
+    {
+      "type": "Creature",
+      "name": "Velavi",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4727"
+    },
+    {
+      "type": "Creature",
+      "name": "Draconic Fumercrux",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4728"
+    },
+    {
+      "type": "Creature",
+      "name": "Gliding River Snake",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4729"
+    },
+    {
+      "type": "Creature",
+      "name": "Drude",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4730"
+    },
+    {
+      "type": "Creature",
+      "name": "Godclaw Hellcrown",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4731"
+    },
+    {
+      "type": "Creature",
+      "name": "Skeletal Hellknight Bonesinger",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4732"
+    },
+    {
+      "type": "Creature",
+      "name": "Sarcovalt",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4733"
+    },
+    {
+      "type": "Creature",
+      "name": "Sarcovalt Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4734"
+    },
+    {
+      "type": "Creature",
+      "name": "Brakknap",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4735"
+    },
+    {
+      "type": "Creature",
+      "name": "Caeto Vulaunex",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4736"
+    },
+    {
+      "type": "Creature",
+      "name": "Ezio Gaeta",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4737"
+    },
+    {
+      "type": "Creature",
+      "name": "Illcayuna Alonnor",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4738"
+    },
+    {
+      "type": "Creature",
+      "name": "Alceo Demetrias",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4739"
+    },
+    {
+      "type": "Creature",
+      "name": "Pheobe Demetrias",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4740"
+    },
+    {
+      "type": "Creature",
+      "name": "Viro Ahala",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4741"
+    },
+    {
+      "type": "Source",
+      "name": "Pathfinder #222: Hellbreakers",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=307"
+    }
+  ]
 }

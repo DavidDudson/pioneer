@@ -197,5 +197,132 @@
     "https://2e.aonprd.com/Traits.aspx?ID=382": 310,
     "https://2e.aonprd.com/Weapons.aspx?ID=168": 86,
     "https://2e.aonprd.com/Weapons.aspx?ID=169": 259
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Anadi Venom",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=729"
+    },
+    {
+      "type": "Action",
+      "name": "Change Shape",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=730"
+    },
+    {
+      "type": "Action",
+      "name": "Call to Axis",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=731"
+    },
+    {
+      "type": "Action",
+      "name": "Toxic Skin",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=732"
+    },
+    {
+      "type": "Action",
+      "name": "Barbed Quills",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=733"
+    },
+    {
+      "type": "Action",
+      "name": "command",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=734"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (envision, Interact)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=735"
+    },
+    {
+      "type": "Action",
+      "name": "command",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=736"
+    },
+    {
+      "type": "Deity Category",
+      "name": "Mwangi Gods",
+      "url": "https://2e.aonprd.com/DeityCategories.aspx?ID=20"
+    },
+    {
+      "type": "Item",
+      "name": "Armor Latches",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1824"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Anadi",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=107"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Biloko",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=108"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Charau-ka",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=109"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Kaava",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=287"
+    },
+    {
+      "type": "Creature",
+      "name": "Anadi Hunter",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=430"
+    },
+    {
+      "type": "Creature",
+      "name": "Anadi Sage",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=431"
+    },
+    {
+      "type": "Creature",
+      "name": "Anadi Elder",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=432"
+    },
+    {
+      "type": "Creature",
+      "name": "Asanbosam",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=439"
+    },
+    {
+      "type": "Creature",
+      "name": "Biloko Warrior",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=441"
+    },
+    {
+      "type": "Creature",
+      "name": "Biloko Veteran",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=442"
+    },
+    {
+      "type": "Creature",
+      "name": "Eloko",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=443"
+    },
+    {
+      "type": "Creature",
+      "name": "Charau-ka Warrior",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=444"
+    },
+    {
+      "type": "Creature",
+      "name": "Charau-ka Acolyte of Angazhan",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=445"
+    },
+    {
+      "type": "Creature",
+      "name": "Charau-ka Butcher",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=446"
+    },
+    {
+      "type": "Source",
+      "name": "The Mwangi Expanse",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=89"
+    }
+  ]
 }

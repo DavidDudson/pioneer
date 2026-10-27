@@ -181,5 +181,182 @@
     "https://2e.aonprd.com/Spells.aspx?ID=2484": 149,
     "https://2e.aonprd.com/Spells.aspx?ID=2485": 149,
     "https://2e.aonprd.com/Spells.aspx?ID=2486": 149
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3233"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3234"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3235"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, sonic)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3236"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, illusion)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3237"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, illusion, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3238"
+    },
+    {
+      "type": "Action",
+      "name": "Spit",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3239"
+    },
+    {
+      "type": "Action",
+      "name": "Lizard Leap",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3240"
+    },
+    {
+      "type": "Action",
+      "name": "Rolling Charge",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3241"
+    },
+    {
+      "type": "Action",
+      "name": "Tail Escape",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3242"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, misfortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3243"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3244"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, healing, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3245"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, linguistic, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3246"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3247"
+    },
+    {
+      "type": "Action",
+      "name": "Possessing Strike",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3248"
+    },
+    {
+      "type": "Action",
+      "name": "Gnash",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3249"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, sonic)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3250"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3251"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3252"
+    },
+    {
+      "type": "Action",
+      "name": "(arcane, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3253"
+    },
+    {
+      "type": "Action",
+      "name": "(arcane, concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3254"
+    },
+    {
+      "type": "Action",
+      "name": "(arcane, concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3255"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, subtle)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3256"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3257"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3258"
+    },
+    {
+      "type": "Action",
+      "name": "Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3259"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Bacallia",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=116"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Keulia",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=117"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Cragstone Bear",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=118"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Giant Rock Tuatara",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=119"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Gray Bladeling",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=120"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Severed Head",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=121"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Failed Prophet",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=563"
+    },
+    {
+      "type": "Source",
+      "name": "Shining Kingdoms",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=265"
+    }
+  ]
 }

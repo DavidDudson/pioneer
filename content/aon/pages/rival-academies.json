@@ -198,5 +198,117 @@
     "https://2e.aonprd.com/Spells.aspx?ID=2330": 119,
     "https://2e.aonprd.com/Spells.aspx?ID=2332": 71,
     "https://2e.aonprd.com/Spells.aspx?ID=2334": 90
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3042"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3043"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3044"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3045"
+    },
+    {
+      "type": "Action",
+      "name": "(light, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3046"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3047"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3048"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3049"
+    },
+    {
+      "type": "Action",
+      "name": "(light, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3050"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3051"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, mental, morph, occult, unholy)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3052"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate, light, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3053"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, detection)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3054"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3055"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3056"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3057"
+    },
+    {
+      "type": "Action",
+      "name": "Offer Story",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3058"
+    },
+    {
+      "type": "Action",
+      "name": "Entreat Pact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3059"
+    },
+    {
+      "type": "Action",
+      "name": "Fey Jump",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3060"
+    },
+    {
+      "type": "Action",
+      "name": "Forced Pact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3061"
+    },
+    {
+      "type": "Item",
+      "name": "Inspiring Spotlight",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=585"
+    },
+    {
+      "type": "Source",
+      "name": "Rival Academies",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=235"
+    }
+  ]
 }

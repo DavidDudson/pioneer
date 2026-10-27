@@ -34,5 +34,77 @@
     "https://2e.aonprd.com/NPCs.aspx?ID=3852": 90,
     "https://2e.aonprd.com/NPCs.aspx?ID=3853": 93,
     "https://2e.aonprd.com/NPCs.aspx?ID=3855": 29
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3283"
+    },
+    {
+      "type": "Action",
+      "name": "(concentration)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3284"
+    },
+    {
+      "type": "Action",
+      "name": "(concentration)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3285"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3301"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3302"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3303"
+    },
+    {
+      "type": "Creature",
+      "name": "Lesser Shadow Scamp",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3854"
+    },
+    {
+      "type": "Creature",
+      "name": "Camazotz Cultist",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3856"
+    },
+    {
+      "type": "Creature",
+      "name": "Alzira Mustanir",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3857"
+    },
+    {
+      "type": "Creature",
+      "name": "Vampire Servant",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3858"
+    },
+    {
+      "type": "Creature",
+      "name": "Inizkar",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3852"
+    },
+    {
+      "type": "Creature",
+      "name": "Romi Bracken",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3853"
+    },
+    {
+      "type": "Creature",
+      "name": "Keeper Of Ancorato",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3855"
+    },
+    {
+      "type": "Source",
+      "name": "Pathfinder #213: Thirst for Blood",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=257"
+    }
+  ]
 }

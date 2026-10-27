@@ -27,8 +27,9 @@ Facts from two requests to `https://elasticsearch.aonprd.com/aon/_search` on 202
 - **A 403 on `robots.txt` of the search host is read as "none published".** The host serves only this JSON API, and
   answers the query itself with 200. A `robots.txt` that is readable and disallows the path still stops the run, and
   so does any other status. The page-fetch client keeps ADR-0071's stricter rule.
-- **We keep only facts.** Per book, the tool stores each entry's URL and page in `content/aon/pages/<book>.json`. It
-  stores no prose, no markup and no other field of the index.
+- **We keep only facts.** Per book, the tool stores each entry's URL and page in `content/aon/pages/<book>.json`. For
+  an entry the book's Sources page does not list (an action, say), it also stores the entry's name and type, so the
+  matcher can find its URL. It stores no prose, no markup and no other field of the index.
 - **Mapping files stay the source of truth** (ADR-0070). `content:pages-propose` copies a page from the table into
   `content/enrichment/<pack>.json` for each mapping that has an AoN URL, never over a page already there. A person
   reviews the diff, and `just content-enrich` writes it onto the pack.

@@ -1,3 +1,10 @@
 {
-  "pages": {}
+  "pages": {},
+  "entries": [
+    {
+      "type": "Source",
+      "name": "Foolish Housekeeping and Other Articles",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=239"
+    }
+  ]
 }

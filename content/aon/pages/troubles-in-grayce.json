@@ -23,5 +23,47 @@
     "https://2e.aonprd.com/Monsters.aspx?ID=4773": 123,
     "https://2e.aonprd.com/Monsters.aspx?ID=4774": 124,
     "https://2e.aonprd.com/Monsters.aspx?ID=4775": 125
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "manipulate, visual",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4217"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate, manipulate, mental",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4218"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate, manipulate, mental",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4219"
+    },
+    {
+      "type": "Action",
+      "name": "fortune, manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4220"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4222"
+    },
+    {
+      "type": "Item",
+      "name": "Cinnamon Nostalgia Bun",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4949"
+    },
+    {
+      "type": "Item",
+      "name": "Hagbane Biscuit",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=4950"
+    },
+    {
+      "type": "Source",
+      "name": "Troubles in Grayce",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=327"
+    }
+  ]
 }

@@ -39,5 +39,27 @@
     "https://2e.aonprd.com/Vehicles.aspx?ID=85": 267,
     "https://2e.aonprd.com/Vehicles.aspx?ID=86": 267,
     "https://2e.aonprd.com/Vehicles.aspx?ID=87": 267
-  }
+  },
+  "entries": [
+    {
+      "type": "Creature Family",
+      "name": "Animated Handcraft",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=354"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Haunted Clockwork",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=355"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Orchid Mantis",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=356"
+    },
+    {
+      "type": "Source",
+      "name": "Tian Xia World Guide",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=223"
+    }
+  ]
 }
