@@ -163,6 +163,15 @@
     "skills": {
       "formTraits": "Your form gives you the traits {traits} on this roll."
     },
+    "breath": {
+      "hold": "Hold breath ({rounds, plural, one {# round} other {# rounds}})",
+      "air": "Air left: {rounds, plural, one {# round} other {# rounds}}",
+      "suffocating": "Out of air: you are unconscious and suffocating. Saves made: {checks}. The next is a Fortitude save against DC {dc}.",
+      "loseRound": "Lose a round",
+      "loseAll": "Speak or cast: lose all air",
+      "breatheAgain": "Breathe again",
+      "undo": "Undo"
+    },
     "roleplay": {
       "heading": "Appearance and personality",
       "appearance": "Appearance",
@@ -591,7 +600,11 @@
     "conditionLowered": "A condition went down to {value}.",
     "persistentDamage": "Persistent damage: you take {amount}.",
     "flatCheckPassed": "Flat check {die} against DC {dc}: the persistent damage ends.",
-    "flatCheckFailed": "Flat check {die} against DC {dc}: the persistent damage continues."
+    "flatCheckFailed": "Flat check {die} against DC {dc}: the persistent damage continues.",
+    "airLost": "You have {air, plural, one {# round} other {# rounds}} of air left.",
+    "suffocationSaved": "Suffocation: Fortitude save {total} against DC {dc} holds.",
+    "suffocationFailed": "Suffocation: Fortitude save {total} against DC {dc} fails; you take {amount} damage.",
+    "suffocationDied": "Suffocation: Fortitude save {total} against DC {dc} critically fails; you die."
   },
   "import": {
     "title": "Import from Pathbuilder",

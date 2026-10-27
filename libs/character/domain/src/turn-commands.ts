@@ -1,11 +1,12 @@
+import { RollTotal } from '@pioneer/rules/dice';
 import type { RandomSource } from '@pioneer/rules/dice';
 import { damageTargetOf, deriveDefences, statisticContent } from '@pioneer/rules/engine';
 import type { RecoveryInPlay } from '@pioneer/rules/engine';
-import { ConditionTrigger, NO_DEFENCES } from '@pioneer/rules/sdk';
+import { ConditionTrigger, NO_DEFENCES, Selector } from '@pioneer/rules/sdk';
 import type { DamageTarget } from '@pioneer/rules/sdk';
 
 import type { CharacterDocument } from './character-document';
-import { characterVitals } from './character-statistics';
+import { characterStatistics, characterVitals } from './character-statistics';
 import type { StatisticSources } from './character-statistics';
 import type { PlayLimits, PlayState } from './play-state';
 import { conditionRecovery } from './rest-limits';
@@ -27,6 +28,8 @@ export interface TurnCommandInputs {
   readonly easing: RecoveryConditions;
   /** The conditions that change the actions a turn starts with. */
   readonly economy: EconomyConditions;
+  /** The character's Fortitude modifier, worked out only when a save against suffocation needs it. */
+  readonly fortitude: () => RollTotal;
 }
 
 /** Start turn: the bookkeeping, then the actions and the reaction refilled from the conditions that are left, and the spend log cleared. */
@@ -41,7 +44,11 @@ function started(play: PlayState, inputs: TurnCommandInputs, random: RandomSourc
 
 /** End turn: the bookkeeping, then no actions left and off-turn. */
 function ended(play: PlayState, inputs: TurnCommandInputs, random: RandomSource): TurnOutcome {
-  const done = endTurn(play, { limits: inputs.limits, defences: inputs.defences, recovery: inputs.easing }, random);
+  const done = endTurn(
+    play,
+    { limits: inputs.limits, defences: inputs.defences, recovery: inputs.easing, fortitude: inputs.fortitude },
+    random,
+  );
   return { play: { ...done.play, turn: turnEnded(done.play.turn) }, events: done.events };
 }
 
@@ -91,6 +98,15 @@ export function applyTurnCommand(play: PlayState, command: TurnCommand, { inputs
   }
 }
 
+const FORTITUDE = Selector.parse('fortitude');
+const NO_MODIFIER = RollTotal.parse(0);
+
+/** The character's Fortitude modifier; none when the content has no Fortitude statistic or it has no value. */
+function fortitudeOf(sources: StatisticSources, document: CharacterDocument): RollTotal {
+  const result = characterStatistics(document, sources).get(FORTITUDE);
+  return result?.ok === true ? RollTotal.parse(result.total) : NO_MODIFIER;
+}
+
 /**
  * What the turn cycle reads for a character, from the build and the content: its fast healing and regeneration, the
  * defences persistent damage goes through, what the end of a turn eases and the conditions that change its actions.
@@ -108,5 +124,6 @@ export function turnCommandInputs(
     defences: content === undefined ? NO_DEFENCES : damageTargetOf(deriveDefences(content, inputs)),
     easing: conditionRecovery(registry, ConditionTrigger.TurnEnd),
     economy: economyConditions(registry),
+    fortitude: () => fortitudeOf(sources, document),
   };
 }

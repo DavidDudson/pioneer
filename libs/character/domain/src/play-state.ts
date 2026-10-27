@@ -6,6 +6,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ActiveSpellCommandField, ActiveSpellCommandSchema, ActiveSpellsSchema } from './active-spells';
+import { BreathCommandField, BreathCommandSchema, BreathSchema } from './breath';
 import { ActiveConditionsSchema, ConditionCommandField, ConditionCommandSchema } from './conditions';
 import type { ConditionValued } from './conditions';
 import {
@@ -76,6 +77,8 @@ export const PlayStateSchema = z.strictObject({
   effects: ActiveEffectsSchema,
   /** The environments the character is in (underwater, darkness); their rules apply while they are listed. */
   environments: ActiveEnvironmentsSchema,
+  /** The air left of a character holding its breath (underwater); none while it breathes freely. */
+  breath: BreathSchema,
   /** The sustained spells the character has cast and keeps up. */
   activeSpells: ActiveSpellsSchema,
   toggles: TogglesSchema,
@@ -129,6 +132,8 @@ export const PlayCommandField = {
   ...ExplorationCommandField,
   /** An environment turned on or off (`environments.ts`). */
   ...EnvironmentCommandField,
+  /** The breath set or the character let breathe again (`breath.ts`). */
+  ...BreathCommandField,
 } as const;
 export type PlayCommandField = ValueOf<typeof PlayCommandField>;
 
@@ -158,6 +163,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   ...ToggleCommandSchema.options,
   ...ExplorationCommandSchema.options,
   ...EnvironmentCommandSchema.options,
+  ...BreathCommandSchema.options,
 ]);
 export type PlayCommand = z.infer<typeof PlayCommandSchema>;
 

@@ -1,5 +1,7 @@
 import { applyActiveSpellCommand, isActiveSpellCommand } from './active-spells';
 import type { ActiveSpell, ActiveSpellCommand } from './active-spells';
+import { applyBreathCommand, isBreathCommand } from './breath';
+import type { BreathCommand, BreathState } from './breath';
 import { applyConditionCommand, isConditionCommand } from './conditions';
 import type { ConditionCommand } from './conditions';
 import { isEffectCommand } from './effect-commands';
@@ -36,13 +38,15 @@ export type CountingCommand =
   | ToggleCommand
   | SpendCommand
   | ExplorationCommand
-  | EnvironmentCommand;
+  | EnvironmentCommand
+  | BreathCommand;
 
 /** The part of a play state a counting edit reads and writes: what a restoring action does, and the toggles. */
 export type CountingPlay = RestPlay & {
   readonly toggles: Toggles;
   readonly effects: readonly ActiveEffect[];
   readonly environments: ActiveEnvironments;
+  readonly breath?: BreathState | undefined;
   readonly activeSpells: readonly ActiveSpell[];
   readonly spendLog: SpendLog;
   readonly turn: TurnState;
@@ -72,7 +76,8 @@ export function isCountingCommand<Command extends { readonly field: unknown }>(
     isSpendCommand(command) ||
     isActiveSpellCommand(command) ||
     isExplorationCommand(command) ||
-    isEnvironmentCommand(command)
+    isEnvironmentCommand(command) ||
+    isBreathCommand(command)
   );
 }
 
@@ -84,10 +89,13 @@ function resourceLimits(limits: CountingLimits): ResourceLimits {
 /** `play` after a toggle or an environment set, or the exploration activity chosen. */
 function applyChoiceCommand<Play extends CountingPlay>(
   play: Play,
-  command: ToggleCommand | ExplorationCommand | EnvironmentCommand,
+  command: ToggleCommand | ExplorationCommand | EnvironmentCommand | BreathCommand,
 ): Play {
   if (isExplorationCommand(command)) {
     return { ...play, exploration: applyExplorationCommand(command) };
+  }
+  if (isBreathCommand(command)) {
+    return { ...play, breath: applyBreathCommand(command) };
   }
   return isEnvironmentCommand(command)
     ? { ...play, environments: applyEnvironmentCommand(play.environments, command) }
@@ -117,7 +125,12 @@ export function applyCountingCommand<Play extends CountingPlay>(
   if (isSpendCommand(command)) {
     return { ...play, ...applySpendCommand(play, command, { ...resourceLimits(limits), ...limits.spend }) };
   }
-  if (isToggleCommand(command) || isExplorationCommand(command) || isEnvironmentCommand(command)) {
+  if (
+    isToggleCommand(command) ||
+    isExplorationCommand(command) ||
+    isEnvironmentCommand(command) ||
+    isBreathCommand(command)
+  ) {
     return applyChoiceCommand(play, command);
   }
   if (isEffectCommand(command) || isActiveSpellCommand(command)) {
