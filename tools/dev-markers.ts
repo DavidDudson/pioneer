@@ -1,8 +1,9 @@
 import { DEV_USERS, DevSignInPath } from '@pioneer/identity/dev-users';
 
-/** The dev sign-in component's selector and its message scope; neither may reach a production build. */
+/** The dev components' selectors and the dev sign-in's message scope; neither may reach a production build. */
 export const DEV_SIGN_IN_SELECTOR = 'pio-dev-sign-in';
 export const DEV_MESSAGE_SCOPE = 'identityDev';
+export const SAMPLE_IMPORT_SELECTOR = 'pio-sample-character-import';
 
 /**
  * Strings only dev code contains: the seeded users' ids and names, the dev sign-in route, and the web
@@ -13,6 +14,7 @@ export const DEV_MARKERS: readonly string[] = [
   DevSignInPath.route.slice(0, DevSignInPath.route.indexOf(':')),
   DEV_SIGN_IN_SELECTOR,
   DEV_MESSAGE_SCOPE,
+  SAMPLE_IMPORT_SELECTOR,
 ];
 
 /** The markers that occur in `contents`, in marker order. */

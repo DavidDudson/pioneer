@@ -25,7 +25,10 @@
     "created": "Created",
     "createFailed": "Could not create the character. Try again.",
     "import": "Import from Pathbuilder",
-    "importPioneer": "Import from Pioneer JSON"
+    "importPioneer": "Import from Pioneer JSON",
+    "importMordred": "Import Mordred",
+    "importBriarRose": "Import Briar Rose",
+    "importSampleFailed": "Could not import the sample character. Try again."
   },
   "sheet": {
     "sidePanel": {

@@ -1,3 +1,4 @@
+import { NgComponentOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
@@ -34,9 +35,10 @@ import {
   originRowValue,
   shownAncestryRows,
 } from '@pioneer/rules/ui';
-import { filter, merge } from 'rxjs';
+import { filter, from, merge } from 'rxjs';
 
 import { AncestryOptions } from '../../data/ancestry-options';
+import { CHARACTER_LIST_EXTRAS } from '../../data/character-list-extras';
 import { CharacterStore } from '../../data/character-store';
 import { CreateCharacterForm } from '../../data/create-character-form';
 
@@ -64,6 +66,7 @@ const characterKey = (character: Character): string => character.id;
     Grid,
     Heading,
     Link,
+    NgComponentOutlet,
     Page,
     PageBody,
     PageHeader,
@@ -83,6 +86,10 @@ const characterKey = (character: Character): string => character.id;
 export class CharacterListPage {
   protected readonly store = inject(CharacterStore);
   protected readonly ancestries = inject(AncestryOptions);
+  readonly #extraLoaders = inject(CHARACTER_LIST_EXTRAS);
+  readonly #extrasLoaded = Promise.all(this.#extraLoaders.map(async (load) => load()));
+  /** Loaded on demand: empty in production, the sample imports in development. */
+  protected readonly extras = toSignal(from(this.#extrasLoaded), { initialValue: [] });
   readonly #router = inject(Router);
   readonly #route = inject(ActivatedRoute);
 
