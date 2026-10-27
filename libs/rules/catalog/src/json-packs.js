@@ -14,6 +14,7 @@ export async function playerCorePack() {
     import('@pioneer/content/packs/player-core/class.json'),
     import('@pioneer/content/packs/player-core/condition.json'),
     import('@pioneer/content/packs/player-core/consumable.json'),
+    import('@pioneer/content/packs/player-core/creature.json'),
     import('@pioneer/content/packs/player-core/effect.json'),
     import('@pioneer/content/packs/player-core/environment.json'),
     import('@pioneer/content/packs/player-core/equipment.json'),

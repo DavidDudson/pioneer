@@ -423,17 +423,23 @@
     ],
     "rules": [
       {
-        "key": "Resistance",
-        "type": ["acid", "fire"],
-        "value": 5
-      },
-      {
-        "key": "GrantItem",
-        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7",
-        "allowDuplicate": false,
-        "predicate": [
+        "key": "Note",
+        "selectors": ["all"],
+        "text": [
           {
-            "nor": ["aquatic-combat:not-off-guard", "speed:swim"]
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can't cast fire spells or use actions with the fire trait underwater."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          "item:trait:fire",
+          {
+            "not": "item:rune:property:underwater"
           }
         ]
       },
@@ -460,40 +466,21 @@
         ]
       },
       {
-        "key": "DamageAlteration",
-        "selectors": ["inline-damage", "attack-damage", "spell-damage"],
-        "property": "dice-number",
-        "mode": "override",
-        "value": 0,
-        "predicate": [
-          {
-            "or": ["item:damage:persistent:fire", "item:damage:fire"]
-          },
-          {
-            "not": "item:trait:impulse"
-          }
-        ]
+        "key": "Resistance",
+        "type": ["acid", "fire"],
+        "value": 5
       },
       {
-        "key": "Note",
-        "selectors": ["all"],
-        "text": [
-          {
-            "type": "paragraph",
-            "content": [
-              {
-                "type": "text",
-                "text": "You can't cast fire spells or use actions with the fire trait underwater."
-              }
-            ]
-          }
-        ],
-        "predicate": [
-          "item:trait:fire",
+        "key": "AdjustStrike",
+        "strikes": [
+          "item:ranged",
           {
             "not": "item:rune:property:underwater"
           }
-        ]
+        ],
+        "property": "range-increment",
+        "mode": "multiply",
+        "value": 0.5
       },
       {
         "key": "Note",
@@ -512,6 +499,31 @@
         "predicate": [
           {
             "not": "item:rune:property:underwater"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "nor": ["aquatic-combat:not-off-guard", "speed:swim"]
+          }
+        ]
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["inline-damage", "attack-damage", "spell-damage"],
+        "property": "dice-number",
+        "mode": "override",
+        "value": 0,
+        "predicate": [
+          {
+            "or": ["item:damage:persistent:fire", "item:damage:fire"]
+          },
+          {
+            "not": "item:trait:impulse"
           }
         ]
       }
@@ -580,6 +592,84 @@
     }
   },
   {
+    "id": "d2aba2cd-e86c-5015-9f1f-88870bdc8bba",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:effect-attitude",
+    "name": "Effect: Attitude",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "See Attitudes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Use this effect to keep track of the attitude of relevant NPCs, increasing or decreasing the effect's badge value as needed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "2546bdb8-3708-5414-ada6-f17e73d81768",
+        "predicate": ["parent:badge:value:1"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "f71f2666-3e15-5d4b-9bc5-7047a68e1018",
+        "predicate": ["parent:badge:value:2"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "44d39747-aad3-5b73-a493-af78cda98eef",
+        "predicate": ["parent:badge:value:3"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ef3f130c-50e8-51b3-be54-5d0d0ecbc970",
+        "predicate": ["parent:badge:value:4"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "3f0ec457-8edb-5a4d-b6b9-bafc0ee9311f",
+        "predicate": ["parent:badge:value:5"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.campaign-effects.Item.kTnRp6zfI32iqjHc"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 3,
+        "labels": ["Hostile", "Unfriendly", "Indifferent", "Friendly", "Helpful"],
+        "loop": false
+      }
+    }
+  },
+  {
     "id": "3f170815-168f-5fac-9c22-4b372795e181",
     "pack": "player-core",
     "kind": "effect",
@@ -637,6 +727,57 @@
         "count": 1,
         "unit": "round",
         "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0d9b9736-5e27-5d15-a339-6215f6ec9a02",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:effect-bespell-strikes",
+    "name": "Effect: Bespell Strikes",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "86b4a522-0e81-5b35-be9d-f25bf9ec3aaf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The weapon or unarmed attack deals an extra 1d6 force damage and gains the arcane trait if it didn't have it already. If the spell dealt a different type of damage, the Strike deals this type of damage instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.lPtt7PojWBwPOaYt"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
       }
     }
   },
@@ -832,6 +973,85 @@
         "count": 1,
         "unit": "round",
         "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ffd844c4-ac2d-51a5-aeb2-7af0117207b8",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:effect-channeling-block",
+    "name": "Effect: Channeling Block",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "929fc3fe-2632-5484-8ce6-e15d19dc7477"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Roll 1d8 for each rank of the "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "1330902b-a95f-54ea-9a07-3764617bd887"
+          },
+          {
+            "type": "text",
+            "text": " spell, and increase the shield's Hardness by the total for this block."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:shield"],
+        "property": "hardness",
+        "mode": "add",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.Rzg3c7hfkvTlxPDp"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "(@item.level)d8"
       }
     }
   },
@@ -1509,6 +1729,108 @@
         "count": 1,
         "unit": "round",
         "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "57beab50-e086-58b9-a8c7-54ee13d9e986",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:effect-divine-rebuttal",
+    "name": "Effect: Divine Rebuttal",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "60b41f6b-b463-5c4e-b1e7-0424c42aff02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to the triggering saving throw (or a +3 circumstance bonus on a critical hit)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.jMQi2kDirzGgddti"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f546bf0e-f7e8-5ec0-b2fa-0c945d238f15",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:effect-divine-weapon",
+    "name": "Effect: Divine Weapon",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "dde10c2e-6f1d-5296-92dc-0414559227cb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The weapon deals an additional 1d4 spirit damage. If you are holy or unholy, Strikes with the weapon also gain that trait, and the additional damage increases to 2d4 against creatures of the opposing trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.zZ25N1zpXA8GNhFL"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
       }
     }
   },
@@ -2337,7 +2659,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "2 + @item.origin.level / 2"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.twvhTLrLEfr7dz1m"
     },
@@ -2716,6 +3043,63 @@
       "category": "equipment",
       "duration": {
         "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "658fd7fd-049e-5270-b670-aed15fab318c",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:effect-inspired-stratagem",
+    "name": "Effect: Inspired Stratagem",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3eb25858-2a97-5d4b-b2cc-da019d08c2a4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You roll the triggering check twice and take the better of the two results."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["attack-roll", "skill-check"],
+        "keep": "higher"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.K0Sv9AHgq245hSLC"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
       }
     }
   },
@@ -4239,7 +4623,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "2 * ceil(@item.origin.level / 2)"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.ycalVFivloJ14yhA"
     },
@@ -4250,6 +4640,113 @@
         "count": 1,
         "unit": "round",
         "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8797991a-dcbd-5ec1-92b9-8b12e0d035c7",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:effect-restorative-strike",
+    "name": "Effect: Restorative Strike",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b7e80cae-e471-524d-b0cf-b63cad0f3b44"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cast a 1-action "
+          },
+          {
+            "type": "ref",
+            "id": "1330902b-a95f-54ea-9a07-3764617bd887"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " spell to heal yourself, expending the spell normally. It loses the manipulate trait when cast this way. Then make a melee Strike. If you make this Strike with your deity's favored weapon, you gain a +1 status bonus to the attack roll."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the Strike hits, you can target a second willing creature to heal the same amount from the spell. This creature can be outside of the spell's range, provided it's adjacent to the enemy you hit."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          "item:cast:actions:1",
+          {
+            "or": ["item:slug:harm", "item:slug:heal"]
+          }
+        ],
+        "property": "traits",
+        "mode": "remove",
+        "value": "manipulate"
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll"],
+        "title": "Effect: Restorative Strike",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can target a second willing creature to heal the same amount from the spell. This creature can be outside of the spell's range, provided it's adjacent to the enemy you hit."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.jYxWTG5J171XVa5r"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
       }
     }
   },
@@ -4411,6 +4908,74 @@
       "category": "other",
       "duration": {
         "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "bcf25d1c-bf58-56a0-b90a-dd1431d32675",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:effect-scouts-warning",
+    "name": "Effect: Scout's Warning",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f4173c89-f87f-539f-af36-613c75e15772"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to your initiative roll (+2 if you also benefit from "
+          },
+          {
+            "type": "ref",
+            "id": "5d960085-3b5f-54fa-8aa2-99ae536e8d4b"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["initiative"],
+        "slug": "scouts-warning",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["self:effect:scout"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.RxDDXK52lwyHXl7v"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
       }
     }
   },
@@ -7083,6 +7648,64 @@
         "count": 1,
         "unit": "minute",
         "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "715b002e-8270-560f-a23e-c9a883b9da4d",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-agile-feet",
+    "name": "Spell Effect: Agile Feet",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fbd2a757-c567-55d0-9440-c67ac15536fd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +5-foot status bonus to your Speed and ignore difficult terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.y9PJdDYFemhk6Z5o"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
       }
     }
   },
@@ -15697,6 +16320,63 @@
     }
   },
   {
+    "id": "89699e5b-84d0-56b3-8bfa-4ef1dcb4cf7c",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-enduring-might",
+    "name": "Spell Effect: Enduring Might",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "efd32359-5aca-5b0b-b7e9-c5ee45c49c30"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance equal to 8 plus your Strength modifier against all damage from the triggering attack or effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "2 * @item.level + @attr.str"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.ZHVtJKnur9PAF5TO"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
     "id": "e5b50d59-2085-5295-b27d-b6ee8db94e7a",
     "pack": "player-core",
     "kind": "effect",
@@ -16274,6 +16954,12 @@
         "dieSize": "d4",
         "damageType": "fire",
         "predicate": ["option:unarmed"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "ternary(gte(@item.level, 9), 60, 40)"
       },
       {
         "key": "DamageDice",
@@ -17254,6 +17940,57 @@
         "count": 1,
         "unit": "round",
         "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "795341d4-3bad-5fe7-b4be-38ca89131b04",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-hand-of-the-apprentice",
+    "name": "Spell Effect: Hand of the Apprentice",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "f94cc7d2-307e-53da-b7cb-0d092570703d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You deal the weapon's damage as if you had hit with a melee Strike, but adding your spellcasting ability modifier to damage, rather than your Strength modifier. On a critical success, you deal double damage, and you add the weapon's critical specialization effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.MsXuzUrCGVuRGWK7"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
       }
     }
   },
@@ -19178,16 +19915,6 @@
     ],
     "rules": [
       {
-        "key": "RollOption",
-        "option": "option:shrouded",
-        "toggleable": true,
-        "value": true,
-        "predicate": ["monstrosity-form:phoenix"],
-        "display": {
-          "label": "Shroud of Flame"
-        }
-      },
-      {
         "key": "ChoiceSet",
         "flag": "spell-effect-monstrosity-form",
         "choices": [
@@ -19216,40 +19943,6 @@
         ],
         "prompt": "Select a form.",
         "rollOption": "monstrosity-form"
-      },
-      {
-        "key": "DamageDice",
-        "selectors": ["stinger-damage"],
-        "diceNumber": 2,
-        "dieSize": "d6",
-        "damageType": "poison",
-        "category": "persistent",
-        "predicate": ["monstrosity-form:cave-worm"]
-      },
-      {
-        "key": "DamageDice",
-        "selectors": ["beak-damage"],
-        "diceNumber": "ternary(gte(@item.level, 9), 3, 2)",
-        "dieSize": "d4",
-        "damageType": "fire",
-        "predicate": ["monstrosity-form:phoenix"]
-      },
-      {
-        "key": "DamageDice",
-        "selectors": ["beak-damage"],
-        "diceNumber": 2,
-        "dieSize": "d4",
-        "damageType": "fire",
-        "category": "persistent",
-        "predicate": ["monstrosity-form:phoenix"]
-      },
-      {
-        "key": "Aura",
-        "slug": "shroud-of-flame",
-        "radius": 20,
-        "traits": ["fire", "primal"],
-        "effects": [],
-        "predicate": ["option:shrouded"]
       },
       {
         "key": "BattleForm",
@@ -19385,6 +20078,15 @@
         "predicate": ["monstrosity-form:cave-worm"]
       },
       {
+        "key": "DamageDice",
+        "selectors": ["stinger-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "poison",
+        "category": "persistent",
+        "predicate": ["monstrosity-form:cave-worm"]
+      },
+      {
         "key": "BattleForm",
         "form": {
           "canCast": false,
@@ -19486,6 +20188,46 @@
           }
         ],
         "predicate": ["monstrosity-form:phoenix"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["beak-damage"],
+        "diceNumber": "ternary(gte(@item.level, 9), 3, 2)",
+        "dieSize": "d4",
+        "damageType": "fire",
+        "predicate": ["monstrosity-form:phoenix"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["beak-damage"],
+        "diceNumber": 2,
+        "dieSize": "d4",
+        "damageType": "fire",
+        "category": "persistent",
+        "predicate": ["monstrosity-form:phoenix"]
+      },
+      {
+        "key": "Aura",
+        "slug": "shroud-of-flame",
+        "radius": 20,
+        "traits": ["fire", "primal"],
+        "effects": [],
+        "predicate": ["option:shrouded"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:shrouded",
+        "toggleable": true,
+        "value": true,
+        "predicate": ["monstrosity-form:phoenix"],
+        "display": {
+          "label": "Shroud of Flame"
+        }
+      },
+      {
+        "key": "GrantItem",
+        "item": "f8be8a32-4cee-5ca3-90fa-419b0e13c927",
+        "predicate": ["feat:phoenixs-flight", "monstrosity-form:phoenix"]
       },
       {
         "key": "BattleForm",
@@ -21775,19 +22517,6 @@
     ],
     "rules": [
       {
-        "key": "Resistance",
-        "type": ["bludgeoning", "piercing"],
-        "value": 2,
-        "predicate": ["primal-summons:wood"]
-      },
-      {
-        "key": "FlatModifier",
-        "selectors": ["land-speed"],
-        "type": "untyped",
-        "value": -10,
-        "predicate": ["primal-summons:earth"]
-      },
-      {
         "key": "ChoiceSet",
         "flag": "spell-effect-primal-summons",
         "choices": [
@@ -21820,28 +22549,31 @@
         "rollOption": "primal-summons"
       },
       {
-        "key": "Resistance",
-        "type": ["physical"],
-        "value": 5,
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 60,
+        "predicate": ["primal-summons:air"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": ["primal-summons:earth"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "untyped",
+        "value": -10,
         "predicate": ["primal-summons:earth"]
       },
       {
         "key": "Resistance",
-        "type": ["fire"],
-        "value": 10,
-        "predicate": ["primal-summons:fire"]
-      },
-      {
-        "key": "Resistance",
-        "type": ["electricity"],
+        "type": ["physical"],
         "value": 5,
-        "predicate": ["primal-summons:metal"]
-      },
-      {
-        "key": "Resistance",
-        "type": ["fire"],
-        "value": 5,
-        "predicate": ["primal-summons:water"]
+        "predicate": ["primal-summons:earth"]
       },
       {
         "key": "DamageDice",
@@ -21852,12 +22584,31 @@
         "predicate": ["primal-summons:fire"]
       },
       {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 10,
+        "predicate": ["primal-summons:fire"]
+      },
+      {
         "key": "DamageDice",
         "selectors": ["strike-damage"],
         "diceNumber": 1,
         "dieSize": "d6",
         "damageType": "electricity",
         "predicate": ["primal-summons:metal"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 5,
+        "predicate": ["primal-summons:metal"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 60,
+        "predicate": ["primal-summons:water"]
       },
       {
         "key": "Note",
@@ -21875,6 +22626,25 @@
           }
         ],
         "predicate": ["primal-summons:water"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5,
+        "predicate": ["primal-summons:water"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 30,
+        "predicate": ["primal-summons:wood"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "piercing"],
+        "value": 2,
+        "predicate": ["primal-summons:wood"]
       }
     ],
     "externalIds": {
@@ -22130,6 +22900,57 @@
         "count": 1,
         "unit": "round",
         "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4660e8e4-0340-5ebe-b999-d76ee09dd267",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-read-aura",
+    "name": "Spell Effect: Read Aura",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "02c769dd-dba8-5437-8189-28b9800afaac"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 circumstance bonus to Identify Magic."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.J6OhRNSN23KzOPRL"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
       }
     }
   },
@@ -23628,6 +24449,69 @@
         "count": 1,
         "unit": "hour",
         "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8c08a98e-e403-5bad-8cf2-92f450080027",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-sure-strike",
+    "name": "Spell Effect: Sure Strike",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The next time you make an attack roll, roll twice and use the better result. The attack ignores circumstance penalties to the attack roll and any flat check required due to the target being Concealed or Hidden."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["attack-roll"],
+        "keep": "higher"
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["attack-roll"],
+        "suppress": true,
+        "predicate": ["penalty:type:circumstance"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.fpGDAz2v5PG0zUSl"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
       }
     }
   },

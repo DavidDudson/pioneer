@@ -1,0 +1,146 @@
+[
+  {
+    "id": "0ad41608-0872-577e-a769-0a30dfa85c1e",
+    "pack": "player-core",
+    "kind": "creature",
+    "slug": "creature:phantasmal-minion",
+    "name": "Phantasmal Minion",
+    "level": -1,
+    "rarity": "common",
+    "traits": ["force", "mindless"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This creature can be summoned with the spell "
+          },
+          {
+            "type": "ref",
+            "id": "52547c94-24db-549b-961f-07a2350befdc"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.pathfinder-bestiary.Actor.j7NNPfZwD19BwSEZ"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 0,
+      "attributes": {
+        "str": -4,
+        "dex": 2,
+        "con": 0,
+        "int": -5,
+        "wis": 0,
+        "cha": 0
+      },
+      "armorClass": 13,
+      "saves": {
+        "fortitude": 0,
+        "reflex": 4,
+        "will": 0
+      },
+      "hitPoints": 4,
+      "immunities": ["disease", "paralyzed", "poison", "precision", "unconscious", "spirit"],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "all",
+          "value": 5,
+          "exceptions": ["force", "ghost-touch"]
+        }
+      ],
+      "speed": 0,
+      "skills": [
+        {
+          "skill": "stealth",
+          "modifier": 8
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "speeds": [
+        {
+          "movement": "fly",
+          "speed": 30
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Force Body",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A phantasmal minion's body is made of magical force. It can't use attack actions. Though it has no physical weight, it can move and use Interact actions to do things such as fetch objects, open unstuck or unlocked doors, hold chairs, and clean. It can't pass through solid objects."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Invisible",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "An phantasmal minion can be summoned "
+                },
+                {
+                  "type": "ref",
+                  "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+                },
+                {
+                  "type": "text",
+                  "text": ", though it normally doesn't "
+                },
+                {
+                  "type": "ref",
+                  "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+                },
+                {
+                  "type": "text",
+                  "text": ", so it is usually only "
+                },
+                {
+                  "type": "ref",
+                  "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  }
+]
