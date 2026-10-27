@@ -1,15 +1,16 @@
-import { ProficiencySchema, RitualCheckPick } from '@pioneer/rules/sdk';
+import { Proficiency, ProficiencySchema, RitualCheckPick } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { loreSelector, loreTopic } from './foundry-lore';
 import { SKILLS } from './foundry-skills';
+import { splitOutsideNotes } from './split-outside-notes';
 
 /**
  * A ritual's checks, which Foundry writes as English ("Arcana (expert), Occultism (expert), or Religion (expert)";
  * secondary checks "Medicine, Society"), as `RitualCheck`s. A check is one of its skills, at one proficiency rank
- * when it names one, with the DC, the pick and the Lore topic it states. Anything else (a note such as "you must be
- * a demon") is undefined, for
- * the caller to report.
+ * when it names one (`mythic` for a mythic one), with the DC, the pick, the Lore topic and the note it states. A note in
+ * parentheses after the rank ("expert; you must be a demon") is the check's `note`. Anything else is undefined, for the
+ * caller to keep as the text Foundry gives.
  */
 
 const CHECK_MAX = 2000;
@@ -18,7 +19,7 @@ const CheckText = z.string().max(CHECK_MAX);
 /** Foundry's `ritual`: the primary check, and the secondary casters and their checks. */
 export const FoundryRitual = z.looseObject({
   primary: z.looseObject({ check: CheckText }),
-  secondary: z.looseObject({ casters: z.number(), checks: CheckText }),
+  secondary: z.looseObject({ casters: z.number().nullish(), checks: CheckText }),
 });
 export type FoundryRitual = z.infer<typeof FoundryRitual>;
 
@@ -43,16 +44,24 @@ const TRADITION_SUFFIX = ' as determined by the tradition of spell cast in the r
 const PICKS: ReadonlyMap<string, RitualCheckPick> = new Map([
   ['whichever is used for the primary check', RitualCheckPick.PrimaryUsed],
   ["whichever isn't used for the primary check", RitualCheckPick.PrimaryUnused],
+  ['cannot be the same skill as for the primary check', RitualCheckPick.PrimaryUnused],
 ]);
 
 /** A note on the pick, which closes the group of alternatives before it. */
-const PICK_NOTE = /\(whichever /u;
+const PICK_NOTE = /\((?:whichever |cannot be the same skill)/u;
 
+const NOT_SAME = '(cannot be the same skill';
 const WORD = /^[a-z]+$/iu;
 const LORE = 'lore';
 const LORE_ANY = 'any';
 const LORE_RELATED = 'related to ';
 const LORE_SELECTOR = 'skill:lore';
+
+const MYTHIC = 'mythic';
+const RANK_WORDS: ReadonlySet<string> = new Set([...Object.values(Proficiency), MYTHIC]);
+
+/** A rank and a remark in one pair of parentheses: "expert; you must be a demon", "master, the check has the secret trait". */
+const REMARK_SEPARATOR = /[;,]\s+/u;
 
 /** A skill as written: its words, and what follows in parentheses, if anything. */
 interface Written {
@@ -88,6 +97,7 @@ function skillSelector(name: string): string | undefined {
 interface Skill {
   readonly selector: string;
   readonly rank?: string;
+  readonly remark?: string;
   readonly pick?: RitualCheckPick;
   readonly relatedTo?: string;
 }
@@ -104,6 +114,21 @@ function anyLoreOf(note: string | undefined): Skill | undefined {
   return relatedTo === '' ? undefined : { selector: LORE_SELECTOR, relatedTo };
 }
 
+/** What a skill's parentheses say: a rank, and a remark after it. */
+interface RankAndRemark {
+  readonly rank?: string;
+  readonly remark?: string;
+}
+
+/** A rank, and the remark after it when the parentheses give both. */
+function rankedBy(note: string | undefined): RankAndRemark {
+  if (note === undefined) {
+    return {};
+  }
+  const [rank = note, ...remark] = note.split(REMARK_SEPARATOR);
+  return RANK_WORDS.has(rank) && remark.length > 0 ? { rank, remark: remark.join(', ') } : { rank: note };
+}
+
 function skillOf(text: string): Skill | undefined {
   const { name, note } = written(text);
   if (name.toLowerCase() === LORE) {
@@ -117,7 +142,7 @@ function skillOf(text: string): Skill | undefined {
   if (pick !== undefined) {
     return { selector, pick };
   }
-  return { selector, ...(note === undefined ? {} : { rank: note }) };
+  return { selector, ...rankedBy(note) };
 }
 
 /** A skill at a rank of its own. */
@@ -144,6 +169,9 @@ function ranksOf(skills: readonly Skill[]): object | undefined {
   }
   if (rank.size === 1) {
     const [only] = named;
+    if (only === MYTHIC) {
+      return { mythic: true };
+    }
     const proficiency = only === undefined ? undefined : ProficiencySchema.safeParse(only.toLowerCase()).data;
     return proficiency === undefined ? undefined : { proficiency };
   }
@@ -161,6 +189,7 @@ function single<TValue>(values: readonly TValue[]): TValue[] | undefined {
 interface Stated {
   readonly pick?: RitualCheckPick;
   readonly loreRelatedTo?: string;
+  readonly note?: string;
 }
 
 /** The pick and Lore topic the skills state, `tradition` when the text says so; undefined when they conflict. */
@@ -168,14 +197,17 @@ function statedOf(skills: readonly Skill[], tradition: boolean): Stated | undefi
   const picks = skills.flatMap(({ pick }) => pick ?? []);
   const picked = single(tradition ? [...picks, RitualCheckPick.Tradition] : picks);
   const topics = single(skills.flatMap(({ relatedTo }) => relatedTo ?? []));
-  if (picked === undefined || topics === undefined) {
+  const remarks = single(skills.flatMap(({ remark }) => remark ?? []));
+  if (picked === undefined || topics === undefined || remarks === undefined) {
     return undefined;
   }
   const [pick] = picked;
   const [loreRelatedTo] = topics;
+  const [note] = remarks;
   return {
     ...(pick === undefined ? {} : { pick }),
     ...(loreRelatedTo === undefined ? {} : { loreRelatedTo }),
+    ...(note === undefined ? {} : { note }),
   };
 }
 
@@ -183,7 +215,7 @@ function statedOf(skills: readonly Skill[], tradition: boolean): Stated | undefi
 function checkOf(text: string): object | undefined {
   const dc = DC_PREFIX.exec(text)?.groups?.['dc'];
   const body = text.replace(DC_PREFIX, '').replace(TRADITION_SUFFIX, '');
-  const parts = body.split(ALTERNATIVES);
+  const parts = splitOutsideNotes(body, ALTERNATIVES);
   const skills = parts.flatMap((part) => skillOf(part) ?? []);
   const ranks = ranksOf(skills);
   const stated = statedOf(skills, text.endsWith(TRADITION_SUFFIX));
@@ -208,16 +240,22 @@ function isBare(part: string): boolean {
   return !part.includes(' or ') && !part.includes('(');
 }
 
+/** Whether the comma parts are one choice of skills, "Diplomacy, Intimidation, or Society": none has an `or` but the last. */
+function isListOfAlternatives(parts: readonly string[]): boolean {
+  const last = parts.at(-1) ?? '';
+  return parts.length > 1 && last.startsWith('or ') && parts.slice(0, -1).every((part) => !part.includes(' or '));
+}
+
 /**
  * The checks Foundry separates by commas. A group of alternatives that ends in a note ("Nature, Occultism or Religion
  * (whichever is used for the primary check)") is one check, with every bare alternative before its "or". Where other
  * checks come before the group, its start is a guess, so the list is undefined.
  */
 function commaChecks(text: string): string[] | undefined {
-  const parts = text.split(CHECKS);
-  const noted = parts.findIndex((part) => PICK_NOTE.test(part) && part.includes(' or '));
+  const parts = splitOutsideNotes(text, CHECKS);
+  const noted = parts.findIndex((part) => PICK_NOTE.test(part) && (part.includes(' or ') || part.includes(NOT_SAME)));
   if (noted === -1) {
-    return parts;
+    return isListOfAlternatives(parts) ? [parts.join(', ')] : parts;
   }
   let start = noted;
   while (start > 0 && isBare(parts[start - 1] ?? '')) {

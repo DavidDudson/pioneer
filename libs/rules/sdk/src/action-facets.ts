@@ -37,6 +37,9 @@ const FEAT_CATEGORY_LABELS = facetLabels({
   [FeatCategory.General]: 'rules.facet.featCategory.general',
   [FeatCategory.Skill]: 'rules.facet.featCategory.skill',
   [FeatCategory.Bonus]: 'rules.facet.featCategory.bonus',
+  [FeatCategory.DeityBoon]: 'rules.facet.featCategory.deityBoon',
+  [FeatCategory.Calling]: 'rules.facet.featCategory.calling',
+  [FeatCategory.Curse]: 'rules.facet.featCategory.curse',
 });
 
 const SKILL_LABELS = facetLabels({

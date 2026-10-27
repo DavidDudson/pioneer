@@ -1,0 +1,822 @@
+[
+  {
+    "id": "7c5c4a97-35f1-5a74-8bab-eebc0c9cd1d6",
+    "pack": "myth-speakers",
+    "kind": "ritual",
+    "slug": "ritual:ash-strewn-ending",
+    "name": "Ash-Strewn Ending",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["death", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lo, speak of the hero-gods and their ash-strewn endings! Sing of their might as it falls on the land! Taste the bone and char that binds their life to yours! This ritual focuses on the burning of a mythic creature's corpse on a pyre in an outdoor location. Once the corpse has been reduced to ashes, the wind scatters those ashes across a 1,000-foot radius. As the ash lands on creatures within this radius, a fragment of the dead creature's mythic power flows into them."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Death has a lessened claim upon those in the ritual's area of effect. All creatures that were of a level equal to or lower than the level of the mythic creature incinerated as part of the ritual gain resistance 10 to void damage and a +2 status bonus to saving throws against death effects and to recovery checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but only as long as the creature remains in the ritual's area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Grief washes over the area, and the threat of death looms more closely over the casters, who all gain weakness 10 to void damage and a –2 status penalty to saving throws against death effects and to recovery checks. This is a curse effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "08c0cd1e-6720-5d1e-8615-34dd38b757c9"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The area increases to a 1-mile radius, the duration increases to 1 month, the void resistance (or weakness) increases to 15, and the status bonus (or penalty) increases to +3."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The area increases to 10 miles, the duration increases to 1 year, the void resistance (or weakness) increases to 20, and the status bonus (or penalty) increases to +4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As 8th rank, but one GM-selected non-mythic creature in the area becomes mythic. This creature's attitude and personality is favorable toward the primary caster."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.QqMlN9VSHfD2v4Qv"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "area": {
+        "shape": "burst",
+        "size": 1000
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "primary": {
+        "skills": ["skill:religion", "skill:performance"],
+        "mythic": true
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting", "skill:lore:pharasma", "skill:survival"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "a0c637c2-1e94-5f32-8128-5ffe6bd43b52",
+    "pack": "myth-speakers",
+    "kind": "ritual",
+    "slug": "ritual:footholds-and-foothills",
+    "name": "Footholds and Foothills",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The physical world resists changes, but this can be subdued like any other foe. The hero-god of movement and mountains, the sure-footed Helidys, found the islands of Iblydos stubborn and unwilling to bend to his will. He asked a sandbar to lower itself so his ship could pass, but it refused. He asked again, and the sandbar told him to wait for the tides to change. On his third ask, he didn't wait for a response, and instead leapt from his ship and wrestled with it. The sandbar pushed and pulled with the currents, but Helidys succeeded and flattened the sandbar into a ribbon with his bare hands."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you cast this ritual, select to add, remove, roughen, or smooth out the area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Add",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create new terrain, selecting earth, stone, or water when you cast this ritual. Any creature within the newly created terrain's area moves to the closest available space. The new terrain can be created in a space that would not typically support it, such as a floating island."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Remove",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create a 30-foot-deep crater-like depression in the area. Unless otherwise specified, the terrain immediately beneath the destroyed area is the same type. Water flows into the crater if such is present along the area's circumference. Creatures standing on the destroyed terrain can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "3e3e8499-292e-5d45-854b-f79ad765f6c0"
+          },
+          {
+            "type": "text",
+            "text": " if they are adjacent to a non-destroyed space. Otherwise, they use the typical rules for falling."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Roughen",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You transform the area into difficult terrain. If the area was already difficult terrain, it becomes greater difficult terrain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Smooth",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You transform an area of difficult terrain into normal terrain, or an area of greater difficult terrain into difficult terrain."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You transform the area of your choice permanently."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You transform the area for the ritual's duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to transform the area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual backfires, and now the land knows how to easily beat you. For the next week, the primary caster treats all instances of the terrain they attempted to manipulate as difficult terrain (or difficult terrain as greater difficult terrain)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The area increases by 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.QGfVFyQhoalZbE9s"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "primary": {
+        "skills": ["skill:athletics", "skill:nature"],
+        "mythic": true
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:athletics", "skill:acrobatics", "skill:nature", "skill:survival"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "c588266a-1826-5219-9001-672eb4a3c5c4",
+    "pack": "myth-speakers",
+    "kind": "ritual",
+    "slug": "ritual:labyrinthine-prison",
+    "name": "Labyrinthine Prison",
+    "level": 3,
+    "rarity": "rare",
+    "traits": ["mythic", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ritual was developed by a long-dead minotaur hero-god whose cult trained to hunt and trap evil beings. It creates a maze of ever-shifting warped space woven from intertwined demiplanes that twist in ways few can solve."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and the secondary casters draw a maze of twisted space into being with the target at its center. An unwilling target must be "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ", or otherwise prevented from leaving the area for the entire casting time, or the ritual fails. An unwilling target can attempt a Will save to resist the ritual; on a critical success, treat the result as critically failing to cast the ritual. While the target is trapped within the labyrinthine prison, they cannot escape it, as even abilities that give access to other planes are subject to being twisted into the maze. Instead the only way to escape is by succeeding at a Maze Lore, Perception, or Survival check against the labyrinthine prison's DC. This check can be attempted once per week, and the first check can only be attempted after a week has passed. If all casters spend one Mythic Point each, this interval changes to one year, and the DC uses the primary caster's mythic proficiency."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, and the twisted space renders the target "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " while within."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is trapped within the labyrinthine prison for the duration of ritual."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual fails to trap the target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the casters are all "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 4"
+          },
+          {
+            "type": "text",
+            "text": " for 1 week."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target is 10. The cost is the target's level (minimum 1) × 40 gp. The interval becomes 1 month, and spending Mythic Points increases it to 5 years."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target is 12. The cost is the target's level (minimum 1) × 75 gp. The interval becomes 2 months, and spending Mythic Points increases it to 10 years."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target is 14. The cost is the target's level (minimum 1) × 125 gp. The interval becomes 6 months, and spending Mythic Points increases it to 30 years."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target is 16. The cost is the target's level (minimum 1) × 200 gp. The interval becomes 1 year, and spending Mythic Points increases it to 50 years."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target is 18. The cost is the target's level (minimum 1) × 300 gp. The interval becomes 2 years, and spending Mythic Points increases it to 100 years."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target is 20. The cost is the target's level (minimum 1) × 600 gp. The interval becomes 5 years, and spending Mythic Points increases it to 200 years."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.WRRbNyGam4ytTRgr"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "fine paper and ink worth a total value of the target's level × 25 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:deception", "skill:lore:maze", "skill:religion"],
+        "ranked": [
+          {
+            "skill": "skill:deception",
+            "proficiency": "expert"
+          },
+          {
+            "skill": "skill:lore:maze",
+            "proficiency": "trained"
+          },
+          {
+            "skill": "skill:religion",
+            "proficiency": "expert"
+          }
+        ]
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore:art", "skill:crafting", "skill:thievery"],
+            "proficiency": "trained"
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "a423445c-7852-56be-b8a5-7b43a33eac7f",
+    "pack": "myth-speakers",
+    "kind": "ritual",
+    "slug": "ritual:rite-of-cleansing-flame",
+    "name": "Rite of Cleansing Flame",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["consecration", "fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawing on the latent power suffused within Pol-Bailax by its phoenix patron, you and the secondary casters send an ephemeral rush of cleansing energy through the city. Those within the area when the ritual successfully concludes are immediately cured of all detrimental emotion and mental effects; affected creatures cease any current hostilities as though they'd failed a save against calm, though this doesn't control their future actions."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual's power lingers within its casters, granting them a +1 status bonus against emotion and mental effects for 1 month."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4278966e-0f89-5739-ad0b-a74caac0bc19"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual succeeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has its intended effect, but alters its casters' forms as they fail to contain the phoenix's power. All casters develop a feature reminiscent of a phoenix, such as feathers, glowing red eyes, or talons, and gain weakness 5 to cold and unholy. This is a curse effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "88d1edc2-b2be-5ed6-b609-6467cf8c4a62"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but each caster must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": " save or be permanently "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " for as long as they have the phoenix features."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.KwDyrUIlnOrpdxYi"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incense worth 300 gp and 1 Mythic Point from the primary caster"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:religion", "skill:occultism"],
+        "dc": 20
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:acrobatics", "skill:nature", "skill:performance"],
+            "dc": 18
+          }
+        ],
+        "casters": 3
+      }
+    }
+  }
+]

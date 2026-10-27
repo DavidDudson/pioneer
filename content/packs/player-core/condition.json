@@ -54,7 +54,8 @@
       "valued": false,
       "group": "senses",
       "overrides": ["943dfd55-ad09-5abf-9138-95a6149d3302"],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -100,7 +101,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -146,7 +148,8 @@
       "valued": true,
       "group": "abilities",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -201,7 +204,8 @@
       "valued": false,
       "group": "senses",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -318,7 +322,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7"]
+      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7"],
+      "recovery": {}
     }
   },
   {
@@ -363,7 +368,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -409,7 +415,8 @@
       "valued": false,
       "group": "senses",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -488,7 +495,8 @@
       "valued": false,
       "group": "senses",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -543,7 +551,8 @@
       "valued": true,
       "group": "death",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -677,7 +686,8 @@
       "valued": true,
       "group": "death",
       "overrides": [],
-      "implies": ["e1a78dad-4887-518e-9120-e58b7009ebfd"]
+      "implies": ["e1a78dad-4887-518e-9120-e58b7009ebfd"],
+      "recovery": {}
     }
   },
   {
@@ -735,7 +745,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": ["69f88e3c-d871-5fb9-82c6-120348a7c0e8"]
+      "implies": ["69f88e3c-d871-5fb9-82c6-120348a7c0e8"],
+      "recovery": {}
     }
   },
   {
@@ -781,7 +792,8 @@
       "valued": true,
       "group": "abilities",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -842,7 +854,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -952,7 +965,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -1004,7 +1018,8 @@
         "f71f2666-3e15-5d4b-9bc5-7047a68e1018",
         "2546bdb8-3708-5414-ada6-f17e73d81768"
       ],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -1123,7 +1138,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7", "64278392-4910-5a32-b819-56f6e54952dd"]
+      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7", "64278392-4910-5a32-b819-56f6e54952dd"],
+      "recovery": {}
     }
   },
   {
@@ -1175,7 +1191,8 @@
         "f71f2666-3e15-5d4b-9bc5-7047a68e1018",
         "2546bdb8-3708-5414-ada6-f17e73d81768"
       ],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -1264,7 +1281,8 @@
       "valued": false,
       "group": "detection",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -1316,7 +1334,8 @@
         "44d39747-aad3-5b73-a493-af78cda98eef",
         "f71f2666-3e15-5d4b-9bc5-7047a68e1018"
       ],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -1353,7 +1372,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -1396,7 +1416,8 @@
         "f71f2666-3e15-5d4b-9bc5-7047a68e1018",
         "2546bdb8-3708-5414-ada6-f17e73d81768"
       ],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -1474,7 +1495,8 @@
       "valued": false,
       "group": "senses",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -1545,7 +1567,8 @@
       "valued": false,
       "group": "detection",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -1590,7 +1613,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -1656,7 +1680,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7"]
+      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7"],
+      "recovery": {}
     }
   },
   {
@@ -1702,7 +1727,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -1739,7 +1765,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -1856,7 +1883,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7"]
+      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7"],
+      "recovery": {}
     }
   },
   {
@@ -1893,7 +1921,8 @@
     "data": {
       "valued": false,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -2000,7 +2029,8 @@
     "data": {
       "valued": false,
       "overrides": ["cab530ff-ca20-5f0a-8a5e-b9fdb322b146"],
-      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7", "64278392-4910-5a32-b819-56f6e54952dd"]
+      "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7", "64278392-4910-5a32-b819-56f6e54952dd"],
+      "recovery": {}
     }
   },
   {
@@ -2054,7 +2084,8 @@
     "data": {
       "valued": true,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -2091,7 +2122,8 @@
     "data": {
       "valued": true,
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -2145,7 +2177,8 @@
     "data": {
       "valued": true,
       "overrides": ["13584c6a-a624-511c-a5de-0c36a9136b9e"],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -2207,7 +2240,8 @@
       "valued": true,
       "group": "abilities",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -2389,7 +2423,8 @@
       "valued": false,
       "group": "death",
       "overrides": [],
-      "implies": ["5d63458a-cde5-5d64-8fea-b920f04f36b7", "071324e5-bb4c-5ed2-9e2f-28185b65ded7"]
+      "implies": ["5d63458a-cde5-5d64-8fea-b920f04f36b7", "071324e5-bb4c-5ed2-9e2f-28185b65ded7"],
+      "recovery": {}
     }
   },
   {
@@ -2469,7 +2504,8 @@
       "valued": false,
       "group": "detection",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -2521,7 +2557,8 @@
         "44d39747-aad3-5b73-a493-af78cda98eef",
         "2546bdb8-3708-5414-ada6-f17e73d81768"
       ],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -2567,7 +2604,8 @@
       "valued": false,
       "group": "detection",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   },
   {
@@ -2630,7 +2668,8 @@
       "valued": true,
       "group": "death",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   }
 ]

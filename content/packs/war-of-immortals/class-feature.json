@@ -220,7 +220,7 @@
         "key": "ChoiceSet",
         "flag": "animistic-practice",
         "choices": {
-          "kind": "feat",
+          "kind": "class-feature",
           "filter": ["item:tag:animistic-practice"]
         }
       },
@@ -1330,7 +1330,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Wall of Metal"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f114430f-40b5-5d20-82b8-28d1eeeb02b7"
                 }
               ]
             }
@@ -1346,7 +1350,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Beheading Buzz Saw"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "4ad15cff-53aa-57b7-b007-305a777fd09a"
                 }
               ]
             }
@@ -1362,7 +1370,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Ferrous Form"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e63be8c2-c9cf-5e4f-94f2-2012eeb04ef7"
                 }
               ]
             }
@@ -1378,7 +1390,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Resplendent Mansion"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0c07289f-ca48-58ac-a9e3-3ff2cc46c5f1"
                 }
               ]
             }
@@ -1606,7 +1622,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Protector Tree"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e18819d9-9490-5428-bcdf-4b00ece3defb"
                 }
               ]
             }
@@ -1622,7 +1642,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Gentle Breeze"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "83605cb1-fc67-5c38-b409-d40018ea36c4"
                 }
               ]
             }
@@ -1718,7 +1742,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Lifewood Cage"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ea0b986c-facd-554e-b56b-8d4f2e4d8ab3"
                 }
               ]
             }
@@ -1754,7 +1782,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Nature's Enmity"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "302117bc-c48c-50a8-a5e0-ce4093296cee"
                 }
               ]
             }
@@ -2473,7 +2505,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Déjà Vu"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "cfd348d1-c3dd-55bd-a814-5ad8a11e26a2"
                 }
               ]
             }
@@ -2509,7 +2545,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Curse of Lost Time"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ccdc6296-743d-5a72-bd70-2b26d08a379d"
                 }
               ]
             }
@@ -4032,7 +4072,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Strange Geometry"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2d183b4e-d77b-58a3-b2b0-3a2e8b7082b1"
                 }
               ]
             }
@@ -4501,7 +4545,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Grasp of the Deep"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "83ecbae7-3869-5e99-aa2b-a0fc63454814"
                 }
               ]
             }
@@ -4537,7 +4585,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Frost Pillar"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0badddf1-2d81-5e79-86a2-7af6196dbc03"
                 }
               ]
             }
@@ -4553,7 +4605,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Hungry Depths"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ff5c2fe5-1ca7-5488-a869-2d8a54aff05b"
                 }
               ]
             }
@@ -5683,8 +5739,8 @@
             "text": "If you die for any reason, you transform into a magical font attached to an allied creature of your choice within 1 mile. This creature gains knowledge of the "
           },
           {
-            "type": "text",
-            "text": "Embodied Font"
+            "type": "ref",
+            "id": "f38a448b-7e34-541e-a702-7e30f1412492"
           },
           {
             "type": "text",
@@ -7786,7 +7842,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Vomit Swarm"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "95a466ec-ea3e-5586-8d0b-c8240e0db7ac"
                 }
               ]
             }
@@ -7822,7 +7882,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Bestial Curse"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "79e90fac-94ea-5c87-b497-9b310bdd7106"
                 }
               ]
             }
@@ -8253,7 +8317,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Interposing Earth"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "76c1b77f-5a24-58fa-8666-064a16646bc0"
                 }
               ]
             }
@@ -8269,7 +8337,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Exploding Earth"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a82710a0-d6a5-51d2-b9e3-c482058ac281"
                 }
               ]
             }
@@ -9613,7 +9685,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Rousing Splash"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dee4ed95-62af-5f30-9635-1eb3c726bf18"
                 }
               ]
             }
@@ -9669,7 +9745,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Crashing Wave"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "05b4db87-cfd1-5f29-9624-336f9f13260e"
                 }
               ]
             }
@@ -9725,7 +9805,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Personal Ocean"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f50577f5-5b90-5b71-9332-57599373b4ec"
                 }
               ]
             }
@@ -9741,7 +9825,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Dancing Fountain"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "edef6d5a-7894-5363-bee6-6e3d8d08a4f0"
                 }
               ]
             }
@@ -9757,7 +9845,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Whirlpool"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "240fd121-70b7-5355-9f4d-83129346adf0"
                 }
               ]
             }
@@ -10771,7 +10863,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Weapon of Judgment"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "95c17b7c-b6ab-509f-97ac-64002004ca80"
                 }
               ]
             }

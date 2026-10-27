@@ -81,6 +81,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -169,6 +172,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -257,6 +263,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -633,6 +642,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -750,6 +762,10 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "53b217c9-d881-5ff1-8aa1-c10855af574a",
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -867,6 +883,10 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "53b217c9-d881-5ff1-8aa1-c10855af574a",
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -1078,6 +1098,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1208,6 +1231,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "ba9dd9df-f4d2-5f7a-909a-5f89d6e61d57",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1338,6 +1365,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "5f3f34d7-e2ea-51bf-8edf-2f30c4831469",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1468,6 +1499,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "9cb33710-9b90-5ba1-83ed-598759806e5a",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1598,6 +1633,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "62ffb443-fca0-52fa-83c2-da7c0b27ea4c",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1915,6 +1954,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -2132,6 +2174,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2410,6 +2455,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -2628,6 +2676,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2707,6 +2758,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2786,6 +2840,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2865,6 +2922,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2944,6 +3004,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3170,6 +3233,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3337,6 +3403,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3531,6 +3600,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -3716,6 +3788,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -3846,6 +3921,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "4e4c8856-c183-58db-a672-9ff70df6d54b",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3976,6 +4055,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "5e8b4779-3801-5736-814f-dae032da0114",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4106,6 +4189,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "3cc6f089-4041-53db-8063-9006238404af",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4236,6 +4323,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "b3472172-f6ba-54ca-9984-f3b6119ec06f",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4307,6 +4398,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4378,6 +4472,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4449,6 +4546,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4520,6 +4620,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4591,6 +4694,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4866,6 +4972,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4998,6 +5107,7 @@
       },
       "bulk": "negligible",
       "category": "snare",
+      "effect": "e10b09da-87fd-51c6-95ca-175571a2ec46",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -5215,6 +5325,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -5473,6 +5586,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "e4f7f339-b0a5-5196-913e-0f4106c2a807",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -5611,6 +5728,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "6d3b31cf-5200-5d0a-b42f-19299535ab47",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -5749,6 +5870,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "a4529612-ab1a-52be-a74a-ddd71e9e926b",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -5887,6 +6012,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "22364a4f-3e93-51e2-aac4-0911230366f9",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -6021,6 +6150,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -6155,6 +6287,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -6235,6 +6370,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -6315,6 +6453,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -6395,6 +6536,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -6487,6 +6631,9 @@
     "data": {
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -6689,6 +6836,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -7121,6 +7271,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -7232,6 +7385,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -7422,6 +7578,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -7797,6 +7956,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -8000,6 +8162,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -8131,6 +8296,7 @@
       },
       "bulk": "negligible",
       "category": "snare",
+      "effect": "40451d0f-3d67-53e5-980e-72b56beea672",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -8334,6 +8500,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -8698,6 +8867,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -8821,6 +8993,7 @@
       },
       "bulk": "negligible",
       "category": "snare",
+      "effect": "87ed901c-7cf1-5383-bba8-b9a040815f13",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -8976,6 +9149,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -9074,6 +9250,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -9250,6 +9429,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "melee-weapon"
@@ -9352,6 +9534,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "melee-weapon"
@@ -9431,6 +9616,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "melee-weapon"
@@ -9553,6 +9741,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "4e71b5e7-e69b-5926-a267-b5a616c861c8",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -9675,6 +9867,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "3a0480de-73db-54f9-a3b6-9162f3dfdc58",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -9797,6 +9993,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "17dab72b-81fb-56cb-8582-451a989939f2",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -9919,6 +10119,9 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -10083,6 +10286,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -10255,6 +10461,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -10432,6 +10641,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -10743,6 +10955,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -10892,6 +11107,7 @@
       },
       "bulk": "negligible",
       "category": "snare",
+      "effect": "da9a557a-76e1-53e6-801a-7a82cdca6bb1",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -11248,6 +11464,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -11447,6 +11666,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -11554,6 +11776,9 @@
       },
       "bulk": "negligible",
       "category": "oil",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -11661,6 +11886,9 @@
       },
       "bulk": "negligible",
       "category": "oil",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -11765,6 +11993,9 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -11991,6 +12222,9 @@
     "data": {
       "bulk": 2,
       "category": "toolkit",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -12082,6 +12316,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -12173,6 +12410,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -12264,6 +12504,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -12355,6 +12598,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -12446,6 +12692,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -12537,6 +12786,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -12628,6 +12880,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -12719,6 +12974,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -12810,6 +13068,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -12901,6 +13162,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -13034,6 +13298,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -13175,6 +13442,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -13307,6 +13577,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -13398,6 +13671,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -13489,6 +13765,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -13580,6 +13859,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -13671,6 +13953,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -13762,6 +14047,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -13853,6 +14141,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -13944,6 +14235,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -14035,6 +14329,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -14126,6 +14423,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -14217,6 +14517,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -14339,6 +14642,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "6e975c19-7ce2-5c42-a332-1060a6ae5ebe",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -14461,6 +14768,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "ec0e4bdb-90c7-53e8-a009-c9c5a4133b2d",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -14583,6 +14894,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "3c4d927b-fafd-5f6e-81e5-b28f0b973839",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -14705,6 +15020,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "2c9d28c0-fe49-5cfd-a6a5-5ec45df7de5d",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -14785,6 +15104,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -14856,6 +15178,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -15236,6 +15561,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "a9ed1e6e-e851-5890-8618-68f63576bd9f",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -15358,6 +15687,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "b628478f-8cdf-5b51-902f-178109ca6a9a",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -15480,6 +15813,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "9a7932f0-dccc-5f0a-bcfb-de49181e5be0",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -15602,6 +15939,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "16ec28c9-f856-5910-9302-9cd03df574d9",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -15687,6 +16028,10 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "35602b1f-f498-5287-aba8-5aadd0892b50",
       "usage": {
         "type": "held",
         "hands": "two"
@@ -15863,6 +16208,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "31c3e55a-4fd0-5e2f-adb3-b42d0f24e094",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -15993,6 +16342,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "e58578b8-01fe-5d7e-af23-52544ec415eb",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -16123,6 +16476,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "ca9144e1-67b9-59a5-9313-b2361b3b691b",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -16253,6 +16610,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "0da2b2bd-6f77-5530-aa26-982913ad27cf",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -16428,6 +16789,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "07905eb5-b6e1-517e-b484-3104129b569c",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -16714,6 +17079,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -17031,6 +17399,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -17261,6 +17632,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -18010,6 +18384,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -18097,6 +18474,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -18184,6 +18564,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -18271,6 +18654,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -18358,6 +18744,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -18553,6 +18942,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -18669,6 +19061,10 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "97267d5e-b364-5b39-89ca-577b8f18c411",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -18876,6 +19272,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -19117,6 +19516,9 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -19213,6 +19615,10 @@
       },
       "bulk": "light",
       "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "abce24e0-64a8-5fd8-8434-b619b1f761b4",
       "usage": {
         "type": "held",
         "hands": "two"
@@ -23284,6 +23690,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -23355,6 +23764,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -23426,6 +23838,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -23625,6 +24040,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -23810,6 +24228,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"

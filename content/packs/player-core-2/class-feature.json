@@ -1003,6 +1003,30 @@
         "item": "cba4ed0e-054b-5903-9df9-f74f58593ff5"
       },
       {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["314f478a-c0d1-5a38-bc28-ed7622311b9b"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["7b2140ac-8737-57cf-9fca-a248229aa06c"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["9f6488c3-ba6f-5ed9-8cb0-a8ff72f0b2fe"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
         "key": "RepertoireSpells",
         "entry": "oracle",
         "spells": [
@@ -1049,30 +1073,6 @@
             "gte": ["self:level", 11]
           }
         ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "oracle-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus"
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["314f478a-c0d1-5a38-bc28-ed7622311b9b"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["7b2140ac-8737-57cf-9fca-a248229aa06c"],
-        "predicate": ["feat:advanced-revelation"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["9f6488c3-ba6f-5ed9-8cb0-a8ff72f0b2fe"],
-        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -3213,6 +3213,30 @@
         "item": "5dbd114a-edee-585f-84de-210465f9656e"
       },
       {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["7cb26c36-0ea4-50ce-8b05-aa34a7e9c928"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["c1bc59e4-9315-5b78-9ded-5189da4e68e2"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["5ca0cf3a-81ee-5cdc-aa2e-2e3a7ad9d398"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
         "key": "RepertoireSpells",
         "entry": "oracle",
         "spells": [
@@ -3259,30 +3283,6 @@
             "gte": ["self:level", 11]
           }
         ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "oracle-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus"
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["7cb26c36-0ea4-50ce-8b05-aa34a7e9c928"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["c1bc59e4-9315-5b78-9ded-5189da4e68e2"],
-        "predicate": ["feat:advanced-revelation"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["5ca0cf3a-81ee-5cdc-aa2e-2e3a7ad9d398"],
-        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -3992,9 +3992,9 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Wyrmblessed",
-                  "marks": ["strong"]
+                  "type": "ref",
+                  "id": "7235d2e9-2fdf-5404-bfd1-f11c4fe944aa",
+                  "label": "Wyrmblessed"
                 },
                 {
                   "type": "text",
@@ -4261,6 +4261,50 @@
       },
       {
         "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "occult",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["f6226dc5-f7f7-5eba-a5f1-9b6295a832eb"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["0e71e21d-110c-53eb-958c-ffe082c765e4"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:advanced-bloodline"
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["635dcf2d-a3e2-5d52-9214-bb75614e81a8"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:greater-bloodline"
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
         "slug": "sorcerer",
         "tradition": "occult",
         "attribute": "cha",
@@ -4310,50 +4354,6 @@
             "rank": 9,
             "spell": "3997d8f7-14a9-5f54-869a-920fa859cd44"
           }
-        ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "occult",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["f6226dc5-f7f7-5eba-a5f1-9b6295a832eb"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["0e71e21d-110c-53eb-958c-ffe082c765e4"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:advanced-bloodline"
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["635dcf2d-a3e2-5d52-9214-bb75614e81a8"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:greater-bloodline"
         ]
       }
     ],
@@ -4597,6 +4597,50 @@
       },
       {
         "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["40b486d9-875a-5028-b481-fdb90fac9d56"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["8c157611-1f2b-5859-9717-66e3897d411a"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:advanced-bloodline"
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["f447ea13-5739-518e-9406-0b5a136f6b20"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:greater-bloodline"
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
         "slug": "sorcerer",
         "tradition": "divine",
         "attribute": "cha",
@@ -4646,50 +4690,6 @@
             "rank": 9,
             "spell": "fb2cc36e-8e1c-5149-a202-43938814f46a"
           }
-        ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["40b486d9-875a-5028-b481-fdb90fac9d56"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["8c157611-1f2b-5859-9717-66e3897d411a"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:advanced-bloodline"
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["f447ea13-5739-518e-9406-0b5a136f6b20"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:greater-bloodline"
         ]
       }
     ],
@@ -4933,6 +4933,50 @@
       },
       {
         "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["fff1f582-3284-5d8b-8e21-7575626c178d"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["37c62d4f-3a53-5a2e-a8c2-13f55239c28c"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:advanced-bloodline"
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["5c3f7099-e5cf-57ec-9bce-03d159f74fb9"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:greater-bloodline"
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
         "slug": "sorcerer",
         "tradition": "divine",
         "attribute": "cha",
@@ -4982,50 +5026,6 @@
             "rank": 9,
             "spell": "c59f4c18-32ac-5cd1-b3d2-7215c3e00868"
           }
-        ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["fff1f582-3284-5d8b-8e21-7575626c178d"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["37c62d4f-3a53-5a2e-a8c2-13f55239c28c"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:advanced-bloodline"
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["5c3f7099-e5cf-57ec-9bce-03d159f74fb9"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:greater-bloodline"
         ]
       }
     ],
@@ -5269,6 +5269,50 @@
       },
       {
         "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["8e121447-9045-5f59-928d-5fedd0026b2b"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["a2a8cef5-b3e9-52bd-9f9b-9ec30ce7f724"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:advanced-bloodline"
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["61284d6a-794a-5cd1-a735-a7565191341c"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:greater-bloodline"
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
         "slug": "sorcerer",
         "tradition": "divine",
         "attribute": "cha",
@@ -5318,50 +5362,6 @@
             "rank": 9,
             "spell": "6096b768-43d9-56ca-a7f1-8317781601df"
           }
-        ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["8e121447-9045-5f59-928d-5fedd0026b2b"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["a2a8cef5-b3e9-52bd-9f9b-9ec30ce7f724"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:advanced-bloodline"
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["61284d6a-794a-5cd1-a735-a7565191341c"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:greater-bloodline"
         ]
       }
     ],
@@ -5802,6 +5802,90 @@
         ]
       },
       {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "arcane",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "draconic-exemplar:arcane"
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "draconic-exemplar:divine"
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "occult",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "draconic-exemplar:occult"
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "draconic-exemplar:primal"
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["980b15bd-35e0-5599-8b31-547fc30635dc"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["46e30c8e-85f6-547a-a779-8d059ef67d3d"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:advanced-bloodline"
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["c39b2362-3615-59be-915d-ef624506077e"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:greater-bloodline"
+        ]
+      },
+      {
         "key": "ChoiceSet",
         "flag": "draconic-exemplar",
         "choices": [
@@ -6010,90 +6094,6 @@
           }
         ],
         "predicate": ["draconic-exemplar:primal"]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "arcane",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "draconic-exemplar:arcane"
-        ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "draconic-exemplar:divine"
-        ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "occult",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "draconic-exemplar:occult"
-        ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "primal",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "draconic-exemplar:primal"
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["980b15bd-35e0-5599-8b31-547fc30635dc"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["46e30c8e-85f6-547a-a779-8d059ef67d3d"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:advanced-bloodline"
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["c39b2362-3615-59be-915d-ef624506077e"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:greater-bloodline"
-        ]
       }
     ],
     "externalIds": {
@@ -6662,6 +6662,50 @@
       },
       {
         "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["87889c0f-1a02-511d-91d3-390744da4fb7"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["c40ee852-ac07-5a59-af68-e0383d5bde1e"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:advanced-bloodline"
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["bfdb0911-2ba1-5913-8f75-0b6f1cb7ce36"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:greater-bloodline"
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
         "slug": "sorcerer",
         "tradition": "primal",
         "attribute": "cha",
@@ -6866,50 +6910,6 @@
           }
         ],
         "predicate": ["elemental-influence:wood"]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "primal",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["87889c0f-1a02-511d-91d3-390744da4fb7"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["c40ee852-ac07-5a59-af68-e0383d5bde1e"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:advanced-bloodline"
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["bfdb0911-2ba1-5913-8f75-0b6f1cb7ce36"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:greater-bloodline"
-        ]
       }
     ],
     "externalIds": {
@@ -7164,6 +7164,50 @@
       },
       {
         "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "primal",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["af8ee728-af1c-5a6b-b950-6f9f2c2997c8"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["5941ff1f-a24f-50bd-ba9e-4da95ebb23f8"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:advanced-bloodline"
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["6e16cfbf-2261-5cde-b110-a1d2758bc20e"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:greater-bloodline"
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
         "slug": "sorcerer",
         "tradition": "primal",
         "attribute": "cha",
@@ -7213,50 +7257,6 @@
             "rank": 9,
             "spell": "a38c5303-30ba-573f-ba85-624c5dc04dc1"
           }
-        ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "primal",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["af8ee728-af1c-5a6b-b950-6f9f2c2997c8"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["5941ff1f-a24f-50bd-ba9e-4da95ebb23f8"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:advanced-bloodline"
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["6e16cfbf-2261-5cde-b110-a1d2758bc20e"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:greater-bloodline"
         ]
       }
     ],
@@ -7491,6 +7491,50 @@
       },
       {
         "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "occult",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["b320c9de-f7fc-5de7-a5b8-1cf3b0c76024"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["2706542c-ca39-559b-a0e8-004e9c3e008a"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:advanced-bloodline"
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["1edc43e5-0a9d-55df-90f9-8b86732575f8"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:greater-bloodline"
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
         "slug": "sorcerer",
         "tradition": "occult",
         "attribute": "cha",
@@ -7540,50 +7584,6 @@
             "rank": 9,
             "spell": "e551a4eb-8b73-5a89-979e-a15f470a28ce"
           }
-        ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "occult",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["b320c9de-f7fc-5de7-a5b8-1cf3b0c76024"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["2706542c-ca39-559b-a0e8-004e9c3e008a"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:advanced-bloodline"
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["1edc43e5-0a9d-55df-90f9-8b86732575f8"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:greater-bloodline"
         ]
       }
     ],
@@ -7827,6 +7827,50 @@
       },
       {
         "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "arcane",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["8d5216bd-ffc0-5d10-accf-153abc93fd34"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["47d04609-efd1-5a84-89aa-17a06ba6c820"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:advanced-bloodline"
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["a6214318-8cea-54ff-ae3c-5feadb6433fd"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:greater-bloodline"
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
         "slug": "sorcerer",
         "tradition": "arcane",
         "attribute": "cha",
@@ -7876,50 +7920,6 @@
             "rank": 9,
             "spell": "c59f4c18-32ac-5cd1-b3d2-7215c3e00868"
           }
-        ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "arcane",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["8d5216bd-ffc0-5d10-accf-153abc93fd34"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["47d04609-efd1-5a84-89aa-17a06ba6c820"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:advanced-bloodline"
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["a6214318-8cea-54ff-ae3c-5feadb6433fd"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:greater-bloodline"
         ]
       }
     ],
@@ -8340,6 +8340,50 @@
       },
       {
         "key": "SpellcastingEntry",
+        "slug": "sorcerer-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["f217d095-238b-5bbc-a4a2-53cb7828541e"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["68822a0f-0688-5d7a-8c14-045807fee942"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:advanced-bloodline"
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "sorcerer-focus",
+        "spells": ["066aba54-4456-581c-8fc8-fd8e590e2eb3"],
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          "feat:greater-bloodline"
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
         "slug": "sorcerer",
         "tradition": "divine",
         "attribute": "cha",
@@ -8389,50 +8433,6 @@
             "rank": 9,
             "spell": "c23eeb10-88b1-58d0-9b0e-326d9538d589"
           }
-        ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "sorcerer-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus",
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["f217d095-238b-5bbc-a4a2-53cb7828541e"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          }
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["68822a0f-0688-5d7a-8c14-045807fee942"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:advanced-bloodline"
-        ]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "sorcerer-focus",
-        "spells": ["066aba54-4456-581c-8fc8-fd8e590e2eb3"],
-        "predicate": [
-          {
-            "not": "parent:granter:slug:crossblooded-evolution"
-          },
-          "feat:greater-bloodline"
         ]
       }
     ],
@@ -8901,6 +8901,30 @@
         "item": "f2561e46-20d1-55ef-aa22-012ef49b0ca8"
       },
       {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["6901a0c0-97db-5150-b426-9c8896e8f4d7"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["89a09daa-0da7-556a-8354-4dd77c3defd5"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["d949b7b2-ced3-5c77-9391-0c5459094859"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
         "key": "RepertoireSpells",
         "entry": "oracle",
         "spells": [
@@ -8947,30 +8971,6 @@
             "gte": ["self:level", 11]
           }
         ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "oracle-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus"
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["6901a0c0-97db-5150-b426-9c8896e8f4d7"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["89a09daa-0da7-556a-8354-4dd77c3defd5"],
-        "predicate": ["feat:advanced-revelation"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["d949b7b2-ced3-5c77-9391-0c5459094859"],
-        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -10021,6 +10021,30 @@
         "item": "232063d2-a0ab-588a-8dd5-aa90edad1f75"
       },
       {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["93c888b1-1d38-5ab1-a90f-ca5f14bf5c19"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["0479bfa9-6558-52c5-9517-18fb56a2a2c8"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["fd12c1df-87bd-5b3d-9c57-8b3e5ccfc11e"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
         "key": "RepertoireSpells",
         "entry": "oracle",
         "spells": [
@@ -10067,30 +10091,6 @@
             "gte": ["self:level", 11]
           }
         ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "oracle-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus"
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["93c888b1-1d38-5ab1-a90f-ca5f14bf5c19"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["0479bfa9-6558-52c5-9517-18fb56a2a2c8"],
-        "predicate": ["feat:advanced-revelation"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["fd12c1df-87bd-5b3d-9c57-8b3e5ccfc11e"],
-        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -13645,6 +13645,30 @@
         "item": "20fd42c2-903d-5a05-936b-85ebf57f4714"
       },
       {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["97ec82bf-f942-55b2-b9e7-d1d4f1197f24"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["41ef5551-6398-5366-b133-e2a5ebd1bdd5"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["722396c4-f707-5d59-b11a-ed2a67b3f6e6"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
         "key": "RepertoireSpells",
         "entry": "oracle",
         "spells": [
@@ -13691,30 +13715,6 @@
             "gte": ["self:level", 11]
           }
         ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "oracle-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus"
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["97ec82bf-f942-55b2-b9e7-d1d4f1197f24"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["41ef5551-6398-5366-b133-e2a5ebd1bdd5"],
-        "predicate": ["feat:advanced-revelation"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["722396c4-f707-5d59-b11a-ed2a67b3f6e6"],
-        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -16236,6 +16236,30 @@
         "item": "afe1fd2b-9f6e-5c54-8677-b3c176cf4dc4"
       },
       {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["794fae16-e55f-57c8-ba13-abb022e6c5d4"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["e36b2171-4a83-5e50-8cea-7374c656557e"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["d2ec7cec-a755-51f3-9e36-e446fb1bfd05"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
         "key": "RepertoireSpells",
         "entry": "oracle",
         "spells": [
@@ -16282,30 +16306,6 @@
             "gte": ["self:level", 11]
           }
         ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "oracle-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus"
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["794fae16-e55f-57c8-ba13-abb022e6c5d4"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["e36b2171-4a83-5e50-8cea-7374c656557e"],
-        "predicate": ["feat:advanced-revelation"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["d2ec7cec-a755-51f3-9e36-e446fb1bfd05"],
-        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -16584,6 +16584,30 @@
         "item": "7b46ae75-e3e9-5f7b-9c55-6e385b0c28c5"
       },
       {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["bd189974-9a9b-52d2-b1f8-fd146a47570a"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["69529bad-93f5-560c-b96a-958a2e9c7071"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["ea00e787-61b2-5192-8ed7-618f16415173"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
         "key": "RepertoireSpells",
         "entry": "oracle",
         "spells": [
@@ -16630,30 +16654,6 @@
             "gte": ["self:level", 11]
           }
         ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "oracle-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus"
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["bd189974-9a9b-52d2-b1f8-fd146a47570a"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["69529bad-93f5-560c-b96a-958a2e9c7071"],
-        "predicate": ["feat:advanced-revelation"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["ea00e787-61b2-5192-8ed7-618f16415173"],
-        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {
@@ -17494,8 +17494,12 @@
               "type": "paragraph",
               "content": [
                 {
+                  "type": "ref",
+                  "id": "06237a2b-da11-5816-a0b5-74e643f79584"
+                },
+                {
                   "type": "text",
-                  "text": "Time Whether by accident, fate, or purposeful meddling, you exist slightly outside of time."
+                  "text": " Whether by accident, fate, or purposeful meddling, you exist slightly outside of time."
                 }
               ]
             }
@@ -20843,6 +20847,30 @@
         "item": "1bb97dac-c5b1-59d6-b7ad-47faa61e6015"
       },
       {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["f2daa081-afed-5c16-9f60-5d0ee3bdfce1"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["0e6aa125-cfdc-5559-83ac-6d7b69e51bc9"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["1a23d936-4d61-5009-9a88-a96af45ce325"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
         "key": "RepertoireSpells",
         "entry": "oracle",
         "spells": [
@@ -20889,30 +20917,6 @@
             "gte": ["self:level", 11]
           }
         ]
-      },
-      {
-        "key": "SpellcastingEntry",
-        "slug": "oracle-focus",
-        "tradition": "divine",
-        "attribute": "cha",
-        "preparation": "focus"
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["f2daa081-afed-5c16-9f60-5d0ee3bdfce1"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["0e6aa125-cfdc-5559-83ac-6d7b69e51bc9"],
-        "predicate": ["feat:advanced-revelation"]
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "oracle-focus",
-        "spells": ["1a23d936-4d61-5009-9a88-a96af45ce325"],
-        "predicate": ["feat:greater-revelation"]
       }
     ],
     "externalIds": {

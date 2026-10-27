@@ -1,0 +1,285 @@
+[
+  {
+    "id": "7cc5e94b-b254-5f4f-bda2-7cb65b22660d",
+    "pack": "secrets-of-magic",
+    "kind": "ritual",
+    "slug": "ritual:empower-ley-line",
+    "name": "Empower Ley Line",
+    "level": 7,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw upon surrounding magical energy to empower a ley line, enhancing both its positive and negative effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The duration of an empowered ley line's benefits increases: when you successfully "
+          },
+          {
+            "type": "ref",
+            "id": "1676e2a5-981b-520b-9d31-4b2d6a6c9bf5"
+          },
+          {
+            "type": "text",
+            "text": " that's empowered, you gain its benefits until the end of your next turn on a success (1 minute on a critical success)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take double the damage if you fail to Tap a Ley Line that's empowered and double the damage from the ley line's backlash effects (if any). If a backlash effect has a duration, that duration increases: a backlash effect that would ordinarily last until the end of your next turn now lasts for 1 minute, effects that last for 1 minute now last for 10 minutes, effects that last for 10 minutes now last for 1 hour, and effects that last for 1 hour now last for 1 day."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You empower the ley line until the next turning of the season."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You empower the ley line for 1 week."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to empower the ley line."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " All casters take damage and suffer the ley line's backlash as if they had critically failed to Tap the Ley Line. This damage and backlash is enhanced as if the ley line were successfully empowered, leading to increased damage and longer backlash effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.XnpRRUVAVoY6z88H"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "magical foci worth a total value of 50 gp × the spell rank × the target's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "text": "Arcana, Nature, Occultism, or Religion matching the ley line's tradition (legendary)"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore:ley-line", "skill:occultism"]
+          }
+        ],
+        "casters": 6
+      }
+    }
+  },
+  {
+    "id": "30a59449-9c5b-5917-be80-a3d05c8058fb",
+    "pack": "secrets-of-magic",
+    "kind": "ritual",
+    "slug": "ritual:establish-nexus",
+    "name": "Establish Nexus",
+    "level": 5,
+    "rarity": "rare",
+    "traits": ["consecration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You focus the power of the node's intersecting ley lines into a powerful confluent point known as a ley line nexus. The ley line nexus grows out from the node in a 20-foot radius. The ley line nexus is more open and available for access to creatures you designate. When "
+          },
+          {
+            "type": "ref",
+            "id": "1676e2a5-981b-520b-9d31-4b2d6a6c9bf5",
+            "label": "Tapping the Ley Line"
+          },
+          {
+            "type": "text",
+            "text": ", these creatures get a degree of success one better than they rolled"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ley line nexus is established. The nexus is particularly powerful, allowing it to continually refresh its magical energy; thus, the nexus lasts for up to 100 years, unless the ley lines shift."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ley line nexus is established and lasts for a year and one day, unless the ley lines shift."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to establish the ley line nexus."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " All casters take damage and suffer backlash effects as if they had critically failed to Tap every Ley Line in the node simultaneously, and they can't attempt to Tap those Ley Lines for a year and one day"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.1aXX52MnVbBvT9S7"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "magical foci worth 100 gp × the spell rank × the node's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "text": "Arcana, Nature, Occultism, or Religion, matching the ley line's tradition (master)"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore:ley-line", "skill:occultism"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  }
+]

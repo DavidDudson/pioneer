@@ -269,6 +269,108 @@
     }
   },
   {
+    "id": "44756a16-d68c-5acf-9233-cdd56f507a07",
+    "pack": "war-of-immortals",
+    "kind": "feat",
+    "slug": "feat:acrobats-calling",
+    "name": "Acrobat's Calling",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You feel a need to dance amid dangerous heights and soar across empty divides with nothing but your skill and reflexes to protect you. When you "
+          },
+          {
+            "type": "ref",
+            "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "1ae0ccf4-979a-5abe-a4cd-c5ecef1e4232"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "11d6f0fd-b182-5043-8a26-973179a93617"
+          },
+          {
+            "type": "text",
+            "text": ", or attempt a "
+          },
+          {
+            "type": "ref",
+            "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+          },
+          {
+            "type": "text",
+            "text": ", you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on an Acrobatics check while Balancing, Maneuvering in Flight, or Tumbling Through during combat, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " leap without being sure you'll land unharmed, test your reflexes by maneuvering through the spaces of significantly more powerful enemies"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " maneuver around an enemy when tumbling through their space is a viable option, use safety measures to attempt acrobatic stunts"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.1FCu53hOTJrCF2iW"
+    },
+    "data": {
+      "category": "calling"
+    }
+  },
+  {
     "id": "5b68290e-4ebc-508b-99df-ba0d9378cf33",
     "pack": "war-of-immortals",
     "kind": "feat",
@@ -2077,6 +2179,92 @@
     }
   },
   {
+    "id": "515f785f-948a-5ebc-8ae5-772bb72516bf",
+    "pack": "war-of-immortals",
+    "kind": "feat",
+    "slug": "feat:artisans-calling",
+    "name": "Artisan's Calling",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You feel an urge that echoes throughout your being to create, and one day you know you shall craft an achievement surpassing anything the world has ever seen. When you "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "0c62b450-d8c6-5051-b961-b7ce1aeb349a"
+          },
+          {
+            "type": "text",
+            "text": " an object (including vehicles and structures), you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Repair an object, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " be the first to test an item or weapon crafted with your own hands, seek out or innovate formulas for evermore complex creations"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " destroy the creations of other artisans, refuse an earnest request to repair something that has been broken, use a weapon or item crafted by someone else, except for the purpose of learning its function so you can understand how to create it yourself"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ADm8BpMlmoYUCyZy"
+    },
+    "data": {
+      "category": "calling"
+    }
+  },
+  {
     "id": "30bf24b3-4945-5d4d-8cb6-925d3d67d120",
     "pack": "war-of-immortals",
     "kind": "feat",
@@ -3700,6 +3888,84 @@
     }
   },
   {
+    "id": "22575b45-7c0d-5da9-8eea-b01e2d722862",
+    "pack": "war-of-immortals",
+    "kind": "feat",
+    "slug": "feat:bookkeepers-calling",
+    "name": "Bookkeeper's Calling",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your passion and destiny are both tied to the preservation of knowledge and a deep-seated love of instruments designed to preserve and propagate knowledge, such as books and scrolls. When you attempt a check to Recall Knowledge or "
+          },
+          {
+            "type": "ref",
+            "id": "b03a543f-4d12-5c6b-a4f9-6afe141aa651"
+          },
+          {
+            "type": "text",
+            "text": " using a Lore skill you're trained in, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Recall Knowledge while researching in a library or similar facility, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " educate others, record new knowledge so that others can share in your discoveries"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " destroy books, scrolls, or other instruments used to record information; refuse an opportunity to share your knowledge with an earnest knowledge-seeker"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.LoTFGTJCAGJFUFYs"
+    },
+    "data": {
+      "category": "calling"
+    }
+  },
+  {
     "id": "ce6e8468-b064-5597-9cbf-0216eb355968",
     "pack": "war-of-immortals",
     "kind": "feat",
@@ -4763,6 +5029,108 @@
     },
     "data": {
       "category": "class"
+    }
+  },
+  {
+    "id": "008bd4e0-8f91-53ba-9e4c-e2e10fb4b659",
+    "pack": "war-of-immortals",
+    "kind": "feat",
+    "slug": "feat:caretakers-calling",
+    "name": "Caretaker's Calling",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a deep-seated drive or divine directive to care for others, and your power might one day grow to allow you to heal an unimaginable wound. When you "
+          },
+          {
+            "type": "ref",
+            "id": "07fc0cb2-53f2-5552-82e6-5e43003875eb"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "1a89ca53-58a9-5dc9-913e-3dfa46e5e1b0"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44"
+          },
+          {
+            "type": "text",
+            "text": ", or use "
+          },
+          {
+            "type": "ref",
+            "id": "9848970b-02f3-562b-9a64-29e42647bbc1"
+          },
+          {
+            "type": "text",
+            "text": ", you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Treat Wounds, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " give aid to others, heal those who are wounded regardless of where they come from"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " deny care to the disadvantaged, refuse to heal the wounds of an enemy who has surrendered"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.wQ4VqAhhCbT5OC9k"
+    },
+    "data": {
+      "category": "calling"
     }
   },
   {
@@ -6498,7 +6866,15 @@
         "content": [
           {
             "type": "text",
-            "text": "If words could kill, the poet might rule the world. Your words can. You gain the Bon Mot skill feat. You can spend a Mythic Point when rolling the Diplomacy check for Bon Mot to attempt the check at mythic proficiency. If the check succeeds, you can also deal "
+            "text": "If words could kill, the poet might rule the world. Your words can. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "3c6a1e09-f61a-52b5-9abb-5583226fa1d2"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. You can spend a Mythic Point when rolling the Diplomacy check for Bon Mot to attempt the check at mythic proficiency. If the check succeeds, you can also deal "
           },
           {
             "type": "damage",
@@ -6517,7 +6893,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "3c6a1e09-f61a-52b5-9abb-5583226fa1d2"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.mg8yScrzlUVsoWJc"
     },
@@ -7322,6 +7703,100 @@
           }
         ]
       }
+    }
+  },
+  {
+    "id": "e4369367-4edc-518c-b1ee-d02b1e007abe",
+    "pack": "war-of-immortals",
+    "kind": "feat",
+    "slug": "feat:demagogues-calling",
+    "name": "Demagogue's Calling",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Words flow freely from a font within your soul. When you attempt a check to "
+          },
+          {
+            "type": "ref",
+            "id": "ed0f3425-17f0-51f3-bb5d-1ca7475499a5"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": ", you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Coerce a creature who isn't your ally, "
+          },
+          {
+            "type": "ref",
+            "id": "b905f68d-f05b-5179-8c61-b90a9c7d2bdb"
+          },
+          {
+            "type": "text",
+            "text": " using your words, or Make an Impression on an indifferent or unfriendly audience, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " tell stories to audiences who have never heard them before, use words rather than weapons to resolve conflicts"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " interrupt someone telling a story, resort to violent action without trying to defuse the situation with your words"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.sJzi16AkcZrfa7oo"
+    },
+    "data": {
+      "category": "calling"
     }
   },
   {
@@ -11296,6 +11771,100 @@
     }
   },
   {
+    "id": "241c4c65-ea10-5e00-a571-043175f74c99",
+    "pack": "war-of-immortals",
+    "kind": "feat",
+    "slug": "feat:guardians-calling",
+    "name": "Guardian's Calling",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your instinctive urge is always to protect others, pushing back aggressors and doing everything in your power to prevent them from harming your allies and charges. When you attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "2f5bb1a4-2a45-5c29-ad6a-7feba044cfaa"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": " an opponent, you can spend a Mythic Point to make the check at mythic proficiency. You can attempt these maneuvers against a creature of any size when performing them at mythic proficiency. The first time each day that you critically succeed on a check to Disarm, Reposition, or Shove an opponent, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " place yourself in harm's way to protect your allies or innocent creatures under threat"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " retreat from a battle while your allies or innocent bystanders are in danger without taking every reasonable effort to rescue them first"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Lc7PS4JDnO6SWmiS"
+    },
+    "data": {
+      "category": "calling"
+    }
+  },
+  {
     "id": "3b10127d-830d-5c5f-a4e0-983b794195e9",
     "pack": "war-of-immortals",
     "kind": "feat",
@@ -11478,6 +12047,92 @@
           }
         ]
       }
+    }
+  },
+  {
+    "id": "a1b851f8-3ca2-5c50-98b4-f9c5a1202ddf",
+    "pack": "war-of-immortals",
+    "kind": "feat",
+    "slug": "feat:handlers-calling",
+    "name": "Handler's Calling",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have an instinctive urge to care for wild creatures. When you attempt a check to "
+          },
+          {
+            "type": "ref",
+            "id": "dde5ff41-57b6-5d31-adf1-ef6cc8d92b87"
+          },
+          {
+            "type": "text",
+            "text": ", you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " on a wild animal or Command an Animal who isn't your pet or companion, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " care for dangerous animals or beasts in need, respect the habitats of wild creatures"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initiate combat against an animal or beast encountered in its natural environment, kill an animal or beast when sparing it is a viable option"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.qRWnLtYNjz9z8Xe5"
+    },
+    "data": {
+      "category": "calling"
     }
   },
   {
@@ -11795,6 +12450,92 @@
           "per": "ten-minutes"
         }
       }
+    }
+  },
+  {
+    "id": "69e362e8-a22f-59f7-b00d-ab74c0d0ac2e",
+    "pack": "war-of-immortals",
+    "kind": "feat",
+    "slug": "feat:hunters-calling",
+    "name": "Hunter's Calling",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're the hunter, and somewhere, a legendary predator awaits as your ultimate challenge. When you attempt a check to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566"
+          },
+          {
+            "type": "text",
+            "text": ", you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Seek or Track a hostile or unfriendly creature, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " be first in a group to scout an unknown and potentially dangerous area, seek out creatures that are causing imbalances in the natural world and correct the imbalance"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " leave an animal or beast you've wounded free to cause future harm, refuse a request to hunt a dangerous animal or beast"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.xuotWgnajtwcN7X7"
+    },
+    "data": {
+      "category": "calling"
     }
   },
   {
@@ -19913,8 +20654,8 @@
             "text": "You learn the "
           },
           {
-            "type": "text",
-            "text": "Freedom"
+            "type": "ref",
+            "id": "b2eed0d2-52b6-59e5-ae96-b331bc2a76cf"
           },
           {
             "type": "text",
@@ -20049,6 +20790,76 @@
           }
         ]
       }
+    }
+  },
+  {
+    "id": "347b8d2c-9e90-5e19-817f-27799f66c142",
+    "pack": "war-of-immortals",
+    "kind": "feat",
+    "slug": "feat:sages-calling",
+    "name": "Sage's Calling",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're already an archive of knowledge, but you're driven to learn more with an unquenchable passion that might never be sated. When you attempt to Recall Knowledge, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a Recall Knowledge check against an enemy creature, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " preserve your knowledge for future generations, seek out lost knowledge in dangerous or forgotten places"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " destroy books or other repositories of knowledge, lie to hide knowledge from the world"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.LigU977wR6qt5Vx8"
+    },
+    "data": {
+      "category": "calling"
     }
   },
   {
@@ -22408,8 +23219,8 @@
             ],
             [
               {
-                "type": "text",
-                "text": "Impending Doom"
+                "type": "ref",
+                "id": "437df595-c36d-5c61-88b4-b4f78d3ca7a3"
               }
             ],
             []
@@ -24103,6 +24914,178 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "25ca68bb-b318-528a-8cff-0295b6807c34",
+    "pack": "war-of-immortals",
+    "kind": "feat",
+    "slug": "feat:thespians-calling",
+    "name": "Thespian's Calling",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All the world is a stage, and you're no mere player, but a playwright whose story may change the course of history. When you use Performance to "
+          },
+          {
+            "type": "ref",
+            "id": "56d1e4d6-9708-5d3c-b2ac-5fe9f0cfb544"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b03a543f-4d12-5c6b-a4f9-6afe141aa651"
+          },
+          {
+            "type": "text",
+            "text": ", you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Perform, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " master new performances, seek opportunities to perform in front of new audiences, support other performers"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " deny a call for an encore performance, refuse a request to perform in front of an audience, sabotage another performer"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.CPUunLbsBjRgfS10"
+    },
+    "data": {
+      "category": "calling"
+    }
+  },
+  {
+    "id": "6543196e-918c-568f-8d01-2dffe95875f6",
+    "pack": "war-of-immortals",
+    "kind": "feat",
+    "slug": "feat:thiefs-calling",
+    "name": "Thief's Calling",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether guildmaster or cutpurse, you covet something, or many things, that don't belong to you, and you're driven to ever greater heights of larceny. When you attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "b5e569b6-685e-5957-96ef-b148bd98fab6"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "4722e9b3-995d-5553-8034-087950993837"
+          },
+          {
+            "type": "text",
+            "text": " an item, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Pick a Lock or Steal from a hostile creature, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " seek opportunities to overcome evermore dangerous and complex locks and mechanical defenses, steal things from dangerous creatures or places"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " leave unattended treasure where you found it, pass up opportunities for profit that challenge your skills"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.R1Ierj67voEOc6xu"
+    },
+    "data": {
+      "category": "calling"
     }
   },
   {

@@ -2439,26 +2439,12 @@
         "content": [
           {
             "type": "text",
-            "text": "You've learned how to commune with the land to learn information. You learn the "
-          },
-          {
-            "type": "ref",
-            "id": "9b234ac7-30e8-5b71-bead-b0092b5641e8"
-          },
-          {
-            "type": "text",
-            "text": " ritual if you didn't know it already. You can perform this ritual with a casting time of 1 hour instead of 1 day and without a secondary caster."
+            "text": "You've learned how to commune with the land to learn information. You learn the Commune ritual if you didn't know it already. You can perform this ritual with a casting time of 1 hour instead of 1 day and without a secondary caster."
           }
         ]
       }
     ],
-    "rules": [
-      {
-        "key": "GrantItem",
-        "item": "9b234ac7-30e8-5b71-bead-b0092b5641e8",
-        "allowDuplicate": false
-      }
-    ],
+    "rules": [],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Gu8IAYxwNdQM603P"
     },

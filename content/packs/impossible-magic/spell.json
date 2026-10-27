@@ -163,7 +163,15 @@
                       },
                       {
                         "type": "text",
-                        "text": " 2d8 bludgeoning, and after a successful Strike, you can spend an action to attempt to Grab the target."
+                        "text": " 2d8 bludgeoning, and after a successful Strike, you can spend an action to attempt to "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "ae260fde-4929-5254-a10c-a5b9eddc2f4a"
+                      },
+                      {
+                        "type": "text",
+                        "text": " the target."
                       }
                     ]
                   }
@@ -225,7 +233,15 @@
                       },
                       {
                         "type": "text",
-                        "text": " 2d10 piercing, and after a successful Strike, you can spend an action to attempt to Grab the target"
+                        "text": " 2d10 piercing, and after a successful Strike, you can spend an action to attempt to "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "ae260fde-4929-5254-a10c-a5b9eddc2f4a"
+                      },
+                      {
+                        "type": "text",
+                        "text": " the target"
                       }
                     ]
                   }
@@ -8225,7 +8241,15 @@
                       },
                       {
                         "type": "text",
-                        "text": " 1d6 slashing plus 1d6 void, and after a successful Strike, you can spend an action to attempt to Grab the target."
+                        "text": " 1d6 slashing plus 1d6 void, and after a successful Strike, you can spend an action to attempt to "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "ae260fde-4929-5254-a10c-a5b9eddc2f4a"
+                      },
+                      {
+                        "type": "text",
+                        "text": " the target."
                       }
                     ]
                   }
@@ -12383,7 +12407,15 @@
                       },
                       {
                         "type": "text",
-                        "text": " 3d12 bludgeoning plus Push 10 feet"
+                        "text": " 3d12 bludgeoning plus "
+                      },
+                      {
+                        "type": "ref",
+                        "id": "5e41a046-b596-58c3-9259-0d67db5e73e1"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 10 feet"
                       }
                     ]
                   }
@@ -13869,7 +13901,15 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "Your eidolon gains Scent as an imprecise sense up to 30 feet."
+                  "text": "Your eidolon gains "
+                },
+                {
+                  "type": "ref",
+                  "id": "9ee100f5-f4c4-5957-a734-49bc4b3ab0c3"
+                },
+                {
+                  "type": "text",
+                  "text": " as an imprecise sense up to 30 feet."
                 }
               ]
             }

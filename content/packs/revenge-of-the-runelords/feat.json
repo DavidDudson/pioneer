@@ -1570,6 +1570,162 @@
     }
   },
   {
+    "id": "39ef3105-2ea6-535c-a414-03fa20cae17b",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:doomsayers-calling",
+    "name": "Doomsayer's Calling",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as people have dwelt in the world, there have been those who foresaw, feared, or worked toward that world's end. You know all things must end and have long felt that at some point in your life, you would stand on the precipice of Golarion's final fate—not to usher it along, but to deny the agents of this doomsday the satisfaction of seeing your world end. Until then, you'll do your best to keep the world and your allies in shape to face these ultimate threats. When you attempt a check to Repair, Administer First Aid, or Treat Wounds (but not when you use "
+          },
+          {
+            "type": "ref",
+            "id": "9848970b-02f3-562b-9a64-29e42647bbc1"
+          },
+          {
+            "type": "text",
+            "text": "), you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed on a check to Repair or Administer First Aid, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " help to prevent (or at least forestall) doomsday by keeping allies (and their gear) in good health (or repair), console those who are despondent"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " knowingly aid in any plot to end the world, mock or deride those who predict the end of the world"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Gsltv71YQJc55XSS"
+    },
+    "data": {
+      "category": "calling"
+    }
+  },
+  {
+    "id": "317d8448-25da-529a-8c3e-8bcd170288bd",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:dreamers-calling",
+    "name": "Dreamer's Calling",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your dreams have always felt more real than reality itself, and upon learning of the Dimension of Dreams you weren't surprised—indeed, you've often found yourself entering these Dreamlands when you sleep. You've long felt that something in the Dreamlands has been calling to you, and that some great rescue or revelation awaits in a dream you've yet to experience. In the meantime, your dreams remain a potent source of inspiration and power, and the ability to draw from them to affect the waking world is something you've always been able to do. When you attempt an Arcana, Nature, Religion, or Occultism check to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": ", or when you attempt a check to Craft any work of art, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed at a check to Craft or at a Recall Knowledge check about a subject associated with dreaming or the Dreamlands, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " share your dreams with your friends and take interest if they share their dreams with you, take inspiration from your dreams when you create"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " deny a creature (including yourself) the chance to sleep long enough to dream, deride those who have ambitions that they're unlikely to ever achieve"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.HnUzQqmAphx9nXDt"
+    },
+    "data": {
+      "category": "calling"
+    }
+  },
+  {
     "id": "b650869d-c0d7-5e83-8320-e20d8fc11bfa",
     "pack": "revenge-of-the-runelords",
     "kind": "feat",
@@ -3559,6 +3715,146 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "2c0cb1f9-afcc-5007-85b9-cc1eee082150",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:runelords-calling",
+    "name": "Runelord's Calling",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even before Karzoug rose, you felt something tugging to you from beyond. Strange memories, sudden insights, vivid dreams, or wild hunches that lead to discoveries or unexpected successes have been the norm for you. Once knowledge of the legacies of Thassilon began to spread anew into the modern world after Karzoug rose from slumber, you've increasingly come to realize these visions and inspirations come to you from the past—maybe even one of your past lives—and that something from the time before Earthfall in ancient Thassilon is linked to your soul. When you attempt a check to Identify Magic, Learn a Spell, or cast a ritual, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed at an Arcana, Nature, Occultism, or Religion check to Identify Magic, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " seek out rare magic spells and items from ancient Thassilon, learn knowledge about Thassilon that has been forgotten"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " willingly destroy ancient texts or other forms of written knowledge without first preserving that lore in some way, treat another's convictions or beliefs as fantasy or delusion"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.5M7ybjAyttZHAdtT"
+    },
+    "data": {
+      "category": "calling"
+    }
+  },
+  {
+    "id": "681f4fb8-2c56-5271-9542-1eb8fd02419b",
+    "pack": "revenge-of-the-runelords",
+    "kind": "feat",
+    "slug": "feat:sagas-calling",
+    "name": "Saga's Calling",
+    "level": 1,
+    "rarity": "rare",
+    "traits": ["calling", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Saga Lands do not come by that appellation lightly, for the storied legacies of this region predate Earthfall and have roots in worlds far beyond Golarion. Whether you were born in these lands or drawn there, those storied legacies have resonated with you on a supernatural level. It seems like each time you learn of some new legend or tale of this land passed down through the generations, there's something in it that directly applies to your life. You've taken to relying upon these legends—be they ancient or modern—as guideposts for your own life's course, knowing full well that they're calling to you and that you're destined to be the focus of one yourself. When you attempt a Performance check or a check to Gather Information, you can spend a Mythic Point to attempt the check at mythic proficiency. The first time each day that you critically succeed at a check to Gather Information, you regain a Mythic Point."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " do what you can to protect the people of the Saga Lands, preserve legends and myths in writing or other forms of art for future generations to enjoy and learn from"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " allow those in the Saga Lands who need aid to suffer if there's something you can do to help them, regard your own saga as more important than anyone else's, since your tale has yet to be fully told—and not even you know its ending"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd9c6ece-e891-5dd9-8e17-2ccbb1a76e18"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.BJQt9j4HAwic5AST"
+    },
+    "data": {
+      "category": "calling"
     }
   },
   {

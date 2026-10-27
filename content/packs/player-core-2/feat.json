@@ -7528,11 +7528,6 @@
         "tradition": "primal",
         "attribute": "cha",
         "preparation": "focus"
-      },
-      {
-        "key": "FocusSpells",
-        "entry": "beastmaster-focus",
-        "spells": ["b064d870-47dd-5193-aae4-a1896c3c7f20"]
       }
     ],
     "externalIds": {
@@ -8483,11 +8478,6 @@
     ],
     "rules": [
       {
-        "key": "Proficiency",
-        "selector": "spellcasting",
-        "rank": "trained"
-      },
-      {
         "key": "SpellcastingEntry",
         "slug": "champion-focus",
         "tradition": "divine",
@@ -8498,6 +8488,11 @@
         "key": "FocusSpells",
         "entry": "champion-focus",
         "spells": ["63af3503-b13d-5e5f-9c69-ab215b1ca711"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -45509,15 +45504,8 @@
         "item": "7b37047f-2d16-53f0-a76d-b7f42c031ac9"
       },
       {
-        "key": "Proficiency",
-        "selector": "spellcasting",
-        "rank": "trained"
-      },
-      {
         "key": "ChoiceSet",
         "flag": "mystery",
-        "rollOption": "feat:oracle-dedication",
-        "prompt": "Select a mystery.",
         "choices": [
           {
             "value": "ancestors",
@@ -45551,7 +45539,14 @@
             "value": "tempest",
             "label": "Tempest"
           }
-        ]
+        ],
+        "prompt": "Select a mystery.",
+        "rollOption": "feat:oracle-dedication"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -45874,7 +45869,15 @@
         "content": [
           {
             "type": "text",
-            "text": "The object is a simple ranged weapon that deals 1d10 bludgeoning damage, has a range increment of 20 feet, and has the thrown weapon trait. The damage increases to 2d10 bludgeoning damage if you have Weapon Specialization in simple weapons, or 3d10 bludgeoning if you have "
+            "text": "The object is a simple ranged weapon that deals 1d10 bludgeoning damage, has a range increment of 20 feet, and has the thrown weapon trait. The damage increases to 2d10 bludgeoning damage if you have "
+          },
+          {
+            "type": "ref",
+            "id": "ffa82ea1-1d92-58b0-b19c-ae3e23446328"
+          },
+          {
+            "type": "text",
+            "text": " in simple weapons, or 3d10 bludgeoning if you have "
           },
           {
             "type": "ref",
@@ -58388,15 +58391,8 @@
     ],
     "rules": [
       {
-        "key": "Proficiency",
-        "selector": "spellcasting",
-        "rank": "trained"
-      },
-      {
         "key": "ChoiceSet",
         "flag": "bloodline",
-        "rollOption": "feat:sorcerer-dedication",
-        "prompt": "Select a bloodline.",
         "choices": [
           {
             "value": "aberrant",
@@ -58450,7 +58446,14 @@
             "value": "undead",
             "label": "Undead"
           }
-        ]
+        ],
+        "prompt": "Select a bloodline.",
+        "rollOption": "feat:sorcerer-dedication"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
       }
     ],
     "externalIds": {

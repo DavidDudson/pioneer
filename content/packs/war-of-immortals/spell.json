@@ -92,8 +92,7 @@
           "damageType": "force",
           "kinds": ["damage"]
         }
-      ],
-      "dismiss": true
+      ]
     }
   },
   {
@@ -2105,8 +2104,7 @@
         "unit": "minute"
       },
       "traditions": ["arcane", "divine", "occult", "primal"],
-      "damage": [],
-      "dismiss": true
+      "damage": []
     }
   },
   {
@@ -2657,8 +2655,7 @@
         "unit": "minute"
       },
       "traditions": [],
-      "damage": [],
-      "dismiss": true
+      "damage": []
     }
   },
   {
@@ -3523,18 +3520,7 @@
             "formula": "2d4"
           }
         ]
-      },
-      "dismissNote": [
-        {
-          "type": "paragraph",
-          "content": [
-            {
-              "type": "text",
-              "text": "On your turn, when your last action dealt damage to the target with a weapon or unarmed attack: deals additional spirit damage to it."
-            }
-          ]
-        }
-      ]
+      }
     }
   }
 ]

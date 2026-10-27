@@ -791,8 +791,8 @@
         "any": [
           {
             "count": 1,
-            "triggering": true,
-            "of": "creature"
+            "of": "creature",
+            "triggering": true
           }
         ]
       },
@@ -5560,7 +5560,66 @@
         ]
       },
       "traditions": ["arcane", "primal"],
-      "damage": []
+      "damage": [],
+      "variants": [
+        {
+          "time": {
+            "type": "actions",
+            "cost": "one"
+          },
+          "targets": {
+            "any": [
+              {
+                "count": 1,
+                "of": "creature"
+              }
+            ]
+          },
+          "damage": [
+            {
+              "key": "tgzp2lzatpg4c9a5",
+              "formula": "2d6",
+              "damageType": "fire",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "tgzp2lzatpg4c9a5",
+                "formula": "1d6"
+              }
+            ]
+          }
+        },
+        {
+          "time": {
+            "type": "actions",
+            "cost": "two",
+            "upTo": "three"
+          },
+          "damage": [
+            {
+              "key": "d80radfbikwjogmr",
+              "formula": "4d6",
+              "damageType": "fire",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "d80radfbikwjogmr",
+                "formula": "2d6"
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -6089,8 +6148,8 @@
         "any": [
           {
             "count": 1,
-            "triggering": true,
-            "of": "creature"
+            "of": "creature",
+            "triggering": true
           }
         ]
       },
@@ -6372,8 +6431,8 @@
         "any": [
           {
             "count": 1,
-            "triggering": true,
-            "of": "creature"
+            "of": "creature",
+            "triggering": true
           }
         ]
       },
@@ -10285,7 +10344,30 @@
             "formula": "2d6"
           }
         ]
-      }
+      },
+      "variants": [
+        {
+          "name": "Crisis of Faith (Vs. Divine)",
+          "damage": [
+            {
+              "key": "0",
+              "formula": "6d8",
+              "damageType": "mental",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "0",
+                "formula": "2d8"
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -10371,7 +10453,30 @@
             "formula": "1d8"
           }
         ]
-      }
+      },
+      "variants": [
+        {
+          "name": "Cry of Destruction (Dealt Damage)",
+          "damage": [
+            {
+              "key": "0",
+              "formula": "1d12",
+              "damageType": "sonic",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "0",
+                "formula": "1d12"
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -19405,7 +19510,20 @@
             "formula": "10"
           }
         ]
-      }
+      },
+      "variants": [
+        {
+          "name": "Execute (Vitality)",
+          "damage": [
+            {
+              "key": "0",
+              "formula": "70",
+              "damageType": "vitality",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -19761,7 +19879,60 @@
             "formula": "2d6"
           }
         ]
-      }
+      },
+      "variants": [
+        {
+          "name": "Falling Stars (Airbursts)",
+          "damage": [
+            {
+              "key": "5hgrjg7cfv9pzsua",
+              "formula": "6d10",
+              "damageType": "bludgeoning",
+              "kinds": ["damage"]
+            },
+            {
+              "key": "rrsnfz6nzsiupvoy",
+              "formula": "14d6",
+              "damageType": "sonic",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Falling Stars (Comets)",
+          "damage": [
+            {
+              "key": "5hgrjg7cfv9pzsua",
+              "formula": "6d10",
+              "damageType": "bludgeoning",
+              "kinds": ["damage"]
+            },
+            {
+              "key": "rrsnfz6nzsiupvoy",
+              "formula": "14d6",
+              "damageType": "cold",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Falling Stars (Plasma)",
+          "damage": [
+            {
+              "key": "5hgrjg7cfv9pzsua",
+              "formula": "6d10",
+              "damageType": "bludgeoning",
+              "kinds": ["damage"]
+            },
+            {
+              "key": "rrsnfz6nzsiupvoy",
+              "formula": "14d6",
+              "damageType": "electricity",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -22759,6 +22930,11 @@
       "traditions": ["arcane", "primal"],
       "damage": [
         {
+          "key": "0",
+          "formula": "2d6",
+          "kinds": ["damage"]
+        },
+        {
           "key": "3pz4ntlxd2rzkgf4",
           "formula": "2",
           "damageType": "bleed",
@@ -22771,11 +22947,53 @@
         "interval": 1,
         "damage": [
           {
+            "key": "0",
+            "formula": "1d6"
+          },
+          {
             "key": "3pz4ntlxd2rzkgf4",
             "formula": "1"
           }
         ]
-      }
+      },
+      "variants": [
+        {
+          "name": "Gouging Claw (Piercing)",
+          "damage": [
+            {
+              "key": "0",
+              "formula": "2d6",
+              "damageType": "piercing",
+              "kinds": ["damage"]
+            },
+            {
+              "key": "3pz4ntlxd2rzkgf4",
+              "formula": "2",
+              "damageType": "bleed",
+              "category": "persistent",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Gouging Claw (Slashing)",
+          "damage": [
+            {
+              "key": "0",
+              "formula": "2d6",
+              "damageType": "slashing",
+              "kinds": ["damage"]
+            },
+            {
+              "key": "3pz4ntlxd2rzkgf4",
+              "formula": "2",
+              "damageType": "bleed",
+              "category": "persistent",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -23496,7 +23714,23 @@
         }
       },
       "traditions": ["arcane", "occult"],
-      "damage": []
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 7,
+            "targets": {
+              "any": [
+                {
+                  "count": "any",
+                  "of": "creature"
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   },
   {
@@ -23705,7 +23939,95 @@
             "formula": "1d8"
           }
         ]
-      }
+      },
+      "variants": [
+        {
+          "time": {
+            "type": "actions",
+            "cost": "one"
+          },
+          "range": {
+            "type": "touch"
+          }
+        },
+        {
+          "name": "Harm (vs. Living)",
+          "time": {
+            "type": "actions",
+            "cost": "two"
+          },
+          "range": {
+            "type": "feet",
+            "feet": 30
+          },
+          "targets": {
+            "any": [
+              {
+                "count": 1,
+                "of": "creature",
+                "qualifiers": ["living"]
+              }
+            ]
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "1d8",
+              "damageType": "void",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Harm (vs. Undead)",
+          "time": {
+            "type": "actions",
+            "cost": "two"
+          },
+          "range": {
+            "type": "feet",
+            "feet": 30
+          },
+          "targets": {
+            "any": [
+              {
+                "count": 1,
+                "of": "creature",
+                "qualifiers": ["willing"],
+                "traits": ["undead"]
+              }
+            ]
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "1d8+8",
+              "damageType": "void",
+              "kinds": ["healing"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "0",
+                "formula": "1d8+8"
+              }
+            ]
+          }
+        },
+        {
+          "time": {
+            "type": "actions",
+            "cost": "three"
+          },
+          "area": {
+            "shape": "emanation",
+            "size": 30
+          }
+        }
+      ]
     }
   },
   {
@@ -23959,7 +24281,85 @@
             "formula": "1d8"
           }
         ]
-      }
+      },
+      "variants": [
+        {
+          "time": {
+            "type": "actions",
+            "cost": "one"
+          },
+          "range": {
+            "type": "touch"
+          }
+        },
+        {
+          "name": "Heal (vs. Living)",
+          "time": {
+            "type": "actions",
+            "cost": "two"
+          },
+          "range": {
+            "type": "feet",
+            "feet": 30
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "1d8+8",
+              "damageType": "vitality",
+              "kinds": ["healing"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "0",
+                "formula": "1d8+8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Heal (vs. Undead)",
+          "time": {
+            "type": "actions",
+            "cost": "two"
+          },
+          "range": {
+            "type": "feet",
+            "feet": 30
+          },
+          "targets": {
+            "any": [
+              {
+                "count": 1,
+                "of": "creature",
+                "traits": ["undead"]
+              }
+            ]
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "1d8",
+              "damageType": "vitality",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "time": {
+            "type": "actions",
+            "cost": "three"
+          },
+          "area": {
+            "shape": "emanation",
+            "size": 30
+          }
+        }
+      ]
     }
   },
   {
@@ -24071,7 +24471,45 @@
             "formula": "1d8"
           }
         ]
-      }
+      },
+      "variants": [
+        {
+          "time": {
+            "type": "actions",
+            "cost": "one"
+          },
+          "range": {
+            "type": "touch"
+          }
+        },
+        {
+          "time": {
+            "type": "actions",
+            "cost": "two"
+          },
+          "range": {
+            "type": "feet",
+            "feet": 30
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "1d8+8",
+              "kinds": ["healing"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "0",
+                "formula": "1d8+8"
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -24193,7 +24631,45 @@
             "formula": "1d10"
           }
         ]
-      }
+      },
+      "variants": [
+        {
+          "time": {
+            "type": "actions",
+            "cost": "one"
+          },
+          "range": {
+            "type": "touch"
+          }
+        },
+        {
+          "time": {
+            "type": "actions",
+            "cost": "two"
+          },
+          "range": {
+            "type": "feet",
+            "feet": 30
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "1d10+8",
+              "kinds": ["healing"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "0",
+                "formula": "1d10+8"
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -24741,7 +25217,23 @@
             "formula": "2d6"
           }
         ]
-      }
+      },
+      "variants": [
+        {
+          "time": {
+            "type": "actions",
+            "cost": "three"
+          },
+          "range": {
+            "type": "feet",
+            "feet": 500
+          },
+          "area": {
+            "shape": "burst",
+            "size": 30
+          }
+        }
+      ]
     }
   },
   {
@@ -25863,7 +26355,33 @@
             "formula": "1d4"
           }
         ]
-      }
+      },
+      "variants": [
+        {
+          "name": "Ignition (Melee)",
+          "range": {
+            "type": "touch"
+          },
+          "damage": [
+            {
+              "key": "cqdyw0qpjj38mlsi",
+              "formula": "2d6",
+              "damageType": "fire",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "cqdyw0qpjj38mlsi",
+                "formula": "1d6"
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -29521,8 +30039,8 @@
         "any": [
           {
             "count": 1,
-            "triggering": true,
-            "of": "ally"
+            "of": "ally",
+            "triggering": true
           }
         ],
         "you": "or"
@@ -30188,12 +30706,58 @@
         "sustained": true
       },
       "traditions": [],
-      "damage": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "2d10",
+          "kinds": ["damage"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 2,
-        "damage": []
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d10"
+          }
+        ]
       },
+      "variants": [
+        {
+          "name": "Malicious Shadow (Bludgeoning)",
+          "damage": [
+            {
+              "key": "0",
+              "formula": "2d10",
+              "damageType": "bludgeoning",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Malicious Shadow (Piercing)",
+          "damage": [
+            {
+              "key": "0",
+              "formula": "2d10",
+              "damageType": "piercing",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Malicious Shadow (Slashing)",
+          "damage": [
+            {
+              "key": "0",
+              "formula": "2d10",
+              "damageType": "slashing",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ],
       "counteraction": true
     }
   },
@@ -34421,8 +34985,8 @@
         "any": [
           {
             "count": 1,
-            "triggering": true,
-            "of": "creature"
+            "of": "creature",
+            "triggering": true
           }
         ]
       },
@@ -35622,7 +36186,20 @@
         "until": "daily-preparations"
       },
       "traditions": ["arcane", "divine", "occult", "primal"],
-      "damage": []
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 5,
+            "time": {
+              "type": "actions",
+              "cost": "three"
+            },
+            "traits": ["concentrate", "manipulate"]
+          }
+        ]
+      }
     }
   },
   {
@@ -39986,7 +40563,54 @@
             "formula": "1d6"
           }
         ]
-      }
+      },
+      "variants": [
+        {
+          "time": {
+            "type": "actions",
+            "cost": "one"
+          },
+          "targets": {
+            "any": [
+              {
+                "count": 1,
+                "of": "creature",
+                "qualifiers": ["living"]
+              }
+            ]
+          }
+        },
+        {
+          "time": {
+            "type": "actions",
+            "cost": "two"
+          },
+          "targets": {
+            "any": [
+              {
+                "count": 2,
+                "of": "creature",
+                "qualifiers": ["living"]
+              }
+            ]
+          }
+        },
+        {
+          "time": {
+            "type": "actions",
+            "cost": "three"
+          },
+          "targets": {
+            "any": [
+              {
+                "count": 3,
+                "of": "creature",
+                "qualifiers": ["living"]
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -40536,8 +41160,8 @@
         "any": [
           {
             "count": 1,
-            "triggering": true,
-            "of": "creature"
+            "of": "creature",
+            "triggering": true
           }
         ]
       },
@@ -46106,12 +46730,69 @@
         "sustained": true
       },
       "traditions": ["divine", "occult"],
-      "damage": [],
+      "damage": [
+        {
+          "key": "0uok2pip94anbbfd",
+          "formula": "2d8",
+          "kinds": ["damage"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 2,
-        "damage": []
-      }
+        "damage": [
+          {
+            "key": "0uok2pip94anbbfd",
+            "formula": "1d8"
+          }
+        ]
+      },
+      "variants": [
+        {
+          "name": "Spiritual Armament (Bludgeoning)",
+          "damage": [
+            {
+              "key": "0uok2pip94anbbfd",
+              "formula": "2d8",
+              "damageType": "bludgeoning",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Spiritual Armament (Piercing)",
+          "damage": [
+            {
+              "key": "0uok2pip94anbbfd",
+              "formula": "2d8",
+              "damageType": "piercing",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Spiritual Armament (Slashing)",
+          "damage": [
+            {
+              "key": "0uok2pip94anbbfd",
+              "formula": "2d8",
+              "damageType": "slashing",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Spiritual Armament (Spirit)",
+          "damage": [
+            {
+              "key": "0uok2pip94anbbfd",
+              "formula": "2d8",
+              "damageType": "spirit",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -50054,12 +50735,58 @@
         ]
       },
       "traditions": ["arcane", "occult"],
-      "damage": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "2d6",
+          "kinds": ["damage"]
+        }
+      ],
       "heightening": {
         "type": "interval",
         "interval": 1,
-        "damage": []
-      }
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d6"
+          }
+        ]
+      },
+      "variants": [
+        {
+          "name": "Telekinetic Projectile (Bludgeoning)",
+          "damage": [
+            {
+              "key": "0",
+              "formula": "2d6",
+              "damageType": "bludgeoning",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Telekinetic Projectile (Piercing)",
+          "damage": [
+            {
+              "key": "0",
+              "formula": "2d6",
+              "damageType": "piercing",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Telekinetic Projectile (Slashing)",
+          "damage": [
+            {
+              "key": "0",
+              "formula": "2d6",
+              "damageType": "slashing",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -50460,8 +51187,8 @@
         "any": [
           {
             "count": 1,
-            "triggering": true,
-            "of": "creature"
+            "of": "creature",
+            "triggering": true
           }
         ]
       },
@@ -56390,7 +57117,23 @@
         }
       },
       "traditions": ["arcane", "primal"],
-      "damage": []
+      "damage": [],
+      "variants": [
+        {
+          "name": "Weapon Storm (Cone)",
+          "area": {
+            "shape": "cone",
+            "size": 30
+          }
+        },
+        {
+          "name": "Weapon Storm (Emanation)",
+          "area": {
+            "shape": "emanation",
+            "size": 10
+          }
+        }
+      ]
     }
   },
   {
@@ -57129,8 +57872,8 @@
         "any": [
           {
             "count": 1,
-            "triggering": true,
-            "of": "ally"
+            "of": "ally",
+            "triggering": true
           }
         ],
         "you": "and"

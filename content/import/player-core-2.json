@@ -919,10 +919,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[classfeatures] Pathfinder #168: King of the Mountain"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[classfeatures] Pathfinder Lost Omens The Mwangi Expanse"
         }
       ]
     },
@@ -5405,18 +5401,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "class-feature:mystery",
-      "foundry": "Compendium.pf2e.classfeatures.Item.PRJYLksQEwT39bTl",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[classfeatures] Pathfinder Dark Archive (Remastered)"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "class-feature:oracular-curse",
       "foundry": "Compendium.pf2e.classfeatures.Item.ibX2EhKkyUtbOHLj",
       "gaps": [
@@ -6183,18 +6167,6 @@
           }
         },
         {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "items",
-          "raw": "Compendium.pf2e.classfeatures.Item.Will Expertise"
-        },
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "items",
-          "raw": "Compendium.pf2e.classfeatures.Item.Weapon Specialization"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -6206,12 +6178,6 @@
       "slug": "class:barbarian",
       "foundry": "Compendium.pf2e.classes.Item.YDRiP7uVvr9WRhOI",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "items",
-          "raw": "Compendium.pf2e.classfeatures.Item.Weapon Specialization"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -6225,12 +6191,6 @@
       "foundry": "Compendium.pf2e.classes.Item.x8iwnpdLbfcoZkHA",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "items",
-          "raw": "Compendium.pf2e.classfeatures.Item.Weapon Specialization"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -6242,12 +6202,6 @@
       "slug": "class:investigator",
       "foundry": "Compendium.pf2e.classes.Item.4wrSCyX6akmyo7Wj",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "items",
-          "raw": "Compendium.pf2e.classfeatures.Item.Weapon Specialization"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -6261,12 +6215,6 @@
       "foundry": "Compendium.pf2e.classes.Item.YPxpk9JbMnKjbNLc",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "items",
-          "raw": "Compendium.pf2e.classfeatures.Item.Weapon Specialization"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -6278,12 +6226,6 @@
       "slug": "class:oracle",
       "foundry": "Compendium.pf2e.classes.Item.pWHx4SXcft9O2udP",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "items",
-          "raw": "Compendium.pf2e.classfeatures.Item.Weapon Specialization"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -6297,12 +6239,6 @@
       "foundry": "Compendium.pf2e.classes.Item.15Yc1r6s9CEhSTMe",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "items",
-          "raw": "Compendium.pf2e.classfeatures.Item.Weapon Specialization"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -6314,12 +6250,6 @@
       "slug": "class:swashbuckler",
       "foundry": "Compendium.pf2e.classes.Item.uJ5aCzlw34GGdWjp",
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "items",
-          "raw": "Compendium.pf2e.classfeatures.Item.Weapon Specialization"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -6532,6 +6462,12 @@
       "slug": "consumable:juggernaut-mutagen-moderate",
       "foundry": "Compendium.pf2e.equipment-srd.Item.mj9i9GeQTADByNPZ",
       "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "effect",
+          "raw": "Compendium.pf2e.equipment-effects.Item.Effect: Juggernaut Mutagen (Moderate)"
+        },
         {
           "type": "enricher",
           "enricher": "@UUID[equipment-effects] Pathfinder Core Rulebook"
@@ -7012,39 +6948,6 @@
             "selector": ["perception", "will"],
             "type": "status",
             "value": "@item.flags.system.rulesSelections.penalty"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "effect:effect-cant-fall-here",
-      "foundry": "Compendium.pf2e.feat-effects.Item.j6DbvXzg5lTgw3Bq",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "@item.origin.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "effect:effect-champions-resistance",
-      "foundry": "Compendium.pf2e.feat-effects.Item.DawVHfoPKbPJsz4k",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "all-damage",
-            "value": "@item.origin.level+2"
           }
         }
       ]
@@ -7818,23 +7721,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "effect:effect-exalted-reaction-redemption",
-      "foundry": "Compendium.pf2e.feat-effects.Item.GFLiTESBmoyQ3sLx",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "all-damage",
-            "value": "@item.origin.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "effect:effect-exemplary-finisher-wit",
       "foundry": "Compendium.pf2e.feat-effects.Item.cu10OjQUdY0a9gpj",
       "gaps": [
@@ -8597,22 +8483,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "effect:effect-oracular-warning",
-      "foundry": "Compendium.pf2e.feat-effects.Item.7XxZ4YJ6c97D9Fc9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "max(floor(@item.origin.level/2),1)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "effect:effect-oracular-warning-initiative",
       "foundry": "Compendium.pf2e.feat-effects.Item.ETZHTCjlOUHHSE0Z",
       "gaps": [
@@ -9028,22 +8898,6 @@
             "key": "TempHP",
             "predicate": ["self:effect:rage"],
             "value": "floor(@actor.level/@item.flags.system.rulesSelections.outcome) + @actor.abilities.con.mod"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "effect:effect-revitalizing-finisher",
-      "foundry": "Compendium.pf2e.feat-effects.Item.EgOcWruvNdVIpNAC",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "floor(@item.origin.level/2)"
           }
         }
       ]
@@ -9916,22 +9770,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "effect:spell-effect-fortifying-brew",
-      "foundry": "Compendium.pf2e.spell-effects.Item.IhorZCrhO4dCq6n3",
-      "gaps": [
-        {
-          "type": "link",
-          "entry": "player-core-2/ritual:fortifying-brew",
-          "element": {
-            "type": "ref",
-            "id": "15215e04-e308-5ac1-b000-c5151d882d02"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "effect:spell-effect-fungal-infestation",
       "foundry": "Compendium.pf2e.spell-effects.Item.6gRRjn0h0DAUh7nQ",
       "gaps": [
@@ -10082,67 +9920,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "BattleForm",
-          "raw": {
-            "key": "BattleForm",
-            "overrides": {
-              "armorClass": {
-                "modifier": "22 + @actor.level"
-              },
-              "senses": {
-                "low-light-vision": {}
-              },
-              "size": "huge",
-              "skills": {
-                "athletics": {
-                  "modifier": 30
-                }
-              },
-              "speeds": {
-                "land": 40
-              },
-              "strikes": {
-                "foot": {
-                  "ability": "str",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "bludgeoning",
-                    "dice": 4,
-                    "die": "d6",
-                    "modifier": 13
-                  },
-                  "traits": ["agile", "reach-15", "unarmed"]
-                },
-                "trunk": {
-                  "ability": "str",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "bludgeoning",
-                    "dice": 4,
-                    "die": "d6",
-                    "modifier": 16
-                  },
-                  "traits": ["agile", "reach-15", "unarmed"]
-                },
-                "tusk": {
-                  "ability": "str",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "piercing",
-                    "dice": 4,
-                    "die": "d8",
-                    "modifier": 19
-                  },
-                  "traits": ["reach-15", "unarmed"]
-                }
-              },
-              "tempHP": 20,
-              "traits": ["animal"]
-            }
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -10250,73 +10027,6 @@
       "slug": "effect:spell-effect-sacred-form",
       "foundry": "Compendium.pf2e.spell-effects.Item.W4lb3417rNDd9tCq",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "BattleForm",
-          "raw": {
-            "brackets": [
-              {
-                "start": 8,
-                "value": {
-                  "armorClass": {
-                    "modifier": "21 + @actor.level"
-                  },
-                  "size": "lg",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 29
-                    }
-                  },
-                  "strikes": {
-                    "sacred-armament": {
-                      "damage": {
-                        "modifier": 15
-                      },
-                      "modifier": 28,
-                      "traits": ["reach"]
-                    }
-                  },
-                  "tempHP": 15
-                }
-              }
-            ],
-            "key": "BattleForm",
-            "overrides": {
-              "armorClass": {
-                "modifier": "20 + @actor.level"
-              },
-              "resistances": [
-                {
-                  "type": "physical",
-                  "value": "ternary(gte(@item.level, 8), 4, 3)"
-                }
-              ],
-              "senses": {
-                "darkvision": {}
-              },
-              "size": "med",
-              "skills": {
-                "athletics": {
-                  "modifier": 23
-                }
-              },
-              "speeds": {
-                "land": 40
-              },
-              "strikes": {
-                "sacred-armament": {
-                  "damage": {
-                    "dice": 3,
-                    "die": "d6",
-                    "modifier": 8
-                  },
-                  "modifier": 21
-                }
-              },
-              "tempHP": 10
-            }
-          }
-        },
         {
           "type": "rule",
           "key": "DamageDice",
@@ -10543,23 +10253,6 @@
             "slug": "shields-of-the-spirit-shield",
             "type": "circumstance",
             "value": "@item.origin.system.attributes.shield.ac"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "effect:spell-effect-spectral-advance",
-      "foundry": "Compendium.pf2e.spell-effects.Item.5gpsh5UviUnFIRXY",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "all-damage",
-            "value": "@item.origin.level"
           }
         }
       ]
@@ -12432,6 +12125,15 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Advanced Player's Guide"
+        },
+        {
+          "type": "reference",
+          "entry": "b064d870-47dd-5193-aae4-a1896c3c7f20",
+          "element": {
+            "key": "FocusSpells",
+            "entry": "beastmaster-focus",
+            "spells": ["b064d870-47dd-5193-aae4-a1896c3c7f20"]
+          }
         }
       ]
     },
@@ -17393,18 +17095,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "feat:oversized-throw",
-      "foundry": "Compendium.pf2e.feats-srd.Item.tIE2umG4rQOxm8D8",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[classfeatures] Pathfinder Guns & Gears"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "feat:overwhelming-breath",
       "foundry": "Compendium.pf2e.feats-srd.Item.Dwxi1q1OWB1ufFvy",
       "gaps": [
@@ -21582,154 +21272,16 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "ritual:fortifying-brew",
-      "foundry": "Compendium.pf2e.spells-srd.Item.yRf59eFtZ50cGlem",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Alcohol Lore (or related lore), Crafting, Society"
-        }
-      ],
-      "document": {
-        "_id": "yRf59eFtZ50cGlem",
-        "name": "Fortifying Brew",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Player Core 2",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 5
-          },
-          "traits": {
-            "value": [],
-            "rarity": "uncommon",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You craft a large quantity of restorative drink, such as an invigorating tea, a refreshing ale, or a stimulative alchemical tonic. The ritual speeds along any natural processes to make the brew, such as fermenting fruit to make a wine. At the conclusion of the first 3 hours of the ritual, you produce enough brew for up to 10 people to drink, any of whom can be the secondary caster of the ritual. The brew must then be consumed over the next hour. There is no danger of the drinkers becoming drunk if the brew is alcoholic. Once that hour is completed, you and the secondary caster attempt your checks as normal.</p><hr /><p><strong>Critical Success</strong> The brew is delicious and revitalizing. It casts a 4th-rank @UUID[Compendium.pf2e.spells-srd.Item.Cleanse Affliction], a 4th-rank @UUID[Compendium.pf2e.spells-srd.Item.Clear Mind], and a 4th-rank @UUID[Compendium.pf2e.spells-srd.Item.Sound Body] on each drinker for each relevant affliction or condition, using your modifier for the primary skill check as the counteract modifier. Each drinker also gains 20 temporary Hit Points that last 12 hours and a +2 status bonus to saves against diseases and poisons for the next 12 hours.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Fortifying Brew]</p>\n<p><strong>Success</strong> As critical success, except drinkers gain only 10 temporary Hit Points, and don't gain the status bonus to saves.</p>\n<p><strong>Failure</strong> You and the other drinkers are left with a sour taste—something went wrong with the brewing process.</p>\n<p><strong>Critical Failure</strong> Your attempt to craft the drink resulted in something more akin to a poison. You and the other drinkers become @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 4} and can't reduce the condition for 12 hours.</p><hr /><p><strong>Heightened (+1)</strong> The temporary Hit Points increases by 2 (or 4 on a critical success).</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "high quality ingredients and brewing equipment worth 25 gp"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": ""
-          },
-          "range": {
-            "value": "20 feet"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Crafting, Nature, or Society (expert)"
-            },
-            "secondary": {
-              "casters": 1,
-              "checks": "Alcohol Lore (or related lore), Crafting, Society"
-            }
-          },
-          "target": {
-            "value": ""
-          },
-          "time": {
-            "value": "4 hours"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "ritual:gathering-call",
       "foundry": "Compendium.pf2e.spells-srd.Item.nzbnTqHgNKiGZkrZ",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "up to seven willing creatures of 14th level or lower"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Arcana or Occultism (expert, the check has the secret trait)"
         }
-      ],
-      "document": {
-        "_id": "nzbnTqHgNKiGZkrZ",
-        "name": "Gathering Call",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Player Core 2",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 7
-          },
-          "traits": {
-            "value": ["teleportation"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You bind yourself and your allies to the specific safe location, referred to as a sanctuary, where you perform the ritual. This allows the participants to return later by simply speaking a word.</p>\n<p><strong>Success</strong> You form the connection with the sanctuary. Any participant in the ritual can Dismiss the ritual. When they do, all the participants can immediately return to the sanctuary from any distance, as long as they are on the same plane as the sanctuary. Each participant arrives in the position in which they were standing during the casting of the ritual. When the word is spoken, all other participants know it, and each can choose whether or not to return to the sanctuary at that time. The ritual then immediately ends.</p>\n<p><strong>Failure</strong> You fail to form the connection between the participants and the sanctuary and are aware that the ritual has failed.</p>\n<p><strong>Critical Failure</strong> The ritual inadvertently forms a connection with a location on another plane. The casters are unaware of this misalignment. When the word is invoked, all ritual participants are shifted to this extraplanar location.</p><hr /><p><strong>Heightened (+1)</strong> The cost increases by 5,000 gp, the ritual can target one more creature, and the maximum level of creature it can target increases by 2.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "rare oils and powdered minerals worth 5,000 gp"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "1 year"
-          },
-          "range": {
-            "value": "20 feet"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Arcana or Occultism (expert, the check has the secret trait)"
-            },
-            "secondary": {
-              "casters": 2,
-              "checks": "Arcana or Occultism (whichever isn't used for the primary check), Society"
-            }
-          },
-          "target": {
-            "value": "up to seven willing creatures of 14th level or lower"
-          },
-          "time": {
-            "value": "7 days"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
@@ -21767,85 +21319,6 @@
           "raw": "1 dead creature of up to 8th level"
         }
       ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "ritual:shadow-double",
-      "foundry": "Compendium.pf2e.spells-srd.Item.h5UqEdeqK8iTcU0J",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Arcana or Occultism (master, the check has the secret trait)"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Arcana, Nature, Occultism, Religion, or Society (whichever is required to Recall Knowledge about the creature being duplicated); Crafting; Deception"
-        }
-      ],
-      "document": {
-        "_id": "h5UqEdeqK8iTcU0J",
-        "name": "Shadow Double",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Player Core 2",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 4
-          },
-          "traits": {
-            "value": ["illusion"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You create an illusory duplicate of the target creature by drawing shadowy material from the Netherworld and sculpting it into a semi-solid form. The shadow double is a 4th-level creature with no special abilities. If it needs to attempt a roll or use a DC, use the moderate number for a monster, except as noted below. It doesn't have any specific memories from the target, but it can use information about the creature gained from any of the casters to Impersonate the target. It looks exactly like the target and has a Deception modifier to Impersonate that creature equal to the modifier of the secondary spellcaster who rolled the Deception check, with a +4 status bonus. Though it doesn't have any of the original's special abilities, like a dragon's breath, illusions allow it to appear to use those abilities; they just never seem to have an effect. For instance, against a double's dragon's breath, all creatures in the area seem to critically succeed at their saving throws and take no damage. Creatures can attempt to disbelieve the illusion by attempting a Perception check against the Deception DC of the secondary spellcaster who rolled the Deception check.</p><hr /><p><strong>Critical Success</strong> You create the shadow double. It has the minion trait and is under your absolute control. You gain a direct mental link with the shadow double and can spend an action to command the shadow double via this link, even at a distance.</p>\n<p><strong>Success</strong> As a critical success, but there is no special link between you and the shadow double. You must spend an action to command it verbally or by some other means.</p>\n<p><strong>Failure</strong> The ritual fails and has no effect.</p>\n<p><strong>Critical Failure</strong> The shadow double is created, but it isn't your minion and is hostile to all the casters. It does everything it can to destroy them, but if it can't immediately slay them, the shadow double tries to escape and plots their demise.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "a small item of personal significance to the creature to be duplicated (such as an item of clothing they wear everyday or a memento of a romantic tryst), plus rare oils, minerals, and pigments with a total value of 300 gp"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": ""
-          },
-          "range": {
-            "value": ""
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Arcana or Occultism (master, the check has the secret trait)"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Arcana, Nature, Occultism, Religion, or Society (whichever is required to Recall Knowledge about the creature being duplicated); Crafting; Deception"
-            }
-          },
-          "target": {
-            "value": "1 living creature"
-          },
-          "time": {
-            "value": "1 day"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
     },
     {
       "type": "entry",
@@ -21920,20 +21393,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "the spell cast by the triggering creature"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "spell:beastmaster-trance",
-      "foundry": "Compendium.pf2e.spells-srd.Item.5WM3WjshXgrkVCg6",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "target.value",
-          "raw": "one of your animal companions you can perceive"
         }
       ]
     },

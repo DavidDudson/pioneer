@@ -35,7 +35,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.QOm3CGFgvUyEi9Bs"
     },
-    "data": {}
+    "data": {
+      "ancestry": "59d06286-2815-5d38-8477-8e009683a18e"
+    }
   },
   {
     "id": "020a6385-7e44-51bc-a330-7d1163658f24",
@@ -73,6 +75,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.B3eATjjSusACHqBR"
     },
-    "data": {}
+    "data": {
+      "ancestry": "59d06286-2815-5d38-8477-8e009683a18e"
+    }
   }
 ]

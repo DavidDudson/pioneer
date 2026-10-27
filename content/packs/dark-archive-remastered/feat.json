@@ -22,7 +22,15 @@
         "content": [
           {
             "type": "text",
-            "text": "When the curse within you spills out, you can lay curses on others and claim them for yourself with ease. You can cast Claim Curse. At 10th level, you can also cast "
+            "text": "When the curse within you spills out, you can lay curses on others and claim them for yourself with ease. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "dd9e973d-5244-5646-8f88-de487ad2824f"
+          },
+          {
+            "type": "text",
+            "text": ". At 10th level, you can also cast "
           },
           {
             "type": "ref",
@@ -30,7 +38,15 @@
           },
           {
             "type": "text",
-            "text": ", and at 12th level, you can also cast Inevitable Disaster. You can cast these spells once per day as occult innate spells, but only while within your curse maelstrom state. If you couldn't already cast occult spells, these spells use Wisdom as your spellcasting attribute, and you become trained in the spell attack modifier and spell DC statistics."
+            "text": ", and at 12th level, you can also cast "
+          },
+          {
+            "type": "ref",
+            "id": "42a945f7-e04c-5687-8b3b-91b811876129"
+          },
+          {
+            "type": "text",
+            "text": ". You can cast these spells once per day as occult innate spells, but only while within your curse maelstrom state. If you couldn't already cast occult spells, these spells use Wisdom as your spellcasting attribute, and you become trained in the spell attack modifier and spell DC statistics."
           }
         ]
       }
@@ -4138,11 +4154,6 @@
     ],
     "rules": [
       {
-        "key": "Proficiency",
-        "selector": "spellcasting",
-        "rank": "trained"
-      },
-      {
         "key": "SpellcastingEntry",
         "slug": "dream-magic",
         "tradition": "occult",
@@ -4152,8 +4163,6 @@
       {
         "key": "ChoiceSet",
         "flag": "dream-magic",
-        "rollOption": "dream-magic",
-        "prompt": "Select a spell.",
         "choices": [
           {
             "value": "dream-message",
@@ -4163,7 +4172,9 @@
             "value": "sleep",
             "label": "Sleep"
           }
-        ]
+        ],
+        "prompt": "Select a spell.",
+        "rollOption": "dream-magic"
       },
       {
         "key": "InnateSpells",
@@ -4186,6 +4197,11 @@
           }
         ],
         "predicate": ["dream-magic:sleep"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -6309,7 +6325,15 @@
           },
           {
             "type": "text",
-            "text": ", Cast into Time, "
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "0fd979d6-a692-5b61-842e-2d91df3d51cc"
+          },
+          {
+            "type": "text",
+            "text": ", "
           },
           {
             "type": "ref",
@@ -12045,7 +12069,15 @@
           },
           {
             "type": "text",
-            "text": " and Inevitable Disaster as innate divine spells, each once per day."
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "42a945f7-e04c-5687-8b3b-91b811876129"
+          },
+          {
+            "type": "text",
+            "text": " as innate divine spells, each once per day."
           }
         ]
       }
@@ -14623,7 +14655,15 @@
           },
           {
             "type": "text",
-            "text": " ritual, and one object in the area gains an elemental sentinel, as a successful Elemental Sentinel ritual."
+            "text": " ritual, and one object in the area gains an elemental sentinel, as a successful "
+          },
+          {
+            "type": "ref",
+            "id": "48f38e7c-9e4e-5364-9fe0-aebf3dd0e20e"
+          },
+          {
+            "type": "text",
+            "text": " ritual."
           }
         ]
       }

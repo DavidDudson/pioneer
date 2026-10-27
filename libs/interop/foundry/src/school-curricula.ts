@@ -128,6 +128,7 @@ export const CURRICULA: ReadonlyMap<string, readonly (readonly string[])[]> = ne
   [
     'school-of-nexian-spaces',
     [
+      ['dark-archive-remastered:phase-bolt', 'dark-archive-remastered:warp-step'],
       ['player-core:alarm', 'player-core:pet-cache', 'player-core-2:thoughtful-gift'],
       ['dimensional-drop', 'vanish-weapon'],
       ['player-core:cozy-cabin', 'far-reach'],

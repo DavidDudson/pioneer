@@ -22,6 +22,9 @@ const GROUP_ORDER: readonly FeatCategory[] = [
   FeatCategory.Skill,
   FeatCategory.General,
   FeatCategory.Bonus,
+  FeatCategory.DeityBoon,
+  FeatCategory.Calling,
+  FeatCategory.Curse,
 ];
 
 /** What a rule element of one of these keys does to the character: nothing a number or a roll shows. */
@@ -168,6 +171,9 @@ export const FEAT_GROUP_MESSAGES: Readonly<Record<FeatCategory, string>> = {
   [FeatCategory.Skill]: 'character.sheet.feats.group.skill',
   [FeatCategory.General]: 'character.sheet.feats.group.general',
   [FeatCategory.Bonus]: 'character.sheet.feats.group.bonus',
+  [FeatCategory.DeityBoon]: 'character.sheet.feats.group.deityBoon',
+  [FeatCategory.Calling]: 'character.sheet.feats.group.calling',
+  [FeatCategory.Curse]: 'character.sheet.feats.group.curse',
 };
 
 /** The label of each display category. */

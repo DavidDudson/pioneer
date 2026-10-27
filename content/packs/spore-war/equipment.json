@@ -2669,7 +2669,15 @@
         "content": [
           {
             "type": "text",
-            "text": "As long as you have the crown invested, it imparts knowledge of the Fortifying Brew and "
+            "text": "As long as you have the crown invested, it imparts knowledge of the "
+          },
+          {
+            "type": "ref",
+            "id": "15215e04-e308-5ac1-b000-c5151d882d02"
+          },
+          {
+            "type": "text",
+            "text": " and "
           },
           {
             "type": "ref",

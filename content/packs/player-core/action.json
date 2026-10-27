@@ -465,6 +465,18 @@
     ],
     "rules": [
       {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 25
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 25
+      },
+      {
         "key": "ActorTraits",
         "add": ["amphibious"]
       }
@@ -1207,7 +1219,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "upgrade",
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.uy15sDBuYNK48N3v"
     },
@@ -1697,7 +1716,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 25
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.dWTfO5WbLkD5mw2H"
     },
@@ -6097,7 +6123,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 25
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.familiar-abilities.Item.ZHSzNt3NxkXbj1mI"
     },

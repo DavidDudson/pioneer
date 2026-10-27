@@ -224,7 +224,10 @@ its damage is its description, and the effects it applies are `effect` entries.
   selectors; `skill:lore` is any Lore, narrowed by `loreRelatedTo`), at a `proficiency` when it names one, or a
   `ranked` rank for each skill when they differ. It may have a `dc` of its own and a `pick` that says how its skill is
   chosen: by the `tradition` of the spell cast, or, for a secondary check, the skill the primary check `primary-used`
-  or `primary-unused`. Each secondary check is its own.
+  or `primary-unused`. A check every skill of which needs mythic proficiency is `mythic` (no rank of the table), and a
+  `note` holds what else it asks ("you must be a demon"). A check Foundry words in a way these cannot state is kept as
+  its `text`, so the ritual still imports. Each secondary check is its own, and `casters` is absent where Foundry gives
+  none.
 - **Effects.** `duration` is a `time` of rounds to days with an `expiry` (`turn-start`, `turn-end`,
   `round-end`) and `sustained`, a `turn` (until the `turn-start` or `turn-end` of the turn it is applied in),
   `encounter` or `unlimited`. `badge` is a `counter` starting at `value` between
@@ -1051,8 +1054,10 @@ burst`, `15-foot emanation centered on you`); a shape Pioneer lacks is reported.
     the rank they name, or at a rank each when they differ; a leading `DC 30` is its `dc` and `as determined by the
 tradition of spell cast in the ritual` its `pick`. Its secondary checks are separated by `;` where Foundry uses
     one, else by commas, each a choice of skills joined by `or`; a note `(whichever is used for the primary check)` or
-    `(whichever isn't used …)` is the check's `pick`, and keeps a comma list before it as one check. Any other note
-    (`you must be a demon`) is reported and leaves the ritual without data.
+    `(whichever isn't used …)` is the check's `pick`, and keeps a comma list before it as one check. A note after a rank
+    (`expert; you must be a demon`) is the check's `note`, and `mythic` is a rank of its own. A list ending in `or`
+    (`Diplomacy, Intimidation, or Society`) is one check of alternatives. Any wording that still does not map is kept
+    as the check's text rather than reported.
   - An effect's `category` is its pack's (`spell-effects` is `spell`, likewise `feat`, `equipment` and `other`;
     `campaign-effects`, the GM's, is `other` rather than a category of its own); one from any other pack is reported.
     Its duration is a count of rounds to days with Foundry's `expiry` and `sustained`, a `turn` for a count of none

@@ -48,6 +48,7 @@ export const RulesMessage = {
   DeityPhilosophy: 'rules.deity.philosophy',
   FeatOnlyLevel1: 'rules.feat.onlyLevel1',
   RitualRanked: 'rules.ritual.ranked',
+  RitualMythic: 'rules.ritual.mythic',
   SpellCastUpTo: 'rules.spell.castUpTo',
   SpellDefenseEmpty: 'rules.spell.defenseEmpty',
   SpellDamageKey: 'rules.spell.damageKey',

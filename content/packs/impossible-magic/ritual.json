@@ -1,5 +1,190 @@
 [
   {
+    "id": "0ef86a21-b956-5e66-ac4c-bd1124fe794d",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:asmodean-wager",
+    "name": "Asmodean Wager",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["linguistic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You facilitate a magically binding agreement between yourself and one or more secondary casters, wherein each participant (hereafter referred to as the bettors) stakes something of value on the outcome of an event that has yet to be determined. The nature of the event is up to the bettors: a test of skill, a game of chance, or even something occurring in the distant future. While named for Asmodeus and invented by those with a diabolical bent, the ritual has no particular connection to Hell and instead relies on the occult connections between the bettors. The stakes can be either of the following:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A promise or possession.",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The losers of the bet are placed under the effects of a 9th-rank "
+                },
+                {
+                  "type": "text",
+                  "text": "geas",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " ritual to uphold the promise or turn over a single item they own, as stated at the time of the spell's casting. Once ownership has been transferred or the promise fulfilled, nothing prevents the bettors from trying to reclaim a former possession."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The bettors' life.",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " As soon as the outcome has been decided, the losers die instantly with no saving throw; this is a death effect. The next time the winner would die, they instead remain alive and "
+                },
+                {
+                  "type": "ref",
+                  "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+                },
+                {
+                  "type": "text",
+                  "text": " at 0 Hit Points with a dying condition 1 lower than would kill them. Until this protection has been exhausted, the loser of the bet can't be returned to life through any means, even powerful magic such as "
+                },
+                {
+                  "type": "text",
+                  "text": "wish",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ". A creature already in possession of an additional life as a result of winning an "
+                },
+                {
+                  "type": "text",
+                  "text": "Asmodean wager",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " can't enter into a new wager with a life as collateral."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If any participant knowingly and willingly makes any attempt to cheat at or avoid fulfilling the terms of the wager, the spell automatically determines them the loser and resolves accordingly. The spell doesn't function if any participant is acting against their will or being mentally controlled or coerced by any means, or if any participant is immune to or otherwise unaffected by their wager (such as if a construct, undead, or other creature immune to death effects tried to bet its life). At the GM's discretion, if it ever becomes permanently impossible for the bet's outcome to be determined, the spell ends without any further result."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual is successful."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The wording of the ritual is imperfect and subverts the bet, causing all bettors to be considered losers regardless of the actual result of the wager."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.NeyyAPwa639WjYGG"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "parchment, ink, and an item of value from each bettor worth at least 50 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:society"]
+          }
+        ]
+      }
+    }
+  },
+  {
     "id": "37f5c450-5857-54e9-8e84-1c42a199ae7c",
     "pack": "impossible-magic",
     "kind": "ritual",
@@ -306,6 +491,151 @@
           }
         ],
         "casters": 2
+      }
+    }
+  },
+  {
+    "id": "48e41dbc-46a7-5d89-bf01-ce157af93b47",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:borrow-time",
+    "name": "Borrow Time",
+    "level": 9,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spell suspends time around you and the secondary casters, creating an opaque bubble where you can continue your work. Time only passes within the area of the ritual. If you or any of the secondary casters leave this bubble, the ritual ends. Objects that leave the ritual's area (or outside of it after the ritual's casting) cannot be brought back into it. When casting this ritual, you can have up to 10 secondary casters assist you. You can perform any activities that you have the necessary supplies on hand for, such as Crafting items or Learning a Spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you leave the bubble of borrowed time, you and the result of your work blink into existence for those outside the bubble."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The time is only borrowed, not created. At some point after the ritual's casting, all primary and secondary casters lose the same amount of time as they borrowed. When they do so, they jump forward in time. This occurs at a time and place the GM deems appropriate. The casters can experience this at different times, as they do not all need to borrow time from the same point in their lives. Any caster who has not paid back their previously borrowed time can't participate in this ritual again."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You borrow 1 week of time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You borrow 1 day of time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The time stream is stable and refuses you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The borrowing of time goes awry, instead sapping away at your time. You immediately age 1 month."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.mlK8r1P2eszyfkGz"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 30
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "bells, hourglasses, and water clocks worth a total of 1,000 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "legendary"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:arcana", "skill:occultism"]
+          }
+        ]
       }
     }
   },
@@ -742,6 +1072,136 @@
           }
         ],
         "casters": 3
+      }
+    }
+  },
+  {
+    "id": "16725f87-e134-5aa0-81f4-2bc835af873c",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:confound-the-eye-and-confuse-the-mind",
+    "name": "Confound the Eye and Confuse the Mind",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["illusion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a flash, you obscure spellcasting to confound observers. The sleight of hand disguises one spell as another, augmented by costumes and props that lean into the viewer's assumption. A crooked hat and wand might make a druid appear to be a wizard, while a crown of leaves lets a wizard to slide into the druid's role."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " For the duration, all spells the target casts appears as another spell of their choice that is the same rank but of any tradition. This does not change the spells' effects. Creatures that attempt to Recognize Spell must attempt a Will save (against the target's spell DC), even if they would automatically identify the spell normally. On a failure, they do not Recognize the Spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but it only affects the next spell the target casts of the chosen magical tradition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Despite your chicanery, the target's magic remains recognizable."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual fails and transforms the target's spellcasting to a louder, brighter, and more attention-grabbing version for 1 week."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.dobuPIfpDHjIq8DP"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "costumes, props, and reagents, plus cloth worth a total value of 10 gp x the target's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism"],
+        "proficiency": "trained"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:deception", "skill:performance", "skill:occultism", "skill:thievery"]
+          }
+        ],
+        "casters": 1
       }
     }
   },
@@ -1261,6 +1721,418 @@
           }
         ],
         "casters": 2
+      }
+    }
+  },
+  {
+    "id": "6f53c157-9a24-543c-b331-6829b5b28dc6",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:glance-of-the-divine",
+    "name": "Glance of the Divine",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You ask that a divine being look upon you, calling their attention through offerings and supplication. While you ask for aid, you also appeal to divinity based on your goal (such as killing the wizard threatening your country or discovering the location of an artifact). You can beseech any deity or other being that grants spells for their aid."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Capturing the eye of the divine results in a transformation. The change reflects the experience, such as flaming hair for those that Sarenrae smiles upon or newly grown horns for Gozreh's favored. The GM decides on the appropriate change for the targets."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each target becomes sanctified until the goal is fulfilled, choosing a sanctification offered by the beseeched deity. Any spirit damage a target deals gains the holy or unholy trait as appropriate, not just spirit damage from actions and spells with the sanctified trait. During the ritual's duration, all targets are bound by the edicts and anathema of the beseeched deity. If a target was already sanctified by that deity or the beseeched deity offers no sanctification, a target gains the Domain Initiate feat for the ritual's duration, choosing a domain of the beseeched deity; this feat can't be used as a prerequisite."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the duration is 1 week."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to catch the glance of the divine, leaving your prayers unanswered."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your request for help captures the interest of a different deity than the one that you intended, as decided by the GM."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ZWsZGtBfdW1Cj5C2"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "an offering of great personal value from each caster"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:religion"],
+        "proficiency": "trained"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:diplomacy", "skill:religion"]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "23235c5d-3190-535d-ba1c-3d60370434e2",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:guardians-aegis",
+    "name": "Guardian's Aegis",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Guardian's aegis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a ritual used across numerous cultures to bind a chosen guardian and ward together so that they can complete a quest of great import. When the ritual is completed, designate one of the casters as the guardian, while the other is the ward. As long as you're on the same plane of existence, both of you are always aware of each other's relative directions and state of being, including any conditions the other is affected by. As long as you're within 30 feet of each other, whenever the ward takes damage, the damage is reduced by the amount equal to half the guardian's level, and the guardian loses an equal number of Hit Points; the target still takes additional effects like poison even if "
+          },
+          {
+            "type": "text",
+            "text": "guardian's aegis",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " reduces the damage to 0."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual is successful, and the duration is 1 month."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual is successful."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual backfires. You and the secondary caster become magically isolated from each other for 1 week, unable to provide each other any beneficial effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.3ipOKanMLnJrPwbr"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare oils worth 10 gp × the primary caster's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism", "skill:religion"]
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:athletics", "skill:diplomacy", "skill:society"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "ee51d308-4bbc-529b-8389-aeb7bec31e00",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:haven-in-the-ether",
+    "name": "Haven in the Ether",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["extradimensional", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create an extradimensional haven that pierces through the overlapping planes (Creation's Forge, the Ethereal Plane, First World, the Universe, the Netherworld, and the Void). The haven's entrance is accessible on all the overlapping planes, in the same location on each. Your haven takes on the appearance that you choose, such as a cottage, a tree, a tower, or a cave. You and any attuned creature (see below) can enter the haven from any of the above planes; the haven is invisible and inaccessible to all other creatures. A creature inside the haven can select which overlapping plane they appear in when they exit it. If a creature is in the haven when the ritual's duration ends, they appear in an overlapping plane of their choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and the secondary casters become attuned to the haven at the successful conclusion of the ritual. You can attune additional creatures to your haven as a 10-minute activity while within 15 feet of an entrance. Once attuned, a creature constantly senses the haven's location, including its direction and distance, while they share a plane with one of its entrances. You can Dismiss this attunement for any number of creatures while you are within the haven."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration is 1 month."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration is 1 week."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The haven fails to pierce through planes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your haven attracts pests from the Ethereal Plane, which sap its resonant energy. These creatures swarm it until they've fully consumed the ritual's magic, likely attacking the casters in the process."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.6fN8ePYatRCW1yck"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "building materials worth 25,000 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "legendary"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "text": "Arcana or Occultism, or Crafting or Survival"
+          }
+        ],
+        "casters": 3
       }
     }
   },
@@ -2019,6 +2891,184 @@
     }
   },
   {
+    "id": "7987e2f6-35f1-53fb-b561-0ba0f70bbb59",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:peer-into-the-past",
+    "name": "Peer Into the Past",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["illusion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With magic, not even time can truly hide a crime. You recreate a moment in time that occurred within the past year, complete with all creatures present at the time. The scene is an image frozen in time, such as the precise second of a queen's assassination or the deciding vote in a council. Any damage to the recreation causes it to dissipate and immediately ends the ritual."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You must know both the location and moment that you want to recreate, or the ritual's DCs increase by 10 for each piece of missing information. If you know the location and moment but aren't aware of all creatures that were present at the time, the ritual's DCs increase by 2. If you complete the ritual at the physical location you wish to examine, the ritual's DCs decrease by 2. These adjustments are cumulative."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the scene lasts for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The suspended scene lasts for 1 minute. While it is present, you can interact with the scene, though any creatures present do not respond to stimuli. This allows you to observe any creatures or objects, Steal items to conceal them from other observers, and otherwise investigate the scene."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create a glimpse of the scene, but it disappears a moment later. You do not have time available to investigate it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The scene you create is not suspended, and any creatures within it are hostile to you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You recreate a scene from the past 100 years."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You recreate a scene from the past 1,000 years."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You recreate a scene from any time, including the future. Looking into the future only provides a snapshot of the most probable future. When peering into the future this way, the cost is instead momentous objects collected from the past worth 250 gp × spell's rank × the primary caster's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.7ymYZ89WNBqGxWuh"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "objects collected from the site worth 50 gp × spell’s rank × the primary caster’s level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "text": "Arcana or Religion, or Society or Survival"
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
     "id": "4f7d2adb-6216-5ff9-bae1-273ffafe5274",
     "pack": "impossible-magic",
     "kind": "ritual",
@@ -2361,6 +3411,161 @@
       "secondary": {
         "checks": [],
         "casters": 0
+      }
+    }
+  },
+  {
+    "id": "d4b76a32-d2bf-54fb-a883-edd0995f664d",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:release-the-ego-to-restore-the-soul",
+    "name": "Release the Ego to Restore the Soul",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["aura", "emotion", "healing", "mental", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create abundant music and rally a crowd into a dance. You and every creature in the area move together in laughter and connection. The dancers lose themselves and their minds within it, as their bodies and spirits are overtaken with jubilation."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The joy of movement cleanses those who participate. Whenever a creature within the emanation Performs, they can also attempt to counteract their highest-rank detrimental mental effect using the rank of this ritual as the counteract rank. If they do, they gain a +4 status bonus to their check. They can only attempt to counteract an effect once every hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, except creatures do not gain a status bonus to their checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The dance fails to release the participants from their worries."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You lose control of the dance and become swept along in its energy. After 4 hours of dancing, you finally return to your senses and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " condition. Other creatures in the area are unaffected."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Add curses to the effect that you attempt to counteract on a success."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.pib9AhtUlVclvm02"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 4,
+        "unit": "hour"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "incense and perfumes worth 20 gp × the spell’s rank"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:nature", "skill:occultism"],
+        "proficiency": "trained"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:nature", "skill:occultism", "skill:performance"]
+          }
+        ],
+        "casters": 1
       }
     }
   },
@@ -3024,6 +4229,154 @@
     }
   },
   {
+    "id": "5de55c85-b969-5574-8715-9afe230fd8c2",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:shroud-of-the-provinces",
+    "name": "Shroud of the Provinces",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "By gathering dewdrops collected on a foggy morning, you can distill the essence of that fog and release it over a settlement. While this is generally used to protect a settlement from the attention of nearby battles, raiders targeting the port city of Ridonport once used it to disorient the town before their attack. While the shroud hangs, a fine mist coats that area. It dampens uncovered surfaces and pools into thick drops of condensation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "he shroud shades the settlement. The light level is one level darker than normal (bright light becomes dim light, and dim light becomes darkness). Creatures within the shroud are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " from those outside. Within the shroud, sound does not travel farther than 30 feet, and creatures are concealed to all creatures further than 30 feet away."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The foggy shroud emanates from you, and creatures within the area aren't concealed from you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The foggy shroud emanates from you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The foggy shroud fails to appear."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The shroud's area is a 1-mile burst centered on you instead of an aura. The shadows lash out at creatures in the mist and seek to push them away. Everyone within the shroud feels the urge to leave it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Additionally, creatures become invisible while they are inside the shroud to creatures outside of the shroud."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.7c3wzL3jj3E8zRsT"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "primary": {
+        "text": "Nature (proficiency)"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:nature", "skill:society"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
     "id": "8d404120-4414-5621-9a7b-d48d690fef66",
     "pack": "impossible-magic",
     "kind": "ritual",
@@ -3162,6 +4515,161 @@
       "secondary": {
         "checks": [],
         "casters": 0
+      }
+    }
+  },
+  {
+    "id": "176e3510-fc58-578b-a5a9-a9a7d8d26451",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:the-worlds-a-stage",
+    "name": "The World's a Stage",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["fortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This famous ritual is a sophisticated example of symbolic magic, binding fate and fortune to follow a prepared script. To conduct the ritual, you and the secondary casters must put on a long-form, multi-person, plot-based performance that's usually a play or opera, though more unusual performances have been known. You take the role of the director, while the secondary casters are either actors (Performance) or significant backstage figures, such as set or costume designers (Crafting). The casting time of the ritual includes both preparations and rehearsals of various sorts and the actual performance, which must be at least an hour long."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The performance presents current events and offers a particular vision on how they resolve, often in metaphorical or allegorical format (proposing the overthrow of a tyrant by referring to a different, legendary tyrant who was overthrown, or suggesting that a murderous secret might be uncovered by presenting an allegory of truth defeating murder). This performance must be presented to an audience of at least a hundred people, a majority of whom must both be connected, at least peripherally, to the events in question (the people of the tyrant's city, or the residents of the village where the murder occurred) and who must understand what the metaphor or allegory actually refers to. For the magic to spark, the performance must declare its purpose loudly and clearly to the parties most concerned. If a major antagonist featured in the performance is in the audience and the ritual is a success, you get a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Something sublime sparks between performance and audience, and destiny conspires to push events in the right direction. You and each secondary caster can reroll up to three skill checks at any point during the duration of the ritual after determining the results, as long as the skill check is connected to ensuring the topic of the performance comes true (to sneak past the tyrant's guards or find the murder weapon, for instance)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success except the sparks of destiny are weaker, so each caster can reroll only a single skill check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The performance is a dramatic and horrendous botch, and fate strikes out at the casters. You and each secondary caster are "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": " for the next month, and this condition can't be removed by anything less than a "
+          },
+          {
+            "type": "text",
+            "text": "wish",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ritual or similarly powerful magic."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.3DB3F2hIx2dMbX8n"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "month"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "costumes and a stage large enough to fit all casters"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting"]
+          },
+          {
+            "skills": ["skill:performance"]
+          }
+        ]
       }
     }
   },
@@ -3311,6 +4819,136 @@
       "secondary": {
         "checks": [],
         "casters": 0
+      }
+    }
+  },
+  {
+    "id": "1406eafd-ccd7-5294-9837-c5f4550274a4",
+    "pack": "impossible-magic",
+    "kind": "ritual",
+    "slug": "ritual:unsealing-of-secrets",
+    "name": "Unsealing of Secrets",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You place the writing instruments on the parchment while you call upon a spirit to answer your questions. The called spirit is from the area that you are in, has been dead for at least 100 years, and writes in the language that they spoke in life. They have access to all secrets ever spoken aloud or written down in their language within 5 miles of the location where you perform the ritual. This knowledge is fleeting, and the spirit has limited ability to write."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you cast this ritual, you can ask a question of the spirit. It answers to the best of its ability, with the GM determining if a secret was ever spoken aloud or written down."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spirit answers your question with 25 words or fewer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spirit answers your question with 10 words or fewer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spirit's writing is garbled and unintelligible."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spirit's answer is 10 words or fewer and contains false information."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.M7leucozfgQXW0eV"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "fine inks, pens, and papers worth 150 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:occultism", "skill:society"]
+          }
+        ],
+        "casters": 1
       }
     }
   }

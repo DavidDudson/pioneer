@@ -453,7 +453,8 @@
       "save": "Use a saving throw’s selector, like save:reflex."
     },
     "ritual": {
-      "ranked": "A rank for each skill replaces the one proficiency: name every skill of the check once, and leave proficiency out."
+      "ranked": "A rank for each skill replaces the one proficiency: name every skill of the check once, and leave proficiency out.",
+      "mythic": "A mythic check names no other rank: leave proficiency and ranked out."
     },
     "spell": {
       "castUpTo": "A range of actions runs from fewer to more, like one to three; a reaction or free action has none.",
@@ -615,7 +616,10 @@
         "class": "Class",
         "general": "General",
         "skill": "Skill",
-        "bonus": "Bonus"
+        "bonus": "Bonus",
+        "deityBoon": "Deity boon",
+        "calling": "Calling",
+        "curse": "Curse"
       },
       "skill": {
         "acrobatics": "Acrobatics",
@@ -920,7 +924,10 @@
         "class": "Class",
         "general": "General",
         "skill": "Skill",
-        "bonus": "Bonus"
+        "bonus": "Bonus",
+        "deityBoon": "Deity boon",
+        "calling": "Calling",
+        "curse": "Curse"
       },
       "rarity": {
         "uncommon": "Uncommon",
