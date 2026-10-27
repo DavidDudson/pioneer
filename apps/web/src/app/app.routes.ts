@@ -5,6 +5,8 @@ import type { SheetSidePanelLoader } from '@pioneer/character/feature';
 import { signInRequired } from '@pioneer/identity/data-access';
 import { PREFETCH_WHEN_IDLE } from '@pioneer/shared/web';
 
+import { environment } from './environment';
+
 /** Each bounded context contributes one lazily loaded route tree. */
 export const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'characters' },
@@ -17,11 +19,12 @@ export const appRoutes: Routes = [
     data: PREFETCH_WHEN_IDLE,
     // The sheet's side panel searches the rules content, which the character feature may not import.
     loadChildren: async () => {
-      const { characterRoutes, SHEET_SIDE_PANEL } = await import('@pioneer/character/feature');
+      const { characterRoutes, CHARACTER_LIST_EXTRAS, SHEET_SIDE_PANEL } = await import('@pioneer/character/feature');
       return [
         {
           path: '',
           providers: [
+            { provide: CHARACTER_LIST_EXTRAS, useValue: environment.characterListExtras },
             {
               provide: SHEET_SIDE_PANEL,
               useFactory: (): SheetSidePanelLoader => {

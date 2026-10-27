@@ -87,3 +87,4 @@ export {
   type SpellPlacement,
   type SpellPlacementContent,
 } from './spell-placement';
+export { loadSampleExport, SampleCharacter } from './samples';

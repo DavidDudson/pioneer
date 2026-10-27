@@ -5,4 +5,4 @@ import type { AppEnvironment } from './app-environment';
  * `environment.development.ts` (project.json `fileReplacements`), so dev-only code never reaches a production
  * bundle; the `verify-dev-free` target checks the output.
  */
-export const environment: AppEnvironment = { providers: [], messages: {} };
+export const environment: AppEnvironment = { providers: [], messages: {}, characterListExtras: [] };
