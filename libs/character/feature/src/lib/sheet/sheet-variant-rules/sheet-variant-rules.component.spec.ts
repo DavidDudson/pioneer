@@ -35,7 +35,7 @@ function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
   return [...root.querySelectorAll('button')].filter((candidate) => textOf(candidate).startsWith(label));
 }
 
-/** The vitals' headings: AC, the three saves and Perception, with their totals. */
+/** The vitals' headings: AC, the three saves, Perception and the Speed, with their totals. */
 function vitalsOf(root: HTMLElement): readonly string[] {
   return [...present(root.querySelector('pio-vitals')).querySelectorAll('summary')].map((summary) => textOf(summary));
 }
@@ -94,7 +94,14 @@ describe('SheetVariantRules', () => {
     });
     const http = TestBed.inject(HttpTestingController);
     await vi.waitFor(() => {
-      expect(vitalsOf(root)).toStrictEqual(['Armor Class 12', 'Fortitude +1', 'Reflex +2', 'Will +1', 'Perception +1']);
+      expect(vitalsOf(root)).toStrictEqual([
+        'Armor Class 12',
+        'Fortitude +1',
+        'Reflex +2',
+        'Will +1',
+        'Perception +1',
+        'Speed 30',
+      ]);
     });
 
     present(buttons(root, 'Turn on')[0]).click();
@@ -114,6 +121,7 @@ describe('SheetVariantRules', () => {
         'Reflex +0',
         'Will -1',
         'Perception -1',
+        'Speed 30',
       ]);
     });
   });

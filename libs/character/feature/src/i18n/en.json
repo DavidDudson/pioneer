@@ -310,6 +310,8 @@
       "stoppedBy": "Stopped by {types} damage.",
       "grantedTemp": "{amount} temporary Hit Points from effects.",
       "size": "Size {size}, reach {reach} feet.",
+      "sizeFromForm": "Size {size}, reach {reach} feet, from {form}; your own size is {own}.",
+      "unnamedForm": "a battle form",
       "noMax": "Hit Points show once the character has an ancestry and a class."
     },
     "consumables": {

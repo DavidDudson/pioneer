@@ -95,6 +95,6 @@ describe('CharacterSheetPage speeds from rule elements', () => {
     await vi.waitFor(() => {
       expect(textOf(vitalsOf(root))).toContain('Armor Class');
     });
-    expect(textOf(vitalsOf(root))).not.toContain('Speed');
+    expect(textOf(vitalsOf(root))).not.toMatch(/(?:Fly|Swim|Climb|Burrow) Speed/u);
   });
 });

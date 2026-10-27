@@ -7,7 +7,7 @@ import type { NamedStatistic } from '@pioneer/rules/ui';
 
 import { sheetSources } from './sheet-sources';
 
-/** The sheet's statistics, in order: Armor Class, the three saves, Perception, then the class DC. */
+/** The sheet's statistics, in order: Armor Class, the three saves, Perception, the class DC, then the land Speed. */
 const SHEET_STATISTICS: readonly Selector[] = [
   'ac',
   'save:fortitude',
@@ -15,9 +15,10 @@ const SHEET_STATISTICS: readonly Selector[] = [
   'save:will',
   'perception',
   'class-dc',
+  'speed:land',
 ].map((selector) => Selector.parse(selector));
 
-/** The speeds beside the land Speed; each shows only once something gives the character one. */
+/** The speeds beside the land Speed, which always shows; each of these only once something gives the character one. */
 const OTHER_SPEEDS: readonly Selector[] = ['speed:fly', 'speed:swim', 'speed:climb', 'speed:burrow'].map((selector) =>
   Selector.parse(selector),
 );
@@ -46,7 +47,7 @@ function derive(registry: ContentRegistry, character: Character): SheetDerivatio
 }
 
 /**
- * A character's AC, saves, Perception and class DC from the engine (`sheetDerivation`), then the fly, swim, climb and burrow
+ * A character's AC, saves, Perception, class DC and land Speed from the engine (`sheetDerivation`), then the fly, swim, climb and burrow
  * Speeds a rule gives them, each named by the statistic that applies: the last pack's definition of its selector, as
  * the engine chooses. A statistic no registered pack defines is left out, and so is a Speed that is not above 0.
  */
