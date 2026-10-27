@@ -5,17 +5,20 @@ import { ContentId, Slug } from './content-id';
 import { ContentText } from './content-text';
 import { RulesMessage } from './messages';
 import { DurationCount, DurationUnitSchema } from './rich-text';
+import { Trait } from './trait';
 
 /** The most restrictions and consequences an environment lists. */
 const LIST_MAX = 16;
 
 /**
  * Something an environment forbids, with the reason the sheet shows. The `id` is how abilities name it to lift it
- * (`speech`, `fire-effects`), so it is unique within the environment.
+ * (`speech`, `fire-effects`), so it is unique within the environment. `blocks` names the action traits it forbids
+ * (`fire`): an action with one of them reads as unavailable, with the reason. A restriction with none is text only.
  */
 export const EnvironmentRestriction = z.strictObject({
   id: Slug,
   reason: ContentText,
+  blocks: z.array(Trait).max(LIST_MAX).readonly().default([]),
 });
 export type EnvironmentRestriction = z.infer<typeof EnvironmentRestriction>;
 

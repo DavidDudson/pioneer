@@ -104,7 +104,11 @@ const conditionData: Arbitrary<object> = withOptional(
   { group: constantFrom(...Object.values(ConditionGroup)) },
 );
 
-const environmentRestriction: Arbitrary<{ id: string; reason: string }> = record({ id: slugText, reason: contentText });
+const environmentRestriction: Arbitrary<{ id: string; reason: string; blocks: string[] }> = record({
+  id: slugText,
+  reason: contentText,
+  blocks: array(slugText, { maxLength: LIST_MAX }),
+});
 const durationUnit: Arbitrary<string> = constantFrom(...Object.values(DurationUnit));
 const environmentConsequence: Arbitrary<object> = withOptional(
   record({ after: record({ count: positive, unit: durationUnit }), applies: contentIdJson }),

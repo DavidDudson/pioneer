@@ -20,8 +20,20 @@ describe('EnvironmentData', () => {
     expect(EnvironmentData.parse({})).toEqual({ restrictions: [], consequences: [] });
   });
 
+  test('a restriction blocks no action traits unless it names some', () => {
+    const [restriction] = EnvironmentData.parse({ restrictions: [speech] }).restrictions;
+
+    expect(restriction?.blocks).toEqual([]);
+  });
+
   test('restrictions and consequences are kept as written', () => {
-    const data = { restrictions: [speech, fireEffects], consequences: [{ ...suffocation, repeats: true }] };
+    const data = {
+      restrictions: [
+        { ...speech, blocks: [] },
+        { ...fireEffects, blocks: ['fire'] },
+      ],
+      consequences: [{ ...suffocation, repeats: true }],
+    };
 
     const kept: unknown = EnvironmentData.parse(data);
 
@@ -39,6 +51,7 @@ describe('EnvironmentData', () => {
   test.each([
     ['an id that is not a slug', { restrictions: [{ id: 'No Speech', reason: 'Why.' }] }],
     ['a restriction with no reason', { restrictions: [{ id: 'speech' }] }],
+    ['a blocked trait that is not a slug', { restrictions: [{ ...speech, blocks: ['Fire Effects'] }] }],
     ['an empty reason', { restrictions: [{ id: 'speech', reason: '' }] }],
     ['a consequence after no time', { consequences: [{ ...suffocation, after: { count: 0, unit: 'round' } }] }],
     ['a consequence after an unknown unit', { consequences: [{ ...suffocation, after: { count: 1, unit: 'eon' } }] }],

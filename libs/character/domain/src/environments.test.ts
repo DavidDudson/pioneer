@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { inPlay } from '@pioneer/rules/engine/testing';
-import { ContentId, ContentText, HitPoints, OriginHopKind, Slug } from '@pioneer/rules/sdk';
+import { ContentId, ContentText, HitPoints, OriginHopKind, Slug, Trait } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import { PLAY_COMMANDS } from './character-command';
@@ -13,10 +13,11 @@ import {
   environmentContent,
   environmentRoots,
   isEnvironmentCommand,
+  restrictionBlocking,
   restrictionsHolding,
   restrictionsInPlay,
 } from './environments';
-import type { EnvironmentCommand } from './environments';
+import type { EnvironmentCommand, RestrictionInPlay } from './environments';
 import { equippedRules } from './equipped';
 import { applyPlayCommand, FRESH_PLAY, PlayCommandField } from './play-state';
 import { slotContent } from './slot-offer';
@@ -96,6 +97,29 @@ describe('environmentRoots', () => {
   });
 });
 
+const restriction = (blocks: readonly Trait[]): RestrictionInPlay => ({
+  environment: DARK,
+  id: Slug.parse('fire-effects'),
+  reason: ContentText.parse('No fire here.'),
+  blocks,
+  liftedBy: [],
+});
+
+describe('restrictionBlocking', () => {
+  const fire = Trait.parse('fire');
+
+  test('finds the restriction that names a trait of the action', () => {
+    const blocking = restriction([fire]);
+
+    expect(restrictionBlocking([restriction([]), blocking], [Trait.parse('attack'), fire])).toBe(blocking);
+  });
+
+  test('blocks nothing for an action with none of the traits, or a restriction that is text only', () => {
+    expect(restrictionBlocking([restriction([fire])], [Trait.parse('attack')])).toBeUndefined();
+    expect(restrictionBlocking([restriction([])], [fire])).toBeUndefined();
+  });
+});
+
 describe('restrictionsInPlay', () => {
   const registry = itemFixtureRegistry();
   const content = environmentContent(registry);
@@ -107,6 +131,7 @@ describe('restrictionsInPlay', () => {
         environment: underwater,
         id: Slug.parse('speech'),
         reason: ContentText.parse("You can't speak underwater."),
+        blocks: [],
         liftedBy: [],
       },
     ]);
