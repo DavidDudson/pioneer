@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 222,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4721"
       }
     ],
     "description": [
@@ -529,7 +531,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 244,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4739"
       }
     ],
     "description": [],
@@ -931,7 +935,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 223,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4722"
       }
     ],
     "description": [
@@ -1770,7 +1776,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 236,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4735"
       }
     ],
     "description": [],
@@ -2094,7 +2102,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4736"
       }
     ],
     "description": [],
@@ -4626,7 +4636,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 231,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4730"
       }
     ],
     "description": [
@@ -5971,7 +5983,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 241,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4737"
       }
     ],
     "description": [],
@@ -7352,7 +7366,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 230,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4729"
       }
     ],
     "description": [
@@ -7694,7 +7710,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 232,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4731"
       }
     ],
     "description": [
@@ -10767,7 +10785,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 224,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4723"
       }
     ],
     "description": [
@@ -11081,7 +11101,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 225,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4724"
       }
     ],
     "description": [
@@ -12109,7 +12131,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 226,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4725"
       }
     ],
     "description": [
@@ -13318,7 +13342,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 227,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4726"
       }
     ],
     "description": [
@@ -14634,7 +14660,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 234,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4733"
       }
     ],
     "description": [
@@ -15237,7 +15265,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 235,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4734"
       }
     ],
     "description": [
@@ -16468,7 +16498,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 233,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4732"
       }
     ],
     "description": [
@@ -17650,7 +17682,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 218,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4717"
       }
     ],
     "description": [
@@ -18080,7 +18114,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 219,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4718"
       }
     ],
     "description": [
@@ -18507,7 +18543,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 220,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4719"
       }
     ],
     "description": [
@@ -18920,7 +18958,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 221,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4720"
       }
     ],
     "description": [
@@ -19817,7 +19857,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 228,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4727"
       }
     ],
     "description": [
@@ -20138,7 +20180,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "page": 247,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4741"
       }
     ],
     "description": [],

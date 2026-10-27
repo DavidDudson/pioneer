@@ -712,7 +712,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=686"
       }
     ],
     "description": [

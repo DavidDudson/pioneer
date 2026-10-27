@@ -267,7 +267,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 245,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=775"
       }
     ],
     "description": [
@@ -840,7 +842,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 215,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=773"
       }
     ],
     "description": [
@@ -1000,7 +1004,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 61,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=764"
       }
     ],
     "description": [

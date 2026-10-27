@@ -447,7 +447,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 84,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=1591"
       }
     ],
     "description": [
@@ -480,7 +482,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 162,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=1904"
       }
     ],
     "description": [
@@ -1267,7 +1271,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 165,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=1905"
       }
     ],
     "description": [

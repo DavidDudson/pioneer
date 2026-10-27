@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "page": 35,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=4230"
       }
     ],
     "description": [

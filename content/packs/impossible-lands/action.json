@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=1457"
       }
     ],
     "description": [
@@ -65,7 +67,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "page": 59,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=1451"
       }
     ],
     "description": [
@@ -944,7 +948,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "page": 48,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=1450"
       }
     ],
     "description": [
@@ -978,7 +984,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=1455"
       }
     ],
     "description": [
@@ -1040,7 +1048,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=1454"
       }
     ],
     "description": [
@@ -1102,7 +1112,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "page": 60,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=1452"
       }
     ],
     "description": [
@@ -1180,7 +1192,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=1449"
       }
     ],
     "description": [
@@ -1307,7 +1321,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=1456"
       }
     ],
     "description": [

@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 94,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=321"
       }
     ],
     "description": [
@@ -72,7 +74,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=320"
       }
     ],
     "description": [
@@ -151,7 +155,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=315"
       }
     ],
     "description": [

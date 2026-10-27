@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 99,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2901"
       }
     ],
     "description": [

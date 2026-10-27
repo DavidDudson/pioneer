@@ -86,7 +86,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=903"
       }
     ],
     "description": [
@@ -347,7 +349,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 40,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=904"
       }
     ],
     "description": [
@@ -418,7 +422,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=918"
       }
     ],
     "description": [
@@ -488,7 +494,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 32,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=3632"
       }
     ],
     "description": [
@@ -573,7 +581,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=914"
       }
     ],
     "description": [
@@ -639,7 +649,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 140,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=925"
       }
     ],
     "description": [
@@ -673,7 +685,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=909"
       }
     ],
     "description": [
@@ -707,7 +721,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 140,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=923"
       }
     ],
     "description": [
@@ -778,7 +794,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=908"
       }
     ],
     "description": [
@@ -840,7 +858,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=917"
       }
     ],
     "description": [
@@ -1070,7 +1090,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=913"
       }
     ],
     "description": [
@@ -1214,7 +1236,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=907"
       }
     ],
     "description": [
@@ -1535,7 +1559,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=919"
       }
     ],
     "description": [
@@ -1598,7 +1624,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=915"
       }
     ],
     "description": [
@@ -1667,7 +1695,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 16,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=901"
       }
     ],
     "description": [
@@ -1975,7 +2005,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=910"
       }
     ],
     "description": [
@@ -2009,7 +2041,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 140,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=924"
       }
     ],
     "description": [
@@ -2071,7 +2105,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=906"
       }
     ],
     "description": [
@@ -2133,7 +2169,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 41,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=905"
       }
     ],
     "description": [
@@ -2292,7 +2330,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=921"
       }
     ],
     "description": [
@@ -2581,7 +2621,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=920"
       }
     ],
     "description": [
@@ -2711,7 +2753,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=911"
       }
     ],
     "description": [
@@ -2787,7 +2831,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 140,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=922"
       }
     ],
     "description": [
@@ -2821,7 +2867,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=916"
       }
     ],
     "description": [
