@@ -16,7 +16,7 @@ import type { Params } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ContentBrowserTier } from '@pioneer/content/ui';
 import type { ContentBrowserState } from '@pioneer/content/ui';
-import { Button, DRAWER_OPEN, DRAWER_PARAM, Stack } from '@pioneer/frontier';
+import { Button, DRAWER_OPEN, DRAWER_PARAM, Link, Stack } from '@pioneer/frontier';
 import { Combobox } from '@pioneer/frontier/data';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { ShellSearch } from '@pioneer/shared/web';
@@ -25,12 +25,15 @@ import { refOf } from '../browser/browse-state';
 import { ContentBrowser } from '../browser/content-browser.component';
 import { GlobalSearchSession } from '../search/global-search-session';
 import { isSearchShortcut } from '../search/global-search-shortcut';
+import { browserLink, ORIGIN_STATE } from './open-in-browser';
+import type { BrowserLink } from './open-in-browser';
 import { entryFromParam, entryToParam, PanelParam } from './side-panel-state';
 
 const PanelMessage = {
   Label: 'shell.search.label',
   Placeholder: 'shell.search.placeholder',
   Back: 'content.sidePanel.back',
+  OpenInBrowser: 'content.sidePanel.openInBrowser',
 } as const;
 
 /**
@@ -42,7 +45,7 @@ const PanelMessage = {
  */
 @Component({
   selector: 'pio-content-side-panel',
-  imports: [Button, Combobox, ContentBrowser, Stack, TranslocoPipe],
+  imports: [Button, Combobox, ContentBrowser, Link, Stack, TranslocoPipe],
   templateUrl: './content-side-panel.component.html',
   providers: [GlobalSearchSession],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -70,6 +73,17 @@ export class ContentSidePanel {
   protected readonly state = computed<ContentBrowserState | undefined>(() => {
     const selected = entryFromParam(this.#params()?.get(PanelParam.Entry) ?? undefined);
     return selected === undefined ? undefined : { kinds: [selected.kind], query: '', filters: [], selected };
+  });
+
+  /** The entry in the full content page, with the panel's kind and words; it remembers the page it came from. */
+  protected readonly browserLink = computed((): BrowserLink | undefined => {
+    const selected = this.state()?.selected;
+    return selected === undefined ? undefined : browserLink(selected, this.#params()?.get(PanelParam.Query) ?? '');
+  });
+  /** Where the entry page's way back leads: this page, drawer and all. */
+  protected readonly origin = computed(() => {
+    this.#params();
+    return { [ORIGIN_STATE]: this.#router.url };
   });
 
   readonly #drawerOpen = computed(() => this.#params()?.get(DRAWER_PARAM) === DRAWER_OPEN);
