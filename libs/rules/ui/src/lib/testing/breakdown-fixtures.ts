@@ -219,7 +219,7 @@ export const FIGHTER_AC: StatisticValue = statistic('ac', {
   ],
 });
 
-const FIGHTER_FORTITUDE: StatisticValue = statistic('save:fortitude', {
+export const FIGHTER_FORTITUDE: StatisticValue = statistic('save:fortitude', {
   base: [term('@attr.con', CON), term('@prof.save.fortitude', FORTITUDE_PROFICIENCY)],
 });
 

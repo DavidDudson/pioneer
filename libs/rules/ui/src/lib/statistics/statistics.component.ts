@@ -4,13 +4,14 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { Badge, Disclosure, EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
 import { RuleId } from '@pioneer/rules/engine';
 import type { BreakdownLine, StatisticResult, StatisticValue } from '@pioneer/rules/engine';
-import type { ContentId, Selector, StatisticKind } from '@pioneer/rules/sdk';
+import type { ContentId, Proficiency, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { BreakdownView } from '../breakdown/breakdown.component';
 import { numberStyle } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
+import { ProficiencyRankView } from '../proficiency-rank/proficiency-rank.component';
 import { conditionalLineText, conditionalLines } from './conditional-lines';
 import { StatisticConditions } from './statistic-conditions/statistic-conditions.component';
 import type { ConditionChange, ConditionToggle } from './statistic-conditions/statistic-conditions.component';
@@ -34,6 +35,8 @@ export interface NamedStatistic {
   readonly result: StatisticResult;
   /** A line to show beside it, already worded: the skill two sources train (#673). */
   readonly note?: string | undefined;
+  /** The proficiency rank in it, shown as its letter beside the name: a skill's. */
+  readonly rank?: Proficiency | undefined;
   /** The situations a roll of it can claim, when the page lets the player claim them. */
   readonly situations?: StatisticSituations | undefined;
 }
@@ -52,6 +55,7 @@ type ShownStatistic =
       /** Each line whose situation can be claimed, as a toggle. */
       readonly toggles: readonly ConditionToggle[];
       readonly kind: StatisticKind;
+      readonly rank: Proficiency | undefined;
       readonly statistic: StatisticValue;
     }
   | { readonly ok: false; readonly key: Selector; readonly name: string; readonly error: string };
@@ -84,6 +88,7 @@ const LOADING_ROWS = 5;
     EmptyState,
     List,
     ListItem,
+    ProficiencyRankView,
     Skeleton,
     Stack,
     StatisticConditions,
@@ -122,45 +127,50 @@ export class StatisticsView {
   protected readonly shown = computed((): readonly ShownStatistic[] | undefined => {
     this.#messages();
     this.#format.locale();
-    return this.statistics()?.map(({ name: contentName, nameKey, kind, result, note, situations }): ShownStatistic => {
-      const name = nameKey === undefined ? contentName : this.#i18n.translate(nameKey);
-      if (!result.ok) {
+    return this.statistics()?.map(
+      ({ name: contentName, nameKey, kind, result, note, rank, situations }): ShownStatistic => {
+        const name = nameKey === undefined ? contentName : this.#i18n.translate(nameKey);
+        if (!result.ok) {
+          return {
+            ok: false,
+            key: result.selector,
+            name,
+            error: this.#i18n.translate(result.error.key, result.error.params),
+          };
+        }
+        const style = numberStyle(kind);
+        const total = this.#format.number(result.total, style);
+        const unpinned =
+          result.pinnedBy === undefined
+            ? undefined
+            : this.#i18n.translate(StatisticsMessage.Computed, {
+                computed: this.#format.number(result.computed, style),
+              });
+        const words = {
+          i18n: this.#i18n,
+          format: this.#format,
+          names: { entries: this.entryNames(), items: this.originNames().items },
+        };
+        const offered = this.#roller?.claim === undefined ? [] : (situations?.offered ?? []);
+        const conditions = conditionalLines(result, words, new Set(offered.map(({ modifier }) => modifier.id)));
+        const toggles = offered.map((line): ConditionToggle => ({
+          id: line.modifier.id,
+          text: conditionalLineText(line, words),
+          on: situations?.claimed.has(line.modifier.id) === true,
+        }));
         return {
-          ok: false,
+          ok: true,
           key: result.selector,
           name,
-          error: this.#i18n.translate(result.error.key, result.error.params),
+          total,
+          computed: unpinned,
+          conditions: note === undefined ? conditions : [...conditions, note],
+          toggles,
+          kind,
+          rank,
+          statistic: result,
         };
-      }
-      const style = numberStyle(kind);
-      const total = this.#format.number(result.total, style);
-      const unpinned =
-        result.pinnedBy === undefined
-          ? undefined
-          : this.#i18n.translate(StatisticsMessage.Computed, { computed: this.#format.number(result.computed, style) });
-      const words = {
-        i18n: this.#i18n,
-        format: this.#format,
-        names: { entries: this.entryNames(), items: this.originNames().items },
-      };
-      const offered = this.#roller?.claim === undefined ? [] : (situations?.offered ?? []);
-      const conditions = conditionalLines(result, words, new Set(offered.map(({ modifier }) => modifier.id)));
-      const toggles = offered.map((line): ConditionToggle => ({
-        id: line.modifier.id,
-        text: conditionalLineText(line, words),
-        on: situations?.claimed.has(line.modifier.id) === true,
-      }));
-      return {
-        ok: true,
-        key: result.selector,
-        name,
-        total,
-        computed: unpinned,
-        conditions: note === undefined ? conditions : [...conditions, note],
-        toggles,
-        kind,
-        statistic: result,
-      };
-    });
+      },
+    );
   });
 }
