@@ -90,7 +90,11 @@ describe('CharacterSheetPage header', () => {
     const vitalsNow = (): HTMLElement => present(root.querySelector<HTMLElement>('pio-vitals'));
 
     await vi.waitFor(() => {
-      expect([...vitalsNow().querySelectorAll('pio-proficiency-rank')].map((rank) => textOf(rank))).toStrictEqual([
+      // The tiles' own ranks, not the empty ones the rows inside them hold for a skill's.
+      const tileRanks = [...vitalsNow().querySelectorAll('pio-proficiency-rank')].filter(
+        (rank) => rank.closest('summary') === null,
+      );
+      expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual([
         'TTrained',
         'TTrained',
         'TTrained',

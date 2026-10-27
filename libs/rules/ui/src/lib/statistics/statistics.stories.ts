@@ -11,6 +11,7 @@ import {
   FIGHTER_STATISTICS,
 } from '../testing/breakdown-fixtures';
 import { BEATEN_STATISTICS, CLAIMABLE_STATISTICS } from '../testing/conditional-fixtures';
+import { FORM_STATISTICS } from '../testing/form-fixtures';
 import { PINNED_STATISTICS } from '../testing/override-fixtures';
 import { STATISTIC_ROLLER } from './statistic-roller';
 import type { StatisticRoller } from './statistic-roller';
@@ -133,5 +134,14 @@ export const Ranked: StatisticsStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText('Expert')).toBeInTheDocument();
+  },
+};
+
+/** A battle form sets Armor Class, so it is marked from the form; Fortitude stays the character's own, which is higher. */
+export const InForm: StatisticsStory = {
+  args: { statistics: FORM_STATISTICS },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('from Golem Form')).toBeVisible();
   },
 };

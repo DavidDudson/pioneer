@@ -12,6 +12,7 @@ import {
   GLOOM_WALKER,
 } from '../testing/breakdown-fixtures';
 import { BEATEN_STATISTICS } from '../testing/conditional-fixtures';
+import { FORM_STATISTICS } from '../testing/form-fixtures';
 import { PINNED_STATISTICS, PINNED_WILL } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { STATISTIC_ROLLER } from './statistic-roller';
@@ -276,5 +277,11 @@ describe(StatisticsView, () => {
     const host = hostOf(await render(FIGHTER_STATISTICS));
 
     expect(host.querySelector('pio-proficiency-rank fr-glyph')).toBeNull();
+  });
+
+  it('marks a total a battle form sets as from the form, and leaves a higher own value plain', async () => {
+    const host = hostOf(await render(FORM_STATISTICS));
+
+    expect(rows(host)).toStrictEqual(['Armor Class 10 from Golem Form', 'Fortitude +10']);
   });
 });

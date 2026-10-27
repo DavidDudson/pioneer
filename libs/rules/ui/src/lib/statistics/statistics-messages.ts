@@ -12,6 +12,8 @@ export const StatisticsMessage = {
   Computed: 'rules.statistics.computed',
   /** "+2 circumstance when your shield is raised (Steel Shield)": a conditional line beside the total. */
   Conditional: 'rules.statistics.conditional',
+  /** "from Plant Form": what a battle form sets the statistic from. */
+  FromForm: 'rules.statistics.fromForm',
   /** The label of the button that rolls a check: "Roll Perception". */
   Roll: 'rules.statistics.roll',
   /** The label of the button that opens a roll to review its situations first: "Roll Perception with options". */
