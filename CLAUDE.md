@@ -64,13 +64,19 @@ relax a rule without a reason recorded beside it. Rules that trip agents most:
 
 ## Checks
 
-`just db-up` for Postgres, then `bun run affected` and `bun run lint:workspace` before every PR; CI runs
+**CI runs the full checks; locally run only small, cheap ones.** Verify with oxlint and oxfmt on the changed files, the
+touched project's `typecheck`, and the specs next to the change (`bunx nx run <project>:test --include="**/<name>.spec.ts"`).
+Never run `bun run affected`, `nx affected`, `bun run lint:workspace` or `bun run check` locally: the affected space
+is often large and they use a lot of CPU. Run every lint, typecheck or test command through
+`.claude/scripts/run-check.sh <command>`: it waits until the machine's load is under 70% of its cores and holds one
+lock shared by all workspaces, so only one workspace runs checks at a time (the others queue). Check `uptime` first if
+you are unsure how busy the machine is. `just db-up` for Postgres only when a db test you run needs it. CI runs
 `bun run check` split across parallel jobs (the `ci:*` scripts); a new `check` target goes in one of them too.
 
 ### Formatters and linters
 
 Run these in the devshell (`nix develop -c bash -c '<cmd>'`). Hooks (`just hooks`, `prek.toml`) run the file-level
-ones on staged files; `bun run lint:workspace` runs the whole-repo ones. **Never run Prettier**, with `bunx prettier`
+ones on staged files; `bun run lint:workspace` runs the whole-repo ones (CI). **Never run Prettier**, with `bunx prettier`
 or any other way: the formatter is `oxfmt`, and one Prettier pass rewrites unrelated files.
 
 | Tool                                                   | Owns                                                   | Check                                                                   | Fix                                       |
@@ -89,8 +95,9 @@ or any other way: the formatter is `oxfmt`, and one Prettier pass rewrites unrel
 | tsc                                                    | Types                                                  | `bunx nx run <project>:typecheck`                                       | Fix the code                              |
 | bun test, vitest                                       | Tests: `bun test` for libs and API, vitest for Angular | `bunx nx run <project>:test`; one spec: `--include="**/<name>.spec.ts"` | Fix the code                              |
 
-| Scope                              | Command                           |
-| ---------------------------------- | --------------------------------- |
-| Projects your change touches       | `bun run affected`                |
-| Repo-wide linters and format check | `bun run lint:workspace`          |
-| Everything CI runs                 | `bun run check` (or `just check`) |
+| Scope                              | Command                                                        |
+| ---------------------------------- | -------------------------------------------------------------- |
+| Your change (run locally)          | oxlint/oxfmt on the files, one project's `typecheck` and specs |
+| Projects CI says are affected      | `bun run affected` (CI only, not locally)                      |
+| Repo-wide linters and format check | `bun run lint:workspace` (CI only, not locally)                |
+| Everything CI runs                 | `bun run check` (CI only, not locally)                         |

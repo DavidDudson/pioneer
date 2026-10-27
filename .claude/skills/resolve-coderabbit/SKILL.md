@@ -1,6 +1,10 @@
 ---
 name: resolve-coderabbit
-description: Work through CodeRabbit (and Copilot) review feedback on a Pioneer PR. Lists unresolved threads and review-body nitpicks, verifies each against the current code, fixes the valid ones with minimal changes, pushes, and replies in each thread with the fixing commit or the reason it was not changed. Use when the user says "resolve CodeRabbit feedback", "address the review", "fix the review comments", or when create-pr, work-issue or pickup reach the feedback step.
+description: Work through CodeRabbit (and Copilot) review feedback on a Pioneer PR. Lists unresolved threads and
+review-body nitpicks, verifies each against the current code, fixes the valid ones with minimal changes, pushes, and
+replies in each thread with the fixing commit or the reason it was not changed. Use when the user says "resolve
+CodeRabbit feedback", "address the review", "fix the review comments", or when create-pr, work-issue or pickup reach
+the feedback step.
 argument-hint: '[pr-number]'
 ---
 
@@ -52,8 +56,9 @@ a strong, cited reason.
 
 - Group related fixes into one commit; unrelated ones into separate commits. Conventional messages, for example
   `fix(api): reject stale pid files in down`.
-- Rerun the mechanical checks for touched projects: `bun run affected` and `bun run lint:workspace` (`just db-up`
-  first if db tests are affected).
+- Rerun the small local checks for the files you changed, through `.claude/scripts/run-check.sh`: oxlint, the
+  project's typecheck and the specs next to the
+  fix. Never `bun run affected` or `bun run lint:workspace`; CI runs those.
 - Push. Note each commit's short SHA for the replies.
 - If a fix changes what a user sees, retake the affected after screenshots and update the PR body (`create-pr`
   step 4).
@@ -63,15 +68,18 @@ a strong, cited reason.
 Reply to the thread's first comment (the API threads replies under it):
 
 ```sh
-gh api "repos/{owner}/{repo}/pulls/<pr>/comments/<comment>/replies" -f body="Fixed in <sha>: <what changed, one or two sentences>."
-gh api "repos/{owner}/{repo}/pulls/<pr>/comments/<comment>/replies" -f body="Not changing: <reason, citing the ADR, rule or file>."
+gh api "repos/{owner}/{repo}/pulls/<pr>/comments/<comment>/replies" -f body="Fixed in <sha>: <what changed, one or two
+sentences>."
+gh api "repos/{owner}/{repo}/pulls/<pr>/comments/<comment>/replies" -f body="Not changing: <reason, citing the ADR,
+rule or file>."
 ```
 
 Then resolve the thread. You may resolve any Copilot or CodeRabbit thread you have replied to: **Fix**, **Already
 fixed** and **Decline** alike. The reply records the outcome, and nothing waits on a bot to close it:
 
 ```sh
-gh api graphql -f query='mutation($id: ID!) { resolveReviewThread(input: {threadId: $id}) { thread { isResolved } } }' -f id=<thread>
+gh api graphql -f query='mutation($id: ID!) { resolveReviewThread(input: {threadId: $id}) { thread { isResolved } } }'
+-f id=<thread>
 ```
 
 - Resolve only after the reply is posted, and for a fix only after the fixing commit is pushed.

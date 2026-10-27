@@ -8,7 +8,7 @@ argument-hint: '<epic-number> | sync | submit | view | merge'
 
 Policy: **an epic is delivered as a stack.** Each story is a sub-issue of the epic, one layer of the stack, one
 PR that closes that story. Layers are ordered by the stories' blocked-by links (bottom = first to build). Each
-layer is still a full-stack slice that passes `bun run affected` on its own. Keep stacks to about five layers;
+layer is still a full-stack slice that CI passes on its own. Keep stacks to about five layers;
 split a bigger epic into consecutive stacks.
 
 Tooling: GitHub's native stacked PRs through `gh stack` (`github/gh-stack`). Check with `gh stack --help`; if it

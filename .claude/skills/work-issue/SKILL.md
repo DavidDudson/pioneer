@@ -1,6 +1,9 @@
 ---
 name: work-issue
-description: Take a Pioneer issue from the project board to a reviewed PR in one loop - pick or read the issue, check it is unblocked, branch, build the full-stack slice, review, open the PR, wait for Copilot and CodeRabbit, and resolve their feedback until the PR is ready to merge. Use when the user says "work on #n", "pick up the next ticket", "do the next Ready issue", "build issue n", or "loop on this issue".
+description: Take a Pioneer issue from the project board to a reviewed PR in one loop - pick or read the issue, check
+it is unblocked, branch, build the full-stack slice, review, open the PR, wait for Copilot and CodeRabbit, and resolve
+their feedback until the PR is ready to merge. Use when the user says "work on #n", "pick up the next ticket", "do the
+next Ready issue", "build issue n", or "loop on this issue".
 argument-hint: '[issue-number | next]'
 ---
 
@@ -20,7 +23,8 @@ progress, merged → Done), except that you move an epic to In progress when its
   ```
 
 - Read it fully: `gh issue view <n> --comments`, its parent epic, its sub-issues, and the docs it links.
-- **Blocked?** `gh api repos/{owner}/{repo}/issues/<n>/dependencies/blocked_by -q '[.[] | select(.state == "open") | .number]'`.
+- **Blocked?** `gh api repos/{owner}/{repo}/issues/<n>/dependencies/blocked_by -q '[.[] | select(.state == "open") |
+.number]'`.
   If anything is open, stop and report the blockers.
 - **Epic?** (`type:epic` label) An epic is never built as one PR. It is delivered as a **stack**: one story
   sub-issue per layer, one PR per layer. Hand over to the `stack` skill, which creates the story sub-issues if
@@ -55,8 +59,10 @@ the scratchpad for the PR.
   components only, message keys instead of literal text, migrations generated with drizzle-kit.
 - Tests alongside: property tests for engine and dice logic, `*.db.test.ts` for persistence, component specs.
 - Commit in small conventional commits as you go.
-- Keep running `bun run affected` while building; finish with it and `bun run lint:workspace` green
-  (`just db-up` first when db tests are involved).
+- Verify with small, cheap checks only: oxlint on the changed files, the touched project's typecheck, and the specs
+  next to the change. Run each through `.claude/scripts/run-check.sh` (it waits for CPU and queues behind other
+  workspaces). Never `bun run affected`, `nx affected` or `bun run lint:workspace` locally; CI runs them
+  (`just db-up` only when a db test you run needs it).
 - Stay in scope. Note follow-ups for the PR description instead of building them.
 
 ## 5. Review and PR

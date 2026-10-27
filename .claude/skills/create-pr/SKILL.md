@@ -1,6 +1,9 @@
 ---
 name: create-pr
-description: Create a Pioneer pull request the repo's way. Reviews first, commits with a conventional message, pushes, takes before/after screenshots of UI changes, opens the PR linked to its issue, records it in the ws workspace, requests the first Copilot review and waits for Copilot and CodeRabbit. Use when the user says "create a PR", "open a PR", "ship it", "raise a PR", or when work-issue or pickup reaches the PR step.
+description: Create a Pioneer pull request the repo's way. Reviews first, commits with a conventional message, pushes,
+takes before/after screenshots of UI changes, opens the PR linked to its issue, records it in the ws workspace,
+requests the first Copilot review and waits for Copilot and CodeRabbit. Use when the user says "create a PR", "open a
+PR", "ship it", "raise a PR", or when work-issue or pickup reaches the PR step.
 argument-hint: '[issue-number] [--draft]'
 ---
 
@@ -24,7 +27,9 @@ Copilot and wait.
 ## 2. Review before anything leaves the machine
 
 Run the `review` skill with fixes enabled. Do not continue while it reports unfixed blockers or majors, or while
-`bun run affected` / `bun run lint:workspace` fail. Never commit secrets, `.env` files or build output.
+the small local checks (oxlint, typecheck and specs of the touched projects, each through
+`.claude/scripts/run-check.sh`) fail. Do not run `bun run affected` or `bun run lint:workspace`; CI does. Never commit
+secrets, `.env` files or build output.
 
 ## 3. Commit and push
 
@@ -43,7 +48,7 @@ Run the `review` skill with fixes enabled. Do not continue while it reports unfi
 - End commit messages with the attribution line given in the session's system reminder, if any.
 - Rebase on main last: after the final commit and right before the push, run
   `git fetch origin && git rebase origin/main` (a stack: `gh stack rebase`), resolving conflicts as the `pickup`
-  skill does. If it brought in new commits, re-run `bun run affected` and `bun run lint:workspace`. Nothing but
+  skill does. If it brought in new commits, re-run the small local checks for the files it touched. Nothing but
   the push and the PR comes after it.
 - Push: `git push -u origin HEAD` (`--force-with-lease` when the rebase rewrote a pushed branch). If GitHub
   refuses an HTTPS push that touches `.github/workflows` (the token lacks the `workflow` scope), push over SSH
@@ -103,7 +108,7 @@ Look at every image before uploading it: right screen, no error overlay, no spin
 
 ### Getting the before
 
-Best: capture befores **before the first edit** (work-issue step 3), from the clean branch. Otherwise run main
+Best: capture before **before the first edit** (work-issue step 3), from the clean branch. Otherwise run main
 beside the branch in a detached worktree, on its own ports and database so it does not clash with the branch's dev
 servers or its migrations:
 
