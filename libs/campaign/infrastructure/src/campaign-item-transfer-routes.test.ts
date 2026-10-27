@@ -203,3 +203,66 @@ describe('coin transfer routes', () => {
     expect(Math.max(...statuses)).toBeLessThan(500);
   });
 });
+
+interface Answer {
+  readonly id: string;
+  readonly status: string;
+}
+
+/** Ezren offers Kyra's longsword to Mordred, whom he also owns, and gets the offer's id. */
+async function offered(handler: AnyElysia, id: string): Promise<string> {
+  const response = await handler.handle(
+    request('POST', `/campaigns/${id}/transfers/items`, {
+      as: ezren,
+      body: { from: kyra, to: mordred, item: longsword },
+    }),
+  );
+  const offer = await json<Answer>(response);
+  return offer.id;
+}
+
+describe('answering an offer', () => {
+  test("the recipient's owner accepts an offer, and a second answer is a 409", async () => {
+    const handler = table();
+    const id = await campaign(handler);
+    const transfer = await offered(handler, id);
+
+    const accepted = await handler.handle(
+      request('POST', `/campaigns/${id}/transfers/${transfer}/accept`, { as: ezren }),
+    );
+    const again = await handler.handle(request('POST', `/campaigns/${id}/transfers/${transfer}/accept`, { as: ezren }));
+    const answer = await json<Answer>(accepted);
+
+    expect(accepted.status).toBe(200);
+    expect(answer).toStrictEqual({ id: transfer, status: 'accepted' });
+    expect(again.status).toBe(409);
+  });
+
+  test('the recipient declines an offer', async () => {
+    const handler = table();
+    const id = await campaign(handler);
+    const transfer = await offered(handler, id);
+
+    const declined = await handler.handle(
+      request('POST', `/campaigns/${id}/transfers/${transfer}/decline`, { as: ezren }),
+    );
+    const answer = await json<Answer>(declined);
+
+    expect(declined.status).toBe(200);
+    expect(answer).toStrictEqual({ id: transfer, status: 'declined' });
+  });
+
+  test('a signed-out request is a 401, and a member who does not own the recipient or an unknown offer a 404', async () => {
+    const handler = table();
+    const id = await campaign(handler);
+    const transfer = await offered(handler, id);
+
+    const anonymous = await handler.handle(request('POST', `/campaigns/${id}/transfers/${transfer}/accept`, {}));
+    const gm = await handler.handle(request('POST', `/campaigns/${id}/transfers/${transfer}/accept`, { as: amiri }));
+    const unknown = await handler.handle(
+      request('POST', `/campaigns/${id}/transfers/${newId()}/decline`, { as: ezren }),
+    );
+
+    expect([anonymous.status, gm.status, unknown.status]).toStrictEqual([401, 404, 404]);
+  });
+});

@@ -9,6 +9,8 @@ import type {
   OfferCoinsBody,
   OfferedCoins,
   OfferItemBody,
+  Transfer,
+  TransferAnswerView,
 } from '@pioneer/campaign/domain';
 import { ConflictError, message, newId, NotFoundError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
@@ -20,6 +22,7 @@ import type { CharacterDirectory } from './character-directory';
 import { ItemTransferMessage } from './item-transfer-message';
 import type { ItemTransferRepository } from './item-transfer-repository';
 import type { OfferableLine, OfferablePurse, TransferLines } from './transfer-lines';
+import type { TransferSettlement } from './transfer-settlement';
 
 /** Whether the purse holds at least every coin offered, denomination by denomination. */
 function covers(held: OfferedCoins, offered: OfferedCoins): boolean {
@@ -33,6 +36,7 @@ export interface CampaignItemTransferPorts {
   readonly party: CampaignPartyRepository;
   readonly characters: CharacterDirectory;
   readonly lines: TransferLines;
+  readonly settlement: TransferSettlement;
 }
 
 /**
@@ -46,14 +50,19 @@ export class CampaignItemTransferService {
   readonly #party: CampaignPartyRepository;
   readonly #characters: CharacterDirectory;
   readonly #lines: TransferLines;
+  readonly #settlement: TransferSettlement;
   readonly #clock: Clock;
 
-  public constructor({ campaigns, transfers, party, characters, lines }: CampaignItemTransferPorts, clock: Clock) {
+  public constructor(
+    { campaigns, transfers, party, characters, lines, settlement }: CampaignItemTransferPorts,
+    clock: Clock,
+  ) {
     this.#campaigns = campaigns;
     this.#transfers = transfers;
     this.#party = party;
     this.#characters = characters;
     this.#lines = lines;
+    this.#settlement = settlement;
     this.#clock = clock;
   }
 
@@ -100,6 +109,56 @@ export class CampaignItemTransferService {
     return { id: transfer.id, from: body.from, to: body.to, coins: body.coins, status: transfer.status };
   }
 
+  /**
+   * The owner of the recipient character accepts a pending offer, and the line or coins move in one transaction that
+   * checks both characters' versions. Not a member, an offer outside the campaign, or a recipient the user does not own:
+   * 404. An offer already answered or withdrawn, or a character changed on either side since: 409.
+   */
+  public async accept(actor: UserId, id: CampaignId, transferId: ItemTransferId): Promise<TransferAnswerView> {
+    const transfer = await this.#answerable(actor, id, transferId);
+    await this.#settlement.accept(actor, id, transfer);
+    return { id: transfer.id, status: TransferStatus.Accepted };
+  }
+
+  /** The recipient's owner declines a pending offer; it stays with the giver. Refused as `accept` is. */
+  public async decline(actor: UserId, id: CampaignId, transferId: ItemTransferId): Promise<TransferAnswerView> {
+    const transfer = await this.#answerable(actor, id, transferId);
+    const declined = await this.#transfers.answer({
+      actor,
+      campaignId: id,
+      id: transfer.id,
+      status: TransferStatus.Declined,
+    });
+    if (!declined) {
+      throw new ConflictError(`Transfer ${transfer.id} was already answered`, message(ItemTransferMessage.NotPending));
+    }
+    return { id: transfer.id, status: TransferStatus.Declined };
+  }
+
+  /** A pending offer of the campaign made to one of the actor's own live characters, still in the party. */
+  async #answerable(actor: UserId, id: CampaignId, transferId: ItemTransferId): Promise<Transfer> {
+    await this.#viewed(actor, id);
+    const transfer = await this.#transfers.findById(id, transferId);
+    if (transfer === undefined) {
+      throw new NotFoundError('ItemTransfer', transferId);
+    }
+    await this.#inParty(id, transfer);
+    await this.#ownedRecipient(actor, transfer);
+    if (transfer.status !== TransferStatus.Pending) {
+      throw new ConflictError(`Transfer ${transfer.id} was already answered`, message(ItemTransferMessage.NotPending));
+    }
+    return transfer;
+  }
+
+  /** The recipient is the actor's own live character; another user's is a 404, as is an archived one (ADR-0062). */
+  async #ownedRecipient(actor: UserId, { to }: Pick<Transfer, 'to'>): Promise<void> {
+    const named = await this.#characters.byIds([to]);
+    const recipient = named.get(to);
+    if (recipient === undefined || recipient.ownerId !== actor || recipient.archived) {
+      throw new NotFoundError('Character', to);
+    }
+  }
+
   /** The giver's purse, when it holds every coin offered: a missing character is a 404, a short purse a 409. */
   async #held({ from, coins }: OfferCoinsBody): Promise<OfferablePurse> {
     const purse = await this.#lines.purse(from);
@@ -132,7 +191,7 @@ export class CampaignItemTransferService {
   }
 
   /** Both characters are in the campaign's party; one that is not is a 404. The same character twice is a 409. */
-  async #inParty(id: CampaignId, { from, to }: Pick<OfferItemBody, 'from' | 'to'>): Promise<void> {
+  async #inParty(id: CampaignId, { from, to }: Pick<Transfer, 'from' | 'to'>): Promise<void> {
     const party = await this.#party.listForCampaign(id);
     for (const character of [from, to]) {
       if (!party.some((each) => each.characterId === character)) {

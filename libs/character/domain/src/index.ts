@@ -278,6 +278,7 @@ export {
 } from './character-patch';
 export { type InventoryTarget, inventoryTarget } from './inventory-target';
 export { breakItem } from './inventory-broken';
+export { giveCoins, giveLine, type InventoryTransfer, TransferRefusal } from './inventory-transfer';
 export {
   type Build,
   BuildSchema,

@@ -88,6 +88,8 @@ export const CharacterCommand = {
   TakeBackKeyItem: 'takeBackKeyItem',
   /** The GM promotes a line the character already has to a key item (#926); the line is linked, not added. */
   LinkKeyItem: 'linkKeyItem',
+  /** A campaign character accepts an item or coins another offered it; both characters are written in one transaction. */
+  AcceptTransfer: 'acceptTransfer',
 } as const;
 export type CharacterCommand = ValueOf<typeof CharacterCommand>;
 

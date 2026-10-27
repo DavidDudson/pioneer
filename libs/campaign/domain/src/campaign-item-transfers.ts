@@ -94,3 +94,15 @@ export const CoinTransferView = z.object({
   status: z.enum(TransferStatus),
 });
 export type CoinTransferView = z.output<typeof CoinTransferView>;
+
+/** Either kind of offer. */
+export type Transfer = ItemTransfer | CoinTransfer;
+
+/** Whether the offer is one of coins; an item offer names its line. */
+export function isCoinTransfer(transfer: Transfer): transfer is CoinTransfer {
+  return 'coins' in transfer;
+}
+
+/** An offer after its recipient answered it. */
+export const TransferAnswerView = z.object({ id: ItemTransferId, status: z.enum(TransferStatus) });
+export type TransferAnswerView = z.output<typeof TransferAnswerView>;

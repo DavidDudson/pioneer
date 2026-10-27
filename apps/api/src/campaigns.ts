@@ -39,6 +39,7 @@ import { CampaignVariantRuleCatalog } from './campaign-variant-rule-catalog';
 import { CharacterKeyItemHolders } from './character-key-item-holders';
 import { CharacterTransferLinesAdapter } from './character-transfer-lines';
 import type { Database } from './database';
+import { DatabaseTransferSettlement } from './database-transfer-settlement';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
 import { OwnedCharacterDirectory } from './owned-character-directory';
 import { PartyFlaggedItems } from './party-flagged-items';
@@ -140,6 +141,7 @@ function itemTransferService(
       party: new DrizzleCampaignPartyRepository(db),
       characters: new OwnedCharacterDirectory(db),
       lines: new CharacterTransferLinesAdapter(parts.transferLines),
+      settlement: new DatabaseTransferSettlement(db, clock),
     },
     clock,
   );
