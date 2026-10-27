@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=74"
       }
     ],
     "description": [
@@ -1001,7 +1002,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=75"
       }
     ],
     "description": [
@@ -1986,7 +1988,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=76"
       }
     ],
     "description": [
@@ -3024,7 +3027,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=77"
       }
     ],
     "description": [

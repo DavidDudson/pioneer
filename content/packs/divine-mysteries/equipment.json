@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3593"
       }
     ],
     "description": [
@@ -136,7 +137,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3593"
       }
     ],
     "description": [
@@ -407,7 +409,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3593"
       }
     ],
     "description": [
@@ -743,7 +746,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3593"
       }
     ],
     "description": [

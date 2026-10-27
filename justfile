@@ -47,6 +47,10 @@ content-import *args:
 aon-sources *args:
     bun tools/aon-sources/main.ts {{args}}
 
+# Write mapped pages and AoN URLs onto a pack's book sources, never over a set value (ADR-0070): --pack player-core
+content-enrich *args:
+    bun tools/enrich-content.ts {{args}}
+
 # Everything CI runs
 check:
     bun run check

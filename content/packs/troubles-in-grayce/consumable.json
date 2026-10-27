@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "troubles-in-grayce"
+        "book": "troubles-in-grayce",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5190"
       }
     ],
     "description": [
@@ -80,7 +81,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "troubles-in-grayce"
+        "book": "troubles-in-grayce",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4943"
       }
     ],
     "description": [
@@ -194,7 +196,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "troubles-in-grayce"
+        "book": "troubles-in-grayce",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5192"
       }
     ],
     "description": [
@@ -299,7 +302,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "troubles-in-grayce"
+        "book": "troubles-in-grayce",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4944"
       }
     ],
     "description": [
@@ -533,7 +537,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "troubles-in-grayce"
+        "book": "troubles-in-grayce",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4947"
       }
     ],
     "description": [

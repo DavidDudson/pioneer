@@ -106,7 +106,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7607"
       }
     ],
     "description": [
@@ -288,7 +289,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7610"
       }
     ],
     "description": [
@@ -1782,7 +1784,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7611"
       }
     ],
     "description": [
@@ -2125,7 +2128,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7608"
       }
     ],
     "description": [
@@ -2442,7 +2446,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7609"
       }
     ],
     "description": [
@@ -2515,7 +2520,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7606"
       }
     ],
     "description": [

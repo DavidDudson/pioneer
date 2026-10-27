@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=535"
       }
     ],
     "description": [
@@ -67,7 +68,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=528"
       }
     ],
     "description": [
@@ -424,7 +426,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=532"
       }
     ],
     "description": [
@@ -475,7 +478,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=536"
       }
     ],
     "description": [
@@ -1776,7 +1780,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=529"
       }
     ],
     "description": [
@@ -1948,7 +1953,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=530"
       }
     ],
     "description": [
@@ -1999,7 +2005,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=538"
       }
     ],
     "description": [
@@ -3502,7 +3509,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=533"
       }
     ],
     "description": [
@@ -3633,7 +3641,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=537"
       }
     ],
     "description": [
@@ -3991,7 +4000,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=539"
       }
     ],
     "description": [
@@ -4318,7 +4328,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=531"
       }
     ],
     "description": [
@@ -5169,7 +5180,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=534"
       }
     ],
     "description": [

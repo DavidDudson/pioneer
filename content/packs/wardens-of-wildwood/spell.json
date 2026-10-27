@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2439"
       }
     ],
     "description": [

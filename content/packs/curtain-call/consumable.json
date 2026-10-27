@@ -244,7 +244,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3629"
       }
     ],
     "description": [

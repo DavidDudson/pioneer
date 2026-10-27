@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3769"
       }
     ],
     "description": [
@@ -140,7 +141,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3769"
       }
     ],
     "description": [
@@ -269,7 +271,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3770"
       }
     ],
     "description": [
@@ -407,7 +410,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3770"
       }
     ],
     "description": [
@@ -545,7 +549,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3771"
       }
     ],
     "description": [
@@ -678,7 +683,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3771"
       }
     ],
     "description": [

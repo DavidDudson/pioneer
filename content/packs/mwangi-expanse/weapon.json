@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "mwangi-expanse"
+        "book": "mwangi-expanse",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=168"
       }
     ],
     "description": [

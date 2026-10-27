@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2091"
       }
     ],
     "description": [
@@ -180,7 +181,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2085"
       }
     ],
     "description": [
@@ -225,7 +227,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2067"
       }
     ],
     "description": [
@@ -282,7 +285,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2068"
       }
     ],
     "description": [
@@ -406,7 +410,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2114"
       }
     ],
     "description": [
@@ -486,7 +491,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2066"
       }
     ],
     "description": [
@@ -655,7 +661,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2093"
       }
     ],
     "description": [
@@ -739,7 +746,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2094"
       }
     ],
     "description": [
@@ -818,7 +826,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1963"
       }
     ],
     "description": [
@@ -883,7 +892,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1964"
       }
     ],
     "description": [
@@ -990,7 +1000,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1965"
       }
     ],
     "description": [
@@ -1059,7 +1070,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2116"
       }
     ],
     "description": [
@@ -1154,7 +1166,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2073"
       }
     ],
     "description": [
@@ -1225,7 +1238,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2070"
       }
     ],
     "description": [
@@ -1291,7 +1305,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1962"
       }
     ],
     "description": [
@@ -1425,7 +1440,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1966"
       }
     ],
     "description": [
@@ -1579,7 +1595,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1967"
       }
     ],
     "description": [
@@ -1741,7 +1758,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1968"
       }
     ],
     "description": [
@@ -1907,7 +1925,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1969"
       }
     ],
     "description": [
@@ -2072,7 +2091,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1970"
       }
     ],
     "description": [
@@ -2242,7 +2262,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2084"
       }
     ],
     "description": [
@@ -2351,7 +2372,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1971"
       }
     ],
     "description": [
@@ -2462,7 +2484,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1972"
       }
     ],
     "description": [
@@ -2532,7 +2555,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2095"
       }
     ],
     "description": [
@@ -2633,7 +2657,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1973"
       }
     ],
     "description": [
@@ -2730,7 +2755,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2050"
       }
     ],
     "description": [
@@ -2800,7 +2826,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1974"
       }
     ],
     "description": [
@@ -2929,7 +2956,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1975"
       }
     ],
     "description": [
@@ -3072,7 +3100,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1976"
       }
     ],
     "description": [
@@ -3224,7 +3253,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2098"
       }
     ],
     "description": [
@@ -3587,7 +3617,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2074"
       }
     ],
     "description": [
@@ -3727,7 +3758,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2061"
       }
     ],
     "description": [
@@ -3792,7 +3824,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1977"
       }
     ],
     "description": [
@@ -3918,7 +3951,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1978"
       }
     ],
     "description": [
@@ -4092,7 +4126,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1979"
       }
     ],
     "description": [
@@ -4299,7 +4334,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1980"
       }
     ],
     "description": [
@@ -4436,7 +4472,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1981"
       }
     ],
     "description": [
@@ -4561,7 +4598,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1982"
       }
     ],
     "description": [
@@ -4680,7 +4718,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1983"
       }
     ],
     "description": [
@@ -4745,7 +4784,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1984"
       }
     ],
     "description": [
@@ -4829,7 +4869,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1985"
       }
     ],
     "description": [
@@ -5077,7 +5118,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1986"
       }
     ],
     "description": [
@@ -5158,7 +5200,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2082"
       }
     ],
     "description": [
@@ -5263,7 +5306,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2099"
       }
     ],
     "description": [
@@ -5330,7 +5374,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1987"
       }
     ],
     "description": [
@@ -5451,7 +5496,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2103"
       }
     ],
     "description": [
@@ -5534,7 +5580,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2104"
       }
     ],
     "description": [
@@ -5613,7 +5660,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2118"
       }
     ],
     "description": [
@@ -5715,7 +5763,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2086"
       }
     ],
     "description": [
@@ -5859,7 +5908,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1988"
       }
     ],
     "description": [
@@ -5908,7 +5958,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1989"
       }
     ],
     "description": [
@@ -6016,7 +6067,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1990"
       }
     ],
     "description": [
@@ -6136,7 +6188,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2107"
       }
     ],
     "description": [
@@ -6255,7 +6308,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2106"
       }
     ],
     "description": [
@@ -6442,7 +6496,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2105"
       }
     ],
     "description": [
@@ -6527,7 +6582,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2059"
       }
     ],
     "description": [
@@ -6589,7 +6645,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2100"
       }
     ],
     "description": [
@@ -6660,7 +6717,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2115"
       }
     ],
     "description": [
@@ -6700,7 +6758,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2108"
       }
     ],
     "description": [
@@ -6877,7 +6936,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1991"
       }
     ],
     "description": [
@@ -6932,7 +6992,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2109"
       }
     ],
     "description": [
@@ -7010,7 +7071,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2110"
       }
     ],
     "description": [
@@ -7117,7 +7179,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1992"
       }
     ],
     "description": [
@@ -7229,7 +7292,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2080"
       }
     ],
     "description": [
@@ -7353,7 +7417,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2102"
       }
     ],
     "description": [
@@ -7467,7 +7532,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1993"
       }
     ],
     "description": [
@@ -7623,7 +7689,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1994"
       }
     ],
     "description": [
@@ -7766,7 +7833,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1995"
       }
     ],
     "description": [
@@ -7838,7 +7906,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1996"
       }
     ],
     "description": [
@@ -7975,7 +8044,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2096"
       }
     ],
     "description": [
@@ -8070,7 +8140,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2119"
       }
     ],
     "description": [
@@ -8225,7 +8296,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1997"
       }
     ],
     "description": [
@@ -8338,7 +8410,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1998"
       }
     ],
     "description": [
@@ -8511,7 +8584,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2064"
       }
     ],
     "description": [
@@ -8614,7 +8688,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1999"
       }
     ],
     "description": [
@@ -8706,7 +8781,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2101"
       }
     ],
     "description": [
@@ -8800,7 +8876,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2051"
       }
     ],
     "description": [
@@ -8898,7 +8975,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2000"
       }
     ],
     "description": [
@@ -9018,7 +9096,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2112"
       }
     ],
     "description": [
@@ -9183,7 +9262,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2001"
       }
     ],
     "description": [
@@ -9300,7 +9380,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2002"
       }
     ],
     "description": [
@@ -9358,7 +9439,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2003"
       }
     ],
     "description": [
@@ -9469,7 +9551,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2078"
       }
     ],
     "description": [
@@ -9558,7 +9641,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2053"
       }
     ],
     "description": [
@@ -9648,7 +9732,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2076"
       }
     ],
     "description": [
@@ -9763,7 +9848,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2004"
       }
     ],
     "description": [
@@ -9874,7 +9960,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2111"
       }
     ],
     "description": [
@@ -10014,7 +10101,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2047"
       }
     ],
     "description": [
@@ -10185,7 +10273,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2005"
       }
     ],
     "description": [
@@ -10342,7 +10431,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2083"
       }
     ],
     "description": [
@@ -10441,7 +10531,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2081"
       }
     ],
     "description": [
@@ -10607,7 +10698,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2006"
       }
     ],
     "description": [
@@ -10680,7 +10772,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2007"
       }
     ],
     "description": [
@@ -10774,7 +10867,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2008"
       }
     ],
     "description": [
@@ -10929,7 +11023,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2057"
       }
     ],
     "description": [
@@ -11028,7 +11123,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2077"
       }
     ],
     "description": [
@@ -11130,7 +11226,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2009"
       }
     ],
     "description": [
@@ -11183,7 +11280,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2010"
       }
     ],
     "description": [
@@ -11338,7 +11436,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2011"
       }
     ],
     "description": [
@@ -11444,7 +11543,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2012"
       }
     ],
     "description": [
@@ -11577,7 +11677,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2013"
       }
     ],
     "description": [
@@ -11724,7 +11825,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2014"
       }
     ],
     "description": [
@@ -12008,7 +12110,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2015"
       }
     ],
     "description": [
@@ -12074,7 +12177,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2016"
       }
     ],
     "description": [
@@ -12239,7 +12343,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2055"
       }
     ],
     "description": [
@@ -12477,7 +12582,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2060"
       }
     ],
     "description": [
@@ -12559,7 +12665,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2054"
       }
     ],
     "description": [
@@ -12616,7 +12723,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2017"
       }
     ],
     "description": [
@@ -12689,7 +12797,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2018"
       }
     ],
     "description": [
@@ -12772,7 +12881,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2071"
       }
     ],
     "description": [
@@ -12860,7 +12970,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2019"
       }
     ],
     "description": [
@@ -12972,7 +13083,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2020"
       }
     ],
     "description": [
@@ -13127,7 +13239,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2021"
       }
     ],
     "description": [
@@ -13238,7 +13351,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2022"
       }
     ],
     "description": [
@@ -13395,7 +13509,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2023"
       }
     ],
     "description": [
@@ -13482,7 +13597,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2024"
       }
     ],
     "description": [
@@ -13628,7 +13744,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2063"
       }
     ],
     "description": [
@@ -13817,7 +13934,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2025"
       }
     ],
     "description": [
@@ -13902,7 +14020,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2049"
       }
     ],
     "description": [
@@ -14022,7 +14141,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2026"
       }
     ],
     "description": [
@@ -14071,7 +14191,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2056"
       }
     ],
     "description": [
@@ -14111,7 +14232,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2072"
       }
     ],
     "description": [
@@ -14289,7 +14411,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2052"
       }
     ],
     "description": [
@@ -14357,7 +14480,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2027"
       }
     ],
     "description": [
@@ -14423,7 +14547,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2028"
       }
     ],
     "description": [
@@ -14515,7 +14640,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2029"
       }
     ],
     "description": [
@@ -14676,7 +14802,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2030"
       }
     ],
     "description": [
@@ -14850,7 +14977,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2031"
       }
     ],
     "description": [
@@ -14964,7 +15092,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2075"
       }
     ],
     "description": [
@@ -15115,7 +15244,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2032"
       }
     ],
     "description": [
@@ -15219,7 +15349,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2033"
       }
     ],
     "description": [
@@ -15317,7 +15448,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2034"
       }
     ],
     "description": [
@@ -15412,7 +15544,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2097"
       }
     ],
     "description": [
@@ -15550,7 +15683,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2035"
       }
     ],
     "description": [
@@ -15796,7 +15930,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2036"
       }
     ],
     "description": [
@@ -15856,7 +15991,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2089"
       }
     ],
     "description": [
@@ -16006,7 +16142,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2087"
       }
     ],
     "description": [
@@ -16175,7 +16312,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2090"
       }
     ],
     "description": [
@@ -16237,7 +16375,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2037"
       }
     ],
     "description": [
@@ -16341,7 +16480,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2038"
       }
     ],
     "description": [
@@ -16409,7 +16549,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2088"
       }
     ],
     "description": [
@@ -16575,7 +16716,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2058"
       }
     ],
     "description": [
@@ -16762,7 +16904,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2048"
       }
     ],
     "description": [
@@ -16933,7 +17076,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2117"
       }
     ],
     "description": [
@@ -17092,7 +17236,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2092"
       }
     ],
     "description": [
@@ -17219,7 +17364,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2039"
       }
     ],
     "description": [
@@ -17397,7 +17543,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2040"
       }
     ],
     "description": [
@@ -17498,7 +17645,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2041"
       }
     ],
     "description": [
@@ -17591,7 +17739,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2042"
       }
     ],
     "description": [
@@ -17803,7 +17952,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2043"
       }
     ],
     "description": [
@@ -17848,7 +17998,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2044"
       }
     ],
     "description": [
@@ -18006,7 +18157,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2069"
       }
     ],
     "description": [
@@ -18060,7 +18212,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2045"
       }
     ],
     "description": [
@@ -18244,7 +18397,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2079"
       }
     ],
     "description": [
@@ -18343,7 +18497,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2046"
       }
     ],
     "description": [
@@ -18500,7 +18655,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2062"
       }
     ],
     "description": [
@@ -18576,7 +18732,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2065"
       }
     ],
     "description": [
@@ -18656,7 +18813,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2113"
       }
     ],
     "description": [

@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-the-unlit-star"
+        "book": "secrets-of-the-unlit-star",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4350"
       }
     ],
     "description": [

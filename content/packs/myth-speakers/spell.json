@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2521"
       }
     ],
     "description": [
@@ -178,7 +179,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2519"
       }
     ],
     "description": [
@@ -263,7 +265,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2522"
       }
     ],
     "description": [
@@ -335,7 +338,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2520"
       }
     ],
     "description": [

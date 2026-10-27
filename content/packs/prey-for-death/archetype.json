@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=271"
       }
     ],
     "description": [

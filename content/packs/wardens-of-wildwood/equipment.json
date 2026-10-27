@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3716"
       }
     ],
     "description": [

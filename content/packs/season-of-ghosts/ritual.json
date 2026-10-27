@@ -153,7 +153,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=234"
       }
     ],
     "description": [
@@ -340,7 +341,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=240"
       }
     ],
     "description": [],
@@ -409,7 +411,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=241"
       }
     ],
     "description": [

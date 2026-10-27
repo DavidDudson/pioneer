@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=232"
       }
     ],
     "description": [
@@ -60,7 +61,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=233"
       }
     ],
     "description": [

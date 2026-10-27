@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=208"
       }
     ],
     "description": [
@@ -183,7 +184,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=209"
       }
     ],
     "description": [
@@ -331,7 +333,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=210"
       }
     ],
     "description": [
@@ -485,7 +488,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=212"
       }
     ],
     "description": [
@@ -765,7 +769,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=213"
       }
     ],
     "description": [
@@ -889,7 +894,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=214"
       }
     ],
     "description": [
@@ -1017,7 +1023,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=215"
       }
     ],
     "description": [
@@ -1168,7 +1175,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=216"
       }
     ],
     "description": [

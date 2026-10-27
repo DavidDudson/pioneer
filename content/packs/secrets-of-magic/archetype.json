@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=97"
       }
     ],
     "description": [
@@ -81,7 +82,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=100"
       }
     ],
     "description": [
@@ -123,7 +125,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=95"
       }
     ],
     "description": [
@@ -156,7 +159,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=101"
       }
     ],
     "description": [

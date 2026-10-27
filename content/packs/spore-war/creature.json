@@ -2434,7 +2434,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3776"
       }
     ],
     "description": [
@@ -3864,7 +3865,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3777"
       }
     ],
     "description": [
@@ -6736,7 +6738,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3778"
       }
     ],
     "description": [
@@ -14697,7 +14700,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3779"
       }
     ],
     "description": [
@@ -16788,7 +16792,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3780"
       }
     ],
     "description": [],
@@ -23936,7 +23941,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3781"
       }
     ],
     "description": [

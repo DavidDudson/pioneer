@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=31"
       }
     ],
     "description": [
@@ -65,7 +66,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=35"
       }
     ],
     "description": [
@@ -104,7 +106,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=32"
       }
     ],
     "description": [
@@ -159,7 +162,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=33"
       }
     ],
     "description": [
@@ -290,7 +294,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=39"
       }
     ],
     "description": [
@@ -330,7 +335,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=37"
       }
     ],
     "description": [
@@ -402,7 +408,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=38"
       }
     ],
     "description": [
@@ -492,7 +499,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=36"
       }
     ],
     "description": [
@@ -548,7 +556,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=30"
       }
     ],
     "description": [

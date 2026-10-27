@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "bastion-of-blasphemies"
+        "book": "bastion-of-blasphemies",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5196"
       }
     ],
     "description": [
@@ -107,7 +108,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "bastion-of-blasphemies"
+        "book": "bastion-of-blasphemies",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5203"
       }
     ],
     "description": [
@@ -160,7 +162,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "bastion-of-blasphemies"
+        "book": "bastion-of-blasphemies",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5203"
       }
     ],
     "description": [
@@ -213,7 +216,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "bastion-of-blasphemies"
+        "book": "bastion-of-blasphemies",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5203"
       }
     ],
     "description": [

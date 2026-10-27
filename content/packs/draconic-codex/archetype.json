@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=333"
       }
     ],
     "description": [
@@ -60,7 +61,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=334"
       }
     ],
     "description": [

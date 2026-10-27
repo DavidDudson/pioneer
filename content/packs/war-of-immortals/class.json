@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=64"
       }
     ],
     "description": [
@@ -993,7 +994,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=65"
       }
     ],
     "description": [

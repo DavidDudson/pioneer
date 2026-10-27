@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=103"
       }
     ],
     "description": [
@@ -159,7 +160,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=104"
       }
     ],
     "description": [
@@ -301,7 +303,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=102"
       }
     ],
     "description": [

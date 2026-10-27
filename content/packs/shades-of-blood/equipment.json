@@ -458,7 +458,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
       }
     ],
     "description": [
@@ -591,7 +592,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
       }
     ],
     "description": [
@@ -3297,7 +3299,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shades-of-blood"
+        "book": "shades-of-blood",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3789"
       }
     ],
     "description": [

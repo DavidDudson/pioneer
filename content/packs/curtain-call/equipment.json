@@ -340,7 +340,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3632"
       }
     ],
     "description": [
@@ -1679,7 +1680,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3633"
       }
     ],
     "description": [
@@ -1933,7 +1935,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3630"
       }
     ],
     "description": [
@@ -3038,7 +3041,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3631"
       }
     ],
     "description": [
@@ -3152,7 +3156,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3634"
       }
     ],
     "description": [
@@ -3402,7 +3407,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3635"
       }
     ],
     "description": [

@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2134"
       }
     ],
     "description": [
@@ -113,7 +114,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2132"
       }
     ],
     "description": [
@@ -199,7 +201,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2133"
       }
     ],
     "description": [
@@ -556,7 +559,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2135"
       }
     ],
     "description": [

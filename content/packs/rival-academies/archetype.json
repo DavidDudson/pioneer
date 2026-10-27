@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rival-academies"
+        "book": "rival-academies",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=300"
       }
     ],
     "description": [
@@ -137,7 +138,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rival-academies"
+        "book": "rival-academies",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=301"
       }
     ],
     "description": [
@@ -214,7 +216,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rival-academies"
+        "book": "rival-academies",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=302"
       }
     ],
     "description": [

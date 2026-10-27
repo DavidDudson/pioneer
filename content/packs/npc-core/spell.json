@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2335"
       }
     ],
     "description": [
@@ -64,7 +65,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2336"
       }
     ],
     "description": [
@@ -165,7 +167,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2337"
       }
     ],
     "description": [
@@ -254,7 +257,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2338"
       }
     ],
     "description": [

@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=435"
       }
     ],
     "description": [
@@ -58,7 +59,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=434"
       }
     ],
     "description": [
@@ -96,7 +98,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=437"
       }
     ],
     "description": [
@@ -137,7 +140,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=436"
       }
     ],
     "description": [

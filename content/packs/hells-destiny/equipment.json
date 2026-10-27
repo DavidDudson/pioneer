@@ -65,7 +65,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hells-destiny"
+        "book": "hells-destiny",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4952"
       }
     ],
     "description": [
@@ -280,7 +281,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hells-destiny"
+        "book": "hells-destiny",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4953"
       }
     ],
     "description": [
@@ -643,7 +645,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hells-destiny"
+        "book": "hells-destiny",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4956"
       }
     ],
     "description": [
@@ -695,7 +698,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hells-destiny"
+        "book": "hells-destiny",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4956"
       }
     ],
     "description": [
@@ -747,7 +751,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hells-destiny"
+        "book": "hells-destiny",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4956"
       }
     ],
     "description": [

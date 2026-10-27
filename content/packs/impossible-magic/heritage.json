@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=438"
       }
     ],
     "description": [
@@ -46,7 +47,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=439"
       }
     ],
     "description": [

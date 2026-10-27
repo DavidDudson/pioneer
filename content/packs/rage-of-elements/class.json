@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=23"
       }
     ],
     "description": [

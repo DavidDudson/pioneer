@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "the-dead-gods-hand"
+        "book": "the-dead-gods-hand",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=9419"
       }
     ],
     "description": [

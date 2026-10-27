@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=305"
       }
     ],
     "description": [
@@ -110,7 +111,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=307"
       }
     ],
     "description": [
@@ -160,7 +162,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=308"
       }
     ],
     "description": [
@@ -242,7 +245,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=309"
       }
     ],
     "description": [
@@ -324,7 +328,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=310"
       }
     ],
     "description": [

@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=373"
       }
     ],
     "description": [
@@ -119,7 +120,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=372"
       }
     ],
     "description": [
@@ -219,7 +221,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=381"
       }
     ],
     "description": [
@@ -346,7 +349,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=377"
       }
     ],
     "description": [
@@ -439,7 +443,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=378"
       }
     ],
     "description": [
@@ -548,7 +553,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=380"
       }
     ],
     "description": [
@@ -657,7 +663,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=376"
       }
     ],
     "description": [
@@ -734,7 +741,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=374"
       }
     ],
     "description": [
@@ -852,7 +860,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=375"
       }
     ],
     "description": [
@@ -943,7 +952,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=379"
       }
     ],
     "description": [

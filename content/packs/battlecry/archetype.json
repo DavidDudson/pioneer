@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=324"
       }
     ],
     "description": [
@@ -78,7 +79,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=332"
       }
     ],
     "description": [
@@ -137,7 +139,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=322"
       }
     ],
     "description": [
@@ -171,7 +174,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=325"
       }
     ],
     "description": [
@@ -239,7 +243,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=326"
       }
     ],
     "description": [
@@ -298,7 +303,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=323"
       }
     ],
     "description": [
@@ -332,7 +338,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=327"
       }
     ],
     "description": [
@@ -388,7 +395,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=328"
       }
     ],
     "description": [
@@ -447,7 +455,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=330"
       }
     ],
     "description": [

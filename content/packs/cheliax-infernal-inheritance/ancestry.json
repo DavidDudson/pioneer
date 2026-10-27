@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=99"
       }
     ],
     "description": [
@@ -196,7 +197,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=100"
       }
     ],
     "description": [
@@ -398,7 +400,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=101"
       }
     ],
     "description": [

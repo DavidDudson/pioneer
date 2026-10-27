@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=59"
       }
     ],
     "description": [
@@ -66,7 +67,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=60"
       }
     ],
     "description": [
@@ -110,7 +112,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=61"
       }
     ],
     "description": [
@@ -154,7 +157,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=62"
       }
     ],
     "description": [
@@ -207,7 +211,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=63"
       }
     ],
     "description": [
@@ -322,7 +327,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=64"
       }
     ],
     "description": [
@@ -365,7 +371,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=65"
       }
     ],
     "description": [
@@ -409,7 +416,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=66"
       }
     ],
     "description": [
@@ -486,7 +494,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=67"
       }
     ],
     "description": [
@@ -539,7 +548,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=68"
       }
     ],
     "description": [
@@ -586,7 +596,9 @@
       "group": "abilities",
       "overrides": [],
       "implies": [],
-      "recovery": { "rest": "lower" }
+      "recovery": {
+        "rest": "lower"
+      }
     }
   },
   {
@@ -600,7 +612,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=69"
       }
     ],
     "description": [
@@ -667,7 +680,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=70"
       }
     ],
     "description": [
@@ -723,7 +737,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=71"
       }
     ],
     "description": [
@@ -767,7 +782,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=72"
       }
     ],
     "description": [
@@ -826,7 +842,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=73"
       }
     ],
     "description": [
@@ -865,7 +882,9 @@
       "valued": false,
       "overrides": [],
       "implies": [],
-      "recovery": { "rest": "remove" }
+      "recovery": {
+        "rest": "remove"
+      }
     }
   },
   {
@@ -879,7 +898,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=74"
       }
     ],
     "description": [
@@ -930,7 +950,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=75"
       }
     ],
     "description": [
@@ -980,7 +1001,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=76"
       }
     ],
     "description": [
@@ -1010,7 +1032,9 @@
       "valued": true,
       "overrides": [],
       "implies": [],
-      "recovery": { "turn-end": "lower" }
+      "recovery": {
+        "turn-end": "lower"
+      }
     }
   },
   {
@@ -1024,7 +1048,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=77"
       }
     ],
     "description": [
@@ -1093,7 +1118,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=78"
       }
     ],
     "description": [
@@ -1143,7 +1169,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=79"
       }
     ],
     "description": [
@@ -1230,7 +1257,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=80"
       }
     ],
     "description": [
@@ -1280,7 +1308,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=81"
       }
     ],
     "description": [
@@ -1315,7 +1344,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=82"
       }
     ],
     "description": [
@@ -1356,7 +1386,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=83"
       }
     ],
     "description": [
@@ -1432,7 +1463,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=84"
       }
     ],
     "description": [
@@ -1501,7 +1533,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=58"
       }
     ],
     "description": [
@@ -1544,7 +1577,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=85"
       }
     ],
     "description": [
@@ -1608,7 +1642,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=86"
       }
     ],
     "description": [
@@ -1652,7 +1687,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=87"
       }
     ],
     "description": [
@@ -1687,7 +1723,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=88"
       }
     ],
     "description": [
@@ -1802,7 +1839,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=89"
       }
     ],
     "description": [
@@ -1837,7 +1875,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=90"
       }
     ],
     "description": [
@@ -1942,7 +1981,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=91"
       }
     ],
     "description": [
@@ -1994,7 +2034,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=92"
       }
     ],
     "description": [
@@ -2029,7 +2070,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=93"
       }
     ],
     "description": [
@@ -2081,7 +2123,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=94"
       }
     ],
     "description": [
@@ -2141,7 +2184,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=95"
       }
     ],
     "description": [
@@ -2321,7 +2365,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=96"
       }
     ],
     "description": [
@@ -2399,7 +2444,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=97"
       }
     ],
     "description": [
@@ -2449,7 +2495,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=98"
       }
     ],
     "description": [
@@ -2493,7 +2540,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Conditions.aspx?ID=99"
       }
     ],
     "description": [

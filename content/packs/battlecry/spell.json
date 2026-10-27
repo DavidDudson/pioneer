@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2490"
       }
     ],
     "description": [
@@ -109,7 +110,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2493"
       }
     ],
     "description": [
@@ -393,7 +395,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2494"
       }
     ],
     "description": [
@@ -597,7 +600,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2495"
       }
     ],
     "description": [
@@ -685,7 +689,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2496"
       }
     ],
     "description": [
@@ -833,7 +838,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2497"
       }
     ],
     "description": [
@@ -1114,7 +1120,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2498"
       }
     ],
     "description": [
@@ -1279,7 +1286,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2499"
       }
     ],
     "description": [
@@ -1363,7 +1371,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2500"
       }
     ],
     "description": [
@@ -1447,7 +1456,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2501"
       }
     ],
     "description": [
@@ -1518,7 +1528,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2502"
       }
     ],
     "description": [
@@ -1646,7 +1657,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2503"
       }
     ],
     "description": [
@@ -1737,7 +1749,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2504"
       }
     ],
     "description": [
@@ -1822,7 +1835,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2505"
       }
     ],
     "description": [
@@ -1979,7 +1993,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2506"
       }
     ],
     "description": [
@@ -2107,7 +2122,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2507"
       }
     ],
     "description": [
@@ -2245,7 +2261,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2508"
       }
     ],
     "description": [
@@ -3039,7 +3056,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2509"
       }
     ],
     "description": [
@@ -3164,7 +3182,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2510"
       }
     ],
     "description": [
@@ -3340,7 +3359,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2492"
       }
     ],
     "description": [
@@ -3442,7 +3462,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2511"
       }
     ],
     "description": [
@@ -3592,7 +3613,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2512"
       }
     ],
     "description": [
@@ -4599,7 +4621,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2489"
       }
     ],
     "description": [
@@ -4676,7 +4699,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2513"
       }
     ],
     "description": [
@@ -4839,7 +4863,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2514"
       }
     ],
     "description": [
@@ -4904,7 +4929,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2515"
       }
     ],
     "description": [
@@ -5065,7 +5091,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2516"
       }
     ],
     "description": [
@@ -5140,7 +5167,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2517"
       }
     ],
     "description": [
@@ -5246,7 +5274,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2518"
       }
     ],
     "description": [
@@ -6403,7 +6432,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2491"
       }
     ],
     "description": [

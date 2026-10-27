@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8541"
       }
     ],
     "description": [
@@ -63,7 +64,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8542"
       }
     ],
     "description": [
@@ -141,7 +143,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8535"
       }
     ],
     "description": [
@@ -205,7 +208,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8534"
       }
     ],
     "description": [
@@ -307,7 +311,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8536"
       }
     ],
     "description": [
@@ -386,7 +391,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8539"
       }
     ],
     "description": [
@@ -441,7 +447,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8537"
       }
     ],
     "description": [
@@ -703,7 +710,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8540"
       }
     ],
     "description": [
@@ -789,7 +797,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8543"
       }
     ],
     "description": [
@@ -852,7 +861,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellbreakers"
+        "book": "hellbreakers",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8544"
       }
     ],
     "description": [

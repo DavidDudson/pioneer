@@ -322,7 +322,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "triumph-of-the-tusk"
+        "book": "triumph-of-the-tusk",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=527"
       }
     ],
     "description": [

@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=5"
       }
     ],
     "description": [
@@ -284,7 +285,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=6"
       }
     ],
     "description": [
@@ -327,7 +329,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=7"
       }
     ],
     "description": [
@@ -388,7 +391,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=8"
       }
     ],
     "description": [
@@ -431,7 +435,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=9"
       }
     ],
     "description": [
@@ -475,7 +480,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=10"
       }
     ],
     "description": [
@@ -966,7 +972,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=11"
       }
     ],
     "description": [
@@ -1009,7 +1016,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=12"
       }
     ],
     "description": [
@@ -1199,7 +1207,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=13"
       }
     ],
     "description": [
@@ -1242,7 +1251,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=14"
       }
     ],
     "description": [
@@ -1285,7 +1295,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=15"
       }
     ],
     "description": [
@@ -2710,7 +2721,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=16"
       }
     ],
     "description": [

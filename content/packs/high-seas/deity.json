@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=731"
       }
     ],
     "description": [

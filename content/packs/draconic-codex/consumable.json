@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4014"
       }
     ],
     "description": [
@@ -98,7 +99,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
       }
     ],
     "description": [
@@ -241,7 +243,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
       }
     ],
     "description": [
@@ -384,7 +387,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
       }
     ],
     "description": [

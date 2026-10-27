@@ -10,7 +10,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=699"
       }
     ],
     "description": [
@@ -967,7 +968,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=702"
       }
     ],
     "description": [
@@ -1878,7 +1880,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=714"
       }
     ],
     "description": [
@@ -2053,7 +2056,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=704"
       }
     ],
     "description": [
@@ -2354,7 +2358,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=705"
       }
     ],
     "description": [
@@ -2511,7 +2516,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=706"
       }
     ],
     "description": [
@@ -2677,7 +2683,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=707"
       }
     ],
     "description": [
