@@ -479,7 +479,7 @@ export {
   WholeBulk,
   wholeBulk,
 } from './bulk';
-export { costCoins, type CostCoins, payCost, purchaseCost } from './purse';
+export { coinsValue, costCoins, type CostCoins, payCost, purchaseCost } from './purse';
 export { type ArchetypeRead, type FeatContent, featContent, type FeatRead } from './feat-content';
 export { dedicationWait, dedicationWaits } from './dedication-lock';
 export { type FeatOption, type FeatSlot, featSlots, PrerequisiteStatus } from './feat-slots';
@@ -732,4 +732,6 @@ export {
   suffocationDc,
 } from './breath';
 export { type Generated, type GenerateInput, generateCharacter } from './generate-character';
+export { type GearInput, generateGear, itemsValue } from './generate-gear';
+export { CORE_TREASURE_BY_LEVEL, treasureAt, type TreasureByLevel, TreasureByLevelSchema } from './treasure-by-level';
 export { slotCandidates } from './slot-candidates';

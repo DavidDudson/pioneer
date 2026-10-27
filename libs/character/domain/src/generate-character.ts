@@ -8,12 +8,15 @@ import { CharacterPatchField } from './character-patch';
 import { SlotStatus } from './character-slot';
 import type { CharacterSlot } from './character-slot';
 import { characterSlots } from './character-slot-status';
+import { generateGear } from './generate-gear';
+import type { ItemContent } from './inventory-content';
 import { seededPicks } from './pick-source';
 import type { PickSource, Seed } from './pick-source';
 import { shuffle } from './picks';
 import { slotCandidates } from './slot-candidates';
 import { slotRefusal } from './slot-offer';
 import type { SlotContent } from './slot-offer';
+import type { TreasureByLevel } from './treasure-by-level';
 
 /** What `generateCharacter` is asked for: the character to start from, how far to take it, and what to read. */
 export interface GenerateInput {
@@ -22,6 +25,10 @@ export interface GenerateInput {
   readonly seed: Seed;
   readonly level: CharacterLevel;
   readonly content: SlotContent;
+  /** The items on sale: when given, the character is outfitted for its level once its slots are filled (`generateGear`). */
+  readonly items?: ItemContent | undefined;
+  /** What a character of each level may own; the core rules' by default. */
+  readonly treasure?: TreasureByLevel | undefined;
   readonly now: Temporal.Instant;
 }
 
@@ -158,12 +165,13 @@ function pickSlot(node: Node, slot: OpenSlot, search: Search): Generated | undef
  * fills every slot within the search's budget (a feat whose own choices undo each other, say), the search runs again
  * leaving such slots open. The same seed and character give the same one.
  */
-export function generateCharacter({ start, seed, level, content, now }: GenerateInput): Generated {
+export function generateCharacter({ start, seed, level, content, now, items, treasure }: GenerateInput): Generated {
   const source = seededPicks(seed);
   const base = { content, source, now, target: level };
   const root: Node = { character: start, skipped: [] };
-  return (
-    extend(root, { ...base, lenient: false, left: BACKTRACKS_MAX }) ??
-    extend(root, { ...base, lenient: true, left: undefined }) ?? { character: start, unfilled: [] }
-  );
+  const built = extend(root, { ...base, lenient: false, left: BACKTRACKS_MAX }) ??
+    extend(root, { ...base, lenient: true, left: undefined }) ?? { character: start, unfilled: [] };
+  return items === undefined
+    ? built
+    : { ...built, character: generateGear({ character: built.character, seed, items, slots: content, now, treasure }) };
 }

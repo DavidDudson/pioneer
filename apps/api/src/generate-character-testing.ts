@@ -7,10 +7,12 @@ import {
   CharacterPatchField,
   CLASS_SLOT,
   generateCharacter,
+  itemContent,
+  runeContent,
   Seed,
   slotContent,
 } from '@pioneer/character/domain';
-import type { Generated, SlotContent } from '@pioneer/character/domain';
+import type { Generated, RunedContent, SlotContent } from '@pioneer/character/domain';
 import { contentCatalog } from '@pioneer/rules/catalog';
 import { AncestryId, ChoiceValue, ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
 import { derivedId, FixtureNamespace, fixedClock, UserId } from '@pioneer/shared/kernel';
@@ -38,12 +40,23 @@ export const LEVELS = Array.from({ length: 20 }, (_unused, index) => CharacterLe
 
 const now = fixedClock('2026-01-01T00:00:00Z').now();
 
-/** The content of the catalog's packs, or only of those named by `packs`. */
-export async function contentOf(packs?: readonly string[]): Promise<SlotContent> {
+/** The registry of the catalog's packs, or only of those named by `packs`. */
+async function registryOf(packs?: readonly string[]): Promise<ContentRegistry> {
   const registry = new ContentRegistry();
   const wanted = contentCatalog.filter((loader) => packs === undefined || packs.includes(loader.id));
   await Promise.all(wanted.map(async (loader) => registry.load(loader)));
-  return slotContent(registry);
+  return registry;
+}
+
+/** The content of the catalog's packs, or only of those named by `packs`. */
+export async function contentOf(packs?: readonly string[]): Promise<SlotContent> {
+  return slotContent(await registryOf(packs));
+}
+
+/** The items and runes of the catalog's packs, or only of those named by `packs`. */
+export async function itemsOf(packs?: readonly string[]): Promise<RunedContent> {
+  const registry = await registryOf(packs);
+  return { items: itemContent(registry), runes: runeContent(registry) };
 }
 
 /** A character with nothing picked, or only `className` if given: the ancestry its creation asks for is taken out. */
