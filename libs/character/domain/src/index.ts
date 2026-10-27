@@ -392,6 +392,7 @@ export {
   type RollSetupsRequest,
   type StatisticSources,
 } from './character-statistics';
+export { characterDefences } from './character-defences';
 export { characterEffects, type EffectsRequest } from './character-effects';
 export {
   applyExplorationCommand,
