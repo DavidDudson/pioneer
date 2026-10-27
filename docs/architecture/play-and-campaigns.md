@@ -423,7 +423,10 @@ breakdowns while it is listed, and it sets the `self:environment:<name>` roll op
 under the environment toggles. A `LiftRestriction` rule element on anything in play lifts one
 (`characterLiftedRestrictions`), and the list then says what lifted it. The official underwater environment is Aquatic
 Combat (Player Core, page 437) in `content/packs/player-core/environment.json`: its rules are the effect's, and its
-restrictions are fire actions and speech (which costs the air). Consequences over time are a separate story.
+restrictions are fire actions and speech (which costs the air). Dim light, darkness and the three kinds of terrain
+(difficult, greater difficult, hazardous) are in the same file, from Player Core pages 432 and 423: the light ones add a
+note to attack and Perception rolls, and the terrain ones are text for the table to apply. Consequences over time are a
+separate story.
 
 Holding the breath (Aquatic Combat, "Drowning and Suffocating") is its own play state, `breath` (`breath.ts`): the
 rounds of air left (5 plus the Constitution modifier when held) and the saves against suffocation made. The
