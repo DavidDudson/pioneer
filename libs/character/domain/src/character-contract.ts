@@ -6,7 +6,7 @@ import * as z from 'zod';
 import { Character } from './character';
 import { CharacterAllies } from './character-allies';
 import { SheetDeity } from './character-deity';
-import { CharacterId, CharacterName } from './character-fields';
+import { CharacterId, CharacterLevel, CharacterName } from './character-fields';
 import { CharacterLanguages } from './character-languages';
 import { CharacterPacks, EnablePackBody } from './character-packs';
 import { PatchCharacterBody } from './character-patch';
@@ -15,6 +15,7 @@ import { CharacterSlot } from './character-slot';
 import { CharacterVariantRules, EnableVariantRuleBody } from './character-variant-rules';
 import { ClearedPick } from './dependent-picks';
 import { FeatDisplayChoice, SetFeatDisplayBody } from './feat-display';
+import { Seed } from './pick-source';
 import { CharacterPlay, PatchedPlay, PatchPlayBody } from './play-state';
 import { RuleLimitsSchema } from './rule-limits';
 import { SetSheetModeBody, SheetModeChoice } from './sheet-mode';
@@ -33,6 +34,21 @@ export type CharacterListQuery = z.output<typeof CharacterListQuery>;
 
 export const CreateCharacterBody = z.object({ name: CharacterName, ancestry: AncestryId });
 export type CreateCharacterBody = z.infer<typeof CreateCharacterBody>;
+
+/**
+ * A character made at random: `level` is how far to take it, `seed` makes the picks (the same seed, level and packs give
+ * the same character; the server picks one when it is left out) and `name` replaces the rolled one.
+ */
+export const GenerateCharacterBody = z.object({
+  level: CharacterLevel,
+  seed: Seed.optional(),
+  name: CharacterName.optional(),
+});
+export type GenerateCharacterBody = z.infer<typeof GenerateCharacterBody>;
+
+/** A generated character, and the seed that made it: it is not stored, so this is the only time it is shown. */
+export const GeneratedCharacter = z.object({ character: Character.codec, seed: Seed });
+export type GeneratedCharacter = z.output<typeof GeneratedCharacter>;
 
 /**
  * One character as its sheet reads it: the character, every slot it has with its status (#419), its languages (#470)
@@ -79,6 +95,15 @@ export const CharacterContract = {
     query: NoQuery,
     body: CreateCharacterBody,
     response: Character.codec,
+  }),
+  /** Signed in: makes a character at random from a level and an optional seed, and answers with it and its seed. */
+  generate: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/characters/generate',
+    params: NoParams,
+    query: NoQuery,
+    body: GenerateCharacterBody,
+    response: GeneratedCharacter,
   }),
   patch: new Endpoint({
     method: HttpMethod.Patch,

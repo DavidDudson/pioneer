@@ -49,6 +49,7 @@
           </fr-stack>
         </fr-async-form>
       </fr-surface>
+      <pio-generate-character [(namesOpen)]="namesOpen" />
 
       <fr-async-region [errorMessage]="'character.list.loadError' | transloco">
         <ng-template frAsyncPending>
@@ -87,4 +88,7 @@
       </fr-async-region>
     </fr-stack>
   </fr-page-body>
+  <fr-drawer param="names" [title]="'character.rollTable.names' | transloco" [(open)]="namesOpen">
+    <pio-roll-table [table]="names" />
+  </fr-drawer>
 </fr-page>

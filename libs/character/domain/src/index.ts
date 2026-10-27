@@ -243,6 +243,8 @@ export {
   CharacterSheet,
   CharacterSort,
   CreateCharacterBody,
+  GeneratedCharacter,
+  GenerateCharacterBody,
   PatchedCharacterSheet,
 } from './character-contract';
 export {
@@ -746,6 +748,9 @@ export {
   suffocationDc,
 } from './breath';
 export { type Generated, type GenerateInput, generateCharacter } from './generate-character';
+export { CHARACTER_FLAWS, CHARACTER_NAMES, CHARACTER_TRAITS } from './character-roll-tables';
+export { RollTable, RollTableEntry, RollTableId, rollOn } from './roll-table';
+export { type Persona, rollPersona } from './roll-persona';
 export {
   favouring,
   FAVOURED,

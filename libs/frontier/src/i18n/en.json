@@ -52,6 +52,9 @@
       "search": "Search",
       "trigger": "{label}: {value}"
     },
+    "refreshableInput": {
+      "refresh": "Refresh"
+    },
     "searchInput": {
       "clear": "Clear search"
     },

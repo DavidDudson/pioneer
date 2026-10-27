@@ -11,6 +11,7 @@ import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pioneer/shared/web';
 
 import { characterCrumb } from './crumbs';
+import { CharacterGenerator } from './data/character-generator';
 import { CharacterStore } from './data/character-store';
 
 /**
@@ -24,6 +25,7 @@ export const characterRoutes: Routes = [
     data: { [CRUMB]: 'character.list.title' },
     providers: [
       CharacterStore,
+      CharacterGenerator,
       provideMessageScope('character', { [Locale.English]: async () => import('../i18n/en.json') }),
       provideMessageScope('roll', { [Locale.English]: async () => rollMessages.roll }),
       provideMessageScope('dice', { [Locale.English]: async () => diceMessages.dice }),

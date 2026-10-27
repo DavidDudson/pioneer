@@ -1,0 +1,40 @@
+<fr-surface>
+  <fr-async-form [form]="form" [action]="generate" [describeError]="describeError">
+    <fr-stack gap="md">
+      <fr-heading variant="subheading" [level]="2">{{ 'character.list.generateHeading' | transloco }}</fr-heading>
+      <fr-text tone="muted">{{ 'character.list.generateHint' | transloco }}</fr-text>
+      <fr-grid [columns]="3">
+        <fr-number-field [label]="'character.list.levelLabel' | transloco" [formField]="form.level" />
+        <fr-text-field
+          [label]="'character.list.seedLabel' | transloco"
+          [placeholder]="'character.list.seedPlaceholder' | transloco"
+          [hint]="'character.list.seedHint' | transloco"
+          [formField]="form.seed"
+        />
+        <pio-roll-table-input
+          [label]="'character.list.nameLabel' | transloco"
+          [title]="'character.rollTable.names' | transloco"
+          [table]="names"
+          [formField]="form.name"
+          [(tableOpen)]="namesOpen"
+        />
+      </fr-grid>
+      <fr-stack direction="horizontal" justify="end">
+        <fr-async-button
+          type="submit"
+          variant="primary"
+          [pendingLabel]="'character.list.generating' | transloco"
+          [successLabel]="'character.list.generated' | transloco"
+        >
+          {{ 'character.list.generate' | transloco }}
+        </fr-async-button>
+      </fr-stack>
+      @if (result(); as made) {
+        <fr-stack gap="xs">
+          <fr-text>{{ 'character.list.generatedResult' | transloco: { name: made.name, seed: made.seed } }}</fr-text>
+          <fr-link [to]="[made.id]">{{ 'character.list.openSheet' | transloco }}</fr-link>
+        </fr-stack>
+      }
+    </fr-stack>
+  </fr-async-form>
+</fr-surface>

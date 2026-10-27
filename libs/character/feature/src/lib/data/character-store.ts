@@ -27,7 +27,7 @@ import { EditTracker } from './edit-tracker';
 import type { SaveState } from './edit-tracker';
 
 /** TanStack Query keys for the character feature. */
-const characterKeys = {
+export const characterKeys = {
   all: ['characters'] as const,
   list: () => [...characterKeys.all, 'list'] as const,
   detail: (id: CharacterId | undefined) => [...characterKeys.all, 'detail', id] as const,

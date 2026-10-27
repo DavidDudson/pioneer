@@ -1,4 +1,8 @@
 {
+  "rollTable": {
+    "open": "Open the table: {title}",
+    "names": "Character names"
+  },
   "attribute": {
     "str": "Strength",
     "dex": "Dexterity",
@@ -16,6 +20,18 @@
     "ancestryLabel": "Ancestry",
     "ancestryPlaceholder": "Search ancestries by name",
     "create": "Create character",
+    "generateHeading": "Generate a character",
+    "generateHint": "Roll a whole character: pick a level, and a seed to make the same one again.",
+    "levelLabel": "Level",
+    "seedLabel": "Seed",
+    "seedPlaceholder": "Random",
+    "seedHint": "Leave empty for a random seed. The same seed, level and packs give the same character.",
+    "generate": "Generate",
+    "generating": "Generating…",
+    "generated": "Generated",
+    "generateFailed": "Could not generate a character. Try again.",
+    "generatedResult": "{name} was generated from seed {seed}. Note the seed to make the same character again.",
+    "openSheet": "Open the sheet",
     "loadError": "Could not load characters.",
     "summary": "{ancestry} · Level {level}",
     "updated": "Updated",

@@ -35,6 +35,7 @@ export type { FilterCondition, FilterField, FilterOption } from './lib/controls/
 export { FilterChips } from './lib/controls/filter-chips/filter-chips.component';
 export { NumberInput } from './lib/controls/number-input/number-input.component';
 export { OptionalNumberInput } from './lib/controls/optional-number-input/optional-number-input.component';
+export { RefreshableInput } from './lib/controls/refreshable-input/refreshable-input.component';
 export { SearchInput } from './lib/controls/search-input/search-input.component';
 export { Pips } from './lib/controls/pips/pips.component';
 export { Segmented } from './lib/controls/segmented/segmented.component';
@@ -70,6 +71,7 @@ export { NumberField } from './lib/forms/number-field/number-field.component';
 export { SegmentedField } from './lib/forms/segmented-field/segmented-field.component';
 export { SelectField } from './lib/forms/select-field/select-field.component';
 export { TextAreaField } from './lib/forms/text-area-field/text-area-field.component';
+export { RefreshableField } from './lib/forms/refreshable-field/refreshable-field.component';
 export { TextField } from './lib/forms/text-field/text-field.component';
 export { ToggleButtonField } from './lib/forms/toggle-button-field/toggle-button-field.component';
 
