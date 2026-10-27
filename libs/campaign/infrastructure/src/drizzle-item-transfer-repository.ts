@@ -15,6 +15,15 @@ const OFFER_COMMAND = 'offer-campaign-item-transfer';
 const OFFER_COINS_COMMAND = 'offer-campaign-coin-transfer';
 const DECLINE_COMMAND = 'decline-campaign-transfer';
 const ACCEPT_COMMAND = 'accept-campaign-transfer';
+const WITHDRAW_COMMAND = 'withdraw-campaign-transfer';
+
+/** The command each status an offer is moved to names on its audit row. */
+const ANSWER_COMMANDS = {
+  [TransferStatus.Pending]: OFFER_COMMAND,
+  [TransferStatus.Accepted]: ACCEPT_COMMAND,
+  [TransferStatus.Declined]: DECLINE_COMMAND,
+  [TransferStatus.Withdrawn]: WITHDRAW_COMMAND,
+} as const satisfies Record<TransferStatus, string>;
 
 type ItemTransferRow = typeof campaignItemTransfers.$inferSelect;
 
@@ -133,7 +142,7 @@ export class DrizzleItemTransferRepository extends ItemTransferRepository {
 
   public override async answer({ actor, campaignId, id, status }: TransferAnswer): Promise<boolean> {
     return this.#db.transaction(async (tx) => {
-      await stampAudit(tx, { actor, command: status === TransferStatus.Accepted ? ACCEPT_COMMAND : DECLINE_COMMAND });
+      await stampAudit(tx, { actor, command: ANSWER_COMMANDS[status] });
       // Pending only: of two answers at once the second finds no pending row and changes nothing.
       const answered = await tx
         .update(campaignItemTransfers)
