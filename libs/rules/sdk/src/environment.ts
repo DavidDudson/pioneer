@@ -1,8 +1,10 @@
 import { issueParams, message } from '@pioneer/shared/kernel';
+import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ContentId, Slug } from './content-id';
 import { ContentText } from './content-text';
+import { DamageTypeSchema } from './damage';
 import { RulesMessage } from './messages';
 import { DurationCount, DurationUnitSchema } from './rich-text';
 import { Trait } from './trait';
@@ -22,15 +24,37 @@ export const EnvironmentRestriction = z.strictObject({
 });
 export type EnvironmentRestriction = z.infer<typeof EnvironmentRestriction>;
 
-/**
- * What happens to a character who stays in the environment: after `after` of time in it, `applies` (a condition or
- * effect) is put on them. With `repeats` it happens again each time that long passes.
- */
-export const EnvironmentConsequence = z.strictObject({
-  after: z.strictObject({ count: DurationCount, unit: DurationUnitSchema }),
-  applies: ContentId,
-  repeats: z.boolean().optional(),
+/** How hard environmental damage hits (GM Core, Environmental Damage): the GM sets the dice within the category. */
+export const EnvironmentDamageCategory = {
+  Minor: 'minor',
+  Moderate: 'moderate',
+  Major: 'major',
+  Massive: 'massive',
+} as const;
+export type EnvironmentDamageCategory = ValueOf<typeof EnvironmentDamageCategory>;
+
+/** Damage an environment deals: its category, which sets the dice, and its type. */
+export const EnvironmentDamage = z.strictObject({
+  category: z.enum(EnvironmentDamageCategory),
+  type: DamageTypeSchema,
 });
+export type EnvironmentDamage = z.infer<typeof EnvironmentDamage>;
+
+/**
+ * What happens to a character who stays in the environment: after `after` of time in it, either `applies` (a condition)
+ * is put on them or they take `damage`, never both. With `repeats` it happens again each time that long passes.
+ */
+export const EnvironmentConsequence = z
+  .strictObject({
+    after: z.strictObject({ count: DurationCount, unit: DurationUnitSchema }),
+    applies: ContentId.optional(),
+    damage: EnvironmentDamage.optional(),
+    repeats: z.boolean().optional(),
+  })
+  .refine(
+    ({ applies, damage }) => (applies === undefined) !== (damage === undefined),
+    issueParams(message(RulesMessage.ConsequenceAppliesOrDamage)),
+  );
 export type EnvironmentConsequence = z.infer<typeof EnvironmentConsequence>;
 
 /** Restrictions name one thing each: a repeated id is an error at its index naming it. */

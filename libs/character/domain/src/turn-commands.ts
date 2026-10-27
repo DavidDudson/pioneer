@@ -8,6 +8,9 @@ import type { DamageTarget } from '@pioneer/rules/sdk';
 import type { CharacterDocument } from './character-document';
 import { characterStatistics, characterVitals } from './character-statistics';
 import type { StatisticSources } from './character-statistics';
+import { passTime } from './environment-time';
+import { environmentContent } from './environments';
+import type { EnvironmentContent } from './environments';
 import type { PlayLimits, PlayState } from './play-state';
 import { conditionRecovery } from './rest-limits';
 import type { RecoveryConditions } from './rest-types';
@@ -30,6 +33,8 @@ export interface TurnCommandInputs {
   readonly economy: EconomyConditions;
   /** The character's Fortitude modifier, worked out only when a save against suffocation needs it. */
   readonly fortitude: () => RollTotal;
+  /** What the environments of the content do to a character that stays in them. */
+  readonly environments: EnvironmentContent;
 }
 
 /** Start turn: the bookkeeping, then the actions and the reaction refilled from the conditions that are left, and the spend log cleared. */
@@ -92,6 +97,14 @@ export function applyTurnCommand(play: PlayState, command: TurnCommand, { inputs
         ? { play: { ...play, turn: { ...play.turn, attacks: command.count } }, events: [] }
         : unchanged(play);
     }
+    case TurnCommandField.PassTime: {
+      return passTime(play, command.duration, {
+        limits: inputs.limits,
+        defences: inputs.defences,
+        environments: inputs.environments,
+        random,
+      });
+    }
     default: {
       return command satisfies never;
     }
@@ -125,5 +138,6 @@ export function turnCommandInputs(
     easing: conditionRecovery(registry, ConditionTrigger.TurnEnd),
     economy: economyConditions(registry),
     fortitude: () => fortitudeOf(sources, document),
+    environments: environmentContent(registry),
   };
 }

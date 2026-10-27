@@ -110,9 +110,14 @@ const environmentRestriction: Arbitrary<{ id: string; reason: string; blocks: st
   blocks: array(slugText, { maxLength: LIST_MAX }),
 });
 const durationUnit: Arbitrary<string> = constantFrom(...Object.values(DurationUnit));
-const environmentConsequence: Arbitrary<object> = withOptional(
-  record({ after: record({ count: positive, unit: durationUnit }), applies: contentIdJson }),
-  { repeats: boolean() },
+const environmentDamage: Arbitrary<object> = record({
+  category: constantFrom('minor', 'moderate', 'major', 'massive'),
+  type: constantFrom('cold', 'fire'),
+});
+const environmentAfter = record({ count: positive, unit: durationUnit });
+const environmentConsequence: Arbitrary<object> = oneof(
+  withOptional(record({ after: environmentAfter, applies: contentIdJson }), { repeats: boolean() }),
+  withOptional(record({ after: environmentAfter, damage: environmentDamage }), { repeats: boolean() }),
 );
 const environmentData: Arbitrary<object> = record({
   restrictions: uniqueArray(environmentRestriction, { selector: ({ id }) => id, maxLength: LIST_MAX }),

@@ -30,6 +30,7 @@ import {
 } from './death-track';
 import { EffectCommandField, EffectCommandSchema } from './effect-commands';
 import { ActiveEffectsSchema } from './effects';
+import { ExposureSchema } from './environment-exposure';
 import { ActiveEnvironmentsSchema, EnvironmentCommandField, EnvironmentCommandSchema } from './environments';
 import { ExplorationActivitySchema, ExplorationCommandField, ExplorationCommandSchema } from './exploration-commands';
 import { afterDamage, afterHealing, afterSetting, trackOf, withTempHitPoints, withTrack } from './hit-point-edits';
@@ -77,6 +78,8 @@ export const PlayStateSchema = z.strictObject({
   effects: ActiveEffectsSchema,
   /** The environments the character is in (underwater, darkness); their rules apply while they are listed. */
   environments: ActiveEnvironmentsSchema,
+  /** How long the character has been in each environment, which the consequences of the environment are measured against. */
+  exposure: ExposureSchema,
   /** The air left of a character holding its breath (underwater); none while it breathes freely. */
   breath: BreathSchema,
   /** The sustained spells the character has cast and keeps up. */

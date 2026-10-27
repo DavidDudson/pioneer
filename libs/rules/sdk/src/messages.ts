@@ -44,6 +44,7 @@ export const RulesMessage = {
   ConditionImpliesWithoutGrant: 'rules.condition.impliesWithoutGrant',
   TraitDuplicateKind: 'rules.trait.duplicateKind',
   ListDuplicate: 'rules.list.duplicate',
+  ConsequenceAppliesOrDamage: 'rules.environment.consequenceAppliesOrDamage',
   DeitySpellRank: 'rules.deity.spellRank',
   DeityPhilosophy: 'rules.deity.philosophy',
   FeatOnlyLevel1: 'rules.feat.onlyLevel1',

@@ -341,6 +341,9 @@
     "list": {
       "duplicate": "{value} is listed more than once."
     },
+    "environment": {
+      "consequenceAppliesOrDamage": "A consequence applies a condition or effect, or deals damage, but not both."
+    },
     "deity": {
       "spellRank": "A deity grants one spell per rank, and rank {rank} already has one.",
       "philosophy": "A philosophy grants no divine font, domains or spells; leave this empty.",
