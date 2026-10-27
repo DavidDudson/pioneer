@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "hells-destiny",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2620",
-        "page": 227
+        "page": 227,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2620"
       }
     ],
     "description": [

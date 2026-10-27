@@ -505,6 +505,625 @@
     {
       "type": "entry",
       "pack": "mwangi-expanse",
+      "slug": "creature:anadi-elder",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.bo3BDHT7P1IK7oLp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Hypnotic Pattern"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Invisibility Sphere"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Mirror Image"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Color Spray"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Ghost Sound"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Mage Hand"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:anadi-hunter",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.aXXvrcggR8EQJOdm",
+      "gaps": [
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:anadi-sage",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.IWk8dWUf4Q4D8iww",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Color Spray"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Ghost Sound"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Mage Hand"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:asanbosam",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.As0M3PvmrR2055pk",
+      "gaps": [
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:biloko-veteran",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.rrJqsVeBKizuyqRY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:biloko-warrior",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.rayMMWNm61ivtxuU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(18 with shield raised)"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:charau-ka-acolyte-of-angazhan",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.BxChohV8FBiyAnEc",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Entangle"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Sound Burst"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Ray of Enfeeblement"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:charau-ka-butcher",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.QUyqY6JiZNkEyTnd",
+      "gaps": [
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:charau-ka-warrior",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.TfEGDGqUk3LpokZZ",
+      "gaps": [
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:crystal-xorn",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.AaUp9pQgUvInrapp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "earth glide"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:eloko",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.rVnJUXPgAPCeW1tS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Blowgun.damage",
+          "raw": {
+            "damage": "2d4",
+            "damageType": "poison",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Blowgun Darts (Poisoned)"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:grootslang",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.NvyAvzxxfb8XEQr2",
+      "gaps": [
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:kaava-stalker",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.rMby02NQRHNrDcTj",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Obsidian Sickle"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:karina",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.hbvxQn0T0m4WoAmZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:knonna",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.XSWDwaLEyshEKSZE",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "see half-speaker"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:maliadi",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.x2udXsqiLZachJHY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "definition": ["item:damage:category:physical", "item:ranged"],
+            "key": "Resistance",
+            "label": "PF2E.IWR.Custom.PhysicalRangedAttacks",
+            "type": "custom",
+            "value": 20
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Freedom of Movement (Constant)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "True Seeing (Constant)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Air Walk"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Gaseous Form"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Produce Flame"
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        },
+        {
+          "type": "trait",
+          "trait": "lawful"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:mamlambo",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.j0t62tXPYhBzCLUO",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["aquatic-ambush"],
+            "selectors": ["strike-attack-roll", "strike-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "trait",
+          "trait": "evil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:pygmy-kaava",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.EyGpKm5MkHepWuNM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Obsidian Sickle"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:sie-goluo",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.ld3hMGWfeUT7enNf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Pass Without Trace (Constant)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:solar-ibis",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.RVVSRRYAhQ3dVK2h",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "reflex",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
+      "slug": "creature:zinba",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.rBlu1EsygXwCkOvd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "mwangi-expanse",
       "slug": "effect:effect-oath-of-the-devoted",
       "foundry": "Compendium.pf2e.equipment-effects.Item.zY7cemRcFD2zAVbC",
       "gaps": [

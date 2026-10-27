@@ -51,28 +51,12 @@
     {
       "type": "entry",
       "pack": "character-guide",
-      "slug": "class-feature:order-of-the-gate",
-      "foundry": "Compendium.pf2e.classfeatures.Item.igMHwREgpM9GsvLs",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "character-guide",
       "slug": "class-feature:order-of-the-godclaw",
       "foundry": "Compendium.pf2e.classfeatures.Item.UTRDN1TAieBMjwP1",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@UUID[deities] Pathfinder Lost Omens Gods & Magic"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
         }
       ]
     },
@@ -91,40 +75,754 @@
     {
       "type": "entry",
       "pack": "character-guide",
-      "slug": "class-feature:order-of-the-pyre",
-      "foundry": "Compendium.pf2e.classfeatures.Item.zGxO2cETUsXuvqRu",
+      "slug": "creature:changeling-hellknight",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.95IcOUvxABvj5lvo",
       "gaps": [
         {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "character-guide",
-      "slug": "class-feature:order-of-the-rack",
-      "foundry": "Compendium.pf2e.classfeatures.Item.lVdfcITy5bkywW5f",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "character-guide",
-      "slug": "class-feature:order-of-the-scourge",
-      "foundry": "Compendium.pf2e.classfeatures.Item.t01K3DB2qHnbt1q3",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd] Pathfinder Battlecry!"
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": "1",
+              "value": 1
+            }
+          }
         },
         {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Hellfire Dispatches"
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 circumstance to all saves vs. dream and sleep"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Flaming Sphere"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Burning Hands"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Dancing Lights"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Longstrider"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Produce Flame"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Tanglefoot"
+        },
+        {
+          "type": "trait",
+          "trait": "lawful"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "creature:charming-scoundrel",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.EMl8hARVJk8SNVyW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.offGuardable",
+            "value": 4
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "creature:hellknight-armiger",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.UuPPceVcGk1RwSbB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "ignores 5 feet of speed reduction from being encumbered"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. fear"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": ["item:slug:war-flail"]
+          }
+        },
+        {
+          "type": "trait",
+          "trait": "lawful"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "creature:hellknight-paravicar",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.mJxgYD8TQg1W2oXC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "True Seeing"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Crushing Despair"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Air Walk"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Dimensional Anchor"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Discern Lies"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Faerie Fire"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Flaming Sphere"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Detect Alignment"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Produce Flame"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Ray of Enfeeblement"
+        },
+        {
+          "type": "trait",
+          "trait": "lawful"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "creature:pathfinder-field-agent",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.VkG5yl9xcmziwpQD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(22 against traps)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 circumstance to all saves vs. traps"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "trap finder"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.offGuardable",
+            "value": 4
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": [
+              "encounter:round:1",
+              {
+                "lt": ["self:participant:initiative:rank", "target:participant:initiative:rank"]
+              }
+            ],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Thieves' Tools"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Infiltrator's Elixir"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "creature:pathfinder-venture-captain",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.o4XTf77fEEoFVTdA",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(34 with shield raised)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Effect: Raise a Shield"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": ["item:group:hammer"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Inspire Competence"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Inspire Courage"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "creature:privateer-captain",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.48bZvtRcd7T6FmA7",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": "2",
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Blade Barrier"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Freedom of Movement"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Faerie Fire"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "See Invisibility"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Chill Touch"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Know Direction"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Remove Fear (Level 2)"
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "creature:rain-scribe",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.2SBKFCog4JY3WrOW",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "longstrider"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. poison"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Spell Effect: Longstrider"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Acid Arrow"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Entangle"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Spider Climb"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Know Direction"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Longstrider"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Tanglefoot"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Speak with Animals (Level 2)"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "creature:stone-giant-monk",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.401MnHX5aO21P2Y8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": "2",
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Perfect Strike"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Ki Strike"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Sack with 5 Rocks"
+        },
+        {
+          "type": "trait",
+          "trait": "lawful"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "creature:tempest-sun-mage",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.M2Vi2mkwMZv1ZRka",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Cone of Cold"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Dimension Door"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Freedom of Movement"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Stinking Cloud"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Endure Elements"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "False Life"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Obscuring Mist"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "See Invisibility"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Mage Hand"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Produce Flame"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Tanglefoot"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Unseen Servant"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Elemental Tempest"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Staff of Abjuration"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Magaambya Mask"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "creature:veteran-reclaimer",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.hxyImo4ts3O0BrAY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "ignores the effects of non-magical difficult terrain"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.MultipleAttackPenalty",
+          "raw": {
+            "key": "MultipleAttackPenalty",
+            "predicate": ["agile", "vengeful-edge"],
+            "selector": "attack",
+            "value": -2
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.MultipleAttackPenalty",
+          "raw": {
+            "key": "MultipleAttackPenalty",
+            "predicate": [
+              "vengeful-edge",
+              {
+                "not": "agile"
+              }
+            ],
+            "selector": "attack",
+            "value": -3
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": ["weapon-mastery"]
+          }
+        },
+        {
+          "type": "trait",
+          "trait": "chaotic"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "character-guide",
+      "slug": "creature:virtuous-defender",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.bc1jeTvmzKeYGVw9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(24 with shield raised)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "saves.reflex.saveDetail",
+          "raw": "(+9 vs. damaging effects)"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        },
+        {
+          "type": "trait",
+          "trait": "lawful"
         }
       ]
     },
@@ -2124,6 +2822,13 @@
       "slug": "untyped",
       "reason": "unmapped-value",
       "detail": "untyped"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "language",
+      "slug": "wildsong",
+      "reason": "unmapped-value",
+      "detail": "secret"
     }
   ]
 }

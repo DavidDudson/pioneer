@@ -11,8 +11,8 @@
       {
         "kind": "book",
         "book": "triumph-of-the-tusk",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=313",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=313"
       }
     ],
     "description": [

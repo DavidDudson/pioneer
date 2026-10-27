@@ -2226,12 +2226,6 @@
       "foundry": "Compendium.pf2e.classes.Item.RggQN3bX5SEcsffR",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "items",
-          "raw": "Compendium.pf2e.classfeatures.Item.Weapon Specialization"
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -2376,19 +2370,1862 @@
     {
       "type": "entry",
       "pack": "rage-of-elements",
+      "slug": "creature:anemos",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.hGPjJjjqBc42VrFs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 15 (deactivated by earthbane)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "swiftness"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": [],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 15
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:asp-of-grief",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.IPKzI7XwILuDc21S",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status vs. emotion"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "magnetic vision"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:austral-the-south-wind",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.7U27iYyyGK8iGYzR",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 15 (deactivated by earthbane)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "swiftness"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": [],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 15
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:avalanche-legion",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.PameP0qGSvNrhGeH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "16 squares Thresholds 160 (3 segments), 80 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "earth glide, troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:blustering-gale",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.6VCNPJ3xPw4Js52V",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(16 squares); Thresholds 100 (3 segments), 50 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:boiling-spring",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.EHowgLz8ohFGTGvG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "steam vision"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:boreal-the-north-wind",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.8cJlApaLdgZCxfWq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 15 (deactivated by earthbane)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "swiftness"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": [],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 15
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:brass-bastion",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.411wAxSMPPAImVz5",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "spells"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:brochmaw",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.3ItvROg0JbYKUGRu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Hot Oil.damage",
+          "raw": {
+            "damage": "1d8",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:capritellix",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.RFxLankyC74BEY03",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "plus one language for each of their mouths; telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": ["shift-mood"],
+            "selector": "{item|flags.system.rulesSelections.shiftMood}",
+            "type": "status",
+            "value": 4
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.AdjustStrike",
+          "raw": {
+            "definition": ["item:slug:metal-hand"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["plentiful-metals"],
+            "property": "materials",
+            "value": "{item|flags.system.rulesSelections.plentifulMetals}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:carved-beast",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.P3UcyuiqqYPzAwwF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(24 while Dug In)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": [
+              {
+                "not": "dig-in"
+              },
+              {
+                "or": ["inflicts:prone", "action:trip"]
+              }
+            ],
+            "selector": "saving-throw",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["failure"],
+            "predicate": [
+              {
+                "not": "dig-in"
+              },
+              "action:trip"
+            ],
+            "selector": "athletics",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:comozant-wyrd",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.7qRWMhYwrTHv58VG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:crystal-strider",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.5nf90vfzOVFbGEZZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "precise steps"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:elder-outcrop",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.GdXjhFu8Afg24fM9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "earth glide"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "effect",
+            "key": "ItemAlteration",
+            "mode": "downgrade",
+            "predicate": ["item:slug:slowed"],
+            "property": "badge-max",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:elemental-thicket",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.lQcfACi4RQrjIl5S",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 15 (deactivated by fire)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:eural-the-east-wind",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.dLFxm5kZBRzvqf1f",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 15 (deactivated by earthbane)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "swiftness"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": [],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 15
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:faydhaan-shuyookh",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.E7OZ0cdycOi5Cuu1",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "detect magic, (+25 to Sense Motive)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet, truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "+2 Striking Jambiya"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:ferrous-butterfly",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.Ub0UIqBOjouOePe8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Wing.damage",
+          "raw": {
+            "damage": "1",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:gennayn",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.Gqz1qtpdgAl13pCE",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "option": "attuned-element",
+            "selection": "air",
+            "suboptions": [
+              {
+                "label": "PF2E.TraitAir",
+                "value": "air"
+              },
+              {
+                "label": "PF2E.TraitEarth",
+                "value": "earth"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitMetal",
+                "value": "metal"
+              },
+              {
+                "label": "PF2E.TraitWater",
+                "value": "water"
+              },
+              {
+                "label": "PF2E.TraitWood",
+                "value": "wood"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["attuned-element:earth"],
+            "type": "earth",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["attuned-element:water"],
+            "type": "water",
+            "value": 5
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:harvest-regiment",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.YKEPPmyqTvVSApo8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Thresholds: 90, 45"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "raise-shells",
+            "selector": "ac",
+            "toggleable": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:ifrit-shuyookh",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.XL7B63sTgdDJPbVQ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "water"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:jaathoom-shuyookh",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.O3Rjdf00nJOHF4PE",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language; cloud of visions"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "+1 Striking Jambiya"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:jabali-shuyookh",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.1cpG2DuXPXq3DMBx",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "earth glide"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:jann-shuyookh",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.RObxZM2z4P6ZW3hN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "all-made-one",
+            "selection": "air",
+            "suboptions": [
+              {
+                "label": "PF2E.TraitAir",
+                "value": "air"
+              },
+              {
+                "label": "PF2E.TraitEarth",
+                "value": "earth"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitMetal",
+                "value": "metal"
+              },
+              {
+                "label": "PF2E.TraitWater",
+                "value": "water"
+              },
+              {
+                "label": "PF2E.TraitWood",
+                "value": "wood"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "air"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "earth"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "metal"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "water"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "wood"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:kinzaruk",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.OX25euLqeBR07Ul7",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "(can't ascend more than 5 feet off the ground)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:kizidhar",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.QkD7kUl6KvUvPAYA",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(24 with shield raised)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "parting the trees"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with plants, truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:kizidhar-shuyookh",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.eMbeqzGyypNU1wTS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(32 with shield raised)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "parting with trees"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with plants, truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:lava-otter",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.D1WlR977uIedFwAr",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "Swim in lava only"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:lithic-locus",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.kzczIOOaDfPlFc03",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "plus one ancient language"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:living-grove",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.WrGYN6jtEfv7k1pV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "21 without defensive camouflage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "understands but can't speak"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:living-lodestone",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.CKRqlCHgvZp9YL5s",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "hover"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:living-magma",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.TPi6QRmfyM9BWSof",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "Swim in lava only"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Magma Fist.damage",
+          "raw": {
+            "damage": "2d4",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:metal-scamp",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.5Seti8VsPjgd8f6i",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 2 (while touching metal)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "details": "PF2E.NPCAbility.Scamp.FastHealing.MetalLabel",
+            "key": "FastHealing",
+            "predicate": ["fast-healing"],
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:metal-wisp",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.Vtx0UBhy5aUu3UMO",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "rust vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Tendril.damage",
+          "raw": {
+            "damage": "1",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalFailure", "success"],
+            "predicate": ["action:aid"],
+            "selector": "all",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:moss-sloth",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.d8801ruMQkpXLcWk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 5 (deactivated by fire)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "hold fast"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:munsahir-gatecrasher",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.h6oWKFSqpXHnOg5h",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Flame Jet.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess", "success"],
+            "predicate": [
+              {
+                "or": ["action:grapple", "action:shove"]
+              }
+            ],
+            "selector": "athletics",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Gatecrasher Armor"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:munsahir-trooper",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.Vv9ffFM1qiTdIEsy",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess", "success"],
+            "predicate": [
+              {
+                "or": ["action:grapple", "action:shove"]
+              }
+            ],
+            "selector": "athletics",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:nanoshard-swarm",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.nhIxIC4O6XGUZ8Ng",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 19,
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 4,
+                "die": "d8",
+                "modifier": 9
+              }
+            },
+            "key": "Strike",
+            "label": "Limb",
+            "predicate": ["form:battle"],
+            "traits": ["reach-20"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "Form",
+            "option": "form",
+            "selection": "swarm",
+            "suboptions": [
+              {
+                "label": "Swarm Form",
+                "value": "swarm"
+              },
+              {
+                "label": "Barrier Form",
+                "value": "barrier"
+              },
+              {
+                "label": "Battle Form",
+                "value": "battle"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:nightwood-guardian",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.IBfXxdi8ja4095km",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "flesh of wood"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.rageTempHP",
+            "value": 15
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Elemental Wooden Shield"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:nursery-crawler",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.bzMyAFhSQ1mfTNx9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:olobigonde",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.xorqWffvwJFUFuON",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["ambush"],
+            "selectors": ["strike-attack-roll", "strike-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:ore-louse",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.rmno91OxFdAJX5ap",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "water stride"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "metal scent 30 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:oregorger",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.AahAJjsv74rPfAG5",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "rust vision"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:painted-stag",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.ikcWmhEdL5G0s9T4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 10 (deactivated by fire)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:pelegox-cube",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.E3n4MNWQNPR2o3bG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "140 (3 segments), 70 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "metalsense (imprecise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:picture-in-clouds",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.YWFBlSODRkWD60Je",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "swiftness"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:pine-pangolin",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.6teMPgUKnYc1YIIx",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:quickiron-plasm",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.d0InnF6QVgDIG4j3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "magic scent"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:rakkatak",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.m2WdV4XJ3r70mnJX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:rust-scarab",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.ytvGscCgKbOCn0dB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "rust vision"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:saltborn-stalkers",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.7Y3DAOMaLzqmRqUh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "troop defenses"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:snapdrake",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.NhmmvWicMmhXuKJo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "greater forest passage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:solar-crow",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.Kv6zyQC3JCEWWwvf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "smoke vision"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:sootsoldiers",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.uEabVqGzN4TprwHw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(16 squares); Thresholds 110 (3 segments), 55 (2 segments);"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "smoke vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:sootsoldiers-the-radiant-host",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.zBUFjuz3dR8bacee",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(16 squares); Thresholds 110 (3 segments), 55 (2 segments);"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "smoke vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:talos-gadgeteer",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.g36FR0xlbMSvWqdS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "ablative armor plating"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Artisan's Tools"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:tantriog",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.JR7VT7ObQRaBtUlk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "all-around vision"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:twins-of-rowan",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.TlM6ePIW2yHNOMJv",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "all",
+                "events": ["enter"],
+                "predicate": [
+                  "target:trait:elemental",
+                  {
+                    "or": ["target:trait:plant", "target:trait:wood"]
+                  }
+                ],
+                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Beacon of the Rowan Guard"
+              }
+            ],
+            "key": "Aura",
+            "predicate": ["beacon-of-the-rowan-guard-active"],
+            "radius": 40,
+            "slug": "beacon-of-the-rowan-guard",
+            "traits": ["plant", "primal", "wood"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:vault-builder",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.g9hnlCy2R4uspfAI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "earth glide"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. spells (+4 status vs. earth)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 300 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:vault-keeper",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.m6lUcyekHwJxTLzo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 300 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:veldenar",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.RZ83RzvCJJHHooyk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:whipping-willow",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.oT99a9W6HcU0WsU2",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "saving-throw",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:wood-scamp",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.EjgbrWiEp37eIifZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 5 (deactivated by fire)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "damageCategory": "persistent",
+            "damageType": "bleed",
+            "key": "FlatModifier",
+            "selector": "claw-damage",
+            "value": 1
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Verdant Sprout"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:wood-wisp",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.LVLf8bfqqLkM56tj",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalFailure", "success"],
+            "predicate": ["action:aid"],
+            "selector": "all",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "axe-vulnerability"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:zephyr-the-west-wind",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.6CYo7vuxoroSqKzr",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 15 (deactivated by earthbane)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "swiftness"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": [],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 15
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:zuhra",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.Mw0sQmrSf9hao5mF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Hand Blade.damage",
+          "raw": {
+            "damage": "1d4",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Interplanar Teleport (At Will) (To Astral Plane, Elemental Planes, or Universe only)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
+      "slug": "creature:zuhra-shuyookh",
+      "foundry": "Compendium.pf2e.rage-of-elements-bestiary.Actor.a2kTygtqIuMCSLIr",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Hand Blade.damage",
+          "raw": {
+            "damage": "4d4",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Interplanar Teleport (At Will) (To Astral Plane, Elemental Planes, or Universe only)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "rage-of-elements",
       "slug": "effect:effect-alloy-flesh-and-steel",
       "foundry": "Compendium.pf2e.feat-effects.Item.JzVfTeHDopKAA5P0",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "exceptions": ["adamantine"],
-            "key": "Resistance",
-            "type": "physical",
-            "value": "ternary(gte(@item.origin.level,16),15,10)"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2442,23 +4279,6 @@
             },
             "key": "TempHP",
             "value": "ternary(gte(@item.level,15), 3, ternary(gte(@item.level,10), 2, 1))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
-      "slug": "effect:effect-conductive-sphere",
-      "foundry": "Compendium.pf2e.feat-effects.Item.sl3umfGcLROU3U5U",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "electricity",
-            "value": "@item.origin.level"
           }
         }
       ]
@@ -2707,23 +4527,6 @@
     {
       "type": "entry",
       "pack": "rage-of-elements",
-      "slug": "effect:effect-fresh-produce",
-      "foundry": "Compendium.pf2e.feat-effects.Item.2GWZgsvMJF9DN0DO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "void",
-            "value": "2 * (1+floor((@item.origin.level -1)/2))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
       "slug": "effect:effect-furnace-form",
       "foundry": "Compendium.pf2e.feat-effects.Item.Tw9MjeQHL3qFY1PO",
       "gaps": [
@@ -2841,24 +4644,6 @@
     {
       "type": "entry",
       "pack": "rage-of-elements",
-      "slug": "effect:effect-kindle-inner-flames",
-      "foundry": "Compendium.pf2e.feat-effects.Item.bWvOkRT3alzllsiG",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["reflex", "acrobatics"],
-            "type": "status",
-            "value": "ternary(gte(@item.origin.level,12), 2, 1)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
       "slug": "effect:effect-kinetic-aura",
       "foundry": "Compendium.pf2e.feat-effects.Item.pLurcSPQb2gjAzoP",
       "gaps": [
@@ -2933,58 +4718,6 @@
             "mode": "override",
             "path": "flags.system.kineticist.auraRadius",
             "value": "@item.flags.system.rulesSelections.auraRadius"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
-      "slug": "effect:effect-oceans-balm",
-      "foundry": "Compendium.pf2e.feat-effects.Item.uG1EljvrnC9HGwUh",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "fire",
-            "value": "floor((max(1,@item.origin.level)-1)/2)+2"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
-      "slug": "effect:effect-orchards-endurance",
-      "foundry": "Compendium.pf2e.feat-effects.Item.FHBYfq3w7ddLvzrK",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": ["bludgeoning", "piercing"],
-            "value": "ternary(gte(@item.origin.level,18),7,5)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
-      "slug": "effect:effect-spike-skin",
-      "foundry": "Compendium.pf2e.feat-effects.Item.pFEk5cwegWqXvX4D",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "exceptions": ["adamantine"],
-            "key": "Resistance",
-            "type": "physical",
-            "value": "max(4,(floor(@item.origin.level/2)*2)-4)"
           }
         }
       ]
@@ -4492,18 +6225,6 @@
               "source": "{item|name}"
             }
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
-      "slug": "equipment:thorn-triad-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.XIQmnhUfmhojIZT7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -7007,54 +8728,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 piece of unprocessed wood, reeds, or plant fiber of 1 Bulk or less"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
-      "slug": "weapon:atmospheric-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.CPZC4rAHGkQqPLJ9",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
-      "slug": "weapon:atmospheric-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.SKKVjloic8hQbYo7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
-      "slug": "weapon:atmospheric-staff-lesser",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.HarOsJI1p5oHt2Vd",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
-      "slug": "weapon:atmospheric-staff-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.YMz8ZKeOmSU9VuKp",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },

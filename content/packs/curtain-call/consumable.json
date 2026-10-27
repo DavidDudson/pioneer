@@ -245,8 +245,8 @@
       {
         "kind": "book",
         "book": "curtain-call",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3629",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3629"
       }
     ],
     "description": [

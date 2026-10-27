@@ -545,18 +545,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "background:feybound",
-      "foundry": "Compendium.pf2e.backgrounds.Item.ppBGlWl0UkBKkJgE",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "class-feature:abundant-vials",
       "foundry": "Compendium.pf2e.classfeatures.Item.tVxAFMBen8D516BQ",
       "gaps": [
@@ -11074,30 +11062,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "equipment:ring-of-maniacal-devices",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.nLvP7U50hLqz26Uy",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "equipment:ring-of-maniacal-devices-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Wkm2VYPsfGjWBtQe",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "feat:acrobat-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.aFygWxgSv82WyCsl",
       "gaps": [
@@ -12832,18 +12796,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "feat:cavaliers-banner",
-      "foundry": "Compendium.pf2e.feats-srd.Item.CAaXGhHDMRM3Pt4J",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
         }
       ]
     },
@@ -14808,18 +14760,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "feat:flexible-ritualist",
-      "foundry": "Compendium.pf2e.feats-srd.Item.bmWvMfYxZbZtigDp",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
         }
       ]
     },

@@ -52,6 +52,7 @@ export async function battlecryPack() {
     import('@pioneer/content/packs/battlecry/class.json'),
     import('@pioneer/content/packs/battlecry/class-feature.json'),
     import('@pioneer/content/packs/battlecry/consumable.json'),
+    import('@pioneer/content/packs/battlecry/creature.json'),
     import('@pioneer/content/packs/battlecry/effect.json'),
     import('@pioneer/content/packs/battlecry/equipment.json'),
     import('@pioneer/content/packs/battlecry/feat.json'),
@@ -72,6 +73,7 @@ export async function chelaxInfernalInheritancePack() {
     import('@pioneer/content/packs/cheliax-infernal-inheritance/background.json'),
     import('@pioneer/content/packs/cheliax-infernal-inheritance/class-feature.json'),
     import('@pioneer/content/packs/cheliax-infernal-inheritance/consumable.json'),
+    import('@pioneer/content/packs/cheliax-infernal-inheritance/creature.json'),
     import('@pioneer/content/packs/cheliax-infernal-inheritance/deity.json'),
     import('@pioneer/content/packs/cheliax-infernal-inheritance/effect.json'),
     import('@pioneer/content/packs/cheliax-infernal-inheritance/equipment.json'),
@@ -104,6 +106,7 @@ export async function shiningKingdomsPack() {
     import('@pioneer/content/packs/shining-kingdoms/armor.json'),
     import('@pioneer/content/packs/shining-kingdoms/class-feature.json'),
     import('@pioneer/content/packs/shining-kingdoms/consumable.json'),
+    import('@pioneer/content/packs/shining-kingdoms/creature.json'),
     import('@pioneer/content/packs/shining-kingdoms/deity.json'),
     import('@pioneer/content/packs/shining-kingdoms/effect.json'),
     import('@pioneer/content/packs/shining-kingdoms/equipment.json'),
@@ -122,6 +125,7 @@ export async function draconicCodexPack() {
     import('@pioneer/content/packs/draconic-codex/archetype.json'),
     import('@pioneer/content/packs/draconic-codex/armor.json'),
     import('@pioneer/content/packs/draconic-codex/consumable.json'),
+    import('@pioneer/content/packs/draconic-codex/creature.json'),
     import('@pioneer/content/packs/draconic-codex/deity.json'),
     import('@pioneer/content/packs/draconic-codex/effect.json'),
     import('@pioneer/content/packs/draconic-codex/equipment.json'),
@@ -137,6 +141,7 @@ export async function hellfireDispatchesPack() {
     import('@pioneer/content/packs/hellfire-dispatches/action.json'),
     import('@pioneer/content/packs/hellfire-dispatches/archetype.json'),
     import('@pioneer/content/packs/hellfire-dispatches/consumable.json'),
+    import('@pioneer/content/packs/hellfire-dispatches/creature.json'),
     import('@pioneer/content/packs/hellfire-dispatches/effect.json'),
     import('@pioneer/content/packs/hellfire-dispatches/equipment.json'),
     import('@pioneer/content/packs/hellfire-dispatches/feat.json'),
@@ -164,6 +169,7 @@ export async function seasonOfGhostsPack() {
     import('@pioneer/content/packs/season-of-ghosts/action.json'),
     import('@pioneer/content/packs/season-of-ghosts/armor.json'),
     import('@pioneer/content/packs/season-of-ghosts/consumable.json'),
+    import('@pioneer/content/packs/season-of-ghosts/creature.json'),
     import('@pioneer/content/packs/season-of-ghosts/effect.json'),
     import('@pioneer/content/packs/season-of-ghosts/equipment.json'),
     import('@pioneer/content/packs/season-of-ghosts/feat.json'),
@@ -195,6 +201,7 @@ export async function gatewalkersPack() {
     import('@pioneer/content/packs/gatewalkers/archetype.json'),
     import('@pioneer/content/packs/gatewalkers/class-feature.json'),
     import('@pioneer/content/packs/gatewalkers/consumable.json'),
+    import('@pioneer/content/packs/gatewalkers/creature.json'),
     import('@pioneer/content/packs/gatewalkers/effect.json'),
     import('@pioneer/content/packs/gatewalkers/equipment.json'),
     import('@pioneer/content/packs/gatewalkers/feat.json'),
@@ -210,6 +217,7 @@ export async function mythSpeakersPack() {
     import('@pioneer/content/packs/myth-speakers/background.json'),
     import('@pioneer/content/packs/myth-speakers/class-feature.json'),
     import('@pioneer/content/packs/myth-speakers/consumable.json'),
+    import('@pioneer/content/packs/myth-speakers/creature.json'),
     import('@pioneer/content/packs/myth-speakers/deity.json'),
     import('@pioneer/content/packs/myth-speakers/effect.json'),
     import('@pioneer/content/packs/myth-speakers/equipment.json'),
@@ -227,6 +235,7 @@ export async function revengeOfTheRunelordsPack() {
     import('@pioneer/content/packs/revenge-of-the-runelords/armor.json'),
     import('@pioneer/content/packs/revenge-of-the-runelords/background.json'),
     import('@pioneer/content/packs/revenge-of-the-runelords/consumable.json'),
+    import('@pioneer/content/packs/revenge-of-the-runelords/creature.json'),
     import('@pioneer/content/packs/revenge-of-the-runelords/effect.json'),
     import('@pioneer/content/packs/revenge-of-the-runelords/equipment.json'),
     import('@pioneer/content/packs/revenge-of-the-runelords/feat.json'),
@@ -239,6 +248,7 @@ export async function secretsOfTheUnlitStarPack() {
   return pack(import('@pioneer/content/packs/secrets-of-the-unlit-star/pack.json'), [
     import('@pioneer/content/packs/secrets-of-the-unlit-star/action.json'),
     import('@pioneer/content/packs/secrets-of-the-unlit-star/consumable.json'),
+    import('@pioneer/content/packs/secrets-of-the-unlit-star/creature.json'),
     import('@pioneer/content/packs/secrets-of-the-unlit-star/equipment.json'),
     import('@pioneer/content/packs/secrets-of-the-unlit-star/heritage.json'),
     import('@pioneer/content/packs/secrets-of-the-unlit-star/weapon.json'),
@@ -249,6 +259,7 @@ export async function troublesInGraycePack() {
   return pack(import('@pioneer/content/packs/troubles-in-grayce/pack.json'), [
     import('@pioneer/content/packs/troubles-in-grayce/action.json'),
     import('@pioneer/content/packs/troubles-in-grayce/consumable.json'),
+    import('@pioneer/content/packs/troubles-in-grayce/creature.json'),
     import('@pioneer/content/packs/troubles-in-grayce/effect.json'),
     import('@pioneer/content/packs/troubles-in-grayce/equipment.json'),
   ]);
@@ -261,6 +272,7 @@ export async function hellsDestinyPack() {
     import('@pioneer/content/packs/hells-destiny/background.json'),
     import('@pioneer/content/packs/hells-destiny/class-feature.json'),
     import('@pioneer/content/packs/hells-destiny/consumable.json'),
+    import('@pioneer/content/packs/hells-destiny/creature.json'),
     import('@pioneer/content/packs/hells-destiny/effect.json'),
     import('@pioneer/content/packs/hells-destiny/equipment.json'),
     import('@pioneer/content/packs/hells-destiny/feat.json'),
@@ -277,18 +289,5 @@ export async function bastionOfBlasphemiesPack() {
     import('@pioneer/content/packs/bastion-of-blasphemies/effect.json'),
     import('@pioneer/content/packs/bastion-of-blasphemies/equipment.json'),
     import('@pioneer/content/packs/bastion-of-blasphemies/weapon.json'),
-  ]);
-}
-
-export async function theDeadGodsHandPack() {
-  return pack(import('@pioneer/content/packs/the-dead-gods-hand/pack.json'), [
-    import('@pioneer/content/packs/the-dead-gods-hand/armor.json'),
-    import('@pioneer/content/packs/the-dead-gods-hand/background.json'),
-    import('@pioneer/content/packs/the-dead-gods-hand/consumable.json'),
-    import('@pioneer/content/packs/the-dead-gods-hand/effect.json'),
-    import('@pioneer/content/packs/the-dead-gods-hand/equipment.json'),
-    import('@pioneer/content/packs/the-dead-gods-hand/feat.json'),
-    import('@pioneer/content/packs/the-dead-gods-hand/ritual.json'),
-    import('@pioneer/content/packs/the-dead-gods-hand/weapon.json'),
   ]);
 }

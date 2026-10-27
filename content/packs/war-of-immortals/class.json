@@ -11,8 +11,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=64",
-        "page": 10
+        "page": 10,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=64"
       }
     ],
     "description": [
@@ -990,8 +990,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=65",
-        "page": 28
+        "page": 28,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=65"
       }
     ],
     "description": [

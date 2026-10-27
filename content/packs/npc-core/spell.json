@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "npc-core",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2335",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2335"
       }
     ],
     "description": [
@@ -67,8 +67,8 @@
       {
         "kind": "book",
         "book": "npc-core",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2336",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2336"
       }
     ],
     "description": [
@@ -170,8 +170,8 @@
       {
         "kind": "book",
         "book": "npc-core",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2337",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2337"
       }
     ],
     "description": [
@@ -261,8 +261,8 @@
       {
         "kind": "book",
         "book": "npc-core",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2338",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2338"
       }
     ],
     "description": [

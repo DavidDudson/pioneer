@@ -9,6 +9,7 @@ export async function characterGuidePack() {
     import('@pioneer/content/packs/character-guide/armor.json'),
     import('@pioneer/content/packs/character-guide/class-feature.json'),
     import('@pioneer/content/packs/character-guide/consumable.json'),
+    import('@pioneer/content/packs/character-guide/creature.json'),
     import('@pioneer/content/packs/character-guide/effect.json'),
     import('@pioneer/content/packs/character-guide/equipment.json'),
     import('@pioneer/content/packs/character-guide/feat.json'),

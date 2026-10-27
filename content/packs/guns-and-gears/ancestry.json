@@ -11,8 +11,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=48",
-        "page": 36
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=48"
       }
     ],
     "description": [

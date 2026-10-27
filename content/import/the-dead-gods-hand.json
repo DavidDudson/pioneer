@@ -7,6 +7,1070 @@
     {
       "type": "entry",
       "pack": "the-dead-gods-hand",
+      "slug": "creature:azlanti-mystic",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.Y0MSOv0l5ePhP3Co",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Astrolabe"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Spellbook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:blostin",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.GEMV5dcsfSfExOkY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Greatpick Handle"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Leather Apron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:cherub",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.2OnNb1mf2eqYFVtS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Rapier.damage",
+          "raw": {
+            "damage": "1d6-1",
+            "damageType": "piercing"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "unholy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:deravon",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.csFQUqdby85fNSg6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "darkvision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "aeon-blast",
+            "predicate": [
+              {
+                "nor": [
+                  {
+                    "and": ["aeon-black-star", "aeon-gold-star", "aeon-green-star", "aeon-white-star"]
+                  }
+                ]
+              }
+            ],
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.SanctumKnight.AeonStar.Black.Label",
+                "predicate": [
+                  {
+                    "not": "aeon-black-star"
+                  }
+                ],
+                "value": "void"
+              },
+              {
+                "label": "PF2E.NPCAbility.SanctumKnight.AeonStar.Gold.Label",
+                "predicate": [
+                  {
+                    "not": "aeon-gold-star"
+                  }
+                ],
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.NPCAbility.SanctumKnight.AeonStar.Green.Label",
+                "predicate": [
+                  {
+                    "not": "aeon-green-star"
+                  }
+                ],
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.NPCAbility.SanctumKnight.AeonStar.White.Label",
+                "predicate": [
+                  {
+                    "not": "aeon-white-star"
+                  }
+                ],
+                "value": "spirit"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["aeon-blast"],
+            "property": "damage-type",
+            "selectors": ["{item|_id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.aeonBlast}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "persistent-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:deravons-ghost",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.vP8x4oN80AWooZ0Y",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "darkvision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "not": "item:slug:deravons-helm"
+              },
+              {
+                "or": ["item:slug:aeon-stars-curse", "item:slug:bow-before-me"]
+              }
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.Deravon.HelmetDependent.Note"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "property": "name",
+            "value": "PF2E.NPCAbility.Ghost.Rejuvenation.Name"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:elharris",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.kzgh30gZ3A49O5Kq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ragged Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:garenne",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.pMmijsNzZ4gYkmvJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "aeon-blast",
+            "predicate": [
+              {
+                "nor": [
+                  {
+                    "and": ["aeon-black-star", "aeon-gold-star", "aeon-green-star", "aeon-white-star"]
+                  }
+                ]
+              }
+            ],
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.SanctumKnight.AeonStar.Black.Label",
+                "predicate": [
+                  {
+                    "not": "aeon-black-star"
+                  }
+                ],
+                "value": "void"
+              },
+              {
+                "label": "PF2E.NPCAbility.SanctumKnight.AeonStar.Gold.Label",
+                "predicate": [
+                  {
+                    "not": "aeon-gold-star"
+                  }
+                ],
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.NPCAbility.SanctumKnight.AeonStar.Green.Label",
+                "predicate": [
+                  {
+                    "not": "aeon-green-star"
+                  }
+                ],
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.NPCAbility.SanctumKnight.AeonStar.White.Label",
+                "predicate": [
+                  {
+                    "not": "aeon-white-star"
+                  }
+                ],
+                "value": "spirit"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["aeon-blast"],
+            "property": "damage-type",
+            "selectors": ["{item|_id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.aeonBlast}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:greely",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.aw6GADkW6irVEoN7",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ragged Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:heart-of-sarnax",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.kTC9PGsWpNZE6MwY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": " hear heartbeat (precise) 60 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:irabel-of-eiseth",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.CMApn4xfIXGKtMZK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ragged Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:jona-clay",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.tU2tTah1qV3sOt28",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ragged Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:kalatryx",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.8JbgbskxcU0EloJX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. arcane"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "strike-attack-roll",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:kaltos-orthux",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.eI6rRuxIPSZcm9OC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. magic, iron mind"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Key to area A8"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Key to area A17"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Tripartite Key Amulet"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Slender Ivory plaque painted with a stylized design of a Chimera"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Gold ring"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Belt Pouch"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:krell",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.JNShh0iI1ZUzQEXp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ragged Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:labella",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.M1IK1vGW83VnHYBK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ragged Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:lord-pandelay",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.O7dYMUmjENgExuFr",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Alghollthu"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Twinslayer"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ebon Regalia"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:orthux-guard",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.Ytp0kRaG8iexmPfN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. magic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:regloks-mount",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.AJ5LuNMVPLCydryP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.AdjustStrike",
+          "raw": {
+            "definition": ["item:slug:fangs"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "predicate": ["coil"],
+            "property": "weapon-traits",
+            "value": "reach-10"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:sanctum-knight",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.viafxrsGsWJEBRTM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "aeon-blast",
+            "predicate": [
+              {
+                "nor": [
+                  {
+                    "and": ["aeon-black-star", "aeon-gold-star", "aeon-green-star", "aeon-white-star"]
+                  }
+                ]
+              }
+            ],
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.SanctumKnight.AeonStar.Black.Label",
+                "predicate": [
+                  {
+                    "not": "aeon-black-star"
+                  }
+                ],
+                "value": "void"
+              },
+              {
+                "label": "PF2E.NPCAbility.SanctumKnight.AeonStar.Gold.Label",
+                "predicate": [
+                  {
+                    "not": "aeon-gold-star"
+                  }
+                ],
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.NPCAbility.SanctumKnight.AeonStar.Green.Label",
+                "predicate": [
+                  {
+                    "not": "aeon-green-star"
+                  }
+                ],
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.NPCAbility.SanctumKnight.AeonStar.White.Label",
+                "predicate": [
+                  {
+                    "not": "aeon-white-star"
+                  }
+                ],
+                "value": "spirit"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["aeon-blast"],
+            "property": "damage-type",
+            "selectors": ["{item|_id}-inline-damage"],
+            "value": "{item|flags.system.rulesSelections.aeonBlast}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:shevala-iorae",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.qE7748DOHm0MxppT",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ragged Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:shevala-iorae-recovered",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.bLd1LoITrkz9OkO9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 2,
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Create Food (Rank 2)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Marvelous Mount (Rank 2)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Wand of Dream Message (Rank 3)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:shulgurk",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.oFK6kZAsaCe2Th41",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "web sense (imprecise)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "spider-speak"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "hybrid",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Hybrid",
+                "value": "hybrid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Humanoid",
+                "value": "humanoid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.Spider",
+                "value": "spider"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 11,
+            "category": "simple",
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d4",
+                "modifier": 4
+              }
+            },
+            "group": "knife",
+            "key": "Strike",
+            "label": "PF2E.Weapon.Base.dagger",
+            "predicate": [
+              {
+                "or": ["change-shape:humanoid", "change-shape:hybrid"]
+              }
+            ],
+            "slug": "dagger",
+            "traits": ["finesse", "agile", "versatile-s"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 10,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d8",
+                "modifier": 4
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Fangs",
+            "predicate": [
+              {
+                "not": "change-shape:humanoid"
+              }
+            ],
+            "slug": "fangs",
+            "traits": ["unarmed", "finesse"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": [
+              {
+                "or": ["change-shape:spider", "change-shape:hybrid"]
+              }
+            ],
+            "selector": ["fangs-damage"],
+            "text": "PF2E.NPCAbility.Shulgurk.AnadiPoison.Text",
+            "title": "PF2E.NPCAbility.Shulgurk.AnadiPoison.Label",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:thorgrim",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.ImpMkG15WRIk4Quk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "darkvision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Filthy Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:ugothol-wretch",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.fRjJkktWp7s8NBN7",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. auditory and visual"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:vidileth",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.VDm2XhfNwhgiJOxD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 37
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "darkvision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:weary",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.h2shgfJ8gfnJKSWI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "darkvision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.SubstituteRoll",
+          "raw": {
+            "key": "SubstituteRoll",
+            "predicate": ["corpse"],
+            "required": true,
+            "selectors": ["deception-dc", "deception"],
+            "slug": "corpse-bonus",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
+      "slug": "creature:zulgara",
+      "foundry": "Compendium.pf2e.the-dead-gods-hand-bestiary.Actor.zFTfx1Q0oJxk8Bno",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Religious Symbol of Droskar"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Tripartite Key Amulet"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Incense"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Belt Pouch"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Belt Pouch"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "the-dead-gods-hand",
       "slug": "equipment:deravons-helm",
       "foundry": "Compendium.pf2e.equipment-srd.Item.lrqWKtJrjb55iHtw",
       "gaps": [

@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4025",
-        "page": 231
+        "page": 231,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4025"
       }
     ],
     "description": [
@@ -82,6 +82,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "82111938-c18a-5217-b0b2-0ed48b46175f",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -101,8 +105,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4026",
-        "page": 231
+        "page": 231,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4026"
       }
     ],
     "description": [
@@ -179,6 +183,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "a77c2e91-dab5-53fe-a61d-90e99e5f344d",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -198,8 +206,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4038",
-        "page": 237
+        "page": 237,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4038"
       }
     ],
     "description": [
@@ -248,6 +256,7 @@
       },
       "bulk": "light",
       "category": "oil",
+      "effect": "c78e51bc-9a92-5ada-a6cc-b79d3eada19f",
       "usage": {
         "type": "held",
         "hands": "two"
@@ -267,8 +276,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4034",
-        "page": 235
+        "page": 235,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4034"
       }
     ],
     "description": [
@@ -327,6 +336,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -346,8 +358,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4040",
-        "page": 237
+        "page": 237,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4040"
       }
     ],
     "description": [
@@ -444,6 +456,10 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "35cdff9e-48e5-5573-ae6d-4ea0dd21276b",
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -463,8 +479,8 @@
       {
         "kind": "book",
         "book": "gatewalkers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4035",
-        "page": 235
+        "page": 235,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4035"
       }
     ],
     "description": [
@@ -515,6 +531,9 @@
       },
       "bulk": 1,
       "category": "other",
+      "activation": {
+        "cost": "three"
+      },
       "usage": {
         "type": "held",
         "hands": "two"

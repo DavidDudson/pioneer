@@ -9049,10 +9049,6 @@
           "reason": "unresolved-reference",
           "field": "archetype",
           "raw": []
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd] Pathfinder Player Core"
         }
       ]
     },
@@ -10767,10 +10763,6 @@
           "reason": "unresolved-reference",
           "field": "archetype",
           "raw": []
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd] Pathfinder Player Core"
         }
       ]
     },

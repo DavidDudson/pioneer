@@ -11,8 +11,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=97",
-        "page": 194
+        "page": 194,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=97"
       }
     ],
     "description": [
@@ -84,8 +84,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=100",
-        "page": 212
+        "page": 212,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=100"
       }
     ],
     "description": [
@@ -128,8 +128,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=95",
-        "page": 75
+        "page": 75,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=95"
       }
     ],
     "description": [
@@ -164,8 +164,8 @@
       {
         "kind": "book",
         "book": "secrets-of-magic",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=101",
-        "page": 226
+        "page": 226,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=101"
       }
     ],
     "description": [

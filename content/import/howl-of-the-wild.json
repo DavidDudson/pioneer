@@ -7,54 +7,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "action:dazzle-seeker",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.0LwQufKtXfRda0BR",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "action:death-drone",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.6iGoVnEJuBHJqgpi",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "action:drape-ambient-magic",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.GKIKJNInDev72qai",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "action:familiar-of-parasitic-might",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.J5Wyh1EPmk848ivR",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "action:lantern-beam",
       "foundry": "Compendium.pf2e.actionspf2e.Item.ako5zZwC6o26cfCQ",
       "gaps": [
@@ -65,30 +17,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "action:lantern-strobe",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.aVGNaNgG6cYNRp5A",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "action:raise-slabs",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.0VwLAKI7QP6mib88",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -108,10 +36,6 @@
             "property": "name",
             "value": "PF2E.NPCAbility.StargutHydra.SkymetalMetamorphosis.Abysium.Name"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -218,10 +142,6 @@
             "property": "name",
             "value": "PF2E.NPCAbility.StargutHydra.SkymetalMetamorphosis.Orichalcum.Name"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -241,18 +161,6 @@
             "property": "name",
             "value": "PF2E.NPCAbility.StargutHydra.SkymetalMetamorphosis.Siccatite.Name"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "action:stridulating-song",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.VPl4pifKcq7ecK87",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -314,7 +222,7 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[feat-effects]"
+          "enricher": "@UUID[feat-effects] Pathfinder Lost Omens Absalom, City of Lost Omens"
         }
       ]
     },
@@ -549,39 +457,11 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
+          "enricher": "@UUID[equipment-srd] Pathfinder Lost Omens The Grand Bazaar"
         },
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "armor:mamlambo-scale",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.l3ZsKprMlJCRbgb6",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "armor:mantis-plate",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.w21zEmBFQmf25GCk",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
         }
       ]
     },
@@ -618,50 +498,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "class-feature:lesson-of-decay",
-      "foundry": "Compendium.pf2e.classfeatures.Item.hEsmQcEryweYweis",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "class-feature:lesson-of-the-flock",
-      "foundry": "Compendium.pf2e.classfeatures.Item.JjseD5wylg4Hg9O2",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "class-feature:lesson-of-the-shark",
-      "foundry": "Compendium.pf2e.classfeatures.Item.LP6PfKqwyRJmWqOJ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -698,10 +534,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -738,278 +570,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "class-feature:zoophonia",
-      "foundry": "Compendium.pf2e.classfeatures.Item.jHOlcSnGyjCnwoPP",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:alicorn-hair",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.dXhHBfDg1OxtSaOg",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:amphisbaena-spittle",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Hoe17WNDQ2PQd9JZ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:aroma-concealer",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.poHyu9ZhQPudhPPu",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:broken-rams-thorn",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.oJTIjBsOu9vLBjBD",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:chaos-falcon-feather",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.gUdXcEZQ7mGB8JW1",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:dischoran-rubble",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.BXb0tzJHOAB8whWB",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:essence-of-mandragora",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.xAgcrpDlBU77FNlf",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:frogskin-tincture",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.oEOfOdcxkSnzSHPC",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:hippogriff-feather",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.7k0lrb4I47mDIBj1",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:hydra-mutagen",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.iN4giDBCWlc19Jsc",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:kirin-echo-chime",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Ia3z1nC3LBulMFMs",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:kushtaka-relic",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.EBAgEC9YyNC9NTmY",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:ogre-spider-filament",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.jnw6iyevvDSISGsn",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:pallesthetic-mutagen",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.vLBXDJfFvXAkuCYc",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:pheromone-flare-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.p2bU2w6qbtgrBchc",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:pheromone-flare-lesser",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.5QuImSHXH5QTDju1",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:pheromone-flare-moderate",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.1AxZlZmCuOK3NtVs",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:sargassum-phial",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.hyZQx9PlWgmF9RAw",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:silvered-marp-fur",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Xd96IsYFLmjWnWHk",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:skyfisher-vapors",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.keaNrIPYQYP02acm",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "consumable:sportlebore-capsule",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Ary0uHNPkoFHX40N",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -1022,94 +582,1637 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:almiraj",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.ljcMqo6PKDxsmoth",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "predicate": ["reactive-strike-horn"],
+            "selector": ["horn-attack"],
+            "text": "PF2E.AttackEffects.KnockProneCriticalHit",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:apothecary-bee",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.ooT4XgMteGVulk1U",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "potionsight (precise) 60 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:barded-manticore",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.BTVLegvy1IhceQFf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["arrange-scales"],
+            "type": "{item|flags.system.rulesSelections.arrangeScales}",
+            "value": 15
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:blooming-guardian",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.N3JcyxJZ05tGXZbf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with animals, speak with plants"
         },
         {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "damageCategory": "persistent",
+            "damageType": "poison",
+            "key": "FlatModifier",
+            "predicate": ["full-bloom"],
+            "selector": "strike-damage",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess", "success"],
+            "predicate": ["full-bloom"],
+            "selector": "strike-attack-roll",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
         }
       ]
     },
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "consumable:tatzlwyrms-gasp",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.V3f0hQdWoWMWF5RU",
+      "slug": "creature:chaos-falcon",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.DijQ9ujoBeVZBdNB",
       "gaps": [
         {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "stormsight"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Bolt.damage",
+          "raw": {
+            "damage": "6d6",
+            "damageType": "untyped"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "option": "storm-nexus",
+            "selection": "fire",
+            "suboptions": [
+              {
+                "label": "PF2E.TraitCold",
+                "value": "cold"
+              },
+              {
+                "label": "PF2E.TraitElectricity",
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": "fire"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:storm-nexus"],
+            "property": "damage-type",
+            "selectors": ["inline-damage"],
+            "value": "{item|flags.system.rulesSelections.stormNexus}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageDice",
+          "raw": {
+            "key": "DamageDice",
+            "override": {
+              "damageType": "{item|flags.system.rulesSelections.stormNexus}"
+            },
+            "selector": "bolt-damage"
+          }
         }
       ]
     },
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "consumable:viperous-elixir-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.avCckBXMRbzAudZG",
+      "slug": "creature:concert-frog",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.bH0T5d1uXWVRCvbo",
       "gaps": [
         {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "25 (froglets, immune to area damage))"
         }
       ]
     },
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "consumable:viperous-elixir-lesser",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.LmNp6og59w1KhlIX",
+      "slug": "creature:decapod-dinghy",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.f0Xp9Z8UH2cRlvOT",
       "gaps": [
         {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
         }
       ]
     },
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "consumable:viperous-elixir-moderate",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.HwDlOobl1bsTG5mA",
+      "slug": "creature:drthak",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.bFRTPIDVo2tmmj9w",
       "gaps": [
         {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "sensitive echolocation (precise) 120 feet"
         }
       ]
     },
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "consumable:wemmuth-trinket",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.jdBSk1eH1qPsCNi6",
+      "slug": "creature:fangtooth-school",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.Am7MocGZO1bAKr7B",
       "gaps": [
         {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
         }
       ]
     },
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "consumable:witchwarg-fur",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.vmAZrNtftTBOyTVx",
+      "slug": "creature:flynkett",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.3SNjewODzhPcxx9y",
       "gaps": [
         {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Acid Spit.damage",
+          "raw": {
+            "damage": "1d8",
+            "damageType": "acid",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:glide", "kettle-up"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.Flynkett.KettleUp.Note"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:kettle-up", "boiling"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.NPCAbility.Flynkett.KettleUp.BoilingEffect"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 9,
+            "damage": {
+              "base": {
+                "damageType": "slashing",
+                "dice": 2,
+                "die": "d4",
+                "modifier": 4
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Claw",
+            "predicate": [
+              {
+                "not": "kettle-up"
+              }
+            ],
+            "slug": "claw",
+            "traits": ["agile", "unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "add",
+            "predicate": ["boiling"],
+            "property": "dice-number",
+            "selectors": ["{item|id}-inline-damage"],
+            "value": 2
+          }
         }
       ]
     },
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "consumable:wolliped-fleece",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.GzcCAMqagCxy18tF",
+      "slug": "creature:giant-coppermouth",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.kGqR8nFoGHB3iccK",
       "gaps": [
         {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "greater electrolocation 20 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:giant-tardigrade",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.K7v1B9PG2wag1Diz",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Stylet.damage",
+          "raw": {
+            "damage": "1d8",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:goblin-shark",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.9Qx9RrwHo68au5eG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "blood scent, electrolocation 20 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:harbor-seal",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.ezjJIrMEQeLCk7jy",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "whisker sense 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["aquatic-ambush"],
+            "selectors": ["strike-attack-roll", "strike-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:helicoprion",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.INzhFMFeyJDlIdFR",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "blood scent"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Jaws.damage",
+          "raw": {
+            "damage": "1d8",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:hexmoth",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.fursHtUvfJ7gkmky",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "arcanosense (precise) 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Hexbolt.damage",
+          "raw": {
+            "damage": "2d8+6",
+            "damageType": "untyped"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "type": "{item|flags.system.rulesSelections.advancedArcanovore}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:hexdust-wind"],
+            "property": "damage-type",
+            "selectors": ["inline-damage"],
+            "value": "{item|flags.system.rulesSelections.advancedArcanovore}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageDice",
+          "raw": {
+            "key": "DamageDice",
+            "override": {
+              "damageType": "{item|flags.system.rulesSelections.advancedArcanovore}"
+            },
+            "selector": "hexbolt-damage"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "spells"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:hexworm",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.IX2UM77aXajrTJ6x",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "arcanosense (precise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "spells"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:hooplamander",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.ngtgQfPlr4zg45w9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "40ft in Wheels Up"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Hookclaw.damage",
+          "raw": {
+            "damage": "3d6",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:leopard-seal",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.IjI9p8ZpS7LVBKJC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "whisker sense 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["aquatic-ambush"],
+            "selectors": ["strike-attack-roll", "strike-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:lightning-turtle",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.y4Sh40MIaLp0JH7q",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "greater electrolocation 20 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:magnetic-gecko",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.ShUcJ2v8mqCwCeMf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "greater electrolocation 20 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "key": "Resistance",
+            "predicate": ["repel"],
+            "type": "metal",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:majungasaurus",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.McgVEJXOdaKXIejY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.EphemeralEffect",
+          "raw": {
+            "key": "EphemeralEffect",
+            "predicate": ["target:condition:frightened"],
+            "selectors": ["strike-attack-roll", "spell-attack-roll", "strike-damage", "attack-spell-damage"],
+            "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["check:statistic:base:stealth"],
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:mammoth-land-star",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.vimDrfh4L7QJnmne",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "regeneration 20 (reduced by 4 for each missing limb); limb regrowth"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Effect: Mammoth Land Star Limbs"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:marp",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.FBB17RW7BoqiBOqL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "goldsense (imprecise) 60 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:mirror-wolf",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.8DoyRTIl2TM4cDDI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "predicate": ["bond-with-mortal"],
+            "type": ["disease", "paralyzed", "poison"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "key": "Resistance",
+            "mode": "remove",
+            "predicate": ["bond-with-mortal"],
+            "type": "all-damage",
+            "value": 0
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:mjolgat",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.Aos5iPQ6FUaqoSV5",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "orescent (precise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalFailure"],
+            "selector": "bone-crest-attack",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:mocking-chorus",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.7peOc9dbnQuIx2AP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "hydra regeneration"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "all (see uncanny mimicry)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Effect: Hydra Heads"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:morthak",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.OEY3bg3YOjRPkyzI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "sensitive echolocation (precise) 90 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:pale-horse",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.X28Cx35MnV8icCSH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:plated-python",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.iTEmT3ld9s0w0luF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "stone tunnel"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:prismhydra",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.FUnnTzkARhfNi5cP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "hydra regeneration"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Effect: Hydra Heads"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:rift-chameleon",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.ZyT4d8qw4oYclcb0",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:royal-basilisk",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.kuweiMAfqrigtGj1",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Iron Crown"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:shotalashu",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.O7EJDExSclMdUFWo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "jungle stride"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any languages), empathic communication"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:soniphak",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.bu6iSeOO5ho0IIRS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "sensitive echolocation (precise) 120 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:stargut-hydra",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.4UWIFQn7WLOMoKEY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "hydra regeneration"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Effect: Hydra Heads"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:stonefish-swarm",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.rQYVJHpbcbBw6rnt",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:stony-goat",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.HqZ2TrDL49tHhAvF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Cud"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:sunscale-serpent",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.PPk05PmGPKCB9X7v",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "predicate": ["bond-with-mortal"],
+            "type": ["disease", "paralyzed", "poison"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "key": "Resistance",
+            "mode": "remove",
+            "predicate": ["bond-with-mortal"],
+            "type": "all-damage",
+            "value": 0
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:swordfish",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.usNtfeE0DVJKg2nu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:taldan-cave-squirrel",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.hqJN853rWhcwJi6q",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:thruneosaurus-rex",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.NlG7uRoG4hPE5ink",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:tyrafdir",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.VV19NGsVwqxL3X54",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "hydra regeneration"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Effect: Hydra Heads"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 24,
+            "baseType": "jaws",
+            "damage": {
+              "base": {
+                "damageType": "mental",
+                "dice": 2,
+                "die": "d10",
+                "modifier": 9
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.NPCAbility.Tyrafdir.DeceptiveJaws",
+            "predicate": ["self:effect:deceptive-heads"],
+            "slug": "deceptive-jaws",
+            "traits": ["illusion", "mental", "nonlethal", "reach-15"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:vibrant-pup-swarm",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.anyIh7T5RKBjYTc3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:warden-of-caverns-and-burrows",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.NYRk2xqxid0lfNka",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 to all saves vs. primal"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "voice of nature"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Magma Jet.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:warden-of-forests-and-meadows",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.Z5c8wJajbyEMNhEB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "forest passage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 to all saves vs primal"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "scent (imprecise) 1 mile"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "voice of nature"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Horned Crown.damage",
+          "raw": {
+            "damage": "2d6",
+            "damageType": "poison",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.CreatureSize",
+          "raw": {
+            "key": "CreatureSize",
+            "predicate": ["change-shape"],
+            "value": "{item|flags.system.rulesSelections.changeShape}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:warden-of-oceans-and-rivers",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.ApQvWxwCc5vtDvFD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 to all saves vs primal"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "voices of nature"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "key": "Aura",
+            "radius": "@actor.flags.system.bioluminescentMaelstrom.radius",
+            "traits": ["primal", "visual", "water"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "flags.system.bioluminescentMaelstrom.radius",
+            "priority": 1,
+            "value": 30
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:warden-of-peaks-and-skies",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.nQ6g5UbZFirINZoB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "unfettered movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 to all saves vs primal"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "stormsight"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "voice of nature"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:weremoose",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.D8Y8P3XHLTMPLYJf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "deer empathy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "hybrid",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Hybrid",
+                "value": "hybrid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Humanoid",
+                "value": "humanoid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Animal",
+                "value": "animal"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 11,
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d4",
+                "modifier": 6
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Fist",
+            "predicate": ["change-shape:humanoid"],
+            "slug": "fist",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 11,
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d8",
+                "modifier": 6
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Hoof",
+            "predicate": ["change-shape:animal"],
+            "slug": "hoof",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 11,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d8",
+                "modifier": 6
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Antler",
+            "predicate": [
+              {
+                "or": ["change-shape:animal", "change-shape:hybrid"]
+              }
+            ],
+            "slug": "antler",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "antler-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "silver"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "howl-of-the-wild",
+      "slug": "creature:wereshark",
+      "foundry": "Compendium.pf2e.howl-of-the-wild-bestiary.Actor.IaTdqm2wFMKkogEC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "blood scent"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "shark empathy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "hybrid",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Hybrid",
+                "value": "hybrid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Humanoid.Humanoid",
+                "value": "humanoid"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Animal",
+                "value": "animal"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 14,
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d4",
+                "modifier": 7
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Fist",
+            "predicate": ["change-shape:humanoid"],
+            "slug": "fist",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 14,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 1,
+                "die": "d12",
+                "modifier": 7
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Jaws",
+            "predicate": [
+              {
+                "not": "change-shape:humanoid"
+              }
+            ],
+            "slug": "jaws",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "jaws-damage",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "silver"
         }
       ]
     },
@@ -1155,18 +2258,6 @@
             "path": "system.attributes.flanking.flankable",
             "value": false
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "effect:effect-change-shape-werecreature",
-      "foundry": "Compendium.pf2e.feat-effects.Item.Q8pD29NcGGuRxWwh",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -1272,22 +2363,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "effect:effect-mentor-of-legends",
-      "foundry": "Compendium.pf2e.feat-effects.Item.jw5uOE1sJ9o9bUEb",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "floor(@item.origin.level/2)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "effect:effect-ommatophoric-mutagen",
       "foundry": "Compendium.pf2e.equipment-effects.Item.ZxT8Shp8NZaQRjlQ",
       "gaps": [
@@ -1299,116 +2374,6 @@
             "mode": "override",
             "path": "system.attributes.flanking.flankable",
             "value": false
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "effect:effect-portents-of-the-haruspex",
-      "foundry": "Compendium.pf2e.feat-effects.Item.l5NDN9V3DwFYPIsD",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": ["parent:badge:value:1"],
-            "type": "acid",
-            "value": "@item.origin.level"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": [
-              {
-                "or": ["parent:badge:value:2", "parent:badge:value:3"]
-              }
-            ],
-            "type": "bludgeoning",
-            "value": "@item.origin.level"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": ["parent:badge:value:4"],
-            "type": "cold",
-            "value": "@item.origin.level"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": ["parent:badge:value:5"],
-            "type": "electricity",
-            "value": "@item.origin.level"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": ["parent:badge:value:6"],
-            "type": "fire",
-            "value": "@item.origin.level"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": ["parent:badge:value:7"],
-            "type": "mental",
-            "value": "@item.origin.level"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": [
-              {
-                "or": ["parent:badge:value:8", "parent:badge:value:9"]
-              }
-            ],
-            "type": "piercing",
-            "value": "@item.origin.level"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": ["parent:badge:value:10"],
-            "type": "poison",
-            "value": "@item.origin.level"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": [
-              {
-                "or": ["parent:badge:value:11", "parent:badge:value:12"]
-              }
-            ],
-            "type": "slashing",
-            "value": "@item.origin.level"
           }
         }
       ]
@@ -1445,22 +2410,6 @@
             "key": "Resistance",
             "type": "{item|flags.system.rulesSelections.resistance}",
             "value": "floor(@actor.level/@item.flags.system.rulesSelections.value)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "effect:effect-siphon-torment",
-      "foundry": "Compendium.pf2e.feat-effects.Item.cmwlVYHtp3a1OipU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "@item.origin.level"
           }
         }
       ]
@@ -1541,665 +2490,6 @@
             "selectors": ["strike-attack-roll"],
             "uuid": "Compendium.pf2e.spell-effects.Item.Spell Effect: Albatross Curse (Circumstance Bonus)"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "effect:spell-effect-animal-form-crab",
-      "foundry": "Compendium.pf2e.spell-effects.Item.1Gax900IAwhLCi4q",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BattleForm",
-          "raw": {
-            "brackets": [
-              {
-                "start": 2,
-                "value": {
-                  "armorClass": {
-                    "modifier": "16 + @actor.level"
-                  },
-                  "skills": {
-                    "athletics": {
-                      "modifier": 9
-                    }
-                  },
-                  "strikes": {
-                    "big-claw": {
-                      "damage": {
-                        "modifier": 1
-                      },
-                      "modifier": 9
-                    },
-                    "little-claw": {
-                      "damage": {
-                        "modifier": 1
-                      },
-                      "modifier": 9
-                    }
-                  },
-                  "tempHP": 5
-                }
-              },
-              {
-                "start": 3,
-                "value": {
-                  "armorClass": {
-                    "modifier": "17 + @actor.level"
-                  },
-                  "skills": {
-                    "athletics": {
-                      "modifier": 14
-                    }
-                  },
-                  "strikes": {
-                    "big-claw": {
-                      "damage": {
-                        "modifier": 5
-                      },
-                      "modifier": 14
-                    },
-                    "little-claw": {
-                      "damage": {
-                        "modifier": 5
-                      },
-                      "modifier": 14
-                    }
-                  },
-                  "tempHP": 10
-                }
-              },
-              {
-                "start": 4,
-                "value": {
-                  "armorClass": {
-                    "modifier": "18 + @actor.level"
-                  },
-                  "size": "lg",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 16
-                    }
-                  },
-                  "strikes": {
-                    "big-claw": {
-                      "damage": {
-                        "modifier": 9
-                      },
-                      "modifier": 16,
-                      "traits": ["reach"]
-                    },
-                    "little-claw": {
-                      "damage": {
-                        "modifier": 9
-                      },
-                      "modifier": 16,
-                      "traits": ["agile", "reach"]
-                    }
-                  },
-                  "tempHP": 15
-                }
-              },
-              {
-                "start": 5,
-                "value": {
-                  "armorClass": {
-                    "modifier": "18 + @actor.level"
-                  },
-                  "size": "huge",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 20
-                    }
-                  },
-                  "strikes": {
-                    "big-claw": {
-                      "damage": {
-                        "dice": 4,
-                        "modifier": 7
-                      },
-                      "modifier": 18,
-                      "traits": ["unarmed", "reach-15"]
-                    },
-                    "little-claw": {
-                      "damage": {
-                        "dice": 4,
-                        "modifier": 7
-                      },
-                      "modifier": 18,
-                      "traits": ["unarmed", "reach-15"]
-                    }
-                  },
-                  "tempHP": 20
-                }
-              }
-            ],
-            "key": "BattleForm",
-            "overrides": {
-              "senses": {
-                "lowLightVision": {},
-                "scent": {
-                  "acuity": "imprecise",
-                  "range": 30
-                }
-              },
-              "size": "med",
-              "speeds": {
-                "land": 25,
-                "swim": 15
-              },
-              "strikes": {
-                "big-claw": {
-                  "ability": "str",
-                  "baseType": "claw",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "piercing",
-                    "dice": 2,
-                    "die": "d8"
-                  },
-                  "traits": []
-                },
-                "little-claw": {
-                  "ability": "str",
-                  "baseType": "claw",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "piercing",
-                    "dice": 2,
-                    "die": "d4"
-                  },
-                  "traits": ["agile"]
-                }
-              },
-              "traits": ["animal"]
-            }
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "effect:spell-effect-animal-form-crocodile",
-      "foundry": "Compendium.pf2e.spell-effects.Item.0B3noZtrBfeHC7ye",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BattleForm",
-          "raw": {
-            "brackets": [
-              {
-                "start": 2,
-                "value": {
-                  "armorClass": {
-                    "modifier": "16 + @actor.level"
-                  },
-                  "skills": {
-                    "athletics": {
-                      "modifier": 9
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "modifier": 1
-                      },
-                      "modifier": 9
-                    },
-                    "tail": {
-                      "damage": {
-                        "modifier": 1
-                      },
-                      "modifier": 9
-                    }
-                  },
-                  "tempHP": 5
-                }
-              },
-              {
-                "start": 3,
-                "value": {
-                  "armorClass": {
-                    "modifier": "17 + @actor.level"
-                  },
-                  "skills": {
-                    "athletics": {
-                      "modifier": 14
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "modifier": 5
-                      },
-                      "modifier": 14
-                    },
-                    "tail": {
-                      "damage": {
-                        "modifier": 5
-                      },
-                      "modifier": 14
-                    }
-                  },
-                  "tempHP": 10
-                }
-              },
-              {
-                "start": 4,
-                "value": {
-                  "armorClass": {
-                    "modifier": "18 + @actor.level"
-                  },
-                  "size": "lg",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 16
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "modifier": 9
-                      },
-                      "modifier": 16,
-                      "traits": ["unarmed", "reach"]
-                    },
-                    "tail": {
-                      "damage": {
-                        "modifier": 9
-                      },
-                      "modifier": 16,
-                      "traits": ["unarmed", "agile", "reach"]
-                    }
-                  },
-                  "tempHP": 15
-                }
-              },
-              {
-                "start": 5,
-                "value": {
-                  "armorClass": {
-                    "modifier": "18 + @actor.level"
-                  },
-                  "size": "huge",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 20
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "dice": 4,
-                        "modifier": 7
-                      },
-                      "modifier": 18,
-                      "traits": ["unarmed", "reach-15"]
-                    },
-                    "tail": {
-                      "damage": {
-                        "dice": 2,
-                        "modifier": 7
-                      },
-                      "modifier": 18,
-                      "traits": ["unarmed", "agile", "reach-15"]
-                    }
-                  },
-                  "tempHP": 20
-                }
-              }
-            ],
-            "key": "BattleForm",
-            "overrides": {
-              "senses": {
-                "low-light-vision": {},
-                "scent": {
-                  "acuity": "imprecise",
-                  "range": 30
-                }
-              },
-              "size": "med",
-              "speeds": {
-                "land": 25,
-                "swim": 30
-              },
-              "strikes": {
-                "jaws": {
-                  "ability": "str",
-                  "baseType": "jaws",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "piercing",
-                    "dice": 2,
-                    "die": "d8"
-                  },
-                  "traits": ["unarmed"]
-                },
-                "tail": {
-                  "ability": "str",
-                  "baseType": "tail",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "bludgeoning",
-                    "dice": 1,
-                    "die": "d8"
-                  },
-                  "traits": ["unarmed", "agile"]
-                }
-              },
-              "traits": ["animal"]
-            }
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "effect:spell-effect-animal-form-orca",
-      "foundry": "Compendium.pf2e.spell-effects.Item.rmtCkBCEwyg919N0",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BattleForm",
-          "raw": {
-            "brackets": [
-              {
-                "start": 2,
-                "value": {
-                  "armorClass": {
-                    "modifier": "16 + @actor.level"
-                  },
-                  "skills": {
-                    "athletics": {
-                      "modifier": 9
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "modifier": 1
-                      },
-                      "modifier": 9
-                    }
-                  },
-                  "tempHP": 5
-                }
-              },
-              {
-                "start": 3,
-                "value": {
-                  "armorClass": {
-                    "modifier": "17 + @actor.level"
-                  },
-                  "skills": {
-                    "athletics": {
-                      "modifier": 14
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "modifier": 5
-                      },
-                      "modifier": 14
-                    }
-                  },
-                  "tempHP": 10
-                }
-              },
-              {
-                "start": 4,
-                "value": {
-                  "armorClass": {
-                    "modifier": "18 + @actor.level"
-                  },
-                  "size": "lg",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 16
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "modifier": 9
-                      },
-                      "modifier": 16,
-                      "traits": ["unarmed", "reach"]
-                    }
-                  },
-                  "tempHP": 15
-                }
-              },
-              {
-                "start": 5,
-                "value": {
-                  "armorClass": {
-                    "modifier": "18 + @actor.level"
-                  },
-                  "size": "huge",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 20
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "dice": 4,
-                        "modifier": 7
-                      },
-                      "modifier": 18,
-                      "traits": ["unarmed", "reach-15"]
-                    }
-                  },
-                  "tempHP": 20
-                }
-              }
-            ],
-            "key": "BattleForm",
-            "overrides": {
-              "senses": {
-                "low-light-vision": {},
-                "scent": {
-                  "acuity": "imprecise",
-                  "range": 30
-                }
-              },
-              "size": "med",
-              "speeds": {
-                "swim": 35
-              },
-              "strikes": {
-                "jaws": {
-                  "ability": "str",
-                  "baseType": "jaws",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "piercing",
-                    "dice": 2,
-                    "die": "d8"
-                  },
-                  "traits": ["unarmed"]
-                }
-              },
-              "traits": ["animal"]
-            }
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "effect:spell-effect-animal-form-seal",
-      "foundry": "Compendium.pf2e.spell-effects.Item.tUelWvSaNZBng42K",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BattleForm",
-          "raw": {
-            "brackets": [
-              {
-                "start": 2,
-                "value": {
-                  "armorClass": {
-                    "modifier": "16 + @actor.level"
-                  },
-                  "skills": {
-                    "athletics": {
-                      "modifier": 9
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "modifier": 1
-                      },
-                      "modifier": 9
-                    }
-                  },
-                  "tempHP": 5
-                }
-              },
-              {
-                "start": 3,
-                "value": {
-                  "armorClass": {
-                    "modifier": "17 + @actor.level"
-                  },
-                  "skills": {
-                    "athletics": {
-                      "modifier": 14
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "modifier": 5
-                      },
-                      "modifier": 14
-                    }
-                  },
-                  "tempHP": 10
-                }
-              },
-              {
-                "start": 4,
-                "value": {
-                  "armorClass": {
-                    "modifier": "18 + @actor.level"
-                  },
-                  "size": "lg",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 16
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "modifier": 9
-                      },
-                      "modifier": 16,
-                      "traits": ["unarmed", "reach", "grapple"]
-                    }
-                  },
-                  "tempHP": 15
-                }
-              },
-              {
-                "start": 5,
-                "value": {
-                  "armorClass": {
-                    "modifier": "18 + @actor.level"
-                  },
-                  "size": "huge",
-                  "skills": {
-                    "athletics": {
-                      "modifier": 20
-                    }
-                  },
-                  "strikes": {
-                    "jaws": {
-                      "damage": {
-                        "dice": 4,
-                        "modifier": 7
-                      },
-                      "modifier": 18,
-                      "traits": ["unarmed", "reach-15", "grapple"]
-                    }
-                  },
-                  "tempHP": 20
-                }
-              }
-            ],
-            "key": "BattleForm",
-            "overrides": {
-              "senses": {
-                "low-light-vision": {},
-                "scent": {
-                  "acuity": "imprecise",
-                  "range": 30
-                }
-              },
-              "size": "med",
-              "speeds": {
-                "land": 20,
-                "swim": 30
-              },
-              "strikes": {
-                "jaws": {
-                  "ability": "str",
-                  "baseType": "jaws",
-                  "category": "unarmed",
-                  "damage": {
-                    "damageType": "piercing",
-                    "dice": 2,
-                    "die": "d6"
-                  },
-                  "traits": ["unarmed", "grapple"]
-                }
-              },
-              "traits": ["animal"]
-            }
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -2306,82 +2596,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:amulet-of-the-hellcat",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.xqnADOBdW77FvzNu",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:animal-blind",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.40T4HrQdIIwGHMDq",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:animal-call",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.pr2xsD4tk0mzWhms",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:arachnolute",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.DP1ONNSs427HjgVc",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:bioluminescent-stripes",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.kLQdzIl2lfGIR3sy",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -2417,10 +2631,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -2437,10 +2647,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -2457,46 +2663,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:camouflaging-chromatophores-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.v2aOpKhNP0uIZFER",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:camouflaging-chromatophores-lesser",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.RmIA4czgAOH8Ml7e",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:catch-pole",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.LSx0quwrsOtdcHL2",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -2509,46 +2675,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:compound-eyes",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.EV97k4OZ3tDesk8X",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:constricting-whip-tail",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.bYrcZ0Oj3c10FZzP",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:distracting-carapace",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.KUMWjgUXxB2iurBP",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -2574,56 +2700,12 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "equipment:field-guide",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.yxKnUBe6W3yuRiMl",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "equipment:flash-beetle-lantern",
       "foundry": "Compendium.pf2e.equipment-srd.Item.vk8ruSuKiv6pUtlK",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:giant-catch-pole",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.qrOs3jNXJol6tWS4",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:high-contrast-goggles",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.P8mILknZPnolGHQq",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -2643,74 +2725,6 @@
             "selector": "land",
             "value": "min(20,@actor.system.movement.speeds.swim.value)"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:portable-animal-blind",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.fOfNBgb6xbu8eA4e",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:spry-sinews-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.dFoQzB7B1cA9dwMc",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:spry-sinews-lesser",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.giDq25tzS7rWG9ch",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:squid-ink-sac",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.OhCgwW4g6A1mbjmH",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:superior-catch-pole",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.752IrectHHkJwxd0",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -2730,22 +2744,6 @@
             "selector": "land",
             "value": "min(20,@actor.system.movement.speeds.swim.value)"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:toxic-blood",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.P21m8mTOynuoJXaR",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -2765,38 +2763,6 @@
             "text": "PF2E.SpecificRule.VenomGlands.Note",
             "title": "{item|name}"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "equipment:whip-tail",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ACdeqHG0cnSHoaOB",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:alarming-disappearance",
-      "foundry": "Compendium.pf2e.feats-srd.Item.oGUF5vdAsrt3tjq2",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -2886,34 +2852,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:awakened-animal"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:antler-rush",
-      "foundry": "Compendium.pf2e.feats-srd.Item.L9pd3yyjVK0rgiDc",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:aphet-flash",
-      "foundry": "Compendium.pf2e.feats-srd.Item.KrF4qD1pvQthG3v8",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -2956,22 +2894,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:merfolk"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:artisanal-crafter",
-      "foundry": "Compendium.pf2e.feats-srd.Item.5myj1WCLzifR2ev6",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
         }
       ]
     },
@@ -2994,10 +2916,6 @@
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
         }
       ]
     },
@@ -3034,26 +2952,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:awaken-others",
-      "foundry": "Compendium.pf2e.feats-srd.Item.IsQEDgcyM10kyHTq",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "Compendium.pf2e.spells-srd.Item.Awaken Animal"
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:awakened-animal-lore",
       "foundry": "Compendium.pf2e.feats-srd.Item.0faPAjBozoKxMAo3",
       "gaps": [
@@ -3070,38 +2968,6 @@
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:awakened-stride",
-      "foundry": "Compendium.pf2e.feats-srd.Item.ECgtOFAvecaDU6xj",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:bear-hug-werecreature",
-      "foundry": "Compendium.pf2e.feats-srd.Item.eClTKWfhyv2lFrwC",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -3144,22 +3010,6 @@
           "reason": "unresolved-reference",
           "field": "archetype",
           "raw": []
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:bestial-snarling",
-      "foundry": "Compendium.pf2e.feats-srd.Item.nCmsylaV144Pr4TZ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -3174,34 +3024,6 @@
           "reason": "unresolved-reference",
           "field": "archetype",
           "raw": []
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:brutal-crush",
-      "foundry": "Compendium.pf2e.feats-srd.Item.OIrBqz2nIdyu5NKR",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:camouflage-coat",
-      "foundry": "Compendium.pf2e.feats-srd.Item.OK68KJemI43q6DvQ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -3244,10 +3066,6 @@
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
         }
       ]
     },
@@ -3284,76 +3102,12 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:chemical-trail",
-      "foundry": "Compendium.pf2e.feats-srd.Item.QHmODlkNgCvcXqPz",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:claw-snag",
-      "foundry": "Compendium.pf2e.feats-srd.Item.H318YDsDaFomRrjn",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:clawdancer-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.q2Njx3zvDg2IM2sJ",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:community-minded",
-      "foundry": "Compendium.pf2e.feats-srd.Item.a4iFLiSDBO4fzCvu",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:consume-magic",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Q6UONcwTlZL4F8Fw",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:coral-reserve",
-      "foundry": "Compendium.pf2e.feats-srd.Item.KN6IxTO7H5WGYh3W",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -3380,34 +3134,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:dashing-pounce",
-      "foundry": "Compendium.pf2e.feats-srd.Item.g6P1NvbbHpJGgoXU",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:death-roll",
-      "foundry": "Compendium.pf2e.feats-srd.Item.6RDMR41SGsBBVqcA",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:dire-growth",
       "foundry": "Compendium.pf2e.feats-srd.Item.IlygXZqCaeB9X30e",
       "gaps": [
@@ -3423,98 +3149,6 @@
             "resizeEquipment": true,
             "value": "large"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:distracting-bites",
-      "foundry": "Compendium.pf2e.feats-srd.Item.yLZWUZHI5SHfwL7E",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:doom-of-sailors",
-      "foundry": "Compendium.pf2e.feats-srd.Item.gnwKHXKxMbJ2RoJ2",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:ears-of-the-forest",
-      "foundry": "Compendium.pf2e.feats-srd.Item.M5LgVNEbJeMoTMd5",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:echolocation",
-      "foundry": "Compendium.pf2e.feats-srd.Item.t7SlYWC4M2JcgwRM",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:electrogenesis",
-      "foundry": "Compendium.pf2e.feats-srd.Item.20JPwspLZ0r28Jnf",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:elver-pet",
-      "foundry": "Compendium.pf2e.feats-srd.Item.aBa7dGY2TuDE4R7A",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[familiar-abilities]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:emergency-regeneration",
-      "foundry": "Compendium.pf2e.feats-srd.Item.wlBDcATuqTwjOIY2",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -3557,58 +3191,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:athamaru"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:eye-for-masonry",
-      "foundry": "Compendium.pf2e.feats-srd.Item.ULa46pgES3yWw3NJ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:falcon-swoop",
-      "foundry": "Compendium.pf2e.feats-srd.Item.DUpcEx0yMHGSU6o5",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:fascinated-by-society",
-      "foundry": "Compendium.pf2e.feats-srd.Item.NB8AiwWXLbOsKhOE",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:fearful-symmetry",
-      "foundry": "Compendium.pf2e.feats-srd.Item.a57EppvkRS1x3OFs",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -3641,10 +3223,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:awakened-animal"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -3657,22 +3235,6 @@
         {
           "type": "enricher",
           "enricher": "@Damage[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:feral-lunge",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Rzr6VIRaPEomi9E4",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -3693,58 +3255,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:ferocity-mimicry",
-      "foundry": "Compendium.pf2e.feats-srd.Item.P10KdjTbRcgXG0JM",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:fierce-competitor",
-      "foundry": "Compendium.pf2e.feats-srd.Item.SEtFRKVV9bt4MJEn",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:fierce-grasp",
-      "foundry": "Compendium.pf2e.feats-srd.Item.2phzdvmFJaUUGDmY",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:friendly-nudge",
-      "foundry": "Compendium.pf2e.feats-srd.Item.8PmPjoqqbOzvUmO2",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:grand-metamorphosis",
       "foundry": "Compendium.pf2e.feats-srd.Item.Ds4MuyTe7t2Xosks",
       "gaps": [
@@ -3758,18 +3268,6 @@
             "prompt": "PF2E.SpecificRule.Surki.Evolutions.Prompt",
             "rollOption": "evolution"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:growing-eel-friend",
-      "foundry": "Compendium.pf2e.feats-srd.Item.p4JROE4Qh8TVNnkl",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[familiar-abilities]"
         }
       ]
     },
@@ -3823,18 +3321,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:healing-flesh",
-      "foundry": "Compendium.pf2e.feats-srd.Item.nMtcYj1DpE2V86Gt",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:heightened-instincts",
       "foundry": "Compendium.pf2e.feats-srd.Item.WlFJyOz73m67HmW2",
       "gaps": [
@@ -3843,18 +3329,6 @@
           "reason": "unresolved-reference",
           "field": "archetype",
           "raw": []
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:hindquarter-kick",
-      "foundry": "Compendium.pf2e.feats-srd.Item.RGkuVy1EmCbKjLPj",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -3887,10 +3361,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:minotaur"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -3907,14 +3377,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -3947,10 +3409,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:minotaur"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -3963,22 +3421,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[against]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:learn-by-watching",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Z3zahFC7SzzkX6Cs",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -4031,10 +3473,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -4057,10 +3495,6 @@
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
         }
       ]
     },
@@ -4162,10 +3596,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:centaur"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -4188,10 +3618,6 @@
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
         }
       ]
     },
@@ -4247,78 +3673,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:centaur"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:misty-transformation",
-      "foundry": "Compendium.pf2e.feats-srd.Item.EOYxsteDMSSZovfV",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:moray-ambush",
-      "foundry": "Compendium.pf2e.feats-srd.Item.q4DpMWlSQOvl1CIw",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:moray-eel-mount",
-      "foundry": "Compendium.pf2e.feats-srd.Item.P1ADxNv3AcoM9o50",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:natural-orienteering",
-      "foundry": "Compendium.pf2e.feats-srd.Item.JC5mUJssZQKslLct",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:nature-prowler",
-      "foundry": "Compendium.pf2e.feats-srd.Item.p0ghAUQYzymGVpot",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -4333,22 +3687,6 @@
           "reason": "unresolved-reference",
           "field": "archetype",
           "raw": []
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:nodal-healing",
-      "foundry": "Compendium.pf2e.feats-srd.Item.LrPfGV6snjCrZ4h2",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -4381,10 +3719,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:surki"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -4409,10 +3743,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -4481,10 +3811,6 @@
           "reason": "unresolved-reference",
           "field": "archetype",
           "raw": []
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -4515,52 +3841,12 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:petrifying-gaze-mimicry",
-      "foundry": "Compendium.pf2e.feats-srd.Item.KnaKxKP3eCUcCZC7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:portents-of-the-haruspex",
       "foundry": "Compendium.pf2e.feats-srd.Item.tz0gvfTwcDq0yEfg",
       "gaps": [
         {
           "type": "markup",
           "markup": "table[class]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:pounce-mimicry",
-      "foundry": "Compendium.pf2e.feats-srd.Item.2LvdYMXTIRkTQO42",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:pouncing-transformation",
-      "foundry": "Compendium.pf2e.feats-srd.Item.tCKme98RHrTZ8QdS",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -4591,46 +3877,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:practiced-brawn",
-      "foundry": "Compendium.pf2e.feats-srd.Item.jABl7ROkV1tsX87g",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:primal-proportions",
-      "foundry": "Compendium.pf2e.feats-srd.Item.sif4YKLU414BBNis",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:proud-mentor",
-      "foundry": "Compendium.pf2e.feats-srd.Item.vD3l0Xn4hb7xnQic",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:pummeling-whirlpool",
       "foundry": "Compendium.pf2e.feats-srd.Item.HoU7pgdW7KPO347H",
       "gaps": [
@@ -4655,34 +3901,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:puzzle-solver",
-      "foundry": "Compendium.pf2e.feats-srd.Item.0Cc2oFLuwQ6DCQCu",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:pyre-ant-sting",
-      "foundry": "Compendium.pf2e.feats-srd.Item.mwPOOTtELS4X7reC",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -4727,42 +3945,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:reflexive-grapple",
-      "foundry": "Compendium.pf2e.feats-srd.Item.74MnTnoqSveet8Sy",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:ride-on",
-      "foundry": "Compendium.pf2e.feats-srd.Item.4IurxX5pB7NmQX4q",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:riptide-mount",
-      "foundry": "Compendium.pf2e.feats-srd.Item.usSE6mpdYSGmDdds",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:roar-mimicry",
       "foundry": "Compendium.pf2e.feats-srd.Item.vwOU1t8Fd5dDEYia",
       "gaps": [
@@ -4773,10 +3955,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -4833,34 +4011,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:merfolk"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:seasong",
-      "foundry": "Compendium.pf2e.feats-srd.Item.dwleUePjjZAFRxRg",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:sharpened-senses",
-      "foundry": "Compendium.pf2e.feats-srd.Item.jP0D4CIyloiBaEh4",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -4875,10 +4025,6 @@
           "reason": "unresolved-reference",
           "field": "archetype",
           "raw": []
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -4931,50 +4077,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:siren-song",
-      "foundry": "Compendium.pf2e.feats-srd.Item.eRSgUQLhGWhICwpT",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:skilled-herbalist",
-      "foundry": "Compendium.pf2e.feats-srd.Item.zR2jp5tcb8GjnR3v",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:sonic-strafe",
-      "foundry": "Compendium.pf2e.feats-srd.Item.D1uVM4fif8Y0FYu1",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -5031,10 +4133,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:centaur"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -5115,34 +4213,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:centaur"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:spinning-release",
-      "foundry": "Compendium.pf2e.feats-srd.Item.iMeXYpghydBEt2Q6",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:spinning-stand",
-      "foundry": "Compendium.pf2e.feats-srd.Item.al952tuRDJJY0ENx",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -5157,30 +4227,6 @@
           "reason": "unresolved-reference",
           "field": "archetype",
           "raw": []
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:sportlebore-choke",
-      "foundry": "Compendium.pf2e.feats-srd.Item.F4LlHjLjubbBkWRT",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:springboard",
-      "foundry": "Compendium.pf2e.feats-srd.Item.PEw6PEGHSfbMI9Is",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -5202,14 +4248,6 @@
             "slug": "base",
             "value": "{item|flags.system.rulesSelections.starshotArrow}"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -5259,18 +4297,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:sunbird-glare",
-      "foundry": "Compendium.pf2e.feats-srd.Item.QgfrfzQAtzgwAgtQ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:surki-lore",
       "foundry": "Compendium.pf2e.feats-srd.Item.P9KuYKeaH2Scpkgy",
       "gaps": [
@@ -5297,10 +4323,6 @@
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
         }
       ]
     },
@@ -5405,10 +4427,6 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[journals]"
         }
       ]
@@ -5430,30 +4448,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:tear-tendons",
-      "foundry": "Compendium.pf2e.feats-srd.Item.rEbCScbo8DS6bRiC",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:tears-of-pearl",
-      "foundry": "Compendium.pf2e.feats-srd.Item.sqLCBReZ1U13saDE",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:tenacious-endurance",
       "foundry": "Compendium.pf2e.feats-srd.Item.LT5rw7JfemZSXUKB",
       "gaps": [
@@ -5462,22 +4456,6 @@
           "reason": "unresolved-reference",
           "field": "archetype",
           "raw": []
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:terrifying-transformation",
-      "foundry": "Compendium.pf2e.feats-srd.Item.rAUNZfiulXh4zcm6",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -5496,72 +4474,12 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:threatening-pursuit",
-      "foundry": "Compendium.pf2e.feats-srd.Item.DJn652sW7nstvXf5",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:too-much-to-swallow",
-      "foundry": "Compendium.pf2e.feats-srd.Item.MXCIjS0cnmy3CLvP",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[bestiary-ability-glossary-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:toppling-transformation",
-      "foundry": "Compendium.pf2e.feats-srd.Item.2hwNGs7WQnO6yv0Q",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:touch-of-lunacy",
-      "foundry": "Compendium.pf2e.feats-srd.Item.5oifNocjSTR9PdRy",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:towering-transformation",
       "foundry": "Compendium.pf2e.feats-srd.Item.4001krxk4fI1cTmV",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -5578,54 +4496,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:true-senses",
-      "foundry": "Compendium.pf2e.feats-srd.Item.wB1uoMoCcoqIwVZz",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:tunnel-roll",
-      "foundry": "Compendium.pf2e.feats-srd.Item.jSZJWYHZU3hnGRcp",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:undying-beast",
-      "foundry": "Compendium.pf2e.feats-srd.Item.1qvN6vznehBjV6ml",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:urban-jungle",
-      "foundry": "Compendium.pf2e.feats-srd.Item.qXBSXhgQYY1wVtya",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -5674,22 +4544,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:weavers-web",
-      "foundry": "Compendium.pf2e.feats-srd.Item.9aea3IysGvjKY5tT",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:werecreature-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.AfreuohzCrdqJdRt",
       "gaps": [
@@ -5705,15 +4559,6 @@
             ],
             "type": "silver",
             "value": "floor(@actor.level/2)"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "key": "GrantItem",
-            "uuid": "Compendium.pf2e.actionspf2e.Item.Change Shape"
           }
         },
         {
@@ -5875,39 +4720,7 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:wheeling-grab",
-      "foundry": "Compendium.pf2e.feats-srd.Item.XlagOGG88w6D3G3Z",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:whirling-clobber",
-      "foundry": "Compendium.pf2e.feats-srd.Item.iqUYhZNcixYw0xUW",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -5942,18 +4755,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:wild-speech",
-      "foundry": "Compendium.pf2e.feats-srd.Item.sdDOkl7IZZ0o0dix",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -5995,42 +4796,6 @@
             "property": "other-tags",
             "value": "witchs-armaments"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:wing-bounce",
-      "foundry": "Compendium.pf2e.feats-srd.Item.HXjDDIannDMNxMIz",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:wing-shove",
-      "foundry": "Compendium.pf2e.feats-srd.Item.wvpDbFZZ9I8aAtmg",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6040,10 +4805,6 @@
       "slug": "feat:winged-warrior-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.c3JnbVKag8I19OA1",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -6058,27 +4819,7 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
           "enricher": "@Check[traits]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:youre-so-cute",
-      "foundry": "Compendium.pf2e.feats-srd.Item.z5meCd4ZidBAPtUt",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -6095,18 +4836,6 @@
         {
           "type": "enricher",
           "enricher": "[[/act]]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:zoophonic-composition",
-      "foundry": "Compendium.pf2e.feats-srd.Item.bVPsAMxvUsSPHC1D",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -6180,10 +4909,6 @@
             "predicate": ["digging-wedge-active"],
             "selector": "claw-damage"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
         }
       ]
     },
@@ -6270,10 +4995,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:surki"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -6306,14 +5027,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:minotaur"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6505,50 +5218,6 @@
             "type": "circumstance",
             "value": 1
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "heritage:roaming-minotaur",
-      "foundry": "Compendium.pf2e.heritages.Item.HAo0S8ysFipf6S2B",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "heritage:sailfish-merfolk",
-      "foundry": "Compendium.pf2e.heritages.Item.4BiGekRGfBRC7DoI",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "heritage:stalker-minotaur",
-      "foundry": "Compendium.pf2e.heritages.Item.tYrb9KOv1etjE5wK",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -6568,10 +5237,6 @@
             "priority": 51,
             "value": 10
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -6620,26 +5285,6 @@
             "value": "1 minute (see text)",
             "sustained": false
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:antlion-trap",
-      "foundry": "Compendium.pf2e.spells-srd.Item.5JGSo1tgDEehqbWm",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -6660,18 +5305,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "spell:camel-spit",
-      "foundry": "Compendium.pf2e.spells-srd.Item.Hycyiw9xVzoIY4Dy",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "spell:canopy-crawler",
       "foundry": "Compendium.pf2e.spells-srd.Item.3JQPqtE7fkscP3f6",
       "gaps": [
@@ -6680,86 +5313,6 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "yourself or your animal companion"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:confusing-cry",
-      "foundry": "Compendium.pf2e.spells-srd.Item.I7oklLZy4aTHIdc3",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:distracting-decoy",
-      "foundry": "Compendium.pf2e.spells-srd.Item.z8bHh8KVttslQIU9",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:frog-tongue",
-      "foundry": "Compendium.pf2e.spells-srd.Item.cnRltZAjU9aCklqz",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:gluttonous-growth",
-      "foundry": "Compendium.pf2e.spells-srd.Item.91ZbBll8M7IXQ4yw",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:imitate-fauna",
-      "foundry": "Compendium.pf2e.spells-srd.Item.HkjeegDsA5Wq0hR2",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:luring-wail",
-      "foundry": "Compendium.pf2e.spells-srd.Item.Lr737SofpsFtLpEo",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6778,30 +5331,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "spell:mycological-malady",
-      "foundry": "Compendium.pf2e.spells-srd.Item.V4jrHiaMh4XuANOP",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:pack-breaker",
-      "foundry": "Compendium.pf2e.spells-srd.Item.cGGEi67G1RStR9cD",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "spell:primal-chorus",
       "foundry": "Compendium.pf2e.spells-srd.Item.TPN3Z6VGau6Od9rG",
       "gaps": [
@@ -6810,10 +5339,6 @@
           "reason": "unmapped-value",
           "field": "range.value",
           "raw": "1-mile burst"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -6834,124 +5359,12 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "spell:scroungers-glee",
-      "foundry": "Compendium.pf2e.spells-srd.Item.VNv96dJPi0WXKSFN",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:slime-spit",
-      "foundry": "Compendium.pf2e.spells-srd.Item.hWtB81P2KGzGHKAJ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:snake-fangs",
-      "foundry": "Compendium.pf2e.spells-srd.Item.wLWMswY7aBHEFTRb",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[bestiary-ability-glossary-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:songbirds-call",
-      "foundry": "Compendium.pf2e.spells-srd.Item.CzMCiFbgLj1irnP4",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:spirit-of-the-beast",
-      "foundry": "Compendium.pf2e.spells-srd.Item.wgAsL86ji5hulh7x",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:sting-of-the-sea",
-      "foundry": "Compendium.pf2e.spells-srd.Item.jyYBuGRfpkZz2kxs",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:summon-stampede",
-      "foundry": "Compendium.pf2e.spells-srd.Item.XWqxMJpCT95A0dZs",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "spell:summon-warden-of-the-wild",
       "foundry": "Compendium.pf2e.spells-srd.Item.l2YoqVPoFE7jpTLe",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "@UUID[howl-of-the-wild-bestiary]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "spell:threatening-mimicry",
-      "foundry": "Compendium.pf2e.spells-srd.Item.s0i3S4fg2XDQX4a7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6968,22 +5381,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "weapon:amphisbaena-handwraps",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.yY0OkkshPrsoRkAh",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
         }
       ]
     },
@@ -7002,10 +5399,6 @@
             "selector": "{item|id}-damage",
             "value": 1
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
         }
       ]
     },
@@ -7025,14 +5418,6 @@
             "text": "PF2E.SpecificRule.Equipment.BlackScorpionStingmace.BlackScorpionVenomNote",
             "title": "{item|name}"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -7050,15 +5435,11 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
+          "enricher": "@UUID[equipment-srd] Pathfinder Lost Omens The Grand Bazaar"
         },
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -7218,26 +5599,6 @@
             "selectors": ["{item|id}-inline-damage"],
             "value": "{item|flags.system.rulesSelections.dragonHeadDamage}"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "weapon:constricting-meteor",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.oYsyrS2hNqnAR4uy",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -7267,10 +5628,6 @@
       "slug": "weapon:giant-squid-lash",
       "foundry": "Compendium.pf2e.equipment-srd.Item.5IXLQVFWf2PEUHOJ",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
-        },
         {
           "type": "enricher",
           "enricher": "@Check[options]"
@@ -7312,18 +5669,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "weapon:leydroth-spellbreaker",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.lkENLG26X4ah6Eun",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "weapon:nightmares-lament",
       "foundry": "Compendium.pf2e.equipment-srd.Item.ASjNBiQfQfWppPJc",
       "gaps": [
@@ -7338,10 +5683,6 @@
             },
             "group": "knife"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -7359,7 +5700,7 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
+          "enricher": "@UUID[equipment-srd] Pathfinder Lost Omens The Grand Bazaar"
         }
       ]
     },
@@ -7369,10 +5710,6 @@
       "slug": "weapon:storm-herald",
       "foundry": "Compendium.pf2e.equipment-srd.Item.WdxabLnY4c5epMql",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
-        },
         {
           "type": "enricher",
           "enricher": "@Damage[options]"
@@ -7422,22 +5759,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "weapon:trollhound-pick",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.r9vNDYH7CswAjoo0",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },

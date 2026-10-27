@@ -57,8 +57,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=522",
-        "page": 110
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=522"
       }
     ],
     "description": [
@@ -134,6 +134,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor-shield-or-weapon"
@@ -153,8 +156,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=516",
-        "page": 92
+        "page": 92,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=516"
       }
     ],
     "description": [
@@ -215,6 +218,7 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "effect": "363ea1af-c0dc-5bae-a665-db1124353348",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -234,8 +238,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=512",
-        "page": 73
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=512"
       }
     ],
     "description": [
@@ -345,6 +349,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "reaction"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"

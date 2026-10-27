@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1274",
-        "page": 185
+        "page": 185,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1274"
       }
     ],
     "description": [

@@ -11,8 +11,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=31",
-        "page": 19
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=31"
       }
     ],
     "description": [
@@ -68,8 +68,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=35",
-        "page": 25
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=35"
       }
     ],
     "description": [
@@ -109,8 +109,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=32",
-        "page": 19
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=32"
       }
     ],
     "description": [
@@ -166,8 +166,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=33",
-        "page": 19
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=33"
       }
     ],
     "description": [
@@ -299,8 +299,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=39",
-        "page": 43
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=39"
       }
     ],
     "description": [
@@ -341,8 +341,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=37",
-        "page": 37
+        "page": 37,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=37"
       }
     ],
     "description": [
@@ -415,8 +415,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=38",
-        "page": 37
+        "page": 37,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=38"
       }
     ],
     "description": [
@@ -507,8 +507,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=36",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=36"
       }
     ],
     "description": [
@@ -565,8 +565,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=30",
-        "page": 11
+        "page": 11,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=30"
       }
     ],
     "description": [

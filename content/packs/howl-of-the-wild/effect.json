@@ -1788,7 +1788,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "floor(@item.origin.level / 2)"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.jw5uOE1sJ9o9bUEb"
     },
@@ -2247,7 +2252,74 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["acid"],
+        "value": "@item.origin.level",
+        "predicate": ["parent:badge:value:1"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["bludgeoning"],
+        "value": "@item.origin.level",
+        "predicate": [
+          {
+            "or": ["parent:badge:value:2", "parent:badge:value:3"]
+          }
+        ]
+      },
+      {
+        "key": "Weakness",
+        "type": ["cold"],
+        "value": "@item.origin.level",
+        "predicate": ["parent:badge:value:4"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["electricity"],
+        "value": "@item.origin.level",
+        "predicate": ["parent:badge:value:5"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": "@item.origin.level",
+        "predicate": ["parent:badge:value:6"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["mental"],
+        "value": "@item.origin.level",
+        "predicate": ["parent:badge:value:7"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["piercing"],
+        "value": "@item.origin.level",
+        "predicate": [
+          {
+            "or": ["parent:badge:value:8", "parent:badge:value:9"]
+          }
+        ]
+      },
+      {
+        "key": "Weakness",
+        "type": ["poison"],
+        "value": "@item.origin.level",
+        "predicate": ["parent:badge:value:10"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["slashing"],
+        "value": "@item.origin.level",
+        "predicate": [
+          {
+            "or": ["parent:badge:value:11", "parent:badge:value:12"]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.l5NDN9V3DwFYPIsD"
     },
@@ -2491,7 +2563,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.origin.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.cmwlVYHtp3a1OipU"
     },
@@ -3820,7 +3897,184 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "size": "medium",
+          "speeds": {
+            "land": 25,
+            "swim": 15
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 30
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "big-claw",
+              "baseType": "claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": [],
+              "damage": {
+                "dice": 2,
+                "die": "d8",
+                "damageType": "piercing"
+              }
+            },
+            {
+              "slug": "little-claw",
+              "baseType": "claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["agile"],
+              "damage": {
+                "dice": 2,
+                "die": "d4",
+                "damageType": "piercing"
+              }
+            }
+          ],
+          "traits": ["animal"],
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false
+        },
+        "brackets": [
+          {
+            "start": 2,
+            "armorClass": {
+              "modifier": "16 + @level"
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 9
+              }
+            ],
+            "tempHP": 5,
+            "strikes": [
+              {
+                "slug": "big-claw",
+                "modifier": 9,
+                "damage": {
+                  "modifier": 1
+                }
+              },
+              {
+                "slug": "little-claw",
+                "modifier": 9,
+                "damage": {
+                  "modifier": 1
+                }
+              }
+            ]
+          },
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "17 + @level"
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 14
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "big-claw",
+                "modifier": 14,
+                "damage": {
+                  "modifier": 5
+                }
+              },
+              {
+                "slug": "little-claw",
+                "modifier": 14,
+                "damage": {
+                  "modifier": 5
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "armorClass": {
+              "modifier": "18 + @level"
+            },
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "big-claw",
+                "traits": ["reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 9
+                }
+              },
+              {
+                "slug": "little-claw",
+                "traits": ["agile", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 9
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "armorClass": {
+              "modifier": "18 + @level"
+            },
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "big-claw",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 4,
+                  "modifier": 7
+                }
+              },
+              {
+                "slug": "little-claw",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 4,
+                  "modifier": 7
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.1Gax900IAwhLCi4q"
     },
@@ -4096,7 +4350,184 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "size": "medium",
+          "speeds": {
+            "land": 25,
+            "swim": 30
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 30
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "jaws",
+              "baseType": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 2,
+                "die": "d8",
+                "damageType": "piercing"
+              }
+            },
+            {
+              "slug": "tail",
+              "baseType": "tail",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile"],
+              "damage": {
+                "dice": 1,
+                "die": "d8",
+                "damageType": "bludgeoning"
+              }
+            }
+          ],
+          "traits": ["animal"],
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false
+        },
+        "brackets": [
+          {
+            "start": 2,
+            "armorClass": {
+              "modifier": "16 + @level"
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 9
+              }
+            ],
+            "tempHP": 5,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "modifier": 9,
+                "damage": {
+                  "modifier": 1
+                }
+              },
+              {
+                "slug": "tail",
+                "modifier": 9,
+                "damage": {
+                  "modifier": 1
+                }
+              }
+            ]
+          },
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "17 + @level"
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 14
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "modifier": 14,
+                "damage": {
+                  "modifier": 5
+                }
+              },
+              {
+                "slug": "tail",
+                "modifier": 14,
+                "damage": {
+                  "modifier": 5
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "armorClass": {
+              "modifier": "18 + @level"
+            },
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 9
+                }
+              },
+              {
+                "slug": "tail",
+                "traits": ["unarmed", "agile", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 9
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "armorClass": {
+              "modifier": "18 + @level"
+            },
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 4,
+                  "modifier": 7
+                }
+              },
+              {
+                "slug": "tail",
+                "traits": ["unarmed", "agile", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 2,
+                  "modifier": 7
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.0B3noZtrBfeHC7ye"
     },
@@ -4357,7 +4788,140 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "size": "medium",
+          "speeds": {
+            "swim": 35
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 30
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "jaws",
+              "baseType": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 2,
+                "die": "d8",
+                "damageType": "piercing"
+              }
+            }
+          ],
+          "traits": ["animal"],
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false
+        },
+        "brackets": [
+          {
+            "start": 2,
+            "armorClass": {
+              "modifier": "16 + @level"
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 9
+              }
+            ],
+            "tempHP": 5,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "modifier": 9,
+                "damage": {
+                  "modifier": 1
+                }
+              }
+            ]
+          },
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "17 + @level"
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 14
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "modifier": 14,
+                "damage": {
+                  "modifier": 5
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "armorClass": {
+              "modifier": "18 + @level"
+            },
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 9
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "armorClass": {
+              "modifier": "18 + @level"
+            },
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 4,
+                  "modifier": 7
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.rmtCkBCEwyg919N0"
     },
@@ -4618,7 +5182,141 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "size": "medium",
+          "speeds": {
+            "land": 20,
+            "swim": 30
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 30
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "jaws",
+              "baseType": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "grapple"],
+              "damage": {
+                "dice": 2,
+                "die": "d6",
+                "damageType": "piercing"
+              }
+            }
+          ],
+          "traits": ["animal"],
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false
+        },
+        "brackets": [
+          {
+            "start": 2,
+            "armorClass": {
+              "modifier": "16 + @level"
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 9
+              }
+            ],
+            "tempHP": 5,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "modifier": 9,
+                "damage": {
+                  "modifier": 1
+                }
+              }
+            ]
+          },
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "17 + @level"
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 14
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "modifier": 14,
+                "damage": {
+                  "modifier": 5
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "armorClass": {
+              "modifier": "18 + @level"
+            },
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "traits": ["unarmed", "reach", "grapple"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 9
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "armorClass": {
+              "modifier": "18 + @level"
+            },
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "traits": ["unarmed", "reach-15", "grapple"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 4,
+                  "modifier": 7
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.tUelWvSaNZBng42K"
     },

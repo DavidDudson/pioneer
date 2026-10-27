@@ -11,8 +11,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=280",
-        "page": 56
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=280"
       }
     ],
     "description": [
@@ -47,8 +47,8 @@
       {
         "kind": "book",
         "book": "war-of-immortals",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=281",
-        "page": 57
+        "page": 57,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=281"
       }
     ],
     "description": [

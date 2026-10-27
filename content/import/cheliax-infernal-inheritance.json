@@ -262,6 +262,390 @@
     {
       "type": "entry",
       "pack": "cheliax-infernal-inheritance",
+      "slug": "creature:animate-aria",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.GXp4UmJtU7y5W0Sl",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "allies",
+                "includesSelf": false,
+                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Aura Forte"
+              }
+            ],
+            "key": "Aura",
+            "level": 9,
+            "radius": 30,
+            "traits": ["auditory", "mental", "sonic"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "creature:cephalophix",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.aseZMeOX7zahFwss",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "option": "reactive-resistance",
+            "selection": "fire",
+            "suboptions": [
+              {
+                "label": "PF2E.TraitAcid",
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.TraitCold",
+                "value": "cold"
+              },
+              {
+                "label": "PF2E.TraitElectricity",
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitSonic",
+                "value": "sonic"
+              },
+              {
+                "label": "PF2E.TraitSpirit",
+                "value": "spirit"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.reactiveResistance}",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "creature:cerberus",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.IJNmrR6Xl5OWvkGp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "darkvision, scent (imprecise) 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "creature:enfiron",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.dTCCc0qV1bUG3TZ7",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "truesight"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet, Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "creature:erinys",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.KrxJlsL2iG1cuaYq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "creature:kophos",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.AwjII9OV7U9Lx5oz",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "painsight, truesight"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "deactivatedBy": ["holy", "silver"],
+            "key": "FastHealing",
+            "type": "regeneration",
+            "value": 25
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "silver"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "creature:living-effigy",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.CAh3tIdAo90ZmM3H",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "earth glide, forest passage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "darkvision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "key": "Aura",
+            "level": 11,
+            "predicate": ["ensnaring-vines"],
+            "radius": 30,
+            "traits": ["primal"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "creature:munagola",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.mbu0D45HPRNAwgEU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "spellcasting",
+          "raw": {
+            "rituals": {
+              "dc": 27
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess", "success"],
+            "selector": "melee-attack-roll",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "gm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "creature:shadowbound-mare",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.SIQiiVPX1M0RWiGn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "darkvision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "doubleVs": ["non-magical"],
+            "exceptions": ["force", "ghost-touch", "spirit", "vitality"],
+            "key": "Resistance",
+            "predicate": ["shadow-form"],
+            "type": "all-damage",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "creature:strix-hunter",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.pdGunu9U8dHDSjeI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "disabledIf": [
+              {
+                "not": "self:effect:stalk-prey"
+              }
+            ],
+            "disabledValue": false,
+            "key": "RollOption",
+            "label": "First hit against prey",
+            "option": "stalk-prey",
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
+      "slug": "creature:umbral-shepherd",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.3is3lYgxI3ZrC0ck",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "darkvision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "cheliax-infernal-inheritance",
       "slug": "effect:effect-become-as-shadow",
       "foundry": "Compendium.pf2e.feat-effects.Item.PU94onON94Vt59fX",
       "gaps": [

@@ -112,6 +112,12 @@
         ]
       },
       {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "ternary(gte(@item.origin.level, 16), 15, 10)",
+        "exceptions": ["adamantine"]
+      },
+      {
         "key": "Strike",
         "fist": true
       },
@@ -510,6 +516,11 @@
         "property": "property-runes",
         "mode": "add",
         "value": "shock"
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "@item.origin.level"
       }
     ],
     "externalIds": {
@@ -1159,7 +1170,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "2 * (1 + floor((@item.origin.level - 1) / 2))"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.2GWZgsvMJF9DN0DO"
     },
@@ -1727,7 +1744,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex", "skill:acrobatics"],
+        "type": "status",
+        "value": "ternary(gte(@item.origin.level, 12), 2, 1)"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.bWvOkRT3alzllsiG"
     },
@@ -2035,7 +2059,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "floor((max(1, @item.origin.level) - 1) / 2) + 2"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.uG1EljvrnC9HGwUh"
     },
@@ -2089,6 +2119,11 @@
       }
     ],
     "rules": [
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "piercing"],
+        "value": "ternary(gte(@item.origin.level, 18), 7, 5)"
+      },
       {
         "key": "RollTwice",
         "selectors": ["pd-recovery-check"],
@@ -2505,7 +2540,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "max(4, floor(@item.origin.level / 2) * 2 - 4)",
+        "exceptions": ["adamantine"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.pFEk5cwegWqXvX4D"
     },

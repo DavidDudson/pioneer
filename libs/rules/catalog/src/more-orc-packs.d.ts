@@ -10,3 +10,4 @@ export const clawsOfTheTyrantPack: PackLoader;
 export const clockworkMysteryPack: PackLoader;
 export const tianXiaWorldGuidePack: PackLoader;
 export const foolishHousekeepingPack: PackLoader;
+export const theDeadGodsHandPack: PackLoader;

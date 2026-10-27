@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "hells-destiny",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4954",
-        "page": 226
+        "page": 226,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4954"
       }
     ],
     "description": [
@@ -109,6 +109,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"

@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3761",
-        "page": 52
+        "page": 52,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3761"
       }
     ],
     "description": [
@@ -120,6 +120,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "reaction"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -139,8 +142,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3762",
-        "page": 52
+        "page": 52,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3762"
       }
     ],
     "description": [
@@ -238,6 +241,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "c22e3ce4-515a-530e-966c-f4f97e8e7c84",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -257,8 +264,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3762",
-        "page": 52
+        "page": 52,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3762"
       }
     ],
     "description": [
@@ -356,6 +363,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "c22e3ce4-515a-530e-966c-f4f97e8e7c84",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -375,8 +386,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3762",
-        "page": 52
+        "page": 52,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3762"
       }
     ],
     "description": [
@@ -474,6 +485,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "c22e3ce4-515a-530e-966c-f4f97e8e7c84",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -493,8 +508,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3763",
-        "page": 52
+        "page": 52,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3763"
       }
     ],
     "description": [
@@ -634,8 +649,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3763",
-        "page": 52
+        "page": 52,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3763"
       }
     ],
     "description": [
@@ -775,8 +790,8 @@
       {
         "kind": "book",
         "book": "shining-kingdoms",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3768",
-        "page": 101
+        "page": 101,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3768"
       }
     ],
     "description": [
@@ -858,6 +873,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "worn"
       }

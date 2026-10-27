@@ -1,0 +1,74 @@
+[
+  {
+    "id": "67698a1a-dbc6-5480-972e-65e1cab412f2",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:elder-thing",
+    "name": "Elder Thing",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "aaebaec0-6466-5554-a4ec-40160a389dc5",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:immolis",
+    "name": "Immolis",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "901d9f2f-1f87-5d22-b57e-4c3b80feb16a",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:migo",
+    "name": "Mi-Go",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
+    "id": "55fe99c9-0443-590f-a305-1bdb8774c85f",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:yithian",
+    "name": "Yithian",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gatewalkers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

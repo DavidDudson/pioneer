@@ -7,380 +7,12 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "action:affix-a-talisman",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.UAaQk93a30nx0nYY",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "action:bullying-press",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.TXqTIwNGULs3j6CH",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "action:flowing-footsteps",
-      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.f9tFsTp6wL4jH2dX",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "action:grim-specter",
-      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.g2mSpCt8rL4vW9nZ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "action:inextinguishable",
-      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.i7xTnGs6bP3wV2cF",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "action:life-everlasting",
-      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.l3vRvTs8dN1mQ6jK",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "action:living-death",
-      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.l9vNgDh6tM2xK8fB",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "action:ripples-and-waves",
-      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.r5vRpWv3nS8gK7mZ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "action:sense-weakness",
-      "foundry": "Compendium.pf2e.actionspf2e.Item.uWTQxEOj2pl45Kns",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "armor:barding-of-the-zephyr",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.eoI3M6FXtcPWeg7i",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "armor:electric-eelskin",
       "foundry": "Compendium.pf2e.equipment-srd.Item.8HxM35X8DDt2gw9d",
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
           "enricher": "@Check[traits]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "armor:elven-chain-high-grade",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.PuqdH7DmNsN79HyE",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "armor:elven-chain-standard-grade",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.peAvz7u35GEfTXxp",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "armor:life-saver-mail",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.h9sZfo6UmHIOU5wb",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "armor:life-saver-mail-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.oRBcuFdQDRCn1pwo",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "armor:lions-armor",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.EBuQjgVZaQpjQUjc",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "armor:lions-armor-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.dmEmxoEVzOeEkscr",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "armor:moonlit-chain",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.vHZSx5f093Wrivzn",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "armor:tideplate",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.7jGnVnqFt2gFtU1g",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:basilisk-eye",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.vL6AtFbcxbipGvtf",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:beacon-shot",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.taAjenWKjBJpQyrE",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:bloodseeker-beak",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.k6D64EAjcKMf8NZB",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:bloodseeker-beak-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.oTRUHPASPD4USU4o",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:bronze-bull-pendant",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.nXStoLxPrrP2b6WB",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:cats-eye-elixir",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.bQPRKEpnLakJBAAh",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:crying-angel-pendant",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.HHELOoN5GVonUiIa",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:dazing-coil",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ClKb4YQn8TfPIclE",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:dispelling-sliver",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.mGIJCGFkBQLkzhTg",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:emerald-grasshopper",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.3uhaf2YL9hmix3pe",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:emerald-grasshopper-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.VeqgYabyGPd7kuSg",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -679,41 +311,9 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "consumable:fade-band",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.FrbvejTNfS5fep9f",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:fear-gem",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ZAtwiAPkk1zwCf82",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "consumable:frozen-lava",
       "foundry": "Compendium.pf2e.equipment-srd.Item.5lpBiEqrxiyj48JB",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
         {
           "type": "enricher",
           "enricher": "@Damage[options]"
@@ -732,10 +332,6 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
           "enricher": "@Damage[options]"
         },
         {
@@ -750,10 +346,6 @@
       "slug": "consumable:frozen-lava-of-blackpeak",
       "foundry": "Compendium.pf2e.equipment-srd.Item.bh3HJkgWC05VSXgs",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
         {
           "type": "enricher",
           "enricher": "@Damage[options]"
@@ -772,10 +364,6 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
           "enricher": "@Damage[options]"
         },
         {
@@ -790,10 +378,6 @@
       "slug": "consumable:frozen-lava-of-ka",
       "foundry": "Compendium.pf2e.equipment-srd.Item.gJboDbIGscCvSlFc",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
         {
           "type": "enricher",
           "enricher": "@Damage[options]"
@@ -812,10 +396,6 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
           "enricher": "@Damage[options]"
         },
         {
@@ -830,10 +410,6 @@
       "slug": "consumable:frozen-lava-of-pale-mountain",
       "foundry": "Compendium.pf2e.equipment-srd.Item.QGgTedo2uMi6e9PR",
       "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
         {
           "type": "enricher",
           "enricher": "@Damage[options]"
@@ -852,10 +428,6 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
           "enricher": "@Damage[options]"
         },
         {
@@ -867,28 +439,18 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "consumable:gallows-tooth",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.u6g7AClRFEAj4lf4",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "consumable:gecko-potion",
       "foundry": "Compendium.pf2e.equipment-srd.Item.hGw7Q1y2IEXRGAfv",
       "gaps": [
         {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "effect",
+          "raw": "Compendium.pf2e.equipment-effects.Item.Effect: Gecko Potion"
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[equipment-effects]"
+          "enricher": "@UUID[equipment-effects] Pathfinder Advanced Player's Guide"
         }
       ]
     },
@@ -908,90 +470,6 @@
             "property": "property-runes",
             "value": "ghost-touch"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:ghost-dust",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.dmQAN56aMro0gecx",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:grim-trophy",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.eEIWjTvZyKsKhYaz",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:grim-trophy-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.lbr6acClmnMmB7QZ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:invisibility-potion",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.bikFUFRLwfdvX2x2",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:iron-cube",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.StsE5POM7OSE36Ia",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:jade-cat",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.2MgFoNXTccL8Own9",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -1022,182 +500,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "consumable:mesmerizing-opal",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.aKbrBW1SnFDxya5J",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:mistform-elixir-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.04giYigfDL5geu5f",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:mistform-elixir-lesser",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.GyO89RBVjAKFxsFm",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:mistform-elixir-moderate",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Ax8XcBd0rRd1Z7hN",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:monkey-pin",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.jdDDqv9LbEYX2wAE",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:mummified-bat",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.UnDjPxFOs6bldlcM",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:murderers-knot",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.YGaO4HyH6jn3P731",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:nectar-of-purification",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ukTlC4G83aVQEg7u",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:oak-potion",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.zC7LipQPHRYw2RXx",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:obfuscation-oil",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.QD5rDuk0OHadPGuh",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:oil-of-mending",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.QN8UIz0nMcnLUWHu",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:oil-of-repulsion",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.IZRfgOYlZ3HRBkYX",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:onyx-panther",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.0aSdDSjJ5sMzBz1U",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "consumable:penetrating-ammunition",
       "foundry": "Compendium.pf2e.equipment-srd.Item.tOg1nt08dBTZbkwR",
       "gaps": [
@@ -1221,8 +523,14 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.VZmUrseCZs9xMaxt",
       "gaps": [
         {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "effect",
+          "raw": "Compendium.pf2e.equipment-effects.Item.Effect: Potion of Cold Resistance"
+        },
+        {
           "type": "enricher",
-          "enricher": "@UUID[equipment-effects]"
+          "enricher": "@UUID[equipment-effects] "
         }
       ]
     },
@@ -1233,8 +541,14 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.mRs24OwmGPjoIDvO",
       "gaps": [
         {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "effect",
+          "raw": "Compendium.pf2e.equipment-effects.Item.Effect: Potion of Cold Resistance"
+        },
+        {
           "type": "enricher",
-          "enricher": "@UUID[equipment-effects]"
+          "enricher": "@UUID[equipment-effects] "
         }
       ]
     },
@@ -1245,92 +559,14 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.evdDpgFpiFZt9UyA",
       "gaps": [
         {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-effects]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:potion-of-emergency-escape",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.jTfacZ4SRuQd7Avh",
-      "gaps": [
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "effect",
+          "raw": "Compendium.pf2e.equipment-effects.Item.Effect: Potion of Cold Resistance"
+        },
         {
           "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:potion-of-leaping",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.rzEQvcWfhR3T4FNd",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:potion-of-quickness",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.kORpovlPYicysr2g",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:potion-of-undetectability",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.UblsH5cGyUdXypek",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:potion-of-water-breathing",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.WQhnfj1LbrEzvh8z",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:savior-spike",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.qeTWg0TWw9CwMKCO",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:shark-tooth-charm",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Tj4uaNw2lgevxGl7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
+          "enricher": "@UUID[equipment-effects] "
         }
       ]
     },
@@ -1355,54 +591,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "consumable:shrinking-potion",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.FqbDpztscJfM4XMe",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:shrinking-potion-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.5xsfj30uXMKINxnk",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:smoke-ball-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ehss8yPTXxiUdVlJ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:smoke-ball-lesser",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.MoBlVd36uD9xVvZC",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "consumable:snake-oil",
       "foundry": "Compendium.pf2e.equipment-srd.Item.xBZCVHAa1SnR8Xul",
       "gaps": [
@@ -1415,208 +603,18 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "consumable:sneaky-key",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.1v1OK06JxdXn6MP4",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:spirit-bulb",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.AeL8qd4hqaNN5MxP",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:spirit-bulb-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.w492F18MtpqNu2X7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:spirit-bulb-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.p7kWhbRrUCbMzd7A",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:stone-bullet",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.wTVBD8XHPG810rlH",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "consumable:stone-fist-elixir",
       "foundry": "Compendium.pf2e.equipment-srd.Item.YcvSw7Zn3oyqlJaw",
       "gaps": [
         {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-effects]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:swift-block-cabochon",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.4tnPWyApPZP1P1yO",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:trident-of-lightning",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.wDhqRxuXPQfyD0eX",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:truesight-potion",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.CoMwPsQ8mPj5Evti",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:vanishing-coin",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.dBevXop3G2P3PGjp",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:vine-arrow",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.eEnzHpPEbdGgRETM",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "effect",
+          "raw": "Compendium.pf2e.equipment-effects.Item.Effect: Stone Fist Elixir"
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:vipers-fang",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.sjxhPujyv6rJJRWO",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:wand-of-shardstorm-1st-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.KPWN5tGGkvZR7K3K",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:wand-of-shardstorm-3rd-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.3Lexs7KnhbV0HgFh",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:wand-of-shardstorm-5th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.y6if8e8OB3RUywF8",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:wand-of-shardstorm-7th-rank-spell",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.WeX7rAO2kAyP0QnG",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "consumable:wolf-fang",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.clyXfh0aVXgij2Hb",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
+          "enricher": "@UUID[equipment-effects] Pathfinder Core Rulebook"
         }
       ]
     },
@@ -3100,7 +2098,7 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[equipment-srd]"
+          "enricher": "@UUID[equipment-srd] Pathfinder Core Rulebook"
         }
       ]
     },
@@ -3458,46 +2456,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:aeon-stone-delaying",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.kSaUlWgYMywIRV3C",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:aeon-stone-envisioning",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.rAkxflw4pNrPAq4p",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:aeon-stone-nourishing",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.M2CPAgSAoEL4oawq",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:aeon-stone-preserving",
       "foundry": "Compendium.pf2e.equipment-srd.Item.xwX93cp1GiTwgtBj",
       "gaps": [
@@ -3509,38 +2467,6 @@
             "type": "persistent-damage",
             "value": 3
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:aeon-stone-smoothing",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.3obTVPkQ5mGwXJat",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:aeon-stone-sprouting",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.BYr1DRYmiRsyr4po",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -3624,7 +2550,7 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[equipment-effects]"
+          "enricher": "@UUID[equipment-effects] Pathfinder Core Rulebook"
         }
       ]
     },
@@ -3636,7 +2562,7 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[equipment-effects]"
+          "enricher": "@UUID[equipment-effects] Pathfinder Core Rulebook"
         }
       ]
     },
@@ -3648,23 +2574,7 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[equipment-effects]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:bracers-of-strength",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.WOiCJSS2MicKCMVs",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
+          "enricher": "@UUID[equipment-effects] Pathfinder Core Rulebook"
         }
       ]
     },
@@ -3695,50 +2605,6 @@
             "type": "custom",
             "value": 5
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:charlatans-cape",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.uiJAR3jQbQHhiP3Q",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:charlatans-gloves",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.LKdgj4UVmOvUwkZu",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:charlatans-gloves-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.t8RXms7xq8atF9W7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -3907,86 +2773,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:clandestine-cloak",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.hmmDa6LCS22dZT7P",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:clandestine-cloak-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.6jRXUXzYKIpm2uNp",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:cloak-of-illusions",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.0HvjITehMdaFYUkb",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:cloak-of-illusions-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.I0XiBnHFCXi64XiD",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:cloak-of-swiftness",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.C3SwBSW8XzzBPDVT",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:cloud-pouch",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.hcGvN03ieNWlSQYa",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:cold-iron-chunk",
       "foundry": "Compendium.pf2e.equipment-srd.Item.rEz9WYhlx2Pm0gKk",
       "gaps": [
@@ -4011,136 +2797,12 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:collar-of-inconspicuousness",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Rsoh0Y3RQD8x8ito",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:crafters-eyepiece-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.JSYtBZ7XblyAEFoV",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:crown-of-intellect",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.1FKDq4Gfev5GObDT",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:crystal-ball-clear-quartz",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.RM3SR1omNZfppZGl",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:crystal-ball-moonstone",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.S0IshWO7Vx29PKaq",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:crystal-ball-obsidian",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.WKdI4LbwgcNHhMdp",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:crystal-ball-peridot",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ByRyBRjNBcK5rwQ9",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:crystal-ball-selenite",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.VDMYyVQUWJAjVyru",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:dancing-scarf",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Epc1e1Q9M9bcwOR0",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:dancing-scarf-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.QJ1PhbtbLzwhRlY0",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:daredevil-boots",
       "foundry": "Compendium.pf2e.equipment-srd.Item.mmdnWrQsh7vDspLK",
       "gaps": [
         {
           "type": "enricher",
           "enricher": "[[/act]]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
         }
       ]
     },
@@ -4153,14 +2815,6 @@
         {
           "type": "enricher",
           "enricher": "[[/act]]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -4185,42 +2839,6 @@
         {
           "type": "markup",
           "markup": "table[class]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:demon-mask",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.2gYZiUw9yjtb0yJY",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:demon-mask-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.shKPtYN0YUOe07K2",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:dread-blindfold",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.pDw2wi0znVb8Dysg",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -4415,18 +3033,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:genius-diadem",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.QZaOQ8luuxWXpFqJ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:gorget-of-the-primal-roar",
       "foundry": "Compendium.pf2e.equipment-srd.Item.WYg2dZ8UK1N3rpgs",
       "gaps": [
@@ -4435,74 +3041,6 @@
           "reason": "unmapped-value",
           "field": "description.frequency",
           "raw": "once during the duration of each polymorph effect"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:headwrap-of-wisdom",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.hjfoSyfsGSTLpPMr",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:horn-of-exorcism",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.xdPU7qrl5hIvaArY",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:humbug-pocket",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.FXdESP5mmP01tL2v",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:humbug-pocket-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.AynKTlER5ZbfF62f",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:inexplicable-apparatus",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.V9iVPhIk980GT6A2",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -4542,7 +3080,7 @@
       "gaps": [
         {
           "type": "enricher",
-          "enricher": "@UUID[equipment-effects]"
+          "enricher": "@UUID[equipment-effects] Pathfinder Advanced Player's Guide"
         }
       ]
     },
@@ -4557,76 +3095,8 @@
           "enricher": "@UUID[rollable-tables]"
         },
         {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
           "type": "markup",
           "markup": "table[class]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:maestros-instrument-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.rlDIbl6EQYXQpWVs",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:maestros-instrument-lesser",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.bAfyWCvgsYDyw3ff",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:maestros-instrument-moderate",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.3mprh9aZ670HfNhT",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:mages-hat",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.SswqJqeAWGtX3tTF",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:mages-hat-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Hd1AfC08ytBg67Ey",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -4646,10 +3116,6 @@
             "type": "item",
             "value": 2
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
         }
       ]
     },
@@ -4668,132 +3134,6 @@
             "selector": "medicine",
             "type": "item",
             "value": 3
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:masquerade-scarf",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.fvpLYx1Lo42cdleQ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:masquerade-scarf-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.WPSp5MLb0VOfmUqH",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:messengers-ring",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.HAtj6AGCIZHpD7Nl",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:messengers-ring-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.b9YHyjOL4sg7tjI4",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:mirror-of-sorshen",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Ywt7p5Fyx18lK8km",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:monkeys-paw",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.QWiXrqhSCkvdHbsi",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:necklace-of-allure",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.AMOs47C4WiVY5IW3",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:obsidian-goggles-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Tej30MsQo8Ek9aA6",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Sense",
-          "raw": {
-            "key": "Sense",
-            "predicate": ["obsidian-goggles-greater"],
-            "selector": "darkvision"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:obsidian-goggles-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.rXXNw6dwVn96giDi",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Sense",
-          "raw": {
-            "key": "Sense",
-            "predicate": ["obsidian-goggles-major"],
-            "selector": "greater-darkvision"
           }
         }
       ]
@@ -4825,70 +3165,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:pendant-of-the-occult",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.zPhqmCvWyHO8i9ws",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:pendant-of-the-occult-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.1bvH8zFQvDYky9tr",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:primeval-mistletoe",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.J5MqY1P3JWrezcQX",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:primeval-mistletoe-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.HZDkF6MlNQ6yYobD",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:propulsive-boots",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Ck5k13uTNqibLFJk",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:ring-of-climbing",
       "foundry": "Compendium.pf2e.equipment-srd.Item.GpuzMoZYehYvZ50E",
       "gaps": [
@@ -4900,42 +3176,6 @@
             "selector": "climb",
             "value": "@actor.system.movement.speeds.land.value*0.5"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:ring-of-lies",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.OTeONq4r10Xm6gSy",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:ring-of-sigils",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.yzc8Sll1YMWq8PpR",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:ring-of-sigils-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Ld6K4snDzKbNXy2g",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -5063,18 +3303,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "equipment:shot-of-the-first-vault",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.6o6zvitwlNHNaNJM",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "equipment:silver-chunk",
       "foundry": "Compendium.pf2e.equipment-srd.Item.Ld8duhvwTQ5lCQmF",
       "gaps": [
@@ -5093,138 +3321,6 @@
         {
           "type": "markup",
           "markup": "table[class]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:skeleton-key",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.fprUZviW8khm2BLo",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:skeleton-key-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.AFE073UYI0mkWuUs",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:symbol-of-conflict",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.BHjJpNILf85M2LJE",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:symbol-of-conflict-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Wtm4JdxeTLQi3zQI",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:symbol-of-conflict-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.C7FeT7eVuwRnLhJy",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:third-eye",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.7MTjAlCVVLsNFo7w",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:thurible-of-revelation-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.VBCk7JXGsuG0cug1",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:thurible-of-revelation-moderate",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.QEPx1fCf74xdpXBH",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:ventriloquists-ring",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.1r6StS0irdvi5JHY",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:ventriloquists-ring-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.dolBtAdB5lpQpQpp",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:voyagers-pack",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.LRSIRUERqBAJ1HGT",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -5899,250 +3995,6 @@
             "slug": "no-compass",
             "suppress": true
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:whisper-of-the-first-lie",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.sKyJDfHdKacfbNOG",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "equipment:winged-sandals",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.aKoMqPDmVzPI7Q20",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:antimagic",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.o02lg3k1RBoFXVFV",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:brilliant",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.LbdnZFlyLFdAE617",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:brilliant-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.n8MonEa4ZBdvEovc",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:fearsome",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.P6v2AtJw7AUwaDzf",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:fearsome-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.uz3JCjRvkE44jxMd",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:forgefathers-seal",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.jpQcKMmP1I5674P7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:frost",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.M5M1WJ5KzbYfRGsY",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:frost-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Sexud7FdxIrg50vU",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:grievous",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.qUnDHEXteUQGE8yp",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:holy",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.DH0kB9Wbr5pDeunX",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:invisibility",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.VDudQ4x2ozosAbTb",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:invisibility-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.bxz885LMjLCkpDq3",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:size-changing",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Z5FvYWLEpWVo3PUF",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:thundering",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.dTxbaa7HSiJbIuNN",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:thundering-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Lb7F2BR9X9TF1vjX",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:unholy",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.gmMrJREf4JSHd2dZ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:vitalizing",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.LwQb7ryTC8FlOXgX",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "rune:vitalizing-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.oVrVzML63VFvVfKk",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6155,18 +4007,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "shield:indestructible-shield",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.SUbYk6B1iPoGyyjh",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -6199,42 +4039,6 @@
             "property": "runes-striking",
             "value": 1
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:animal-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.WcuknnE3xYfSdbhm",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:animal-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.bT9azgpc96DNbitA",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:animal-staff-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Oo7IpJQDSTmzUyzG",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -6287,10 +4091,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6378,10 +4178,6 @@
             "selector": "{item|_id}-damage",
             "text": "PF2E.BombNotes.DreadAmpoule.Note.criticalSuccess"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6410,10 +4206,6 @@
             "selector": "{item|_id}-damage",
             "text": "PF2E.BombNotes.DreadAmpoule.Note.criticalSuccess"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6442,10 +4234,6 @@
             "selector": "{item|_id}-damage",
             "text": "PF2E.BombNotes.DreadAmpoule.Note.criticalSuccess"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6474,10 +4262,6 @@
             "selector": "{item|_id}-damage",
             "text": "PF2E.BombNotes.DreadAmpoule.Note.criticalSuccess"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6510,46 +4294,6 @@
             "property": "traits",
             "value": "thrown-20"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:fluid-form-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.B71BgdfFApkYmAjc",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:fluid-form-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.bQynfb23iexSu8zU",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:fluid-form-staff-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.smrNvKVL976JNEab",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[familiar-abilities]"
         }
       ]
     },
@@ -6602,10 +4346,6 @@
             "predicate": ["self:condition:undetected"],
             "selector": "{item|_id}-damage"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -6639,19 +4379,11 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
           "enricher": "[[/act]][dc]"
         },
         {
           "type": "enricher",
           "enricher": "[[/act]]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6685,19 +4417,11 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
           "enricher": "[[/act]][dc]"
         },
         {
           "type": "enricher",
           "enricher": "[[/act]]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6731,19 +4455,11 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
           "enricher": "[[/act]][dc]"
         },
         {
           "type": "enricher",
           "enricher": "[[/act]]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6777,19 +4493,11 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
           "enricher": "[[/act]][dc]"
         },
         {
           "type": "enricher",
           "enricher": "[[/act]]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6842,19 +4550,11 @@
         },
         {
           "type": "enricher",
-          "enricher": "@UUID[classfeatures]"
-        },
-        {
-          "type": "enricher",
           "enricher": "@Damage[options]"
         },
         {
           "type": "enricher",
           "enricher": "@Check[options]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -6877,42 +4577,6 @@
     {
       "type": "entry",
       "pack": "gm-core",
-      "slug": "weapon:mentalists-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.xwiZBOjispKVZzGA",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:mentalists-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.0RCC0fOg1Lp7f79I",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:mentalists-staff-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.DTIBj6Yhy73G5P6j",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
       "slug": "weapon:retribution-axe",
       "foundry": "Compendium.pf2e.equipment-srd.Item.q6ZvspNDkzJSP6dg",
       "gaps": [
@@ -6926,30 +4590,6 @@
             "type": "circumstance",
             "value": 2
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:searing-blade",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.G3a60Ug3YNCMyMVR",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:searing-blade-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.pvxRcuBexbFawjCg",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -7002,14 +4642,6 @@
             "type": "custom",
             "value": 10
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
         }
       ]
     },
@@ -7029,34 +4661,6 @@
             "text": "PF2E.SpecificRule.Equipment.SerpentDagger.Note",
             "title": "{item|name}"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[conditionitems]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:singing-sword",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.OKAR7GIyJac8dmsi",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:sky-hammer",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ANvbi1zKF1So8bON",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -7069,10 +4673,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -7085,10 +4685,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -7101,394 +4697,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-control",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.wUFQ8cqkwn2xTCma",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-control-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.d5dnhOf5RHFFnsiB",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-control-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ndF4yxyM5ci1DcrO",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e]"
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-elemental-power",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.0Vw44XmzVS4knsa8",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-elemental-power-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.nvSZioRW4J1sMtO7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-elemental-power-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.9UfuJHNdyBBNfCsO",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-fire",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.opfpl1JmKgrfds9P",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-fire-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.KcjaeMgrsBGgwUWL",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-fire-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.qx4Cq99vng6GhzEh",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-healing",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.3OkOKxCee9WruGU5",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-healing-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.XSwEE8wjHr6UXzpw",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-healing-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.FTVap8IjoKgCexH7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-healing-true",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.WbcQqXrUytXkCMK3",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-illumination",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.8No84rsBOCVCkXJK",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-phantasms",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.HVgolLqbXUeRHXVN",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-phantasms-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Svq02kCaFadVPOSq",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-phantasms-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.7RBY90RmMtZjvnGW",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-protection",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.4O00N0HoPz5ywNyz",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-protection-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.XE8AxkahYPVzeLCW",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-protection-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.TLLZIFIPbhW8kjyL",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-summoning",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.v0IrX97Pf96jPvxP",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-summoning-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.GeAz02cQMU4X9nYp",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-summoning-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.027hHaJojFz1qJBG",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-the-dead",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.1uWytZ76MwVQYIO9",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-the-dead-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Ab5EjJyoRSec5YrW",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-the-dead-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.E30OrRp0StKLQwbQ",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-the-unblinking-eye",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.uhsVSBF4f3D5oym0",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-the-unblinking-eye-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.jUL4ZdztH8VODBuv",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:staff-of-the-unblinking-eye-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.APjEozp9ibSFV7zM",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:storm-flash",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.Za5Mnae009cDCwuN",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:storm-flash-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.i9mxfSIBTTOwsSlx",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },
@@ -7507,30 +4715,6 @@
             "text": "PF2E.SpecificRule.Equipment.UnholyWater.Note",
             "title": "{item|name}"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:verdant-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.sQFQlglhORQsxBKS",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "gm-core",
-      "slug": "weapon:verdant-staff-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ylRk8NvpK2kA8bjw",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd]"
         }
       ]
     },

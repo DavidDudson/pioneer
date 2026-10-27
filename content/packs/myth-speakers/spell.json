@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "myth-speakers",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2521",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2521"
       }
     ],
     "description": [
@@ -181,8 +181,8 @@
       {
         "kind": "book",
         "book": "myth-speakers",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2519",
-        "page": 82
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2519"
       }
     ],
     "description": [
@@ -268,8 +268,8 @@
       {
         "kind": "book",
         "book": "myth-speakers",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2522",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2522"
       }
     ],
     "description": [
@@ -342,8 +342,8 @@
       {
         "kind": "book",
         "book": "myth-speakers",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2520",
-        "page": 82
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2520"
       }
     ],
     "description": [

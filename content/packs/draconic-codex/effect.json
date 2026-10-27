@@ -572,6 +572,11 @@
         "selectors": ["ac"],
         "type": "status",
         "value": 1
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning"],
+        "value": "floor(@item.origin.level / 2)"
       }
     ],
     "externalIds": {
@@ -1981,7 +1986,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": "@item.origin.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.eFb1PU15j7t7wxqp"
     },
@@ -2176,7 +2186,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.origin.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.SrUJbUErv3pjBRCw"
     },

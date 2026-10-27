@@ -11,8 +11,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=56",
-        "page": 56
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=56"
       }
     ],
     "description": [
@@ -1046,8 +1046,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=57",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=57"
       }
     ],
     "description": [
@@ -2081,8 +2081,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=58",
-        "page": 86
+        "page": 86,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=58"
       }
     ],
     "description": [
@@ -3140,8 +3140,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=59",
-        "page": 100
+        "page": 100,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=59"
       }
     ],
     "description": [
@@ -4454,8 +4454,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=60",
-        "page": 114
+        "page": 114,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=60"
       }
     ],
     "description": [
@@ -5466,8 +5466,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=61",
-        "page": 128
+        "page": 128,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=61"
       }
     ],
     "description": [
@@ -6485,8 +6485,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=62",
-        "page": 144
+        "page": 144,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=62"
       }
     ],
     "description": [
@@ -7458,8 +7458,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=63",
-        "page": 158
+        "page": 158,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=63"
       }
     ],
     "description": [

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "8f425e0a-4c4f-5d89-b9ed-e2d87b3e97ea",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:orvian",
+    "name": "Orvian",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

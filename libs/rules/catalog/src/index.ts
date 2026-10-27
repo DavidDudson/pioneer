@@ -31,6 +31,7 @@ import {
   clockworkMysteryPack,
   tianXiaWorldGuidePack,
   foolishHousekeepingPack,
+  theDeadGodsHandPack,
 } from './more-orc-packs';
 import { characterGuidePack, impossibleLandsPack } from './ogl-packs';
 import {
@@ -51,7 +52,6 @@ import {
   seasonOfGhostsPack,
   secretsOfTheUnlitStarPack,
   shiningKingdomsPack,
-  theDeadGodsHandPack,
   troublesInGraycePack,
 } from './orc-packs';
 import { checkPackSources } from './source-check';

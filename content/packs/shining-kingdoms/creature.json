@@ -1,0 +1,4371 @@
+[
+  {
+    "id": "e308e334-f902-56a9-8572-7e4520a23577",
+    "pack": "shining-kingdoms",
+    "kind": "creature",
+    "slug": "creature:aurosrath",
+    "name": "Aurosrath",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["metal", "undead", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Greed can be a powerful force; the runelords of old even devised a school of magic based upon it. When an individual dies surrounded by masses of wealth, greed can even reanimate the dead—sufficient avarice can anchor the deceased's soul to their body. The result is an aurosrath, a being so consumed with greed that they're unwilling to donate their corpse to the natural cycle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Popular lore surrounding the creation of an aurosrath often depicts a miser ironically crushed under the weight of their own gold. While such poetic origins can happen, the truth is often grimmer. Paranoia about potential thieves and freeloaders leads to isolation, both mental and physical. A wealthy merchant succumbs to common illness because they were unwilling to pay the fee for a doctor or priest. Another starves, unable to escape the web of traps and barriers they've set up to defend their treasure from robbers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heralded by the clinking of coins, an aurosrath appears as a bloated cadaver who's clad in faded finery, their bulk nearly bursting at the seams with tarnished coins. Their voices are typically a booming bass, their speech peppered with archaic upper-class turns of phrase. They are single-minded in their desire to accumulate wealth but can be reasoned with so long as they believe that goal will ultimately be satiated. An aurosrath can often be found haunting the estates they owned in life. As they brook no competition when it comes to accumulating wealth, they quickly turn to violence when encountering others of their kind. These monstrosities do, however, occasionally command the loyalty of lesser undead and even mercenary mortal servants."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.JBqs1ubClFxHETSa"
+    },
+    "data": {
+      "role": "monster",
+      "size": "large",
+      "perception": 12,
+      "attributes": {
+        "str": 5,
+        "dex": 2,
+        "con": 4,
+        "int": 0,
+        "wis": 1,
+        "cha": 4
+      },
+      "armorClass": 19,
+      "saves": {
+        "fortitude": 14,
+        "reflex": 9,
+        "will": 13
+      },
+      "hitPoints": 95,
+      "immunities": ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 13
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 12
+        },
+        {
+          "skill": "stealth",
+          "modifier": 10
+        },
+        {
+          "skill": "mercantile-lore",
+          "modifier": 12
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["common", "necril"],
+      "strikes": [
+        {
+          "name": "Fist",
+          "range": "melee",
+          "bonus": 15,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "bludgeoning",
+              "bonus": 5
+            }
+          ],
+          "traits": ["reach-10"],
+          "reach": 10,
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Grab"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Smeltable",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If an aurosrath takes 5 or more fire damage from a single attack, the precious metals within their body enter a molten state until the end of their next turn. While in this state, the aurosrath takes a –10-foot status penalty to their Speeds, and their strikes deal an extra "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "fire"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage. They also lose their weakness to slashing damage and their resistance to electricity damage. Finally, any creature currently Grabbed or Restrained by the aurosrath loses 1 round of air if it's holding its breath."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "a4cc3613-3e48-5bbe-9184-4355e77dbf09"
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "Weakness",
+              "type": ["slashing"],
+              "value": 5,
+              "predicate": [
+                {
+                  "not": "self:effect:smeltable"
+                }
+              ]
+            },
+            {
+              "key": "Resistance",
+              "type": ["electricity"],
+              "value": 5,
+              "predicate": [
+                {
+                  "not": "self:effect:smeltable"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Void Healing",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature with void healing draws health from void energy rather than vitality energy. It is damaged by vitality damage and is not healed by vitality healing effects. It does not take void damage, and it is healed by void effects that heal undead."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Fetters of Debt",
+          "cost": "two",
+          "frequency": {
+            "max": 1,
+            "per": "ten-minutes"
+          },
+          "traits": ["auditory", "curse", "linguistic", "mental", "occult"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per 10 minutes"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The aurosrath bellows a plea for gold, remarking that their foes are overladen. Creatures in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 15
+                },
+                {
+                  "type": "text",
+                  "text": " must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 19,
+                  "options": ["inflicts:encumbered"]
+                },
+                {
+                  "type": "text",
+                  "text": " save or become Encumbered for 1 minute. The creature is aware that it can immediately end the condition by giving the aurosrath items or treasure worth at least 20 gp. Handing a held item to the aurosrath is a single Interact action. If the aurosrath's hands are full, the item falls in their space, but the condition still ends."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Suffocating Wealth",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "As the aurosrath holds their victim, the victim is smothered in a stream of phantom coins. A creature who begins its turn Grabbed or Restrained by an aurosrath can't speak and must hold its breath or it begins to suffocate. The coins produced are ephemeral and melt away to nothing when removed from the aurosrath's presence for more than 1 round."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "bd10121f-7a94-5789-9704-833c4faeb675",
+    "pack": "shining-kingdoms",
+    "kind": "creature",
+    "slug": "creature:beiran-frosthunt",
+    "name": "Beiran Frosthunt",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["cold", "fey", "troop"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With pale-blue skin and white hair, the wicked beiran fey are among the most unrepentantly cruel of the First World's spawn. Commonly called ice fey, these wintry tricksters are sadistic and without remorse in their desire to spread the cold wherever they go. Beirans find freezing temperatures to be the most comfortable; the fact that other creatures suffer under such conditions is part of the fun. While a single beiran is unlikely to change the temperature of a given space by more than a few degrees, they're highly social creatures, and it's uncommon to find fewer than a few dozen beirans at any one time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though beirans are unapologetic in their rude nature, there's one type of creature they'll bow to and take orders from with no questions asked: winter hags. For reasons unknown, beirans are particularly subservient to these hags and will often flock to one in large numbers. Under a winter hag, the fey will make a bad cold snap worse for a suffering town. Fires will be extinguished, wood ruined, food stolen, all of which suit the mysterious tastes of the winter hag and her preference for joyless landscapes. What the beirans receive from this relationship is uncertain, though some fey academics believe it's possible that the first beirans were created by winter hags, much in the same way that the green men created leshies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While beirans are most common in northern lands such as Irrisen and the Land of the Linnorm Kings, they also have a surprising presence in the Shining Kingdoms. When Queen Elvanna of Irrisen opened up portals to the Eternal Winter of Irrisen, several of them arrived in the town of Heldren in Taldor, and even today, some still haunt the woods around it. Eighteen years ago in Falcon's Hollow, a particularly nasty batch of beirans were involved in the Carnival of Tears, an icy circus that left many townsfolk dead in its wake before adventurers dismantled it. Winters in Kyonin are often heralded by swarms of fiend-touched beirans flooding in from the Tanglebriar, leaving the Wylderhearts on fey duty for months at a time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.5arJo93OwqfLB3AY"
+    },
+    "data": {
+      "role": "monster",
+      "size": "gargantuan",
+      "perception": 12,
+      "attributes": {
+        "str": 1,
+        "dex": 4,
+        "con": 0,
+        "int": 1,
+        "wis": 1,
+        "cha": 3
+      },
+      "armorClass": 18,
+      "saves": {
+        "fortitude": 6,
+        "reflex": 12,
+        "will": 9
+      },
+      "hitPoints": 54,
+      "immunities": ["cold"],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 10
+        },
+        {
+          "skill": "athletics",
+          "modifier": 8
+        },
+        {
+          "skill": "deception",
+          "modifier": 8
+        },
+        {
+          "skill": "diplomacy",
+          "modifier": 8
+        },
+        {
+          "skill": "stealth",
+          "modifier": 10
+        }
+      ],
+      "speeds": [
+        {
+          "movement": "fly",
+          "speed": 30
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Troop Defenses",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Troops are composed of many individuals, represented by four \"segments\" on a battle grid. Each segment is 10 feet on each side and as tall as the individual members of the troop. Segments must remain contiguous. Each one has to share at least 5 feet of one of its edges with another segment—being adjacent on a diagonal isn't sufficient! You can measure flanking, cover, and the like using the center of any segment."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A troop has two Hit Point thresholds in its HP entry and loses segments as it crosses thresholds. Typically, the higher threshold is at 2/3 of the troop's maximum Hit Points and the lower is at 1/3 of its maximum. Once the troop drops below the higher threshold, it loses one segment, leaving three segments (12 squares) remaining and setting the first threshold as the troop's new maximum Hit Points. This repeats when the troop drops below the lower threshold, leaving two segments (8 squares). At 0 Hit Points, the troop disperses entirely, with the few remaining members surrendering, Fleeing, or easily dispatched, as determined by the GM. Typically the creature who caused the troop to lose a segment decides which to remove, or the GM decides when a specific creature wasn't responsible. To restore lost segments and maximum Hit Points, a troop needs to spend downtime to use long-term treatment on casualties or recruit new members to replace the fallen."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Troops are typically immune to non-damaging effects that target a single creature, such as a Charm spell or the Demoralize action. An ability that can target 5 or more creatures can target an entire segment, increasing to two segments if it can target 10 or more creatures and to the entire troop if it can target 20 or more creatures. An ability that affects all creatures in a certain range affects all segments in range (make any checks or saves separately for each segment). As examples, an 8th rank "
+                },
+                {
+                  "type": "text",
+                  "text": "charm",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " spell (with 10 targets) can affect two segments, and an ability that Demoralizes all creatures within 30 feet of you would affect all segments that are fully within that range. A non-damaging ability that would prevent a segment from acting, cause them to flee, or otherwise make them unable to function as part of the troop for a round or more removes the segment entirely. The troop loses a number of HP required to bring it to the next threshold. If an ability both deals damage and has a non-damaging effect, apply the damage then the rest of the effect."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Troop Movement",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Whenever a troop moves, you move one of its segments and the other segments follow behind it. At the end of the movement, you can group the other segments adjacent to the one you moved as you see fit, provided none of them moves farther than the moving segment. If you choose not to move the troop any distance, you can instead reshape the position of all the segments as long as one stays in place."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Unseasonable Cold",
+          "traits": ["aura", "cold", "primal"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wherever the frosthunt goes, winter follows. The temperature within a quarter mile of a frosthunt drops to mild cold, then to severe cold within 500 feet, and extreme cold within 50 feet."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Icy Japes",
+          "cost": "one",
+          "frequency": {
+            "max": 1,
+            "per": "round"
+          },
+          "traits": ["cold"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "action-cost",
+                  "cost": "one"
+                },
+                {
+                  "type": "text",
+                  "text": " to "
+                },
+                {
+                  "type": "action-cost",
+                  "cost": "three"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per round"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The beirans descend on their prey, biting and clawing at each enemy in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 5
+                },
+                {
+                  "type": "text",
+                  "text": ", with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 17,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save. The damage depends on the number of actions."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "action-cost",
+                  "cost": "one"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "slashing"
+                    },
+                    {
+                      "formula": "1",
+                      "damageType": "cold"
+                    }
+                  ],
+                  "label": "1d6 slashing damage plus 1 cold damage"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "action-cost",
+                  "cost": "two"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6+2",
+                      "damageType": "slashing"
+                    },
+                    {
+                      "formula": "1d4",
+                      "damageType": "cold"
+                    }
+                  ],
+                  "label": "2d6+2 slashing damage plus 1d4 cold damage"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "action-cost",
+                  "cost": "three"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6+5",
+                      "damageType": "cold"
+                    },
+                    {
+                      "formula": "1d4",
+                      "damageType": "cold"
+                    }
+                  ],
+                  "label": "2d6+5 cold damage plus 1d4 cold damage"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Primal Innate Spells",
+          "tradition": "primal",
+          "preparation": "innate",
+          "dc": 17,
+          "attack": 0,
+          "spells": [
+            {
+              "spell": "a3d53fc9-c4f7-562e-ac49-db710e6199e3",
+              "rank": 2,
+              "uses": 3
+            },
+            {
+              "spell": "4564025d-51b0-541a-a554-662ea3883cda",
+              "rank": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "922cd4de-e7d0-5f52-9b90-4607d580d8ef",
+    "pack": "shining-kingdoms",
+    "kind": "creature",
+    "slug": "creature:bibliodaemon",
+    "name": "Bibliodaemon",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["daemon", "fiend", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bibliodaemons are four-armed, weasellike daemons who personify death by paperwork and incompetent bureaucracy. They're often attracted to places where bureaucrats abuse power or cut corners at the expense of the citizens. By disguising themselves as government officials, the bibliodaemons worsen the problems, forging or losing important documents and escalating the complexity of the bureaucracy. Eventually, major infractions—such as the imprisonment or execution of an innocent person—begin to tear the community apart. The people descend into paranoia and mistrust of their officials, leading to either a revolt against these local governments or complete apathy due to the lack of power to affect change."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Most bibliodaemons work alone to cause this kind of chaos, but in some instances, these fiends have been used strategically. After all, once an area has descended into turmoil, it's easy for another party to step in and take over. During the civil war in Cheliax, bibliodaemons were sometimes summoned to destabilize areas in grabs for power. While none will admit it, bibliodaemons have been present during the various coups and government changes throughout the Shining Kingdoms."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.kfxdeVTJONSMfJbG"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 18,
+      "attributes": {
+        "str": 2,
+        "dex": 3,
+        "con": 2,
+        "int": 6,
+        "wis": 2,
+        "cha": 4
+      },
+      "armorClass": 26,
+      "saves": {
+        "fortitude": 15,
+        "reflex": 16,
+        "will": 19
+      },
+      "hitPoints": 130,
+      "immunities": ["death-effects"],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "mental",
+          "value": 10
+        }
+      ],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "deception",
+          "modifier": 18
+        },
+        {
+          "skill": "diplomacy",
+          "modifier": 16
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 16
+        },
+        {
+          "skill": "society",
+          "modifier": 18
+        },
+        {
+          "skill": "stealth",
+          "modifier": 16
+        },
+        {
+          "skill": "legal-lore",
+          "modifier": 16
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        },
+        {
+          "sense": "thoughtsense",
+          "acuity": "imprecise",
+          "range": 60
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Gavel",
+          "range": "melee",
+          "bonus": 18,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d4",
+              "damageType": "bludgeoning",
+              "bonus": 8
+            }
+          ],
+          "traits": ["finesse", "magical"]
+        },
+        {
+          "name": "Claw",
+          "range": "melee",
+          "bonus": 18,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "slashing",
+              "bonus": 8
+            }
+          ],
+          "traits": ["agile", "finesse"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Thoughtsense",
+          "traits": ["mental"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The bibliodaemon is aware of non-mindless creatures within 60 feet as an imprecise sense."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Thoughtsense allows a monster to sense all non-mindless creatures at the listed range."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Red Tape",
+          "traits": ["aura", "divine"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "30 feet."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When a non-daemon enters or begins its turn within the aura, it must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 23
+                },
+                {
+                  "type": "text",
+                  "text": " save. On a failure, it takes a –2 status penalty to saving throws against linguistic effects for 1 round."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "0c713af0-04de-5830-8b95-3db26d606daa"
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "Aura",
+              "radius": 30,
+              "traits": ["divine"]
+            }
+          ]
+        },
+        {
+          "name": "Change Shape",
+          "cost": "one",
+          "traits": ["concentrate", "divine", "polymorph"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The bibliodaemon can take on the appearance of any Small or Medium humanoid. This doesn't change their Speed or their attack and damage modifiers with their Strikes, but it might change the damage type their claw Strikes deal (typically to bludgeoning)."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster changes its shape indefinitely. It can use this action again to return to its natural shape or adopt a new shape. Unless otherwise noted, a monster cannot use Change Shape to appear as a specific individual. Using Change Shape counts as creating a disguise for the Impersonate use of Deception. The monster's transformation automatically defeats Perception DCs to determine whether the creature is a member of the ancestry or creature type into which it transformed, and it gains a +4 status bonus to its Deception DC to prevent others from seeing through its disguise. Change Shape abilities specify what shapes the monster can adopt. The monster doesn't gain any special abilities of the new shape, only its physical form. For example, in each shape, it replaces its normal Speeds and Strikes, and might potentially change its senses or size. Any changes are listed in its stat block."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Death by 1,000 Papercuts",
+          "cost": "two",
+          "traits": ["divine"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The bibliodaemon launches a torrent of sharp papers from the sleeves of their robes. All creatures in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "cone",
+                  "size": 15
+                },
+                {
+                  "type": "text",
+                  "text": " take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "9d6",
+                      "damageType": "slashing"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 23,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save). Creatures that fail their save also take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d4",
+                      "damageType": "bleed"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage. The bibliodaemon can't use Death by 1,000 Papercuts again for 1d4 rounds."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Inevitable Delays",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The bibliodaemon's last action was a successful Strike that dealt damage"
+                }
+              ]
+            }
+          ],
+          "traits": ["auditory", "concentrate", "divine", "linguistic", "mental"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The bibliodaemon's last action was a successful Strike that dealt damage"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The bibliodaemon intuits the next actions the creature they just damaged will take and explains how it doesn't have the proper clearance to perform those actions. The creature must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 23
+                },
+                {
+                  "type": "text",
+                  "text": " save or become Slowed 1."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Innate Spells",
+          "tradition": "divine",
+          "preparation": "innate",
+          "dc": 26,
+          "attack": 18,
+          "spells": [
+            {
+              "spell": "9ee4859a-370b-5a51-ae34-2441aee355ff",
+              "rank": 4
+            },
+            {
+              "spell": "52e6a91e-087f-5216-962c-d8cde645e96c",
+              "rank": 3
+            },
+            {
+              "spell": "b434b2d9-47e5-519e-a542-6dae12c51157",
+              "rank": 2
+            },
+            {
+              "spell": "b434b2d9-47e5-519e-a542-6dae12c51157",
+              "rank": 3
+            },
+            {
+              "spell": "306213b0-9e11-55d8-b630-8786ea86a27d",
+              "rank": 2
+            },
+            {
+              "spell": "15904512-5f17-5bba-b1a0-1f892989912c",
+              "rank": 1
+            },
+            {
+              "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+              "rank": 1
+            },
+            {
+              "spell": "a593a292-4fca-5280-9857-56a2178b1618",
+              "rank": 1
+            },
+            {
+              "spell": "cfa16eeb-cd33-54aa-904d-2c72742cd3ac",
+              "rank": 1
+            },
+            {
+              "spell": "161eed43-e585-5c4f-a01f-3a11431b5e75",
+              "rank": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "0b11cf3d-568e-5dbc-83f8-886ab6cf5cda",
+    "pack": "shining-kingdoms",
+    "kind": "creature",
+    "slug": "creature:corbayrant",
+    "name": "Corbayrant",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["beast", "fey", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Corbayrants are creations of the Green Mother, one of the fey called the Eldest. In the Age of Creation, she fashioned them from thorns and moss into deadly predators. When gnomes migrated to the mortal Universe, many corbayrants followed but found themselves poorly suited to life outside the First World."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Corbayrants are historically solitary, territorial creatures. They're incapable of reproducing, and without the revivifying properties of the First World, their numbers are doomed to deplete. Recently, a number of corbayrants in the Verduran Forest have overcome their natures to band together. They've been known to take their prey alive, sacrificing their victims in vile experiments in an effort to find a way to propagate corbayrant numbers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Corbayrants look like massive clawless scorpions covered in bark and thorns. A rotting fog wafts from their bodies. In the rare instance when they deign to speak, they do so in a raspy whisper."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.TRmzCBwEeJFqiQ3D"
+    },
+    "data": {
+      "role": "monster",
+      "size": "huge",
+      "perception": 28,
+      "attributes": {
+        "str": 9,
+        "dex": 5,
+        "con": 6,
+        "int": 4,
+        "wis": 5,
+        "cha": 1
+      },
+      "armorClass": 38,
+      "saves": {
+        "fortitude": 30,
+        "reflex": 27,
+        "will": 27
+      },
+      "hitPoints": 295,
+      "immunities": ["blinded", "visual"],
+      "weaknesses": [
+        {
+          "type": "cold",
+          "value": 15
+        }
+      ],
+      "resistances": [
+        {
+          "type": "fire",
+          "value": 10
+        },
+        {
+          "type": "piercing",
+          "value": 15
+        }
+      ],
+      "speed": 40,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 33
+        },
+        {
+          "skill": "nature",
+          "modifier": 29
+        },
+        {
+          "skill": "stealth",
+          "modifier": 27
+        },
+        {
+          "skill": "survival",
+          "modifier": 27
+        }
+      ],
+      "languages": ["common", "fey", "muan"],
+      "speeds": [
+        {
+          "movement": "climb",
+          "speed": 40
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Fangs",
+          "range": "melee",
+          "bonus": 32,
+          "damage": [
+            {
+              "dice": 3,
+              "die": "d12",
+              "damageType": "piercing",
+              "bonus": 18
+            }
+          ],
+          "traits": [],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Grab"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Stinger",
+          "range": "melee",
+          "bonus": 32,
+          "damage": [
+            {
+              "dice": 3,
+              "die": "d10",
+              "damageType": "piercing",
+              "bonus": 15
+            }
+          ],
+          "traits": ["reach-15"],
+          "reach": 15,
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Corbayrant Venom"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Spine",
+          "range": "melee",
+          "bonus": 32,
+          "damage": [
+            {
+              "dice": 3,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 15
+            }
+          ],
+          "traits": ["propulsive"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Thorn Paralysis"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Vitriolic Miasma",
+          "traits": ["aura"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "30 feet."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Non-corbayrants take a –2 circumstance penalty to saves against poison effects and gain weakness 10 to poison damage while within the aura."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:vitriolic-miasma"
+            },
+            {
+              "key": "Aura",
+              "radius": 30,
+              "traits": [],
+              "effects": [
+                {
+                  "effect": "f5012019-2b88-5102-9a3f-ae09917297d4",
+                  "includesSelf": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Regeneration 20 (deactivated by cold)",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "This monster regains the listed number of Hit Points each round at the beginning of its turn. Its Dying condition never increases beyond Dying 3 as long as its regeneration is active. However, if it takes damage of a type listed in the regeneration entry, its regeneration deactivates until the end of its next turn. Deactivate the regeneration before applying any damage of a listed type, since that damage might kill the monster by bringing it to Dying 4."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "FastHealing",
+              "value": 20,
+              "type": "regeneration",
+              "deactivatedBy": ["cold"]
+            }
+          ]
+        },
+        {
+          "name": "Reactive Strike",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature within your reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature within your reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You lash out at a foe that leaves an opening. Make a melee Strike against the triggering creature. If your attack is a critical hit and the trigger was a manipulate action, you disrupt that action. This Strike doesn't count toward your multiple attack penalty, and your multiple attack penalty doesn't apply to this Strike."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Thorny Hide",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A corbayrant's body is covered in jagged spines. Adjacent creatures that hit them with a melee attack, as well as creatures that touch them or hit them with an unarmed attack, take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d6",
+                      "damageType": "piercing"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage and are exposed to thorn paralysis."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Corbayrant Venom",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Throw",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 37
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Maximum Duration",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 6 rounds"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 1",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "8d6",
+                      "damageType": "poison"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage (1 round)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 2",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "9d6",
+                      "damageType": "poison"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage (1 round)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 3",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "9d6",
+                      "damageType": "poison"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage and Drained 1 (1 round)"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Spine Volley",
+          "cost": "two",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The corbayrant makes four spine Strikes, each against a different target. These attacks all count toward the corbayrant's multiple attack penalty, but the penalty doesn't increase until after the corbayrant makes their attacks."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Swallow Whole",
+          "cost": "one",
+          "traits": ["attack"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Large, "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "9d6",
+                      "damageType": "piercing"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " plus thorn paralysis, Rupture 30"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster attempts to swallow a creature of the listed size or smaller that it has grabbed or restrained in its jaws or mouth. If a swallowed creature is of the maximum size listed, the monster can't use Swallow Whole again. If the creature is smaller than the maximum, the monster can usually swallow more creatures; the GM determines the maximum. The monster attempts an "
+                },
+                {
+                  "type": "check",
+                  "statistic": "skill:athletics"
+                },
+                {
+                  "type": "text",
+                  "text": " check opposed by the grabbed creature's Reflex DC. If it succeeds, it swallows the creature. The monster's mouth or jaws no longer grab a creature it has swallowed, so the monster is free to use them to Strike or Grab once again. The monster can't attack creatures it has swallowed."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A swallowed creature is Grabbed, is Slowed 1, and has to hold its breath or start suffocating. The swallowed creature takes the listed amount of damage when first swallowed and at the end of each of its turns while it's swallowed. If the victim Escapes this ability's grabbed condition, it exits through the monster's mouth. This frees any other creature grabbed in the monster's mouth or jaws. A swallowed creature can attack the monster that has swallowed it, but only with unarmed attacks or with weapons of light Bulk or less. The swallowing creature is Off-Guard against the attack. If the monster takes piercing or slashing damage equaling or exceeding the listed Rupture value from a single attack or spell, the swallowed creature cuts itself free. A creature that gets free by either Escaping or cutting itself free can immediately breathe and exits the swallowing monster's space."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect: Engulf and Swallow Whole"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the monster dies, a swallowed creature can be freed by creatures adjacent to the corpse if they spend a combined total of 3 actions cutting the monster open with a weapon or unarmed attack that deals piercing or slashing damage."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Thorn Paralysis",
+          "traits": ["incapacitation", "poison"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The corbayrant's spines are covered in a paralyzing toxin that cause verdurous thorns to sprout from their victim's body. When a non-corbayrant creature is exposed, it attempts a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 37
+                },
+                {
+                  "type": "text",
+                  "text": " save."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Critical Success",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is unaffected."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Success",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature sprouts spines like those of the corbayrant. For 1 minute, the creature gains the corbayrant's thorny hide ability. Allies attempting to aid the victim with touch-range spells and abilities run the risk of becoming infected themselves. At the end of the duration, the spines fall off harmlessly."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Failure",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " As success, but the creature is also Paralyzed for 1 minute. It can attempt another Fortitude save at the end of each turn to end the paralysis, but not the spines."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Critical Failure",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " As failure, but the creature doesn't receive a save at the end of its turn to end the paralysis."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "086c44f4-555e-58d8-95f3-19f7dd37cec6",
+    "pack": "shining-kingdoms",
+    "kind": "creature",
+    "slug": "creature:failed-prophet",
+    "name": "Failed Prophet",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["construct"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Following the teachings of Kalistrade is a lifelong commitment. It requires studious adherence to the strictures and taboos laid out in the Prophecies. The ultimate reward for the devout is the promise of a personalized afterlife, filled with a lifetime of wealth and free of Pharasma's judgment. Not all who learn of these final revelations are up to the task, however. For the fortunate ones, a simple death is the only consequence for botching the ritual. For the less fortunate, the outcome is an undying half-life of torment. Caught between a twisted mockery of their imagined afterlife and the mortal Universe, a failed prophet will know no peace until their body is destroyed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A failed prophet resembles the skinless corpse of a humanoid ancestry covered in glowing, golden veinlike cracks. On closer inspection, the organs and musculature are unnaturally smooth and shiny, like cured and buffed leather."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.37kLxtNV11aIPPja"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 20,
+      "attributes": {
+        "str": 7,
+        "dex": 3,
+        "con": 5,
+        "int": 5,
+        "wis": 7,
+        "cha": 6
+      },
+      "armorClass": 30,
+      "saves": {
+        "fortitude": 20,
+        "reflex": 17,
+        "will": 23
+      },
+      "hitPoints": 175,
+      "immunities": [],
+      "weaknesses": [
+        {
+          "type": "spirit",
+          "value": 10
+        }
+      ],
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 10
+        },
+        {
+          "type": "electricity",
+          "value": 10
+        }
+      ],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "diplomacy",
+          "modifier": 20
+        },
+        {
+          "skill": "occultism",
+          "modifier": 23
+        },
+        {
+          "skill": "thievery",
+          "modifier": 23
+        },
+        {
+          "skill": "mercantile-lore",
+          "modifier": 26
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["common", "dwarven"],
+      "strikes": [
+        {
+          "name": "Fist",
+          "range": "melee",
+          "bonus": 24,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d10",
+              "damageType": "bludgeoning",
+              "bonus": 11
+            }
+          ],
+          "traits": ["magical", "reach-10"],
+          "reach": 10,
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Greedy Grab"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Wealthsense",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "150 gp"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The failed prophet can detect concentrations of coinage and other valuables as an imprecise sense with a range of 60 feet. The failed prophet detects any creature carrying coins and treasure totaling at least the average cost of a consumable item of the failed prophet's level."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Broken Mindscape",
+          "traits": ["aura", "illusion", "incapacitation", "mental"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "30 feet. A creature entering the aura or starting its turn in the aura must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 27,
+                  "options": ["inflicts:stunned", "inflicts:paralyzed"]
+                },
+                {
+                  "type": "text",
+                  "text": " save."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Critical Success",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is unaffected and becomes immune to broken mindscape for 1 minute."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Success",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is Stunned 1 as disjointed visions of the failed prophet's mindscape assail its senses."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Failure",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature's mind is pulled into the failed prophet's mindscape. It's Paralyzed for 1 round. While paralyzed, the creature can take any actions with the mental or spirit traits, or that deal mental or spirit damage, as though those actions were purely mental. Such actions only have line of effect to the originating failed prophet and other creatures currently paralyzed by broken mindscape, though they treat all such creatures as though they were adjacent."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Critical Failure",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " As failure, but the duration is 1 minute or until the failed prophet is destroyed, whichever happens first."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "Aura",
+              "radius": 30,
+              "traits": ["illusion", "incapacitation", "mental"]
+            }
+          ]
+        },
+        {
+          "name": "Taboos",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Despite the failed prophet's transformed body, a lifelong adherence to the strictures of the Prophecies of Kalistrade has ingrained the philosophical prohibitions into their soul. Whenever a failed prophet is critically hit by an unarmed attack, is critically hit by or critically fails a save against a touch spell, or is exposed to a disease or poison effect (even though immune), they take a –2 status penalty to their AC, attack bonuses, DCs, Perception, saving throws, and skill modifiers for 1 minute. Breaking other Kalistocratic taboos can also trigger this penalty at the GM's discretion."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Greedy Grab",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The failed prophet's last action was a successful fist Strike that dealt damage"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The failed prophet's last action was a successful fist Strike that dealt damage"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The failed prophet attempts a Thievery check against the target's Reflex DC. On a success, the failed prophet pilfers coins and gems from the target with a total value as indicated in the table, to a maximum of what the target is carrying. Valuables in unlocked containers on the target's person can be taken just as easily as those carried. On a critical success, the failed prophet steals double that amount. The failed prophet gains a number of temporary Hit Points equal to the value stolen that last for 1 minute."
+                }
+              ]
+            },
+            {
+              "type": "table",
+              "header": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Level"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Value Stolen"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10–12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5d10 gp"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13–15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6d10 gp"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16–18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7d10 gp"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19–20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8d10 gp"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "This Is My Reality!",
+          "cost": "two",
+          "traits": ["concentrate"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "spirit"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 30,
+                  "basic": true
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The failed prophet exerts control over their crumbling mindscape to inflict harm upon those trapped within. This can take the form of falling debris, natural disasters, or anything else the failed prophet can imagine. No matter the form, each creature currently Paralyzed by the failed prophet's broken mindscape takes spirit damage with a basic Will save. The save DC uses the high spell DC for the failed prophet's level and the unlimited use area damage for the failed prophet's level."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Occult Spontaneous Spells",
+          "tradition": "occult",
+          "preparation": "spontaneous",
+          "dc": 27,
+          "attack": 19,
+          "spells": [
+            {
+              "spell": "5acfec50-394e-5699-9d71-1b03aa194da5",
+              "rank": 5
+            },
+            {
+              "spell": "e1332e15-0861-56f8-95f5-7749561ac8ae",
+              "rank": 5
+            },
+            {
+              "spell": "a0d8d75b-39a6-5671-a6cf-1fc2713753f4",
+              "rank": 5
+            },
+            {
+              "spell": "f16d1dce-4fec-5ce3-982c-beead5f20615",
+              "rank": 4
+            },
+            {
+              "spell": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd",
+              "rank": 4
+            },
+            {
+              "spell": "50de9888-d8e7-5733-b97c-4f360205e33f",
+              "rank": 4
+            },
+            {
+              "spell": "d437e6ba-d367-5d77-b142-bace584873d7",
+              "rank": 3
+            },
+            {
+              "spell": "e2594f4d-2f11-588b-a4b3-5a9afe11dd4f",
+              "rank": 3
+            },
+            {
+              "spell": "5e8a7fe1-ca39-5254-b771-596bafa8dcd2",
+              "rank": 2
+            },
+            {
+              "spell": "8a83becc-07c0-52c9-92ce-77546175cc07",
+              "rank": 2
+            },
+            {
+              "spell": "35f9dc96-eeca-54f3-b920-7ae0733594a8",
+              "rank": 2
+            },
+            {
+              "spell": "0964edfe-0384-5444-908b-fe24653c28f5",
+              "rank": 1
+            },
+            {
+              "spell": "d32836d8-9eeb-52c0-a7f8-6e0bc64ed7c7",
+              "rank": 1
+            },
+            {
+              "spell": "1c97409b-bd67-5df2-a7d3-a49aff4d3896",
+              "rank": 3
+            },
+            {
+              "spell": "4f616729-3f27-5aee-a02e-426f121c6fa3",
+              "rank": 1
+            },
+            {
+              "spell": "b1ebbfda-a31b-56b3-95d3-ee7a4b4bc8c8",
+              "rank": 1
+            },
+            {
+              "spell": "52547c94-24db-549b-961f-07a2350befdc",
+              "rank": 1
+            },
+            {
+              "spell": "6dee4f5d-f584-5402-af2a-d3738ec685b3",
+              "rank": 1
+            },
+            {
+              "spell": "d4cea589-6319-5d13-9109-319b4bbcc6e1",
+              "rank": 1
+            },
+            {
+              "spell": "ed1f3941-7c08-5015-b12a-2017b44f68e3",
+              "rank": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "84a99202-f02f-5b54-9db8-41ab0a10bc82",
+    "pack": "shining-kingdoms",
+    "kind": "creature",
+    "slug": "creature:goldpebble",
+    "name": "Goldpebble",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["aquatic", "beast"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Goldpebbles are large water snakes with bodies that, to the unassuming eye, appear to be nothing more than river rocks, some glinting with traces of gold. These terrifying creatures mimic their natural surroundings to ambush greedy adventurers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A Taldan alchemist created the goldpebble with the ultimate goal of breeding a creature capable of reproducing at a high rate while possessing a body that would turn to gold upon death, effectively ensuring an endless supply of wealth. Initially, the experiments were successful, with each shed of the snake's skin producing trace amounts of gold. As the snakes grew, however, the amount of gold didn't, and the snakes themselves soon proved unwieldy and difficult to contain. Unhindered, the alchemist redoubled her efforts, adding alchemical reagents to her experiments and leaning more heavily into inhumane tactics to produce her desired results. These tactics failed to lead to an increase in the amount of gold produced but instead mutated the creatures' venom, giving them the ability to slowly turn a victim's blood to frozen water. Empowered with this new ability, the goldpebbles felled their own creator and escaped to spread across the Inner Sea region."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Goldpebbles are generally solitary creatures except for their biannual mating season. During this time, they're even more dangerous than usual, becoming territorial and protective of their young while attacking in groups. Once the eggs hatch, the breeding grounds are filled with hundreds of tiny snakes slithering in all directions in search of new territory. These young goldpebbles are less in control of their alchemical powers than their adult counterparts and have the potential to freeze the water around them at a moment's notice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Goldpebbles rely heavily on ambush tactics. Often found hiding in shallow pools, rivers, and lakes, goldpebbles will lure unsuspecting adventurers to their lairs using their gold-flecked scales. Once within reach, goldpebbles attack with a gruesome bite that can poison an unlucky victim, slowly turning their prey's blood into freezing water. Goldpebbles can also chill the waters around them, making it incredibly difficult for prey to survive."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.yD6d0C9wWQRPOq4T"
+    },
+    "data": {
+      "role": "monster",
+      "size": "large",
+      "perception": 9,
+      "attributes": {
+        "str": 5,
+        "dex": 3,
+        "con": 4,
+        "int": -3,
+        "wis": 1,
+        "cha": 1
+      },
+      "armorClass": 21,
+      "saves": {
+        "fortitude": 15,
+        "reflex": 12,
+        "will": 9
+      },
+      "hitPoints": 90,
+      "immunities": [],
+      "weaknesses": [
+        {
+          "type": "electricity",
+          "value": 5
+        }
+      ],
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 5
+        }
+      ],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 12
+        },
+        {
+          "skill": "athletics",
+          "modifier": 12
+        },
+        {
+          "skill": "stealth",
+          "modifier": 13
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        },
+        {
+          "sense": "low-light-vision"
+        },
+        {
+          "sense": "wavesense",
+          "acuity": "imprecise",
+          "range": 60
+        }
+      ],
+      "languages": ["common"],
+      "speeds": [
+        {
+          "movement": "swim",
+          "speed": 25
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Fangs",
+          "range": "melee",
+          "bonus": 15,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "cold"
+            },
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 5
+            }
+          ],
+          "traits": [],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Pebblefang Poison"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tail",
+          "range": "melee",
+          "bonus": 13,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "bludgeoning",
+              "bonus": 5
+            }
+          ],
+          "traits": ["agile", "reach-10"],
+          "reach": 10,
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Grab"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Chilling Currents",
+          "cost": "one",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A goldpebble can cause the temperature of all water within a "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 30
+                },
+                {
+                  "type": "text",
+                  "text": " centered on itself to plummet for 1 minute. Any creature that starts its turn or enters the affected water takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "cold"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 19,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save)."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Pebblefang Poison",
+          "traits": ["poison"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Throw",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 21
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Maximum Duration",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 6 rounds"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 1",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "cold"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage (2 rounds)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 2",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "cold"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage (2 rounds)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 3",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "cold"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage and Drained 1"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "41cc4f48-a39b-5d1f-95c4-65a17d9a0af3",
+    "pack": "shining-kingdoms",
+    "kind": "creature",
+    "slug": "creature:lamp-blighter",
+    "name": "Lamp Blighter",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["fey"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.9DeZiBTu0jJNLyN3"
+    },
+    "data": {
+      "role": "monster",
+      "size": "small",
+      "perception": 15,
+      "attributes": {
+        "str": 1,
+        "dex": 5,
+        "con": 1,
+        "int": 2,
+        "wis": 3,
+        "cha": 2
+      },
+      "armorClass": 23,
+      "saves": {
+        "fortitude": 11,
+        "reflex": 17,
+        "will": 14
+      },
+      "hitPoints": 75,
+      "immunities": ["blinded"],
+      "weaknesses": [
+        {
+          "type": "fire",
+          "value": 5
+        }
+      ],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 15
+        },
+        {
+          "skill": "deception",
+          "modifier": 13
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 13
+        },
+        {
+          "skill": "nature",
+          "modifier": 13
+        },
+        {
+          "skill": "stealth",
+          "modifier": 15
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        },
+        {
+          "sense": "low-light-vision"
+        }
+      ],
+      "languages": ["aklo", "common", "fey"],
+      "strikes": [
+        {
+          "name": "Claw",
+          "range": "melee",
+          "bonus": 16,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d4",
+              "damageType": "slashing",
+              "bonus": 7
+            }
+          ],
+          "traits": ["agile", "finesse", "magical"]
+        },
+        {
+          "name": "Shortbow",
+          "range": "melee",
+          "bonus": 17,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 6
+            }
+          ],
+          "traits": ["deadly-d10", "reload-0"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "+1 Status to All Saves vs. Magic",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "status",
+              "value": 1,
+              "predicate": ["item:magical"]
+            }
+          ]
+        },
+        {
+          "name": "Eye Pluck",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The lamp blighter's last action was a successful claw Strike against a creature with eyes"
+                }
+              ]
+            }
+          ],
+          "frequency": {
+            "max": 1,
+            "per": "round"
+          },
+          "traits": ["manipulate"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per round"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The lamp blighter's last action was a successful claw Strike against a creature with eyes"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The lamp blighter attempts to pluck out one of the required creature's eyes. The target must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 21
+                },
+                {
+                  "type": "text",
+                  "text": " save. On a failure, the target takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4",
+                      "damageType": "bleed"
+                    }
+                  ],
+                  "label": "4 persistent bleed"
+                },
+                {
+                  "type": "text",
+                  "text": " damage and is Dazzled for 1 round. On a critical failure, the target's eye is also severely damaged, taking a –4 circumstance penalty on all sight-based Perception checks until the target returns to full Hit Points or the wound is otherwise healed (by magic such as Sound Body or Regenerate). If all a creature's eyes are severely damaged in this way, that creature is Blinded for the same duration."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "fd03a3c0-f040-5a45-81b1-ad4e24ade843"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Fear the Darkness",
+          "cost": "two",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The lamp blighter must be in an area of darkness"
+                }
+              ]
+            }
+          ],
+          "traits": ["concentrate", "emotion", "fear", "mental", "primal"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The lamp blighter must be in an area of darkness"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The lamp blighter evokes the terror of being unable to see in the dark. Each creature within a "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 20
+                },
+                {
+                  "type": "text",
+                  "text": " that doesn't have darkvision must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 23
+                },
+                {
+                  "type": "text",
+                  "text": " save or become Frightened 2."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Snuff the Light",
+          "cost": "one",
+          "traits": ["concentrate", "fire", "primal"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The lamp blighter extinguishes light sources in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 10
+                },
+                {
+                  "type": "text",
+                  "text": ". They extinguish all non-magical light sources automatically and attempt to extinguish magical light sources with a +16 counteract modifier and a counteract rank of 3. If the lamp blighter successfully extinguishes any light, their next successful claw or shortbow Strike deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "fire",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Primal Innate Spells",
+          "tradition": "primal",
+          "preparation": "innate",
+          "dc": 24,
+          "attack": 16,
+          "spells": [
+            {
+              "spell": "4dd829e2-04f0-5cff-ab8f-bb762c3586cf",
+              "rank": 3
+            },
+            {
+              "spell": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9",
+              "rank": 4
+            },
+            {
+              "spell": "b434b2d9-47e5-519e-a542-6dae12c51157",
+              "rank": 3
+            },
+            {
+              "spell": "18659a99-19d9-5b85-b03e-fe697787662e",
+              "rank": 2
+            },
+            {
+              "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+              "rank": 1
+            },
+            {
+              "spell": "5f652603-de54-511c-aead-1966a7166ca8",
+              "rank": 1
+            },
+            {
+              "spell": "bb73ff19-7c70-5f9f-8c0e-dbd71c099926",
+              "rank": 1
+            },
+            {
+              "spell": "6dee4f5d-f584-5402-af2a-d3738ec685b3",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "22033d3f-8f51-58ca-9fc4-4eccb68055dd"
+        },
+        {
+          "item": "a281f8a7-40ba-5555-9267-ec1d8b012961",
+          "quantity": 60
+        }
+      ]
+    }
+  },
+  {
+    "id": "be9e1e94-49e3-5c35-99c4-269170b57630",
+    "pack": "shining-kingdoms",
+    "kind": "creature",
+    "slug": "creature:shroudwing",
+    "name": "Shroudwing",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These unsettling birds are thick-bodied, long-legged creatures standing 4 to 5 feet tall with an 8-foot wingspan. They possess black feathers, clouded white eyes, and a menacing obsidian bill hooked at the tip like a curled claw. Sometimes called soul-eater crows, shroudwings are carrion feeders known to roam graveyards and sites of collective death, absorbing lingering spirits and consuming the decaying corpses. They can be found digging up grave sites, shoveling the earth and breaking into caskets or tombs with their massive, hooked beaks, as well as lurking at execution sites, burial mounds, or feeding on travelers' corpses left behind on roadsides."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Due to their size, shape, and propensity for burial grounds, it isn't uncommon for a shroudwing to be mistaken for a grieving widow when seen at a distance—only when an unfortunate creature gets close enough does it discover the danger it's in. Though not predatory or outright aggressive, shroudwings are exceptionally territorial; they'll protect and defend both their feeding site as well as their nesting area from anyone who might trespass upon it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While many might know these unusual birds by name and sight, even more know the shroudwing by sound. When threatened, the shroudwing emits a haunting, fear-inducing death rattle that can be heard for miles. They prefer nesting in covered brush, and their mating season occurs in the winter months. Shroudwings have a particular fondness for the collection of skulls and have been known to decorate nests with them as well as to use them in mating rituals, with the male presenting the female with the freshest and cleanest skull it can find."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.hqcLqrv4W6QBSgAa"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 12,
+      "attributes": {
+        "str": 5,
+        "dex": 4,
+        "con": 3,
+        "int": -3,
+        "wis": 1,
+        "cha": 0
+      },
+      "armorClass": 20,
+      "saves": {
+        "fortitude": 12,
+        "reflex": 13,
+        "will": 8
+      },
+      "hitPoints": 60,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 20,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 12
+        },
+        {
+          "skill": "athletics",
+          "modifier": 13
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["common", "necril"],
+      "speeds": [
+        {
+          "movement": "fly",
+          "speed": 30
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Beak",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 5
+            }
+          ],
+          "traits": ["reach-10"],
+          "reach": 10,
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Knockdown"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Talon",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "bludgeoning",
+              "bonus": 5
+            }
+          ],
+          "traits": ["agile"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Grave Blight"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Death Rattle",
+          "cost": "one",
+          "traits": ["concentrate", "emotion", "fear", "mental"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The shroudwing emits a guttural, haunting call that instills a sense of fear almost impossible to shake. Each non-shroudwing creature within a "
+                },
+                {
+                  "type": "template",
+                  "shape": "emanation",
+                  "size": 30
+                },
+                {
+                  "type": "text",
+                  "text": " must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 18
+                },
+                {
+                  "type": "text",
+                  "text": " save. Regardless of the result, creatures are then temporarily immune to Death Rattle for 1 minute."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Critical Success",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is unaffected."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Success",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is Off-Guard until the start of the shroudwing's next turn."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Failure",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is Frightened 1."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Critical Failure",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is Frightened 2."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Grave Blight",
+          "traits": ["disease"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Throw",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 18
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 1",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " carrier with no ill effect (1 day)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 2",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "poison",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage every hour, Sickened 1, and can't reduce the value of the sickened condition while taking persistent poison damage (1 day)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 3",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "poison",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage every hour, Sickened 2, and can't reduce the value of the sickened condition while taking persistent poison damage (1 day)"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Soul Feeding",
+          "cost": "two",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The shroudwing is adjacent to a dying creature"
+                }
+              ]
+            }
+          ],
+          "traits": ["concentrate", "death", "divine", "manipulate"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The shroudwing is adjacent to a dying creature"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The shroudwing attempts to devour the dying creature's soul. The creature must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 18
+                },
+                {
+                  "type": "text",
+                  "text": " save or their dying condition increases by 1 and the shroudwing regains "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d8"
+                    }
+                  ],
+                  "healing": true
+                },
+                {
+                  "type": "text",
+                  "text": " Hit Points."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "b21a6186-7bc2-5cb9-844f-d5eeaa82f3f8",
+    "pack": "shining-kingdoms",
+    "kind": "creature",
+    "slug": "creature:torn-quartet",
+    "name": "Torn Quartet",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["undead"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.olc4TteO0olHUkCi"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 23,
+      "attributes": {
+        "str": 5,
+        "dex": 8,
+        "con": 2,
+        "int": -2,
+        "wis": 4,
+        "cha": 2
+      },
+      "armorClass": 33,
+      "saves": {
+        "fortitude": 20,
+        "reflex": 26,
+        "will": 23
+      },
+      "hitPoints": 240,
+      "immunities": ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"],
+      "weaknesses": [
+        {
+          "type": "slashing",
+          "value": 10
+        }
+      ],
+      "resistances": [],
+      "speed": 10,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 27
+        },
+        {
+          "skill": "athletics",
+          "modifier": 27
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["common", "necril"],
+      "speeds": [
+        {
+          "movement": "fly",
+          "speed": 30
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Limb",
+          "range": "melee",
+          "bonus": 25,
+          "damage": [
+            {
+              "dice": 3,
+              "die": "d8",
+              "damageType": "bludgeoning",
+              "bonus": 13
+            }
+          ],
+          "traits": ["agile", "magical", "reach-15"],
+          "reach": 15,
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Improved Grab"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Bound Limbs",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A torn quartet ordinarily has four severed limbs tethered to a central point by near-incorporeal ropes. A limb is essentially cut away from the central point and rendered nonfunctional each time the torn quartet loses 60 Hit Points (so at 180 Hit Points, the torn quartet has three functional limbs, at 120 Hit Points, it has two functional limbs, and so on). Each functioning limb can Grapple separate creatures within reach, or multiple functioning limbs can Grapple the same creature; for each additional limb used to Grapple a creature, the Escape DC increases by 2."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Reactive Strike",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster attempts a melee Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the monster disrupts that action. This Strike doesn't count toward the monster's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Replacement Parts",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A torn quartet can spend 1 minute tearing apart the corpse of a humanoid creature that was killed within the last hour to regain 60 Hit Points and restore one of its nonfunctioning limbs. A torn quartet can't have more than four limbs."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Void Healing",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature with void healing draws health from void energy rather than vitality energy. It is damaged by vitality damage and is not healed by vitality healing effects. It does not take void damage, and it is healed by void effects that heal undead."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Flurry of Limbs",
+          "cost": "two",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The torn quartet makes a number of limb Strikes up to its number of functioning limbs, each against a different target. These attacks count toward the torn quartet's multiple attack penalty, but the multiple attack penalty doesn't increase until after the torn quartet makes all its attacks."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Split Reactions",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A torn quartet has a number of reactions per round equal to its number of still-functioning limbs, which it can use only to make Reactive Strikes. It can't use more than 1 reaction on the same triggering action, even if a creature leaves several squares within its reach, and the torn quartet must use a different limb for each Reactive Strike it makes. Whenever one of the torn quartet's limbs is rendered nonfunctional, the torn quartet loses one of its reactions."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Tear Asunder",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The torn quartet has a creature Grabbed or Restrained by at least two limbs"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The torn quartet has a creature Grabbed or Restrained by at least two limbs"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "5d6",
+                      "damageType": "slashing"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage for each limb currently grabbing or restraining it (maximum 15d6), with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 30,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save. On a critical failure, the creature also loses a random body part, and one of the torn quartet's limbs is now no longer grabbing or restraining it."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "ae68474f-bcc5-55bb-ae09-e2c702cbbe09",
+    "pack": "shining-kingdoms",
+    "kind": "creature",
+    "slug": "creature:vorvorak",
+    "name": "Vorvorak",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["beast"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Those trespassing on abandoned canals might come face-to-face with a vorvorak, a large creature that resembles a dragon or crocodile. These territorial beasts keep hoards that they disguise with magical illusions, using their natural talent for spellcasting. Often mistaken for dragons, vorvoraks are commonly referred to as canal dragons or mud dragons. However, they aren't truly related to dragons but rather evolved from local crocodiles and exposure to innate magic in the region of Taldor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vorvoraks are solitary creatures, preferring to hunt in the early morning or early evening. In general, vorvoraks make their lairs in areas with some submersion. Such places let them hide their hordes and use their brown, mossy bodies as a natural form of stealth. Due to their evolution and magical contamination, vorvoraks have limited innate magical abilities, allowing them to control the water around them and infuse it with their own poisonous bile."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All vorvoraks share a common trait: hoarding treasure. Many fill their lairs with coins, gems, and anything shiny they take from their victims, with some older hoards containing relics of the surrounding imperial nations. The condition of the items is of no importance to the vorvoraks; a hoard is just as likely to contain junk as items of true value."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A fully grown vorvorak is around 24 feet long and weighs approximately 3,000 pounds, with muddy brown scales, a serpentine neck, and hard fins on their back that resemble wings."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.pdlOJpeKtLDMKjJY"
+    },
+    "data": {
+      "role": "monster",
+      "size": "huge",
+      "perception": 19,
+      "attributes": {
+        "str": 7,
+        "dex": 2,
+        "con": 5,
+        "int": 1,
+        "wis": 3,
+        "cha": 2
+      },
+      "armorClass": 29,
+      "saves": {
+        "fortitude": 22,
+        "reflex": 18,
+        "will": 16
+      },
+      "hitPoints": 200,
+      "immunities": ["poison"],
+      "weaknesses": [
+        {
+          "type": "cold",
+          "value": 10
+        }
+      ],
+      "resistances": [],
+      "speed": 40,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 22
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 19
+        },
+        {
+          "skill": "stealth",
+          "modifier": 15
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        },
+        {
+          "sense": "low-light-vision"
+        }
+      ],
+      "languages": ["common"],
+      "speeds": [
+        {
+          "movement": "climb",
+          "speed": 30
+        },
+        {
+          "movement": "swim",
+          "speed": 30
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Jaws",
+          "range": "melee",
+          "bonus": 23,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d4",
+              "damageType": "piercing",
+              "bonus": 13
+            }
+          ],
+          "traits": ["reach-10"],
+          "reach": 10
+        },
+        {
+          "name": "Claw",
+          "range": "melee",
+          "bonus": 21,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "bludgeoning",
+              "bonus": 13
+            }
+          ],
+          "traits": ["reach-15"],
+          "reach": 15
+        },
+        {
+          "name": "Spit",
+          "range": "melee",
+          "bonus": 17,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d12",
+              "damageType": "acid",
+              "bonus": 6
+            }
+          ],
+          "traits": [],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Vorvorak Bile"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "+2 Status vs. Fear Effects",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "status",
+              "value": 2,
+              "predicate": ["item:trait:fear"]
+            }
+          ]
+        },
+        {
+          "name": "Sweeping Tail",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature within reach of the vorvorak's tail uses a move action or leaves a square during a move action it's using"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature within reach of the vorvorak's tail uses a move action or leaves a square during a move action it's using"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The vorvorak attempts a tail Strike against the triggering creature. If the attack is a critical hit, the vorvorak disrupts the action."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Canal Walker",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A vorvorak ignores difficult terrain caused by swamp terrain features."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Vorvorak Bile",
+          "traits": ["poison"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Throw",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 28
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Maximum Duration",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 6 rounds"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 1",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d8",
+                      "damageType": "poison"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " and Sickened 1 (2 rounds)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 2",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "3d8",
+                      "damageType": "poison"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " and Sickened 2 (2 rounds)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 3",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d8",
+                      "damageType": "poison"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " and Sickened 3 (2 rounds)"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Primal Innate Spells",
+          "tradition": "primal",
+          "preparation": "innate",
+          "dc": 26,
+          "attack": 0,
+          "spells": [
+            {
+              "spell": "07ae3cd7-dcbd-519c-a9f0-6c9c385a5139",
+              "rank": 5
+            },
+            {
+              "spell": "f0b4d595-f619-5a11-973d-a30a7c9523ad",
+              "rank": 4
+            },
+            {
+              "spell": "246e24c3-5849-55a9-a7d9-f253f8ee6da4",
+              "rank": 4
+            },
+            {
+              "spell": "9f40500a-0431-52d2-8285-8923aacd4069",
+              "rank": 3
+            },
+            {
+              "spell": "cfa1a3f3-2450-52eb-95d6-875232fd5219",
+              "rank": 3
+            },
+            {
+              "spell": "1871511d-f694-5e6b-b49d-1e7388909900",
+              "rank": 2
+            },
+            {
+              "spell": "2e8fa114-9eeb-5deb-850d-60eded1b2255",
+              "rank": 2
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9fdb25fc-8386-55a1-b1ec-813b2e40e370",
+    "pack": "shining-kingdoms",
+    "kind": "creature",
+    "slug": "creature:walcofinde",
+    "name": "Walcofinde",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["undead", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "shining-kingdoms"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Forever entombed, walcofindes are vengeful undead creatures inhabiting the enclosed spaces in which they were sealed and eventually perished. As they ultimately succumbed to a slow death by starvation and suffocation, walcofindes are similar to zombies in their hunger and rage. What sets them apart are their vicious claws of stone-sharpened bone, protruding through worn down, fleshless fingers as a result of desperate and futile attempts to escape."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Walcofindes are bound to their death site. These \"wall-coffined\" undead can manifest their forms within the structure where they were sealed, possessing the walls and stealthily traversing along them. Walcofindes' manifestations adopt the patterned appearance of the structure's materials, but not its physical properties. They take the form of hungry, grasping humanoid torsos emerging from the walls like harrowing extensions of their eternal prison. Unable to ever fully leave their structures, these undead are destined to be a part of it forever."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Despite their decaying forms, walcofindes retain the intelligence they would've had in life; for example, a walcofinde who was previously a soldier could understand enemy tactics and assess the appearance and equipment of their foes, allowing them to strategize and prioritize targets as well as organize with other nearby walcofindes to formulate an attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.0vbjFotLwkIoPy2m"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 5,
+      "attributes": {
+        "str": 3,
+        "dex": 1,
+        "con": 3,
+        "int": 2,
+        "wis": 1,
+        "cha": 0
+      },
+      "armorClass": 17,
+      "saves": {
+        "fortitude": 10,
+        "reflex": 4,
+        "will": 7
+      },
+      "hitPoints": 35,
+      "immunities": ["bleed", "death-effects", "disease", "paralyzed", "poison", "sleep", "unconscious"],
+      "weaknesses": [
+        {
+          "type": "vitality",
+          "value": 5
+        }
+      ],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 8
+        },
+        {
+          "skill": "stealth",
+          "modifier": 11
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        },
+        {
+          "sense": "tremorsense",
+          "acuity": "imprecise",
+          "range": 30
+        }
+      ],
+      "languages": ["common", "necril"],
+      "strikes": [
+        {
+          "name": "Claw",
+          "range": "melee",
+          "bonus": 9,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "bludgeoning",
+              "bonus": 3
+            }
+          ],
+          "traits": [],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Grab"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Void Healing",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature with void healing draws health from void energy rather than vitality energy. It is damaged by vitality damage and is not healed by vitality healing effects. It does not take void damage, and it is healed by void effects that heal undead."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Sneak Attack",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A walcofinde deals an additional 1d6 precision damage to Off-Guard creatures."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "DamageDice",
+              "selectors": ["strike-damage"],
+              "diceNumber": 1,
+              "dieSize": "d6",
+              "category": "precision",
+              "predicate": ["target:condition:off-guard"]
+            }
+          ]
+        },
+        {
+          "name": "Structural Possession",
+          "cost": "one",
+          "traits": ["manipulate", "morph"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A walcofinde can merge themself with any wall they can touch within their sealed chamber and can create a manifestation of themself through any part of that wall on either side within 100 feet. This manifestation appears as the rotting upper half of the walcofinde protruding from the wall, but their skin is patterned as if they were the same structural material as the wall they're emerging from. While manifested, the walcofinde's claw attack gains a reach of 10 feet, but they can move only by using Wall Glide. Any damage done to the manifestation affects the walcofinde themself. A walcofinde can Dismiss their structural possession to retreat back into their sealed chamber."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Wall Blend",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The walcofinde is manifested using Structural Possession and isn't observed by any enemies"
+                }
+              ]
+            }
+          ],
+          "traits": ["concentrate"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The walcofinde is manifested using Structural Possession and isn't observed by any enemies"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Until the next time they act, the walcofinde's manifestation changes their visual appearance to match the surrounding wall. They have an automatic result of 31 on their Stealth checks to Hide."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Wall Glide",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The walcofinde is manifested using Structural Possession"
+                }
+              ]
+            }
+          ],
+          "traits": ["concentrate"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The walcofinde is manifested using Structural Possession"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The walcofinde's manifestation Strides, submerging into the wall and reemerging from the wall at the end of their movement. If the walcofinde takes 2 actions to Wall Glide, their manifestation can Stride twice before reemerging. In either case, they can move only within walls that are within 100 feet of their sealed chamber."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  }
+]

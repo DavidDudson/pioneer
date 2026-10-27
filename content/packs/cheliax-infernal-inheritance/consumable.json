@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5253",
-        "page": 198
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5253"
       }
     ],
     "description": [
@@ -91,6 +91,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "damage": {
         "formula": "2d6",
         "damageType": "fire",
@@ -115,8 +118,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5253",
-        "page": 198
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5253"
       }
     ],
     "description": [
@@ -194,6 +197,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "damage": {
         "formula": "2d6",
         "damageType": "fire",
@@ -218,8 +224,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5253",
-        "page": 198
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5253"
       }
     ],
     "description": [
@@ -297,6 +303,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "damage": {
         "formula": "3d6",
         "damageType": "fire",
@@ -321,8 +330,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5247",
-        "page": 176
+        "page": 176,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5247"
       }
     ],
     "description": [
@@ -382,6 +391,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -401,8 +413,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5254",
-        "page": 198
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5254"
       }
     ],
     "description": [
@@ -473,8 +485,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5254",
-        "page": 198
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5254"
       }
     ],
     "description": [
@@ -545,8 +557,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5254",
-        "page": 198
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5254"
       }
     ],
     "description": [
@@ -617,8 +629,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5243",
-        "page": 104
+        "page": 104,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5243"
       }
     ],
     "description": [
@@ -710,6 +722,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -729,8 +744,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5243",
-        "page": 104
+        "page": 104,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5243"
       }
     ],
     "description": [
@@ -836,6 +851,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -855,8 +873,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5243",
-        "page": 104
+        "page": 104,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5243"
       }
     ],
     "description": [
@@ -948,6 +966,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -967,8 +988,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255",
-        "page": 198
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
       }
     ],
     "description": [
@@ -1073,6 +1094,9 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1092,8 +1116,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255",
-        "page": 198
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
       }
     ],
     "description": [
@@ -1198,6 +1222,9 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1217,8 +1244,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255",
-        "page": 198
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
       }
     ],
     "description": [
@@ -1341,6 +1368,9 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1360,8 +1390,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255",
-        "page": 198
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5255"
       }
     ],
     "description": [
@@ -1466,6 +1496,9 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1485,8 +1518,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256",
-        "page": 199
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
       }
     ],
     "description": [
@@ -1574,6 +1607,9 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1593,8 +1629,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256",
-        "page": 199
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
       }
     ],
     "description": [
@@ -1682,6 +1718,9 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1701,8 +1740,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256",
-        "page": 199
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
       }
     ],
     "description": [
@@ -1790,6 +1829,9 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1809,8 +1851,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256",
-        "page": 199
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5256"
       }
     ],
     "description": [
@@ -1898,6 +1940,9 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1917,8 +1962,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250",
-        "page": 176
+        "page": 176,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250"
       }
     ],
     "description": [
@@ -1969,6 +2014,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1988,8 +2036,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250",
-        "page": 176
+        "page": 176,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250"
       }
     ],
     "description": [
@@ -2040,6 +2088,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2059,8 +2110,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250",
-        "page": 176
+        "page": 176,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250"
       }
     ],
     "description": [
@@ -2111,6 +2162,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"

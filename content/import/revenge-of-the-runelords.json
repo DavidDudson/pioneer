@@ -2413,18 +2413,6 @@
     {
       "type": "entry",
       "pack": "revenge-of-the-runelords",
-      "slug": "feat:craft-runewell",
-      "foundry": "Compendium.pf2e.feats-srd.Item.gbBUxaWSD4nA9X7d",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder War of Immortals"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "revenge-of-the-runelords",
       "slug": "feat:fracture-timeflow",
       "foundry": "Compendium.pf2e.feats-srd.Item.iUEYGMjvveC9sfUu",
       "gaps": [

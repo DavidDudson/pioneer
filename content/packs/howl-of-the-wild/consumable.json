@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3254",
-        "page": 118
+        "page": 118,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3254"
       }
     ],
     "description": [
@@ -84,8 +84,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3255",
-        "page": 118
+        "page": 118,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3255"
       }
     ],
     "description": [
@@ -146,6 +146,7 @@
       },
       "bulk": "light",
       "category": "catalyst",
+      "effect": "bb1f16e0-57ba-5ed6-a626-b6a2b364f0c6",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -165,8 +166,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3228",
-        "page": 108
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3228"
       }
     ],
     "description": [
@@ -314,8 +315,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3228",
-        "page": 108
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3228"
       }
     ],
     "description": [
@@ -463,8 +464,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3228",
-        "page": 108
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3228"
       }
     ],
     "description": [
@@ -612,8 +613,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3229",
-        "page": 109
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3229"
       }
     ],
     "description": [
@@ -675,8 +676,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3256",
-        "page": 118
+        "page": 118,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3256"
       }
     ],
     "description": [
@@ -746,8 +747,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3257",
-        "page": 118
+        "page": 118,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3257"
       }
     ],
     "description": [
@@ -818,8 +819,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3258",
-        "page": 118
+        "page": 118,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3258"
       }
     ],
     "description": [
@@ -903,8 +904,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3239",
-        "page": 111
+        "page": 111,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3239"
       }
     ],
     "description": [
@@ -1056,6 +1057,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -1075,8 +1079,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3234",
-        "page": 110
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3234"
       }
     ],
     "description": [
@@ -1255,6 +1259,9 @@
       },
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1274,8 +1281,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3259",
-        "page": 118
+        "page": 118,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3259"
       }
     ],
     "description": [
@@ -1346,8 +1353,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3231",
-        "page": 109
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3231"
       }
     ],
     "description": [
@@ -1462,6 +1469,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1481,8 +1491,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3235",
-        "page": 110
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3235"
       }
     ],
     "description": [
@@ -1570,6 +1580,10 @@
       },
       "bulk": "light",
       "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "0ad0a841-c635-573a-91fa-1009e87b838f",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1589,8 +1603,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3260",
-        "page": 118
+        "page": 118,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3260"
       }
     ],
     "description": [
@@ -1652,8 +1666,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3261",
-        "page": 118
+        "page": 118,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3261"
       }
     ],
     "description": [
@@ -1742,8 +1756,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3262",
-        "page": 119
+        "page": 119,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3262"
       }
     ],
     "description": [
@@ -1805,8 +1819,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3236",
-        "page": 110
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3236"
       }
     ],
     "description": [
@@ -1894,6 +1908,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "0e9f67c3-47e5-54ea-965b-ae8331d11c17",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1913,8 +1931,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3237",
-        "page": 110
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3237"
       }
     ],
     "description": [
@@ -2002,6 +2020,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "43e36143-d2ad-5be9-914b-3f14e22f9dd9",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2021,8 +2043,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3230",
-        "page": 109
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3230"
       }
     ],
     "description": [
@@ -2177,6 +2199,9 @@
       },
       "bulk": 1,
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -2196,8 +2221,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3230",
-        "page": 109
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3230"
       }
     ],
     "description": [
@@ -2352,6 +2377,9 @@
       },
       "bulk": 1,
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -2371,8 +2399,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3230",
-        "page": 109
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3230"
       }
     ],
     "description": [
@@ -2527,6 +2555,9 @@
       },
       "bulk": 1,
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -2546,8 +2577,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3232",
-        "page": 109
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3232"
       }
     ],
     "description": [
@@ -2689,6 +2720,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2708,8 +2742,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3263",
-        "page": 119
+        "page": 119,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3263"
       }
     ],
     "description": [
@@ -2780,8 +2814,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3264",
-        "page": 119
+        "page": 119,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3264"
       }
     ],
     "description": [
@@ -2856,8 +2890,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3240",
-        "page": 111
+        "page": 111,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3240"
       }
     ],
     "description": [
@@ -3020,6 +3054,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3039,8 +3076,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3233",
-        "page": 110
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3233"
       }
     ],
     "description": [
@@ -3275,6 +3312,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3294,8 +3334,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3241",
-        "page": 111
+        "page": 111,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3241"
       }
     ],
     "description": [
@@ -3447,6 +3487,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -3466,8 +3509,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3238",
-        "page": 111
+        "page": 111,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3238"
       }
     ],
     "description": [
@@ -3536,6 +3579,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "8628af6c-0e99-521f-a1c9-dc17442a3637",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3555,8 +3602,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3238",
-        "page": 111
+        "page": 111,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3238"
       }
     ],
     "description": [
@@ -3625,6 +3672,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "62d349ef-1f58-5201-bdb5-08bbe97fdf37",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3644,8 +3695,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3238",
-        "page": 111
+        "page": 111,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3238"
       }
     ],
     "description": [
@@ -3714,6 +3765,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "e48a2450-314f-5522-9f78-42af4dadcf94",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3733,8 +3788,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3265",
-        "page": 119
+        "page": 119,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3265"
       }
     ],
     "description": [
@@ -3795,6 +3850,7 @@
       },
       "bulk": "light",
       "category": "catalyst",
+      "effect": "489b4b39-d9d8-55b9-aaf3-e65676e9cb07",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3814,8 +3870,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3266",
-        "page": 119
+        "page": 119,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3266"
       }
     ],
     "description": [
@@ -3877,8 +3933,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3267",
-        "page": 119
+        "page": 119,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3267"
       }
     ],
     "description": [
