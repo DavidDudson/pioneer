@@ -77,6 +77,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0070](0070-aon-pages-and-urls-come-from-mapping-files.md)               | AoN pages and URLs come from mapping files, not from AoN's servers                            |
 | [0071](0071-aon-sources-pages-are-fetched-politely.md)                   | AoN Sources pages are fetched politely and cached as name-to-URL tables                       |
 | [0072](0072-treasure-by-level-is-table-data.md)                          | Treasure by level is table data: the budget a generated character's gear is bought with       |
+| [0073](0073-aon-page-numbers-come-from-aons-search-index.md)             | AoN page numbers come from AoN's search index, fetched politely                               |
 
 Template:
 

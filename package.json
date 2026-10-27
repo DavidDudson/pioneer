@@ -23,6 +23,8 @@
     "check:contrast": "bun tools/check-token-contrast.ts",
     "content:coverage": "bun tools/content-coverage.ts",
     "content:aon": "bun tools/aon-sources/main.ts",
+    "content:aon-pages": "bun tools/aon-pages/main.ts",
+    "content:pages-propose": "bun tools/propose-pages.ts",
     "content:aon-propose": "bun tools/propose-aon.ts",
     "content:seed": "bun apps/api/src/main.ts content-seed",
     "content:prerequisites": "bun tools/enrich-prerequisites.ts",
