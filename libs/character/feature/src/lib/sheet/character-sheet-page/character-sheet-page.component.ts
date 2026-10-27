@@ -20,6 +20,7 @@ import { VitalsView } from '@pioneer/rules/ui';
 
 import { FeatDisplayStore } from '../../data/feat-display-store';
 import { CHARACTER_CONTENT_PROVIDERS } from '../../data/source-packs';
+import { SheetActiveEnvironments } from '../sheet-active-environments/sheet-active-environments.component';
 import { SheetConditions } from '../sheet-conditions/sheet-conditions.component';
 import { SheetCounted } from '../sheet-counted/sheet-counted.component';
 import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
@@ -31,8 +32,8 @@ import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
-import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
 // oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
+import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
 import { SheetSidePanelHost } from '../sheet-side-panel/sheet-side-panel.component';
 import { SHEET_PLAY_PROVIDERS } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
@@ -55,6 +56,7 @@ import { SheetState } from '../sheet-state';
     PageHeader,
     RouterOutlet,
     SheetDeathTrack,
+    SheetActiveEnvironments,
     SheetConditions,
     SheetCounted,
     SheetForm,
