@@ -1,5 +1,7 @@
 import {
   buildRanks,
+  formTraits,
+  itemContent,
   skillReads,
   SkillSlotKind,
   skillSlots,
@@ -28,6 +30,25 @@ export const SKILL_SLOT_LABEL_KEYS: Readonly<Record<SkillSlotKind, string>> = {
 
 const SKILL_PREFIX = 'skill:';
 
+/** The skills a form's traits bear on: the ones that deal with other creatures, and the ones that Recall Knowledge (#532). */
+const FORM_NOTED_SKILLS: ReadonlySet<string> = new Set(
+  [
+    'deception',
+    'diplomacy',
+    'intimidation',
+    'performance',
+    'arcana',
+    'crafting',
+    'medicine',
+    'nature',
+    'occultism',
+    'religion',
+    'society',
+  ].map((skill) => `${SKILL_PREFIX}${skill}`),
+);
+
+const FORM_TRAITS_KEY = 'character.sheet.skills.formTraits';
+
 /** A thing that trains a skill, named as it is: an entry's name, which needs no translation. */
 const TRAINED_SOURCE_KEY = 'character.sheet.trainedSource';
 
@@ -47,10 +68,16 @@ export function sheetSkills(
   const results = sheetDerivation(registry, character);
   const skills = registry.statistics().filter((entry) => entry.definition.selector.startsWith(SKILL_PREFIX));
   const twice = trainedTwiceNotes(registry, character, translate);
+  const traits = formTraits(character.document, itemContent(registry), sheetSlotContent(registry));
+  const formNote = traits.length === 0 ? undefined : translate(FORM_TRAITS_KEY, { traits: traits.join(', ') });
   return skills
     .flatMap((entry): NamedStatistic[] => {
       const result = results.get(entry.definition.selector);
-      const note = twice.get(entry.definition.selector);
+      const { selector } = entry.definition;
+      const notes = [twice.get(selector), FORM_NOTED_SKILLS.has(selector) ? formNote : undefined].filter(
+        (each) => each !== undefined,
+      );
+      const note = notes.length === 0 ? undefined : notes.join(' ');
       return result === undefined ? [] : [{ name: entry.definition.name, kind: entry.definition.kind, result, note }];
     })
     .toSorted((left, right) => left.name.localeCompare(right.name));

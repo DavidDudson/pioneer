@@ -799,6 +799,11 @@ while a form is in force; it needs the rule elements in play (`StrikeRulesInput`
   states all three for every form (casting and speech forbidden, hands only where Foundry gives them), as the Battle Form
   trait says; the sheet words them beside the spell lists and on the action rows (play-and-campaigns.md, "Sheet
   modes"). An action needing several things the form lacks gives a reason for each.
+- **Melded gear and appearance** (sheet only, no engine change): in a form (and not in the base view,
+  `SheetState.melded`) the worn and held items are melded into it. Inventory rows carry a `melded` note, and an
+  invested item that still works says its constant effects apply but it cannot be activated. The form's traits
+  (`formTraits`) are its roll options (`self:trait:plant`): the Exploration appearance shows them above the
+  character's own, and the social and Recall Knowledge skill rows note them.
 
 ### Strike dice and notes
 

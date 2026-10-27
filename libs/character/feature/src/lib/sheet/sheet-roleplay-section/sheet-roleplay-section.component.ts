@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { CharacterPatchField, CharacterProseInput } from '@pioneer/character/domain';
+import { CharacterPatchField, CharacterProseInput, formTraits, itemContent } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { InlineField, Stack, Text, TextArea } from '@pioneer/frontier';
 import type { InlineEdit } from '@pioneer/frontier';
 
 import { sheetField } from '../sheet-field';
 import { proseToRichText, richTextToProse } from '../sheet-prose';
+import { sheetSlotContent } from '../sheet-slot-content';
 import { SheetState } from '../sheet-state';
 
 /** Visible lines of an open appearance or personality editor. */
@@ -31,6 +32,15 @@ export class SheetRoleplaySection {
   protected readonly rows = EDITOR_ROWS;
   /** The name of the form the character is in: the appearance below is their own, not the form's. */
   protected readonly form = computed((): string | undefined => this.#sheet.activeForm()?.name);
+
+  /** The traits the form gives, which is how it looks to the rules: shown above the character's own appearance (#532). */
+  protected readonly formTraits = computed((): string => {
+    const registry = this.#sheet.engine();
+    const character = this.#sheet.character();
+    return registry === undefined || character === undefined
+      ? ''
+      : formTraits(character.document, itemContent(registry), sheetSlotContent(registry)).join(', ');
+  });
 
   protected readonly appearance = this.#prose(
     (character) => richTextToProse(character.document.appearance),
