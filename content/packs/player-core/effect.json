@@ -6572,6 +6572,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "speeds": {
             "fly": 30,
             "land": 20
@@ -6714,6 +6717,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "speeds": {
             "fly": 50,
             "land": 10
@@ -6852,6 +6858,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "speeds": {
             "fly": 40,
             "land": 20
@@ -6955,6 +6964,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "speeds": {
             "fly": 40,
             "land": 10
@@ -7463,6 +7475,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "size": "medium",
           "speeds": {
             "climb": 20,
@@ -7872,6 +7887,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "size": "medium",
           "speeds": {
             "land": 30
@@ -8289,6 +8307,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "size": "medium",
           "speeds": {
             "land": 30
@@ -8663,6 +8684,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "size": "medium",
           "speeds": {
             "land": 40
@@ -9070,6 +9094,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "size": "medium",
           "speeds": {
             "land": 40
@@ -9487,6 +9514,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "size": "medium",
           "speeds": {
             "land": 50
@@ -9894,6 +9924,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "size": "medium",
           "speeds": {
             "land": 25,
@@ -10321,6 +10354,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "size": "medium",
           "speeds": {
             "swim": 35
@@ -10702,6 +10738,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "size": "medium",
           "speeds": {
             "climb": 20,
@@ -12233,6 +12272,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "armorClass": {
             "modifier": "18 + @level"
           },
@@ -12619,6 +12661,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "armorClass": {
             "modifier": "18 + @level"
           },
@@ -13025,6 +13070,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "armorClass": {
             "modifier": "18 + @level"
           },
@@ -13387,6 +13435,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "armorClass": {
             "modifier": "18 + @level"
           },
@@ -13758,6 +13809,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "armorClass": {
             "modifier": "18 + @level"
           },
@@ -14144,6 +14198,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "armorClass": {
             "modifier": "18 + @level"
           },
@@ -14972,6 +15029,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": true,
           "speeds": {
             "fly": 80
           },
@@ -14993,8 +15053,7 @@
               }
             }
           ],
-          "traits": ["air", "elemental"],
-          "hasHands": true
+          "traits": ["air", "elemental"]
         },
         "brackets": [
           {
@@ -15075,6 +15134,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": true,
           "speeds": {
             "burrow": 20,
             "land": 20
@@ -15097,8 +15159,7 @@
               }
             }
           ],
-          "traits": ["earth", "elemental"],
-          "hasHands": true
+          "traits": ["earth", "elemental"]
         },
         "brackets": [
           {
@@ -15179,6 +15240,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "speeds": {
             "land": 50
           },
@@ -15297,6 +15361,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "speeds": {
             "fly": 20,
             "land": 40
@@ -15400,6 +15467,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "speeds": {
             "land": 20,
             "swim": 60
@@ -15509,6 +15579,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": true,
           "speeds": {
             "climb": 30,
             "land": 20
@@ -15531,8 +15604,7 @@
               }
             }
           ],
-          "traits": ["elemental", "wood"],
-          "hasHands": true
+          "traits": ["elemental", "wood"]
         },
         "brackets": [
           {
@@ -19182,6 +19254,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "speeds": {
             "burrow": 30,
             "land": 40,
@@ -19312,6 +19387,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "speeds": {
             "fly": 90,
             "land": 30
@@ -19412,6 +19490,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "speeds": {
             "land": 20,
             "swim": 90
@@ -20222,6 +20303,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "armorClass": {
             "modifier": "25 + @level"
           },
@@ -20276,6 +20360,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "armorClass": {
             "modifier": "25 + @level"
           },
@@ -20722,6 +20809,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "armorClass": {
             "modifier": "15 + @level",
             "ignoreCheckPenalty": true,
@@ -21226,6 +21316,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "speeds": {
             "land": 30
           },
@@ -21335,6 +21428,9 @@
       {
         "key": "BattleForm",
         "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
           "speeds": {
             "land": 15
           },

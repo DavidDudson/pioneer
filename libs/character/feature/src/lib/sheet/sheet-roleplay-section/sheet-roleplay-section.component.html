@@ -1,6 +1,9 @@
 <fr-stack gap="md">
   @if (form(); as form) {
     <fr-text tone="muted">{{ 'character.sheet.roleplay.inForm' | transloco: { name: form } }}</fr-text>
+    @if (formTraits(); as traits) {
+      <fr-text>{{ 'character.sheet.roleplay.formAppearance' | transloco: { name: form, traits: traits } }}</fr-text>
+    }
   }
   <fr-inline-field [label]="'character.sheet.roleplay.appearance' | transloco" [edit]="appearance">
     <fr-text-area

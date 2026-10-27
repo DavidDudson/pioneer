@@ -53,6 +53,9 @@ function formRules(rules: readonly object[]): unknown[] {
   return rulesIn(translate([heritage(rules)]), 'cavern-elf');
 }
 
+/** What every form forbids unless it says otherwise: casting, speaking and hands. */
+const FORBIDS = { canCast: false, canSpeak: false, hasHands: false };
+
 describe('translateRules: BattleForm', () => {
   test('the overrides become the form, each bracket a heightened change, records lists', () => {
     expect(formRules([AERIAL_FORM])).toEqual([
@@ -60,6 +63,7 @@ describe('translateRules: BattleForm', () => {
         key: RuleElementKey.BattleForm,
         predicate: ['aerial-form:bat'],
         form: {
+          ...FORBIDS,
           senses: [{ sense: DARKVISION }],
           speeds: { fly: 30, land: 20 },
           strikes: [
@@ -110,6 +114,7 @@ describe('translateRules: BattleForm', () => {
       {
         key: RuleElementKey.BattleForm,
         form: {
+          ...FORBIDS,
           hasHands: true,
           immunities: [{ type: 'critical-hits' }, { type: 'precision' }],
           weaknesses: [{ type: 'water', value: 5 }],
@@ -135,7 +140,7 @@ describe('translateRules: BattleForm', () => {
     expect(rules).toEqual([
       {
         key: RuleElementKey.BattleForm,
-        form: { strikes: [{ slug: 'claw', damage: { damageType: 'slashing', dice: 1, die: 'd8' } }] },
+        form: { ...FORBIDS, strikes: [{ slug: 'claw', damage: { damageType: 'slashing', dice: 1, die: 'd8' } }] },
       },
     ]);
   });

@@ -52,6 +52,12 @@ function effectsOf(item: InventoryItem, statistics: readonly NamedStatistic[]): 
   );
 }
 
+/** What the investments read: the sheet's statistics, and whether a battle form has the gear melded into it (#532). */
+export interface InvestmentReads {
+  readonly statistics: readonly NamedStatistic[];
+  readonly melded?: boolean;
+}
+
 /**
  * The character's invested items, in inventory order, each with whether it works (worn or held as it is used) and
  * the lines it adds to `statistics`.
@@ -59,16 +65,18 @@ function effectsOf(item: InventoryItem, statistics: readonly NamedStatistic[]): 
 export function sheetInvestments(
   character: Character,
   content: ItemContent,
-  statistics: readonly NamedStatistic[],
+  { statistics, melded = false }: InvestmentReads,
 ): readonly Investment[] {
   return character.document.inventory.items
     .filter(({ invested }) => invested === true)
     .map((item) => {
       const entry = content.get(item.item);
+      const working = activeState(item, entry) !== undefined;
       return {
         id: item.id,
         name: item.name ?? entry?.name,
-        working: activeState(item, entry) !== undefined,
+        working,
+        melded: melded && working,
         effects: effectsOf(item, statistics),
       };
     });

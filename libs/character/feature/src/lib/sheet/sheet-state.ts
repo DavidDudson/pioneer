@@ -75,6 +75,9 @@ export class SheetState {
 
   readonly #baseView = signal(false);
 
+  /** Whether a battle form has the character's worn and held gear melded into it (#532); not in the base view. */
+  public readonly melded: Signal<boolean> = computed(() => this.activeForm() !== undefined && !this.#baseView());
+
   /**
    * Whether the sheet shows the character without its form (#528), for reference. A display preference only: the form
    * stays active and nothing is sent.
@@ -157,7 +160,7 @@ export class SheetState {
     const statistics = this.picks.statistics();
     return registry === undefined || character === undefined || statistics === undefined
       ? undefined
-      : sheetInvestments(character, itemContent(registry), statistics);
+      : sheetInvestments(character, itemContent(registry), { statistics, melded: this.melded() });
   });
 
   /** AC, saves and Perception with their ranks, for the header; undefined while they load. */

@@ -1031,6 +1031,7 @@
       "unknownItem": "An item no loaded content has",
       "hands": "{count, plural, one {in # hand} other {in # hands}}",
       "invested": "Invested",
+      "melded": "Melded",
       "ruleBreaking": "Breaks a rule",
       "approvedByGm": "Approved by the GM",
       "keyItem": "Key item",
@@ -1047,6 +1048,7 @@
       "count": "{count} of {maximum} invested",
       "none": "Nothing invested.",
       "off": "Not worn or held, so it does nothing.",
+      "melded": "Melded into your form: its constant effects still apply, but it cannot be activated.",
       "nothingShown": "Nothing it turns on shows on the sheet yet.",
       "effect": "{statistic} {value}",
       "effectMarked": "{statistic} {value} ({status})"

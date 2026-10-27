@@ -54,6 +54,8 @@ export class InventorySection {
   public readonly investments = input<readonly Investment[] | undefined>();
   /** The query the investments' registry comes from, so a failure shows in place of the panel. */
   public readonly engine = input.required<AsyncQuery<ContentRegistry>>();
+  /** Whether a battle form has the worn and held gear melded into it, which its rows say. */
+  public readonly melded = input(false);
 
   readonly #store = inject(CharacterStore);
   readonly #limits = inject(CharacterRuleLimitStore);
@@ -96,6 +98,6 @@ export class InventorySection {
     const character = this.#store.selected();
     return runed === undefined || character === undefined
       ? undefined
-      : sheetInventory(character.document.inventory, runed, this.#limits.rules());
+      : sheetInventory(character.document.inventory, runed, { ...this.#limits.rules(), melded: this.melded() });
   });
 }

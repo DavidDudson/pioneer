@@ -38,3 +38,14 @@ export const Invested: InvestmentsStory = {
 export const Full: InvestmentsStory = {
   args: { investments: TEN_INVESTMENTS },
 };
+
+/** In a battle form: the worn investments are melded into it, and still turn on what they do. */
+export const Melded: InvestmentsStory = {
+  args: {
+    investments: INVESTMENTS.map(({ id, name, working, effects }) => ({ id, name, working, effects, melded: working })),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getAllByText(/Melded into your form/u)[0]).toBeVisible();
+  },
+};

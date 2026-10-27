@@ -23,6 +23,7 @@ import {
 import { FundamentalRune } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
+import { CORE_TABLE } from '../../data/character-rule-limit-store';
 import { containerOptions, sheetInventory } from './sheet-inventory';
 
 const content = itemFixtureContent();
@@ -84,6 +85,20 @@ describe(sheetInventory, () => {
     expect(groups.map(({ placement }) => placement)).toStrictEqual(['worn', 'held', 'dropped']);
     expect(groups[1]?.lines[0]).toMatchObject({ id: sword, hands: 1, invested: false });
     expect(groups[0]?.lines[0]).toMatchObject({ id: backpack, hands: undefined, invested: true });
+  });
+
+  it('melds what is worn or held in a form, and leaves the stowed alone', () => {
+    const lines = sheetInventory(PACKED, runed, { ...CORE_TABLE, melded: true }).flatMap((group) => group.lines);
+    expect(lines.map((line) => [line.id, line.melded])).toStrictEqual([
+      [backpack, true],
+      [sword, true],
+      [diamond, false],
+    ]);
+    expect(sheetInventory(PACKED, runed).flatMap((group) => group.lines.map((line) => line.melded))).toStrictEqual([
+      false,
+      false,
+      false,
+    ]);
   });
 
   it('puts what a container holds beneath it, however deep', () => {

@@ -13,6 +13,7 @@ export const InventoryMessage = {
   UnknownItem: 'rules.inventory.unknownItem',
   Hands: 'rules.inventory.hands',
   Invested: 'rules.inventory.invested',
+  Melded: 'rules.inventory.melded',
   RuleBreaking: 'rules.inventory.ruleBreaking',
   ApprovedByGm: 'rules.inventory.approvedByGm',
   KeyItem: 'rules.inventory.keyItem',
