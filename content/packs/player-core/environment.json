@@ -187,5 +187,202 @@
       ],
       "consequences": []
     }
+  },
+  {
+    "id": "83886ad1-d363-5c69-ad22-369297c5c830",
+    "pack": "player-core",
+    "kind": "environment",
+    "slug": "environment:dim-light",
+    "name": "Dim Light",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 432,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2401"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas in shadow or lit by weak light sources are in dim light. Creatures and objects in dim light have the concealed condition, unless the seeker has darkvision or low-light vision, or a precise sense other than vision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["attack-roll", "perception"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Creatures and objects in dim light are concealed to a seeker without darkvision, low-light vision or a precise sense other than vision."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "ad9b228c-9699-55fb-ace6-639d41c279aa",
+    "pack": "player-core",
+    "kind": "environment",
+    "slug": "environment:darkness",
+    "name": "Darkness",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 432,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2401"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature or object within darkness is hidden or undetected unless the seeker has darkvision or a precise sense other than vision. A creature without darkvision or another means of perceiving in darkness has the blinded condition while in darkness, though it might be able to see illuminated areas beyond the darkness. If a creature can see into an illuminated area, it can observe creatures within that illuminated area normally. After being in darkness, sudden exposure to bright light might make you dazzled for a short time, as determined by the GM."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["attack-roll", "perception"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Creatures and objects in darkness are hidden or undetected to a seeker without darkvision or a precise sense other than vision. Without darkvision or another means of perceiving in darkness, you are blinded while in darkness."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "ef483f26-66e3-57cd-97af-5aa867e0397b",
+    "pack": "player-core",
+    "kind": "environment",
+    "slug": "environment:difficult-terrain",
+    "name": "Difficult Terrain",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 423,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2365"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moving into a square of difficult terrain costs an extra 5 feet of movement."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "d64df53f-16b4-5b25-bb32-8ff58895753c",
+    "pack": "player-core",
+    "kind": "environment",
+    "slug": "environment:greater-difficult-terrain",
+    "name": "Greater Difficult Terrain",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 423,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2365"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moving into a square of greater difficult terrain costs 10 additional feet of movement."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "956a306c-a167-5c2f-be37-049d68a3a89f",
+    "pack": "player-core",
+    "kind": "environment",
+    "slug": "environment:hazardous-terrain",
+    "name": "Hazardous Terrain",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core",
+        "page": 423,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2365"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hazardous terrain damages you whenever you move through it. An acid pool and a pit of burning embers are both examples of hazardous terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
   }
 ]
