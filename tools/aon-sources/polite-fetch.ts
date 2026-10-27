@@ -6,6 +6,7 @@
 const SECOND_MS = 1000;
 const STATUS_OK = 200;
 const STATUS_NOT_MODIFIED = 304;
+const STATUS_FORBIDDEN = 403;
 const STATUS_NOT_FOUND = 404;
 
 /** What the robot sends and how fast. */
@@ -15,6 +16,8 @@ export interface PoliteConfig {
   readonly fetch: typeof fetch;
   readonly sleep: (ms: number) => Promise<void>;
   readonly now: () => number;
+  /** Read a 403 on `robots.txt` as "none published" (ADR-0073, for the search host only). */
+  readonly robotsForbiddenIsOpen?: boolean;
 }
 
 /** A page's body and its `ETag`, to send back as `If-None-Match` next time. */
@@ -122,10 +125,31 @@ export class PoliteClient {
       this.robots = [];
     } else if (response.status === STATUS_OK) {
       this.robots = disallowedPaths(await response.text(), this.config.userAgent);
+    } else if (response.status === STATUS_FORBIDDEN && this.config.robotsForbiddenIsOpen === true) {
+      this.robots = [];
     } else {
       return `robots.txt answered ${response.status}`;
     }
     return this.robots;
+  }
+
+  /** `body` as JSON to `url`, if `robots.txt` allows it. Nothing is cached, so the answer is always fresh. */
+  public async postJson(url: URL, body: unknown): Promise<PageOutcome> {
+    const rules = await this.rules(url.origin);
+    if (typeof rules === 'string') {
+      return { kind: 'refused', reason: rules };
+    }
+    if (rules.some((path) => url.pathname.startsWith(path))) {
+      return { kind: 'refused', reason: `robots.txt disallows ${url.pathname}` };
+    }
+    await this.pace();
+    const response = await this.config.fetch(url, {
+      method: 'POST',
+      headers: { 'User-Agent': this.config.userAgent, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+      redirect: 'error',
+    });
+    return outcome(url, response);
   }
 
   /** `url`, if `robots.txt` allows it, as a conditional request on `etag`. */

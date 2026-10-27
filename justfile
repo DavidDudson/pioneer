@@ -47,6 +47,10 @@ content-import *args:
 aon-sources *args:
     bun tools/aon-sources/main.ts {{args}}
 
+# Fetch each entry's page from AoN's search index, politely (ADR-0073): --book player-core
+aon-pages *args:
+    bun tools/aon-pages/main.ts {{args}}
+
 # Write mapped pages and AoN URLs onto a pack's book sources, never over a set value (ADR-0070): --pack player-core
 content-enrich *args:
     bun tools/enrich-content.ts {{args}}
