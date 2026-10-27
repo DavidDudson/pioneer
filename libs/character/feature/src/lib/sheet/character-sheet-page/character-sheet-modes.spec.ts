@@ -47,9 +47,11 @@ describe('CharacterSheetPage modes', () => {
         'Perception +1',
       ]);
     });
-    expect([...vitalsOf().querySelectorAll('pio-proficiency-rank')].map((rank) => textOf(rank))).toStrictEqual(
-      Array.from({ length: 6 }, () => 'UUntrained'),
+    // The tiles' own ranks, not the empty ones the rows inside them hold for a skill's.
+    const tileRanks = [...vitalsOf().querySelectorAll('pio-proficiency-rank')].filter(
+      (rank) => rank.closest('summary') === null,
     );
+    expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual(Array.from({ length: 6 }, () => 'UUntrained'));
     expect(vitalsOf().textContent).toContain('Unarmored');
     const ac = present(vitalsOf().querySelector('pio-breakdown'));
     expect(ac.textContent).toContain('Base 12');
