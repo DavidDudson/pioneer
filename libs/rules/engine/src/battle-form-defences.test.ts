@@ -53,6 +53,16 @@ describe('battle form: defences', () => {
     expect(result.resistances[0]?.exceptions.map(String)).toEqual(['magical']);
   });
 
+  test('only the lines the form gives are marked as from the form', () => {
+    const own = inPlay({ key: 'Resistance', type: ['fire'], value: 3 }, 'ancestry');
+    const form = formRule({ resistances: [{ type: 'fire', value: 5 }], immunities: [{ type: 'sleep' }] });
+
+    const result = defences([own, form]);
+
+    expect(result.resistances.map(({ fromForm }) => fromForm)).toEqual([true, undefined]);
+    expect(result.immunities.map(({ fromForm }) => fromForm)).toEqual([true]);
+  });
+
   test('a value that is a formula reads the character', () => {
     const form = formRule({ resistances: [{ type: 'physical', value: '@level + 2' }] });
 

@@ -731,6 +731,7 @@
         "superseded": "Superseded",
         "failed": "Failed"
       },
+      "fromForm": "from {form}",
       "appliesWhen": "Applies when {summary}.",
       "failedConditional": "{error} It applies only in some situations.",
       "supersededBy": "{name} counts instead."

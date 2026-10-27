@@ -6,6 +6,7 @@ import {
   BARBARIAN_DEFENCES,
   DWARF,
   ENTRY_NAMES,
+  FORM_DEFENCES,
   FIRE_RING,
   GOLEM_FORM,
   IN_DARKNESS,
@@ -76,6 +77,11 @@ export const Failed: DefencesStory = {
   args: {
     defences: { ...NO_DEFENCES, weaknesses: [adjustment(GOLEM_FORM, 'cold', { status: OUT_OF_RANGE })] },
   },
+};
+
+/** In a battle form: the lines it gives are marked from the form, and the character's own sits beside them, superseded. */
+export const InForm: DefencesStory = {
+  args: { defences: FORM_DEFENCES },
 };
 
 /** Without display names, origins read "an entry" and slugs show as they are. */

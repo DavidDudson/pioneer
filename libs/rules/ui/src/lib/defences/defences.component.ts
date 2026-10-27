@@ -154,10 +154,18 @@ export class DefencesView {
   /** How a line stands and what explains it, then where it comes from. */
   #standing(line: ImmunityLine | AdjustmentLine, context: ListContext): Standing {
     const { status, origin } = line;
+    const fromForm = this.#fromForm(line, context);
     if (status.kind === DefenceStatusKind.Applied) {
-      return { status: undefined, detail: undefined, origin };
+      return { status: undefined, detail: undefined, fromForm, origin };
     }
-    return { status: status.kind, detail: this.#detail(status, context), origin };
+    return { status: status.kind, detail: this.#detail(status, context), fromForm, origin };
+  }
+
+  /** "from Plant Form" for a line a battle form gives; undefined for any other. */
+  #fromForm(line: ImmunityLine | AdjustmentLine, context: ListContext): string | undefined {
+    return line.fromForm === true
+      ? this.#i18n.translate(DefencesMessage.FromForm, { form: this.#ruleName(line.id, context) })
+      : undefined;
   }
 
   #detail(
