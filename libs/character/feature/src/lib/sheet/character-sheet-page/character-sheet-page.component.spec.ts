@@ -34,6 +34,7 @@ describe('CharacterSheetPage', () => {
     await openTab(root, 'Encounter', 'Defences');
     expect(regionsOf(root)).toStrictEqual([
       ['Defences', true],
+      ['Senses', true],
       ['Skills', true],
       ['Strikes', true],
       ['Actions', true],

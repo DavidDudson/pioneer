@@ -1,0 +1,17 @@
+<fr-stack gap="sm">
+  @if (shown(); as shown) {
+    @if (shown.empty) {
+      <fr-empty-state [title]="None | transloco" />
+    } @else {
+      <pio-sense-list [senses]="shown.senses" [entryNames]="entryNames()" [names]="originNames()" />
+    }
+    @if (shown.hasOwn) {
+      <fr-disclosure>
+        <fr-text frDisclosureSummary>{{ Own | transloco }}</fr-text>
+        <pio-sense-list [senses]="shown.own" [entryNames]="entryNames()" [names]="originNames()" />
+      </fr-disclosure>
+    }
+  } @else {
+    <fr-skeleton width="lg" />
+  }
+</fr-stack>

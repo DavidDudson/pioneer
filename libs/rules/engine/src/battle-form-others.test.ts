@@ -50,13 +50,18 @@ describe('battle form: senses and size', () => {
 
     const senses = sensesInPlay({ rules, facts });
 
-    expect(senses).toEqual([{ sense: SCENT, acuity: 'imprecise', range: Feet.parse(30), origins: [rule.origin] }]);
+    expect(senses).toEqual([
+      { sense: SCENT, acuity: 'imprecise', range: Feet.parse(30), origins: [rule.origin], fromForm: true },
+    ]);
   });
 
   test('a form that lists no senses leaves them alone', () => {
     const rules = [inPlay({ key: 'Sense', sense: DARKVISION }, 'ancestry'), formRule({ speeds: { fly: 30 } })];
 
-    expect(sensesInPlay({ rules, facts }).map(({ sense }) => sense)).toEqual([DARKVISION]);
+    const senses = sensesInPlay({ rules, facts });
+
+    expect(senses.map(({ sense }) => sense)).toEqual([DARKVISION]);
+    expect(senses.map(({ fromForm }) => fromForm)).toEqual([undefined]);
   });
 
   test('the form’s size sets the size and the reach it gives', () => {

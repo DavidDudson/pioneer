@@ -17,6 +17,18 @@
     </fr-async-region>
   </fr-section>
 
+  <fr-section [anchor]="sections.senses.anchor" [heading]="sections.senses.headingKey | transloco">
+    <fr-async-region>
+      <ng-template frAsyncPending><pio-senses [senses]="undefined" /></ng-template>
+      <ng-template [frAsyncData]="sheet.engineQuery()"
+        ><pio-senses
+          [senses]="picks.senses()?.senses"
+          [own]="picks.senses()?.own ?? []"
+          [entryNames]="picks.entryNames()"
+      /></ng-template>
+    </fr-async-region>
+  </fr-section>
+
   <fr-section [anchor]="sections.skills.anchor" [heading]="sections.skills.headingKey | transloco">
     <fr-stack gap="md">
       <fr-async-region>

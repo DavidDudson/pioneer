@@ -42,6 +42,8 @@ export const AncestryDefinition = z.object({
   /** `language` entries every member speaks; absent for an ancestry a test pack defines without them. */
   languages: LanguageList.optional(),
   additionalLanguages: AdditionalLanguages.optional(),
+  /** The `sense` entry for its vision (darkvision, low-light vision); absent for ordinary vision. */
+  vision: ContentId.optional(),
 });
 export type AncestryDefinition = z.infer<typeof AncestryDefinition>;
 
@@ -55,8 +57,6 @@ export const AncestryData = z.strictObject({
   /** `language` entries every member speaks. */
   languages: LanguageList,
   additionalLanguages: AdditionalLanguages,
-  /** The `sense` entry for its vision (darkvision, low-light vision); absent for ordinary vision. */
-  vision: ContentId.optional(),
   reach: Feet,
 });
 export type AncestryData = z.infer<typeof AncestryData>;

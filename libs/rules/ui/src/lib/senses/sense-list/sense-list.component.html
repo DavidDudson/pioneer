@@ -1,0 +1,17 @@
+<fr-list gap="xs">
+  @for (sense of senses(); track $index) {
+    <fr-list-item>
+      <fr-stack gap="3xs">
+        <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+          <fr-text>{{ sense.text }}</fr-text>
+          @if (sense.fromForm; as form) {
+            <fr-badge tone="info">{{ form }}</fr-badge>
+          }
+        </fr-stack>
+        @for (origin of sense.origins; track $index) {
+          <pio-origin-chain [origin]="origin" [entryNames]="entryNames()" [names]="names()" />
+        }
+      </fr-stack>
+    </fr-list-item>
+  }
+</fr-list>
