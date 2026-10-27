@@ -1,0 +1,6 @@
+{
+  "source": "GM Core, Character Wealth: the lump sum for a character made at each level, permanent items and currency together",
+  "lumpSumGp": [
+    15, 30, 75, 140, 270, 450, 720, 1100, 1600, 2300, 3200, 4500, 6400, 9300, 13500, 20000, 30000, 45000, 69000, 112000
+  ]
+}
