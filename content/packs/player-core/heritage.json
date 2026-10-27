@@ -422,6 +422,11 @@
       {
         "key": "Sense",
         "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["self:low-light-vision:from-ancestry"]
       }
     ],
     "externalIds": {
@@ -1302,6 +1307,11 @@
       {
         "key": "Sense",
         "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["self:low-light-vision:from-ancestry"]
       }
     ],
     "externalIds": {
@@ -1678,6 +1688,12 @@
       }
     ],
     "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 20
+      },
       {
         "key": "FlatModifier",
         "selectors": ["land-speed"],

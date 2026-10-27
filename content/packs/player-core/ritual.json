@@ -528,6 +528,865 @@
     }
   },
   {
+    "id": "8d8afdc8-d8bb-52eb-8ebb-74bd066eb8eb",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:atone",
+    "name": "Atone",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to help a truly penitent creature atone for its misdeeds, typically actions anathema to your deity. If the creature isn't truly penitent, the outcome is always a critical failure. This ritual uses Nature if the target is a druid, and Religion in all other cases."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature receives absolution for its misdeeds, allowing it to regain standing with your deity. It regains any abilities it lost. Before the atonement is complete, the creature must perform a special quest or other task chosen by your deity, as befits its misdeeds. If completed during downtime, this task should take no less than 1 month. For 1 month, the target receives divine insight just before performing an act that would be anathema to your deity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the creature gains no special insight regarding its subsequent actions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature does not receive absolution and must continue to meditate and redress its misdeeds. Any future "
+          },
+          {
+            "type": "text",
+            "text": "atone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rituals for the same misdeeds cost half as much and gain a +4 circumstance bonus to primary and secondary checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature offends your deity and is permanently cast out from the faith. The creature can't rejoin your religion without a more direct intervention."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the maximum target level by 2 and the base cost by 20 gp."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.7Fd4lxozd11MQ55N"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incense and offerings worth a total value of 20 gp × the target's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:nature", "skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:nature", "skill:religion"],
+            "pick": "primary-used"
+          }
+        ],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "0dc8196c-25de-5b39-a30a-e6e597d586e0",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:awaken-animal",
+    "name": "Awaken Animal",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grant intelligence to the target, transforming it into a beast. If it was previously an animal companion or minion, it can no longer serve as one."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target's Intelligence, Wisdom, and Charisma modifiers each increase to +2 if they were lower, and it becomes helpful to you for awakening it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target's Intelligence, Wisdom, and Charisma modifiers increase to +0 if they were lower and it becomes friendly to you for awakening it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to awaken the target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You accidentally awaken the target with a pure bestial hatred toward you. The target's Intelligence, Wisdom, and Charisma modifiers increase to -2 if they were lower. It becomes hostile to you, attempting to destroy you."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures Creation Rituals"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Creature Level"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Spell Rank Required"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Cost"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "-1 or 0"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "15 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "60 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "105 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "180 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "300 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "480 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "750 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1,080 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1,500 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2,100 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "11"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4,200 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "13"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "14"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13,500 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "15"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "19,500 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "16"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "30,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "17"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "45,000 gp"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.B4dDkYsHFo1H0CIF"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "herbs, 1/5 the value on Creature Creation Rituals table"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:nature"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore"]
+          },
+          {
+            "skills": ["skill:society"]
+          },
+          {
+            "skills": ["skill:survival"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "ac31eeb3-5bc0-53ae-8e06-ff986fe2d6b9",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:binding-circle",
+    "name": "Binding Circle",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call forth an extraplanar creature of a level no greater than double that of the "
+          },
+          {
+            "type": "text",
+            "text": "binding circle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ritual's rank and attempt to bargain with it, generally to perform a task for you in exchange for payment."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure the extraplanar creature within your circle and negotiate a deal with it. A creature that doesn't wish to negotiate at all can attempt a Will save to stay on its home plane. Most extraplanar creatures feel that they have something better to do than cater to the whims of mortals and require a significant gift, especially if your task poses major risks. Fiends and similarly wicked extraplanar creatures are more likely to accept a bargain for a lower cost as long as it allows them to wreak havoc on the Universe or inflict evil upon the world along the way."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Monetary prices usually range from the cost of a consumable item of the creature's level for a short and simple task to a permanent magic item of the creature's level or more to persuade the creature to fight alongside you. However, some extraplanar creatures may want payments other than money, such as permission to cast a "
+          },
+          {
+            "type": "ref",
+            "id": "7e85a1ac-f426-579c-bdf8-13484861d9d2"
+          },
+          {
+            "type": "text",
+            "text": " on you to fulfill an unspecified later favor or obtain ownership of your soul via an infernal contract."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can add an additional secondary caster to create a warding circle that prevents the extraplanar creature from attacking or leaving the circle during the bargain. This uses the Crafting skill and has the same DC as a secondary check would. This protection ends if you use a hostile action against the extraplanar creature or the warding circle breaks."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call the extraplanar creature and can prevent it from returning home for up to a full day, potentially allowing you to negotiate a better deal by threatening to leave it in the wards for the duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call the extraplanar creature and must make your case succinctly, after which the creature can return home at any time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to call the extraplanar creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call something vile and horrible, unbound by your wards, and it immediately attempts to destroy you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.2ykmAVKrsAWcazcC"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "interplanar"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "traits": ["extraplanar"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "warding circle ingredients worth a total value of 2 gp × the spell rank × the target's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:diplomacy", "skill:intimidation"]
+          },
+          {
+            "skills": ["skill:arcana", "skill:occultism"],
+            "pick": "primary-unused"
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
     "id": "9d9bcb19-2e96-528a-8a38-2af47debe616",
     "pack": "player-core",
     "kind": "ritual",
@@ -687,6 +1546,134 @@
     }
   },
   {
+    "id": "10456f64-9105-58dc-a9a6-e822d1bea0f2",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:call-spirit",
+    "name": "Call Spirit",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You tear the veil to the afterlife and call a spirit from its final resting place. You must call the spirit by name, and you must provide a connection to the spirit, such as a possession, a garment, or a piece of its corpse. A spirit unwilling to heed your call can attempt a Will save to avoid it; on a critical success, a trickster spirit Impersonates the spirit you meant to call. The DC of the Will save is 2 lower if you haven't met the spirit in life. Either way, the spirit appears as a wispy form of the creature you meant to call. Each minute of the duration, you can ask the spirit a question. It can answer how it pleases or even refuse to answer. If the spirit isn't in the afterlife (such as if it's an undead), all results other than critical failures use the failure effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spirit is particularly cooperative, and even if it has strong reasons to deceive you, it takes a -2 circumstance penalty to its Deception checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call the spirit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to call a spirit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " One or more evil spirits appear and attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.gsYEuWv04XTDxe91"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "upTo": true
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare candles and incense worth a total value of 50 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:occultism", "skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:occultism", "skill:religion"],
+            "pick": "primary-unused"
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
     "id": "39a76fbf-320c-5beb-9457-d1766960ab18",
     "pack": "player-core",
     "kind": "ritual",
@@ -807,6 +1794,206 @@
           }
         ],
         "casters": 2
+      }
+    }
+  },
+  {
+    "id": "9b234ac7-30e8-5b71-bead-b0092b5641e8",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:commune",
+    "name": "Commune",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["prediction"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon an unknown, powerful being to answer questions. The being varies depending on the skill used for the primary check."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Nature",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Primal spirits of nature, which know about animals, beasts, fey, fungi, plants, topography, and natural resources within a 3-mile radius."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Occultism",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Planar and other mysterious entities such as elementals, forgotten spirits, and monitors, which know about forgotten knowledge, the planes, obscure secrets, and other esoterica."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Religion",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Divine beings like celestials and fiends that know about the gods they serve and the god's respective purview; these are typically a servitor of your deity if you have one."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can ask up to seven questions that could be answered with \"Yes\" or \"No.\" The entity answers with one-word answers such as \"Yes,\" \"No,\" \"Likely,\" and \"Unknown,\" though its answers always reflect its own agenda and could be deceptive."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You contact a more powerful entity aligned strongly with your interests, possibly even your deity. The entity won't attempt to deceive you, though it still might not know the answers. When it's important to provide clarity, the entity will answer your questions with up to five words, such as \"If you leave immediately\" or \"That was true once.\""
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can ask your questions and receive answers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to contact an appropriate being."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are exposed to the enormity of the cosmos and are "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 4"
+          },
+          {
+            "type": "text",
+            "text": " for 1 week (can't remove by any means)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.7DN13ILADW2N9Z1t"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "upTo": true
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incense worth a total value of 150 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:nature", "skill:occultism", "skill:religion"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:nature", "skill:occultism", "skill:religion"],
+            "pick": "primary-used"
+          }
+        ],
+        "casters": 1
       }
     }
   },
@@ -2182,6 +3369,159 @@
     }
   },
   {
+    "id": "af4b60cd-3292-5825-a96c-625405545bdd",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:planar-displacement",
+    "name": "Planar Displacement",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw a ritual circle, and when the ritual is complete, you shift all creatures in the area to a different plane of existence. The skill you use for the primary check must be one that can be used to make a Recall Knowledge check about the intended destination, such as Arcana or Nature for the Plane of Fire or Occultism for the Astral Plane."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A secondary caster can be located at the exact site of the destination, instead of with you at the point of origin. If a secondary caster at the destination succeeds at its check and you roll a success, the ritual is a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You arrive on the intended plane at the last place one of the targets (of your choice) was located the last time the target traveled to that plane. If it's the first time traveling to a particular plane for all targets, you appear at a random location on the plane. The circle remains active for 1 minute, during which time any creature the ritual transported can return to the origin point with a single action, which has the concentrate trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but you arrive 1d10×25 miles from your destination."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your attempt is unsuccessful."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual fails, and the GM determines whether you travel to the wrong plane or are barred from planar travel for 1 week."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.HmKajQS0DP23bipp"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 20
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incense, precious metals, and purified chalk worth 500 gp"
+            }
+          ]
+        }
+      ],
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "planar key for the destination plane used as a locus"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore"],
+            "loreRelatedTo": "the destination plane"
+          },
+          {
+            "skills": ["skill:survival"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
     "id": "814760ac-4a39-53aa-bd8c-180a8f98978a",
     "pack": "player-core",
     "kind": "ritual",
@@ -2836,6 +4176,140 @@
           }
         ],
         "casters": 2
+      }
+    }
+  },
+  {
+    "id": "6e9049d7-9366-5a37-807f-cd01013db359",
+    "pack": "player-core",
+    "kind": "ritual",
+    "slug": "ritual:rune-trap",
+    "name": "Rune Trap",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a magical trap by binding a hostile spell into a rune. As part of performing this ritual, you also Cast a Spell to store in the rune. The stored spell must take 3 actions or fewer to cast, have a hostile effect, and target one creature or have an area. You can set a password, a trigger, or both for the rune. Any creature that moves, opens, or touches the target container or enters the target area that doesn't speak the password or that matches the trigger activates the rune, releasing the harmful spell within."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once a spell is stored in the rune, the rune gains all the traits of that spell. If the stored spell targets one or more creatures, it targets the creature that set off the rune. If it has an area, that area is centered on the creature that set off the rune. The rune is a magical trap, using your spell DC for both the Perception check to notice it and the Thievery check to disable it; both checks require the creature attempting them to be trained in order to succeed. You can Dismiss the rune you create with this ritual so long as you can see it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create a particularly effective rune, granting a +2 circumstance bonus to the DC to notice and disable the rune."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the rune successfully."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to create the rune."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The rune backfires, dealing 4d6 force damage per rank of the rune's spell to you, the secondary caster, and all creatures within 10 feet of the ritual's area"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.o0l57UfBm9ScEUMW"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "pigments and oils worth a total value of 5 gp x the rank of the spell to be stored"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "proficiency": "expert",
+        "pick": "tradition"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting"]
+          }
+        ],
+        "casters": 1
       }
     }
   },

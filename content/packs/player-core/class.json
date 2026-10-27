@@ -109,6 +109,15 @@
       },
       {
         "key": "GrantItem",
+        "item": "222cdf7e-d3a9-5c3c-b957-2d07f3f44c6e",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "48dbd7d5-49da-5cac-87a3-d3a27f31e87f",
         "predicate": [
           {
@@ -164,6 +173,15 @@
       {
         "key": "GrantItem",
         "item": "2ae6e607-5b49-5a8d-aaeb-88ddfcf18a4e",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 13]
@@ -964,6 +982,7 @@
       "keyAttribute": ["cha"],
       "hitPoints": 8,
       "additionalSkills": 4,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "subclass": "bard-muse"
     }
   },
@@ -1075,6 +1094,15 @@
       },
       {
         "key": "GrantItem",
+        "item": "b07b7021-935f-574b-afc3-b60aa0eebfdd",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "8a4a866d-1164-5d69-bccf-79fd9e91e71d",
         "predicate": [
           {
@@ -1102,7 +1130,25 @@
       },
       {
         "key": "GrantItem",
+        "item": "222cdf7e-d3a9-5c3c-b957-2d07f3f44c6e",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "60f3e682-8033-58db-85da-e59594ec3cf3",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 13]
@@ -1894,6 +1940,7 @@
       "keyAttribute": ["wis"],
       "hitPoints": 8,
       "additionalSkills": 2,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "subclass": "cleric-doctrine"
     }
   },
@@ -2019,6 +2066,24 @@
       },
       {
         "key": "GrantItem",
+        "item": "b07b7021-935f-574b-afc3-b60aa0eebfdd",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "222cdf7e-d3a9-5c3c-b957-2d07f3f44c6e",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "b3c71b46-0e68-5539-9c94-c8999085be0e",
         "predicate": [
           {
@@ -2047,6 +2112,15 @@
       {
         "key": "GrantItem",
         "item": "75ad50e6-33e7-5e7f-a46b-6fbeddffe3e0",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 13]
@@ -2838,6 +2912,7 @@
       "keyAttribute": ["wis"],
       "hitPoints": 8,
       "additionalSkills": 2,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "subclass": "druid-order"
     }
   },
@@ -2868,6 +2943,29 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "fighter-skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "fighter-skill",
+          "prefix": "skill"
+        },
+        "rank": "trained"
+      },
       {
         "key": "Proficiency",
         "selector": "perception",
@@ -2970,6 +3068,15 @@
       },
       {
         "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "cc4f7c33-0efe-5512-8ce3-d5977e69b957",
         "predicate": [
           {
@@ -3037,6 +3144,15 @@
         "predicate": [
           {
             "gte": ["self:level", 15]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "cd97a256-e0eb-54b9-ab2f-682fed5a875f",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
           }
         ]
       },
@@ -3818,29 +3934,6 @@
             "gte": ["self:level", 20]
           }
         ]
-      },
-      {
-        "key": "ChoiceSet",
-        "flag": "fighter-skill",
-        "choices": [
-          {
-            "value": "acrobatics",
-            "label": "Acrobatics"
-          },
-          {
-            "value": "athletics",
-            "label": "Athletics"
-          }
-        ],
-        "prompt": "Select a skill."
-      },
-      {
-        "key": "Proficiency",
-        "selector": {
-          "choice": "fighter-skill",
-          "prefix": "skill"
-        },
-        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -3849,7 +3942,8 @@
     "data": {
       "keyAttribute": ["dex", "str"],
       "hitPoints": 10,
-      "additionalSkills": 3
+      "additionalSkills": 3,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19]
     }
   },
   {
@@ -3879,6 +3973,16 @@
       }
     ],
     "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained",
+        "predicate": [
+          {
+            "not": "feature:vindicator"
+          }
+        ]
+      },
       {
         "key": "Proficiency",
         "selector": "perception",
@@ -3949,6 +4053,15 @@
       },
       {
         "key": "GrantItem",
+        "item": "ba805be4-5be4-569a-9f7b-6f7def5b7fca",
+        "predicate": [
+          {
+            "gte": ["self:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "8c644e42-c2ce-5667-a686-ee4c4a1b226b",
         "predicate": [
           {
@@ -3977,6 +4090,15 @@
       {
         "key": "GrantItem",
         "item": "2cb487a6-08e7-51fc-8dcc-4e29ff632745",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 7]
@@ -4860,16 +4982,6 @@
             "gte": ["self:level", 20]
           }
         ]
-      },
-      {
-        "key": "Proficiency",
-        "selector": "skill:nature",
-        "rank": "trained",
-        "predicate": [
-          {
-            "not": "feature:vindicator"
-          }
-        ]
       }
     ],
     "externalIds": {
@@ -4879,6 +4991,7 @@
       "keyAttribute": ["dex", "str"],
       "hitPoints": 10,
       "additionalSkills": 4,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "subclass": "ranger-hunters-edge"
     }
   },
@@ -5006,6 +5119,15 @@
       {
         "key": "GrantItem",
         "item": "2cb487a6-08e7-51fc-8dcc-4e29ff632745",
+        "predicate": [
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 7]
@@ -6188,6 +6310,7 @@
       "keyAttribute": ["dex"],
       "hitPoints": 8,
       "additionalSkills": 7,
+      "skillIncreaseLevels": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
       "subclass": "rogue-racket"
     }
   },
@@ -6299,6 +6422,24 @@
       },
       {
         "key": "GrantItem",
+        "item": "222cdf7e-d3a9-5c3c-b957-2d07f3f44c6e",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "b07b7021-935f-574b-afc3-b60aa0eebfdd",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "31364a26-b9ea-582e-8fc2-2f1f47fb1ab4",
         "predicate": [
           {
@@ -6309,6 +6450,15 @@
       {
         "key": "GrantItem",
         "item": "a8282014-e198-5b6c-af1f-3c6a24bd30e9",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 13]
@@ -7109,6 +7259,7 @@
       "keyAttribute": ["int"],
       "hitPoints": 6,
       "additionalSkills": 3,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "subclass": "witch-patron"
     }
   },
@@ -7207,6 +7358,15 @@
       },
       {
         "key": "GrantItem",
+        "item": "222cdf7e-d3a9-5c3c-b957-2d07f3f44c6e",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "b3c71b46-0e68-5539-9c94-c8999085be0e",
         "predicate": [
           {
@@ -7225,6 +7385,15 @@
       },
       {
         "key": "GrantItem",
+        "item": "b07b7021-935f-574b-afc3-b60aa0eebfdd",
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
         "item": "31364a26-b9ea-582e-8fc2-2f1f47fb1ab4",
         "predicate": [
           {
@@ -7235,6 +7404,15 @@
       {
         "key": "GrantItem",
         "item": "a8282014-e198-5b6c-af1f-3c6a24bd30e9",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 13]
@@ -8035,6 +8213,7 @@
       "keyAttribute": ["int"],
       "hitPoints": 6,
       "additionalSkills": 2,
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "subclass": "wizard-arcane-school"
     }
   }
