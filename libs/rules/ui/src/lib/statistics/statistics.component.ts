@@ -2,17 +2,19 @@ import { ChangeDetectionStrategy, Component, computed, inject, input } from '@an
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { Badge, Disclosure, EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
-import { RuleId } from '@pioneer/rules/engine';
+import { FormSource, RuleId } from '@pioneer/rules/engine';
 import type { BreakdownLine, StatisticResult, StatisticValue } from '@pioneer/rules/engine';
 import type { ContentId, Proficiency, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { BreakdownView } from '../breakdown/breakdown.component';
+import { labelName } from '../breakdown/line-words';
 import { numberStyle } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import { ProficiencyRankView } from '../proficiency-rank/proficiency-rank.component';
 import { conditionalLineText, conditionalLines } from './conditional-lines';
+import type { ConditionWords } from './conditional-lines';
 import { StatisticConditions } from './statistic-conditions/statistic-conditions.component';
 import type { ConditionChange, ConditionToggle } from './statistic-conditions/statistic-conditions.component';
 import { StatisticRoll } from './statistic-roll/statistic-roll.component';
@@ -50,6 +52,8 @@ type ShownStatistic =
       readonly total: string;
       /** "computed 18" when a set override pinned the total; undefined otherwise. */
       readonly computed: string | undefined;
+      /** "from Plant Form" when a battle form sets the total; undefined otherwise. */
+      readonly fromForm: string | undefined;
       /** "+2 circumstance when your shield is raised (Steel Shield)": each line that applies only in some situations and could change the total. */
       readonly conditions: readonly string[];
       /** Each line whose situation can be claimed, as a toggle. */
@@ -124,6 +128,24 @@ export class StatisticsView {
     this.#roller?.claim?.(selector, RuleId.parse(id), on);
   }
 
+  /** What the conditional lines and form names are worded with. */
+  #words(): ConditionWords {
+    return {
+      i18n: this.#i18n,
+      format: this.#format,
+      names: { entries: this.entryNames(), items: this.originNames().items },
+    };
+  }
+
+  /** "from Plant Form" when a battle form sets the total; undefined when it does not, or the character's own is higher. */
+  #fromForm({ form }: StatisticValue): string | undefined {
+    if (form?.source !== FormSource.Form) {
+      return undefined;
+    }
+    const name = labelName(form.label, this.#words().names, ({ key, params }) => this.#i18n.translate(key, params));
+    return this.#i18n.translate(StatisticsMessage.FromForm, { form: name });
+  }
+
   protected readonly shown = computed((): readonly ShownStatistic[] | undefined => {
     this.#messages();
     this.#format.locale();
@@ -146,11 +168,8 @@ export class StatisticsView {
             : this.#i18n.translate(StatisticsMessage.Computed, {
                 computed: this.#format.number(result.computed, style),
               });
-        const words = {
-          i18n: this.#i18n,
-          format: this.#format,
-          names: { entries: this.entryNames(), items: this.originNames().items },
-        };
+        const words = this.#words();
+        const fromForm = this.#fromForm(result);
         const offered = this.#roller?.claim === undefined ? [] : (situations?.offered ?? []);
         const conditions = conditionalLines(result, words, new Set(offered.map(({ modifier }) => modifier.id)));
         const toggles = offered.map((line): ConditionToggle => ({
@@ -164,6 +183,7 @@ export class StatisticsView {
           name,
           total,
           computed: unpinned,
+          fromForm,
           conditions: note === undefined ? conditions : [...conditions, note],
           toggles,
           kind,

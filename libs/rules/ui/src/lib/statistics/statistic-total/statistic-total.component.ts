@@ -19,5 +19,8 @@ export class StatisticTotal {
   /** "computed 20" when a set override pinned the total; undefined otherwise. */
   public readonly computed = input<string | undefined>(undefined);
 
+  /** "from Plant Form" when a battle form sets the total; undefined otherwise. */
+  public readonly fromForm = input<string | undefined>(undefined);
+
   protected readonly Pinned = StatisticsMessage.Pinned;
 }
