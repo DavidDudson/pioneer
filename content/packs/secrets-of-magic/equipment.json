@@ -325,7 +325,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Nature's Reprisal, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "ddb17c70-63fb-50e6-a176-cba80f6a95d8"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",

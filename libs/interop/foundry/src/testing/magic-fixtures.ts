@@ -181,3 +181,12 @@ export const GIANTS_STATURE = {
 export function featEffectOf(id: string, name: string): DocumentFixture {
   return { ...RAGE_EFFECT, id, name };
 }
+
+/** Rage with a rolled badge of `formula`. */
+export function effectWithBadge(formula: string): DocumentFixture {
+  const { system } = RAGE_EFFECT;
+  return {
+    ...RAGE_EFFECT,
+    system: { ...system, badge: { evaluate: true, reevaluate: FOUNDRY_NULL, type: 'formula', value: formula } },
+  };
+}

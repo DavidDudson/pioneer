@@ -124764,8 +124764,8 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Effect: Glutton's Feast"
+                  "type": "ref",
+                  "id": "3e8cec97-c5ee-5a24-a5b4-a8eda7b16e48"
                 }
               ]
             }

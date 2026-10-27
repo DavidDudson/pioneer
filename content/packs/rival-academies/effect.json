@@ -127,6 +127,68 @@
     }
   },
   {
+    "id": "a397e002-f18b-59e4-8ce8-746f0a305be3",
+    "pack": "rival-academies",
+    "kind": "effect",
+    "slug": "effect:effect-in-lightning-life",
+    "name": "Effect: In Lightning, Life",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "47a5ffaa-4f0f-581b-bbfd-ded89f42f4b4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ZouxY0u1dKQEHQ6E"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "(1 + floor(@item.origin.level / 4))d4"
+      }
+    }
+  },
+  {
     "id": "87fc9c4f-5219-592d-992c-24d4ab1a8545",
     "pack": "rival-academies",
     "kind": "effect",

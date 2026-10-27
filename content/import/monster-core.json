@@ -10812,14 +10812,6 @@
             "priority": 51,
             "value": 2
           }
-        },
-        {
-          "type": "link",
-          "entry": "monster-core/effect:effect-gluttons-feast",
-          "element": {
-            "type": "ref",
-            "id": "3e8cec97-c5ee-5a24-a5b4-a8eda7b16e48"
-          }
         }
       ]
     },
@@ -16372,82 +16364,6 @@
           }
         }
       ]
-    },
-    {
-      "type": "entry",
-      "pack": "monster-core",
-      "slug": "effect:effect-gluttons-feast",
-      "foundry": "Compendium.pf2e.bestiary-effects.Item.ww0Wu8majCej2tVF",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "invalid-data",
-          "field": "badge.formula",
-          "raw": {
-            "category": "other",
-            "duration": {
-              "type": "time",
-              "count": 1,
-              "unit": "minute",
-              "expiry": "turn-start"
-            },
-            "badge": {
-              "type": "formula",
-              "formula": "(@actor.flags.system.gluttonsFeast)d4"
-            }
-          }
-        }
-      ],
-      "document": {
-        "_id": "ww0Wu8majCej2tVF",
-        "name": "Effect: Glutton's Feast",
-        "type": "effect",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Monster Core",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": []
-          },
-          "description": {
-            "value": "<p>The ogre glutton gains 1d4 temporary hit points, or 2d4 following glutton's rush.</p>"
-          },
-          "rules": [
-            {
-              "key": "TempHP",
-              "value": "@item.badge.value"
-            }
-          ],
-          "badge": {
-            "evaluate": true,
-            "reevaluate": null,
-            "type": "formula",
-            "value": "(@actor.flags.system.gluttonsFeast)d4"
-          },
-          "duration": {
-            "expiry": "turn-start",
-            "sustained": false,
-            "unit": "minutes",
-            "value": 1
-          },
-          "start": {
-            "initiative": null,
-            "value": 0
-          },
-          "tokenIcon": {
-            "show": true
-          }
-        }
-      }
     },
     {
       "type": "entry",

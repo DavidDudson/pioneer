@@ -164,7 +164,9 @@ function inputValue(
     }
     case ReferenceKind.Statistic:
     case ReferenceKind.ItemLevel:
-    case ReferenceKind.ItemValue: {
+    case ReferenceKind.ItemValue:
+    case ReferenceKind.ItemOriginLevel:
+    case ReferenceKind.Flag: {
       return undefined;
     }
     default: {
@@ -197,7 +199,9 @@ export function missingInput(reference: KnownReference, inputs: StatisticInputs)
     case ReferenceKind.ProficiencyRank:
     case ReferenceKind.Statistic:
     case ReferenceKind.ItemLevel:
-    case ReferenceKind.ItemValue: {
+    case ReferenceKind.ItemValue:
+    case ReferenceKind.ItemOriginLevel:
+    case ReferenceKind.Flag: {
       return undefined;
     }
     default: {
@@ -249,6 +253,9 @@ export function resolverFor(
     }
     if (reference.kind === ReferenceKind.ItemValue) {
       return item.value === undefined ? undefined : FormulaValue.parse(item.value);
+    }
+    if (reference.kind === ReferenceKind.ItemOriginLevel) {
+      return item.originLevel === undefined ? undefined : FormulaValue.parse(item.originLevel);
     }
     return isSourceReference(reference)
       ? sourceValue(reference, source, reading)

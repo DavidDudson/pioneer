@@ -1415,6 +1415,55 @@
     }
   },
   {
+    "id": "3e8cec97-c5ee-5a24-a5b4-a8eda7b16e48",
+    "pack": "monster-core",
+    "kind": "effect",
+    "slug": "effect:effect-gluttons-feast",
+    "name": "Effect: Glutton's Feast",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ogre glutton gains 1d4 temporary hit points, or 2d4 following glutton's rush."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ww0Wu8majCej2tVF"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "(@flag.gluttonsFeast)d4"
+      }
+    }
+  },
+  {
     "id": "96034a1c-a6c5-5fec-8f50-eaaeed85b407",
     "pack": "monster-core",
     "kind": "effect",

@@ -44,7 +44,15 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "if you're a member of the flame order, you gain Combustion;"
+                  "text": "if you're a member of the flame order, you gain "
+                },
+                {
+                  "type": "ref",
+                  "id": "aa5788ab-eb86-5a84-8b04-e67bd51c42c8"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
                 }
               ]
             }
@@ -55,7 +63,15 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "if you're a member of the stone order, you gain Stone Lance;"
+                  "text": "if you're a member of the stone order, you gain "
+                },
+                {
+                  "type": "ref",
+                  "id": "e6027c2d-fc61-582f-8900-703ec07f7a61"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
                 }
               ]
             }
@@ -66,7 +82,15 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "if you're a member of the storm order, you gain Powerful Inhalation;"
+                  "text": "if you're a member of the storm order, you gain "
+                },
+                {
+                  "type": "ref",
+                  "id": "2be90c6d-a541-5f29-b544-a76fdf78b654"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
                 }
               ]
             }
@@ -77,7 +101,15 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "if you're a member of the wave order, you gain Pulverizing Cascade."
+                  "text": "if you're a member of the wave order, you gain "
+                },
+                {
+                  "type": "ref",
+                  "id": "f2147cf0-aa2c-5c21-bf3e-5469c31a67b6"
+                },
+                {
+                  "type": "text",
+                  "text": "."
                 }
               ]
             }
@@ -2214,7 +2246,15 @@
         "content": [
           {
             "type": "text",
-            "text": "Your eidolon has an attack that pushes away enemies. Choose one of the eidolon's unarmed attacks with the shove trait. It gains the Push action for that attack."
+            "text": "Your eidolon has an attack that pushes away enemies. Choose one of the eidolon's unarmed attacks with the shove trait. It gains the "
+          },
+          {
+            "type": "ref",
+            "id": "5e41a046-b596-58c3-9259-0d67db5e73e1"
+          },
+          {
+            "type": "text",
+            "text": " action for that attack."
           }
         ]
       }
@@ -2370,12 +2410,26 @@
         "content": [
           {
             "type": "text",
-            "text": "You've learned how to commune with the land to learn information. You learn the Commune ritual if you didn't know it already. You can perform this ritual with a casting time of 1 hour instead of 1 day and without a secondary caster."
+            "text": "You've learned how to commune with the land to learn information. You learn the "
+          },
+          {
+            "type": "ref",
+            "id": "9b234ac7-30e8-5b71-bead-b0092b5641e8"
+          },
+          {
+            "type": "text",
+            "text": " ritual if you didn't know it already. You can perform this ritual with a casting time of 1 hour instead of 1 day and without a secondary caster."
           }
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "9b234ac7-30e8-5b71-bead-b0092b5641e8",
+        "allowDuplicate": false
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Gu8IAYxwNdQM603P"
     },
@@ -2898,7 +2952,31 @@
           },
           {
             "type": "text",
-            "text": ", Shadow Army, Shadow Projectile, and Shadow Raid to your spell list. You can thus potentially learn these spells even if they aren't normally on your tradition's spell list."
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "8ea090dc-04b4-5309-a60d-a975b2e47e73"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "dc0e85c5-c36f-5515-badd-9e98f18bbc19"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "cdcfa307-acce-5bca-bc84-76881f04a8a1"
+          },
+          {
+            "type": "text",
+            "text": " to your spell list. You can thus potentially learn these spells even if they aren't normally on your tradition's spell list."
           }
         ]
       }
@@ -3438,8 +3516,8 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Airborne Form"
+                  "type": "ref",
+                  "id": "19811f98-ac7c-527d-9855-3630cd12cac0"
                 }
               ]
             }
@@ -3449,8 +3527,8 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Burrowing Form"
+                  "type": "ref",
+                  "id": "8ced6c7b-81ea-51bb-9cef-8c0f5e1656c8"
                 }
               ]
             }
@@ -3460,8 +3538,8 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Ever-Vigilant Senses"
+                  "type": "ref",
+                  "id": "1bdc9afa-a1d9-5fd6-9cdc-73f07eab1dce"
                 }
               ]
             }
@@ -3471,8 +3549,8 @@
               "type": "paragraph",
               "content": [
                 {
-                  "type": "text",
-                  "text": "Hulking Size"
+                  "type": "ref",
+                  "id": "7f0e080d-f585-5c58-bdab-e8fac4997269"
                 }
               ]
             }

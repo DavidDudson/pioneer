@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { fromFoundryFormula } from './foundry-formula';
+import { fromFoundryBadgeFormula, fromFoundryFormula } from './foundry-formula';
 
 describe('fromFoundryFormula', () => {
   test.each([
@@ -17,5 +17,19 @@ describe('fromFoundryFormula', () => {
 
   test.each(['@actor.flags.pf2e.unknown', '{item|system.level.value}', '2'])('keeps %p as written', (text) => {
     expect(fromFoundryFormula(text)).toBe(text);
+  });
+
+  test.each([
+    ['(1 + floor(@item.origin.level / 4))d4', '(1 + floor(@item.origin.level / 4))d4'],
+    ['(@actor.flags.system.consumeFear)d8', '(@flag.consumeFear)d8'],
+    ['(@actor.level)d6 + @actor.system.abilities.str.mod', '(@level)d6 + @attr.str'],
+    ['@actor.flags.pf2e.unknown', '@actor.flags.pf2e.unknown'],
+    ['1d4', '1d4'],
+  ])('a badge formula %p reads %p', (foundry, pioneer) => {
+    expect(fromFoundryBadgeFormula(foundry)).toBe(pioneer);
+  });
+
+  test('a flag is not a reference outside a badge', () => {
+    expect(fromFoundryFormula('@actor.flags.system.consumeFear')).toBe('@actor.flags.system.consumeFear');
   });
 });

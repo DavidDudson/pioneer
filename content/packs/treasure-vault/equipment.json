@@ -13848,7 +13848,15 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Quicken Time, "
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "039701f1-7630-5b01-b627-ff1f9c5a6ded"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -16329,7 +16337,15 @@
         "content": [
           {
             "type": "text",
-            "text": "If you cease meeting the prerequisites, the tattoo fades, and you lose its benefits until you perform an Atone ritual and meet the prerequisites thereafter."
+            "text": "If you cease meeting the prerequisites, the tattoo fades, and you lose its benefits until you perform an "
+          },
+          {
+            "type": "ref",
+            "id": "8d8afdc8-d8bb-52eb-8ebb-74bd066eb8eb"
+          },
+          {
+            "type": "text",
+            "text": " ritual and meet the prerequisites thereafter."
           }
         ]
       },
@@ -16532,7 +16548,15 @@
         "content": [
           {
             "type": "text",
-            "text": "If you cease meeting the prerequisites, the tattoo fades, and you lose its benefits until you perform an Atone ritual and meet the prerequisites thereafter."
+            "text": "If you cease meeting the prerequisites, the tattoo fades, and you lose its benefits until you perform an "
+          },
+          {
+            "type": "ref",
+            "id": "8d8afdc8-d8bb-52eb-8ebb-74bd066eb8eb"
+          },
+          {
+            "type": "text",
+            "text": " ritual and meet the prerequisites thereafter."
           }
         ]
       },
@@ -16735,7 +16759,15 @@
         "content": [
           {
             "type": "text",
-            "text": "If you cease meeting the prerequisites, the tattoo fades, and you lose its benefits until you perform an Atone ritual and meet the prerequisites thereafter."
+            "text": "If you cease meeting the prerequisites, the tattoo fades, and you lose its benefits until you perform an "
+          },
+          {
+            "type": "ref",
+            "id": "8d8afdc8-d8bb-52eb-8ebb-74bd066eb8eb"
+          },
+          {
+            "type": "text",
+            "text": " ritual and meet the prerequisites thereafter."
           }
         ]
       },
@@ -16938,7 +16970,15 @@
         "content": [
           {
             "type": "text",
-            "text": "If you cease meeting the prerequisites, the tattoo fades, and you lose its benefits until you perform an Atone ritual and meet the prerequisites thereafter."
+            "text": "If you cease meeting the prerequisites, the tattoo fades, and you lose its benefits until you perform an "
+          },
+          {
+            "type": "ref",
+            "id": "8d8afdc8-d8bb-52eb-8ebb-74bd066eb8eb"
+          },
+          {
+            "type": "text",
+            "text": " ritual and meet the prerequisites thereafter."
           }
         ]
       },
@@ -43533,8 +43573,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Effect: Tome of Restorative Cleansing"
+            "type": "ref",
+            "id": "e8d87e87-1a49-519c-bdca-d63b8df0a9a2"
           }
         ]
       }
@@ -43663,8 +43703,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Effect: Tome of Restorative Cleansing"
+            "type": "ref",
+            "id": "e8d87e87-1a49-519c-bdca-d63b8df0a9a2"
           }
         ]
       }
@@ -43793,8 +43833,8 @@
         "type": "paragraph",
         "content": [
           {
-            "type": "text",
-            "text": "Effect: Tome of Restorative Cleansing"
+            "type": "ref",
+            "id": "e8d87e87-1a49-519c-bdca-d63b8df0a9a2"
           }
         ]
       }

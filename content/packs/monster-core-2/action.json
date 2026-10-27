@@ -148,6 +148,7 @@
           {
             "type": "check",
             "statistic": "save:will",
+            "dc": 0,
             "options": ["inflicts:enfeebled", "inflicts:stupefied"]
           },
           {

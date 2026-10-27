@@ -6026,7 +6026,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Time Sense"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "8a96ccd0-fc0d-5f4f-a988-848642060b7d"
                 }
               ]
             }
@@ -6070,7 +6074,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Loose Time's Arrow, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "060aa334-20a2-539a-9ba3-ea2c4ddf70ab"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -6154,7 +6166,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Quicken Time, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "039701f1-7630-5b01-b627-ff1f9c5a6ded"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -6162,7 +6182,11 @@
                 },
                 {
                   "type": "text",
-                  "text": ", Stagnate Time"
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d69f061f-e2dc-54c4-a456-bda7e37f313c"
                 }
               ]
             }
@@ -6206,7 +6230,11 @@
                 },
                 {
                   "type": "text",
-                  "text": " Time Beacon"
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a12a8dde-819d-5b13-84ba-0e509380f1d7"
                 }
               ]
             }
@@ -12346,7 +12374,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pocket Library, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "73d79c19-3012-52c9-a8f9-e8feb3a44b16"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -12589,7 +12625,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pocket Library, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "73d79c19-3012-52c9-a8f9-e8feb3a44b16"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",
@@ -12645,7 +12689,15 @@
                 },
                 {
                   "type": "text",
-                  "text": " Pocket Library, "
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "73d79c19-3012-52c9-a8f9-e8feb3a44b16"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
                 },
                 {
                   "type": "ref",

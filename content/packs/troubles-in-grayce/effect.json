@@ -1,5 +1,54 @@
 [
   {
+    "id": "4341967e-601a-5bd0-b842-298f783e9370",
+    "pack": "troubles-in-grayce",
+    "kind": "effect",
+    "slug": "effect:effect-gluttons-feast-aezar",
+    "name": "Effect: Glutton's Feast (Aezar)",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "troubles-in-grayce"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.LWFDNwi3iJuf476A"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "(@flag.gluttonsFeast)d6"
+      }
+    }
+  },
+  {
     "id": "bf410f84-a08a-5c9e-a4ef-15490c9ddf6c",
     "pack": "troubles-in-grayce",
     "kind": "effect",

@@ -280,6 +280,8 @@ Statistic base formulas and rule element values share one vocabulary of referenc
 | `@stat.<selector>`   | actor        | Another statistic's base, before its modifiers, such as the spell attack in a spell DC      |
 | `@item.level`        | item         | The level of the item the rule element is on                                                |
 | `@item.value`        | item         | The value of the condition the rule element is on: 2 on Frightened 2                        |
+| `@item.origin.level` | item         | The level of the spell or feat that applied the effect the element is on                    |
+| `@flag.<flag>`       | actor        | An actor flag a rule element sets: `@flag.consumeFear`, `@flag.corrosiveBody.rank`          |
 | `@weapon.attr`       | weapon       | The modifier the weapon attacks with: Strength, Dexterity at range, the higher with finesse |
 | `@weapon.prof`       | weapon       | The proficiency bonus for the weapon's category, `attack:<category>`                        |
 | `@spellcasting.attr` | spellcasting | The modifier for the spellcasting entry's attribute                                         |
@@ -321,6 +323,8 @@ The catalogue also holds the Foundry spellings the importer translates (`FOUNDRY
 | `@actor.system.proficiencies.spellcasting.rank`                               | `@rank.spellcasting`       |
 | `@item.level`, `@item.system.level.value`                                     | `@item.level`              |
 | `@item.badge.value`, `@item.system.value.value`                               | `@item.value`              |
+| `@item.origin.level`                                                          | `@item.origin.level`       |
+| `@actor.flags.system.<flag>`                                                  | `@flag.<flag>`             |
 
 The importer reports any other Foundry path as untranslatable. The exporter writes the first spelling listed. Paths
 join the catalogue when the engine can supply their values. Formulas inside Foundry's bracketed values and

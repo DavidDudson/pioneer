@@ -34,6 +34,8 @@ export const ReferenceKind = {
   Statistic: 'statistic',
   ItemLevel: 'item-level',
   ItemValue: 'item-value',
+  ItemOriginLevel: 'item-origin-level',
+  Flag: 'flag',
   WeaponAttributeModifier: 'weapon-attribute-modifier',
   WeaponDamageModifier: 'weapon-damage-modifier',
   WeaponProficiencyBonus: 'weapon-proficiency-bonus',
@@ -56,6 +58,8 @@ export type KnownReference =
   | { readonly kind: typeof ReferenceKind.Statistic; readonly selector: Selector }
   | { readonly kind: typeof ReferenceKind.ItemLevel }
   | { readonly kind: typeof ReferenceKind.ItemValue }
+  | { readonly kind: typeof ReferenceKind.ItemOriginLevel }
+  | { readonly kind: typeof ReferenceKind.Flag; readonly flag: FlagName }
   | SourceReference;
 
 /** The kinds that read a weapon or a spellcasting entry: only a statistic derived per that source has one. */
@@ -124,6 +128,8 @@ export const REFERENCE_CATALOGUE: Readonly<Record<ReferenceKind, ReferenceDefini
   [ReferenceKind.Statistic]: reference('stat.<selector>', ACTOR, RulesMessage.ReferenceStatistic),
   [ReferenceKind.ItemLevel]: reference('item.level', ITEM, RulesMessage.ReferenceItemLevel),
   [ReferenceKind.ItemValue]: reference('item.value', ITEM, RulesMessage.ReferenceItemValue),
+  [ReferenceKind.ItemOriginLevel]: reference('item.origin.level', ITEM, RulesMessage.ReferenceItemOriginLevel),
+  [ReferenceKind.Flag]: reference('flag.<flag>', ACTOR, RulesMessage.ReferenceFlag),
   [ReferenceKind.WeaponAttributeModifier]: reference(
     'weapon.attr',
     WEAPON,
@@ -147,6 +153,10 @@ export const REFERENCE_CATALOGUE: Readonly<Record<ReferenceKind, ReferenceDefini
   ),
 };
 
+/** An actor flag Foundry rules set and read by name: `consumeFear`, or `corrosiveBody.rank` for a nested one. */
+const FlagName = z.string().brand<'FlagName'>();
+type FlagName = z.infer<typeof FlagName>;
+
 /** One dotted segment of a path or pattern: `attr`, `dex`, `<attribute>`. */
 const PathSegment = z.string().brand<'PathSegment'>();
 type PathSegment = z.infer<typeof PathSegment>;
@@ -155,10 +165,12 @@ const SEPARATOR = '.';
 const SELECTOR_SEPARATOR = ':';
 /** The placeholder that takes the rest of the path. */
 const REST = PathSegment.parse('<selector>');
+const FLAG = PathSegment.parse('<flag>');
+const RESTS: ReadonlySet<PathSegment> = new Set([REST, FLAG]);
 const ATTRIBUTE = PathSegment.parse('<attribute>');
 const PLACEHOLDER = /^<[a-z]+>$/u;
 
-/** What each placeholder took, by placeholder (`<attribute>`): one segment, or the rest of the path for `<selector>`. */
+/** What each placeholder took, by placeholder (`<attribute>`): one segment, or the rest of the path for `<selector>` and `<flag>`. */
 type Captures = ReadonlyMap<PathSegment, readonly PathSegment[]>;
 
 function segments(path: ReferencePath | ReferencePattern | FoundryReferencePattern): PathSegment[] {
@@ -181,16 +193,17 @@ function fits(wanted: PathSegment, taken: PathSegment | undefined, captures: Map
   return wanted === taken;
 }
 
-/** The placeholders' values when `path` fits `pattern`, or undefined. `<selector>` comes last and takes one or more. */
+/** The placeholders' values when `path` fits `pattern`, or undefined. The rest placeholder (`<selector>`, `<flag>`) comes last and takes one or more. */
 export function match(pattern: ReferencePattern | FoundryReferencePattern, path: ReferencePath): Captures | undefined {
   const wanted = segments(pattern);
   const given = segments(path);
-  const restAt = wanted.indexOf(REST);
+  const restAt = wanted.findIndex((segment) => RESTS.has(segment));
   const fixed = restAt === -1 ? wanted : wanted.slice(0, restAt);
   const lengthFits = restAt === -1 ? given.length === wanted.length : given.length > restAt;
   const captures = new Map<PathSegment, PathSegment[]>();
-  if (restAt !== -1) {
-    captures.set(REST, given.slice(restAt));
+  const rest = wanted[restAt];
+  if (rest !== undefined) {
+    captures.set(rest, given.slice(restAt));
   }
   return lengthFits && fixed.every((segment, index) => fits(segment, given[index], captures)) ? captures : undefined;
 }
@@ -204,31 +217,51 @@ function attributeReference(captures: Captures): KnownReference | undefined {
   return attribute.success ? { kind: ReferenceKind.AttributeModifier, attribute: attribute.data } : undefined;
 }
 
+function flagIn(captures: Captures): FlagName {
+  return FlagName.parse(captured(captures, FLAG).join(SEPARATOR));
+}
+
 function selectorIn(captures: Captures): Selector | undefined {
   const selector = Selector.safeParse(captured(captures, REST).join(SELECTOR_SEPARATOR));
   return selector.success ? selector.data : undefined;
 }
 
+/** The kinds whose pattern has no placeholder, so a path that fits one names it. */
+const PLAIN_KINDS = [
+  ReferenceKind.Level,
+  ReferenceKind.CappedDexterity,
+  ReferenceKind.KeyAttributeModifier,
+  ReferenceKind.AncestryHitPoints,
+  ReferenceKind.AncestrySpeed,
+  ReferenceKind.ClassHitPoints,
+  ReferenceKind.ItemLevel,
+  ReferenceKind.ItemValue,
+  ReferenceKind.ItemOriginLevel,
+  ReferenceKind.WeaponAttributeModifier,
+  ReferenceKind.WeaponDamageModifier,
+  ReferenceKind.WeaponProficiencyBonus,
+  ReferenceKind.SpellcastingAttributeModifier,
+  ReferenceKind.SpellcastingProficiencyBonus,
+] as const;
+type PlainKind = (typeof PLAIN_KINDS)[number];
+
+const PLAIN_KIND_SET: ReadonlySet<ReferenceKind> = new Set(PLAIN_KINDS);
+
+function isPlainKind(kind: ReferenceKind): kind is PlainKind {
+  return PLAIN_KIND_SET.has(kind);
+}
+
 /** The reference a path names once it fits a kind's pattern, or undefined when a placeholder took a bad value. */
 function referenceOf(kind: ReferenceKind, captures: Captures): KnownReference | undefined {
+  if (isPlainKind(kind)) {
+    return { kind };
+  }
   switch (kind) {
-    case ReferenceKind.Level:
-    case ReferenceKind.CappedDexterity:
-    case ReferenceKind.KeyAttributeModifier:
-    case ReferenceKind.AncestryHitPoints:
-    case ReferenceKind.AncestrySpeed:
-    case ReferenceKind.ClassHitPoints:
-    case ReferenceKind.ItemLevel:
-    case ReferenceKind.ItemValue:
-    case ReferenceKind.WeaponAttributeModifier:
-    case ReferenceKind.WeaponDamageModifier:
-    case ReferenceKind.WeaponProficiencyBonus:
-    case ReferenceKind.SpellcastingAttributeModifier:
-    case ReferenceKind.SpellcastingProficiencyBonus: {
-      return { kind };
-    }
     case ReferenceKind.AttributeModifier: {
       return attributeReference(captures);
+    }
+    case ReferenceKind.Flag: {
+      return { kind, flag: flagIn(captures) };
     }
     case ReferenceKind.ProficiencyBonus:
     case ReferenceKind.ProficiencyRank:

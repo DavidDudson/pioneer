@@ -447,6 +447,55 @@
     }
   },
   {
+    "id": "0aae736c-8d66-5131-8a76-5fd85d9228c0",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-consume-fear",
+    "name": "Effect: Consume Fear",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.oYeMCbirbpPZTlQL"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "(@flag.consumeFear)d8"
+      }
+    }
+  },
+  {
     "id": "2213f853-3f63-55f6-a819-432ef7b13ca9",
     "pack": "monster-core-2",
     "kind": "effect",
@@ -1169,7 +1218,7 @@
       {
         "key": "FlatModifier",
         "selectors": ["skill:athletics", "skill:acrobatics", "skill:performance"],
-        "type": "circumstance",
+        "type": "untyped",
         "value": 1
       }
     ],
@@ -1448,6 +1497,55 @@
     }
   },
   {
+    "id": "410c7379-f796-564c-af21-8b04c836100e",
+    "pack": "monster-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-siphon-life",
+    "name": "Effect: Siphon Life",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.value"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7j1fMrkI40XIlTUt"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "(@flag.siphonLife)d8"
+      }
+    }
+  },
+  {
     "id": "671357d3-a6c3-5c1c-ad1b-fe45e9c664b9",
     "pack": "monster-core-2",
     "kind": "effect",
@@ -1473,7 +1571,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": "@item.origin.level",
+        "type": "fast-healing"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.k8bmDh3nWi2FUyz5"
     },

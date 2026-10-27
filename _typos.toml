@@ -26,6 +26,8 @@ extend-ignore-re = [
   "TOLL-teh",
   # A typo in Foundry's Rage of Elements text, kept as imported.
   "difficult terrain fo your enemies",
+  # A typo in Foundry's Player Core text (Sneak), kept as imported.
+  "you suceeded against",
   # Foundry journal page ids inside compendium UUIDs.
   "JournalEntryPage\\.[A-Za-z0-9]{16}",
   # Names and terms: Ded Moroz-style fey patrons (Dark Archive), a ba-sadhak (Impossible Lands).

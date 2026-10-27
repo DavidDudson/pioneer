@@ -3076,7 +3076,15 @@
           },
           {
             "type": "text",
-            "text": " or the spell is lost. This disruption lasts until you complete an Atone ritual; unlike a normal atone ritual, Arcana can be used for both the primary and secondary checks. Your curriculum spells (including spells of your own sin) never violate this anathema, sometimes providing alternatives to prohibited magic."
+            "text": " or the spell is lost. This disruption lasts until you complete an "
+          },
+          {
+            "type": "ref",
+            "id": "8d8afdc8-d8bb-52eb-8ebb-74bd066eb8eb"
+          },
+          {
+            "type": "text",
+            "text": " ritual; unlike a normal atone ritual, Arcana can be used for both the primary and secondary checks. Your curriculum spells (including spells of your own sin) never violate this anathema, sometimes providing alternatives to prohibited magic."
           }
         ]
       },
@@ -3141,6 +3149,10 @@
       {
         "key": "GrantItem",
         "item": "84a07dfc-afe3-5f82-b195-4104411d1ac8"
+      },
+      {
+        "key": "Language",
+        "grant": ["d35a4825-83e9-5cdc-bbcc-180d4ae2e2af"]
       }
     ],
     "externalIds": {
