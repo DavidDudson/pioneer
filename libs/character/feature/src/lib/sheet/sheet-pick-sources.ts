@@ -10,7 +10,7 @@ import type { SituationClaims } from './sheet-situations';
 import { sheetSkills } from './sheet-skills';
 import { sheetSpellcasting } from './sheet-spellcasting';
 import { sheetStatistics } from './sheet-statistics';
-import { sheetShields, sheetStrikes } from './sheet-strikes';
+import { sheetShields, sheetStrikes, suppressedStrikes } from './sheet-strikes';
 
 /** What the build picks read and write through. */
 export interface BuildPickSources {
@@ -35,6 +35,8 @@ export interface EngineReads {
   readonly skills: Signal<readonly NamedStatistic[] | undefined>;
   /** Each Strike, held weapons' then a feature's fist; undefined while the character or the content loads. */
   readonly strikes: Signal<readonly NamedStrike[] | undefined>;
+  /** The names of the weapon Strikes a form replaces, to say where they went (#530); none out of form. */
+  readonly suppressedStrikes: Signal<readonly string[]>;
   /** The shields held, shown beside the Strikes; none while the character or the content loads. */
   readonly shields: Signal<readonly StrikesShield[]>;
   /** Each spellcasting entry with its spell attack and DC; undefined while the character or the content loads. */
@@ -58,6 +60,7 @@ export function loaded<TValue>(
 export function engineReads(sources: BuildPickSources): EngineReads {
   const engine = { ...sources, registry: sources.engineRegistry };
   const shields = loaded(engine, sheetShields);
+  const strikes = loaded(engine, (registry, character) => sheetStrikes(registry, character, sources.claims()));
   return {
     statistics: loaded(engine, (registry, character) =>
       withSituations(registry, character, {
@@ -71,7 +74,17 @@ export function engineReads(sources: BuildPickSources): EngineReads {
         claims: sources.claims(),
       }),
     ),
-    strikes: loaded(engine, (registry, character) => sheetStrikes(registry, character, sources.claims())),
+    strikes,
+    suppressedStrikes: computed(() => {
+      const registry = sources.engineRegistry();
+      const character = sources.character();
+      const inForm = strikes();
+      return registry === undefined || character === undefined || inForm === undefined
+        ? []
+        : suppressedStrikes(registry, character, inForm).map(({ name, nameKey }) =>
+            nameKey === undefined ? name : sources.translate(nameKey),
+          );
+    }),
     shields: computed(() => shields() ?? []),
     spellcasting: loaded(engine, sheetSpellcasting),
     entryNames: computed(() => {
