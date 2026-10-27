@@ -101,5 +101,177 @@
     "https://2e.aonprd.com/Monsters.aspx?ID=4275": 90,
     "https://2e.aonprd.com/MythicRituals.aspx?ID=221": 71,
     "https://2e.aonprd.com/NPCs.aspx?ID=4272": 93
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3512"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3513"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3514"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3515"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3521"
+    },
+    {
+      "type": "Action",
+      "name": "(concentration)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3523"
+    },
+    {
+      "type": "Action",
+      "name": "(concentration)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3524"
+    },
+    {
+      "type": "Action",
+      "name": "(spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3525"
+    },
+    {
+      "type": "Action",
+      "name": "Runelord's Response",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3526"
+    },
+    {
+      "type": "Action",
+      "name": "Draw From the Pages",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3527"
+    },
+    {
+      "type": "Action",
+      "name": "Call to Hand",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3528"
+    },
+    {
+      "type": "Action",
+      "name": "Flash of Memory",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3529"
+    },
+    {
+      "type": "Action",
+      "name": "Share Death's Promises",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3530"
+    },
+    {
+      "type": "Action",
+      "name": "Sidestep Through Time",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3531"
+    },
+    {
+      "type": "Action",
+      "name": "Instant Recovery",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3532"
+    },
+    {
+      "type": "Action",
+      "name": "Restore the Moment",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3533"
+    },
+    {
+      "type": "Action",
+      "name": "Call Warshard Weapon",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3534"
+    },
+    {
+      "type": "Action",
+      "name": "Weaponsight",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3535"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, mythic, prediction)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3536"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Risen Runelord",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=668"
+    },
+    {
+      "type": "Creature",
+      "name": "Eron Of Jandelay",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4264"
+    },
+    {
+      "type": "Creature",
+      "name": "Natbakh",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4265"
+    },
+    {
+      "type": "Creature",
+      "name": "Greedspawn Soldier",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4266"
+    },
+    {
+      "type": "Creature",
+      "name": "Trinity Initiate",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4267"
+    },
+    {
+      "type": "Creature",
+      "name": "Pyroclastic Mukradi",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4268"
+    },
+    {
+      "type": "Creature",
+      "name": "Kandirvek",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4269"
+    },
+    {
+      "type": "Creature",
+      "name": "Pridespawn Sentinel",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4270"
+    },
+    {
+      "type": "Creature",
+      "name": "Risen Runelord",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4271"
+    },
+    {
+      "type": "Creature",
+      "name": "Gavergash",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4273"
+    },
+    {
+      "type": "Creature",
+      "name": "Vesinra",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4274"
+    },
+    {
+      "type": "Creature",
+      "name": "Risen Runelord",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4275"
+    },
+    {
+      "type": "Ritual",
+      "name": "Raise Runelord",
+      "url": "https://2e.aonprd.com/MythicRituals.aspx?ID=221"
+    },
+    {
+      "type": "Creature",
+      "name": "Ayavah",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4272"
+    },
+    {
+      "type": "Source",
+      "name": "Pathfinder #219: Lord of the Trinity Star",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=283"
+    }
+  ]
 }

@@ -767,5 +767,887 @@
     "https://2e.aonprd.com/Weapons.aspx?ID=523": 153,
     "https://2e.aonprd.com/Weapons.aspx?ID=539": 64,
     "https://2e.aonprd.com/Weapons.aspx?ID=579": 152
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Command a Construct",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3632"
+    },
+    {
+      "type": "Action",
+      "name": "Overdrive",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=901"
+    },
+    {
+      "type": "Action",
+      "name": "Explode",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=902"
+    },
+    {
+      "type": "Action",
+      "name": "Automaton Aim",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=903"
+    },
+    {
+      "type": "Action",
+      "name": "Chassis Deflection",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=904"
+    },
+    {
+      "type": "Action",
+      "name": "Resist Magic",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=905"
+    },
+    {
+      "type": "Action",
+      "name": "Reloading Strike",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=906"
+    },
+    {
+      "type": "Action",
+      "name": "Into the Fray",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=907"
+    },
+    {
+      "type": "Action",
+      "name": "Finish the Job",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=908"
+    },
+    {
+      "type": "Action",
+      "name": "Drifter's Wake",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=909"
+    },
+    {
+      "type": "Action",
+      "name": "Raconteur's Reload",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=910"
+    },
+    {
+      "type": "Action",
+      "name": "Ten Paces",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=911"
+    },
+    {
+      "type": "Action",
+      "name": "Pistoler's Retort",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=912"
+    },
+    {
+      "type": "Action",
+      "name": "Grim Swagger",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=913"
+    },
+    {
+      "type": "Action",
+      "name": "Covered Reload",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=914"
+    },
+    {
+      "type": "Action",
+      "name": "One Shot, One Kill",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=915"
+    },
+    {
+      "type": "Action",
+      "name": "Vital Shot",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=916"
+    },
+    {
+      "type": "Action",
+      "name": "Ghost Shot",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=917"
+    },
+    {
+      "type": "Action",
+      "name": "Clear a Path",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=918"
+    },
+    {
+      "type": "Action",
+      "name": "Living Fortification",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=919"
+    },
+    {
+      "type": "Action",
+      "name": "Spinning Crush",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=920"
+    },
+    {
+      "type": "Action",
+      "name": "Siegebreaker",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=921"
+    },
+    {
+      "type": "Action",
+      "name": "Thoughtful Reload",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=922"
+    },
+    {
+      "type": "Action",
+      "name": "Energy Shot",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=923"
+    },
+    {
+      "type": "Action",
+      "name": "Recall Ammunition",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=924"
+    },
+    {
+      "type": "Action",
+      "name": "Dispelling Bullet",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=925"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=929"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=930"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=931"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=932"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=933"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=934"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=935"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=936"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=937"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=938"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=939"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=940"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=941"
+    },
+    {
+      "type": "Action",
+      "name": "(10 minutes) manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=942"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=943"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=944"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=945"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=946"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=947"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=948"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=949"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=950"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=951"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=952"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=953"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=954"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=955"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=956"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=957"
+    },
+    {
+      "type": "Action",
+      "name": "(emotion, manipulate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=958"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=959"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=960"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=961"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=962"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=963"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=964"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=965"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate, manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=966"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate, manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=967"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=968"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=969"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=970"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=971"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, teleportation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=972"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=973"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=974"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=975"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=976"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=977"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=978"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=979"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=980"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=981"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=982"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=983"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=984"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=985"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=986"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=987"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=988"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=989"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=990"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=991"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=992"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=993"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=994"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, light, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=995"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=996"
+    },
+    {
+      "type": "Action",
+      "name": "manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=997"
+    },
+    {
+      "type": "Background",
+      "name": "Driver",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=451"
+    },
+    {
+      "type": "Background",
+      "name": "Saboteur",
+      "url": "https://2e.aonprd.com/Backgrounds.aspx?ID=457"
+    },
+    {
+      "type": "Item",
+      "name": "Traveler's Chair",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1356"
+    },
+    {
+      "type": "Item",
+      "name": "Earplugs",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=867"
+    },
+    {
+      "type": "Rules",
+      "name": "Construct Companions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1600"
+    },
+    {
+      "type": "Rules",
+      "name": "Riding Construct Companions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1601"
+    },
+    {
+      "type": "Rules",
+      "name": "Prototype Construct Companions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1602"
+    },
+    {
+      "type": "Rules",
+      "name": "Construct Trait",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1603"
+    },
+    {
+      "type": "Rules",
+      "name": "Proficiencies",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1604"
+    },
+    {
+      "type": "Rules",
+      "name": "Size",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1605"
+    },
+    {
+      "type": "Rules",
+      "name": "Strikes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1606"
+    },
+    {
+      "type": "Rules",
+      "name": "Ability Modifiers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1607"
+    },
+    {
+      "type": "Rules",
+      "name": "Hit Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1608"
+    },
+    {
+      "type": "Rules",
+      "name": "Immunities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1609"
+    },
+    {
+      "type": "Rules",
+      "name": "Senses",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1610"
+    },
+    {
+      "type": "Rules",
+      "name": "Speed",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1611"
+    },
+    {
+      "type": "Rules",
+      "name": "Advanced Construct Companions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1612"
+    },
+    {
+      "type": "Rules",
+      "name": "Incredible Construct Companions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1613"
+    },
+    {
+      "type": "Rules",
+      "name": "Paragon Construct Companions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1614"
+    },
+    {
+      "type": "Rules",
+      "name": "Gears Character Options",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1615"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Variations on a Theme",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1615"
+    },
+    {
+      "type": "Rules",
+      "name": "Three Innovations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1617"
+    },
+    {
+      "type": "Rules",
+      "name": "Clockwork Technology",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1618"
+    },
+    {
+      "type": "Rules",
+      "name": "Stasian Technology",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1619"
+    },
+    {
+      "type": "Rules",
+      "name": "Steam-Powered Technology",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1620"
+    },
+    {
+      "type": "Rules",
+      "name": "Gadgets",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1621"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Building Siege Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1622"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Disabling Siege Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1622"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Disassembling and Reassembling",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1622"
+    },
+    {
+      "type": "Rules",
+      "name": "Siege Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1622"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Siege Weapons vs. Normal Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1622"
+    },
+    {
+      "type": "Rules",
+      "name": "Mounted Siege Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1623"
+    },
+    {
+      "type": "Rules",
+      "name": "Aiming",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1624"
+    },
+    {
+      "type": "Rules",
+      "name": "Loading",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1625"
+    },
+    {
+      "type": "Rules",
+      "name": "Launching",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1626"
+    },
+    {
+      "type": "Rules",
+      "name": "Moving a Mounted Siege Weapon",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1627"
+    },
+    {
+      "type": "Rules",
+      "name": "Portable Siege Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1628"
+    },
+    {
+      "type": "Rules",
+      "name": "Acting in Concert",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1629"
+    },
+    {
+      "type": "Rules",
+      "name": "Striking",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1630"
+    },
+    {
+      "type": "Rules",
+      "name": "Bulk",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1631"
+    },
+    {
+      "type": "Rules",
+      "name": "Siege Weapon Statistics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1632"
+    },
+    {
+      "type": "Rules",
+      "name": "Mobility Devices",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1633"
+    },
+    {
+      "type": "Rules",
+      "name": "Wheelchairs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1634"
+    },
+    {
+      "type": "Rules",
+      "name": "Gears, Guns, or Both",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1635"
+    },
+    {
+      "type": "Rules",
+      "name": "How to Use this Book",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1636"
+    },
+    {
+      "type": "Rules",
+      "name": "Access Entries",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1637"
+    },
+    {
+      "type": "Rules",
+      "name": "World-Building and Tone",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1638"
+    },
+    {
+      "type": "Rules",
+      "name": "Functionality and Balance",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1639"
+    },
+    {
+      "type": "Rules",
+      "name": "Aren't Guns More Powerful than Bows?",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1640"
+    },
+    {
+      "type": "Rules",
+      "name": "Armor and Persistent Technology",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1641"
+    },
+    {
+      "type": "Rules",
+      "name": "Alchemy's Influence on Technology",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1642"
+    },
+    {
+      "type": "Rules",
+      "name": "Technology in Golarion Today",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1643"
+    },
+    {
+      "type": "Rules",
+      "name": "Modularity",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1644"
+    },
+    {
+      "type": "Rules",
+      "name": "Borders and Change",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1645"
+    },
+    {
+      "type": "Rules",
+      "name": "Character Options",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1647"
+    },
+    {
+      "type": "Rules",
+      "name": "Classic Firearms",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1649"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Misfires",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1649"
+    },
+    {
+      "type": "Rules",
+      "name": "Ammunition",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1650"
+    },
+    {
+      "type": "Rules",
+      "name": "Fantasy Firearms",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1651"
+    },
+    {
+      "type": "Rules",
+      "name": "Beast Guns",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1652"
+    },
+    {
+      "type": "Rules",
+      "name": "Cobbled Firearms",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1653"
+    },
+    {
+      "type": "Rules",
+      "name": "Combination Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1654"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Integrated Firearms",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1655"
+    },
+    {
+      "type": "Rules",
+      "name": "Rare and Unique Firearms",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1655"
+    },
+    {
+      "type": "Rules",
+      "name": "Black Powder Siege Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1656"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Chain Shot",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1656"
+    },
+    {
+      "type": "Rules",
+      "name": "Siege Weapon Misfire",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1657"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Attached Customization Options",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1658"
+    },
+    {
+      "type": "Rules",
+      "name": "Customization Options",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1658"
+    },
+    {
+      "type": "Rules",
+      "name": "Holsters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1659"
+    },
+    {
+      "type": "Rules",
+      "name": "Scopes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1660"
+    },
+    {
+      "type": "Rules",
+      "name": "Stabilizers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1661"
+    },
+    {
+      "type": "Rules",
+      "name": "Other Modifications",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1662"
+    },
+    {
+      "type": "Source",
+      "name": "Guns & Gears (Remastered)",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=98"
+    },
+    {
+      "type": "Weapon Critical Specialization",
+      "name": "Firearm",
+      "url": "https://2e.aonprd.com/WeaponGroups.aspx?ID=16"
+    },
+    {
+      "type": "Item",
+      "name": "Arquebus",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=518"
+    },
+    {
+      "type": "Item",
+      "name": "Dueling Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=520"
+    },
+    {
+      "type": "Item",
+      "name": "Flintlock Musket",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=521"
+    },
+    {
+      "type": "Item",
+      "name": "Flintlock Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=522"
+    },
+    {
+      "type": "Item",
+      "name": "Repeating Hand Crossbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=539"
+    },
+    {
+      "type": "Item",
+      "name": "Dragon-Mouth Pistol",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=579"
+    }
+  ]
 }

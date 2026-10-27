@@ -50,5 +50,72 @@
     "https://2e.aonprd.com/Tactics.aspx?ID=35": 227,
     "https://2e.aonprd.com/Tactics.aspx?ID=36": 227,
     "https://2e.aonprd.com/Tactics.aspx?ID=37": 227
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4224"
+    },
+    {
+      "type": "Action",
+      "name": "(emotion, mental, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4225"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4226"
+    },
+    {
+      "type": "Action",
+      "name": "(occult, water)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4227"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4228"
+    },
+    {
+      "type": "Action",
+      "name": "Hellfire Gaze",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4229"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Thruneosaurus Rex",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=126"
+    },
+    {
+      "type": "Follower",
+      "name": "Adept",
+      "url": "https://2e.aonprd.com/Followers.aspx?ID=6"
+    },
+    {
+      "type": "Creature",
+      "name": "Aspexia Rugatonn",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4833"
+    },
+    {
+      "type": "Creature",
+      "name": "Gorthoklek",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4834"
+    },
+    {
+      "type": "Creature",
+      "name": "Talmandor",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4835"
+    },
+    {
+      "type": "Creature",
+      "name": "Urdun Gravelhands",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4836"
+    },
+    {
+      "type": "Source",
+      "name": "Pathfinder #223: Hell's Destiny",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=336"
+    }
+  ]
 }

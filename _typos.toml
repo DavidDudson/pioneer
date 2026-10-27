@@ -36,8 +36,11 @@ extend-ignore-re = [
   "Elemental Subsitution",
   "Extendible Pincer",
   "Camoflage Coat",
+  "Other Encounter Abilties",
   "Exemplar Resilency",
   "ba-sadhak",
+  # Rin, a character in Season of Ghosts (AoN's index lists the name).
+  "\"name\": \"Rin\"",
   # A French term in a creature name (NPC Core): Idée Fixe.
   "Idée Fixe",
   # Tian Xia creatures (Tian Xia World Guide): the aso berang, and the Korean bul-gae.

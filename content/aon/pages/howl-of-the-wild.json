@@ -656,5 +656,557 @@
     "https://2e.aonprd.com/Traits.aspx?ID=790": 218,
     "https://2e.aonprd.com/Traits.aspx?ID=791": 216,
     "https://2e.aonprd.com/Traits.aspx?ID=792": 216
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(manipulate, mental, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2736"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2737"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2738"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2739"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2740"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, light, manipulate, mental, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2741"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2742"
+    },
+    {
+      "type": "Action",
+      "name": "(cold, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2744"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2745"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2746"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2747"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2748"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, olfactory)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2749"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2750"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2751"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2752"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2753"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2754"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2755"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2756"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2757"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, magical, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2758"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, water)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2759"
+    },
+    {
+      "type": "Action",
+      "name": "(magical, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2760"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, emotion, manipulate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2761"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2762"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2763"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2766"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2767"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2768"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2769"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2770"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, incapacitation, manipulation, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2771"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2772"
+    },
+    {
+      "type": "Action",
+      "name": "(light, manipulate, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2773"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2774"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2776"
+    },
+    {
+      "type": "Action",
+      "name": "(concentration, teleportation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2777"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, illusion, manipulate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2778"
+    },
+    {
+      "type": "Action",
+      "name": "(concentration, water)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2779"
+    },
+    {
+      "type": "Action",
+      "name": "Bounding Retreat",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2780"
+    },
+    {
+      "type": "Action",
+      "name": "Antler Catapult",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2781"
+    },
+    {
+      "type": "Action",
+      "name": "Death From Above",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2782"
+    },
+    {
+      "type": "Action",
+      "name": "Long Stomp",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2783"
+    },
+    {
+      "type": "Action",
+      "name": "Spring Kick",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2784"
+    },
+    {
+      "type": "Action",
+      "name": "Burrowing Ambush",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2785"
+    },
+    {
+      "type": "Action",
+      "name": "Liberating Bite",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2786"
+    },
+    {
+      "type": "Action",
+      "name": "Poisonous Sweep",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2787"
+    },
+    {
+      "type": "Action",
+      "name": "Telepathic Pounce",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2788"
+    },
+    {
+      "type": "Action",
+      "name": "Swimming Snap",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2789"
+    },
+    {
+      "type": "Action",
+      "name": "Tongue Grab",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2790"
+    },
+    {
+      "type": "Action",
+      "name": "Darting Stab",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2791"
+    },
+    {
+      "type": "Action",
+      "name": "Flying Strafe",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2792"
+    },
+    {
+      "type": "Action",
+      "name": "Sudden Retreat",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2793"
+    },
+    {
+      "type": "Action",
+      "name": "Aerial Retreat",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2794"
+    },
+    {
+      "type": "Action",
+      "name": "Breach",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2795"
+    },
+    {
+      "type": "Action",
+      "name": "Hair Barrage",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2796"
+    },
+    {
+      "type": "Action",
+      "name": "Snatch",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2797"
+    },
+    {
+      "type": "Action",
+      "name": "Float",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2798"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Riding Tarantula",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=100"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Roc",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=101"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Umbrella Mushroom",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=102"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Antelope",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=84"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Elk",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=85"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Flying Squirrel",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=86"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Giraffe",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=87"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Kangaroo",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=88"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Mole",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=89"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Mongoose",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=90"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Salamander",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=91"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Shotalashu",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=92"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Giant Eel",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=93"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Giant Frog",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=94"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Giant Wasp",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=95"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Griffon",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=96"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Hippocampus",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=97"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Hippogriff",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=98"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Orca",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=99"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Chimera",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=489"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dischoran",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=490"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Elemental Bird",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=491"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Ethereal Wildlife",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=492"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Fish",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=493"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Frog",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=494"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Galvanoscale",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=495"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Gorgon",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=496"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Hexmoth",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=498"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Hydra",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=499"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Manticore",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=500"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Seal",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=501"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Spirit Guide",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=502"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Tardigrade",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=503"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Unicorn",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=504"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Wardens of the Wild",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=506"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Amphibious",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=24"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Frostbound",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=25"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Miniature",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=26"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Sandbound",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=27"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Twinned",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=28"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Winged",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=29"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Broodpiercer",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=30"
+    },
+    {
+      "type": "Rules",
+      "name": "Large PCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3270"
+    },
+    {
+      "type": "Rules",
+      "name": "Tiny PCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3271"
+    },
+    {
+      "type": "Rules",
+      "name": "Riding PCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3272"
+    },
+    {
+      "type": "Rules",
+      "name": "Aquatic PCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3273"
+    },
+    {
+      "type": "Rules",
+      "name": "Flying PCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3274"
+    },
+    {
+      "type": "Rules",
+      "name": "Implanting a Graft",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3277"
+    },
+    {
+      "type": "Rules",
+      "name": "Damaging a Graft",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3278"
+    },
+    {
+      "type": "Rules",
+      "name": "The Graft Trait",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3279"
+    },
+    {
+      "type": "Source",
+      "name": "Howl of the Wild",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=226"
+    }
+  ]
 }

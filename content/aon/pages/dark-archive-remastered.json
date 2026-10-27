@@ -520,5 +520,362 @@
     "https://2e.aonprd.com/Traits.aspx?ID=900": 221,
     "https://2e.aonprd.com/Traits.aspx?ID=901": 221,
     "https://2e.aonprd.com/Traits.aspx?ID=902": 221
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Unleash Psyche",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3538"
+    },
+    {
+      "type": "Action",
+      "name": "Restore the Mind",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3539"
+    },
+    {
+      "type": "Action",
+      "name": "Recall the Teachings",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3540"
+    },
+    {
+      "type": "Action",
+      "name": "Calculate Threats",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3541"
+    },
+    {
+      "type": "Action",
+      "name": "Fade into Daydreams",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3542"
+    },
+    {
+      "type": "Action",
+      "name": "Exploit Vulnerability",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3545"
+    },
+    {
+      "type": "Action",
+      "name": "Intensify Vulnerability",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3547"
+    },
+    {
+      "type": "Action",
+      "name": "Amulet's Abeyance",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3548"
+    },
+    {
+      "type": "Action",
+      "name": "Ring Bell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3549"
+    },
+    {
+      "type": "Action",
+      "name": "Drink from the Chalice",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3550"
+    },
+    {
+      "type": "Action",
+      "name": "Mirror's Reflection",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3553"
+    },
+    {
+      "type": "Action",
+      "name": "Fling Magic",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3554"
+    },
+    {
+      "type": "Action",
+      "name": "Implement's Interruption",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3555"
+    },
+    {
+      "type": "Action",
+      "name": "Psychic Defense",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3557"
+    },
+    {
+      "type": "Action",
+      "name": "Recenter",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3558"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, polymorph, primal)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3559"
+    },
+    {
+      "type": "Action",
+      "name": "(fortune, manipulate, occult)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3560"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3561"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3562"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, emotion, incapacitation, magical, manipulate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3563"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3564"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3565"
+    },
+    {
+      "type": "Action",
+      "name": "1 hour (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3566"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3567"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3568"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3569"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3570"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3571"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3572"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3573"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3574"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3575"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3576"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3577"
+    },
+    {
+      "type": "Action",
+      "name": "Expel Maelstrom",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3631"
+    },
+    {
+      "type": "Creature",
+      "name": "Verdure's Moonflower",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4649"
+    },
+    {
+      "type": "Creature",
+      "name": "The Morrowkin",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4650"
+    },
+    {
+      "type": "Creature",
+      "name": "K.H.W.'S Echo",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4651"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Experimental Cryptids",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=56"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Mutant Cryptids",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=57"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Primeval Cryptid",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=58"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Rumored Cryptid",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=59"
+    },
+    {
+      "type": "Creature Adjustment",
+      "name": "Secret Society Member",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=60"
+    },
+    {
+      "type": "Oracle Mystery",
+      "name": "Time",
+      "url": "https://2e.aonprd.com/Mysteries.aspx?ID=22"
+    },
+    {
+      "type": "Creature",
+      "name": "Mother Mitera",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4648"
+    },
+    {
+      "type": "Witch Patron Theme",
+      "name": "The Unseen Broker",
+      "url": "https://2e.aonprd.com/Patrons.aspx?ID=26"
+    },
+    {
+      "type": "Rules",
+      "name": "Experimental Cryptids",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3494"
+    },
+    {
+      "type": "Rules",
+      "name": "Mutant Cryptids",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3495"
+    },
+    {
+      "type": "Rules",
+      "name": "Primeval Cryptid",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3496"
+    },
+    {
+      "type": "Rules",
+      "name": "Rumored Cryptid",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3497"
+    },
+    {
+      "type": "Rules",
+      "name": "Acquiring a Deviant Ability",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3501"
+    },
+    {
+      "type": "Rules",
+      "name": "Background Deviant Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3502"
+    },
+    {
+      "type": "Rules",
+      "name": "Campaign Deviant Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3503"
+    },
+    {
+      "type": "Rules",
+      "name": "Building a Deviant Ability",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3504"
+    },
+    {
+      "type": "Rules",
+      "name": "Deviant Classifications",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3505"
+    },
+    {
+      "type": "Rules",
+      "name": "Deviation Saves and Attack Rolls",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3506"
+    },
+    {
+      "type": "Rules",
+      "name": "Backlash",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3507"
+    },
+    {
+      "type": "Rules",
+      "name": "Awakened Powers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3508"
+    },
+    {
+      "type": "Rules",
+      "name": "Quirks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3509"
+    },
+    {
+      "type": "Rules",
+      "name": "Terms of the Duel",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3515"
+    },
+    {
+      "type": "Rules",
+      "name": "Initiative and Dueling Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3516"
+    },
+    {
+      "type": "Rules",
+      "name": "Attacks and Defenses",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3517"
+    },
+    {
+      "type": "Rules",
+      "name": "Natural Psychic Spells",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3518"
+    },
+    {
+      "type": "Rules",
+      "name": "Gear and Companions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3519"
+    },
+    {
+      "type": "Rules",
+      "name": "Movement and Location",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3520"
+    },
+    {
+      "type": "Source",
+      "name": "Dark Archive (Remastered)",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=293"
+    },
+    {
+      "type": "Spell",
+      "name": "Time Beacon",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2371"
+    },
+    {
+      "type": "Spell",
+      "name": "Temporal Distortion",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2429"
+    },
+    {
+      "type": "Spell",
+      "name": "Time Skip",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2430"
+    },
+    {
+      "type": "Spell",
+      "name": "Manifold Lives",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2431"
+    },
+    {
+      "type": "Spell",
+      "name": "Pact Broker",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=2436"
+    }
+  ]
 }

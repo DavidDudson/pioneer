@@ -8,24 +8,34 @@ import path from 'node:path';
 
 import { proposeAonMappings } from '@pioneer/rules/catalog';
 import type { AonListing } from '@pioneer/rules/catalog';
-import { AonListingFile, BookId, ContentEntryFile, EnrichmentMappingFile } from '@pioneer/rules/sdk';
-import type { ContentEntry, EntrySlug } from '@pioneer/rules/sdk';
+import { AonListingFile, AonPagesFile, BookId, ContentEntryFile, EnrichmentMappingFile } from '@pioneer/rules/sdk';
+import type { AonListedEntry, ContentEntry, EntrySlug } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 import * as z from 'zod';
 
 const ROOT = path.join(import.meta.dir, '..');
 const PACKS = path.join(ROOT, 'content', 'packs');
 const LISTINGS = path.join(ROOT, 'content', 'aon');
+const PAGES = path.join(LISTINGS, 'pages');
 const ENRICHMENT = path.join(ROOT, 'content', 'enrichment');
 const JSON_INDENT = 2;
 const JsonArray = z.array(z.unknown()).readonly();
+
+/** The entries AoN's search index holds for a book that its Sources page does not list (ADR-0074). */
+async function indexOnly(book: BookId): Promise<readonly AonListedEntry[]> {
+  const file = Bun.file(path.join(PAGES, `${book}.json`));
+  const exists = await file.exists();
+  const json: unknown = exists ? await file.json() : {};
+  return AonPagesFile.parse(json).entries;
+}
 
 async function readListings(): Promise<readonly AonListing[]> {
   const files = await Array.fromAsync(new Glob('*.json').scan({ cwd: LISTINGS }));
   return Promise.all(
     files.map(async (file) => {
       const json: unknown = await Bun.file(path.join(LISTINGS, file)).json();
-      return { book: BookId.parse(path.basename(file, '.json')), entries: AonListingFile.parse(json).entries };
+      const book = BookId.parse(path.basename(file, '.json'));
+      return { book, entries: [...AonListingFile.parse(json).entries, ...(await indexOnly(book))] };
     }),
   );
 }

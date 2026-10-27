@@ -515,5 +515,427 @@
     "https://2e.aonprd.com/Weapons.aspx?ID=120": 337,
     "https://2e.aonprd.com/Weapons.aspx?ID=446": 222,
     "https://2e.aonprd.com/Weapons.aspx?ID=543": 337
-  }
+  },
+  "entries": [
+    {
+      "type": "Creature Family",
+      "name": "Velstrac",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=565"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Aesir",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=570"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Asura",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=571"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Automaton",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=572"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Badger",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=573"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Beheaded",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=574"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Clockwork",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=575"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Cockroach",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=576"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Crab",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=577"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Darvakka",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=578"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Deep One",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=579"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Div",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=580"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Divine Warden",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=581"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Cinder",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=582"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Coral",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=583"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Despair",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=584"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Phase",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=585"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Requiem",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=586"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Resurrection",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=587"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Rune",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=588"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Whisper",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=589"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragonblood",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=590"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragonfly",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=591"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Elemental, Wisp",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=592"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Fetchling",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=593"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Fly",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=594"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Geniekin",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=595"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Girtablilu",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=596"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Goblin Snake",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=597"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Grioth",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=598"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Guardian Beast",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=599"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Hippopotamus",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=600"
+    },
+    {
+      "type": "Creature Family",
+      "name": "House Spirit",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=601"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Jellyfish",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=602"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Jotunborn",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=603"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Kami",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=604"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Kitsune",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=605"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Leech",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=606"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Living Topiary",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=607"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Morlock",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=608"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Mosasaur",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=609"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Mosquito",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=610"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Munavri",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=611"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Nagaji",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=612"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Opossum",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=613"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Owb",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=614"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Poppet",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=615"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Raven",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=616"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Ravener",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=617"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Sahkil",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=618"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Samsaran",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=619"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Soulrider",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=620"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Spawn of Rovagug",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=621"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Sportlebore",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=622"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Strix",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=623"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Swarm Strider",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=624"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Tanuki",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=625"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Terror Bird",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=626"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Titan",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=627"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Trilobite",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=628"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Urdefhan",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=629"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Vampire, Nosferatu",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=630"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Vanara",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=631"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Vishkanya",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=632"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Wayang",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=633"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Hellbound Creature",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=670"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Wraith",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=671"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Wyrwood",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=672"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Agathion",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=674"
+    },
+    {
+      "type": "Creature",
+      "name": "Jorogumo",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=1005"
+    },
+    {
+      "type": "Creature",
+      "name": "Giant Frog",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4008"
+    },
+    {
+      "type": "Creature",
+      "name": "Kithangian",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4221"
+    },
+    {
+      "type": "Creature",
+      "name": "Sabosan",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=453"
+    },
+    {
+      "type": "Creature",
+      "name": "Rusalka",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=459"
+    },
+    {
+      "type": "Creature",
+      "name": "Calikang",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=478"
+    },
+    {
+      "type": "Creature",
+      "name": "Witchwyrd",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=486"
+    },
+    {
+      "type": "Creature",
+      "name": "Tzitzimitl",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=492"
+    },
+    {
+      "type": "Creature",
+      "name": "Dream Spider",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4981"
+    },
+    {
+      "type": "Creature",
+      "name": "Gutter Ooze",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4982"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Custom Contracts",
+      "url": "https://2e.aonprd.com/MonsterTemplates.aspx?ID=17"
+    },
+    {
+      "type": "Creature",
+      "name": "Tripkee Scout",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3673"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Hellbound Creatures",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=17"
+    },
+    {
+      "type": "Source",
+      "name": "Monster Core 2",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=276"
+    },
+    {
+      "type": "Item",
+      "name": "Rhoka Sword",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=120"
+    }
+  ]
 }

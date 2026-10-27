@@ -93,5 +93,227 @@
     "https://2e.aonprd.com/Spells.aspx?ID=2129": 109,
     "https://2e.aonprd.com/Spells.aspx?ID=2130": 100,
     "https://2e.aonprd.com/Spells.aspx?ID=2131": 100
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Erupting Spurs",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2901"
+    },
+    {
+      "type": "Action",
+      "name": "Insult Ordulf",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2939"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2949"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2950"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2951"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2952"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2953"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2954"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2955"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2956"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2957"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2958"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2959"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2960"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2961"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2962"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2963"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2964"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2965"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2966"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2967"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2968"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Servitors of Gorum",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=510"
+    },
+    {
+      "type": "Creature",
+      "name": "Rage Rider",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3371"
+    },
+    {
+      "type": "Creature",
+      "name": "Roc Rider",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3372"
+    },
+    {
+      "type": "Creature",
+      "name": "Gorumite Veteran",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3373"
+    },
+    {
+      "type": "Creature",
+      "name": "Gorumite Warpriest",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3374"
+    },
+    {
+      "type": "Creature",
+      "name": "Frostripper",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3375"
+    },
+    {
+      "type": "Creature",
+      "name": "Gorumite Infantry",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3376"
+    },
+    {
+      "type": "Creature",
+      "name": "Ordulf Bladecaller",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3377"
+    },
+    {
+      "type": "Creature",
+      "name": "Niesha",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3385"
+    },
+    {
+      "type": "Creature",
+      "name": "Alktherisa and Omprisgor",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3388"
+    },
+    {
+      "type": "Creature",
+      "name": "Vatumledor",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3398"
+    },
+    {
+      "type": "Creature",
+      "name": "Talaro",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3378"
+    },
+    {
+      "type": "Creature",
+      "name": "Red Mantis Assassin",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3379"
+    },
+    {
+      "type": "Creature",
+      "name": "Red Mantis Conspirator",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3380"
+    },
+    {
+      "type": "Creature",
+      "name": "Sister Maeri",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3381"
+    },
+    {
+      "type": "Creature",
+      "name": "Mantis Keeper",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3382"
+    },
+    {
+      "type": "Creature",
+      "name": "Shirota",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3383"
+    },
+    {
+      "type": "Creature",
+      "name": "Zaiho",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3384"
+    },
+    {
+      "type": "Creature",
+      "name": "Dronuk",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3386"
+    },
+    {
+      "type": "Creature",
+      "name": "Rhysaphine",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3387"
+    },
+    {
+      "type": "Creature",
+      "name": "Saviya",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3399"
+    },
+    {
+      "type": "Source",
+      "name": "Prey for Death",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=231"
+    }
+  ]
 }

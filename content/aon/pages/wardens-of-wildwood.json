@@ -46,5 +46,92 @@
     "https://2e.aonprd.com/Rituals.aspx?ID=204": 33,
     "https://2e.aonprd.com/Spells.aspx?ID=2439": 80,
     "https://2e.aonprd.com/Traits.aspx?ID=850": 30
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "command, envision",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3068"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3223"
+    },
+    {
+      "type": "Action",
+      "name": "Scurry",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3224"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3227"
+    },
+    {
+      "type": "Action",
+      "name": "envision",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3228"
+    },
+    {
+      "type": "Action",
+      "name": "command, envision",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3229"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Chetamog",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=115"
+    },
+    {
+      "type": "Creature",
+      "name": "Stormdrinker",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3683"
+    },
+    {
+      "type": "Creature",
+      "name": "Wraithvine",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3684"
+    },
+    {
+      "type": "Creature",
+      "name": "Splintershank",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3685"
+    },
+    {
+      "type": "Creature",
+      "name": "Lloyd The Leaper",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=3689"
+    },
+    {
+      "type": "Creature",
+      "name": "Besieged Logging Crew",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3686"
+    },
+    {
+      "type": "Creature",
+      "name": "Sigrid Jandevik",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3687"
+    },
+    {
+      "type": "Creature",
+      "name": "Hateful Loggers",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3688"
+    },
+    {
+      "type": "Creature",
+      "name": "Alyce Quinley",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3699"
+    },
+    {
+      "type": "Creature",
+      "name": "Emorga All-Seer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=3700"
+    },
+    {
+      "type": "Source",
+      "name": "Pathfinder #201: Pactbreaker",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=241"
+    }
+  ]
 }

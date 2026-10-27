@@ -335,5 +335,252 @@
     "https://2e.aonprd.com/Traits.aspx?ID=268": 133,
     "https://2e.aonprd.com/Weapons.aspx?ID=89": 80,
     "https://2e.aonprd.com/Weapons.aspx?ID=90": 92
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Energy Emanation",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=315"
+    },
+    {
+      "type": "Action",
+      "name": "Resist Elf Magic",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=316"
+    },
+    {
+      "type": "Action",
+      "name": "Threatening Approach",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=317"
+    },
+    {
+      "type": "Action",
+      "name": "Call Upon the Brightness",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=320"
+    },
+    {
+      "type": "Action",
+      "name": "Absorb into the Aegis",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=321"
+    },
+    {
+      "type": "Action",
+      "name": "command",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=322"
+    },
+    {
+      "type": "Action",
+      "name": "command, Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=323"
+    },
+    {
+      "type": "Action",
+      "name": "Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=324"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (envision, Interact)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=325"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (Interact)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=326"
+    },
+    {
+      "type": "Action",
+      "name": "command, Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=327"
+    },
+    {
+      "type": "Action",
+      "name": "envision",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=328"
+    },
+    {
+      "type": "Action",
+      "name": "Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=329"
+    },
+    {
+      "type": "Action",
+      "name": "command, Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=330"
+    },
+    {
+      "type": "Action",
+      "name": "envision",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=331"
+    },
+    {
+      "type": "Action",
+      "name": "command",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=332"
+    },
+    {
+      "type": "Action",
+      "name": "Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=333"
+    },
+    {
+      "type": "Action",
+      "name": "Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=334"
+    },
+    {
+      "type": "Action",
+      "name": "command, Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=335"
+    },
+    {
+      "type": "Action",
+      "name": "command, Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=336"
+    },
+    {
+      "type": "Action",
+      "name": "command, Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=337"
+    },
+    {
+      "type": "Item",
+      "name": "Hellknight Plate",
+      "url": "https://2e.aonprd.com/Armor.aspx?ID=25"
+    },
+    {
+      "type": "Feat",
+      "name": "Tusks",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=4519"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Firebrands",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=199"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Hellknights",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=200"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Knights of Lastwall",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=201"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Magaambyan Adepts",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=202"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Pathfinders",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=203"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Aldori Swordlords",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=1"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Pathfinder Society",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=11"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Red Mantis Assassin",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=12"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Whispering Way",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=13"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "The Magaambya",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=15"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Aspis Consortium",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=2"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Bellflower Network",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=3"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Eagle Knights",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=4"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Firebrands",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=5"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Hellknights",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=6"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Houses of Perfection",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=7"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Knights of Lastwall",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=8"
+    },
+    {
+      "type": "Creature Theme Template",
+      "name": "Lion Blades",
+      "url": "https://2e.aonprd.com/NPCThemeTemplates.aspx?ID=9"
+    },
+    {
+      "type": "Rules",
+      "name": "Using Theme Templates",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1388"
+    },
+    {
+      "type": "Rules",
+      "name": "All Creatures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1389"
+    },
+    {
+      "type": "Rules",
+      "name": "Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1390"
+    },
+    {
+      "type": "Rules",
+      "name": "Skills",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1391"
+    },
+    {
+      "type": "Rules",
+      "name": "Equipment",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1392"
+    },
+    {
+      "type": "Rules",
+      "name": "Theme Templates and Monsters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1393"
+    },
+    {
+      "type": "Rules",
+      "name": "Theme Templates",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=797"
+    },
+    {
+      "type": "Source",
+      "name": "Character Guide",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=12"
+    }
+  ]
 }

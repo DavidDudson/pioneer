@@ -1697,5 +1697,6177 @@
     "https://2e.aonprd.com/Vehicles.aspx?ID=77": 217,
     "https://2e.aonprd.com/Vehicles.aspx?ID=78": 217,
     "https://2e.aonprd.com/Vehicles.aspx?ID=79": 217
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2263"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2264"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2265"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2266"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2267"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2269"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2287"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2288"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2289"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2318"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, force)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2322"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fire)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2324"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2328"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2329"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2331"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2333"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2336"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, light)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2337"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2339"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, healing, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2340"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2342"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2344"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2345"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2346"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, death, incapacitation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2348"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, sonic)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2349"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2350"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2351"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2352"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2354"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2355"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2356"
+    },
+    {
+      "type": "Action",
+      "name": "(aura, concentrate, fire)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2357"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2358"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2359"
+    },
+    {
+      "type": "Action",
+      "name": "(concenctrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2360"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2361"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2362"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2413"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2414"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2415"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2416"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2417"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2418"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2419"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2420"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2421"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2422"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2423"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2425"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2427"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2429"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2430"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2432"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2433"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2434"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2435"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2436"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2438"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2439"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2440"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2441"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2442"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2443"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2444"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2445"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2446"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2448"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2449"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2450"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2452"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2453"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2454"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2455"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2456"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2457"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2459"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes ({{traits 32 \"concentrate\"}}, {{traits 104 \"manipulate\"}})",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2461"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2462"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2463"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2464"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2466"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2468"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2470"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2471"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2472"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2473"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2474"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2475"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2476"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2478"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2479"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2480"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2481"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, emotion, incapacitation, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2482"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, emotion, incapacitation, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2483"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2484"
+    },
+    {
+      "type": "Action",
+      "name": "1 hour (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2485"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2486"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2487"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2488"
+    },
+    {
+      "type": "Action",
+      "name": "concentrate, manipulate",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2489"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2490"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2491"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2492"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2493"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2494"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2495"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2496"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2497"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2498"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2499"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2500"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2501"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2502"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2503"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2504"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2505"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2506"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, polymorph, void)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2507"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2508"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2509"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2510"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2511"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2512"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2513"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2514"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2515"
+    },
+    {
+      "type": "Action",
+      "name": "(attack, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2516"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2517"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2518"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2519"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2520"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2521"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2522"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2523"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2524"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2525"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2526"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2527"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2528"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2529"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2530"
+    },
+    {
+      "type": "Action",
+      "name": "(attack, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2531"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2532"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2533"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2534"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2535"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2536"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2537"
+    },
+    {
+      "type": "Action",
+      "name": "(attack, concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2538"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2539"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2540"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2541"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2542"
+    },
+    {
+      "type": "Action",
+      "name": "(death, force, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2543"
+    },
+    {
+      "type": "Action",
+      "name": "Interact",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2544"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2546"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2547"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2548"
+    },
+    {
+      "type": "Action",
+      "name": "(force, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2549"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2550"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2553"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2554"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, morph)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2555"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2556"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2557"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2558"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2559"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2560"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2561"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2562"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2563"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2564"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2565"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2566"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2567"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2568"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2569"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2571"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2572"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2573"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2575"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2576"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2578"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2579"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2580"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, emotion, fear, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2581"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2582"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2584"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2585"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2586"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2587"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2589"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2590"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2591"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2592"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2595"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2596"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2598"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2599"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, light, revelation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2600"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2601"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2602"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2603"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate, manipuldate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2605"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2606"
+    },
+    {
+      "type": "Action",
+      "name": "(air, concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2607"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2608"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2609"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2610"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2613"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2614"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2615"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2616"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2619"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, polymorph)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2620"
+    },
+    {
+      "type": "Action",
+      "name": "Affix a Talisman",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2632"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2636"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2637"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2638"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2639"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2640"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2641"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2642"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2643"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2644"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2645"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2646"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2647"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2648"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2649"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2650"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2651"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2652"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2653"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2654"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2655"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2656"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2657"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2658"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2659"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2660"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2661"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2662"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2663"
+    },
+    {
+      "type": "Action",
+      "name": "Influence",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2725"
+    },
+    {
+      "type": "Action",
+      "name": "Discover",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2726"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2731"
+    },
+    {
+      "type": "Action",
+      "name": "Invest an Item",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2799"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Item Categories",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2799"
+    },
+    {
+      "type": "Action",
+      "name": "Bullying Press",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3475"
+    },
+    {
+      "type": "Action",
+      "name": "Deceptive Sidestep",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3476"
+    },
+    {
+      "type": "Action",
+      "name": "Sense Weakness",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3477"
+    },
+    {
+      "type": "Action",
+      "name": "Dueling Counter",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3478"
+    },
+    {
+      "type": "Action",
+      "name": "Change Tradition Focus",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3479"
+    },
+    {
+      "type": "Action",
+      "name": "Board",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3516"
+    },
+    {
+      "type": "Action",
+      "name": "Drive (Varies)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3517"
+    },
+    {
+      "type": "Action",
+      "name": "Run Over",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3518"
+    },
+    {
+      "type": "Action",
+      "name": "Stop",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3519"
+    },
+    {
+      "type": "Action",
+      "name": "Take Control",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3520"
+    },
+    {
+      "type": "Curse",
+      "name": "Arsonous",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=53"
+    },
+    {
+      "type": "Curse",
+      "name": "Bloodbiter",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=54"
+    },
+    {
+      "type": "Curse",
+      "name": "Degenerating",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=55"
+    },
+    {
+      "type": "Curse",
+      "name": "Grandstanding",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=56"
+    },
+    {
+      "type": "Curse",
+      "name": "Raucous",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=57"
+    },
+    {
+      "type": "Curse",
+      "name": "Ravenous",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=58"
+    },
+    {
+      "type": "Curse",
+      "name": "Staining",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=59"
+    },
+    {
+      "type": "Item",
+      "name": "Acid Flask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3286"
+    },
+    {
+      "type": "Item",
+      "name": "Acid Flask (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3286"
+    },
+    {
+      "type": "Item",
+      "name": "Acid Flask (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3286"
+    },
+    {
+      "type": "Item",
+      "name": "Acid Flask (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3286"
+    },
+    {
+      "type": "Item",
+      "name": "Acid Flask (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3286"
+    },
+    {
+      "type": "Item",
+      "name": "Alchemist's Fire",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3287"
+    },
+    {
+      "type": "Item",
+      "name": "Alchemist's Fire (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3287"
+    },
+    {
+      "type": "Item",
+      "name": "Alchemist's Fire (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3287"
+    },
+    {
+      "type": "Item",
+      "name": "Alchemist's Fire (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3287"
+    },
+    {
+      "type": "Item",
+      "name": "Alchemist's Fire (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3287"
+    },
+    {
+      "type": "Item",
+      "name": "Dread Ampoule",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3292"
+    },
+    {
+      "type": "Item",
+      "name": "Dread Ampoule (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3292"
+    },
+    {
+      "type": "Item",
+      "name": "Dread Ampoule (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3292"
+    },
+    {
+      "type": "Item",
+      "name": "Dread Ampoule (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3292"
+    },
+    {
+      "type": "Item",
+      "name": "Dread Ampoule (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3292"
+    },
+    {
+      "type": "Item",
+      "name": "Glue Bomb",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3295"
+    },
+    {
+      "type": "Item",
+      "name": "Glue Bomb (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3295"
+    },
+    {
+      "type": "Item",
+      "name": "Glue Bomb (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3295"
+    },
+    {
+      "type": "Item",
+      "name": "Glue Bomb (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3295"
+    },
+    {
+      "type": "Item",
+      "name": "Glue Bomb (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3295"
+    },
+    {
+      "type": "Item",
+      "name": "Antidote",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3296"
+    },
+    {
+      "type": "Item",
+      "name": "Antidote (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3296"
+    },
+    {
+      "type": "Item",
+      "name": "Antidote (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3296"
+    },
+    {
+      "type": "Item",
+      "name": "Antidote (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3296"
+    },
+    {
+      "type": "Item",
+      "name": "Antidote (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3296"
+    },
+    {
+      "type": "Item",
+      "name": "Antiplague",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3297"
+    },
+    {
+      "type": "Item",
+      "name": "Antiplague (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3297"
+    },
+    {
+      "type": "Item",
+      "name": "Antiplague (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3297"
+    },
+    {
+      "type": "Item",
+      "name": "Antiplague (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3297"
+    },
+    {
+      "type": "Item",
+      "name": "Antiplague (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3297"
+    },
+    {
+      "type": "Item",
+      "name": "Bomber's Eye Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3298"
+    },
+    {
+      "type": "Item",
+      "name": "Bomber's Eye Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3298"
+    },
+    {
+      "type": "Item",
+      "name": "Bomber's Eye Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3298"
+    },
+    {
+      "type": "Item",
+      "name": "Bravo's Brew",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3300"
+    },
+    {
+      "type": "Item",
+      "name": "Bravo's Brew (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3300"
+    },
+    {
+      "type": "Item",
+      "name": "Bravo's Brew (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3300"
+    },
+    {
+      "type": "Item",
+      "name": "Bravo's Brew (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3300"
+    },
+    {
+      "type": "Item",
+      "name": "Cat's Eye Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3301"
+    },
+    {
+      "type": "Item",
+      "name": "Cheetah's Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3302"
+    },
+    {
+      "type": "Item",
+      "name": "Cheetah's Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3302"
+    },
+    {
+      "type": "Item",
+      "name": "Cheetah's Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3302"
+    },
+    {
+      "type": "Item",
+      "name": "Cheetah's Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3302"
+    },
+    {
+      "type": "Item",
+      "name": "Darkvision Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3305"
+    },
+    {
+      "type": "Item",
+      "name": "Darkvision Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3305"
+    },
+    {
+      "type": "Item",
+      "name": "Darkvision Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3305"
+    },
+    {
+      "type": "Item",
+      "name": "Darkvision Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3305"
+    },
+    {
+      "type": "Item",
+      "name": "Eagle-Eye Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3306"
+    },
+    {
+      "type": "Item",
+      "name": "Eagle-Eye Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3306"
+    },
+    {
+      "type": "Item",
+      "name": "Eagle-Eye Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3306"
+    },
+    {
+      "type": "Item",
+      "name": "Eagle-Eye Elixir (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3306"
+    },
+    {
+      "type": "Item",
+      "name": "Eagle-Eye Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3306"
+    },
+    {
+      "type": "Item",
+      "name": "Elixir of Life",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3308"
+    },
+    {
+      "type": "Item",
+      "name": "Elixir of Life (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3308"
+    },
+    {
+      "type": "Item",
+      "name": "Elixir of Life (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3308"
+    },
+    {
+      "type": "Item",
+      "name": "Elixir of Life (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3308"
+    },
+    {
+      "type": "Item",
+      "name": "Elixir of Life (Minor)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3308"
+    },
+    {
+      "type": "Item",
+      "name": "Elixir of Life (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3308"
+    },
+    {
+      "type": "Item",
+      "name": "Elixir of Life (True)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3308"
+    },
+    {
+      "type": "Item",
+      "name": "Mistform Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3310"
+    },
+    {
+      "type": "Item",
+      "name": "Mistform Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3310"
+    },
+    {
+      "type": "Item",
+      "name": "Mistform Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3310"
+    },
+    {
+      "type": "Item",
+      "name": "Mistform Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3310"
+    },
+    {
+      "type": "Item",
+      "name": "Sea Touch Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3311"
+    },
+    {
+      "type": "Item",
+      "name": "Sea Touch Elixir (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3311"
+    },
+    {
+      "type": "Item",
+      "name": "Sea Touch Elixir (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3311"
+    },
+    {
+      "type": "Item",
+      "name": "Sea Touch Elixir (Moderate)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3311"
+    },
+    {
+      "type": "Item",
+      "name": "Stone Fist Elixir",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3312"
+    },
+    {
+      "type": "Item",
+      "name": "Arsenic",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3322"
+    },
+    {
+      "type": "Item",
+      "name": "Black Adder Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3324"
+    },
+    {
+      "type": "Item",
+      "name": "Black Lotus Extract",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3325"
+    },
+    {
+      "type": "Item",
+      "name": "Blightburn Resin",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3326"
+    },
+    {
+      "type": "Item",
+      "name": "Brimstone Fumes",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3327"
+    },
+    {
+      "type": "Item",
+      "name": "Deathcap Powder",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3331"
+    },
+    {
+      "type": "Item",
+      "name": "Fearflower Nectar",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3333"
+    },
+    {
+      "type": "Item",
+      "name": "Giant Centipede Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3334"
+    },
+    {
+      "type": "Item",
+      "name": "Giant Scorpion Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3335"
+    },
+    {
+      "type": "Item",
+      "name": "Graveroot",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3336"
+    },
+    {
+      "type": "Item",
+      "name": "Hemlock",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3337"
+    },
+    {
+      "type": "Item",
+      "name": "Lethargy Poison",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3340"
+    },
+    {
+      "type": "Item",
+      "name": "Mindfog Mist",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3341"
+    },
+    {
+      "type": "Item",
+      "name": "Slumber Wine",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3344"
+    },
+    {
+      "type": "Item",
+      "name": "Spider Root",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3345"
+    },
+    {
+      "type": "Item",
+      "name": "Spider Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3346"
+    },
+    {
+      "type": "Item",
+      "name": "Tears of Death",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3348"
+    },
+    {
+      "type": "Item",
+      "name": "Wolfsbane",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3349"
+    },
+    {
+      "type": "Item",
+      "name": "Wyvern Poison",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3350"
+    },
+    {
+      "type": "Item",
+      "name": "Glow Rod",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3355"
+    },
+    {
+      "type": "Item",
+      "name": "Matchstick",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3356"
+    },
+    {
+      "type": "Item",
+      "name": "Silver Salve",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3358"
+    },
+    {
+      "type": "Item",
+      "name": "Smoke Ball",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3360"
+    },
+    {
+      "type": "Item",
+      "name": "Smoke Ball (Greater)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3360"
+    },
+    {
+      "type": "Item",
+      "name": "Smoke Ball (Lesser)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3360"
+    },
+    {
+      "type": "Item",
+      "name": "Snake Oil",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3361"
+    },
+    {
+      "type": "Item",
+      "name": "Potion of Emergency Escape",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=3403"
+    },
+    {
+      "type": "Hazard",
+      "name": "Summoning Rune",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=200"
+    },
+    {
+      "type": "Hazard",
+      "name": "Summoning Rune",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=372"
+    },
+    {
+      "type": "Hazard",
+      "name": "Summoning Rune",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=373"
+    },
+    {
+      "type": "Rules",
+      "name": "The Game Master",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2461"
+    },
+    {
+      "type": "Rules",
+      "name": "How to Use This Book",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2462"
+    },
+    {
+      "type": "Rules",
+      "name": "Choosing Your Tools",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2463"
+    },
+    {
+      "type": "Rules",
+      "name": "I’m a New Game Master",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2464"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Campaigns, Adventures, and Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2465"
+    },
+    {
+      "type": "Rules",
+      "name": "I’m Running a Published Adventure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2465"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Paizo's Published Adventures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2465"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Remember the First Rule",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2465"
+    },
+    {
+      "type": "Rules",
+      "name": "I’m Making My Own Adventure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2466"
+    },
+    {
+      "type": "Rules",
+      "name": "I Need Items!",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2467"
+    },
+    {
+      "type": "Rules",
+      "name": "A Welcoming Environment",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2469"
+    },
+    {
+      "type": "Rules",
+      "name": "Objectionable Content",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2470"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Collaboration During Play",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2471"
+    },
+    {
+      "type": "Rules",
+      "name": "The Pathfinder Baseline",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2471"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Tools for Responsible Play",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2471"
+    },
+    {
+      "type": "Rules",
+      "name": "Social Spillover",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2472"
+    },
+    {
+      "type": "Rules",
+      "name": "Preparing Adventures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2473"
+    },
+    {
+      "type": "Rules",
+      "name": "Published Adventures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2474"
+    },
+    {
+      "type": "Rules",
+      "name": "Pathfinder Society",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2475"
+    },
+    {
+      "type": "Rules",
+      "name": "Your Own Adventures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2476"
+    },
+    {
+      "type": "Rules",
+      "name": "Character Creation",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2477"
+    },
+    {
+      "type": "Rules",
+      "name": "Session Zero",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2478"
+    },
+    {
+      "type": "Rules",
+      "name": "Planning a Session",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2479"
+    },
+    {
+      "type": "Rules",
+      "name": "Running a Session",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2480"
+    },
+    {
+      "type": "Rules",
+      "name": "Pacing Game Sessions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2481"
+    },
+    {
+      "type": "Rules",
+      "name": "Starting a Session",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2482"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Sharing Responsibility",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2483"
+    },
+    {
+      "type": "Rules",
+      "name": "The Spotlight",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2483"
+    },
+    {
+      "type": "Rules",
+      "name": "Stakes and Consequences",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2484"
+    },
+    {
+      "type": "Rules",
+      "name": "Failing Forward",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2485"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Hero Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2485"
+    },
+    {
+      "type": "Rules",
+      "name": "Improvisation",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2486"
+    },
+    {
+      "type": "Rules",
+      "name": "Special Circumstances",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2487"
+    },
+    {
+      "type": "Rules",
+      "name": "False Information",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2488"
+    },
+    {
+      "type": "Rules",
+      "name": "Secret Checks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2489"
+    },
+    {
+      "type": "Rules",
+      "name": "Metagaming",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2490"
+    },
+    {
+      "type": "Rules",
+      "name": "Roleplaying NPCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2491"
+    },
+    {
+      "type": "Rules",
+      "name": "NPC Limitations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2492"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Off-Session Gaming",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2492"
+    },
+    {
+      "type": "Rules",
+      "name": "Betrayal",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2493"
+    },
+    {
+      "type": "Rules",
+      "name": "Respecting the Character",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2494"
+    },
+    {
+      "type": "Rules",
+      "name": "A Proper End",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2495"
+    },
+    {
+      "type": "Rules",
+      "name": "Special Considerations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2496"
+    },
+    {
+      "type": "Rules",
+      "name": "Adjudicating Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2497"
+    },
+    {
+      "type": "Rules",
+      "name": "The Basics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2498"
+    },
+    {
+      "type": "Rules",
+      "name": "Consistency and Fairness",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2499"
+    },
+    {
+      "type": "Rules",
+      "name": "Looking Up Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2500"
+    },
+    {
+      "type": "Rules",
+      "name": "Listen to the Players",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2501"
+    },
+    {
+      "type": "Rules",
+      "name": "Make the Call",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2502"
+    },
+    {
+      "type": "Rules",
+      "name": "Take Time for Review",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2503"
+    },
+    {
+      "type": "Rules",
+      "name": "Saying “Yes, But”",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2504"
+    },
+    {
+      "type": "Rules",
+      "name": "House Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2505"
+    },
+    {
+      "type": "Rules",
+      "name": "Resolving Problems",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2506"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Cheating",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2507"
+    },
+    {
+      "type": "Rules",
+      "name": "Distractions and Interruptions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2507"
+    },
+    {
+      "type": "Rules",
+      "name": "Problematic Players",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2508"
+    },
+    {
+      "type": "Rules",
+      "name": "Safety Tools",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2509"
+    },
+    {
+      "type": "Rules",
+      "name": "Ejecting a Player",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2510"
+    },
+    {
+      "type": "Rules",
+      "name": "Power Imbalances",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2511"
+    },
+    {
+      "type": "Rules",
+      "name": "Narrative Collaboration",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2512"
+    },
+    {
+      "type": "Rules",
+      "name": "Idea Farm",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2513"
+    },
+    {
+      "type": "Rules",
+      "name": "Creative Collaboration",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2514"
+    },
+    {
+      "type": "Rules",
+      "name": "Decentralized Storytelling",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2515"
+    },
+    {
+      "type": "Rules",
+      "name": "Challenges",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2516"
+    },
+    {
+      "type": "Rules",
+      "name": "Story Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2517"
+    },
+    {
+      "type": "Rules",
+      "name": "Group Composition",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2518"
+    },
+    {
+      "type": "Rules",
+      "name": "Pathfinder Society Organized Play",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2519"
+    },
+    {
+      "type": "Rules",
+      "name": "Unusual Group Sizes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2520"
+    },
+    {
+      "type": "Rules",
+      "name": "Small Groups",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2521"
+    },
+    {
+      "type": "Rules",
+      "name": "Large Groups",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2522"
+    },
+    {
+      "type": "Rules",
+      "name": "Player Needs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2523"
+    },
+    {
+      "type": "Rules",
+      "name": "Sensory Differences",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2524"
+    },
+    {
+      "type": "Rules",
+      "name": "Attention Span",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2525"
+    },
+    {
+      "type": "Rules",
+      "name": "Characters with Disabilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2526"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Mental Illness and Chronic Illness",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2526"
+    },
+    {
+      "type": "Rules",
+      "name": "Blindness or Impaired Vision",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2527"
+    },
+    {
+      "type": "Rules",
+      "name": "Deafness or Being Hard of Hearing",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2528"
+    },
+    {
+      "type": "Rules",
+      "name": "Missing Limbs and Mobility",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2529"
+    },
+    {
+      "type": "Rules",
+      "name": "Rarity",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2530"
+    },
+    {
+      "type": "Rules",
+      "name": "The Four Rarities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2531"
+    },
+    {
+      "type": "Rules",
+      "name": "Rarity and Power",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2532"
+    },
+    {
+      "type": "Rules",
+      "name": "Different Contexts",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2533"
+    },
+    {
+      "type": "Rules",
+      "name": "Access Entries",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2534"
+    },
+    {
+      "type": "Rules",
+      "name": "Starting Elements",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2535"
+    },
+    {
+      "type": "Rules",
+      "name": "Storytelling",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2536"
+    },
+    {
+      "type": "Rules",
+      "name": "World Building",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2537"
+    },
+    {
+      "type": "Sidebar",
+      "name": "GM Priorities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2538"
+    },
+    {
+      "type": "Rules",
+      "name": "Running Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2538"
+    },
+    {
+      "type": "Rules",
+      "name": "Starting the Encounter",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2539"
+    },
+    {
+      "type": "Rules",
+      "name": "Alternative Initiative Skills",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2540"
+    },
+    {
+      "type": "Rules",
+      "name": "Initiative with Stealth",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2541"
+    },
+    {
+      "type": "Rules",
+      "name": "Batch Initiative",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2542"
+    },
+    {
+      "type": "Rules",
+      "name": "Placing Characters on the Map",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2543"
+    },
+    {
+      "type": "Rules",
+      "name": "Setting the Scene",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2544"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Unexpected Difficulty",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2544"
+    },
+    {
+      "type": "Rules",
+      "name": "Running the Encounter",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2545"
+    },
+    {
+      "type": "Rules",
+      "name": "Choosing Adversaries’ Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2546"
+    },
+    {
+      "type": "Rules",
+      "name": "Speed of Play",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2547"
+    },
+    {
+      "type": "Rules",
+      "name": "Looking up Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2548"
+    },
+    {
+      "type": "Rules",
+      "name": "Rewinding",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2549"
+    },
+    {
+      "type": "Rules",
+      "name": "Complex Rolls",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2550"
+    },
+    {
+      "type": "Rules",
+      "name": "Adjudicating Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2551"
+    },
+    {
+      "type": "Rules",
+      "name": "Aid",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2552"
+    },
+    {
+      "type": "Rules",
+      "name": "Ready",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2553"
+    },
+    {
+      "type": "Rules",
+      "name": "Seek",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2554"
+    },
+    {
+      "type": "Rules",
+      "name": "Sense Motive",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2555"
+    },
+    {
+      "type": "Rules",
+      "name": "Take Cover",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2556"
+    },
+    {
+      "type": "Rules",
+      "name": "Ad Hoc Bonuses and Penalties",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2557"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Grid Variants",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2558"
+    },
+    {
+      "type": "Rules",
+      "name": "Maps and Miniatures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2558"
+    },
+    {
+      "type": "Rules",
+      "name": "Cover",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2559"
+    },
+    {
+      "type": "Rules",
+      "name": "Splitting and Combining Movement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2560"
+    },
+    {
+      "type": "Rules",
+      "name": "Special Battles and Movement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2561"
+    },
+    {
+      "type": "Rules",
+      "name": "Mounted Combat",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2562"
+    },
+    {
+      "type": "Rules",
+      "name": "Aerial Combat",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2563"
+    },
+    {
+      "type": "Rules",
+      "name": "Aquatic Combat",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2564"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Social Encounter Examples",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2565"
+    },
+    {
+      "type": "Rules",
+      "name": "Social Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2565"
+    },
+    {
+      "type": "Rules",
+      "name": "Non-Combat Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2566"
+    },
+    {
+      "type": "Rules",
+      "name": "Initiative and Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2567"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Bypassed Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2568"
+    },
+    {
+      "type": "Rules",
+      "name": "Measuring Success and Progress",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2568"
+    },
+    {
+      "type": "Rules",
+      "name": "Consequences",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2569"
+    },
+    {
+      "type": "Rules",
+      "name": "Ending the Encounter",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2570"
+    },
+    {
+      "type": "Rules",
+      "name": "Fleeing Enemies",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2571"
+    },
+    {
+      "type": "Rules",
+      "name": "Total Party Kills",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2572"
+    },
+    {
+      "type": "Rules",
+      "name": "Running Exploration",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2573"
+    },
+    {
+      "type": "Rules",
+      "name": "Scenes within Exploration",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2574"
+    },
+    {
+      "type": "Rules",
+      "name": "Daily Preparations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2575"
+    },
+    {
+      "type": "Sidebar",
+      "name": "GM Priorities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2575"
+    },
+    {
+      "type": "Rules",
+      "name": "Hazards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2576"
+    },
+    {
+      "type": "Rules",
+      "name": "Searching for Traps",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2577"
+    },
+    {
+      "type": "Rules",
+      "name": "Investigations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2578"
+    },
+    {
+      "type": "Rules",
+      "name": "Roleplaying Investigations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2579"
+    },
+    {
+      "type": "Rules",
+      "name": "Travel",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2580"
+    },
+    {
+      "type": "Rules",
+      "name": "Travel Speed",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2581"
+    },
+    {
+      "type": "Rules",
+      "name": "Navigating",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2582"
+    },
+    {
+      "type": "Rules",
+      "name": "Getting Lost",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2583"
+    },
+    {
+      "type": "Rules",
+      "name": "Encounters During Travel",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2584"
+    },
+    {
+      "type": "Rules",
+      "name": "Adverse Weather and Terrain",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2585"
+    },
+    {
+      "type": "Rules",
+      "name": "Difficult Terrain",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2586"
+    },
+    {
+      "type": "Rules",
+      "name": "Hazardous Terrain",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2587"
+    },
+    {
+      "type": "Rules",
+      "name": "Environmental Hazards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2588"
+    },
+    {
+      "type": "Rules",
+      "name": "Surprise Attacks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2589"
+    },
+    {
+      "type": "Rules",
+      "name": "Starting Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2590"
+    },
+    {
+      "type": "Rules",
+      "name": "Fleshing out Exploration",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2591"
+    },
+    {
+      "type": "Rules",
+      "name": "Evocative Environments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2592"
+    },
+    {
+      "type": "Rules",
+      "name": "Flow of Time",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2593"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Monitoring Spell Durations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2593"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Quick Environmental Details",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2593"
+    },
+    {
+      "type": "Rules",
+      "name": "Exploration Activities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2594"
+    },
+    {
+      "type": "Rules",
+      "name": "Detect Magic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2595"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Adventure Research",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2596"
+    },
+    {
+      "type": "Rules",
+      "name": "Follow the Expert",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2596"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Running Your Own Adventure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2596"
+    },
+    {
+      "type": "Rules",
+      "name": "Investigate",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2597"
+    },
+    {
+      "type": "Rules",
+      "name": "Search",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2598"
+    },
+    {
+      "type": "Rules",
+      "name": "Improvising New Activities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2599"
+    },
+    {
+      "type": "Rules",
+      "name": "Setting a Party Order",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2600"
+    },
+    {
+      "type": "Rules",
+      "name": "Resting",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2601"
+    },
+    {
+      "type": "Rules",
+      "name": "Watches and Surprise Attacks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2602"
+    },
+    {
+      "type": "Rules",
+      "name": "Starvation and Thirst",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2603"
+    },
+    {
+      "type": "Rules",
+      "name": "Running Downtime",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2604"
+    },
+    {
+      "type": "Rules",
+      "name": "Depth of Downtime",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2605"
+    },
+    {
+      "type": "Rules",
+      "name": "Group Engagement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2606"
+    },
+    {
+      "type": "Rules",
+      "name": "Campaigns without Downtime",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2607"
+    },
+    {
+      "type": "Sidebar",
+      "name": "GM Priorities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2607"
+    },
+    {
+      "type": "Rules",
+      "name": "Long-Term Goals",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2608"
+    },
+    {
+      "type": "Rules",
+      "name": "Success and Failure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2609"
+    },
+    {
+      "type": "Rules",
+      "name": "Playing out a Downtime Day",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2610"
+    },
+    {
+      "type": "Rules",
+      "name": "Cooperation",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2611"
+    },
+    {
+      "type": "Rules",
+      "name": "Checks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2612"
+    },
+    {
+      "type": "Rules",
+      "name": "Longer Periods of Downtime",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2613"
+    },
+    {
+      "type": "Rules",
+      "name": "Events",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2614"
+    },
+    {
+      "type": "Rules",
+      "name": "Average Progress",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2615"
+    },
+    {
+      "type": "Rules",
+      "name": "Tasks and Events",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2616"
+    },
+    {
+      "type": "Rules",
+      "name": "Buying and Selling Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2617"
+    },
+    {
+      "type": "Rules",
+      "name": "Money in Downtime",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2618"
+    },
+    {
+      "type": "Rules",
+      "name": "Investments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2619"
+    },
+    {
+      "type": "Rules",
+      "name": "Money during Long Periods of Downtime",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2620"
+    },
+    {
+      "type": "Rules",
+      "name": "Cost of Living",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2621"
+    },
+    {
+      "type": "Rules",
+      "name": "Long-Term Rest",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2622"
+    },
+    {
+      "type": "Rules",
+      "name": "Retraining",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2623"
+    },
+    {
+      "type": "Rules",
+      "name": "Time",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2624"
+    },
+    {
+      "type": "Rules",
+      "name": "Instruction and Costs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2625"
+    },
+    {
+      "type": "Rules",
+      "name": "Extreme Retraining",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2626"
+    },
+    {
+      "type": "Rules",
+      "name": "Difficulty Classes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2627"
+    },
+    {
+      "type": "Rules",
+      "name": "Simple DCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2628"
+    },
+    {
+      "type": "Rules",
+      "name": "Level-Based DCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2629"
+    },
+    {
+      "type": "Rules",
+      "name": "Adjusting Difficulty",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2630"
+    },
+    {
+      "type": "Rules",
+      "name": "Group Attempts",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2631"
+    },
+    {
+      "type": "Rules",
+      "name": "Minimum Proficiency",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2632"
+    },
+    {
+      "type": "Rules",
+      "name": "Specific Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2633"
+    },
+    {
+      "type": "Rules",
+      "name": "Craft",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2634"
+    },
+    {
+      "type": "Rules",
+      "name": "Earn Income",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2635"
+    },
+    {
+      "type": "Rules",
+      "name": "Gather Information",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2636"
+    },
+    {
+      "type": "Rules",
+      "name": "Identify Magic, Identify Alchemy, or Learn a Spell",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2637"
+    },
+    {
+      "type": "Rules",
+      "name": "Recall Knowledge",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2638"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Recall Knowledge Considerations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2638"
+    },
+    {
+      "type": "Rules",
+      "name": "Alternative Skills",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2639"
+    },
+    {
+      "type": "Rules",
+      "name": "Additional Knowledge",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2640"
+    },
+    {
+      "type": "Rules",
+      "name": "Creature Identification",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2641"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Determining the Scope of Lore",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2641"
+    },
+    {
+      "type": "Rules",
+      "name": "Sense Direction",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2642"
+    },
+    {
+      "type": "Rules",
+      "name": "Social Skills",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2643"
+    },
+    {
+      "type": "Rules",
+      "name": "Subsist",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2644"
+    },
+    {
+      "type": "Rules",
+      "name": "Track",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2645"
+    },
+    {
+      "type": "Rules",
+      "name": "Train an Animal",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2646"
+    },
+    {
+      "type": "Rules",
+      "name": "Rewards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2647"
+    },
+    {
+      "type": "Rules",
+      "name": "Experience Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2648"
+    },
+    {
+      "type": "Rules",
+      "name": "XP Awards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2649"
+    },
+    {
+      "type": "Rules",
+      "name": "Adversaries and Hazards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2650"
+    },
+    {
+      "type": "Rules",
+      "name": "Accomplishments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2651"
+    },
+    {
+      "type": "Rules",
+      "name": "Party Size",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2652"
+    },
+    {
+      "type": "Rules",
+      "name": "Group Parity and Party Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2653"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Advancement Speeds",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2654"
+    },
+    {
+      "type": "Rules",
+      "name": "Hero Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2654"
+    },
+    {
+      "type": "Rules",
+      "name": "Treasure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2655"
+    },
+    {
+      "type": "Rules",
+      "name": "Treasure by Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2656"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Adjusting Treasure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2657"
+    },
+    {
+      "type": "Rules",
+      "name": "Currency",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2657"
+    },
+    {
+      "type": "Rules",
+      "name": "Other Types of Treasure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2658"
+    },
+    {
+      "type": "Rules",
+      "name": "Treasure and Rarity",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2659"
+    },
+    {
+      "type": "Rules",
+      "name": "Different Item Levels",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2660"
+    },
+    {
+      "type": "Rules",
+      "name": "Different Party Sizes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2661"
+    },
+    {
+      "type": "Rules",
+      "name": "Treasure for New Characters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2662"
+    },
+    {
+      "type": "Rules",
+      "name": "Item Selection",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2663"
+    },
+    {
+      "type": "Rules",
+      "name": "Buying and Selling Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2664"
+    },
+    {
+      "type": "Rules",
+      "name": "To Create or Adapt",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2666"
+    },
+    {
+      "type": "Rules",
+      "name": "Scope of Changes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2667"
+    },
+    {
+      "type": "Rules",
+      "name": "Campaign Structure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2668"
+    },
+    {
+      "type": "Rules",
+      "name": "Campaign Length",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2669"
+    },
+    {
+      "type": "Rules",
+      "name": "Basic Structures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2670"
+    },
+    {
+      "type": "Rules",
+      "name": "One-Shot",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2671"
+    },
+    {
+      "type": "Rules",
+      "name": "Brief Campaign",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2672"
+    },
+    {
+      "type": "Rules",
+      "name": "Extended Campaign",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2673"
+    },
+    {
+      "type": "Rules",
+      "name": "Epic Campaign",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2674"
+    },
+    {
+      "type": "Rules",
+      "name": "Themes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2675"
+    },
+    {
+      "type": "Rules",
+      "name": "Linking Adventures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2676"
+    },
+    {
+      "type": "Rules",
+      "name": "Player Goals",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2677"
+    },
+    {
+      "type": "Rules",
+      "name": "Changing the World",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2678"
+    },
+    {
+      "type": "Rules",
+      "name": "Power Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2679"
+    },
+    {
+      "type": "Rules",
+      "name": "Recurring Villains",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2680"
+    },
+    {
+      "type": "Rules",
+      "name": "Villain Goals",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2681"
+    },
+    {
+      "type": "Rules",
+      "name": "Starting the Campaign",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2682"
+    },
+    {
+      "type": "Rules",
+      "name": "At the First Session",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2683"
+    },
+    {
+      "type": "Rules",
+      "name": "Starting at a Higher Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2684"
+    },
+    {
+      "type": "Rules",
+      "name": "Ending the Campaign",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2685"
+    },
+    {
+      "type": "Rules",
+      "name": "Dealing with Failure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2686"
+    },
+    {
+      "type": "Rules",
+      "name": "The Next Campaign",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2687"
+    },
+    {
+      "type": "Rules",
+      "name": "Adventure Design",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2688"
+    },
+    {
+      "type": "Rules",
+      "name": "Player Motivations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2689"
+    },
+    {
+      "type": "Rules",
+      "name": "Theme and Feeling",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2690"
+    },
+    {
+      "type": "Rules",
+      "name": "Keeping it Varied",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2691"
+    },
+    {
+      "type": "Rules",
+      "name": "Adventure Recipes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2692"
+    },
+    {
+      "type": "Rules",
+      "name": "Styles",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2693"
+    },
+    {
+      "type": "Rules",
+      "name": "Dungeon Crawl",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2694"
+    },
+    {
+      "type": "Rules",
+      "name": "Gritty Adventure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2695"
+    },
+    {
+      "type": "Rules",
+      "name": "High Adventure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2696"
+    },
+    {
+      "type": "Rules",
+      "name": "Horror",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2697"
+    },
+    {
+      "type": "Rules",
+      "name": "Intrigue",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2698"
+    },
+    {
+      "type": "Rules",
+      "name": "Military Adventure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2699"
+    },
+    {
+      "type": "Rules",
+      "name": "Mystery",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2700"
+    },
+    {
+      "type": "Rules",
+      "name": "Planar Adventure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2701"
+    },
+    {
+      "type": "Rules",
+      "name": "Romantic Adventure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2702"
+    },
+    {
+      "type": "Rules",
+      "name": "Threats",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2703"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Building a Sandbox",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2704"
+    },
+    {
+      "type": "Rules",
+      "name": "Corruption",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2704"
+    },
+    {
+      "type": "Rules",
+      "name": "Devastation",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2705"
+    },
+    {
+      "type": "Rules",
+      "name": "Extremism",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2706"
+    },
+    {
+      "type": "Rules",
+      "name": "Mayhem",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2707"
+    },
+    {
+      "type": "Rules",
+      "name": "Subjugation",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2708"
+    },
+    {
+      "type": "Rules",
+      "name": "Motivations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2709"
+    },
+    {
+      "type": "Rules",
+      "name": "Story Arcs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2710"
+    },
+    {
+      "type": "Rules",
+      "name": "NPCs and Organizations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2711"
+    },
+    {
+      "type": "Rules",
+      "name": "Locations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2712"
+    },
+    {
+      "type": "Rules",
+      "name": "Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2713"
+    },
+    {
+      "type": "Rules",
+      "name": "Treasure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2714"
+    },
+    {
+      "type": "Rules",
+      "name": "Encounter Design",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2715"
+    },
+    {
+      "type": "Rules",
+      "name": "Combat Threats",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2716"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Quick Adventure Groups",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2717"
+    },
+    {
+      "type": "Rules",
+      "name": "XP Budget",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2717"
+    },
+    {
+      "type": "Rules",
+      "name": "Choosing Creatures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2718"
+    },
+    {
+      "type": "Rules",
+      "name": "Different Party Sizes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2719"
+    },
+    {
+      "type": "Rules",
+      "name": "Variety",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2720"
+    },
+    {
+      "type": "Rules",
+      "name": "Encounter Locations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2721"
+    },
+    {
+      "type": "Rules",
+      "name": "Maps and Terrain",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2722"
+    },
+    {
+      "type": "Rules",
+      "name": "Inhabitant or Intruder?",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2723"
+    },
+    {
+      "type": "Rules",
+      "name": "Wild Weather",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2724"
+    },
+    {
+      "type": "Rules",
+      "name": "Budgeting for Terrain",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2725"
+    },
+    {
+      "type": "Rules",
+      "name": "Enemy Motivations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2726"
+    },
+    {
+      "type": "Rules",
+      "name": "Morale",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2727"
+    },
+    {
+      "type": "Rules",
+      "name": "Dynamic Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2728"
+    },
+    {
+      "type": "Rules",
+      "name": "Hazards in Combat",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2729"
+    },
+    {
+      "type": "Rules",
+      "name": "Evolving Battlefields",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2730"
+    },
+    {
+      "type": "Rules",
+      "name": "Combining and Separating Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2731"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Pitfalls",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2731"
+    },
+    {
+      "type": "Rules",
+      "name": "Time Pressure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2732"
+    },
+    {
+      "type": "Rules",
+      "name": "Secondary Objectives",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2733"
+    },
+    {
+      "type": "Rules",
+      "name": "Opponent Synergy",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2734"
+    },
+    {
+      "type": "Rules",
+      "name": "Misdirection",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2735"
+    },
+    {
+      "type": "Rules",
+      "name": "Recurring Villains",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2736"
+    },
+    {
+      "type": "Rules",
+      "name": "Social Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2737"
+    },
+    {
+      "type": "Rules",
+      "name": "Treasure by Encounter",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2738"
+    },
+    {
+      "type": "Rules",
+      "name": "Variant Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2739"
+    },
+    {
+      "type": "Rules",
+      "name": "Choosing Variant Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2740"
+    },
+    {
+      "type": "Rules",
+      "name": "Automatic Bonus Progression",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2741"
+    },
+    {
+      "type": "Rules",
+      "name": "Special Class Features",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2742"
+    },
+    {
+      "type": "Rules",
+      "name": "Attack Potency",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2743"
+    },
+    {
+      "type": "Rules",
+      "name": "Skill Potency",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2744"
+    },
+    {
+      "type": "Rules",
+      "name": "Devastating Attacks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2745"
+    },
+    {
+      "type": "Rules",
+      "name": "Defense Potency",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2746"
+    },
+    {
+      "type": "Rules",
+      "name": "Perception Potency",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2747"
+    },
+    {
+      "type": "Rules",
+      "name": "Saving Throw Potency",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2748"
+    },
+    {
+      "type": "Rules",
+      "name": "Attribute Apex",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2749"
+    },
+    {
+      "type": "Rules",
+      "name": "Adjusting Items and Treasure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2750"
+    },
+    {
+      "type": "Rules",
+      "name": "Free Archetype",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2751"
+    },
+    {
+      "type": "Rules",
+      "name": "Building a Character",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2752"
+    },
+    {
+      "type": "Rules",
+      "name": "Playing with Free Archetypes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2753"
+    },
+    {
+      "type": "Rules",
+      "name": "Level 0 Characters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2754"
+    },
+    {
+      "type": "Rules",
+      "name": "Building Characters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2755"
+    },
+    {
+      "type": "Rules",
+      "name": "Initial Proficiencies",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2756"
+    },
+    {
+      "type": "Rules",
+      "name": "Hit Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2757"
+    },
+    {
+      "type": "Rules",
+      "name": "Starting Money",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2758"
+    },
+    {
+      "type": "Rules",
+      "name": "Apprentice Option",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2759"
+    },
+    {
+      "type": "Rules",
+      "name": "Gameplay",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2760"
+    },
+    {
+      "type": "Rules",
+      "name": "Treasure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2761"
+    },
+    {
+      "type": "Rules",
+      "name": "Proficiency without Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2762"
+    },
+    {
+      "type": "Rules",
+      "name": "Adjusting Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2763"
+    },
+    {
+      "type": "Rules",
+      "name": "Adjusting Treasure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2764"
+    },
+    {
+      "type": "Rules",
+      "name": "Afflictions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2765"
+    },
+    {
+      "type": "Rules",
+      "name": "Curses",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2766"
+    },
+    {
+      "type": "Rules",
+      "name": "Diseases",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2767"
+    },
+    {
+      "type": "Rules",
+      "name": "Environment",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2768"
+    },
+    {
+      "type": "Rules",
+      "name": "Environmental Damage",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2769"
+    },
+    {
+      "type": "Rules",
+      "name": "Aquatic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2770"
+    },
+    {
+      "type": "Rules",
+      "name": "Currents and Flowing Water",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2771"
+    },
+    {
+      "type": "Rules",
+      "name": "Underwater Visibility",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2772"
+    },
+    {
+      "type": "Rules",
+      "name": "Arctic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2773"
+    },
+    {
+      "type": "Rules",
+      "name": "Ice",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2774"
+    },
+    {
+      "type": "Rules",
+      "name": "Snow",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2775"
+    },
+    {
+      "type": "Rules",
+      "name": "Desert",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2776"
+    },
+    {
+      "type": "Rules",
+      "name": "Rubble",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2777"
+    },
+    {
+      "type": "Rules",
+      "name": "Sand",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2778"
+    },
+    {
+      "type": "Rules",
+      "name": "Forest",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2779"
+    },
+    {
+      "type": "Rules",
+      "name": "Canopies",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2780"
+    },
+    {
+      "type": "Rules",
+      "name": "Trees",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2781"
+    },
+    {
+      "type": "Rules",
+      "name": "Undergrowth",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2782"
+    },
+    {
+      "type": "Rules",
+      "name": "Mountain",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2783"
+    },
+    {
+      "type": "Rules",
+      "name": "Chasms",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2784"
+    },
+    {
+      "type": "Rules",
+      "name": "Cliffs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2785"
+    },
+    {
+      "type": "Rules",
+      "name": "Rubble",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2786"
+    },
+    {
+      "type": "Rules",
+      "name": "Slopes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2787"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Terrain Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2787"
+    },
+    {
+      "type": "Rules",
+      "name": "Undergrowth",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2788"
+    },
+    {
+      "type": "Rules",
+      "name": "Plains",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2789"
+    },
+    {
+      "type": "Rules",
+      "name": "Hedges",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2790"
+    },
+    {
+      "type": "Rules",
+      "name": "Undergrowth",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2791"
+    },
+    {
+      "type": "Rules",
+      "name": "Swamp",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2792"
+    },
+    {
+      "type": "Rules",
+      "name": "Bogs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2793"
+    },
+    {
+      "type": "Rules",
+      "name": "Undergrowth",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2794"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Doors, Gates, and Walls",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2795"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Forcing Open",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2795"
+    },
+    {
+      "type": "Rules",
+      "name": "Urban",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2795"
+    },
+    {
+      "type": "Rules",
+      "name": "Crowds",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2796"
+    },
+    {
+      "type": "Rules",
+      "name": "Doors",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2797"
+    },
+    {
+      "type": "Rules",
+      "name": "Floors",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2798"
+    },
+    {
+      "type": "Rules",
+      "name": "Gates",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2799"
+    },
+    {
+      "type": "Rules",
+      "name": "Guards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2800"
+    },
+    {
+      "type": "Rules",
+      "name": "Portcullises",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2801"
+    },
+    {
+      "type": "Rules",
+      "name": "Rooftops",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2802"
+    },
+    {
+      "type": "Rules",
+      "name": "Sewers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2803"
+    },
+    {
+      "type": "Rules",
+      "name": "Sewer Gas",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2804"
+    },
+    {
+      "type": "Rules",
+      "name": "Stairs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2805"
+    },
+    {
+      "type": "Rules",
+      "name": "Streets",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2806"
+    },
+    {
+      "type": "Rules",
+      "name": "Walls",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2807"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Dungeons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2808"
+    },
+    {
+      "type": "Rules",
+      "name": "Underground",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2808"
+    },
+    {
+      "type": "Rules",
+      "name": "Floors",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2809"
+    },
+    {
+      "type": "Rules",
+      "name": "Ledges",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2810"
+    },
+    {
+      "type": "Rules",
+      "name": "Rubble",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2811"
+    },
+    {
+      "type": "Rules",
+      "name": "Stalagmites and Stalactites",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2812"
+    },
+    {
+      "type": "Rules",
+      "name": "Walls",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2813"
+    },
+    {
+      "type": "Rules",
+      "name": "Climate",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2814"
+    },
+    {
+      "type": "Rules",
+      "name": "Fog",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2815"
+    },
+    {
+      "type": "Rules",
+      "name": "Precipitation",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2816"
+    },
+    {
+      "type": "Rules",
+      "name": "Visibility",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2817"
+    },
+    {
+      "type": "Rules",
+      "name": "Fatigue",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2818"
+    },
+    {
+      "type": "Rules",
+      "name": "Thunderstorms",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2819"
+    },
+    {
+      "type": "Rules",
+      "name": "Temperature",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2820"
+    },
+    {
+      "type": "Rules",
+      "name": "Wind",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2821"
+    },
+    {
+      "type": "Rules",
+      "name": "Moving in Wind",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2822"
+    },
+    {
+      "type": "Rules",
+      "name": "Natural Disasters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2823"
+    },
+    {
+      "type": "Rules",
+      "name": "Avalanches",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2824"
+    },
+    {
+      "type": "Rules",
+      "name": "Burial",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2825"
+    },
+    {
+      "type": "Rules",
+      "name": "Blizzards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2826"
+    },
+    {
+      "type": "Rules",
+      "name": "Collapses",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2827"
+    },
+    {
+      "type": "Rules",
+      "name": "Earthquakes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2828"
+    },
+    {
+      "type": "Rules",
+      "name": "Fissures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2829"
+    },
+    {
+      "type": "Rules",
+      "name": "Soil Liquefaction",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2830"
+    },
+    {
+      "type": "Rules",
+      "name": "Tremors",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2831"
+    },
+    {
+      "type": "Rules",
+      "name": "Floods",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2832"
+    },
+    {
+      "type": "Rules",
+      "name": "Sandstorms",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2833"
+    },
+    {
+      "type": "Rules",
+      "name": "Tornadoes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2834"
+    },
+    {
+      "type": "Rules",
+      "name": "Tsunamis",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2835"
+    },
+    {
+      "type": "Rules",
+      "name": "Volcanic Eruptions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2836"
+    },
+    {
+      "type": "Rules",
+      "name": "Ash",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2837"
+    },
+    {
+      "type": "Rules",
+      "name": "Lava Bombs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2838"
+    },
+    {
+      "type": "Rules",
+      "name": "Lava Flows",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2839"
+    },
+    {
+      "type": "Rules",
+      "name": "Pyroclastic Flows",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2840"
+    },
+    {
+      "type": "Rules",
+      "name": "Vents",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2841"
+    },
+    {
+      "type": "Rules",
+      "name": "Wildfires",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2842"
+    },
+    {
+      "type": "Rules",
+      "name": "Flames",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2843"
+    },
+    {
+      "type": "Rules",
+      "name": "Heat",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2844"
+    },
+    {
+      "type": "Rules",
+      "name": "Smoke",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2845"
+    },
+    {
+      "type": "Rules",
+      "name": "Hazards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2846"
+    },
+    {
+      "type": "Rules",
+      "name": "Detecting a Hazard",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2847"
+    },
+    {
+      "type": "Rules",
+      "name": "Triggering a Hazard",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2848"
+    },
+    {
+      "type": "Rules",
+      "name": "Reaction or Free Action",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2849"
+    },
+    {
+      "type": "Rules",
+      "name": "Routine",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2850"
+    },
+    {
+      "type": "Rules",
+      "name": "Resetting a Hazard",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2851"
+    },
+    {
+      "type": "Rules",
+      "name": "Disabling a Hazard",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2852"
+    },
+    {
+      "type": "Rules",
+      "name": "Damaging a Hazard",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2853"
+    },
+    {
+      "type": "Rules",
+      "name": "Attacking a Hazard",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2854"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Monsters and Hazards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2854"
+    },
+    {
+      "type": "Rules",
+      "name": "Repairing a Hazard",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2855"
+    },
+    {
+      "type": "Rules",
+      "name": "Counteracting a Magical Hazard",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2856"
+    },
+    {
+      "type": "Rules",
+      "name": "Hazard Experience",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2857"
+    },
+    {
+      "type": "Rules",
+      "name": "Hazard Format",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2858"
+    },
+    {
+      "type": "Rules",
+      "name": "Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2859"
+    },
+    {
+      "type": "Rules",
+      "name": "Traits",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2860"
+    },
+    {
+      "type": "Rules",
+      "name": "Stealth or Stealth DC",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2861"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Hazards by Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2862"
+    },
+    {
+      "type": "Rules",
+      "name": "Simple Hazards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2862"
+    },
+    {
+      "type": "Rules",
+      "name": "Complex Hazards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2863"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Upgraded Summoning Runes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2863"
+    },
+    {
+      "type": "Rules",
+      "name": "Building Hazards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2864"
+    },
+    {
+      "type": "Rules",
+      "name": "Concept",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2865"
+    },
+    {
+      "type": "Rules",
+      "name": "Hazard Types",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2866"
+    },
+    {
+      "type": "Rules",
+      "name": "Understanding and Choosing Statistics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2867"
+    },
+    {
+      "type": "Rules",
+      "name": "Stealth and Disable",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2868"
+    },
+    {
+      "type": "Rules",
+      "name": "Defenses",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2869"
+    },
+    {
+      "type": "Rules",
+      "name": "Offense",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2870"
+    },
+    {
+      "type": "Rules",
+      "name": "Designing Simple Hazards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2871"
+    },
+    {
+      "type": "Rules",
+      "name": "Designing Complex Hazards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2872"
+    },
+    {
+      "type": "Rules",
+      "name": "Building Routines",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2873"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Base Road Maps",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2874"
+    },
+    {
+      "type": "Rules",
+      "name": "Building Creatures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2874"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Building Creatures Overview",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2874"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Converting First Edition Creatures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2874"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Designing NPCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2874"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Traits Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2874"
+    },
+    {
+      "type": "Rules",
+      "name": "Develop the Concept",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2875"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Reskinning a Creature",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2875"
+    },
+    {
+      "type": "Rules",
+      "name": "Understanding Statistics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2876"
+    },
+    {
+      "type": "Rules",
+      "name": "Push and Pull",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2877"
+    },
+    {
+      "type": "Rules",
+      "name": "Extreme Increases",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2878"
+    },
+    {
+      "type": "Rules",
+      "name": "Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2879"
+    },
+    {
+      "type": "Rules",
+      "name": "Size and Traits",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2880"
+    },
+    {
+      "type": "Rules",
+      "name": "Attribute Modifiers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2881"
+    },
+    {
+      "type": "Rules",
+      "name": "Perception",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2882"
+    },
+    {
+      "type": "Rules",
+      "name": "Senses",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2883"
+    },
+    {
+      "type": "Rules",
+      "name": "Languages",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2884"
+    },
+    {
+      "type": "Rules",
+      "name": "Skills",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2885"
+    },
+    {
+      "type": "Rules",
+      "name": "Special Modifiers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2886"
+    },
+    {
+      "type": "Rules",
+      "name": "Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2887"
+    },
+    {
+      "type": "Rules",
+      "name": "Defenses",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2888"
+    },
+    {
+      "type": "Rules",
+      "name": "Armor Class",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2889"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Improvising a Creature",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2889"
+    },
+    {
+      "type": "Rules",
+      "name": "Saving Throws",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2890"
+    },
+    {
+      "type": "Rules",
+      "name": "Hit Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2891"
+    },
+    {
+      "type": "Rules",
+      "name": "Regeneration and Healing Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2892"
+    },
+    {
+      "type": "Rules",
+      "name": "Immunities, Weaknesses, and Resistances",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2893"
+    },
+    {
+      "type": "Rules",
+      "name": "Speed",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2894"
+    },
+    {
+      "type": "Rules",
+      "name": "Strikes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2895"
+    },
+    {
+      "type": "Rules",
+      "name": "Strike Attack Bonus",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2896"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Manufactured Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2897"
+    },
+    {
+      "type": "Rules",
+      "name": "Strike Damage",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2897"
+    },
+    {
+      "type": "Rules",
+      "name": "Spells",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2898"
+    },
+    {
+      "type": "Rules",
+      "name": "Spell DC and Spell Attack Modifier",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2899"
+    },
+    {
+      "type": "Rules",
+      "name": "Prepared and Spontaneous Spells",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2900"
+    },
+    {
+      "type": "Rules",
+      "name": "Innate Spells",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2901"
+    },
+    {
+      "type": "Rules",
+      "name": "Rituals",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2902"
+    },
+    {
+      "type": "Rules",
+      "name": "Design Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2903"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Focus Spells",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2903"
+    },
+    {
+      "type": "Rules",
+      "name": "Basics of Ability Design",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2904"
+    },
+    {
+      "type": "Rules",
+      "name": "Action Economy",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2905"
+    },
+    {
+      "type": "Rules",
+      "name": "Level Appropriateness",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2906"
+    },
+    {
+      "type": "Rules",
+      "name": "Invisible Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2907"
+    },
+    {
+      "type": "Rules",
+      "name": "Active Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2908"
+    },
+    {
+      "type": "Rules",
+      "name": "Free Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2909"
+    },
+    {
+      "type": "Rules",
+      "name": "Damage-Dealing Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2910"
+    },
+    {
+      "type": "Rules",
+      "name": "Defensive Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2911"
+    },
+    {
+      "type": "Rules",
+      "name": "Reactive Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2912"
+    },
+    {
+      "type": "Rules",
+      "name": "Reaction Damage",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2913"
+    },
+    {
+      "type": "Rules",
+      "name": "Constant and Automatic Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2914"
+    },
+    {
+      "type": "Rules",
+      "name": "Constant and Automatic Damage",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2915"
+    },
+    {
+      "type": "Rules",
+      "name": "Skill Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2916"
+    },
+    {
+      "type": "Rules",
+      "name": "Review",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2917"
+    },
+    {
+      "type": "Rules",
+      "name": "Trait Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2918"
+    },
+    {
+      "type": "Rules",
+      "name": "Building NPCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2919"
+    },
+    {
+      "type": "Rules",
+      "name": "Non-Combat Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2920"
+    },
+    {
+      "type": "Rules",
+      "name": "Non-Combat XP",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2921"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Class Road Maps",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2922"
+    },
+    {
+      "type": "Rules",
+      "name": "PC-style Build",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2922"
+    },
+    {
+      "type": "Rules",
+      "name": "Building Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2923"
+    },
+    {
+      "type": "Rules",
+      "name": "Concept and Role",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2924"
+    },
+    {
+      "type": "Rules",
+      "name": "Item Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2925"
+    },
+    {
+      "type": "Rules",
+      "name": "Comparison",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2926"
+    },
+    {
+      "type": "Rules",
+      "name": "Item Effects",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2927"
+    },
+    {
+      "type": "Rules",
+      "name": "Special Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2928"
+    },
+    {
+      "type": "Rules",
+      "name": "Constant Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2929"
+    },
+    {
+      "type": "Rules",
+      "name": "Activation Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2930"
+    },
+    {
+      "type": "Rules",
+      "name": "Scaling out of Usefulness",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2931"
+    },
+    {
+      "type": "Rules",
+      "name": "Bonuses",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2932"
+    },
+    {
+      "type": "Rules",
+      "name": "Designing by Type",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2933"
+    },
+    {
+      "type": "Rules",
+      "name": "Alchemical Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2934"
+    },
+    {
+      "type": "Rules",
+      "name": "Ammunition",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2935"
+    },
+    {
+      "type": "Rules",
+      "name": "Armor and Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2936"
+    },
+    {
+      "type": "Rules",
+      "name": "Held Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2937"
+    },
+    {
+      "type": "Rules",
+      "name": "Oils",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2938"
+    },
+    {
+      "type": "Rules",
+      "name": "Potions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2939"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Potions vs. Elixirs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2939"
+    },
+    {
+      "type": "Rules",
+      "name": "Runes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2940"
+    },
+    {
+      "type": "Rules",
+      "name": "Scrolls",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2941"
+    },
+    {
+      "type": "Rules",
+      "name": "Shields",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2942"
+    },
+    {
+      "type": "Rules",
+      "name": "Staves",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2943"
+    },
+    {
+      "type": "Rules",
+      "name": "Structures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2944"
+    },
+    {
+      "type": "Rules",
+      "name": "Talismans",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2945"
+    },
+    {
+      "type": "Rules",
+      "name": "Wands",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2946"
+    },
+    {
+      "type": "Rules",
+      "name": "Worn Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2947"
+    },
+    {
+      "type": "Rules",
+      "name": "Fill in the Numbers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2948"
+    },
+    {
+      "type": "Rules",
+      "name": "DCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2949"
+    },
+    {
+      "type": "Rules",
+      "name": "Item Prices",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2950"
+    },
+    {
+      "type": "Rules",
+      "name": "Consumables",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2951"
+    },
+    {
+      "type": "Rules",
+      "name": "Building Worlds",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2952"
+    },
+    {
+      "type": "Rules",
+      "name": "Design Approach",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2953"
+    },
+    {
+      "type": "Rules",
+      "name": "Top Down",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2954"
+    },
+    {
+      "type": "Rules",
+      "name": "Bottom Up",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2955"
+    },
+    {
+      "type": "Rules",
+      "name": "The World",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2956"
+    },
+    {
+      "type": "Rules",
+      "name": "Planetary Basics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2957"
+    },
+    {
+      "type": "Rules",
+      "name": "Shape",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2958"
+    },
+    {
+      "type": "Rules",
+      "name": "Landmass",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2959"
+    },
+    {
+      "type": "Rules",
+      "name": "Environment",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2960"
+    },
+    {
+      "type": "Rules",
+      "name": "Common Environments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2961"
+    },
+    {
+      "type": "Rules",
+      "name": "Extreme Environments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2962"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Campaign Reference",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2963"
+    },
+    {
+      "type": "Rules",
+      "name": "Mapping a World",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2963"
+    },
+    {
+      "type": "Rules",
+      "name": "Civilization",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2964"
+    },
+    {
+      "type": "Rules",
+      "name": "Societal Benchmarks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2965"
+    },
+    {
+      "type": "Rules",
+      "name": "Technology",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2966"
+    },
+    {
+      "type": "Rules",
+      "name": "Divine Involvement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2967"
+    },
+    {
+      "type": "Rules",
+      "name": "Magic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2968"
+    },
+    {
+      "type": "Rules",
+      "name": "Designing Nations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2969"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Conscientious Culture Design",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2970"
+    },
+    {
+      "type": "Rules",
+      "name": "Location, Size, and Population",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2970"
+    },
+    {
+      "type": "Rules",
+      "name": "Cultural Hallmarks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2971"
+    },
+    {
+      "type": "Rules",
+      "name": "History",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2972"
+    },
+    {
+      "type": "Rules",
+      "name": "Economy and Political Stances",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2973"
+    },
+    {
+      "type": "Rules",
+      "name": "Building Settlements",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2974"
+    },
+    {
+      "type": "Rules",
+      "name": "Mapping a Settlement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2975"
+    },
+    {
+      "type": "Rules",
+      "name": "Religion",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2976"
+    },
+    {
+      "type": "Rules",
+      "name": "Theology",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2977"
+    },
+    {
+      "type": "Rules",
+      "name": "Pantheons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2978"
+    },
+    {
+      "type": "Rules",
+      "name": "Deities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2979"
+    },
+    {
+      "type": "Rules",
+      "name": "Divine Rank",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2980"
+    },
+    {
+      "type": "Rules",
+      "name": "Divine Statistics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2981"
+    },
+    {
+      "type": "Rules",
+      "name": "Devotee Benefits",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2982"
+    },
+    {
+      "type": "Rules",
+      "name": "Cosmology",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2983"
+    },
+    {
+      "type": "Rules",
+      "name": "The Universe",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2984"
+    },
+    {
+      "type": "Rules",
+      "name": "Composition of Outer Space",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2985"
+    },
+    {
+      "type": "Rules",
+      "name": "Solar System",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2986"
+    },
+    {
+      "type": "Rules",
+      "name": "Planets and Moons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2987"
+    },
+    {
+      "type": "Rules",
+      "name": "The Multiverse",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2988"
+    },
+    {
+      "type": "Rules",
+      "name": "History",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2990"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Months and Days",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2991"
+    },
+    {
+      "type": "Rules",
+      "name": "The Inner Sea Region",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2991"
+    },
+    {
+      "type": "Rules",
+      "name": "Beyond the Inner Sea",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2992"
+    },
+    {
+      "type": "Rules",
+      "name": "The Darklands",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2993"
+    },
+    {
+      "type": "Rules",
+      "name": "The Solar System",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2994"
+    },
+    {
+      "type": "Rules",
+      "name": "The Great Beyond",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2995"
+    },
+    {
+      "type": "Rules",
+      "name": "Nations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2996"
+    },
+    {
+      "type": "Rules",
+      "name": "Nation Stat Block",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2997"
+    },
+    {
+      "type": "Rules",
+      "name": "Nations of Lost Omens",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2998"
+    },
+    {
+      "type": "Rules",
+      "name": "Settlements",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=2999"
+    },
+    {
+      "type": "Rules",
+      "name": "Settlements in a Game",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3000"
+    },
+    {
+      "type": "Rules",
+      "name": "Settlement Adventures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3001"
+    },
+    {
+      "type": "Rules",
+      "name": "Modes of Play",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3002"
+    },
+    {
+      "type": "Rules",
+      "name": "Marketplaces",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3003"
+    },
+    {
+      "type": "Rules",
+      "name": "Power Structures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3004"
+    },
+    {
+      "type": "Rules",
+      "name": "Government",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3005"
+    },
+    {
+      "type": "Rules",
+      "name": "Legal Codes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3006"
+    },
+    {
+      "type": "Rules",
+      "name": "Law Enforcement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3007"
+    },
+    {
+      "type": "Rules",
+      "name": "Organizations, Churches, and Factions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3008"
+    },
+    {
+      "type": "Rules",
+      "name": "Corruption",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3009"
+    },
+    {
+      "type": "Rules",
+      "name": "Settlement Stat Block",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3010"
+    },
+    {
+      "type": "Rules",
+      "name": "Sample Settlement Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3011"
+    },
+    {
+      "type": "Rules",
+      "name": "Changing a Settlement",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3012"
+    },
+    {
+      "type": "Rules",
+      "name": "Settlements of Lost Omens",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3013"
+    },
+    {
+      "type": "Rules",
+      "name": "The Planes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3014"
+    },
+    {
+      "type": "Rules",
+      "name": "Planar Traits",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3015"
+    },
+    {
+      "type": "Rules",
+      "name": "Scope Trait",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3016"
+    },
+    {
+      "type": "Rules",
+      "name": "Gravity Traits",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3017"
+    },
+    {
+      "type": "Rules",
+      "name": "Time Traits",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3018"
+    },
+    {
+      "type": "Rules",
+      "name": "Morphic Traits",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3019"
+    },
+    {
+      "type": "Rules",
+      "name": "Planar Essence Traits",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3020"
+    },
+    {
+      "type": "Rules",
+      "name": "Planar Stat Blocks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3021"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Enhanced and Impeded Magic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3022"
+    },
+    {
+      "type": "Rules",
+      "name": "Inner Sphere Planes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3022"
+    },
+    {
+      "type": "Rules",
+      "name": "Transitive Planes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3023"
+    },
+    {
+      "type": "Rules",
+      "name": "Outer Sphere Planes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3024"
+    },
+    {
+      "type": "Rules",
+      "name": "Dimensions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3025"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Combining Subsystems",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3027"
+    },
+    {
+      "type": "Rules",
+      "name": "Deciding to Use a Subsystem",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3027"
+    },
+    {
+      "type": "Rules",
+      "name": "Victory Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3028"
+    },
+    {
+      "type": "Rules",
+      "name": "Naming Your Victory Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3029"
+    },
+    {
+      "type": "Rules",
+      "name": "Victory Point Subsystem Structures",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3030"
+    },
+    {
+      "type": "Rules",
+      "name": "Accumulating Victory Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3031"
+    },
+    {
+      "type": "Rules",
+      "name": "Accumulating Rolls",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3032"
+    },
+    {
+      "type": "Rules",
+      "name": "Diminishing Victory Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3033"
+    },
+    {
+      "type": "Rules",
+      "name": "Diminishing Rolls",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3034"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Enemy Victory Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3035"
+    },
+    {
+      "type": "Rules",
+      "name": "Multiple Point Subsystems",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3035"
+    },
+    {
+      "type": "Rules",
+      "name": "Obstacles and DCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3036"
+    },
+    {
+      "type": "Rules",
+      "name": "Setting Your Scale",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3037"
+    },
+    {
+      "type": "Rules",
+      "name": "Running your Subsystem",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3038"
+    },
+    {
+      "type": "Rules",
+      "name": "Rewards",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3039"
+    },
+    {
+      "type": "Rules",
+      "name": "Influence",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3040"
+    },
+    {
+      "type": "Rules",
+      "name": "Influence Stat Blocks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3041"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Sample Stat Block",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3041"
+    },
+    {
+      "type": "Rules",
+      "name": "Setting DCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3042"
+    },
+    {
+      "type": "Rules",
+      "name": "Running an Influence Encounter",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3043"
+    },
+    {
+      "type": "Rules",
+      "name": "Experience Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3044"
+    },
+    {
+      "type": "Rules",
+      "name": "Research",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3045"
+    },
+    {
+      "type": "Rules",
+      "name": "Building a Research Challenge",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3046"
+    },
+    {
+      "type": "Rules",
+      "name": "Designing the Library",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3047"
+    },
+    {
+      "type": "Rules",
+      "name": "Designing the Stat Block",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3048"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Sample Research Checks and Stat Block",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3048"
+    },
+    {
+      "type": "Rules",
+      "name": "Chases",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3049"
+    },
+    {
+      "type": "Rules",
+      "name": "Obstacles",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3050"
+    },
+    {
+      "type": "Rules",
+      "name": "Building a Chase",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3051"
+    },
+    {
+      "type": "Rules",
+      "name": "Setting Obstacle DCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3052"
+    },
+    {
+      "type": "Rules",
+      "name": "Shortcuts and Split Paths",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3053"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Solo Chases",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3053"
+    },
+    {
+      "type": "Rules",
+      "name": "Ending Chases",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3054"
+    },
+    {
+      "type": "Rules",
+      "name": "Types of Chases",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3055"
+    },
+    {
+      "type": "Rules",
+      "name": "Running a Chase",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3056"
+    },
+    {
+      "type": "Rules",
+      "name": "Visual Aids",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3057"
+    },
+    {
+      "type": "Rules",
+      "name": "If the PCs Get Stuck",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3058"
+    },
+    {
+      "type": "Rules",
+      "name": "Infiltration",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3059"
+    },
+    {
+      "type": "Rules",
+      "name": "Building an Infiltration",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3060"
+    },
+    {
+      "type": "Rules",
+      "name": "Objective",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3061"
+    },
+    {
+      "type": "Rules",
+      "name": "Obstacles",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3062"
+    },
+    {
+      "type": "Rules",
+      "name": "Obstacles in Play",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3063"
+    },
+    {
+      "type": "Rules",
+      "name": "Pacing",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3064"
+    },
+    {
+      "type": "Rules",
+      "name": "Sample Obstacles",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3065"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Setting Infiltration Skills and DCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3065"
+    },
+    {
+      "type": "Rules",
+      "name": "Awareness Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3066"
+    },
+    {
+      "type": "Rules",
+      "name": "Complications",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3067"
+    },
+    {
+      "type": "Rules",
+      "name": "Opportunities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3068"
+    },
+    {
+      "type": "Rules",
+      "name": "PC Preparations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3069"
+    },
+    {
+      "type": "Rules",
+      "name": "Edge Points",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3070"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Infiltration Preparation",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3070"
+    },
+    {
+      "type": "Rules",
+      "name": "Preparation Activities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3071"
+    },
+    {
+      "type": "Rules",
+      "name": "Reputation",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3072"
+    },
+    {
+      "type": "Rules",
+      "name": "Favors",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3073"
+    },
+    {
+      "type": "Rules",
+      "name": "Disservices",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3074"
+    },
+    {
+      "type": "Rules",
+      "name": "Reputations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3075"
+    },
+    {
+      "type": "Rules",
+      "name": "Ignored",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3076"
+    },
+    {
+      "type": "Rules",
+      "name": "Liked",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3077"
+    },
+    {
+      "type": "Rules",
+      "name": "Admired",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3078"
+    },
+    {
+      "type": "Rules",
+      "name": "Revered",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3079"
+    },
+    {
+      "type": "Rules",
+      "name": "Disliked",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3080"
+    },
+    {
+      "type": "Rules",
+      "name": "Hated",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3081"
+    },
+    {
+      "type": "Rules",
+      "name": "Hunted",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3082"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Reputation in Pathfinder Society Organized Play",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3082"
+    },
+    {
+      "type": "Rules",
+      "name": "Running Reputation",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3083"
+    },
+    {
+      "type": "Rules",
+      "name": "Duels",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3084"
+    },
+    {
+      "type": "Rules",
+      "name": "Setting Up a Duel",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3085"
+    },
+    {
+      "type": "Rules",
+      "name": "Compete Alone",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3086"
+    },
+    {
+      "type": "Rules",
+      "name": "Limited Tools",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3087"
+    },
+    {
+      "type": "Rules",
+      "name": "Duration",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3088"
+    },
+    {
+      "type": "Rules",
+      "name": "Adjudication",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3089"
+    },
+    {
+      "type": "Rules",
+      "name": "Combat Duels",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3090"
+    },
+    {
+      "type": "Rules",
+      "name": "Initiative and Dueling Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3091"
+    },
+    {
+      "type": "Rules",
+      "name": "Ending the Duel",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3092"
+    },
+    {
+      "type": "Rules",
+      "name": "Spellcasting Duels",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3093"
+    },
+    {
+      "type": "Rules",
+      "name": "Initiative and Dueling Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3094"
+    },
+    {
+      "type": "Rules",
+      "name": "Ending the Duel",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3095"
+    },
+    {
+      "type": "Rules",
+      "name": "Leadership",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3096"
+    },
+    {
+      "type": "Rules",
+      "name": "Organization Levels",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3097"
+    },
+    {
+      "type": "Rules",
+      "name": "Base of Operations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3098"
+    },
+    {
+      "type": "Rules",
+      "name": "Organization NPCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3099"
+    },
+    {
+      "type": "Rules",
+      "name": "Cohorts and New PCs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3100"
+    },
+    {
+      "type": "Rules",
+      "name": "Running Leadership",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3101"
+    },
+    {
+      "type": "Rules",
+      "name": "Leadership Events",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3102"
+    },
+    {
+      "type": "Rules",
+      "name": "Hexploration",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3103"
+    },
+    {
+      "type": "Rules",
+      "name": "Designing the Map",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3104"
+    },
+    {
+      "type": "Rules",
+      "name": "Populating Hexes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3105"
+    },
+    {
+      "type": "Rules",
+      "name": "Set Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3106"
+    },
+    {
+      "type": "Rules",
+      "name": "Random Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3107"
+    },
+    {
+      "type": "Rules",
+      "name": "Terrain",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3108"
+    },
+    {
+      "type": "Rules",
+      "name": "Generating Random Hex Maps",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3109"
+    },
+    {
+      "type": "Rules",
+      "name": "Running Hexploration",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3110"
+    },
+    {
+      "type": "Rules",
+      "name": "Group Activities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3111"
+    },
+    {
+      "type": "Rules",
+      "name": "Individual Activities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3112"
+    },
+    {
+      "type": "Rules",
+      "name": "Existing Activities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3113"
+    },
+    {
+      "type": "Rules",
+      "name": "Random Encounters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3114"
+    },
+    {
+      "type": "Rules",
+      "name": "Switching out of Hexploration",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3115"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Types of Terrain",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3115"
+    },
+    {
+      "type": "Rules",
+      "name": "Vehicles",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3116"
+    },
+    {
+      "type": "Rules",
+      "name": "Vehicle Basics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3117"
+    },
+    {
+      "type": "Rules",
+      "name": "Size, Space, and Capacity",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3118"
+    },
+    {
+      "type": "Rules",
+      "name": "Movement and Heading",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3119"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Propulsion",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3120"
+    },
+    {
+      "type": "Rules",
+      "name": "Propulsion",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3120"
+    },
+    {
+      "type": "Rules",
+      "name": "Alchemical",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3121"
+    },
+    {
+      "type": "Rules",
+      "name": "Magical",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3122"
+    },
+    {
+      "type": "Rules",
+      "name": "Pulled",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3123"
+    },
+    {
+      "type": "Rules",
+      "name": "Rowed",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3124"
+    },
+    {
+      "type": "Rules",
+      "name": "Wind",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3125"
+    },
+    {
+      "type": "Rules",
+      "name": "Piloting a Vehicle",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3126"
+    },
+    {
+      "type": "Rules",
+      "name": "Vehicle Momentum",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3127"
+    },
+    {
+      "type": "Rules",
+      "name": "Piloting Checks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3128"
+    },
+    {
+      "type": "Rules",
+      "name": "Piloting Actions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3129"
+    },
+    {
+      "type": "Rules",
+      "name": "Reckless Piloting",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3130"
+    },
+    {
+      "type": "Rules",
+      "name": "Uncontrolled Vehicles",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3131"
+    },
+    {
+      "type": "Rules",
+      "name": "Vehicles in Combat",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3132"
+    },
+    {
+      "type": "Rules",
+      "name": "Broken Vehicles",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3133"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Gallop",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3134"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Pulling a Sky Chariot",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3134"
+    },
+    {
+      "type": "Rules",
+      "name": "Vehicle Statistics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3134"
+    },
+    {
+      "type": "Rules",
+      "name": "Using Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3136"
+    },
+    {
+      "type": "Rules",
+      "name": "Constant Abilities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3137"
+    },
+    {
+      "type": "Rules",
+      "name": "Investing Magic Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3138"
+    },
+    {
+      "type": "Rules",
+      "name": "Activating Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3139"
+    },
+    {
+      "type": "Rules",
+      "name": "Activating Invested Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3140"
+    },
+    {
+      "type": "Rules",
+      "name": "Manipulate Activations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3141"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Disrupting Activations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3142"
+    },
+    {
+      "type": "Rules",
+      "name": "Long Activation Times",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3142"
+    },
+    {
+      "type": "Rules",
+      "name": "Limited Activations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3143"
+    },
+    {
+      "type": "Rules",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3144"
+    },
+    {
+      "type": "Rules",
+      "name": "Sustaining Activations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3145"
+    },
+    {
+      "type": "Rules",
+      "name": "Dismissing Activations",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3146"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Notable Item Traits",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3147"
+    },
+    {
+      "type": "Rules",
+      "name": "Reading Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3147"
+    },
+    {
+      "type": "Rules",
+      "name": "Level",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3148"
+    },
+    {
+      "type": "Rules",
+      "name": "Multiple Types",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3149"
+    },
+    {
+      "type": "Rules",
+      "name": "Price",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3150"
+    },
+    {
+      "type": "Rules",
+      "name": "Usage",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3151"
+    },
+    {
+      "type": "Rules",
+      "name": "Affixed",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3152"
+    },
+    {
+      "type": "Rules",
+      "name": "Etched",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3153"
+    },
+    {
+      "type": "Rules",
+      "name": "Held",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3154"
+    },
+    {
+      "type": "Rules",
+      "name": "Worn",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3155"
+    },
+    {
+      "type": "Rules",
+      "name": "Craft Requirements",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3156"
+    },
+    {
+      "type": "Rules",
+      "name": "Crafting Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3157"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Item Rarity",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3157"
+    },
+    {
+      "type": "Rules",
+      "name": "Runes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3158"
+    },
+    {
+      "type": "Rules",
+      "name": "Multiple Types",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3159"
+    },
+    {
+      "type": "Rules",
+      "name": "Important Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3160"
+    },
+    {
+      "type": "Rules",
+      "name": "Armor & Armaments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3161"
+    },
+    {
+      "type": "Rules",
+      "name": "Runes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3162"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Upgrading Runes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3162"
+    },
+    {
+      "type": "Rules",
+      "name": "Investiture",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3163"
+    },
+    {
+      "type": "Rules",
+      "name": "Rune Formulas",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3164"
+    },
+    {
+      "type": "Rules",
+      "name": "The Etching Process",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3165"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Rune Transfer Examples",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3166"
+    },
+    {
+      "type": "Rules",
+      "name": "Transferring Runes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3166"
+    },
+    {
+      "type": "Rules",
+      "name": "Fundamental Runes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3167"
+    },
+    {
+      "type": "Rules",
+      "name": "Property Runes",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3168"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Specific Armor, Weapons, and Shields",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3168"
+    },
+    {
+      "type": "Rules",
+      "name": "Armor",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3169"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Armor Alternatives",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3169"
+    },
+    {
+      "type": "Rules",
+      "name": "Precious Material Armor",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3170"
+    },
+    {
+      "type": "Rules",
+      "name": "Basic Magic Armor",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3171"
+    },
+    {
+      "type": "Rules",
+      "name": "Specific Magic Armor",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3172"
+    },
+    {
+      "type": "Rules",
+      "name": "Shield Rune",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3173"
+    },
+    {
+      "type": "Rules",
+      "name": "Shields",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3174"
+    },
+    {
+      "type": "Rules",
+      "name": "Precious Material Shields",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3175"
+    },
+    {
+      "type": "Rules",
+      "name": "Magic Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3176"
+    },
+    {
+      "type": "Rules",
+      "name": "Precious Material Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3177"
+    },
+    {
+      "type": "Rules",
+      "name": "Basic Magic Weapon",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3178"
+    },
+    {
+      "type": "Rules",
+      "name": "Specific Magic Weapons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3179"
+    },
+    {
+      "type": "Rules",
+      "name": "Alchemy",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3180"
+    },
+    {
+      "type": "Rules",
+      "name": "Alchemical Bombs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3181"
+    },
+    {
+      "type": "Rules",
+      "name": "Splash Trait",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3182"
+    },
+    {
+      "type": "Rules",
+      "name": "Alchemical Elixirs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3183"
+    },
+    {
+      "type": "Rules",
+      "name": "Activating Elixirs",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3184"
+    },
+    {
+      "type": "Rules",
+      "name": "Alchemical Poisons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3185"
+    },
+    {
+      "type": "Rules",
+      "name": "Method of Exposure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3186"
+    },
+    {
+      "type": "Rules",
+      "name": "Alchemical Tools",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3187"
+    },
+    {
+      "type": "Rules",
+      "name": "Materials",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3188"
+    },
+    {
+      "type": "Rules",
+      "name": "Material Statistics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3189"
+    },
+    {
+      "type": "Rules",
+      "name": "Precious Materials",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3190"
+    },
+    {
+      "type": "Rules",
+      "name": "Crafting with Precious Materials",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3191"
+    },
+    {
+      "type": "Rules",
+      "name": "Momentary Magic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3192"
+    },
+    {
+      "type": "Rules",
+      "name": "Ammunition",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3193"
+    },
+    {
+      "type": "Rules",
+      "name": "Activated Ammunition",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3194"
+    },
+    {
+      "type": "Rules",
+      "name": "Oils",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3195"
+    },
+    {
+      "type": "Rules",
+      "name": "Potions",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3196"
+    },
+    {
+      "type": "Rules",
+      "name": "Scrolls",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3197"
+    },
+    {
+      "type": "Rules",
+      "name": "Casting a Spell from a Scroll",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3198"
+    },
+    {
+      "type": "Rules",
+      "name": "Scroll Statistics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3199"
+    },
+    {
+      "type": "Rules",
+      "name": "Varying Statistics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3200"
+    },
+    {
+      "type": "Rules",
+      "name": "Crafting a Scroll",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3201"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Example Magic Scroll",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3202"
+    },
+    {
+      "type": "Rules",
+      "name": "Magic Scroll",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3202"
+    },
+    {
+      "type": "Rules",
+      "name": "Talismans",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3203"
+    },
+    {
+      "type": "Rules",
+      "name": "Affixing a Talisman",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3204"
+    },
+    {
+      "type": "Rules",
+      "name": "Talismans",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3205"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Expandable Trait",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3206"
+    },
+    {
+      "type": "Rules",
+      "name": "Wondrous Consumables",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3206"
+    },
+    {
+      "type": "Rules",
+      "name": "Trappings of Power",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3207"
+    },
+    {
+      "type": "Rules",
+      "name": "Apex Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3208"
+    },
+    {
+      "type": "Rules",
+      "name": "Companion Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3209"
+    },
+    {
+      "type": "Rules",
+      "name": "Held Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3210"
+    },
+    {
+      "type": "Sidebar",
+      "name": "The Structure Trait",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3210"
+    },
+    {
+      "type": "Rules",
+      "name": "Staves",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3211"
+    },
+    {
+      "type": "Rules",
+      "name": "Casting Spells from a Staff",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3212"
+    },
+    {
+      "type": "Rules",
+      "name": "Casting Cantrips from a Staff",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3213"
+    },
+    {
+      "type": "Rules",
+      "name": "Preparing a Staff",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3214"
+    },
+    {
+      "type": "Rules",
+      "name": "Prepared Spellcasters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3215"
+    },
+    {
+      "type": "Rules",
+      "name": "Spontaneous Spellcasters",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3216"
+    },
+    {
+      "type": "Rules",
+      "name": "Attacking with a Staff",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3217"
+    },
+    {
+      "type": "Rules",
+      "name": "Wands",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3218"
+    },
+    {
+      "type": "Rules",
+      "name": "Casting Spells from a Wand",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3219"
+    },
+    {
+      "type": "Rules",
+      "name": "Overcharging a Wand",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3220"
+    },
+    {
+      "type": "Rules",
+      "name": "Wand Statistics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3221"
+    },
+    {
+      "type": "Rules",
+      "name": "Varying Statistics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3222"
+    },
+    {
+      "type": "Rules",
+      "name": "Crafting a Wand",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3223"
+    },
+    {
+      "type": "Rules",
+      "name": "Magic Wand",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3224"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Example Magic Wand",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3225"
+    },
+    {
+      "type": "Rules",
+      "name": "Specialty Wands",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3225"
+    },
+    {
+      "type": "Rules",
+      "name": "Worn Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3226"
+    },
+    {
+      "type": "Rules",
+      "name": "Gems & Art Objects",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3227"
+    },
+    {
+      "type": "Rules",
+      "name": "Gems",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3228"
+    },
+    {
+      "type": "Rules",
+      "name": "Art Objects",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3229"
+    },
+    {
+      "type": "Rules",
+      "name": "Artifacts",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3230"
+    },
+    {
+      "type": "Rules",
+      "name": "Artifact Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3231"
+    },
+    {
+      "type": "Rules",
+      "name": "Artifact Destruction",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3232"
+    },
+    {
+      "type": "Rules",
+      "name": "Creating an Artifact",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3233"
+    },
+    {
+      "type": "Rules",
+      "name": "Artifacts",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3234"
+    },
+    {
+      "type": "Rules",
+      "name": "Intelligent Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3235"
+    },
+    {
+      "type": "Rules",
+      "name": "Intelligent Item Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3236"
+    },
+    {
+      "type": "Rules",
+      "name": "Perception and Senses",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3237"
+    },
+    {
+      "type": "Rules",
+      "name": "Communication and Languages",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3238"
+    },
+    {
+      "type": "Rules",
+      "name": "Skills",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3239"
+    },
+    {
+      "type": "Rules",
+      "name": "Attribute Modifiers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3240"
+    },
+    {
+      "type": "Rules",
+      "name": "Will Save",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3241"
+    },
+    {
+      "type": "Rules",
+      "name": "Item Agency",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3242"
+    },
+    {
+      "type": "Rules",
+      "name": "Designing Intelligent Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3243"
+    },
+    {
+      "type": "Rules",
+      "name": "Specific Intelligent Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3244"
+    },
+    {
+      "type": "Rules",
+      "name": "Cursed Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3245"
+    },
+    {
+      "type": "Rules",
+      "name": "Specific Cursed Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3246"
+    },
+    {
+      "type": "Rules",
+      "name": "Item Curses",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3247"
+    },
+    {
+      "type": "Rules",
+      "name": "Relics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3248"
+    },
+    {
+      "type": "Rules",
+      "name": "Discovering a Relic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3249"
+    },
+    {
+      "type": "Rules",
+      "name": "Background Relics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3250"
+    },
+    {
+      "type": "Rules",
+      "name": "Campaign Relics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3251"
+    },
+    {
+      "type": "Rules",
+      "name": "Relic Aspects",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3252"
+    },
+    {
+      "type": "Rules",
+      "name": "Advancing a Relic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3253"
+    },
+    {
+      "type": "Rules",
+      "name": "Adjusting Treasure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3254"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Player-Driven Relics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3254"
+    },
+    {
+      "type": "Rules",
+      "name": "Making Relic Seeds",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3255"
+    },
+    {
+      "type": "Rules",
+      "name": "Relic Gifts",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3256"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Runes as Gifts",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3256"
+    },
+    {
+      "type": "Rules",
+      "name": "Gift Saves and Spell Attack Modifiers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3257"
+    },
+    {
+      "type": "Rules",
+      "name": "Specific Shields",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3281"
+    },
+    {
+      "type": "Source",
+      "name": "GM Core",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=218"
+    }
+  ]
 }

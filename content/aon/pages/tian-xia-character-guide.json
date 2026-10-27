@@ -557,5 +557,367 @@
     "https://2e.aonprd.com/Weapons.aspx?ID=97": 127,
     "https://2e.aonprd.com/Weapons.aspx?ID=98": 127,
     "https://2e.aonprd.com/Weapons.aspx?ID=99": 127
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(curse, divine, emotion, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2902"
+    },
+    {
+      "type": "Action",
+      "name": "(fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2903"
+    },
+    {
+      "type": "Action",
+      "name": "(emotion, fear, mental, tanuki)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2904"
+    },
+    {
+      "type": "Action",
+      "name": "(occult, shadow)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2905"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2906"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2907"
+    },
+    {
+      "type": "Action",
+      "name": "Cycle Elemental Stance",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2908"
+    },
+    {
+      "type": "Action",
+      "name": "(flourish)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2909"
+    },
+    {
+      "type": "Action",
+      "name": "(arcane)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2910"
+    },
+    {
+      "type": "Action",
+      "name": "Path of the Tempest",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2911"
+    },
+    {
+      "type": "Action",
+      "name": "Lightning Needles",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2912"
+    },
+    {
+      "type": "Action",
+      "name": "Lightning Armillary",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2913"
+    },
+    {
+      "type": "Action",
+      "name": "Blazing Conflagration",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2914"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2915"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2916"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2917"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2918"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2919"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2920"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2921"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2922"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2923"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2924"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2925"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, force, magical)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2926"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2927"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2928"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2929"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2930"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, divine, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2931"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2932"
+    },
+    {
+      "type": "Action",
+      "name": "Close at Hand",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2933"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2934"
+    },
+    {
+      "type": "Action",
+      "name": "Enlightenment in Adversity",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2935"
+    },
+    {
+      "type": "Action",
+      "name": "Name Drop",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2936"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2942"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2943"
+    },
+    {
+      "type": "Action",
+      "name": "Disarming Interception",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2944"
+    },
+    {
+      "type": "Action",
+      "name": "Create Familiar Fulu",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2945"
+    },
+    {
+      "type": "Action",
+      "name": "Crab Cannon",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2974"
+    },
+    {
+      "type": "Action",
+      "name": "Defensive Curl",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2975"
+    },
+    {
+      "type": "Action",
+      "name": "Flower Dance",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2976"
+    },
+    {
+      "type": "Action",
+      "name": "Wrapping Tendrils",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2977"
+    },
+    {
+      "type": "Action",
+      "name": "Raging Stampede",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2978"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=2981"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Durian Crab",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=108"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Hermit Krait",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=109"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Sundaflora",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=110"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Tikar Urchinpad",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=111"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Yzobu",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=112"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Yzobu",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=136"
+    },
+    {
+      "type": "Item",
+      "name": "Celestial Peachwood Sword",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1533"
+    },
+    {
+      "type": "Item",
+      "name": "Peachwood",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1541"
+    },
+    {
+      "type": "Item",
+      "name": "Peachwood Talisman",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1542"
+    },
+    {
+      "type": "Item",
+      "name": "Peachwood Weapon",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1543"
+    },
+    {
+      "type": "Feat",
+      "name": "Advanced Monastic Weaponry",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=5997"
+    },
+    {
+      "type": "Source",
+      "name": "Tian Xia Character Guide",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=230"
+    },
+    {
+      "type": "Item",
+      "name": "Tekko-kagi",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=101"
+    },
+    {
+      "type": "Item",
+      "name": "Urumi",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=102"
+    },
+    {
+      "type": "Item",
+      "name": "Butterfly Sword",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=162"
+    },
+    {
+      "type": "Item",
+      "name": "Hook Sword",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=163"
+    },
+    {
+      "type": "Item",
+      "name": "Karambit",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=164"
+    },
+    {
+      "type": "Item",
+      "name": "Kusarigama",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=165"
+    },
+    {
+      "type": "Item",
+      "name": "Feng Huo Lun",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=167"
+    },
+    {
+      "type": "Item",
+      "name": "Repeating Crossbow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=176"
+    },
+    {
+      "type": "Item",
+      "name": "Panabas",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=265"
+    },
+    {
+      "type": "Item",
+      "name": "Tetsubo",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=444"
+    },
+    {
+      "type": "Item",
+      "name": "Bladed Scarf",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=91"
+    },
+    {
+      "type": "Item",
+      "name": "Fighting Fan",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=93"
+    },
+    {
+      "type": "Item",
+      "name": "Meteor Hammer",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=97"
+    },
+    {
+      "type": "Item",
+      "name": "Naginata",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=98"
+    },
+    {
+      "type": "Item",
+      "name": "Jiu Huan Dao",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=99"
+    }
+  ]
 }

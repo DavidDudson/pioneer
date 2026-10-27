@@ -1364,5 +1364,3062 @@
     "https://2e.aonprd.com/Weapons.aspx?ID=92": 30,
     "https://2e.aonprd.com/Weapons.aspx?ID=94": 27,
     "https://2e.aonprd.com/Weapons.aspx?ID=96": 27
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1523"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1524"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1525"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1526"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1527"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1528"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1529"
+    },
+    {
+      "type": "Action",
+      "name": "(attack, concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1530"
+    },
+    {
+      "type": "Action",
+      "name": "(attack, concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1531"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1532"
+    },
+    {
+      "type": "Action",
+      "name": "(aura, concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1533"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1534"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1535"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1536"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1537"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1538"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1539"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, force)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1540"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1541"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1542"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1543"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1544"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1545"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1546"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1547"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1548"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1549"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1550"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1551"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1552"
+    },
+    {
+      "type": "Action",
+      "name": "(cold, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1553"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1554"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1555"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1556"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1557"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1558"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1559"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1560"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1561"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1562"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1563"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1564"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, force)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1565"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, teleportation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1566"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1567"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1568"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1569"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1570"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1571"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1572"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1573"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1574"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, occult, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1575"
+    },
+    {
+      "type": "Action",
+      "name": "(magical, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1576"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1577"
+    },
+    {
+      "type": "Action",
+      "name": "(magical, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1578"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, divine, manipulate, olfactory)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1579"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1580"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1581"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1582"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1583"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1584"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1585"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1586"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1587"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1588"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1589"
+    },
+    {
+      "type": "Action",
+      "name": "(fire, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1590"
+    },
+    {
+      "type": "Action",
+      "name": "Compose Missive",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1591"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1592"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1593"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1594"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1595"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1596"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1597"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1598"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1599"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1600"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1601"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1602"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1603"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1604"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1605"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1606"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1607"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1608"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1609"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1610"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1611"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1612"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1613"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1614"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1615"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1616"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1617"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1618"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1619"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1620"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1621"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1622"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1623"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1624"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1625"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1626"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1627"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1628"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1629"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1630"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1631"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1632"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1633"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1634"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1635"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1636"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate, fortune, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1637"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1638"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1639"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1640"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1641"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1642"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1643"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1644"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1645"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1646"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1647"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1648"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1649"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, mental, misfortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1650"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1651"
+    },
+    {
+      "type": "Action",
+      "name": "Extend Pseudopod",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1652"
+    },
+    {
+      "type": "Action",
+      "name": "Seedpod Spring",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1653"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1654"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1655"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1656"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1657"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1658"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1659"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1660"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1661"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1662"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1664"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1665"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1666"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1667"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1668"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1669"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1670"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1671"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1672"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1673"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1674"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1675"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1676"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1677"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1678"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1679"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, healing, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1680"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1681"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1682"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1683"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1684"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1685"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1686"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, teleportation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1687"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1688"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1689"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1690"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1691"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1692"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1693"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1694"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1695"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1696"
+    },
+    {
+      "type": "Action",
+      "name": "5 minutes (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1697"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1698"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1699"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1700"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1701"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1702"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1703"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1704"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1705"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1706"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1707"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1708"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1709"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1710"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1711"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, morph)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1712"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, polymorph)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1713"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1714"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1715"
+    },
+    {
+      "type": "Action",
+      "name": "The actions required to Activate the tattoo are the same as those needed to cast its spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1716"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1717"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1718"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1719"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1720"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1721"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1722"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1723"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1724"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1725"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1726"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1727"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1728"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1729"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1730"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1731"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1732"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1733"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1734"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1735"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1736"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1737"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1738"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1739"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1740"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1741"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1742"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1743"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1744"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1745"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1746"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1747"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1748"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1749"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1750"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1751"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1752"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1753"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1754"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1755"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1756"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1757"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1758"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1759"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1760"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1761"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1762"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1763"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1764"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1765"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1766"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1767"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1768"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1769"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1770"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1771"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1772"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1773"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1774"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1775"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1776"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1777"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1778"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1779"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1780"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1781"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1782"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1783"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1784"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1785"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1786"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1787"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1788"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1789"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1790"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1791"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1792"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1793"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1794"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1795"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1796"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1797"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1798"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1799"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1800"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1801"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1802"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1803"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1804"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1805"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1806"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1807"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1808"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1809"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1810"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1811"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1812"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1813"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1814"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1815"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1816"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1817"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1818"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1819"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1820"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1821"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1822"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1823"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1824"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1825"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1826"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell; This activation takes {{twoActions}} if the spell normally takes {{oneAction}} to cast, or {{threeActions}} if the spell normally takes {{twoActions}}",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1827"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1828"
+    },
+    {
+      "type": "Action",
+      "name": "Interact (emotion, illusion, light, mental, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1829"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1830"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell; the activation takes {{twoActions}} if the spell normally takes {{oneAction}} to cast, or {{threeActions}} if the spell normally takes {{twoActions}}",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1831"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1832"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1833"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1834"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell; This activation takes {{twoActions}} if the spell normally takes {{oneAction}} to cast, or {{threeActions}} if the spell normally takes {{twoActions}}",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1835"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1836"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1837"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1838"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1839"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1840"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1841"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1842"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1843"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1844"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1845"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1846"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1847"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1848"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1849"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1850"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1851"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1852"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1853"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1854"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1855"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate))",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1856"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1857"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1858"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1859"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1860"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1861"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1862"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1863"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1864"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1865"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1866"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1867"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1868"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1869"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1870"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1871"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1872"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1873"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1874"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1875"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1876"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1877"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1878"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1879"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1880"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1881"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1882"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1883"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, healing, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1884"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1885"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1886"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1887"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1888"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1889"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1890"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1891"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1892"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1893"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, rage)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1894"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1895"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1896"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1897"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1898"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1899"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1900"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1901"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1902"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1903"
+    },
+    {
+      "type": "Action",
+      "name": "Deconstruct",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1904"
+    },
+    {
+      "type": "Action",
+      "name": "Grow",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1905"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1924"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1925"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1926"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1927"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1928"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1929"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1930"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1931"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1932"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1933"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1934"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1935"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1936"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1937"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1938"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1939"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1940"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1941"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fire)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1942"
+    },
+    {
+      "type": "Action",
+      "name": "{{oneAction}} or {{twoActions}} (concentrate, teleportation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1943"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1944"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1945"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1946"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1947"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (manipulatr)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1948"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1949"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1950"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1951"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1952"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1953"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1954"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1955"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1956"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1957"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1958"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1959"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1960"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1961"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1962"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1963"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1964"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1965"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1966"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1967"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1968"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1969"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1970"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1971"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1972"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1973"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1974"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1975"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1976"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1977"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1978"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1979"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1980"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1981"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1982"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1983"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1984"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1985"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1986"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1987"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=1988"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3260"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3261"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3262"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3263"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3264"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3265"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3266"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3267"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3268"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3269"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3270"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3271"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3272"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Oozeform Chair",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=55"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Rootball Chair",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=56"
+    },
+    {
+      "type": "Item",
+      "name": "Hellknight Plate",
+      "url": "https://2e.aonprd.com/Armor.aspx?ID=14"
+    },
+    {
+      "type": "Item",
+      "name": "Sankeit",
+      "url": "https://2e.aonprd.com/Armor.aspx?ID=53"
+    },
+    {
+      "type": "Item",
+      "name": "Lattice Armor",
+      "url": "https://2e.aonprd.com/Armor.aspx?ID=54"
+    },
+    {
+      "type": "Item",
+      "name": "Niyaháat",
+      "url": "https://2e.aonprd.com/Armor.aspx?ID=55"
+    },
+    {
+      "type": "Item",
+      "name": "Crown of the Companion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1086"
+    },
+    {
+      "type": "Item",
+      "name": "Crown of the Companion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1086"
+    },
+    {
+      "type": "Item",
+      "name": "Dragon Rune Bracelet",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1442"
+    },
+    {
+      "type": "Item",
+      "name": "Dragon Rune Bracelet",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1442"
+    },
+    {
+      "type": "Item",
+      "name": "Spiderfoot Brew",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1461"
+    },
+    {
+      "type": "Item",
+      "name": "Spiderfoot Brew (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1461"
+    },
+    {
+      "type": "Item",
+      "name": "Spiderfoot Brew (Major)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1461"
+    },
+    {
+      "type": "Item",
+      "name": "Candlecap",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1503"
+    },
+    {
+      "type": "Item",
+      "name": "Spiritsight Ring",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1526"
+    },
+    {
+      "type": "Item",
+      "name": "Sure-Step Crampons",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=1527"
+    },
+    {
+      "type": "Item",
+      "name": "Energy Mutagen",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=474"
+    },
+    {
+      "type": "Item",
+      "name": "Stone Body Mutagen",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=475"
+    },
+    {
+      "type": "Item",
+      "name": "Hunter's Arrowhead",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=483"
+    },
+    {
+      "type": "Item",
+      "name": "Hunter's Arrowhead",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=483"
+    },
+    {
+      "type": "Item",
+      "name": "Blue Dragonfly Poison",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=484"
+    },
+    {
+      "type": "Item",
+      "name": "Bellflower Toolbelt",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=505"
+    },
+    {
+      "type": "Item",
+      "name": "Grinning Pugwampi",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=544"
+    },
+    {
+      "type": "Item",
+      "name": "Pactmaster's Grace",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=548"
+    },
+    {
+      "type": "Item",
+      "name": "Pactmaster's Grace",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=548"
+    },
+    {
+      "type": "Item",
+      "name": "Gorgon's Breath",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=554"
+    },
+    {
+      "type": "Item",
+      "name": "Nightmare Salt",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=557"
+    },
+    {
+      "type": "Item",
+      "name": "Spear Frog Poison",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=649"
+    },
+    {
+      "type": "Item",
+      "name": "Violet Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=651"
+    },
+    {
+      "type": "Item",
+      "name": "Vaccine",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=773"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Noisome Acid",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=794"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Noisome Acid (2nd-Level Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=794"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Noisome Acid (4th-Level Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=794"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Noisome Acid (6th-Level Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=794"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Noisome Acid (8th-Level Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=794"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Teeming Ghosts",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=795"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Teeming Ghosts (2nd-Level Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=795"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Teeming Ghosts (3rd-Level Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=795"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Teeming Ghosts (4th-Level Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=795"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Teeming Ghosts (5th-Level Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=795"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Teeming Ghosts (6th-Level Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=795"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Teeming Ghosts (7th-Level Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=795"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Teeming Ghosts (8th-Level Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=795"
+    },
+    {
+      "type": "Item",
+      "name": "Wand of Teeming Ghosts (9th-Level Spell)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=795"
+    },
+    {
+      "type": "Item",
+      "name": "Pacifying",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=801"
+    },
+    {
+      "type": "Item",
+      "name": "Ring of Discretion",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=804"
+    },
+    {
+      "type": "Item",
+      "name": "Corpseward Pendant",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=806"
+    },
+    {
+      "type": "Item",
+      "name": "Looter's Lethargy",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=809"
+    },
+    {
+      "type": "Item",
+      "name": "Ethersight Ring",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=814"
+    },
+    {
+      "type": "Item",
+      "name": "Skinsaw Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=817"
+    },
+    {
+      "type": "Item",
+      "name": "Skinsaw Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=817"
+    },
+    {
+      "type": "Item",
+      "name": "Swarmeater's Clasp",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=818"
+    },
+    {
+      "type": "Item",
+      "name": "Vaultbreaker's Harness",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=819"
+    },
+    {
+      "type": "Item",
+      "name": "Everyneed Pack",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=856"
+    },
+    {
+      "type": "Item",
+      "name": "Clockwork Cloak",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=893"
+    },
+    {
+      "type": "Item",
+      "name": "Stupor Poison",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=939"
+    },
+    {
+      "type": "Item",
+      "name": "Headbands of Translocation",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=949"
+    },
+    {
+      "type": "Item",
+      "name": "Armor Latches",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=959"
+    },
+    {
+      "type": "Item",
+      "name": "Goz Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=960"
+    },
+    {
+      "type": "Item",
+      "name": "Herd Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=961"
+    },
+    {
+      "type": "Item",
+      "name": "Mask of the Cursed Eye",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=962"
+    },
+    {
+      "type": "Item",
+      "name": "Mask of Mercy",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=963"
+    },
+    {
+      "type": "Item",
+      "name": "Rhinoceros Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=965"
+    },
+    {
+      "type": "Item",
+      "name": "Shapespeak Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=966"
+    },
+    {
+      "type": "Item",
+      "name": "Skittering Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=967"
+    },
+    {
+      "type": "Item",
+      "name": "Tlil Mask",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=968"
+    },
+    {
+      "type": "Rules",
+      "name": "Alchemical Foods",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1905"
+    },
+    {
+      "type": "Sidebar",
+      "name": "New Alchemical Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1905"
+    },
+    {
+      "type": "Rules",
+      "name": "Bottled Monstrosities",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1906"
+    },
+    {
+      "type": "Rules",
+      "name": "Missive",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1908"
+    },
+    {
+      "type": "Rules",
+      "name": "Composing Missives",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1909"
+    },
+    {
+      "type": "Rules",
+      "name": "Activating Missives",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1910"
+    },
+    {
+      "type": "Rules",
+      "name": "Spellguns",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1911"
+    },
+    {
+      "type": "Rules",
+      "name": "Coda Instruments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1913"
+    },
+    {
+      "type": "Rules",
+      "name": "Complex Crafting",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1916"
+    },
+    {
+      "type": "Rules",
+      "name": "Finishing the Item",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1917"
+    },
+    {
+      "type": "Rules",
+      "name": "Crafting Items with Adjustments",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1918"
+    },
+    {
+      "type": "Rules",
+      "name": "Skill Feats",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1919"
+    },
+    {
+      "type": "Rules",
+      "name": "Crafting Downtime Events",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1920"
+    },
+    {
+      "type": "Rules",
+      "name": "Critical Crafting",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1921"
+    },
+    {
+      "type": "Rules",
+      "name": "Critical Success",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1922"
+    },
+    {
+      "type": "Rules",
+      "name": "Critical Failure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1923"
+    },
+    {
+      "type": "Rules",
+      "name": "Converting Magic Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1924"
+    },
+    {
+      "type": "Rules",
+      "name": "Growing Items",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1926"
+    },
+    {
+      "type": "Rules",
+      "name": "Example",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1927"
+    },
+    {
+      "type": "Rules",
+      "name": "Adjusting Skills",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1928"
+    },
+    {
+      "type": "Rules",
+      "name": "Bestowed Gifts",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1929"
+    },
+    {
+      "type": "Rules",
+      "name": "Bestowing Gifts in Your Game",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1930"
+    },
+    {
+      "type": "Rules",
+      "name": "Bestowed Gifts as the Baseline",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1931"
+    },
+    {
+      "type": "Rules",
+      "name": "Gardens of Wonder",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1932"
+    },
+    {
+      "type": "Rules",
+      "name": "Establishing a Garden",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1933"
+    },
+    {
+      "type": "Rules",
+      "name": "Using Gardens as a Reward",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1934"
+    },
+    {
+      "type": "Rules",
+      "name": "A Garden by Any Other Name",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1935"
+    },
+    {
+      "type": "Rules",
+      "name": "Bakeries and Kitchens",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1936"
+    },
+    {
+      "type": "Rules",
+      "name": "Haunted Churches and Sites of Power",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1937"
+    },
+    {
+      "type": "Rules",
+      "name": "Ooze Farms",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1938"
+    },
+    {
+      "type": "Rules",
+      "name": "Rock Gardens and Stalagmite Caverns",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1939"
+    },
+    {
+      "type": "Rules",
+      "name": "Wildlife Preserves",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1940"
+    },
+    {
+      "type": "Rules",
+      "name": "Additional Materials",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1941"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Variant Materials",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1941"
+    },
+    {
+      "type": "Rules",
+      "name": "Crafting by Questing",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1943"
+    },
+    {
+      "type": "Rules",
+      "name": "Treasure by Encounter",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1944"
+    },
+    {
+      "type": "Rules",
+      "name": "Crafting Quests",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1945"
+    },
+    {
+      "type": "Rules",
+      "name": "Building a Narrative",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1946"
+    },
+    {
+      "type": "Rules",
+      "name": "Beginning the Quest",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1947"
+    },
+    {
+      "type": "Rules",
+      "name": "Gathering the Components",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1948"
+    },
+    {
+      "type": "Rules",
+      "name": "Forging the Treasure",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1949"
+    },
+    {
+      "type": "Rules",
+      "name": "Story-Based Crafting as the Baseline",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1950"
+    },
+    {
+      "type": "Rules",
+      "name": "Example Quests",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1951"
+    },
+    {
+      "type": "Rules",
+      "name": "Quest 1: Forging the Holy Sword (Level 13–14)",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1952"
+    },
+    {
+      "type": "Rules",
+      "name": "Quest 2: Weaving the Wizard’s Robes (Level 7)",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1953"
+    },
+    {
+      "type": "Rules",
+      "name": "Quest 3: Shaping the Armor of Yggdrasil (Level 5)",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1954"
+    },
+    {
+      "type": "Rules",
+      "name": "Crafting Alternate Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1955"
+    },
+    {
+      "type": "Rules",
+      "name": "Nature Crafting",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1956"
+    },
+    {
+      "type": "Rules",
+      "name": "Story-Based Crafting",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1957"
+    },
+    {
+      "type": "Rules",
+      "name": "Animal Companion Mobility Aids",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1958"
+    },
+    {
+      "type": "Rules",
+      "name": "Tails",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1959"
+    },
+    {
+      "type": "Rules",
+      "name": "Archetype Artifacts",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1961"
+    },
+    {
+      "type": "Rules",
+      "name": "Blighted Boons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1962"
+    },
+    {
+      "type": "Rules",
+      "name": "Using Blighted Boons",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1963"
+    },
+    {
+      "type": "Rules",
+      "name": "Partaking",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1964"
+    },
+    {
+      "type": "Rules",
+      "name": "Progression",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1965"
+    },
+    {
+      "type": "Rules",
+      "name": "Intervals",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1966"
+    },
+    {
+      "type": "Rules",
+      "name": "Saving Throws",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1967"
+    },
+    {
+      "type": "Rules",
+      "name": "Death",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1968"
+    },
+    {
+      "type": "Rules",
+      "name": "Purging",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1969"
+    },
+    {
+      "type": "Rules",
+      "name": "Set Relics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1970"
+    },
+    {
+      "type": "Rules",
+      "name": "Set Relics in the Campaign",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1971"
+    },
+    {
+      "type": "Rules",
+      "name": "Starting a Set Relic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1972"
+    },
+    {
+      "type": "Rules",
+      "name": "Utilizing a Set Relic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1973"
+    },
+    {
+      "type": "Rules",
+      "name": "Advancing a Set Relic",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1974"
+    },
+    {
+      "type": "Rules",
+      "name": "Known Set Relics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1975"
+    },
+    {
+      "type": "Source",
+      "name": "Treasure Vault (Remastered)",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=191"
+    },
+    {
+      "type": "Item",
+      "name": "Polytool",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=100"
+    },
+    {
+      "type": "Item",
+      "name": "War Razor",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=103"
+    },
+    {
+      "type": "Item",
+      "name": "Bola",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=123"
+    },
+    {
+      "type": "Item",
+      "name": "Taw Launcher",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=146"
+    },
+    {
+      "type": "Item",
+      "name": "Thunder Sling",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=147"
+    },
+    {
+      "type": "Item",
+      "name": "Leiomano",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=166"
+    },
+    {
+      "type": "Item",
+      "name": "Bola",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=433"
+    },
+    {
+      "type": "Item",
+      "name": "Breaching Pike",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=468"
+    },
+    {
+      "type": "Item",
+      "name": "Khopesh",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=476"
+    },
+    {
+      "type": "Item",
+      "name": "Mambele",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=477"
+    },
+    {
+      "type": "Item",
+      "name": "Thunder Sling",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=480"
+    },
+    {
+      "type": "Item",
+      "name": "Frying Pan",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=517"
+    },
+    {
+      "type": "Item",
+      "name": "War Razor",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=525"
+    },
+    {
+      "type": "Item",
+      "name": "Gauntlet Bow",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=538"
+    },
+    {
+      "type": "Item",
+      "name": "Machete",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=614"
+    },
+    {
+      "type": "Item",
+      "name": "Bola",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=92"
+    },
+    {
+      "type": "Item",
+      "name": "Khopesh",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=94"
+    },
+    {
+      "type": "Item",
+      "name": "Mambele",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=96"
+    }
+  ]
 }

@@ -39,5 +39,77 @@
     "https://2e.aonprd.com/Monsters.aspx?ID=3779": 85,
     "https://2e.aonprd.com/Monsters.aspx?ID=3780": 86,
     "https://2e.aonprd.com/Monsters.aspx?ID=3781": 87
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3170"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3171"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3172"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3173"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3174"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3175"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, emotion, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3176"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3177"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3178"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3179"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3180"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, illusion)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3181"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3182"
+    },
+    {
+      "type": "Source",
+      "name": "Pathfinder #210: Whispers in the Dirt",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=253"
+    }
+  ]
 }

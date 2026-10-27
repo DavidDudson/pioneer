@@ -44,5 +44,132 @@
     "https://2e.aonprd.com/NPCs.aspx?ID=4897": 256,
     "https://2e.aonprd.com/NPCs.aspx?ID=4898": 258,
     "https://2e.aonprd.com/NPCs.aspx?ID=4899": 260
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4450"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4451"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4452"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4453"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4454"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4455"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4456"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4457"
+    },
+    {
+      "type": "Action",
+      "name": "(emotion, fear, manipulation, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4458"
+    },
+    {
+      "type": "Action",
+      "name": "(divine, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4459"
+    },
+    {
+      "type": "Action",
+      "name": "(divine, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4460"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4461"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4462"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4463"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4464"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4465"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4466"
+    },
+    {
+      "type": "Creature",
+      "name": "Voldrak",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4893"
+    },
+    {
+      "type": "Creature",
+      "name": "Aron Mordimus",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4894"
+    },
+    {
+      "type": "Creature",
+      "name": "Ausken Dast",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4895"
+    },
+    {
+      "type": "Creature",
+      "name": "Banijer Greely",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4896"
+    },
+    {
+      "type": "Creature",
+      "name": "Esmira Vermidian",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4897"
+    },
+    {
+      "type": "Creature",
+      "name": "Ilana Greenbough",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4898"
+    },
+    {
+      "type": "Creature",
+      "name": "Shirail Animender",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4899"
+    },
+    {
+      "type": "Source",
+      "name": "Pathfinder #224: Bastion of Blasphemies",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=357"
+    }
+  ]
 }

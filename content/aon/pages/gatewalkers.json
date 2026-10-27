@@ -164,5 +164,242 @@
     "https://2e.aonprd.com/Spells.aspx?ID=2534": 233,
     "https://2e.aonprd.com/Spells.aspx?ID=2535": 233,
     "https://2e.aonprd.com/Spells.aspx?ID=2536": 234
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3489"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3490"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3491"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3492"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3493"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3494"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3495"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3496"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3497"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3498"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3499"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3500"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3501"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3502"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3503"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3504"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3505"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3508"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3509"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3510"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3511"
+    },
+    {
+      "type": "Item",
+      "name": "Astrolabe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=846"
+    },
+    {
+      "type": "Item",
+      "name": "Astrolabe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=846"
+    },
+    {
+      "type": "Item",
+      "name": "Astrolabe (Mariner's)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=846"
+    },
+    {
+      "type": "Item",
+      "name": "Astrolabe (Standard)",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=846"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Blackfrost Dead",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=664"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Elder Thing",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=665"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Gorga",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=666"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Skin Beetle",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=667"
+    },
+    {
+      "type": "Creature",
+      "name": "Oaksteward Enforcer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4247"
+    },
+    {
+      "type": "Creature",
+      "name": "Quarry Construct",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4251"
+    },
+    {
+      "type": "Creature",
+      "name": "Apothecary's Cabinet",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4252"
+    },
+    {
+      "type": "Creature",
+      "name": "Sickly Eshmok",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4254"
+    },
+    {
+      "type": "Creature",
+      "name": "Ogmunzorius",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4256"
+    },
+    {
+      "type": "Creature",
+      "name": "The Guest",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4257"
+    },
+    {
+      "type": "Creature",
+      "name": "Ilverani Sentry",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4258"
+    },
+    {
+      "type": "Creature",
+      "name": "Blackfrost Guecubu",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4259"
+    },
+    {
+      "type": "Creature",
+      "name": "Ancient Tupilaq",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4262"
+    },
+    {
+      "type": "Creature",
+      "name": "Protosoul",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4263"
+    },
+    {
+      "type": "Creature",
+      "name": "Kithangian",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4320"
+    },
+    {
+      "type": "Creature",
+      "name": "Captain Salah",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4248"
+    },
+    {
+      "type": "Creature",
+      "name": "The Looksee Man",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4250"
+    },
+    {
+      "type": "Creature",
+      "name": "Ghodrak The Quick",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4253"
+    },
+    {
+      "type": "Creature",
+      "name": "Snowy Owl",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4255"
+    },
+    {
+      "type": "Creature",
+      "name": "Ilakni",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4260"
+    },
+    {
+      "type": "Creature",
+      "name": "Equendia",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4261"
+    },
+    {
+      "type": "Source",
+      "name": "Gatewalkers (Hardcover)",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=290"
+    }
+  ]
 }

@@ -238,5 +238,427 @@
     "https://2e.aonprd.com/Spells.aspx?ID=2546": 309,
     "https://2e.aonprd.com/Traits.aspx?ID=903": 318,
     "https://2e.aonprd.com/Traits.aspx?ID=904": 328
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3583"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3585"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, divine, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3586"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3587"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, divine, incapacitation, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3588"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3589"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3590"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3591"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3592"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3593"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, healing)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3594"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3595"
+    },
+    {
+      "type": "Action",
+      "name": "(force, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3596"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, incapacitation, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3597"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, water)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3598"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3599"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3602"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3603"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, light, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3604"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3605"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, olfactory, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3606"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3607"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3608"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, morph)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3609"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3610"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3612"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3613"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3614"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3615"
+    },
+    {
+      "type": "Action",
+      "name": "10 minutes (concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3616"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3617"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, emotion, mental, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3618"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3619"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3620"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3621"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3622"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3623"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3624"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3626"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3627"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3628"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3629"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3630"
+    },
+    {
+      "type": "Curse",
+      "name": "Infected Silver",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=107"
+    },
+    {
+      "type": "Deity Category",
+      "name": "Nindoru Ascetics",
+      "url": "https://2e.aonprd.com/DeityCategories.aspx?ID=37"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Nindoru",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=676"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Noppera-bo",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=677"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Thatchling",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=678"
+    },
+    {
+      "type": "Creature",
+      "name": "Phantom Boar",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4660"
+    },
+    {
+      "type": "Creature",
+      "name": "Phantom Raven",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4661"
+    },
+    {
+      "type": "Creature",
+      "name": "Phantom Wolf",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4662"
+    },
+    {
+      "type": "Creature",
+      "name": "Noodles",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4663"
+    },
+    {
+      "type": "Creature",
+      "name": "Phantom Gecko",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4664"
+    },
+    {
+      "type": "Creature",
+      "name": "Gurglegut",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4665"
+    },
+    {
+      "type": "Creature",
+      "name": "Very Drunk Jinkin",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4666"
+    },
+    {
+      "type": "Creature",
+      "name": "Gray Butcher",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4667"
+    },
+    {
+      "type": "Creature",
+      "name": "Warty",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4668"
+    },
+    {
+      "type": "Creature",
+      "name": "Stingy",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4670"
+    },
+    {
+      "type": "Creature",
+      "name": "Heart-Eating Vulture",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4672"
+    },
+    {
+      "type": "Creature",
+      "name": "Shrine Caretaker",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4673"
+    },
+    {
+      "type": "Creature",
+      "name": "Taunting Monk's Skull",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4674"
+    },
+    {
+      "type": "Creature",
+      "name": "Monk Of Kugaptee",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4676"
+    },
+    {
+      "type": "Creature",
+      "name": "Kalen Bray",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4677"
+    },
+    {
+      "type": "Creature",
+      "name": "Willowshore Waldgeist",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4678"
+    },
+    {
+      "type": "Creature",
+      "name": "Kugaptee's Centipede",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4680"
+    },
+    {
+      "type": "Creature",
+      "name": "Exorcist",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4681"
+    },
+    {
+      "type": "Creature",
+      "name": "Mercenary Enforcer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4682"
+    },
+    {
+      "type": "Creature",
+      "name": "Shrine Maiden",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4683"
+    },
+    {
+      "type": "Creature",
+      "name": "Animated Axe",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4684"
+    },
+    {
+      "type": "Creature",
+      "name": "Kugaptee's Drakauthix",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4685"
+    },
+    {
+      "type": "Creature",
+      "name": "False Governor",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4686"
+    },
+    {
+      "type": "Creature",
+      "name": "Hong Meigui",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4687"
+    },
+    {
+      "type": "Creature",
+      "name": "Quintessivore",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4688"
+    },
+    {
+      "type": "Creature",
+      "name": "Jiang-Shi",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4689"
+    },
+    {
+      "type": "Creature",
+      "name": "Occult Living Rune",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4690"
+    },
+    {
+      "type": "Creature",
+      "name": "Gurglegut",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4691"
+    },
+    {
+      "type": "Creature",
+      "name": "Corpse Sugi",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=4692"
+    },
+    {
+      "type": "Creature",
+      "name": "Heh Shan-Bao",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4653"
+    },
+    {
+      "type": "Creature",
+      "name": "Heh Shan-Bao (Murderous Agent)",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4654"
+    },
+    {
+      "type": "Creature",
+      "name": "Mo Douqiu The Hedonist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4669"
+    },
+    {
+      "type": "Creature",
+      "name": "Zoudou The Zealous",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4671"
+    },
+    {
+      "type": "Creature",
+      "name": "Yuni",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4675"
+    },
+    {
+      "type": "Creature",
+      "name": "Rin",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=4679"
+    },
+    {
+      "type": "Source",
+      "name": "Season of Ghosts (Hardcover)",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=294"
+    }
+  ]
 }

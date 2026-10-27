@@ -262,5 +262,397 @@
     "https://2e.aonprd.com/Spells.aspx?ID=2531": 225,
     "https://2e.aonprd.com/Spells.aspx?ID=2532": 225,
     "https://2e.aonprd.com/Traits.aspx?ID=893": 208
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Enamoring Exhalation",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3480"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3481"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3482"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3483"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3484"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3485"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3486"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3487"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate, emotion, fear, incapacitation, mental, unholy)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=3488"
+    },
+    {
+      "type": "Animal Companion",
+      "name": "Riding Dragonet",
+      "url": "https://2e.aonprd.com/AnimalCompanions.aspx?ID=122"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Adamantine",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Barrage",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Bog",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Brine",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Cinder",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Cloud",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Conspirator",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Coral",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Crystal",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Delight",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Despair",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Diabolic",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Empyreal",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Executor",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Forest",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Fortune",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Horned",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Magma",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Mirage",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Mocking",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Oath",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Omen",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Phase",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Requiem",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Resurrection",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Rime",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Rune",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Sage",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Sea",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Sky",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Sovereign",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Stormcrown",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Time",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Umbral",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Underworld",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Vizier",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Vorpal",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Wailing",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Whisper",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Draconic Exemplar",
+      "name": "Wish",
+      "url": "https://2e.aonprd.com/Bloodlines.aspx?ID=23"
+    },
+    {
+      "type": "Deity Category",
+      "name": "Dragon Gods",
+      "url": "https://2e.aonprd.com/DeityCategories.aspx?ID=36"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Barrage",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=634"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Bog",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=635"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Brine",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=636"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Cloud",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=637"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Crystal",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=638"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Delight",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=639"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragonet",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=640"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Executor",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=641"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Forest",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=642"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Magma",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=643"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Mocking",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=644"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Oath",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=645"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Rime",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=647"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Sage",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=648"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Sea",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=649"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Sky",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=650"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Sovereign",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=652"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Stormcrown",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=653"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Time",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=655"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Umbral",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=656"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Underworld",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=657"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Vizier",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=658"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Vorpal",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=659"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Wailing",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=660"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Dragon, Wish",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=661"
+    },
+    {
+      "type": "Creature Family",
+      "name": "Wyrmwraith",
+      "url": "https://2e.aonprd.com/MonsterFamilies.aspx?ID=662"
+    },
+    {
+      "type": "Source",
+      "name": "Draconic Codex",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=277"
+    }
+  ]
 }

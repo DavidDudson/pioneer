@@ -1230,5 +1230,1197 @@
     "https://2e.aonprd.com/Traits.aspx?ID=960": 69,
     "https://2e.aonprd.com/Traits.aspx?ID=962": 228,
     "https://2e.aonprd.com/Traits.aspx?ID=963": 251
-  }
+  },
+  "entries": [
+    {
+      "type": "Action",
+      "name": "Spellstrike",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4260"
+    },
+    {
+      "type": "Action",
+      "name": "Arcane Cascade",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4261"
+    },
+    {
+      "type": "Action",
+      "name": "Double Spellstrike",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4262"
+    },
+    {
+      "type": "Action",
+      "name": "Inevitable Return",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4263"
+    },
+    {
+      "type": "Action",
+      "name": "Trace Rune",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4264"
+    },
+    {
+      "type": "Action",
+      "name": "Invoke Rune",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4265"
+    },
+    {
+      "type": "Action",
+      "name": "Manifest Eidolon",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4267"
+    },
+    {
+      "type": "Action",
+      "name": "Act Together",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4268"
+    },
+    {
+      "type": "Action",
+      "name": "Share Senses",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4269"
+    },
+    {
+      "type": "Action",
+      "name": "Cleanse Soul Path",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4270"
+    },
+    {
+      "type": "Action",
+      "name": "Fuel Impossible Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4271"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4272"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4273"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4274"
+    },
+    {
+      "type": "Action",
+      "name": "(fortune, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4275"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4276"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, teleportation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4277"
+    },
+    {
+      "type": "Action",
+      "name": "(force, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4278"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, incapacitation, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4279"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, emotion, fear, mental, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4280"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4282"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, fortune)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4284"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4285"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4286"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, teleportation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4287"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4288"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4289"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4290"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4291"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, electricity, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4292"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4293"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4294"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, plant)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4295"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4297"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4298"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4299"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4300"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4301"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4302"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, magical, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4303"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, shadow, teleportation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4304"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spirit)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4305"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate, spellshape, void)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4306"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4307"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4308"
+    },
+    {
+      "type": "Action",
+      "name": "(air, cold, magical, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4309"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4310"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4311"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4313"
+    },
+    {
+      "type": "Action",
+      "name": "(auditory, concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4316"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4317"
+    },
+    {
+      "type": "Action",
+      "name": "(air, fire, magical, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4318"
+    },
+    {
+      "type": "Action",
+      "name": "(darkness, manipulate, void)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4319"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4320"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4321"
+    },
+    {
+      "type": "Action",
+      "name": "(splash)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4322"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4323"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4324"
+    },
+    {
+      "type": "Action",
+      "name": "(healing, magical, manipulate, vitality)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4325"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, visual)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4326"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4327"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, teleportation)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4328"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4329"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, sonic)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4330"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4331"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, polymorph)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4332"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4333"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, mental, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4334"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4335"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4336"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, mental, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4337"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4338"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, curse, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4339"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate, spellshape, void)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4340"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, holy, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4341"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, light, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4342"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, electricity, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4343"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4344"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, illusion)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4345"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4346"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, plant, wood)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4347"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4348"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, detection, mental, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4349"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4350"
+    },
+    {
+      "type": "Action",
+      "name": "1 minute (manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4351"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4352"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4353"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4354"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4355"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, illusion, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4356"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4357"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4358"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4359"
+    },
+    {
+      "type": "Action",
+      "name": "(manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4360"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4361"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4362"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4363"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4364"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4365"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4366"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4367"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4368"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4369"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4370"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4371"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4372"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4373"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4374"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4375"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4376"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4377"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4378"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4379"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4380"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4381"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4382"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4383"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4384"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4385"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4386"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4387"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4388"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4389"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4390"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4391"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4392"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4393"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4394"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4395"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4396"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4397"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4398"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4399"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4400"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4401"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4402"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4403"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4404"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4405"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4406"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4407"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4408"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4409"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4410"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4411"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4412"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4413"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4414"
+    },
+    {
+      "type": "Action",
+      "name": "(fortune, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4415"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4416"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4417"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4418"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4419"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4420"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4421"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4422"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4423"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4424"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4425"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4426"
+    },
+    {
+      "type": "Action",
+      "name": "Cast a Spell",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4427"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4428"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4429"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, prediction)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4430"
+    },
+    {
+      "type": "Action",
+      "name": "(illusion, manipulate, mental)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4431"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4432"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, shadow, spellshape)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4433"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4434"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4435"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4436"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate, manipulate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4437"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4438"
+    },
+    {
+      "type": "Action",
+      "name": "(attack, concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4439"
+    },
+    {
+      "type": "Action",
+      "name": "(concentrate)",
+      "url": "https://2e.aonprd.com/Actions.aspx?ID=4440"
+    },
+    {
+      "type": "Item",
+      "name": "Stormbreaker Fulu",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=951"
+    },
+    {
+      "type": "Necromancer Fatal Method",
+      "name": "Puppeteer",
+      "url": "https://2e.aonprd.com/FatalMethods.aspx?ID=1"
+    },
+    {
+      "type": "Necromancer Fatal Method",
+      "name": "Reaper",
+      "url": "https://2e.aonprd.com/FatalMethods.aspx?ID=2"
+    },
+    {
+      "type": "Necromancer Grim Fascination",
+      "name": "Blood",
+      "url": "https://2e.aonprd.com/GrimFascinations.aspx?ID=1"
+    },
+    {
+      "type": "Necromancer Grim Fascination",
+      "name": "Bone",
+      "url": "https://2e.aonprd.com/GrimFascinations.aspx?ID=2"
+    },
+    {
+      "type": "Necromancer Grim Fascination",
+      "name": "Flesh",
+      "url": "https://2e.aonprd.com/GrimFascinations.aspx?ID=3"
+    },
+    {
+      "type": "Necromancer Grim Fascination",
+      "name": "Spirit",
+      "url": "https://2e.aonprd.com/GrimFascinations.aspx?ID=4"
+    },
+    {
+      "type": "Rules",
+      "name": "Proficiencies",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3683"
+    },
+    {
+      "type": "Rules",
+      "name": "Attribute Modifiers and Defenses",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3684"
+    },
+    {
+      "type": "Rules",
+      "name": "Unarmed Attacks",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3685"
+    },
+    {
+      "type": "Rules",
+      "name": "Eidolon Spells",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3686"
+    },
+    {
+      "type": "Sidebar",
+      "name": "Gear and Your Eidolon",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3687"
+    },
+    {
+      "type": "Rules",
+      "name": "Reading an Eidolon Entry",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3687"
+    },
+    {
+      "type": "Rules",
+      "name": "Essence Powers",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3689"
+    },
+    {
+      "type": "Rules",
+      "name": "Binding an Armament",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3690"
+    },
+    {
+      "type": "Rules",
+      "name": "Upgrading, Reshaping, and Restoring",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3691"
+    },
+    {
+      "type": "Rules",
+      "name": "Soul Path",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3692"
+    },
+    {
+      "type": "Rules",
+      "name": "Corruption",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3693"
+    },
+    {
+      "type": "Rules",
+      "name": "Removing Corruption",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=3694"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Atryl, Rune of Fire",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=1"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Pluuna, Rune of Illumination",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=10"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Ranshu, Rune of Thunder",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=11"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Rehgog, Rune of Bestial Might",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=12"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Sertum, Rune of Preparedness",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=13"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Thullax, Rune of Corrosion",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=14"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Tilus, Rune of Vocabulary",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=15"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Zohk, Rune of Homecoming",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=16"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Av-, Diacritic Rune of Succession",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=17"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "En-, Diacritic Rune of Expansion",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=18"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Fob-, Diacritic Rune of Doubling",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=19"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Baruiel, Rune of Hold's Bravery",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=2"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Kit-, Diacritic Rune of Mercy",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=20"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Per-, Diacritic Rune of Continuum",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=21"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Sun-, Diacritic Rune of Preservation",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=22"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Ti-, Diacritic Rune of Fundaments",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=23"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Ur-, Diacritic Rune of Intensity",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=24"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Astillu, Rune of Submersion",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=25"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Cruonign, Rune of Leeching",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=26"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Feikris, Rune of Gravity",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=27"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Germantria, Rune of Partnership",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=28"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Ichelsu, Rune of Observation",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=29"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Camonica, Rune of Perplexity",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=3"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Jurroz, Rune of Dragon Fury",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=30"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Kojastri, Rune of Insulation",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=31"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Oraloq, Rune of Inarticulateness",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=32"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Piteregrin, Rune of Transposition",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=33"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Trolistri, Rune of Forlorn Sorrow",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=34"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Ulgatus, Rune of Restraint",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=35"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Yudici, Rune of Remonstrance",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=36"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Eck-, Diacritic Rune of Phantasma",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=37"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Inth-, Diacritic Rune of Corruption",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=38"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Nesh-, Diacritic Rune of Contingency",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=39"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Esvadir, Rune of Whetstones",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=4"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Sar-, Diacritic Rune of Righteousness",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=40"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Aiuen, The Elf-Gate Key",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=41"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Ochygholl, The Poisoned Star",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=42"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Rovan, Seal of the Dead Vault",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=43"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Xinsala, The Well of Virtues",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=44"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Holtrik, Rune of Dwarven Ramparts",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=5"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Ledria, Rune of Appeal",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=6"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Lyskel, Rune of Frost",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=7"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Marssyl, Rune of Impact",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=8"
+    },
+    {
+      "type": "Runesmith Rune",
+      "name": "Oljinex, Rune of Cowards' Bane",
+      "url": "https://2e.aonprd.com/RunesmithRunes.aspx?ID=9"
+    },
+    {
+      "type": "Source",
+      "name": "Impossible Magic",
+      "url": "https://2e.aonprd.com/Sources.aspx?ID=355"
+    }
+  ]
 }
