@@ -45,6 +45,6 @@ export { InMemoryKeyItemHolders } from './in-memory-key-item-holders';
 export { CampaignItemTransferService, type CampaignItemTransferPorts } from './campaign-item-transfer-service';
 export { ItemTransferMessage } from './item-transfer-message';
 export { ItemTransferRepository } from './item-transfer-repository';
-export { TransferLines, type OfferableLine } from './transfer-lines';
+export { TransferLines, type OfferableLine, type OfferablePurse } from './transfer-lines';
 export { InMemoryItemTransferRepository } from './in-memory-item-transfer-repository';
 export { InMemoryTransferLines } from './in-memory-transfer-lines';

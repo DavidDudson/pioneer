@@ -60,6 +60,19 @@ describe('CharacterTransferLines', () => {
     expect(await lines.describe(mordred.id, keyed)).toMatchObject({ keyItem: true });
   });
 
+  test("describes the purse with the character's version now", async () => {
+    const purse = await lines.purse(mordred.id);
+    const { coins } = mordred.document.inventory;
+
+    expect(purse).toStrictEqual({ coins, version: mordred.version });
+  });
+
+  test('knows no purse of a character that is not there', async () => {
+    const nobody = CharacterId.parse(newId());
+
+    expect(await lines.purse(nobody)).toBeUndefined();
+  });
+
   test('knows nothing of a line or a character that is not there', async () => {
     const elsewhere = await lines.describe(mordred.id, InventoryItemId.parse(newId()));
     const nobody = await lines.describe(CharacterId.parse(newId()), plain);

@@ -4,6 +4,7 @@ import {
   CampaignCharacterId,
   CampaignMemberId,
   CharacterId,
+  OfferedCoinsSchema,
   ReviewedItemId,
   TransferStatus,
 } from '@pioneer/campaign/domain';
@@ -61,7 +62,9 @@ describe('CampaignItemTransferService', () => {
         lines: new InMemoryTransferLines()
           .hasLine(kyra, longsword, { version: GIVER_VERSION })
           .hasLine(kyra, caliburn, { keyItem: true })
-          .hasLine(dormant, dagger, { version: GIVER_VERSION }),
+          .hasLine(dormant, dagger, { version: GIVER_VERSION })
+          .hasCoins(kyra, { gp: 10, sp: 5 }, GIVER_VERSION)
+          .hasCoins(dormant, { gp: 1 }, GIVER_VERSION),
       },
       fixedClock('2026-10-17T10:00:00Z'),
     );
@@ -143,5 +146,72 @@ describe('CampaignItemTransferService', () => {
 
     expect(same).toBeInstanceOf(ConflictError);
     expect(JSON.stringify(same)).toContain(ItemTransferMessage.SameCharacter);
+  });
+
+  describe('coins', () => {
+    const gold = OfferedCoinsSchema.parse({ gp: 4 });
+
+    test('a member offers coins of their character to another character, and it is pending', async () => {
+      const offer = await service.offerCoins(ezren, vaults.id, { from: kyra, to: seelah, coins: gold });
+
+      expect(offer).toMatchObject({ from: kyra, to: seelah, coins: gold, status: TransferStatus.Pending });
+      expect(transfers.coinOffers).toMatchObject([
+        {
+          id: offer.id,
+          coins: gold,
+          giverVersion: GIVER_VERSION,
+          createdAt: Temporal.Instant.from('2026-10-17T10:00:00Z'),
+        },
+      ]);
+      expect(transfers.actors).toStrictEqual([ezren]);
+    });
+
+    test('the whole purse can be offered, and offers may pile up', async () => {
+      const all = OfferedCoinsSchema.parse({ gp: 10, sp: 5 });
+
+      await service.offerCoins(ezren, vaults.id, { from: kyra, to: seelah, coins: all });
+      await service.offerCoins(ezren, vaults.id, { from: kyra, to: mordred, coins: all });
+
+      expect(transfers.coinOffers).toHaveLength(2);
+    });
+
+    test('more of any denomination than the giver holds is refused with its message key', async () => {
+      const tooMuch = [{ gp: 11 }, { sp: 6 }, { pp: 1 }, { cp: 1 }].map(async (coins) =>
+        rejection(
+          service.offerCoins(ezren, vaults.id, { from: kyra, to: seelah, coins: OfferedCoinsSchema.parse(coins) }),
+        ),
+      );
+
+      const refused = await Promise.all(tooMuch);
+
+      expect(refused.every((error) => error instanceof ConflictError)).toBe(true);
+      expect(JSON.stringify(refused[0])).toContain(ItemTransferMessage.NotEnoughCoins);
+      expect(transfers.coinOffers).toStrictEqual([]);
+    });
+
+    test('a campaign the actor is not in, a giver that is not theirs, an archived giver, or a character outside the party is a 404', async () => {
+      const hidden = await rejection(
+        service.offerCoins(stranger, vaults.id, { from: outsider, to: kyra, coins: gold }),
+      );
+      const notTheirs = await rejection(
+        service.offerCoins(merisiel, vaults.id, { from: kyra, to: seelah, coins: gold }),
+      );
+      const notInParty = await rejection(
+        service.offerCoins(ezren, vaults.id, { from: kyra, to: outsider, coins: gold }),
+      );
+      const archived = await rejection(
+        service.offerCoins(ezren, vaults.id, { from: dormant, to: seelah, coins: OfferedCoinsSchema.parse({ gp: 1 }) }),
+      );
+
+      expect([hidden, notTheirs, notInParty, archived].every((error) => error instanceof NotFoundError)).toBe(true);
+      expect(transfers.coinOffers).toStrictEqual([]);
+    });
+
+    test('a character cannot offer coins to itself', async () => {
+      const same = await rejection(service.offerCoins(ezren, vaults.id, { from: kyra, to: kyra, coins: gold }));
+
+      expect(same).toBeInstanceOf(ConflictError);
+      expect(JSON.stringify(same)).toContain(ItemTransferMessage.SameCharacter);
+    });
   });
 });

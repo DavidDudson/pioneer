@@ -1,0 +1,6 @@
+ALTER TABLE "campaign_item_transfers" ALTER COLUMN "item_id" DROP NOT NULL;--> statement-breakpoint
+ALTER TABLE "campaign_item_transfers" ADD COLUMN "platinum" integer;--> statement-breakpoint
+ALTER TABLE "campaign_item_transfers" ADD COLUMN "gold" integer;--> statement-breakpoint
+ALTER TABLE "campaign_item_transfers" ADD COLUMN "silver" integer;--> statement-breakpoint
+ALTER TABLE "campaign_item_transfers" ADD COLUMN "copper" integer;--> statement-breakpoint
+ALTER TABLE "campaign_item_transfers" ADD CONSTRAINT "campaign_item_transfers_kind_check" CHECK (("campaign_item_transfers"."item_id" is not null and "campaign_item_transfers"."platinum" is null and "campaign_item_transfers"."gold" is null and "campaign_item_transfers"."silver" is null and "campaign_item_transfers"."copper" is null) or ("campaign_item_transfers"."item_id" is null and "campaign_item_transfers"."platinum" >= 0 and "campaign_item_transfers"."gold" >= 0 and "campaign_item_transfers"."silver" >= 0 and "campaign_item_transfers"."copper" >= 0 and "campaign_item_transfers"."platinum" is not null and "campaign_item_transfers"."gold" is not null and "campaign_item_transfers"."silver" is not null and "campaign_item_transfers"."copper" is not null));

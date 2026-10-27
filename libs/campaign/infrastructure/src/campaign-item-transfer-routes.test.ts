@@ -44,7 +44,10 @@ function table(): AnyElysia {
   const characters = new InMemoryCharacterDirectory()
     .character({ id: kyra, ownerId: ezren, name: 'Kyra' })
     .character({ id: mordred, ownerId: ezren, name: 'Mordred' });
-  const lines = new InMemoryTransferLines().hasLine(kyra, longsword).hasLine(kyra, caliburn, { keyItem: true });
+  const lines = new InMemoryTransferLines()
+    .hasLine(kyra, longsword)
+    .hasLine(kyra, caliburn, { keyItem: true })
+    .hasCoins(kyra, { gp: 10 });
   const services = {
     campaigns: new CampaignService({ campaigns, invites: inviteRepository, directory }, clock),
     invites: new CampaignInviteService(campaigns, inviteRepository, clock),
@@ -137,5 +140,66 @@ describe('item transfer routes', () => {
 
     expect(response.status).toBeGreaterThanOrEqual(400);
     expect(response.status).toBeLessThan(500);
+  });
+});
+
+describe('coin transfer routes', () => {
+  test('a player offers coins of their character to another, and it comes back pending', async () => {
+    const handler = table();
+    const id = await campaign(handler);
+
+    const response = await handler.handle(
+      request('POST', `/campaigns/${id}/transfers/coins`, {
+        as: ezren,
+        body: { from: kyra, to: mordred, coins: { gp: 4 } },
+      }),
+    );
+
+    expect(response.status).toBe(200);
+    expect(await json<object>(response)).toMatchObject({
+      from: kyra,
+      to: mordred,
+      coins: { pp: 0, gp: 4, sp: 0, cp: 0 },
+      status: 'pending',
+    });
+  });
+
+  test('a signed-out caller gets 401, a stranger to the campaign 404, and a short purse 409', async () => {
+    const handler = table();
+    const id = await campaign(handler);
+    const body = { from: kyra, to: mordred, coins: { gp: 4 } };
+
+    const anonymous = await handler.handle(request('POST', `/campaigns/${id}/transfers/coins`, { body }));
+    const outsider = UserId.parse(newId());
+    const stranger = await handler.handle(request('POST', `/campaigns/${id}/transfers/coins`, { as: outsider, body }));
+    const short = await handler.handle(
+      request('POST', `/campaigns/${id}/transfers/coins`, {
+        as: ezren,
+        body: { from: kyra, to: mordred, coins: { gp: 11 } },
+      }),
+    );
+
+    expect([anonymous.status, stranger.status, short.status]).toStrictEqual([401, 404, 409]);
+  });
+
+  test('no coins, a negative amount or an unknown coin is refused', async () => {
+    const handler = table();
+    const id = await campaign(handler);
+
+    const statuses = await Promise.all(
+      [{}, { gp: -1 }, { gp: 1, xp: 1 }].map(async (coins) =>
+        handler
+          .handle(
+            request('POST', `/campaigns/${id}/transfers/coins`, {
+              as: ezren,
+              body: { from: kyra, to: mordred, coins },
+            }),
+          )
+          .then((response) => response.status),
+      ),
+    );
+
+    expect(Math.min(...statuses)).toBeGreaterThanOrEqual(400);
+    expect(Math.max(...statuses)).toBeLessThan(500);
   });
 });

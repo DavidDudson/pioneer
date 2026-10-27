@@ -44,4 +44,4 @@ export { InMemoryVariantLimits } from './in-memory-variant-limits';
 export { CharacterFlaggedItems, type FlaggedLine } from './character-flagged-items';
 export { CharacterKeyItems } from './character-key-items';
 export { CharacterKeyItemPromotion, type KeyLink, type PromotableLine } from './character-key-item-promotion';
-export { CharacterTransferLines, type TransferLine } from './character-transfer-lines';
+export { CharacterTransferLines, type TransferLine, type TransferPurse } from './character-transfer-lines';
