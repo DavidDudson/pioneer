@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3184"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3184",
+        "page": 304
       }
     ],
     "description": [
@@ -518,7 +519,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3182"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3182",
+        "page": 303
       }
     ],
     "description": [
@@ -6341,7 +6343,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2843"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2843",
+        "page": 35
       }
     ],
     "description": [
@@ -6706,7 +6709,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2834"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2834",
+        "page": 27
       }
     ],
     "description": [
@@ -7163,7 +7167,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2985"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2985",
+        "page": 146
       }
     ],
     "description": [
@@ -7395,7 +7400,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2996"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2996",
+        "page": 151
       }
     ],
     "description": [
@@ -7648,7 +7654,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2799"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2799",
+        "page": 10
       }
     ],
     "description": [
@@ -8418,7 +8425,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2819"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2819",
+        "page": 18
       }
     ],
     "description": [
@@ -8571,7 +8579,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2818"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2818",
+        "page": 18
       }
     ],
     "description": [
@@ -8753,7 +8762,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2820"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2820",
+        "page": 19
       }
     ],
     "description": [
@@ -8961,7 +8971,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2822"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2822",
+        "page": 20
       }
     ],
     "description": [
@@ -9209,7 +9220,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2823"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2823",
+        "page": 20
       }
     ],
     "description": [
@@ -9529,7 +9541,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2919"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2919",
+        "page": 98
       }
     ],
     "description": [
@@ -9737,7 +9750,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2826"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2826",
+        "page": 22
       }
     ],
     "description": [
@@ -10173,7 +10187,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2791"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2791",
+        "page": 8
       }
     ],
     "description": [
@@ -10416,7 +10431,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2831"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2831",
+        "page": 25
       }
     ],
     "description": [
@@ -10678,7 +10694,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2829"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2829",
+        "page": 24
       }
     ],
     "description": [
@@ -10926,7 +10943,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2825"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2825",
+        "page": 21
       }
     ],
     "description": [
@@ -11182,7 +11200,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2894"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2894",
+        "page": 75
       }
     ],
     "description": [
@@ -11791,7 +11810,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2837"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2837",
+        "page": 30
       }
     ],
     "description": [
@@ -12126,7 +12146,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3156"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3156",
+        "page": 281
       }
     ],
     "description": [
@@ -12595,7 +12616,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2830"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2830",
+        "page": 25
       }
     ],
     "description": [
@@ -12724,7 +12746,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2792"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2792",
+        "page": 9
       }
     ],
     "description": [
@@ -13010,7 +13033,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2838"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2838",
+        "page": 31
       }
     ],
     "description": [
@@ -13272,7 +13296,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2839"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2839",
+        "page": 31
       }
     ],
     "description": [
@@ -13513,7 +13538,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3145"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3145",
+        "page": 271
       }
     ],
     "description": [
@@ -14161,7 +14187,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2816"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2816",
+        "page": 15
       }
     ],
     "description": [
@@ -14620,7 +14647,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2844"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2844",
+        "page": 36
       }
     ],
     "description": [
@@ -15043,7 +15071,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2845"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2845",
+        "page": 37
       }
     ],
     "description": [
@@ -15382,7 +15411,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2846"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2846",
+        "page": 38
       }
     ],
     "description": [
@@ -15734,7 +15764,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2847"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2847",
+        "page": 39
       }
     ],
     "description": [
@@ -15964,7 +15995,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2872"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2872",
+        "page": 56
       }
     ],
     "description": [
@@ -16590,7 +16622,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2854"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2854",
+        "page": 43
       }
     ],
     "description": [
@@ -16781,7 +16814,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2856"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2856",
+        "page": 44
       }
     ],
     "description": [
@@ -17008,7 +17042,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2858"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2858",
+        "page": 45
       }
     ],
     "description": [
@@ -17382,7 +17417,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2857"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2857",
+        "page": 44
       }
     ],
     "description": [
@@ -17620,7 +17656,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2859"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2859",
+        "page": 46
       }
     ],
     "description": [
@@ -17960,7 +17997,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3185"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3185",
+        "page": 305
       }
     ],
     "description": [
@@ -18466,7 +18504,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2926"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2926",
+        "page": 103
       }
     ],
     "description": [
@@ -18669,7 +18708,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2896"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2896",
+        "page": 77
       }
     ],
     "description": [
@@ -19105,7 +19145,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2989"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2989",
+        "page": 148
       }
     ],
     "description": [
@@ -19308,7 +19349,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2922"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2922",
+        "page": 100
       }
     ],
     "description": [
@@ -19548,7 +19590,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2860"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2860",
+        "page": 47
       }
     ],
     "description": [
@@ -19750,7 +19793,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2861"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2861",
+        "page": 47
       }
     ],
     "description": [
@@ -19951,7 +19995,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2891"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2891",
+        "page": 72
       }
     ],
     "description": [
@@ -20722,7 +20767,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3123"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3123",
+        "page": 254
       }
     ],
     "description": [
@@ -21176,7 +21222,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2862"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2862",
+        "page": 48
       }
     ],
     "description": [
@@ -21561,7 +21608,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2864"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2864",
+        "page": 49
       }
     ],
     "description": [
@@ -21895,7 +21943,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2863"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2863",
+        "page": 48
       }
     ],
     "description": [
@@ -22162,7 +22211,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2814"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2814",
+        "page": 14
       }
     ],
     "description": [
@@ -22728,7 +22778,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2869"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2869",
+        "page": 52
       }
     ],
     "description": [
@@ -22991,7 +23042,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2870"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2870",
+        "page": 53
       }
     ],
     "description": [
@@ -23284,7 +23336,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2851"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2851",
+        "page": 41
       }
     ],
     "description": [
@@ -23534,7 +23587,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2871"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2871",
+        "page": 54
       }
     ],
     "description": [
@@ -24310,7 +24364,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2874"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2874",
+        "page": 58
       }
     ],
     "description": [
@@ -24577,7 +24632,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2876"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2876",
+        "page": 59
       }
     ],
     "description": [
@@ -24859,7 +24915,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2877"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2877",
+        "page": 60
       }
     ],
     "description": [
@@ -25112,7 +25169,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2878"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2878",
+        "page": 61
       }
     ],
     "description": [
@@ -25412,7 +25470,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2879"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2879",
+        "page": 62
       }
     ],
     "description": [
@@ -26105,7 +26164,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2815"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2815",
+        "page": 15
       }
     ],
     "description": [
@@ -26466,7 +26526,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2880"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2880",
+        "page": 63
       }
     ],
     "description": [
@@ -26756,7 +26817,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2981"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2981",
+        "page": 144
       }
     ],
     "description": [
@@ -26939,7 +27001,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2881"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2881",
+        "page": 64
       }
     ],
     "description": [
@@ -27285,7 +27348,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3015"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3015",
+        "page": 167
       }
     ],
     "description": [
@@ -27699,7 +27763,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2907"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2907",
+        "page": 87
       }
     ],
     "description": [
@@ -28102,7 +28167,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2883"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2883",
+        "page": 66
       }
     ],
     "description": [
@@ -28268,7 +28334,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3183"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3183",
+        "page": 304
       }
     ],
     "description": [
@@ -28794,7 +28861,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2914"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2914",
+        "page": 96
       }
     ],
     "description": [
@@ -29020,7 +29088,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2884"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2884",
+        "page": 67
       }
     ],
     "description": [
@@ -33672,7 +33741,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3083"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3083",
+        "page": 220
       }
     ],
     "description": [
@@ -34315,7 +34385,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2885"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2885",
+        "page": 68
       }
     ],
     "description": [
@@ -34617,7 +34688,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2887"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2887",
+        "page": 69
       }
     ],
     "description": [
@@ -34953,7 +35025,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3043"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3043",
+        "page": 191
       }
     ],
     "description": [
@@ -35439,7 +35512,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2889"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2889",
+        "page": 70
       }
     ],
     "description": [
@@ -35758,7 +35832,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3154"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3154",
+        "page": 280
       }
     ],
     "description": [
@@ -36140,7 +36215,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2855"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2855",
+        "page": 43
       }
     ],
     "description": [
@@ -36349,7 +36425,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3095"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3095",
+        "page": 229
       }
     ],
     "description": [
@@ -36632,7 +36709,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2916"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2916",
+        "page": 97
       }
     ],
     "description": [
@@ -36794,7 +36872,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2888"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2888",
+        "page": 69
       }
     ],
     "description": [
@@ -37145,7 +37224,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2904"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2904",
+        "page": 85
       }
     ],
     "description": [
@@ -37546,7 +37626,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2902"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2902",
+        "page": 84
       }
     ],
     "description": [
@@ -37899,7 +37980,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2903"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2903",
+        "page": 84
       }
     ],
     "description": [
@@ -38302,7 +38384,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2963"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2963",
+        "page": 133
       }
     ],
     "description": [
@@ -38830,7 +38913,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2912"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2912",
+        "page": 94
       }
     ],
     "description": [
@@ -39281,7 +39365,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2913"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2913",
+        "page": 95
       }
     ],
     "description": [
@@ -44121,7 +44206,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3242"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3242",
+        "page": 350
       }
     ],
     "description": [
@@ -44544,7 +44630,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3172"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3172",
+        "page": 295
       }
     ],
     "description": [
@@ -44877,7 +44964,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2956"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2956",
+        "page": 126
       }
     ],
     "description": [
@@ -45213,7 +45301,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3211"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3211",
+        "page": 322
       }
     ],
     "description": [
@@ -45492,7 +45581,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3131"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3131",
+        "page": 259
       }
     ],
     "description": [
@@ -45734,7 +45824,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3112"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3112",
+        "page": 244
       }
     ],
     "description": [
@@ -45981,7 +46072,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3114"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3114",
+        "page": 247
       }
     ],
     "description": [
@@ -46562,7 +46654,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2964"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2964",
+        "page": 134
       }
     ],
     "description": [
@@ -47030,7 +47123,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3139"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3139",
+        "page": 266
       }
     ],
     "description": [
@@ -47461,7 +47555,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2966"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2966",
+        "page": 135
       }
     ],
     "description": [
@@ -47738,7 +47833,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2965"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2965",
+        "page": 135
       }
     ],
     "description": [
@@ -47956,7 +48052,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2967"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2967",
+        "page": 136
       }
     ],
     "description": [
@@ -48351,7 +48448,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2968"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2968",
+        "page": 137
       }
     ],
     "description": [
@@ -48483,7 +48581,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2986"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2986",
+        "page": 146
       }
     ],
     "description": [
@@ -48724,7 +48823,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2972"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2972",
+        "page": 139
       }
     ],
     "description": [
@@ -49015,7 +49115,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2970"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2970",
+        "page": 138
       }
     ],
     "description": [
@@ -49241,7 +49342,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2980"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2980",
+        "page": 143
       }
     ],
     "description": [
@@ -49671,7 +49773,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2976"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2976",
+        "page": 141
       }
     ],
     "description": [
@@ -50096,7 +50199,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2984"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2984",
+        "page": 145
       }
     ],
     "description": [
@@ -50409,7 +50513,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2992"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2992",
+        "page": 149
       }
     ],
     "description": [
@@ -50798,7 +50903,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2993"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2993",
+        "page": 150
       }
     ],
     "description": [
@@ -50990,7 +51096,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2995"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=2995",
+        "page": 151
       }
     ],
     "description": [
@@ -55712,7 +55819,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3005"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3005",
+        "page": 158
       }
     ],
     "description": [
@@ -56182,7 +56290,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2957"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2957",
+        "page": 127
       }
     ],
     "description": [
@@ -56436,7 +56545,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3014"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3014",
+        "page": 166
       }
     ],
     "description": [
@@ -56703,7 +56813,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2987"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2987",
+        "page": 147
       }
     ],
     "description": [
@@ -56971,7 +57082,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2983"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2983",
+        "page": 144
       }
     ],
     "description": [
@@ -57258,7 +57370,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2959"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2959",
+        "page": 129
       }
     ],
     "description": [
@@ -57679,7 +57792,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2852"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2852",
+        "page": 42
       }
     ],
     "description": [
@@ -57854,7 +57968,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3219"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3219",
+        "page": 330
       }
     ],
     "description": [
@@ -61904,7 +62019,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2962"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2962",
+        "page": 132
       }
     ],
     "description": [
@@ -62372,7 +62488,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3013"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3013",
+        "page": 165
       }
     ],
     "description": [
@@ -62696,7 +62813,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3081"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3081",
+        "page": 217
       }
     ],
     "description": [
@@ -63018,7 +63136,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2841"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2841",
+        "page": 32
       }
     ],
     "description": [
@@ -63330,7 +63449,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3001"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3001",
+        "page": 155
       }
     ],
     "description": [
@@ -63754,7 +63874,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3007"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3007",
+        "page": 161
       }
     ],
     "description": [
@@ -63964,7 +64085,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3008"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3008",
+        "page": 161
       }
     ],
     "description": [
@@ -64294,7 +64416,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3010"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3010",
+        "page": 163
       }
     ],
     "description": [
@@ -64954,7 +65077,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3009"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3009",
+        "page": 163
       }
     ],
     "description": [
@@ -65542,7 +65666,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3203"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3203",
+        "page": 317
       }
     ],
     "description": [
@@ -66052,7 +66177,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2821"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2821",
+        "page": 19
       }
     ],
     "description": [
@@ -66362,7 +66488,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2824"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2824",
+        "page": 21
       }
     ],
     "description": [
@@ -66740,7 +66867,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2849"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2849",
+        "page": 40
       }
     ],
     "description": [
@@ -66936,7 +67064,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2875"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2875",
+        "page": 59
       }
     ],
     "description": [
@@ -67149,7 +67278,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2886"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2886",
+        "page": 68
       }
     ],
     "description": [
@@ -67551,7 +67681,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2969"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2969",
+        "page": 137
       }
     ],
     "description": [
@@ -67809,7 +67940,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3000"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3000",
+        "page": 154
       }
     ],
     "description": [
@@ -68207,7 +68339,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3089"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3089",
+        "page": 225
       }
     ],
     "description": [
@@ -68383,7 +68516,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3087"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3087",
+        "page": 224
       }
     ],
     "description": [
@@ -68528,7 +68662,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3051"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3051",
+        "page": 196
       }
     ],
     "description": [
@@ -68781,7 +68916,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3094"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3094",
+        "page": 229
       }
     ],
     "description": [
@@ -68969,7 +69105,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3088"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3088",
+        "page": 224
       }
     ],
     "description": [
@@ -69342,7 +69479,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2971"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2971",
+        "page": 138
       }
     ],
     "description": [
@@ -69756,7 +69894,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3115"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3115",
+        "page": 248
       }
     ],
     "description": [
@@ -70235,7 +70374,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3162"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3162",
+        "page": 288
       }
     ],
     "description": [
@@ -70479,7 +70619,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3175"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3175",
+        "page": 298
       }
     ],
     "description": [
@@ -70903,7 +71044,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2853"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2853",
+        "page": 42
       }
     ],
     "description": [
@@ -71068,7 +71210,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3208"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3208",
+        "page": 321
       }
     ],
     "description": [
@@ -71453,7 +71596,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3202"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3202",
+        "page": 317
       }
     ],
     "description": [
@@ -71770,7 +71914,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3233"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3233",
+        "page": 343
       }
     ],
     "description": [
@@ -72307,7 +72452,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3018"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3018",
+        "page": 170
       }
     ],
     "description": [
@@ -72797,7 +72943,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2836"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2836",
+        "page": 29
       }
     ],
     "description": [
@@ -73215,7 +73362,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3019"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3019",
+        "page": 171
       }
     ],
     "description": [
@@ -73915,7 +74063,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3020"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3020",
+        "page": 172
       }
     ],
     "description": [
@@ -74217,7 +74366,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3025"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3025",
+        "page": 174
       }
     ],
     "description": [
@@ -74419,7 +74569,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3028"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3028",
+        "page": 176
       }
     ],
     "description": [
@@ -74824,7 +74975,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3026"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3026",
+        "page": 175
       }
     ],
     "description": [
@@ -75013,7 +75165,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3027"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3027",
+        "page": 175
       }
     ],
     "description": [
@@ -75332,7 +75485,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3024"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3024",
+        "page": 174
       }
     ],
     "description": [
@@ -75528,7 +75682,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3029"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3029",
+        "page": 177
       }
     ],
     "description": [
@@ -75892,7 +76047,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3209"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3209",
+        "page": 321
       }
     ],
     "description": [
@@ -76311,7 +76467,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3155"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3155",
+        "page": 281
       }
     ],
     "description": [
@@ -76886,7 +77043,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2827"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2827",
+        "page": 23
       }
     ],
     "description": [
@@ -77121,7 +77279,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2931"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2931",
+        "page": 107
       }
     ],
     "description": [
@@ -77564,7 +77723,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3080"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3080",
+        "page": 217
       }
     ],
     "description": [
@@ -77870,7 +78030,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030",
+        "page": 179
       }
     ],
     "description": [
@@ -78365,7 +78526,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2890"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2890",
+        "page": 71
       }
     ],
     "description": [
@@ -78706,7 +78868,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3188"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3188",
+        "page": 307
       }
     ],
     "description": [
@@ -78932,7 +79095,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3048"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3048",
+        "page": 194
       }
     ],
     "description": [
@@ -79451,7 +79615,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3106"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3106",
+        "page": 238
       }
     ],
     "description": [
@@ -79733,7 +79898,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3187"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3187",
+        "page": 306
       }
     ],
     "description": [
@@ -80349,7 +80515,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3034"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3034",
+        "page": 182
       }
     ],
     "description": [
@@ -80636,7 +80803,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3035"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3035",
+        "page": 183
       }
     ],
     "description": [
@@ -80962,7 +81130,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3036"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3036",
+        "page": 184
       }
     ],
     "description": [
@@ -81446,7 +81615,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3038"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3038",
+        "page": 186
       }
     ],
     "description": [
@@ -81803,7 +81973,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2850"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2850",
+        "page": 41
       }
     ],
     "description": [
@@ -82053,7 +82224,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2997"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2997",
+        "page": 152
       }
     ],
     "description": [
@@ -82298,7 +82470,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2924"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2924",
+        "page": 102
       }
     ],
     "description": [
@@ -82442,7 +82615,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3039"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3039",
+        "page": 187
       }
     ],
     "description": [
@@ -83071,7 +83245,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2910"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2910",
+        "page": 91
       }
     ],
     "description": [
@@ -83652,7 +83827,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2918"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2918",
+        "page": 98
       }
     ],
     "description": [
@@ -83874,7 +84050,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3044"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3044",
+        "page": 192
       }
     ],
     "description": [
@@ -84053,7 +84230,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3045"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3045",
+        "page": 192
       }
     ],
     "description": [
@@ -84279,7 +84457,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3046"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3046",
+        "page": 193
       }
     ],
     "description": [
@@ -84634,7 +84813,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3047"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3047",
+        "page": 194
       }
     ],
     "description": [
@@ -84847,7 +85027,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3049"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3049",
+        "page": 195
       }
     ],
     "description": [
@@ -85100,7 +85281,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3050"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3050",
+        "page": 196
       }
     ],
     "description": [
@@ -85353,7 +85535,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3052"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3052",
+        "page": 197
       }
     ],
     "description": [
@@ -85633,7 +85816,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3054"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3054",
+        "page": 199
       }
     ],
     "description": [
@@ -85908,7 +86092,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3055"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3055",
+        "page": 199
       }
     ],
     "description": [
@@ -86135,7 +86320,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3053"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3053",
+        "page": 198
       }
     ],
     "description": [
@@ -86423,7 +86609,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3056"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3056",
+        "page": 200
       }
     ],
     "description": [
@@ -90503,7 +90690,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3062"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3062",
+        "page": 202
       }
     ],
     "description": [
@@ -90736,7 +90924,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3061"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3061",
+        "page": 202
       }
     ],
     "description": [
@@ -90964,7 +91153,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3063"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3063",
+        "page": 203
       }
     ],
     "description": [
@@ -91235,7 +91425,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3207"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3207",
+        "page": 320
       }
     ],
     "description": [
@@ -91631,7 +91822,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3066"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3066",
+        "page": 205
       }
     ],
     "description": [
@@ -91874,7 +92066,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3064"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3064",
+        "page": 204
       }
     ],
     "description": [
@@ -92236,7 +92429,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3065"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3065",
+        "page": 205
       }
     ],
     "description": [
@@ -92454,7 +92648,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3084"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3084",
+        "page": 221
       }
     ],
     "description": [
@@ -93074,7 +93269,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3006"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3006",
+        "page": 159
       }
     ],
     "description": [
@@ -93504,7 +93700,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3067"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3067",
+        "page": 206
       }
     ],
     "description": [
@@ -93915,7 +94112,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2998"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2998",
+        "page": 153
       }
     ],
     "description": [
@@ -94228,7 +94426,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3042"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3042",
+        "page": 190
       }
     ],
     "description": [
@@ -94750,7 +94949,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3068"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3068",
+        "page": 207
       }
     ],
     "description": [
@@ -95129,7 +95329,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3124"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3124",
+        "page": 254
       }
     ],
     "description": [
@@ -95849,7 +96050,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3003"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3003",
+        "page": 157
       }
     ],
     "description": [
@@ -96317,7 +96519,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3004"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3004",
+        "page": 158
       }
     ],
     "description": [
@@ -96679,7 +96882,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2930"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2930",
+        "page": 106
       }
     ],
     "description": [
@@ -97174,7 +97378,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3002"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3002",
+        "page": 156
       }
     ],
     "description": [
@@ -97768,7 +97973,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3033"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3033",
+        "page": 181
       }
     ],
     "description": [
@@ -97949,7 +98155,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2960"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2960",
+        "page": 130
       }
     ],
     "description": [
@@ -98527,7 +98734,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2842"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2842",
+        "page": 34
       }
     ],
     "description": [
@@ -98904,7 +99112,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3146"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3146",
+        "page": 272
       }
     ],
     "description": [
@@ -99601,7 +99810,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3070"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3070",
+        "page": 209
       }
     ],
     "description": [
@@ -99868,7 +100078,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3069"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3069",
+        "page": 208
       }
     ],
     "description": [
@@ -100085,7 +100296,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3071"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3071",
+        "page": 209
       }
     ],
     "description": [
@@ -100378,7 +100590,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3074"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3074",
+        "page": 211
       }
     ],
     "description": [
@@ -100719,7 +100932,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3073"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3073",
+        "page": 210
       }
     ],
     "description": [
@@ -101041,7 +101255,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3072"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3072",
+        "page": 210
       }
     ],
     "description": [
@@ -101293,7 +101508,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3075"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3075",
+        "page": 212
       }
     ],
     "description": [
@@ -101802,7 +102018,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3076"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3076",
+        "page": 213
       }
     ],
     "description": [
@@ -102408,7 +102625,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3077"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3077",
+        "page": 214
       }
     ],
     "description": [
@@ -102749,7 +102967,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3078"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3078",
+        "page": 215
       }
     ],
     "description": [
@@ -103095,7 +103314,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3116"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3116",
+        "page": 249
       }
     ],
     "description": [
@@ -103438,7 +103658,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3141"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3141",
+        "page": 267
       }
     ],
     "description": [
@@ -103829,7 +104050,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3079"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3079",
+        "page": 216
       }
     ],
     "description": [
@@ -104173,7 +104395,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2865"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2865",
+        "page": 50
       }
     ],
     "description": [
@@ -104432,7 +104655,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3037"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3037",
+        "page": 185
       }
     ],
     "description": [
@@ -104814,7 +105038,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2893"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2893",
+        "page": 74
       }
     ],
     "description": [
@@ -105321,7 +105546,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3082"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3082",
+        "page": 219
       }
     ],
     "description": [
@@ -105941,7 +106167,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2866"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2866",
+        "page": 50
       }
     ],
     "description": [
@@ -106207,7 +106434,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2978"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2978",
+        "page": 142
       }
     ],
     "description": [
@@ -106458,7 +106686,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3128"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3128",
+        "page": 257
       }
     ],
     "description": [
@@ -106822,7 +107051,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2990"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2990",
+        "page": 148
       }
     ],
     "description": [
@@ -107162,7 +107392,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2974"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2974",
+        "page": 140
       }
     ],
     "description": [
@@ -107417,7 +107648,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2982"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2982",
+        "page": 144
       }
     ],
     "description": [
@@ -107672,7 +107904,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3090"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3090",
+        "page": 226
       }
     ],
     "description": [
@@ -107980,7 +108213,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3091"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3091",
+        "page": 227
       }
     ],
     "description": [
@@ -108358,7 +108592,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3092"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3092",
+        "page": 227
       }
     ],
     "description": [
@@ -108955,7 +109190,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2840"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2840",
+        "page": 32
       }
     ],
     "description": [
@@ -109205,7 +109441,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2873"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2873",
+        "page": 57
       }
     ],
     "description": [
@@ -109936,7 +110173,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2994"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2994",
+        "page": 150
       }
     ],
     "description": [
@@ -110175,7 +110413,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3093"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3093",
+        "page": 228
       }
     ],
     "description": [
@@ -110365,7 +110604,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3093"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3093",
+        "page": 228
       }
     ],
     "description": [
@@ -110656,7 +110896,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3011"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3011",
+        "page": 164
       }
     ],
     "description": [
@@ -110951,7 +111192,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3096"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3096",
+        "page": 230
       }
     ],
     "description": [
@@ -111384,7 +111626,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3189"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3189",
+        "page": 307
       }
     ],
     "description": [
@@ -111817,7 +112060,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2828"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2828",
+        "page": 23
       }
     ],
     "description": [
@@ -112087,7 +112331,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3097"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3097",
+        "page": 231
       }
     ],
     "description": [
@@ -112232,7 +112477,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3098"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3098",
+        "page": 231
       }
     ],
     "description": [
@@ -112469,7 +112715,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3099"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3099",
+        "page": 232
       }
     ],
     "description": [
@@ -115930,7 +116177,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3031"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3031",
+        "page": 180
       }
     ],
     "description": [
@@ -116150,7 +116398,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3149"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3149",
+        "page": 276
       }
     ],
     "description": [
@@ -116774,7 +117023,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3121"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3121",
+        "page": 252
       }
     ],
     "description": [
@@ -117097,7 +117347,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3100"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3100",
+        "page": 233
       }
     ],
     "description": [
@@ -118222,7 +118473,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3101"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3101",
+        "page": 234
       }
     ],
     "description": [
@@ -118513,7 +118765,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3102"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3102",
+        "page": 235
       }
     ],
     "description": [
@@ -118940,7 +119193,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3111"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3111",
+        "page": 244
       }
     ],
     "description": [
@@ -119186,7 +119440,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3113"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3113",
+        "page": 246
       }
     ],
     "description": [
@@ -119730,7 +119985,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2911"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2911",
+        "page": 92
       }
     ],
     "description": [
@@ -120878,7 +121134,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3105"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3105",
+        "page": 238
       }
     ],
     "description": [
@@ -121112,7 +121369,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3107"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3107",
+        "page": 239
       }
     ],
     "description": [
@@ -121488,7 +121746,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3108"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3108",
+        "page": 240
       }
     ],
     "description": [
@@ -122159,7 +122418,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3147"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3147",
+        "page": 274
       }
     ],
     "description": [
@@ -122537,7 +122797,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3109"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3109",
+        "page": 242
       }
     ],
     "description": [
@@ -123399,7 +123660,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3110"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3110",
+        "page": 243
       }
     ],
     "description": [
@@ -124018,7 +124280,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3117"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3117",
+        "page": 249
       }
     ],
     "description": [
@@ -124363,7 +124626,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3120"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3120",
+        "page": 251
       }
     ],
     "description": [
@@ -124622,7 +124886,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3119"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3119",
+        "page": 250
       }
     ],
     "description": [
@@ -124956,7 +125221,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3118"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3118",
+        "page": 250
       }
     ],
     "description": [
@@ -128014,7 +128280,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2898"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2898",
+        "page": 79
       }
     ],
     "description": [
@@ -128531,7 +128798,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3132"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3132",
+        "page": 259
       }
     ],
     "description": [
@@ -128830,7 +129098,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3129"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3129",
+        "page": 258
       }
     ],
     "description": [
@@ -129038,7 +129307,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3130"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3130",
+        "page": 258
       }
     ],
     "description": [
@@ -129320,7 +129590,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2927"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2927",
+        "page": 103
       }
     ],
     "description": [
@@ -129628,7 +129899,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2905"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2905",
+        "page": 86
       }
     ],
     "description": [
@@ -129900,7 +130172,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2917"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2917",
+        "page": 97
       }
     ],
     "description": [
@@ -130159,7 +130432,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3133"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3133",
+        "page": 260
       }
     ],
     "description": [
@@ -130376,7 +130650,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3134"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3134",
+        "page": 261
       }
     ],
     "description": [
@@ -130692,7 +130967,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2975"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2975",
+        "page": 140
       }
     ],
     "description": [
@@ -130885,7 +131161,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3136"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3136",
+        "page": 263
       }
     ],
     "description": [
@@ -131192,7 +131469,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3135"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3135",
+        "page": 262
       }
     ],
     "description": [
@@ -131429,7 +131707,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2909"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2909",
+        "page": 90
       }
     ],
     "description": [
@@ -131918,7 +132197,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3137"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3137",
+        "page": 264
       }
     ],
     "description": [
@@ -132339,7 +132619,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3138"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3138",
+        "page": 265
       }
     ],
     "description": [
@@ -132585,7 +132866,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3140"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3140",
+        "page": 266
       }
     ],
     "description": [
@@ -132873,7 +133155,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3212"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3212",
+        "page": 323
       }
     ],
     "description": [
@@ -133185,7 +133468,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3250"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3250",
+        "page": 356
       }
     ],
     "description": [
@@ -133566,7 +133850,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2811"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2811",
+        "page": 10
       }
     ],
     "description": [
@@ -134166,7 +134451,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3142"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3142",
+        "page": 268
       }
     ],
     "description": [
@@ -134563,7 +134849,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3143"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3143",
+        "page": 269
       }
     ],
     "description": [
@@ -135151,7 +135438,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3151"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3151",
+        "page": 278
       }
     ],
     "description": [
@@ -135289,7 +135577,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3032"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3032",
+        "page": 180
       }
     ],
     "description": [
@@ -135512,7 +135801,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3153"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3153",
+        "page": 279
       }
     ],
     "description": [
@@ -135995,7 +136285,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2895"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2895",
+        "page": 76
       }
     ],
     "description": [
@@ -136308,7 +136599,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3201"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3201",
+        "page": 316
       }
     ],
     "description": [
@@ -136646,7 +136938,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2833"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2833",
+        "page": 27
       }
     ],
     "description": [
@@ -137126,7 +137419,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3158"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3158",
+        "page": 284
       }
     ],
     "description": [
@@ -137715,7 +138009,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2991"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2991",
+        "page": 148
       }
     ],
     "description": [
@@ -138058,7 +138353,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3159"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3159",
+        "page": 285
       }
     ],
     "description": [
@@ -138456,7 +138752,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2882"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2882",
+        "page": 65
       }
     ],
     "description": [
@@ -139072,7 +139369,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3152"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3152",
+        "page": 278
       }
     ],
     "description": [
@@ -139325,7 +139623,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3161"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3161",
+        "page": 287
       }
     ],
     "description": [
@@ -139905,7 +140204,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3160"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3160",
+        "page": 286
       }
     ],
     "description": [
@@ -140284,7 +140584,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3163"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3163",
+        "page": 288
       }
     ],
     "description": [
@@ -140554,7 +140855,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3164"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3164",
+        "page": 289
       }
     ],
     "description": [
@@ -140838,7 +141140,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3165"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3165",
+        "page": 290
       }
     ],
     "description": [
@@ -141224,7 +141527,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3166"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3166",
+        "page": 291
       }
     ],
     "description": [
@@ -142120,7 +142424,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2835"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2835",
+        "page": 28
       }
     ],
     "description": [
@@ -142600,7 +142905,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3167"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3167",
+        "page": 292
       }
     ],
     "description": [
@@ -143066,7 +143372,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3168"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3168",
+        "page": 293
       }
     ],
     "description": [
@@ -143270,7 +143577,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2928"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2928",
+        "page": 104
       }
     ],
     "description": [
@@ -143678,7 +143986,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2925"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2925",
+        "page": 102
       }
     ],
     "description": [
@@ -143903,7 +144212,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3058"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3058",
+        "page": 201
       }
     ],
     "description": [
@@ -144112,7 +144422,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3057"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3057",
+        "page": 201
       }
     ],
     "description": [
@@ -144321,7 +144632,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2958"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2958",
+        "page": 129
       }
     ],
     "description": [
@@ -144752,7 +145064,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3170"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3170",
+        "page": 294
       }
     ],
     "description": [
@@ -145145,7 +145458,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3017"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3017",
+        "page": 169
       }
     ],
     "description": [
@@ -145764,7 +146078,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3171"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3171",
+        "page": 295
       }
     ],
     "description": [
@@ -146046,7 +146361,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2908"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2908",
+        "page": 89
       }
     ],
     "description": [
@@ -146647,7 +146963,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3173"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3173",
+        "page": 296
       }
     ],
     "description": [
@@ -146984,7 +147301,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3174"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3174",
+        "page": 297
       }
     ],
     "description": [
@@ -147274,7 +147592,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3176"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3176",
+        "page": 298
       }
     ],
     "description": [
@@ -147513,7 +147832,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3040"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3040",
+        "page": 188
       }
     ],
     "description": [
@@ -147892,7 +148212,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3177"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3177",
+        "page": 299
       }
     ],
     "description": [
@@ -148413,7 +148734,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3179"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3179",
+        "page": 300
       }
     ],
     "description": [
@@ -148774,7 +149096,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3178"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3178",
+        "page": 300
       }
     ],
     "description": [
@@ -149034,7 +149357,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3180"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3180",
+        "page": 301
       }
     ],
     "description": [
@@ -149512,7 +149836,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2899"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2899",
+        "page": 80
       }
     ],
     "description": [
@@ -150042,7 +150367,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3125"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3125",
+        "page": 256
       }
     ],
     "description": [
@@ -150254,7 +150580,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3186"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3186",
+        "page": 306
       }
     ],
     "description": [
@@ -150479,7 +150806,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3016"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3016",
+        "page": 168
       }
     ],
     "description": [
@@ -150922,7 +151250,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2900"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2900",
+        "page": 81
       }
     ],
     "description": [
@@ -151543,7 +151872,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3190"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3190",
+        "page": 308
       }
     ],
     "description": [
@@ -151872,7 +152202,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3191"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3191",
+        "page": 309
       }
     ],
     "description": [
@@ -152201,7 +152532,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3194"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3194",
+        "page": 312
       }
     ],
     "description": [
@@ -152487,7 +152819,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3196"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3196",
+        "page": 313
       }
     ],
     "description": [
@@ -152704,7 +153037,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3195"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3195",
+        "page": 313
       }
     ],
     "description": [
@@ -152888,7 +153222,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3197"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3197",
+        "page": 313
       }
     ],
     "description": [
@@ -153075,7 +153410,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3193"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3193",
+        "page": 312
       }
     ],
     "description": [
@@ -153252,7 +153588,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3198"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3198",
+        "page": 314
       }
     ],
     "description": [
@@ -154161,7 +154498,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3199"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3199",
+        "page": 315
       }
     ],
     "description": [
@@ -154374,7 +154712,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3103"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3103",
+        "page": 236
       }
     ],
     "description": [
@@ -154760,7 +155099,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2868"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2868",
+        "page": 51
       }
     ],
     "description": [
@@ -155055,7 +155395,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2999"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2999",
+        "page": 154
       }
     ],
     "description": [
@@ -155453,7 +155794,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3122"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3122",
+        "page": 253
       }
     ],
     "description": [
@@ -155932,7 +156274,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2977"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2977",
+        "page": 142
       }
     ],
     "description": [
@@ -156140,7 +156483,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204",
+        "page": 318
       }
     ],
     "description": [
@@ -156329,7 +156673,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204",
+        "page": 318
       }
     ],
     "description": [
@@ -156518,7 +156863,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204",
+        "page": 318
       }
     ],
     "description": [
@@ -156707,7 +157053,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204",
+        "page": 318
       }
     ],
     "description": [
@@ -156896,7 +157243,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204",
+        "page": 318
       }
     ],
     "description": [
@@ -157085,7 +157433,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204",
+        "page": 318
       }
     ],
     "description": [
@@ -157274,7 +157623,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204",
+        "page": 318
       }
     ],
     "description": [
@@ -157463,7 +157813,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204",
+        "page": 318
       }
     ],
     "description": [
@@ -157652,7 +158003,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204",
+        "page": 318
       }
     ],
     "description": [
@@ -157841,7 +158193,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204",
+        "page": 318
       }
     ],
     "description": [
@@ -158030,7 +158383,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3204",
+        "page": 318
       }
     ],
     "description": [
@@ -158443,7 +158797,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3205"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3205",
+        "page": 319
       }
     ],
     "description": [
@@ -158726,7 +159081,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3206"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3206",
+        "page": 320
       }
     ],
     "description": [
@@ -159024,7 +159380,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3221"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3221",
+        "page": 332
       }
     ],
     "description": [
@@ -159208,7 +159565,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3210"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3210",
+        "page": 322
       }
     ],
     "description": [
@@ -159390,7 +159748,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2920"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2920",
+        "page": 99
       }
     ],
     "description": [
@@ -159616,7 +159975,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3213"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3213",
+        "page": 324
       }
     ],
     "description": [
@@ -159852,7 +160212,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3012"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3012",
+        "page": 164
       }
     ],
     "description": [
@@ -160151,7 +160512,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2979"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2979",
+        "page": 142
       }
     ],
     "description": [
@@ -160494,7 +160856,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3126"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3126",
+        "page": 256
       }
     ],
     "description": [
@@ -160720,7 +161083,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2897"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2897",
+        "page": 78
       }
     ],
     "description": [
@@ -161243,7 +161607,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3041"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3041",
+        "page": 189
       }
     ],
     "description": [
@@ -161671,7 +162036,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2817"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2817",
+        "page": 16
       }
     ],
     "description": [
@@ -162022,7 +162388,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3085"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3085",
+        "page": 221
       }
     ],
     "description": [
@@ -162682,7 +163049,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3214"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3214",
+        "page": 325
       }
     ],
     "description": [
@@ -163013,7 +163381,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3215"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3215",
+        "page": 326
       }
     ],
     "description": [
@@ -163618,7 +163987,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3157"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3157",
+        "page": 283
       }
     ],
     "description": [
@@ -164319,7 +164689,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2867"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2867",
+        "page": 51
       }
     ],
     "description": [
@@ -164572,7 +164943,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3127"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3127",
+        "page": 257
       }
     ],
     "description": [
@@ -164787,7 +165159,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3216"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3216",
+        "page": 327
       }
     ],
     "description": [
@@ -165061,7 +165434,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3217"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3217",
+        "page": 327
       }
     ],
     "description": [
@@ -165339,7 +165713,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3086"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3086",
+        "page": 222
       }
     ],
     "description": [
@@ -166028,7 +166403,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3218"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3218",
+        "page": 328
       }
     ],
     "description": [
@@ -166780,7 +167156,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2921"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2921",
+        "page": 99
       }
     ],
     "description": [
@@ -167120,7 +167497,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3220"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3220",
+        "page": 331
       }
     ],
     "description": [
@@ -167685,7 +168063,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3222"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3222",
+        "page": 332
       }
     ],
     "description": [
@@ -167932,7 +168311,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2923"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2923",
+        "page": 101
       }
     ],
     "description": [
@@ -168369,7 +168749,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2812"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2812",
+        "page": 12
       }
     ],
     "description": [
@@ -168795,7 +169176,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3023"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3023",
+        "page": 173
       }
     ],
     "description": [
@@ -169018,7 +169400,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3021"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3021",
+        "page": 172
       }
     ],
     "description": [
@@ -169194,7 +169577,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3022"
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3022",
+        "page": 173
       }
     ],
     "description": [
@@ -169455,7 +169839,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3223"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3223",
+        "page": 333
       }
     ],
     "description": [
@@ -169707,7 +170092,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2848"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2848",
+        "page": 40
       }
     ],
     "description": [
@@ -169905,7 +170291,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3225"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3225",
+        "page": 336
       }
     ],
     "description": [
@@ -170673,7 +171060,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3226"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3226",
+        "page": 337
       }
     ],
     "description": [
@@ -171600,7 +171988,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3224"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3224",
+        "page": 336
       }
     ],
     "description": [
@@ -172057,7 +172446,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3148"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3148",
+        "page": 275
       }
     ],
     "description": [
@@ -172698,7 +173088,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2915"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2915",
+        "page": 96
       }
     ],
     "description": [
@@ -172883,7 +173274,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2892"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2892",
+        "page": 73
       }
     ],
     "description": [
@@ -173280,7 +173672,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3228"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3228",
+        "page": 339
       }
     ],
     "description": [
@@ -173664,7 +174057,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3227"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3227",
+        "page": 338
       }
     ],
     "description": [
@@ -173958,7 +174352,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3104"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3104",
+        "page": 237
       }
     ],
     "description": [
@@ -174435,7 +174830,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2813"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2813",
+        "page": 12
       }
     ],
     "description": [
@@ -175041,7 +175437,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3229"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3229",
+        "page": 340
       }
     ],
     "description": [
@@ -175621,7 +176018,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3200"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3200",
+        "page": 316
       }
     ],
     "description": [
@@ -175870,7 +176268,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3144"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3144",
+        "page": 270
       }
     ],
     "description": [
@@ -176215,7 +176614,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2906"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2906",
+        "page": 87
       }
     ],
     "description": [
@@ -176621,7 +177021,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2901"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2901",
+        "page": 82
       }
     ],
     "description": [
@@ -177217,7 +177618,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3060"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3060",
+        "page": 201
       }
     ],
     "description": [
@@ -177426,7 +177828,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3059"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3059",
+        "page": 201
       }
     ],
     "description": [
@@ -177635,7 +178038,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3230"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3230",
+        "page": 341
       }
     ],
     "description": [
@@ -177985,7 +178389,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3232"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3232",
+        "page": 342
       }
     ],
     "description": [
@@ -178478,7 +178883,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3234"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3234",
+        "page": 343
       }
     ],
     "description": [
@@ -178731,7 +179137,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2988"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2988",
+        "page": 147
       }
     ],
     "description": [
@@ -178986,7 +179393,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3237"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3237",
+        "page": 346
       }
     ],
     "description": [
@@ -179513,7 +179921,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3235"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3235",
+        "page": 345
       }
     ],
     "description": [
@@ -180029,7 +180438,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3238"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3238",
+        "page": 347
       }
     ],
     "description": [
@@ -180557,7 +180967,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3236"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3236",
+        "page": 346
       }
     ],
     "description": [
@@ -181115,7 +181526,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3239"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3239",
+        "page": 348
       }
     ],
     "description": [
@@ -181498,7 +181910,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3240"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3240",
+        "page": 349
       }
     ],
     "description": [
@@ -182074,7 +182487,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3231"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3231",
+        "page": 341
       }
     ],
     "description": [
@@ -182491,7 +182905,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3241"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3241",
+        "page": 350
       }
     ],
     "description": [
@@ -182705,7 +183120,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3169"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3169",
+        "page": 293
       }
     ],
     "description": [
@@ -182990,7 +183406,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3243"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3243",
+        "page": 351
       }
     ],
     "description": [
@@ -183738,7 +184155,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2961"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2961",
+        "page": 131
       }
     ],
     "description": [
@@ -184361,7 +184779,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2929"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2929",
+        "page": 105
       }
     ],
     "description": [
@@ -184707,7 +185126,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3246"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3246",
+        "page": 353
       }
     ],
     "description": [
@@ -184964,7 +185384,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3245"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3245",
+        "page": 353
       }
     ],
     "description": [
@@ -185246,7 +185667,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3244"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3244",
+        "page": 352
       }
     ],
     "description": [
@@ -185472,7 +185894,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3150"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3150",
+        "page": 277
       }
     ],
     "description": [
@@ -186409,7 +186832,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3247"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3247",
+        "page": 354
       }
     ],
     "description": [
@@ -186809,7 +187233,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3248"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3248",
+        "page": 355
       }
     ],
     "description": [
@@ -187231,7 +187656,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2973"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2973",
+        "page": 140
       }
     ],
     "description": [
@@ -187355,7 +187781,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2832"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2832",
+        "page": 26
       }
     ],
     "description": [
@@ -187705,7 +188132,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3251"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3251",
+        "page": 357
       }
     ],
     "description": [
@@ -187910,7 +188338,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3252"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3252",
+        "page": 357
       }
     ],
     "description": [
@@ -188329,7 +188758,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3181"
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3181",
+        "page": 302
       }
     ],
     "description": [
