@@ -1,1890 +1,2362 @@
 {
   "consumable:alloy-orb-exquisite-high-grade": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963",
+    "page": 263
   },
   "consumable:alloy-orb-exquisite-standard-grade": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963",
+    "page": 263
   },
   "consumable:alloy-orb-high-grade": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963",
+    "page": 263
   },
   "consumable:alloy-orb-low-grade": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963",
+    "page": 263
   },
   "consumable:alloy-orb-standard-grade": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2963",
+    "page": 263
   },
   "consumable:antidote-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2879"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2879",
+    "page": 246
   },
   "consumable:antidote-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2879"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2879",
+    "page": 246
   },
   "consumable:antidote-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2879"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2879",
+    "page": 246
   },
   "consumable:antidote-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2879"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2879",
+    "page": 246
   },
   "consumable:antimagic-oil": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2930"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2930",
+    "page": 257
   },
   "consumable:antiplague-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2880"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2880",
+    "page": 246
   },
   "consumable:antiplague-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2880"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2880",
+    "page": 246
   },
   "consumable:antiplague-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2880"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2880",
+    "page": 246
   },
   "consumable:antiplague-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2880"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2880",
+    "page": 246
   },
   "consumable:basilisk-eye": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2964"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2964",
+    "page": 263
   },
   "consumable:beacon-shot": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2921"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2921",
+    "page": 255
   },
   "consumable:bloodseeker-beak": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2965"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2965",
+    "page": 263
   },
   "consumable:bloodseeker-beak-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2965"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2965",
+    "page": 263
   },
   "consumable:bombers-eye-elixir-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2881"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2881",
+    "page": 246
   },
   "consumable:bombers-eye-elixir-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2881"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2881",
+    "page": 246
   },
   "consumable:bravos-brew-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2882"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2882",
+    "page": 246
   },
   "consumable:bravos-brew-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2882"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2882",
+    "page": 246
   },
   "consumable:bravos-brew-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2882"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2882",
+    "page": 246
   },
   "consumable:bronze-bull-pendant": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2966"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2966",
+    "page": 263
   },
   "consumable:candle-of-truth": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2999"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2999",
+    "page": 268
   },
   "consumable:cats-eye-elixir": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2883"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2883",
+    "page": 246
   },
   "consumable:cheetahs-elixir-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2884"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2884",
+    "page": 246
   },
   "consumable:cheetahs-elixir-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2884"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2884",
+    "page": 246
   },
   "consumable:cheetahs-elixir-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2884"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2884",
+    "page": 246
   },
   "consumable:climbing-bolt": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2922"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2922",
+    "page": 255
   },
   "consumable:crying-angel-pendant": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2967"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2967",
+    "page": 263
   },
   "consumable:darkvision-elixir-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2885"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2885",
+    "page": 246
   },
   "consumable:darkvision-elixir-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2885"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2885",
+    "page": 246
   },
   "consumable:darkvision-elixir-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2885"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2885",
+    "page": 246
   },
   "consumable:dazing-coil": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2968"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2968",
+    "page": 263
   },
   "consumable:dispelling-sliver": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2969"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2969",
+    "page": 264
   },
   "consumable:dragon-turtle-scale": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2970"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2970",
+    "page": 264
   },
   "consumable:dragon-turtle-scale-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2970"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2970",
+    "page": 264
   },
   "consumable:effervescent-ampoule": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2971"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2971",
+    "page": 264
   },
   "consumable:elixir-of-life-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2887",
+    "page": 247
   },
   "consumable:elixir-of-life-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2887",
+    "page": 247
   },
   "consumable:elixir-of-life-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2887",
+    "page": 247
   },
   "consumable:elixir-of-life-minor": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2887",
+    "page": 247
   },
   "consumable:elixir-of-life-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2887",
+    "page": 247
   },
   "consumable:elixir-of-life-true": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2887"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2887",
+    "page": 247
   },
   "consumable:emerald-grasshopper": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2972"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2972",
+    "page": 264
   },
   "consumable:emerald-grasshopper-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2972"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2972",
+    "page": 264
   },
   "consumable:energy-breath-potion-acid-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-acid-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-acid-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-cold-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-cold-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-cold-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-electricity-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-electricity-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-electricity-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-fire-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-fire-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-fire-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-sonic-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-sonic-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:energy-breath-potion-sonic-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2941",
+    "page": 259
   },
   "consumable:explosive-ammunition": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2923"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2923",
+    "page": 255
   },
   "consumable:explosive-ammunition-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2923"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2923",
+    "page": 255
   },
   "consumable:eye-of-apprehension": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2973"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2973",
+    "page": 264
   },
   "consumable:fade-band": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2974"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2974",
+    "page": 264
   },
   "consumable:fear-gem": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2975"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2975",
+    "page": 264
   },
   "consumable:feather-step-stone": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2976"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2976",
+    "page": 264
   },
   "consumable:frozen-lava": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000",
+    "page": 268
   },
   "consumable:frozen-lava-of-barrowsiege": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000",
+    "page": 268
   },
   "consumable:frozen-lava-of-blackpeak": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000",
+    "page": 268
   },
   "consumable:frozen-lava-of-droskars-crag": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000",
+    "page": 268
   },
   "consumable:frozen-lava-of-ka": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000",
+    "page": 268
   },
   "consumable:frozen-lava-of-mhar-massif": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000",
+    "page": 268
   },
   "consumable:frozen-lava-of-pale-mountain": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000",
+    "page": 268
   },
   "consumable:frozen-lava-of-sakalayo": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3000",
+    "page": 268
   },
   "consumable:gallows-tooth": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2977"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2977",
+    "page": 265
   },
   "consumable:gecko-potion": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2942"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2942",
+    "page": 259
   },
   "consumable:ghost-ammunition": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2924"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2924",
+    "page": 255
   },
   "consumable:ghost-dust": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2978"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2978",
+    "page": 265
   },
   "consumable:glow-rod": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2910"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2910",
+    "page": 251
   },
   "consumable:grim-trophy": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2979"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2979",
+    "page": 265
   },
   "consumable:grim-trophy-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2979"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2979",
+    "page": 265
   },
   "consumable:healing-potion-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2943"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2943",
+    "page": 259
   },
   "consumable:healing-potion-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2943"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2943",
+    "page": 259
   },
   "consumable:healing-potion-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2943"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2943",
+    "page": 259
   },
   "consumable:healing-potion-minor": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2943"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2943",
+    "page": 259
   },
   "consumable:healing-potion-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2943"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2943",
+    "page": 259
   },
   "consumable:invisibility-potion": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2944"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2944",
+    "page": 259
   },
   "consumable:iron-cube": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2980"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2980",
+    "page": 265
   },
   "consumable:iron-medallion": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2981"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2981",
+    "page": 265
   },
   "consumable:jade-cat": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2982"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2982",
+    "page": 265
   },
   "consumable:magic-wand-1st-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050",
+    "page": 282
   },
   "consumable:magic-wand-2nd-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050",
+    "page": 282
   },
   "consumable:magic-wand-3rd-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050",
+    "page": 282
   },
   "consumable:magic-wand-4th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050",
+    "page": 282
   },
   "consumable:magic-wand-5th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050",
+    "page": 282
   },
   "consumable:magic-wand-6th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050",
+    "page": 282
   },
   "consumable:magic-wand-7th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050",
+    "page": 282
   },
   "consumable:magic-wand-8th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050",
+    "page": 282
   },
   "consumable:magic-wand-9th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3050",
+    "page": 282
   },
   "consumable:marvelous-miniature-boat": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3002"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3002",
+    "page": 268
   },
   "consumable:marvelous-miniature-campfire": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3002"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3002",
+    "page": 268
   },
   "consumable:marvelous-miniature-chest": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3002"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3002",
+    "page": 268
   },
   "consumable:marvelous-miniature-horse": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3002"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3002",
+    "page": 268
   },
   "consumable:marvelous-miniature-ladder": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3002"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3002",
+    "page": 268
   },
   "consumable:matchstick": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2911"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2911",
+    "page": 251
   },
   "consumable:mending-lattice": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2983"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2983",
+    "page": 266
   },
   "consumable:mesmerizing-opal": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2984"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2984",
+    "page": 266
   },
   "consumable:mistform-elixir-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2888"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2888",
+    "page": 247
   },
   "consumable:mistform-elixir-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2888"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2888",
+    "page": 247
   },
   "consumable:mistform-elixir-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2888"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2888",
+    "page": 247
   },
   "consumable:monkey-pin": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2985"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2985",
+    "page": 266
   },
   "consumable:mummified-bat": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2986"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2986",
+    "page": 266
   },
   "consumable:murderers-knot": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2987"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2987",
+    "page": 266
   },
   "consumable:nectar-of-purification": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2931"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2931",
+    "page": 257
   },
   "consumable:oak-potion": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2945"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2945",
+    "page": 259
   },
   "consumable:obfuscation-oil": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2932"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2932",
+    "page": 257
   },
   "consumable:oil-of-animation": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2933"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2933",
+    "page": 257
   },
   "consumable:oil-of-keen-edges": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2934"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2934",
+    "page": 257
   },
   "consumable:oil-of-mending": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2935"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2935",
+    "page": 257
   },
   "consumable:oil-of-potency": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2936"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2936",
+    "page": 257
   },
   "consumable:oil-of-potency-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2936"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2936",
+    "page": 257
   },
   "consumable:oil-of-potency-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2936"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2936",
+    "page": 257
   },
   "consumable:oil-of-repulsion": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2937"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2937",
+    "page": 257
   },
   "consumable:oil-of-unlife-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2938"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2938",
+    "page": 258
   },
   "consumable:oil-of-unlife-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2938"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2938",
+    "page": 258
   },
   "consumable:oil-of-unlife-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2938"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2938",
+    "page": 258
   },
   "consumable:oil-of-unlife-minor": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2938"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2938",
+    "page": 258
   },
   "consumable:oil-of-unlife-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2938"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2938",
+    "page": 258
   },
   "consumable:oil-of-weightlessness": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2939"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2939",
+    "page": 258
   },
   "consumable:oil-of-weightlessness-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2939"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2939",
+    "page": 258
   },
   "consumable:onyx-panther": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2988"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2988",
+    "page": 266
   },
   "consumable:panacea": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2946"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2946",
+    "page": 259
   },
   "consumable:penetrating-ammunition": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2925"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2925",
+    "page": 255
   },
   "consumable:potency-crystal": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2989"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2989",
+    "page": 266
   },
   "consumable:potency-crystal-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2989"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2989",
+    "page": 266
   },
   "consumable:potency-crystal-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2989"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2989",
+    "page": 266
   },
   "consumable:potion-of-emergency-escape": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2947"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2947",
+    "page": 259
   },
   "consumable:potion-of-flying-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2948"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2948",
+    "page": 259
   },
   "consumable:potion-of-flying-standard": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2948"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2948",
+    "page": 259
   },
   "consumable:potion-of-leaping": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2949"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2949",
+    "page": 260
   },
   "consumable:potion-of-quickness": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2950"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2950",
+    "page": 260
   },
   "consumable:potion-of-resistance-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2951"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2951",
+    "page": 260
   },
   "consumable:potion-of-resistance-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2951"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2951",
+    "page": 260
   },
   "consumable:potion-of-resistance-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2951"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2951",
+    "page": 260
   },
   "consumable:potion-of-shared-memories": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2952"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2952",
+    "page": 260
   },
   "consumable:potion-of-swimming": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2953"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2953",
+    "page": 261
   },
   "consumable:potion-of-swimming-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2953"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2953",
+    "page": 261
   },
   "consumable:potion-of-truespeech": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2954"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2954",
+    "page": 260
   },
   "consumable:potion-of-undetectability": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2955"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2955",
+    "page": 260
   },
   "consumable:potion-of-water-breathing": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2956"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2956",
+    "page": 260
   },
   "consumable:predators-claw": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2990"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2990",
+    "page": 266
   },
   "consumable:runestone": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3003"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3003",
+    "page": 269
   },
   "consumable:salve-of-antiparalysis": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2940"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2940",
+    "page": 258
   },
   "consumable:salve-of-antiparalysis-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2940"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2940",
+    "page": 258
   },
   "consumable:savior-spike": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2991"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2991",
+    "page": 267
   },
   "consumable:sea-touch-elixir-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2889"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2889",
+    "page": 247
   },
   "consumable:sea-touch-elixir-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2889"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2889",
+    "page": 247
   },
   "consumable:sea-touch-elixir-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2889"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2889",
+    "page": 247
   },
   "consumable:serum-of-sex-shift": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2957"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2957",
+    "page": 260
   },
   "consumable:shark-tooth-charm": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2992"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2992",
+    "page": 267
   },
   "consumable:shining-ammunition": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2926"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2926",
+    "page": 256
   },
   "consumable:shrinking-potion": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2958"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2958",
+    "page": 261
   },
   "consumable:shrinking-potion-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2958"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2958",
+    "page": 261
   },
   "consumable:silver-salve": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2912"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2912",
+    "page": 251
   },
   "consumable:smoke-ball-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2913"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2913",
+    "page": 251
   },
   "consumable:smoke-ball-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2913"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2913",
+    "page": 251
   },
   "consumable:snake-oil": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2914"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2914",
+    "page": 251
   },
   "consumable:sneaky-key": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2993"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2993",
+    "page": 267
   },
   "consumable:spellstrike-ammunition-type-i": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927",
+    "page": 256
   },
   "consumable:spellstrike-ammunition-type-ii": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927",
+    "page": 256
   },
   "consumable:spellstrike-ammunition-type-iii": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927",
+    "page": 256
   },
   "consumable:spellstrike-ammunition-type-iv": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927",
+    "page": 256
   },
   "consumable:spellstrike-ammunition-type-ix": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927",
+    "page": 256
   },
   "consumable:spellstrike-ammunition-type-v": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927",
+    "page": 256
   },
   "consumable:spellstrike-ammunition-type-vi": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927",
+    "page": 256
   },
   "consumable:spellstrike-ammunition-type-vii": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927",
+    "page": 256
   },
   "consumable:spellstrike-ammunition-type-viii": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2927",
+    "page": 256
   },
   "consumable:spirit-bulb": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3004"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3004",
+    "page": 269
   },
   "consumable:spirit-bulb-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3004"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3004",
+    "page": 269
   },
   "consumable:spirit-bulb-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3004"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3004",
+    "page": 269
   },
   "consumable:stone-bullet": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2928"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2928",
+    "page": 256
   },
   "consumable:stone-fist-elixir": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2890"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2890",
+    "page": 247
   },
   "consumable:swift-block-cabochon": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2994"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2994",
+    "page": 267
   },
   "consumable:tiger-menuki": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2995"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2995",
+    "page": 267
   },
   "consumable:time-shield-potion": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2959"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2959",
+    "page": 261
   },
   "consumable:trident-of-lightning": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3005"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3005",
+    "page": 269
   },
   "consumable:truesight-potion": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2960"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2960",
+    "page": 261
   },
   "consumable:truth-potion": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2961"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2961",
+    "page": 261
   },
   "consumable:vanishing-coin": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2996"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2996",
+    "page": 267
   },
   "consumable:vine-arrow": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2929"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2929",
+    "page": 256
   },
   "consumable:vipers-fang": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2997"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2997",
+    "page": 267
   },
   "consumable:wand-of-shardstorm-1st-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3052"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3052",
+    "page": 283
   },
   "consumable:wand-of-shardstorm-3rd-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3052"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3052",
+    "page": 283
   },
   "consumable:wand-of-shardstorm-5th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3052"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3052",
+    "page": 283
   },
   "consumable:wand-of-shardstorm-7th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3052"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3052",
+    "page": 283
   },
   "consumable:wolf-fang": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2998"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2998",
+    "page": 267
   },
   "equipment:accolade-robe": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3054"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3054",
+    "page": 284
   },
   "equipment:accolade-robe-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3054"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3054",
+    "page": 284
   },
   "equipment:adamantine-chunk": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2915"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2915",
+    "page": 253
   },
   "equipment:adamantine-ingot": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2915"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2915",
+    "page": 253
   },
   "equipment:aeon-stone-amplifying": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
+    "page": 284
   },
   "equipment:aeon-stone-consumed": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
+    "page": 284
   },
   "equipment:aeon-stone-delaying": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
+    "page": 284
   },
   "equipment:aeon-stone-envisioning": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
+    "page": 284
   },
   "equipment:aeon-stone-nourishing": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
+    "page": 284
   },
   "equipment:aeon-stone-peering": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
+    "page": 284
   },
   "equipment:aeon-stone-preserving": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
+    "page": 284
   },
   "equipment:aeon-stone-smoothing": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
+    "page": 284
   },
   "equipment:aeon-stone-sprouting": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",
+    "page": 284
   },
   "equipment:alacritous-horseshoes": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3013"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3013",
+    "page": 272
   },
   "equipment:alacritous-horseshoes-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3013"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3013",
+    "page": 272
   },
   "equipment:arboreal-boots": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3056"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3056",
+    "page": 285
   },
   "equipment:arboreal-boots-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3056"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3056",
+    "page": 285
   },
   "equipment:armbands-of-athleticism": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3057"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3057",
+    "page": 285
   },
   "equipment:armbands-of-athleticism-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3057"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3057",
+    "page": 285
   },
   "equipment:bag-of-weasels": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3128"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3128",
+    "page": 306
   },
   "equipment:bands-of-force": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3058"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3058",
+    "page": 286
   },
   "equipment:bands-of-force-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3058"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3058",
+    "page": 286
   },
   "equipment:bands-of-force-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3058"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3058",
+    "page": 286
   },
   "equipment:belt-of-long-life": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3007"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3007",
+    "page": 270
   },
   "equipment:boots-of-bounding": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3059"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3059",
+    "page": 286
   },
   "equipment:boots-of-bounding-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3059"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3059",
+    "page": 286
   },
   "equipment:bottled-air": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3017"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3017",
+    "page": 273
   },
   "equipment:bracelet-of-dashing": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3060"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3060",
+    "page": 286
   },
   "equipment:bracers-of-missile-deflection": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3061"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3061",
+    "page": 286
   },
   "equipment:bracers-of-missile-deflection-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3061"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3061",
+    "page": 286
   },
   "equipment:bracers-of-strength": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3008"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3008",
+    "page": 270
   },
   "equipment:channel-protection-amulet": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3062"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3062",
+    "page": 286
   },
   "equipment:charlatans-cape": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3063"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3063",
+    "page": 286
   },
   "equipment:charlatans-gloves": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3064"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3064",
+    "page": 286
   },
   "equipment:charlatans-gloves-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3064"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3064",
+    "page": 286
   },
   "equipment:charm-of-resistance": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3065"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3065",
+    "page": 287
   },
   "equipment:charm-of-resistance-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3065"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3065",
+    "page": 287
   },
   "equipment:charm-of-resistance-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3065"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3065",
+    "page": 287
   },
   "equipment:choker-of-elocution": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3066"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3066",
+    "page": 287
   },
   "equipment:choker-of-elocution-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3066"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3066",
+    "page": 287
   },
   "equipment:clandestine-cloak": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3067"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3067",
+    "page": 287
   },
   "equipment:clandestine-cloak-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3067"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3067",
+    "page": 287
   },
   "equipment:clawed-bracers": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3068"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3068",
+    "page": 287
   },
   "equipment:cloak-of-illusions": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3069"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3069",
+    "page": 287
   },
   "equipment:cloak-of-illusions-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3069"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3069",
+    "page": 287
   },
   "equipment:cloak-of-immolation": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3129"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3129",
+    "page": 306
   },
   "equipment:cloak-of-swiftness": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3009"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3009",
+    "page": 270
   },
   "equipment:cloud-pouch": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3018"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3018",
+    "page": 273
   },
   "equipment:cold-iron-chunk": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2916"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2916",
+    "page": 253
   },
   "equipment:cold-iron-ingot": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2916"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2916",
+    "page": 253
   },
   "equipment:collar-of-empathy": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3015"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3015",
+    "page": 272
   },
   "equipment:collar-of-inconspicuousness": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3016"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3016",
+    "page": 272
   },
   "equipment:countering-charm": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3070"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3070",
+    "page": 287
   },
   "equipment:countering-charm-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3070"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3070",
+    "page": 287
   },
   "equipment:countering-charm-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3070"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3070",
+    "page": 287
   },
   "equipment:coyote-cloak": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3071"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3071",
+    "page": 288
   },
   "equipment:coyote-cloak-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3071"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3071",
+    "page": 288
   },
   "equipment:crafters-eyepiece": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3072"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3072",
+    "page": 288
   },
   "equipment:crafters-eyepiece-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3072"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3072",
+    "page": 288
   },
   "equipment:crown-of-intellect": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3010"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3010",
+    "page": 270
   },
   "equipment:crown-of-witchcraft": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3073"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3073",
+    "page": 288
   },
   "equipment:crown-of-witchcraft-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3073"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3073",
+    "page": 288
   },
   "equipment:crystal-ball-clear-quartz": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3019"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3019",
+    "page": 273
   },
   "equipment:crystal-ball-moonstone": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3019"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3019",
+    "page": 273
   },
   "equipment:crystal-ball-obsidian": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3019"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3019",
+    "page": 273
   },
   "equipment:crystal-ball-peridot": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3019"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3019",
+    "page": 273
   },
   "equipment:crystal-ball-selenite": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3019"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3019",
+    "page": 273
   },
   "equipment:dancing-scarf": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3074"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3074",
+    "page": 288
   },
   "equipment:dancing-scarf-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3074"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3074",
+    "page": 288
   },
   "equipment:daredevil-boots": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3075"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3075",
+    "page": 288
   },
   "equipment:daredevil-boots-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3075"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3075",
+    "page": 288
   },
   "equipment:dawnsilver-chunk": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2917"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2917",
+    "page": 254
   },
   "equipment:dawnsilver-ingot": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2917"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2917",
+    "page": 254
   },
   "equipment:demon-mask": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3076"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3076",
+    "page": 288
   },
   "equipment:demon-mask-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3076"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3076",
+    "page": 288
   },
   "equipment:devoted-vestments": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3077"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3077",
+    "page": 288
   },
   "equipment:diplomats-badge": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3078"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3078",
+    "page": 289
   },
   "equipment:doubling-rings": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3079"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3079",
+    "page": 289
   },
   "equipment:doubling-rings-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3079"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3079",
+    "page": 289
   },
   "equipment:dread-blindfold": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3080"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3080",
+    "page": 289
   },
   "equipment:duskwood-branch": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2918"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2918",
+    "page": 254
   },
   "equipment:duskwood-lumber": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2918"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2918",
+    "page": 254
   },
   "equipment:earthglide-cloak": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3081"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3081",
+    "page": 289
   },
   "equipment:entertainers-cincture": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3082"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3082",
+    "page": 289
   },
   "equipment:entertainers-cincture-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3082"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3082",
+    "page": 289
   },
   "equipment:eternal-eruption": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020",
+    "page": 273
   },
   "equipment:eternal-eruption-of-barrowsiege": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020",
+    "page": 273
   },
   "equipment:eternal-eruption-of-blackpeak": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020",
+    "page": 273
   },
   "equipment:eternal-eruption-of-droskars-crag": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020",
+    "page": 273
   },
   "equipment:eternal-eruption-of-ka": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020",
+    "page": 273
   },
   "equipment:eternal-eruption-of-mhar-massif": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020",
+    "page": 273
   },
   "equipment:eternal-eruption-of-pale-mountain": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020",
+    "page": 273
   },
   "equipment:eternal-eruption-of-sakalayo": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3020",
+    "page": 273
   },
   "equipment:everlight-crystal": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3021"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3021",
+    "page": 273
   },
   "equipment:explorers-yurt": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3022"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3022",
+    "page": 273
   },
   "equipment:eye-of-fortune": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3083"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3083",
+    "page": 289
   },
   "equipment:eyes-of-the-cat": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3084"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3084",
+    "page": 290
   },
   "equipment:flying-broomstick": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3023"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3023",
+    "page": 274
   },
   "equipment:genius-diadem": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3125"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3125",
+    "page": 305
   },
   "equipment:gorget-of-the-primal-roar": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3085"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3085",
+    "page": 290
   },
   "equipment:headwrap-of-wisdom": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3011"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3011",
+    "page": 270
   },
   "equipment:healers-gloves": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3087"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3087",
+    "page": 290
   },
   "equipment:healers-gloves-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3087"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3087",
+    "page": 290
   },
   "equipment:hellfire-boots": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3088"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3088",
+    "page": 290
   },
   "equipment:horn-of-exorcism": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3024"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3024",
+    "page": 274
   },
   "equipment:humbug-pocket": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3089"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3089",
+    "page": 290
   },
   "equipment:humbug-pocket-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3089"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3089",
+    "page": 290
   },
   "equipment:inexplicable-apparatus": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3090"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3090",
+    "page": 291
   },
   "equipment:lifting-belt": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3091"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3091",
+    "page": 292
   },
   "equipment:living-mantle": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3092"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3092",
+    "page": 292
   },
   "equipment:living-mantle-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3092"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3092",
+    "page": 292
   },
   "equipment:lovers-gloves": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3093"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3093",
+    "page": 292
   },
   "equipment:madcap-top": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3025"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3025",
+    "page": 274
   },
   "equipment:maestros-instrument-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3026"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3026",
+    "page": 275
   },
   "equipment:maestros-instrument-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3026"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3026",
+    "page": 275
   },
   "equipment:maestros-instrument-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3026"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3026",
+    "page": 275
   },
   "equipment:mages-hat": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3094"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3094",
+    "page": 292
   },
   "equipment:mages-hat-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3094"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3094",
+    "page": 292
   },
   "equipment:marvelous-medicines": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3027"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3027",
+    "page": 276
   },
   "equipment:marvelous-medicines-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3027"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3027",
+    "page": 276
   },
   "equipment:masquerade-scarf": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3095"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3095",
+    "page": 292
   },
   "equipment:masquerade-scarf-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3095"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3095",
+    "page": 292
   },
   "equipment:messengers-ring": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3096"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3096",
+    "page": 292
   },
   "equipment:messengers-ring-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3096"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3096",
+    "page": 292
   },
   "equipment:mirror-of-sorshen": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3121"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3121",
+    "page": 301
   },
   "equipment:monkeys-paw": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3131"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3131",
+    "page": 306
   },
   "equipment:necklace-of-allure": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3012"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3012",
+    "page": 271
   },
   "equipment:obsidian-goggles": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3097"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3097",
+    "page": 293
   },
   "equipment:obsidian-goggles-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3097"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3097",
+    "page": 293
   },
   "equipment:obsidian-goggles-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3097"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3097",
+    "page": 293
   },
   "equipment:orichalcum-chunk": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2919"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2919",
+    "page": 254
   },
   "equipment:orichalcum-ingot": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2919"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2919",
+    "page": 254
   },
   "equipment:pendant-of-the-occult": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3098"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3098",
+    "page": 293
   },
   "equipment:pendant-of-the-occult-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3098"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3098",
+    "page": 293
   },
   "equipment:persona-mask": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3099"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3099",
+    "page": 293
   },
   "equipment:persona-mask-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3099"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3099",
+    "page": 293
   },
   "equipment:philosophers-extractor": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3122"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3122",
+    "page": 301
   },
   "equipment:pocket-stage": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3028"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3028",
+    "page": 276
   },
   "equipment:possibility-tome": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3029"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3029",
+    "page": 276
   },
   "equipment:primeval-mistletoe": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3100"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3100",
+    "page": 294
   },
   "equipment:primeval-mistletoe-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3100"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3100",
+    "page": 294
   },
   "equipment:propulsive-boots": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3101"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3101",
+    "page": 294
   },
   "equipment:retrieval-belt": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3102"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3102",
+    "page": 294
   },
   "equipment:retrieval-belt-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3102"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3102",
+    "page": 294
   },
   "equipment:retrieval-belt-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3102"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3102",
+    "page": 294
   },
   "equipment:ring-of-climbing": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3103"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3103",
+    "page": 294
   },
   "equipment:ring-of-lies": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3104"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3104",
+    "page": 294
   },
   "equipment:ring-of-sigils": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3105"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3105",
+    "page": 294
   },
   "equipment:ring-of-sigils-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3105"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3105",
+    "page": 294
   },
   "equipment:ring-of-sustenance": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3106"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3106",
+    "page": 294
   },
   "equipment:ring-of-swimming": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3107"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3107",
+    "page": 295
   },
   "equipment:shadow-signet": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3108"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3108",
+    "page": 295
   },
   "equipment:shining-symbol": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3109"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3109",
+    "page": 295
   },
   "equipment:shining-symbol-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3109"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3109",
+    "page": 295
   },
   "equipment:shining-symbol-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3109"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3109",
+    "page": 295
   },
   "equipment:shot-of-the-first-vault": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3124"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3124",
+    "page": 303
   },
   "equipment:silver-chunk": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2920"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2920",
+    "page": 254
   },
   "equipment:silver-ingot": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2920"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2920",
+    "page": 254
   },
   "equipment:skeleton-key": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3030"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3030",
+    "page": 276
   },
   "equipment:skeleton-key-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3030"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3030",
+    "page": 276
   },
   "equipment:slates-of-distant-letters": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3031"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3031",
+    "page": 276
   },
   "equipment:sleeves-of-storage": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3110"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3110",
+    "page": 296
   },
   "equipment:sleeves-of-storage-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3110"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3110",
+    "page": 296
   },
   "equipment:spacious-pouch-type-i": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3032"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3032",
+    "page": 276
   },
   "equipment:spacious-pouch-type-ii": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3032"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3032",
+    "page": 276
   },
   "equipment:spacious-pouch-type-iii": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3032"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3032",
+    "page": 276
   },
   "equipment:spacious-pouch-type-iv": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3032"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3032",
+    "page": 276
   },
   "equipment:symbol-of-conflict": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3111"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3111",
+    "page": 296
   },
   "equipment:symbol-of-conflict-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3111"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3111",
+    "page": 296
   },
   "equipment:symbol-of-conflict-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3111"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3111",
+    "page": 296
   },
   "equipment:third-eye": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3112"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3112",
+    "page": 296
   },
   "equipment:thurible-of-revelation-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3033"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3033",
+    "page": 277
   },
   "equipment:thurible-of-revelation-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3033"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3033",
+    "page": 277
   },
   "equipment:thurible-of-revelation-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3033"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3033",
+    "page": 277
   },
   "equipment:trackers-goggles": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3113"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3113",
+    "page": 296
   },
   "equipment:trackers-goggles-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3113"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3113",
+    "page": 296
   },
   "equipment:travelers-any-tool": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3034"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3034",
+    "page": 277
   },
   "equipment:ventriloquists-ring": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3114"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3114",
+    "page": 296
   },
   "equipment:ventriloquists-ring-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3114"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3114",
+    "page": 296
   },
   "equipment:voyagers-pack": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3115"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3115",
+    "page": 297
   },
   "equipment:walking-cauldron": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3116"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3116",
+    "page": 297
   },
   "equipment:wand-of-continuation-1st-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051",
+    "page": 282
   },
   "equipment:wand-of-continuation-2nd-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051",
+    "page": 282
   },
   "equipment:wand-of-continuation-3rd-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051",
+    "page": 282
   },
   "equipment:wand-of-continuation-4th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051",
+    "page": 282
   },
   "equipment:wand-of-continuation-5th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051",
+    "page": 282
   },
   "equipment:wand-of-continuation-6th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051",
+    "page": 282
   },
   "equipment:wand-of-continuation-7th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051",
+    "page": 282
   },
   "equipment:wand-of-continuation-8th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3051",
+    "page": 282
   },
   "equipment:wand-of-widening-1st-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053",
+    "page": 283
   },
   "equipment:wand-of-widening-2nd-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053",
+    "page": 283
   },
   "equipment:wand-of-widening-3rd-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053",
+    "page": 283
   },
   "equipment:wand-of-widening-4th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053",
+    "page": 283
   },
   "equipment:wand-of-widening-5th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053",
+    "page": 283
   },
   "equipment:wand-of-widening-6th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053",
+    "page": 283
   },
   "equipment:wand-of-widening-7th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053",
+    "page": 283
   },
   "equipment:wand-of-widening-8th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053",
+    "page": 283
   },
   "equipment:wand-of-widening-9th-rank-spell": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3053",
+    "page": 283
   },
   "equipment:wayfinder": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3117"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3117",
+    "page": 297
   },
   "equipment:whisper-of-the-first-lie": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3118"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3118",
+    "page": 297
   },
   "equipment:winged-sandals": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3119"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3119",
+    "page": 297
   },
   "rune:animated": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2831"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2831",
+    "page": 236
   },
   "rune:antimagic": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2787"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2787",
+    "page": 226
   },
   "rune:armor-potency-1": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2785"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2785",
+    "page": 226
   },
   "rune:armor-potency-2": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2785"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2785",
+    "page": 226
   },
   "rune:armor-potency-3": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2785"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2785",
+    "page": 226
   },
   "rune:astral": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2832"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2832",
+    "page": 236
   },
   "rune:astral-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2832"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2832",
+    "page": 236
   },
   "rune:brilliant": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2833"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2833",
+    "page": 236
   },
   "rune:brilliant-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2833"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2833",
+    "page": 236
   },
   "rune:corrosive": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2834"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2834",
+    "page": 237
   },
   "rune:corrosive-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2834"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2834",
+    "page": 237
   },
   "rune:decaying": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2835"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2835",
+    "page": 237
   },
   "rune:decaying-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2835"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2835",
+    "page": 237
   },
   "rune:energy-resistant": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2788"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2788",
+    "page": 226
   },
   "rune:energy-resistant-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2788"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2788",
+    "page": 226
   },
   "rune:extending": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2836"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2836",
+    "page": 237
   },
   "rune:extending-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2836"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2836",
+    "page": 237
   },
   "rune:fearsome": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2837"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2837",
+    "page": 237
   },
   "rune:fearsome-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2837"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2837",
+    "page": 237
   },
   "rune:flaming": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2838"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2838",
+    "page": 237
   },
   "rune:flaming-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2838"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2838",
+    "page": 237
   },
   "rune:forgefathers-seal": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3120"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3120",
+    "page": 300
   },
   "rune:fortification": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2789"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2789",
+    "page": 226
   },
   "rune:fortification-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2789"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2789",
+    "page": 226
   },
   "rune:frost": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2839"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2839",
+    "page": 237
   },
   "rune:frost-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2839"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2839",
+    "page": 237
   },
   "rune:ghost-touch": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2840"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2840",
+    "page": 238
   },
   "rune:grievous": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2841"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2841",
+    "page": 238
   },
   "rune:holy": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2842"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2842",
+    "page": 238
   },
   "rune:invisibility": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2790"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2790",
+    "page": 226
   },
   "rune:invisibility-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2790"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2790",
+    "page": 226
   },
   "rune:keen": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2843"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2843",
+    "page": 238
   },
   "rune:quickstrike": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2844"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2844",
+    "page": 238
   },
   "rune:raiment": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2791"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2791",
+    "page": 226
   },
   "rune:ready": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2792"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2792",
+    "page": 226
   },
   "rune:ready-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2792"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2792",
+    "page": 226
   },
   "rune:reinforcing-rune-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2811",
+    "page": 232
   },
   "rune:reinforcing-rune-lesser": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2811",
+    "page": 232
   },
   "rune:reinforcing-rune-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2811",
+    "page": 232
   },
   "rune:reinforcing-rune-minor": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2811",
+    "page": 232
   },
   "rune:reinforcing-rune-moderate": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2811",
+    "page": 232
   },
   "rune:reinforcing-rune-supreme": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2811"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2811",
+    "page": 232
   },
   "rune:resilient": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2786"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2786",
+    "page": 226
   },
   "rune:resilient-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2786"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2786",
+    "page": 226
   },
   "rune:resilient-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2786"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2786",
+    "page": 226
   },
   "rune:returning": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2845"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2845",
+    "page": 238
   },
   "rune:shadow": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2793"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2793",
+    "page": 227
   },
   "rune:shadow-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2793"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2793",
+    "page": 227
   },
   "rune:shadow-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2793"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2793",
+    "page": 227
   },
   "rune:shifting": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2846"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2846",
+    "page": 238
   },
   "rune:shock": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2847"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2847",
+    "page": 238
   },
   "rune:shock-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2847"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2847",
+    "page": 238
   },
   "rune:shockwave": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2848"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2848",
+    "page": 239
   },
   "rune:size-changing": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2795"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2795",
+    "page": 227
   },
   "rune:slick": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2794"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2794",
+    "page": 227
   },
   "rune:slick-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2794"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2794",
+    "page": 227
   },
   "rune:slick-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2794"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2794",
+    "page": 227
   },
   "rune:spell-reservoir": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2849"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2849",
+    "page": 239
   },
   "rune:striking": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2829"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2829",
+    "page": 236
   },
   "rune:striking-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2829"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2829",
+    "page": 236
   },
   "rune:striking-major": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2829"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2829",
+    "page": 236
   },
   "rune:thundering": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2850"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2850",
+    "page": 238
   },
   "rune:thundering-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2850"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2850",
+    "page": 238
   },
   "rune:unholy": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2851"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2851",
+    "page": 239
   },
   "rune:vitalizing": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2852"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2852",
+    "page": 238
   },
   "rune:vitalizing-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2852"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2852",
+    "page": 238
   },
   "rune:vorpal": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2853"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2853",
+    "page": 239
   },
   "rune:weapon-potency-1": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2830"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2830",
+    "page": 236
   },
   "rune:weapon-potency-2": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2830"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2830",
+    "page": 236
   },
   "rune:weapon-potency-3": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2830"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2830",
+    "page": 236
   },
   "rune:winged": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2796"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2796",
+    "page": 227
   },
   "rune:winged-greater": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2796"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2796",
+    "page": 227
   },
   "rune:wounding": {
     "book": "gm-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2854"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2854",
+    "page": 239
   }
 }
