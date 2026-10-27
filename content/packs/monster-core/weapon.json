@@ -298,7 +298,8 @@
       {
         "kind": "book",
         "book": "monster-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=446"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=446",
+        "page": 241
       }
     ],
     "description": [],

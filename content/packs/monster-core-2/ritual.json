@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "monster-core-2",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=222"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=222",
+        "page": 65
       }
     ],
     "description": [
