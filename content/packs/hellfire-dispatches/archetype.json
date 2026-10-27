@@ -107,7 +107,33 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.7kXfvt5td5N9Fu79"
     },
     "data": {
-      "dedication": "9e5c260d-e6e2-55dc-aa96-e1313f405ee9"
+      "dedication": "9e5c260d-e6e2-55dc-aa96-e1313f405ee9",
+      "additionalFeats": [
+        {
+          "feat": "eb9a9c86-a1f8-5ac5-8049-8b30d1ed6438",
+          "level": 6
+        },
+        {
+          "feat": "2e75c400-24d4-5ae6-8568-e291a063a13d",
+          "level": 8
+        },
+        {
+          "feat": "67e34112-5e40-5943-b292-5584dffe6eb5",
+          "level": 8
+        },
+        {
+          "feat": "be7de1bc-ac66-55d9-b822-68ccc2b6529f",
+          "level": 8
+        },
+        {
+          "feat": "215bc426-64de-544d-9af3-668592cc06ac",
+          "level": 18
+        },
+        {
+          "feat": "758c702c-9e4b-57d7-87a6-3b1f96f193b3",
+          "level": 18
+        }
+      ]
     }
   },
   {
@@ -209,7 +235,21 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.yWtwNUkGyj79Q04W"
     },
     "data": {
-      "dedication": "187c251f-adeb-5de8-b08e-9278d90b4b57"
+      "dedication": "187c251f-adeb-5de8-b08e-9278d90b4b57",
+      "additionalFeats": [
+        {
+          "feat": "b16bc8dc-0f90-5b89-97c4-5967afa9ba2b",
+          "level": 8
+        },
+        {
+          "feat": "dd112de3-2da1-5781-93b2-b6bedc7152ac",
+          "level": 8
+        },
+        {
+          "feat": "10bdca1d-1ad6-5396-8614-7c8d82ee9299",
+          "level": 12
+        }
+      ]
     }
   },
   {
@@ -338,7 +378,33 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.BXfE7LbUyoJbIQBT"
     },
     "data": {
-      "dedication": "cdabe7b7-dc63-5546-8062-610ba4481d14"
+      "dedication": "cdabe7b7-dc63-5546-8062-610ba4481d14",
+      "additionalFeats": [
+        {
+          "feat": "3dacd583-9d35-5a87-bf0c-66243b247aba",
+          "level": 4
+        },
+        {
+          "feat": "f880ee99-d18d-5734-a07f-2b2131a1bdde",
+          "level": 6
+        },
+        {
+          "feat": "c722c775-edd1-5581-99ef-74f89c632da7",
+          "level": 10
+        },
+        {
+          "feat": "887d48c2-54f8-510a-8123-ddd853b161fb",
+          "level": 12
+        },
+        {
+          "feat": "83a78430-6a08-5482-8361-e35199ba0cbd",
+          "level": 16
+        },
+        {
+          "feat": "2e05fba5-d8ab-59f5-9837-cd896ea6fa3d",
+          "level": 16
+        }
+      ]
     }
   },
   {
@@ -433,7 +499,21 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.FHblB2CP7wYXLsBa"
     },
     "data": {
-      "dedication": "f42b4cfd-27be-5e2d-ac22-801db45c165d"
+      "dedication": "f42b4cfd-27be-5e2d-ac22-801db45c165d",
+      "additionalFeats": [
+        {
+          "feat": "99bd5548-ec27-5119-8e39-2cd2e2bf8001",
+          "level": 2
+        },
+        {
+          "feat": "3a4c0840-dbc7-5a4e-9e87-4fa86904842f",
+          "level": 2
+        },
+        {
+          "feat": "73785db2-149e-5457-84c3-22adc18d1d50",
+          "level": 7
+        }
+      ]
     }
   },
   {
@@ -544,7 +624,25 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.sUXT7lhQp3znvDAV"
     },
     "data": {
-      "dedication": "eb9f59eb-4a78-590f-9a3e-4cb72c8a39b5"
+      "dedication": "eb9f59eb-4a78-590f-9a3e-4cb72c8a39b5",
+      "additionalFeats": [
+        {
+          "feat": "89bf9d93-93b0-5e2d-a6e5-db2627b74b44",
+          "level": 4
+        },
+        {
+          "feat": "2cdab2c9-c08a-5ab5-b5b2-478c0230d4cd",
+          "level": 6
+        },
+        {
+          "feat": "936f9c98-0462-50fb-bd13-6ac66bb6d96c",
+          "level": 8
+        },
+        {
+          "feat": "cba72acf-f723-52e0-8ed7-71f0c4a0a9ae",
+          "level": 14
+        }
+      ]
     }
   },
   {
@@ -655,7 +753,13 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.UO4n5TKJSA1o4Cup"
     },
     "data": {
-      "dedication": "00d56fdf-fce3-5c09-b8eb-3f4572413060"
+      "dedication": "00d56fdf-fce3-5c09-b8eb-3f4572413060",
+      "additionalFeats": [
+        {
+          "feat": "5f0fecfd-63f6-5832-a15a-753583ae340e",
+          "level": 18
+        }
+      ]
     }
   },
   {
@@ -854,7 +958,25 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.kVOWt6Uit7Ibrp6o"
     },
     "data": {
-      "dedication": "946c7fed-7b42-5bf8-8966-149f34f2dd3d"
+      "dedication": "946c7fed-7b42-5bf8-8966-149f34f2dd3d",
+      "additionalFeats": [
+        {
+          "feat": "3dacd583-9d35-5a87-bf0c-66243b247aba",
+          "level": 6
+        },
+        {
+          "feat": "7f147c3c-ce14-5ad7-936a-37d7c4803105",
+          "level": 7
+        },
+        {
+          "feat": "f8e9e5f4-b45d-5235-845d-c36300d420bc",
+          "level": 10
+        },
+        {
+          "feat": "83a78430-6a08-5482-8361-e35199ba0cbd",
+          "level": 16
+        }
+      ]
     }
   },
   {
@@ -947,7 +1069,29 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.i03WQr5V77EWtt5E"
     },
     "data": {
-      "dedication": "5e09e1ac-86c7-5ca0-929f-1453aac7621d"
+      "dedication": "5e09e1ac-86c7-5ca0-929f-1453aac7621d",
+      "additionalFeats": [
+        {
+          "feat": "9cd70797-5354-5a60-aecd-9f2e6c619cb2",
+          "level": 6
+        },
+        {
+          "feat": "07233af7-a109-521e-b5de-bd4d719aa89e",
+          "level": 6
+        },
+        {
+          "feat": "eeb068d7-0225-5e47-861d-748c8a27dd44",
+          "level": 10
+        },
+        {
+          "feat": "8d239cf0-8b8c-5c52-a16a-3c92f2ba12e7",
+          "level": 18
+        },
+        {
+          "feat": "94b68e3e-ad38-5b71-bc88-c2e32821b107",
+          "level": 18
+        }
+      ]
     }
   },
   {

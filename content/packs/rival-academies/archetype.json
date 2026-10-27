@@ -125,7 +125,13 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.NmnvKVQl51xoGQU7"
     },
     "data": {
-      "dedication": "eddf5af0-e623-5eea-84ca-20ce826dc87c"
+      "dedication": "eddf5af0-e623-5eea-84ca-20ce826dc87c",
+      "additionalFeats": [
+        {
+          "feat": "8c5e4798-3e2f-5ff7-98d6-110c1efc9959",
+          "level": 8
+        }
+      ]
     }
   },
   {
@@ -279,7 +285,13 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.siGGQuh9SijE9nlt"
     },
     "data": {
-      "dedication": "fdd4c981-cfca-5c3b-8f48-8a40775204cd"
+      "dedication": "fdd4c981-cfca-5c3b-8f48-8a40775204cd",
+      "additionalFeats": [
+        {
+          "feat": "54480a40-cc8d-5049-b3ab-c6e80bf3fd70",
+          "level": 6
+        }
+      ]
     }
   }
 ]
