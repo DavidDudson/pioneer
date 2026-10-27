@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=211"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=211",
+        "page": 216
       }
     ],
     "description": [
@@ -46,7 +47,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=212"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=212",
+        "page": 217
       }
     ],
     "description": [
@@ -81,7 +83,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=213"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=213",
+        "page": 218
       }
     ],
     "description": [
@@ -116,7 +119,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=214"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=214",
+        "page": 219
       }
     ],
     "description": [
@@ -151,7 +155,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=215"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=215",
+        "page": 220
       }
     ],
     "description": [
@@ -186,7 +191,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=216"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=216",
+        "page": 221
       }
     ],
     "description": [
@@ -221,7 +227,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=217"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=217",
+        "page": 222
       }
     ],
     "description": [
@@ -256,7 +263,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=218"
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=218",
+        "page": 223
       }
     ],
     "description": [

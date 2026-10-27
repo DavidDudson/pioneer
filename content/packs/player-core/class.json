@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=32"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=32",
+        "page": 94
       }
     ],
     "description": [
@@ -980,7 +981,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=33"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=33",
+        "page": 108
       }
     ],
     "description": [
@@ -1911,7 +1913,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=34"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=34",
+        "page": 122
       }
     ],
     "description": [
@@ -2856,7 +2859,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=35"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=35",
+        "page": 136
       }
     ],
     "description": [
@@ -3868,7 +3872,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=36"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=36",
+        "page": 152
       }
     ],
     "description": [
@@ -4899,7 +4904,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=37"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=37",
+        "page": 164
       }
     ],
     "description": [
@@ -6209,7 +6215,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=38"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=38",
+        "page": 178
       }
     ],
     "description": [
@@ -7131,7 +7138,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=39"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=39",
+        "page": 192
       }
     ],
     "description": [

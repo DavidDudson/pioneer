@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=107"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=107",
+        "page": 390
       }
     ],
     "description": [
@@ -541,7 +542,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=111"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=111",
+        "page": 391
       }
     ],
     "description": [
@@ -701,7 +703,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=113"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=113",
+        "page": 391
       }
     ],
     "description": [
@@ -826,7 +829,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=115"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=115",
+        "page": 392
       }
     ],
     "description": [
@@ -1029,7 +1033,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=116"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=116",
+        "page": 392
       }
     ],
     "description": [
@@ -1259,7 +1264,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=117"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=117",
+        "page": 393
       }
     ],
     "description": [
@@ -1798,7 +1804,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=118"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=118",
+        "page": 393
       }
     ],
     "description": [
@@ -2201,7 +2208,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=120"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=120",
+        "page": 394
       }
     ],
     "description": [
@@ -2344,7 +2352,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=121"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=121",
+        "page": 394
       }
     ],
     "description": [
@@ -2503,7 +2512,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=122"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=122",
+        "page": 394
       }
     ],
     "description": [
@@ -2616,7 +2626,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=123"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=123",
+        "page": 394
       }
     ],
     "description": [
@@ -2863,7 +2874,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=125"
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=125",
+        "page": 395
       }
     ],
     "description": [

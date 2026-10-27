@@ -12,7 +12,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=432"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=432",
+        "page": 280
       }
     ],
     "description": [
@@ -70,7 +71,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=370"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=370",
+        "page": 278
       }
     ],
     "description": [
@@ -122,7 +124,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=371"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=371",
+        "page": 278
       }
     ],
     "description": [
@@ -174,7 +177,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=424"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=424",
+        "page": 280
       }
     ],
     "description": [
@@ -231,7 +235,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=372"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=372",
+        "page": 278
       }
     ],
     "description": [
@@ -283,7 +288,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=433"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=433",
+        "page": 280
       }
     ],
     "description": [
@@ -336,7 +342,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=368"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=368",
+        "page": 277
       }
     ],
     "description": [
@@ -388,7 +395,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=357"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=357",
+        "page": 277
       }
     ],
     "description": [
@@ -435,7 +443,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=434"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=434",
+        "page": 280
       }
     ],
     "description": [
@@ -492,7 +501,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=435"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=435",
+        "page": 280
       }
     ],
     "description": [
@@ -549,7 +559,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=425"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=425",
+        "page": 280
       }
     ],
     "description": [
@@ -607,7 +618,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=358"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=358",
+        "page": 277
       }
     ],
     "description": [
@@ -659,7 +671,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=426"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=426",
+        "page": 280
       }
     ],
     "description": [
@@ -712,7 +725,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=405"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=405",
+        "page": 278
       }
     ],
     "description": [
@@ -815,7 +829,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=406"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=406",
+        "page": 278
       }
     ],
     "description": [
@@ -867,7 +882,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=373"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=373",
+        "page": 278
       }
     ],
     "description": [
@@ -919,7 +935,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=407"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=407",
+        "page": 278
       }
     ],
     "description": [
@@ -971,7 +988,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=374"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=374",
+        "page": 278
       }
     ],
     "description": [
@@ -1023,7 +1041,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=359"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=359",
+        "page": 277
       }
     ],
     "description": [
@@ -1075,7 +1094,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=375"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=375",
+        "page": 278
       }
     ],
     "description": [
@@ -1127,7 +1147,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=421"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=421",
+        "page": 279
       }
     ],
     "description": [
@@ -1179,7 +1200,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=408"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=408",
+        "page": 278
       }
     ],
     "description": [
@@ -1231,7 +1253,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=376"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=376",
+        "page": 278
       }
     ],
     "description": [
@@ -1283,7 +1306,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=377"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=377",
+        "page": 278
       }
     ],
     "description": [
@@ -1335,7 +1359,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=378"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=378",
+        "page": 278
       }
     ],
     "description": [
@@ -1387,7 +1412,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=379"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=379",
+        "page": 278
       }
     ],
     "description": [
@@ -1439,7 +1465,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=380"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=380",
+        "page": 278
       }
     ],
     "description": [
@@ -1491,7 +1518,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=381"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=381",
+        "page": 278
       }
     ],
     "description": [
@@ -1543,7 +1571,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=438"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=438",
+        "page": 280
       }
     ],
     "description": [
@@ -1601,7 +1630,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=427"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=427",
+        "page": 280
       }
     ],
     "description": [
@@ -1659,7 +1689,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=382"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=382",
+        "page": 278
       }
     ],
     "description": [
@@ -1711,7 +1742,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=428"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=428",
+        "page": 280
       }
     ],
     "description": [
@@ -1769,7 +1801,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=409"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=409",
+        "page": 278
       }
     ],
     "description": [
@@ -1821,7 +1854,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=429"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=429",
+        "page": 280
       }
     ],
     "description": [
@@ -1874,7 +1908,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=410"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=410",
+        "page": 278
       }
     ],
     "description": [
@@ -1926,7 +1961,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=411"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=411",
+        "page": 278
       }
     ],
     "description": [
@@ -1978,7 +2014,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=369"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=369",
+        "page": 277
       }
     ],
     "description": [
@@ -2030,7 +2067,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=412"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=412",
+        "page": 278
       }
     ],
     "description": [
@@ -2082,7 +2120,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=413"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=413",
+        "page": 278
       }
     ],
     "description": [
@@ -2134,7 +2173,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=383"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=383",
+        "page": 278
       }
     ],
     "description": [
@@ -2186,7 +2226,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=384"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=384",
+        "page": 278
       }
     ],
     "description": [
@@ -2238,7 +2279,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=360"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=360",
+        "page": 277
       }
     ],
     "description": [
@@ -2290,7 +2332,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=385"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=385",
+        "page": 278
       }
     ],
     "description": [
@@ -2342,7 +2385,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=436"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=436",
+        "page": 280
       }
     ],
     "description": [
@@ -2399,7 +2443,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=361"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=361",
+        "page": 277
       }
     ],
     "description": [
@@ -2451,7 +2496,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=386"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=386",
+        "page": 278
       }
     ],
     "description": [
@@ -2503,7 +2549,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=362"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=362",
+        "page": 277
       }
     ],
     "description": [
@@ -2555,7 +2602,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=387"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=387",
+        "page": 278
       }
     ],
     "description": [
@@ -2607,7 +2655,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=388"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=388",
+        "page": 278
       }
     ],
     "description": [
@@ -2659,7 +2708,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=363"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=363",
+        "page": 277
       }
     ],
     "description": [
@@ -2711,7 +2761,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=414"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=414",
+        "page": 278
       }
     ],
     "description": [
@@ -2763,7 +2814,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=415"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=415",
+        "page": 278
       }
     ],
     "description": [
@@ -2815,7 +2867,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=422"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=422",
+        "page": 279
       }
     ],
     "description": [
@@ -2867,7 +2920,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=389"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=389",
+        "page": 278
       }
     ],
     "description": [
@@ -2919,7 +2973,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=390"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=390",
+        "page": 278
       }
     ],
     "description": [
@@ -2971,7 +3026,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=391"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=391",
+        "page": 278
       }
     ],
     "description": [
@@ -3023,7 +3079,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=416"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=416",
+        "page": 278
       }
     ],
     "description": [
@@ -3075,7 +3132,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=392"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=392",
+        "page": 278
       }
     ],
     "description": [
@@ -3127,7 +3185,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=423"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=423",
+        "page": 279
       }
     ],
     "description": [
@@ -3179,7 +3238,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=393"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=393",
+        "page": 278
       }
     ],
     "description": [
@@ -3231,7 +3291,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=394"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=394",
+        "page": 278
       }
     ],
     "description": [
@@ -3283,7 +3344,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=396"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=396",
+        "page": 278
       }
     ],
     "description": [
@@ -3335,7 +3397,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=397"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=397",
+        "page": 278
       }
     ],
     "description": [
@@ -3387,7 +3450,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=437"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=437",
+        "page": 280
       }
     ],
     "description": [
@@ -3444,7 +3508,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=398"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=398",
+        "page": 278
       }
     ],
     "description": [
@@ -3496,7 +3561,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=439"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=439",
+        "page": 280
       }
     ],
     "description": [
@@ -3550,7 +3616,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=364"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=364",
+        "page": 277
       }
     ],
     "description": [
@@ -3602,7 +3669,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=430"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=430",
+        "page": 280
       }
     ],
     "description": [
@@ -3655,7 +3723,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=365"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=365",
+        "page": 277
       }
     ],
     "description": [
@@ -3707,7 +3776,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=417"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=417",
+        "page": 278
       }
     ],
     "description": [
@@ -3759,7 +3829,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=366"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=366",
+        "page": 277
       }
     ],
     "description": [
@@ -3811,7 +3882,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=367"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=367",
+        "page": 277
       }
     ],
     "description": [
@@ -3858,7 +3930,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=399"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=399",
+        "page": 278
       }
     ],
     "description": [
@@ -3910,7 +3983,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=400"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=400",
+        "page": 278
       }
     ],
     "description": [
@@ -3962,7 +4036,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=418"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=418",
+        "page": 278
       }
     ],
     "description": [
@@ -4157,7 +4232,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=401"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=401",
+        "page": 278
       }
     ],
     "description": [
@@ -4209,7 +4285,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=419"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=419",
+        "page": 278
       }
     ],
     "description": [
@@ -4269,7 +4346,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=402"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=402",
+        "page": 278
       }
     ],
     "description": [
@@ -4321,7 +4399,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=403"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=403",
+        "page": 278
       }
     ],
     "description": [
@@ -4373,7 +4452,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=404"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=404",
+        "page": 278
       }
     ],
     "description": [

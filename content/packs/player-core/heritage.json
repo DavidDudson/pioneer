@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=281"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=281",
+        "page": 82
       }
     ],
     "description": [
@@ -52,7 +53,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=234"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=234",
+        "page": 43
       }
     ],
     "description": [
@@ -99,7 +101,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=239"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=239",
+        "page": 47
       }
     ],
     "description": [
@@ -149,7 +152,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=240"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=240",
+        "page": 47
       }
     ],
     "description": [
@@ -189,7 +193,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=272"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=272",
+        "page": 71
       }
     ],
     "description": [
@@ -231,7 +236,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=273"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=273",
+        "page": 71
       }
     ],
     "description": [
@@ -283,7 +289,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=263"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=263",
+        "page": 67
       }
     ],
     "description": [
@@ -333,7 +340,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=241"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=241",
+        "page": 47
       }
     ],
     "description": [
@@ -372,7 +380,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=245"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=245",
+        "page": 51
       }
     ],
     "description": [
@@ -414,7 +423,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=279"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=279",
+        "page": 76
       }
     ],
     "description": [
@@ -451,7 +461,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=250"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=250",
+        "page": 55
       }
     ],
     "description": [
@@ -500,7 +511,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=235"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=235",
+        "page": 43
       }
     ],
     "description": [
@@ -570,7 +582,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=274"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=274",
+        "page": 71
       }
     ],
     "description": [
@@ -632,7 +645,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=282"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=282",
+        "page": 83
       }
     ],
     "description": [
@@ -673,7 +687,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=246"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=246",
+        "page": 51
       }
     ],
     "description": [
@@ -712,7 +727,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=236"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=236",
+        "page": 43
       }
     ],
     "description": [
@@ -752,7 +768,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=264"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=264",
+        "page": 67
       }
     ],
     "description": [
@@ -800,7 +817,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=265"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=265",
+        "page": 67
       }
     ],
     "description": [
@@ -844,7 +862,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=266"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=266",
+        "page": 67
       }
     ],
     "description": [
@@ -902,7 +921,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=275"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=275",
+        "page": 71
       }
     ],
     "description": [
@@ -953,7 +973,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=255"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=255",
+        "page": 59
       }
     ],
     "description": [
@@ -997,7 +1018,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=256"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=256",
+        "page": 59
       }
     ],
     "description": [
@@ -1048,7 +1070,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=276"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=276",
+        "page": 71
       }
     ],
     "description": [
@@ -1095,7 +1118,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=251"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=251",
+        "page": 55
       }
     ],
     "description": [
@@ -1181,7 +1205,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=257"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=257",
+        "page": 59
       }
     ],
     "description": [
@@ -1236,7 +1261,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=267"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=267",
+        "page": 67
       }
     ],
     "description": [
@@ -1270,7 +1296,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=268"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=268",
+        "page": 67
       }
     ],
     "description": [
@@ -1312,7 +1339,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=280"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=280",
+        "page": 78
       }
     ],
     "description": [
@@ -1349,7 +1377,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=258"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=258",
+        "page": 59
       }
     ],
     "description": [
@@ -1397,7 +1426,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=277"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=277",
+        "page": 71
       }
     ],
     "description": [
@@ -1466,7 +1496,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=252"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=252",
+        "page": 55
       }
     ],
     "description": [
@@ -1516,7 +1547,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=237"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=237",
+        "page": 43
       }
     ],
     "description": [
@@ -1616,7 +1648,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=269"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=269",
+        "page": 67
       }
     ],
     "description": [
@@ -1697,7 +1730,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=270"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=270",
+        "page": 67
       }
     ],
     "description": [
@@ -1738,7 +1772,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=242"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=242",
+        "page": 47
       }
     ],
     "description": [
@@ -1817,7 +1852,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=247"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=247",
+        "page": 51
       }
     ],
     "description": [
@@ -1879,7 +1915,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=261"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=261",
+        "page": 63
       }
     ],
     "description": [
@@ -1913,7 +1950,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=253"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=253",
+        "page": 55
       }
     ],
     "description": [
@@ -1953,7 +1991,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=238"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=238",
+        "page": 43
       }
     ],
     "description": [
@@ -2011,7 +2050,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=259"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=259",
+        "page": 59
       }
     ],
     "description": [
@@ -2050,7 +2090,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=248"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=248",
+        "page": 51
       }
     ],
     "description": [
@@ -2089,7 +2130,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=254"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=254",
+        "page": 55
       }
     ],
     "description": [
@@ -2123,7 +2165,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=262"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=262",
+        "page": 63
       }
     ],
     "description": [
@@ -2173,7 +2216,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=271"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=271",
+        "page": 68
       }
     ],
     "description": [
@@ -2224,7 +2268,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=249"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=249",
+        "page": 51
       }
     ],
     "description": [
@@ -2267,7 +2312,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=243"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=243",
+        "page": 47
       }
     ],
     "description": [
@@ -2357,7 +2403,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=260"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=260",
+        "page": 59
       }
     ],
     "description": [
@@ -2391,7 +2438,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=278"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=278",
+        "page": 71
       }
     ],
     "description": [
@@ -2431,7 +2479,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=244"
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=244",
+        "page": 47
       }
     ],
     "description": [
