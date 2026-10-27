@@ -705,6 +705,7 @@ export {
   type EnvironmentContent,
   environmentContent,
   type RestrictionInPlay,
+  restrictionsHolding,
   restrictionsInPlay,
   ENVIRONMENTS_MAX,
   type EnvironmentCommand,
@@ -713,5 +714,6 @@ export {
   environmentRoots,
   isEnvironmentCommand,
 } from './environments';
+export { characterLiftedRestrictions } from './environment-lifts';
 export { type Generated, type GenerateInput, generateCharacter } from './generate-character';
 export { slotCandidates } from './slot-candidates';

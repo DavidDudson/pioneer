@@ -27,3 +27,11 @@ export const UNDERWATER = 'underwater';
 export function underwaterFixtureId(): ContentId {
   return ContentId.parse(contentId(PackId.parse(ITEM_PACK), EntrySlug.parse(`environment:${UNDERWATER}`)));
 }
+
+/** A condition that lifts underwater's speech restriction, as an aquatic trait or water breathing would. */
+export const GILLED = 'gilled';
+
+/** The id of the fixture gilled condition. */
+export function gilledFixtureId(): ContentId {
+  return ContentId.parse(contentId(PackId.parse(ITEM_PACK), EntrySlug.parse(`condition:${GILLED}`)));
+}

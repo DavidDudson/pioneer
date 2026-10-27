@@ -57,6 +57,7 @@ export class SheetState {
           ...selected.document.play,
           conditions: [...played.conditions],
           effects: [...played.effects],
+          environments: [...played.environments],
           toggles: played.toggles,
         });
   });

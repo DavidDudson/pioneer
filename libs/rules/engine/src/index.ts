@@ -41,6 +41,7 @@ export { ranksInPlay } from './ranks-in-play';
 export { type ResolvedDamageFormula, resolveDamageFormula } from './resolve-damage-formula';
 export { type SpellAtRank, type SpellCast, spellAtRank } from './spell-at-rank';
 export { type AncestryVision, type SenseInPlay, sensesInPlay } from './senses-in-play';
+export { type LiftedRestriction, liftedRestrictions } from './lifted-restrictions';
 export {
   type RankSlots,
   type SlotPool,

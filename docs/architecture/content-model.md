@@ -94,7 +94,9 @@ in its `rules`, not repeated in `data`; a condition's `implies` is the one excep
   applied while it is active. `restrictions` lists what it forbids: each has an `id` (`speech`, `fire-effects`),
   unique in the environment, that abilities name to lift it, and a `reason` the sheet shows. `consequences` lists what
   staying costs: after `after` (a count of rounds, minutes, hours or days), `applies` (a condition or effect, by
-  `ContentId`) is put on the character, again each time that long passes with `repeats`.
+  `ContentId`) is put on the character, again each time that long passes with `repeats`. A `LiftRestriction` rule
+  element (`restriction`, optionally one `environment`) on anything in play lifts a restriction while its predicate
+  holds; the sheet names the entries that lift it.
 
 Two checks span fields: a reaction needs a `trigger`, and every condition in `implies` needs a `GrantItem` of it in
 `rules` with no predicate. Foundry applies implied conditions (Grabbed's Off-Guard and Immobilized) with

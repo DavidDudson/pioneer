@@ -1,3 +1,4 @@
+// oxlint-disable import/max-dependencies -- The union of every rule element schema, so it grows with RuleElementKey.
 import { issueParams, message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -12,6 +13,7 @@ import { ImmunityElement, ResistanceElement, WeaknessElement } from './rule-elem
 import { FastHealingElement, TempHPElement } from './rule-element-healing';
 import { ItemAlterationElement } from './rule-element-item-alteration';
 import { LanguageElement } from './rule-element-language';
+import { LiftRestrictionElement } from './rule-element-lift-restriction';
 import { NoteElement } from './rule-element-note';
 import {
   AdjustModifierElement,
@@ -83,6 +85,7 @@ const Element = z.discriminatedUnion('key', [
   RollTwiceElement,
   SubstituteRollElement,
   AuraElement,
+  LiftRestrictionElement,
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */
