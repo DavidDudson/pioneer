@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=56"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=56",
+        "page": 56
       }
     ],
     "description": [
@@ -1028,7 +1029,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=57"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=57",
+        "page": 70
       }
     ],
     "description": [
@@ -2053,7 +2055,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=58"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=58",
+        "page": 86
       }
     ],
     "description": [
@@ -3103,7 +3106,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=59"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=59",
+        "page": 100
       }
     ],
     "description": [
@@ -4407,7 +4411,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=60"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=60",
+        "page": 114
       }
     ],
     "description": [
@@ -5410,7 +5415,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=61"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=61",
+        "page": 128
       }
     ],
     "description": [
@@ -6419,7 +6425,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=62"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=62",
+        "page": 144
       }
     ],
     "description": [
@@ -7383,7 +7390,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=63"
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=63",
+        "page": 158
       }
     ],
     "description": [

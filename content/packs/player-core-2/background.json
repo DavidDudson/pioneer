@@ -11,7 +11,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=447"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=447",
+        "page": 50
       }
     ],
     "description": [
@@ -107,7 +108,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=448"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=448",
+        "page": 50
       }
     ],
     "description": [
@@ -203,7 +205,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=464"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=464",
+        "page": 52
       }
     ],
     "description": [
@@ -284,7 +287,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=449"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=449",
+        "page": 50
       }
     ],
     "description": [
@@ -368,7 +372,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=450"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=450",
+        "page": 50
       }
     ],
     "description": [
@@ -459,7 +464,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=465"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=465",
+        "page": 52
       }
     ],
     "description": [
@@ -555,7 +561,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=466"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=466",
+        "page": 52
       }
     ],
     "description": [
@@ -672,7 +679,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=467"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=467",
+        "page": 52
       }
     ],
     "description": [
@@ -763,7 +771,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=468"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=468",
+        "page": 53
       }
     ],
     "description": [
@@ -869,7 +878,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=452"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=452",
+        "page": 50
       }
     ],
     "description": [
@@ -965,7 +975,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=453"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=453",
+        "page": 50
       }
     ],
     "description": [
@@ -1061,7 +1072,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=454"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=454",
+        "page": 50
       }
     ],
     "description": [
@@ -1152,7 +1164,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=455"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=455",
+        "page": 50
       }
     ],
     "description": [
@@ -1243,7 +1256,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=469"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=469",
+        "page": 53
       }
     ],
     "description": [
@@ -1346,7 +1360,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=456"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=456",
+        "page": 51
       }
     ],
     "description": [
@@ -1442,7 +1457,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=470"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=470",
+        "page": 53
       }
     ],
     "description": [
@@ -1541,7 +1557,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=457"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=457",
+        "page": 51
       }
     ],
     "description": [
@@ -1637,7 +1654,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=458"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=458",
+        "page": 51
       }
     ],
     "description": [
@@ -1728,7 +1746,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=459"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=459",
+        "page": 51
       }
     ],
     "description": [
@@ -1824,7 +1843,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=460"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=460",
+        "page": 51
       }
     ],
     "description": [
@@ -1915,7 +1935,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=461"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=461",
+        "page": 51
       }
     ],
     "description": [
@@ -2006,7 +2027,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=462"
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=462",
+        "page": 51
       }
     ],
     "description": [
