@@ -82,10 +82,13 @@ export {
   OfferedCoinAmount,
   OfferedCoinsSchema,
   OfferItemBody,
+  isCoinTransfer,
+  TransferAnswerView,
   TransferStatus,
   type CoinTransfer,
   type ItemTransfer,
   type OfferedCoins,
+  type Transfer,
 } from './campaign-item-transfers';
 export {
   CampaignKeyItems,

@@ -19,6 +19,7 @@ import { InMemoryCampaignRepository } from './in-memory-campaign-repository';
 import { InMemoryCharacterDirectory } from './in-memory-character-directory';
 import { InMemoryItemTransferRepository } from './in-memory-item-transfer-repository';
 import { InMemoryTransferLines } from './in-memory-transfer-lines';
+import { InMemoryTransferSettlement } from './in-memory-transfer-settlement';
 import { ItemTransferMessage } from './item-transfer-message';
 
 const amiri = UserId.parse(newId());
@@ -41,6 +42,7 @@ function memberIdOf(campaign: Campaign, userId: UserId): CampaignMemberId {
 
 describe('CampaignItemTransferService', () => {
   let transfers: InMemoryItemTransferRepository;
+  let settlement: InMemoryTransferSettlement;
   let service: CampaignItemTransferService;
   let vaults: Campaign;
 
@@ -48,6 +50,7 @@ describe('CampaignItemTransferService', () => {
     const campaigns = new InMemoryCampaignRepository();
     const party = new InMemoryCampaignPartyRepository(campaigns);
     transfers = new InMemoryItemTransferRepository();
+    settlement = new InMemoryTransferSettlement(transfers);
     service = new CampaignItemTransferService(
       {
         campaigns,
@@ -65,6 +68,7 @@ describe('CampaignItemTransferService', () => {
           .hasLine(dormant, dagger, { version: GIVER_VERSION })
           .hasCoins(kyra, { gp: 10, sp: 5 }, GIVER_VERSION)
           .hasCoins(dormant, { gp: 1 }, GIVER_VERSION),
+        settlement,
       },
       fixedClock('2026-10-17T10:00:00Z'),
     );

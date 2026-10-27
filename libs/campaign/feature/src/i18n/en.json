@@ -134,7 +134,10 @@
     "keyItemLine": "A key item cannot be offered; the GM controls it.",
     "alreadyOffered": "That item is already on offer.",
     "sameCharacter": "A character cannot offer to itself.",
-    "notEnoughCoins": "The giver does not hold that many coins."
+    "notEnoughCoins": "The giver does not hold that many coins.",
+    "notPending": "That offer has already been answered or withdrawn.",
+    "lineGone": "The giver no longer has that item.",
+    "recipientFull": "The recipient has no room for that item."
   },
   "keyItems": {
     "heading": "Key items",

@@ -44,7 +44,9 @@ export { InMemoryCampaignKeyItemRepository } from './in-memory-campaign-key-item
 export { InMemoryKeyItemHolders } from './in-memory-key-item-holders';
 export { CampaignItemTransferService, type CampaignItemTransferPorts } from './campaign-item-transfer-service';
 export { ItemTransferMessage } from './item-transfer-message';
-export { ItemTransferRepository } from './item-transfer-repository';
+export { ItemTransferRepository, type TransferAnswer } from './item-transfer-repository';
 export { TransferLines, type OfferableLine, type OfferablePurse } from './transfer-lines';
+export { TransferSettlement } from './transfer-settlement';
+export { InMemoryTransferSettlement } from './in-memory-transfer-settlement';
 export { InMemoryItemTransferRepository } from './in-memory-item-transfer-repository';
 export { InMemoryTransferLines } from './in-memory-transfer-lines';

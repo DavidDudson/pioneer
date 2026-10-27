@@ -5,7 +5,7 @@ import type { RequestAuthenticator } from '@pioneer/shared/server';
 
 /**
  * HTTP adapter for item and coin transfers between a campaign's characters. Every route needs a signed-in user (401 otherwise);
- * who may offer is the service's policy.
+ * who may offer or answer is the service's policy.
  */
 export function campaignItemTransferRoutes(
   service: CampaignItemTransferService,
@@ -17,5 +17,11 @@ export function campaignItemTransferRoutes(
     )
     .handleSignedIn(CampaignContract.offerCoins, auth, async ({ actor, params, body }) =>
       service.offerCoins(actor, params.id, body),
+    )
+    .handleSignedIn(CampaignContract.acceptTransfer, auth, async ({ actor, params }) =>
+      service.accept(actor, params.id, params.transferId),
+    )
+    .handleSignedIn(CampaignContract.declineTransfer, auth, async ({ actor, params }) =>
+      service.decline(actor, params.id, params.transferId),
     ).app;
 }

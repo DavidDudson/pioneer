@@ -1,6 +1,7 @@
 import { ItemTransferMessage, ItemTransferRepository } from '@pioneer/campaign/application';
-import { TransferStatus } from '@pioneer/campaign/domain';
-import type { CampaignId, CoinTransfer, ItemTransfer } from '@pioneer/campaign/domain';
+import type { TransferAnswer } from '@pioneer/campaign/application';
+import { OfferedCoinsSchema, TransferStatus } from '@pioneer/campaign/domain';
+import type { CampaignId, CoinTransfer, ItemTransfer, ItemTransferId, Transfer } from '@pioneer/campaign/domain';
 import { ConflictError, message, Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
 import { stampAudit } from '@pioneer/shared/server';
@@ -12,6 +13,8 @@ import { campaignItemTransfers } from './campaign-item-transfer.table';
 /** Name the command on the audit row it writes, as a service use case names a command. */
 const OFFER_COMMAND = 'offer-campaign-item-transfer';
 const OFFER_COINS_COMMAND = 'offer-campaign-coin-transfer';
+const DECLINE_COMMAND = 'decline-campaign-transfer';
+const ACCEPT_COMMAND = 'accept-campaign-transfer';
 
 type ItemTransferRow = typeof campaignItemTransfers.$inferSelect;
 
@@ -25,6 +28,22 @@ function toTransfer(row: ItemTransferRow): ItemTransfer {
     from: row.fromCharacterId,
     to: row.toCharacterId,
     item: row.itemId,
+    giverVersion: row.giverVersion,
+    status: row.status,
+    createdAt: Temporal.Instant.from(row.createdAt),
+  };
+}
+
+/** A coin offer's row; an item offer has none of its coins. */
+function toCoinTransfer(row: ItemTransferRow): CoinTransfer {
+  if (row.platinum === null || row.gold === null || row.silver === null || row.copper === null) {
+    throw new Error(`Transfer ${row.id} is not a coin offer`);
+  }
+  return {
+    id: row.id,
+    from: row.fromCharacterId,
+    to: row.toCharacterId,
+    coins: OfferedCoinsSchema.parse({ pp: row.platinum, gp: row.gold, sp: row.silver, cp: row.copper }),
     giverVersion: row.giverVersion,
     status: row.status,
     createdAt: Temporal.Instant.from(row.createdAt),
@@ -97,6 +116,37 @@ export class DrizzleItemTransferRepository extends ItemTransferRepository {
         status: transfer.status,
         createdAt: transfer.createdAt.toString(),
       });
+    });
+  }
+
+  public override async findById(campaignId: CampaignId, id: ItemTransferId): Promise<Transfer | undefined> {
+    const [row] = await this.#db
+      .select()
+      .from(campaignItemTransfers)
+      .where(and(eq(campaignItemTransfers.campaignId, campaignId), eq(campaignItemTransfers.id, id)))
+      .limit(1);
+    if (row === undefined) {
+      return undefined;
+    }
+    return row.itemId === null ? toCoinTransfer(row) : toTransfer(row);
+  }
+
+  public override async answer({ actor, campaignId, id, status }: TransferAnswer): Promise<boolean> {
+    return this.#db.transaction(async (tx) => {
+      await stampAudit(tx, { actor, command: status === TransferStatus.Accepted ? ACCEPT_COMMAND : DECLINE_COMMAND });
+      // Pending only: of two answers at once the second finds no pending row and changes nothing.
+      const answered = await tx
+        .update(campaignItemTransfers)
+        .set({ status })
+        .where(
+          and(
+            eq(campaignItemTransfers.campaignId, campaignId),
+            eq(campaignItemTransfers.id, id),
+            eq(campaignItemTransfers.status, TransferStatus.Pending),
+          ),
+        )
+        .returning({ id: campaignItemTransfers.id });
+      return answered.length > 0;
     });
   }
 }

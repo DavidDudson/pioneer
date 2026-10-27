@@ -13,6 +13,7 @@ import {
   InMemoryItemTransferRepository,
   InMemoryKeyItemHolders,
   InMemoryTransferLines,
+  InMemoryTransferSettlement,
   InMemoryCampaignRuleLimitRepository,
   InMemoryFlaggedItems,
   InMemoryCampaignVariantLimits,
@@ -113,8 +114,9 @@ export function itemTransferService(
     lines = new InMemoryTransferLines(),
   }: ItemTransferWorld = {},
 ): CampaignItemTransferService {
+  const transfers = new InMemoryItemTransferRepository();
   return new CampaignItemTransferService(
-    { campaigns, transfers: new InMemoryItemTransferRepository(), party, characters, lines },
+    { campaigns, transfers, party, characters, lines, settlement: new InMemoryTransferSettlement(transfers) },
     clock,
   );
 }

@@ -626,6 +626,13 @@ campaign_links        id, campaign_id, token_hash (unique), created_at, last_use
 - **Item transfer.** A member offers an item (with its runes, custom name and contents) or coins from one of their
   campaign characters to another; the recipient's owner accepts or declines, and the giver can withdraw until then.
   Accepting moves it in one transaction that checks both characters' versions, so neither side re-adds it by hand.
+  `POST /campaigns/:id/transfers/:transferId/accept` and `/decline` are the recipient owner's alone (anyone else, the
+  giver included, gets a 404). The composition root opens one database transaction and builds the offer and character
+  repositories on it: the offer must still be pending, the giver must be at the version the offer was made at, and the
+  recipient is written at the version read in the transaction. A stale side is a 409 `VersionConflictError`, a giver
+  who no longer holds the line or coins, a key item, or a recipient with no room a 409 with a message key, and the
+  whole accept rolls back. A line moves with what it holds, stowed and not invested. Coin offers do not reserve coins,
+  so the purse is checked again at accept. The offer and both characters are audited under the accepting commands.
   Inventory is build data, so transfers work in every sync mode.
 - **Permissions.** Policies live in the campaign context's application layer, with the acting user from identity's
   `RequestAuthenticator` (ADR-0007), or the campaign from a link token for module routes. Owners edit builds;
