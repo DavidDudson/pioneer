@@ -697,7 +697,16 @@ export {
 } from './active-spells';
 export type { ActiveSpell, ActiveSpellCommand, SpellSpend } from './active-spells';
 export { PickBound, PickIndex, type PickSource, Seed, seededPicks } from './pick-source';
-export { type PickOutcome, PickRefusal, pickOne, PickWeight, pickWeighted, shuffle, type Weighted } from './picks';
+export {
+  type PickOutcome,
+  PickRefusal,
+  pickOne,
+  PickWeight,
+  pickWeighted,
+  shuffle,
+  weightedShuffle,
+  type Weighted,
+} from './picks';
 export {
   type ActiveEnvironments,
   ActiveEnvironmentsSchema,
@@ -732,6 +741,16 @@ export {
   suffocationDc,
 } from './breath';
 export { type Generated, type GenerateInput, generateCharacter } from './generate-character';
+export {
+  favouring,
+  FAVOURED,
+  type GenerationTheme,
+  GenerationThemeSchema,
+  NEUTRAL_THEME,
+  themeWeight,
+  ThemeWeight,
+  UNTHEMED,
+} from './generation-theme';
 export { type GearInput, generateGear, itemsValue } from './generate-gear';
 export { CORE_TREASURE_BY_LEVEL, treasureAt, type TreasureByLevel, TreasureByLevelSchema } from './treasure-by-level';
 export { slotCandidates } from './slot-candidates';
