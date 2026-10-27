@@ -244,7 +244,15 @@
         "content": [
           {
             "type": "text",
-            "text": "You cycle arcane power through your body and weapon using specialized forms, breathing, or footwork. While you're in the stance, your melee Strikes gain the arcane trait (making them magical) and deal 1 extra force damage, and you gain resistance 1 to damage from spells. If you have the Weapon Specialization class feature, the damage and resistance increase to 2, and if you have "
+            "text": "You cycle arcane power through your body and weapon using specialized forms, breathing, or footwork. While you're in the stance, your melee Strikes gain the arcane trait (making them magical) and deal 1 extra force damage, and you gain resistance 1 to damage from spells. If you have the "
+          },
+          {
+            "type": "ref",
+            "id": "ffa82ea1-1d92-58b0-b19c-ae3e23446328"
+          },
+          {
+            "type": "text",
+            "text": " class feature, the damage and resistance increase to 2, and if you have "
           },
           {
             "type": "ref",

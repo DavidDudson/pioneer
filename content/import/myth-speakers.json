@@ -397,6 +397,1841 @@
     {
       "type": "entry",
       "pack": "myth-speakers",
+      "slug": "creature:akki-level-8",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.uqdf6Fx5Z6IWyWed",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:amnerion",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.1XFBOXGEkiXDXhil",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "realm step"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:animated-panoply",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.o2O3dPdWCCgRcIO3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(13 when broken); construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Immunity",
+          "raw": {
+            "key": "Immunity",
+            "mode": "remove",
+            "type": ["vitality", "spirit"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:bristled-reef-shark",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.kOiU62ShG0Hyhznx",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "blood scent"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:bureaucrat-mob",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.sPy2VUgObOcUKceK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 30 (3 segments), 15 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:coralclaw",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.QeY9MqsQ5EDAd0Zd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Piercer Claw.damage",
+          "raw": {
+            "damage": "1",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:deathless-pirate",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.TWGzMOvxDIbYkuIb",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:deianire",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.uAEbmbXpPckpuz0N",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:ekleios",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.bkaucqFMNbV5V7fJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Defiled Religious Symbol of Sophreista"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:encymion",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.ln3pXptaxdchTkiU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageDice",
+          "raw": {
+            "damageType": "{item|flags.system.rulesSelections.primalHead}",
+            "diceNumber": 2,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "predicate": ["dragon-head:primal"],
+            "selector": "dragon-jaws-damage"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.Chimera.PrimalHead",
+            "option": "primal-head",
+            "predicate": ["dragon-head:primal"],
+            "priority": 51,
+            "selection": "acid",
+            "suboptions": [
+              {
+                "label": "PF2E.TraitAcid",
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.TraitCold",
+                "value": "cold"
+              },
+              {
+                "label": "PF2E.TraitElectricity",
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitPoison",
+                "value": "poison"
+              },
+              {
+                "label": "PF2E.TraitSonic",
+                "value": "sonic"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.Chimera.DragonHead",
+            "option": "dragon-head",
+            "selection": "divine",
+            "suboptions": [
+              {
+                "label": "PF2E.TraitArcane",
+                "value": "arcane"
+              },
+              {
+                "label": "PF2E.TraitDivine",
+                "value": "divine"
+              },
+              {
+                "label": "PF2E.TraitOccult",
+                "value": "occult"
+              },
+              {
+                "label": "PF2E.TraitPrimal",
+                "value": "primal"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:enraged-spirit",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.UtrPweFaxQSDsST9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:exthenios",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.asmbTctJbSc7L36y",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:eylthia",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.YsPt2EAK2zbzEhVD",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:eylthias-basilisk",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.UkO1E2yzPQdk2i5r",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "stone-spittle-attack",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:firehoof-minotaur",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.Nt6kwOSCwfRsWm3u",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "smoke vision"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:gale-frenzy",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.CxAfUQklaPHoi9h2",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Thresholds 100 (3 segments), 50 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:iapholi",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.kgEjYU9fTiIs6HMU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 3,
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Beastspeech"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:iblydan-hind",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.V5Nzox1vB1Rregr6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Wildsong, can't speak any language"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:keribos",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.jXTKQSMyTpQ2LoIV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:kerinelopas",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.XWAaTLLlikpz4rTH",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "bloodsense (imprecise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:lava-spitter",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.GNWqtXXqZEWDwe8w",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fiery healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "smoke vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Fangs.damage",
+          "raw": {
+            "damage": "2",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Lava Spit.damage",
+          "raw": {
+            "damage": "2",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["item:category:unarmed"],
+            "selector": "damage-received",
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "water"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:living-statue",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.EWiCbl82e6BMvcPG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(19 when broken); construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:merfolk-wavecaller",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.XXWSvVIZ4HuAFGTX",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:metal-scamp",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.X5VGzifC2pKuttRq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "fast healing 2 (while touching metal)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FastHealing",
+          "raw": {
+            "details": "while Touching Metal",
+            "key": "FastHealing",
+            "type": "fast-healing",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:molted-reefclaw",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.9mKeryELAjGj7agY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "(can't speak any language)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:mutated-centaur",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.zZhpf01YcgrIRyVF",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:mythic-phoenix-flame",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.2La4fXp6iq11vQpP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "smoke vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:neshkefru",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.3QSevJzuQHz0RwCz",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Truespeech"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:omorphos",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.Z1xYR3t3US8jEIVI",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["item:trait:mental"],
+            "selector": "saving-throw",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:painted-griffon",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.gqPkwINHB1EwVfpq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:painted-landscape",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.OeFnLt97mzHjSnbG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:painted-pontifex",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.arh4LFUHcHsPyJoP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:painted-ram",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.QZLmUDNMqo1JpV5i",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:painted-soldier",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.cD92QPlLxCIXN6mn",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(21 when broken)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Shield"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:painted-soldier-ominous-graffiti",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.byFpFNAiClHVHnSJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Shield"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:pendidia",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.TyM7RUMDIqGQtYr0",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:phermeina",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.xsICRSnP7T0CP6jJ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with snakes"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Dancing Lights"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Ghost Sound"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Inspire Courage"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Harp"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:pteios",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.DCxybi9yVMw1rhBq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 vs. auditory, divine, earth, or visual effects; mythic resilience (Ref and Will)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Chisel.damage",
+          "raw": {
+            "damage": "1d4",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Shadow Siphon"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Agonizing Despair"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Chisel"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Warshard Spear"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Choker of Elocution (Greater; Cyclops, Draconic, Thalassic)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:pyrefowl",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.InXSzKdj4MgbciIb",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "cannot speak"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:pyrkaion",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.KTG7qtxnTG81QQ2W",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Riddle.damage",
+          "raw": {
+            "damage": "1d6",
+            "damageType": "mental",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "allies",
+                "includesSelf": false,
+                "predicate": ["self:trait:holy"],
+                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Aura of Sophistry (Holy)"
+              },
+              {
+                "affects": "enemies",
+                "predicate": ["self:trait:unholy"],
+                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Aura of Sophistry (Unholy)"
+              }
+            ],
+            "key": "Aura",
+            "radius": 40,
+            "traits": ["divine", "mental"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "option": "glorious-visage",
+            "selection": "unholy",
+            "suboptions": [
+              {
+                "label": "PF2E.TraitHoly",
+                "value": "holy"
+              },
+              {
+                "label": "PF2E.TraitUnholy",
+                "value": "unholy"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActorTraits",
+          "raw": {
+            "add": ["{item|flags.system.rulesSelections.gloriousVisage}"],
+            "key": "ActorTraits"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ItemAlteration",
+          "raw": {
+            "itemType": "melee",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "traits",
+            "value": "{item|flags.system.rulesSelections.gloriousVisage}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Weakness",
+          "raw": {
+            "key": "Weakness",
+            "predicate": ["glorious-visage:unholy"],
+            "type": "holy",
+            "value": 8
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Weakness",
+          "raw": {
+            "key": "Weakness",
+            "predicate": ["glorious-visage:holy"],
+            "type": "unholy",
+            "value": 8
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:riptide-octopus-swarm",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.u6WyDjPRey2G79tf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:sappil",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.Zt0HcZjRrzo1zz4y",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.TempHP",
+          "raw": {
+            "events": {
+              "onTurnStart": true
+            },
+            "key": "TempHP",
+            "predicate": ["arcane-cascade"],
+            "value": 1
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "damageType": "{item|flags.system.rulesSelections.stanceArcaneCascade}",
+            "key": "FlatModifier",
+            "selector": "strike-damage",
+            "slug": "arcane-cascade-extra-damage",
+            "value": 1
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Spellbook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:sedacthy-scout",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.4LgTFSnxHQWmI4AT",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Sea Speech"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Jaws.damage",
+          "raw": {
+            "damage": "1d4",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Clingy Octopus.damage",
+          "raw": {
+            "damage": "1",
+            "damageType": "bleed",
+            "category": "persistent"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:skeletal-champion",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.7BJqud5bQ0VySlB4",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(21 with shield raised)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:speiroikos",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.I8RBVY3fsLsBDljf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Thresholds 34 (3 segments), 17 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Weakness",
+          "raw": {
+            "key": "Weakness",
+            "predicate": [
+              {
+                "not": "self:effect:dragonhide"
+              }
+            ],
+            "type": ["area-damage", "splash-damage"],
+            "value": 3
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:sylirican-phalanx",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.A79ZvqR5YHdrr9Bo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "Thresholds 110 (3 segments); 55 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "doubleVs": ["non-magical"],
+            "exceptions": ["force", "ghost-touch", "spirit", "vitality"],
+            "key": "Resistance",
+            "predicate": ["in-the-shade"],
+            "type": "all-damage",
+            "value": 20
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "doubleVs": ["non-magical"],
+            "exceptions": ["force", "ghost-touch", "spirit", "vitality"],
+            "key": "Resistance",
+            "predicate": [
+              {
+                "not": "in-the-shade"
+              }
+            ],
+            "type": "all-damage",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Weakness",
+          "raw": {
+            "key": "Weakness",
+            "predicate": [
+              {
+                "not": "in-the-shade"
+              }
+            ],
+            "type": "area-damage",
+            "value": 10
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:tern-flock",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.dM33Gk48tNHvOHCw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:torcheater",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.VfL5YJzRiUxldUTg",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": " shadow stairs"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": ["damage:material:bronze"],
+                "label": "PF2E.IWR.Custom.Bronze"
+              }
+            ],
+            "key": "Resistance",
+            "predicate": [
+              {
+                "not": "self:effect:inhale-light"
+              }
+            ],
+            "type": "physical",
+            "value": 5
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:tsemone",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.yuvHEsdaVru2YsUk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Alchemical Grenade (Acid).damage",
+          "raw": {
+            "damage": "2",
+            "damageType": "acid",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Alchemical Grenade (Cold).damage",
+          "raw": {
+            "damage": "2",
+            "damageType": "cold",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Alchemical Grenade (Fire).damage",
+          "raw": {
+            "damage": "2",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Alchemical Grenade (Acid)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Alchemical Grenade (Cold)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Alchemical Grenade (Fire)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Formula Book"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Curare (Applied to a Dart)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.resistances.type",
+          "raw": "mythic"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:ulshuk",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.FHntBv0y5ymW1Ith",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "Aura of the All-Seeing Eye"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:ungkore-bounty-hunter",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.zBkMFaZZAHvivVnh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:vengeful-shade",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.hQzumh6iXsKEnGd7",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:vornen",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.ZVmikyAJb9SUuvoN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "domain": "all",
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:withered-flame-drake",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.GVS0dJk0HGq9trLs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "smoke vision"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:xenia-spirit",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.sA9LeJ1wDJr9lEeo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "rejuvenation, void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
+      "slug": "creature:yasmenei",
+      "foundry": "Compendium.pf2e.myth-speaker-bestiary.Actor.QlCcGokzOoADjdRd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 vs. emotion effects"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Alchemist's Fire (Moderate).damage",
+          "raw": {
+            "damage": "2",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "damageCategory": "persistent",
+            "damageType": "fire",
+            "key": "FlatModifier",
+            "predicate": ["blazing-shot"],
+            "selector": "longbow-damage",
+            "value": 2
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.FlatModifier",
+          "raw": {
+            "damageCategory": "splash",
+            "damageType": "fire",
+            "key": "FlatModifier",
+            "predicate": ["blazing-shot"],
+            "selector": "longbow-damage",
+            "slug": "blazing-shot-splash",
+            "value": 2
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "+1 Striking Kopis"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "myth-speakers",
       "slug": "effect:effect-inhale-light",
       "foundry": "Compendium.pf2e.bestiary-effects.Item.ANZPiu3eb3byDRUk",
       "gaps": [
@@ -423,22 +2258,6 @@
             "mode": "add",
             "property": "weapon-traits",
             "value": "reach-10"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "myth-speakers",
-      "slug": "effect:spell-effect-ash-strewn-ending",
-      "foundry": "Compendium.pf2e.spell-effects.Item.AocUY91Tpy1QCdyu",
-      "gaps": [
-        {
-          "type": "link",
-          "entry": "myth-speakers/ritual:ash-strewn-ending",
-          "element": {
-            "type": "ref",
-            "id": "7c5c4a97-35f1-5a74-8bab-eebc0c9cd1d6"
           }
         }
       ]
@@ -517,22 +2336,6 @@
     {
       "type": "entry",
       "pack": "myth-speakers",
-      "slug": "effect:spell-effect-rite-of-cleansing-flame-critical-success",
-      "foundry": "Compendium.pf2e.spell-effects.Item.j7A1QXHJNxt1d1ED",
-      "gaps": [
-        {
-          "type": "link",
-          "entry": "myth-speakers/ritual:rite-of-cleansing-flame",
-          "element": {
-            "type": "ref",
-            "id": "a423445c-7852-56be-b8a5-7b43a33eac7f"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "myth-speakers",
       "slug": "effect:spell-effect-rite-of-cleansing-flame-failure",
       "foundry": "Compendium.pf2e.spell-effects.Item.KhBRuP0Wl2P5okGo",
       "gaps": [
@@ -543,14 +2346,6 @@
             "key": "Weakness",
             "type": ["cold", "unholy"],
             "value": 5
-          }
-        },
-        {
-          "type": "link",
-          "entry": "myth-speakers/ritual:rite-of-cleansing-flame",
-          "element": {
-            "type": "ref",
-            "id": "a423445c-7852-56be-b8a5-7b43a33eac7f"
           }
         }
       ]
@@ -727,94 +2522,8 @@
     {
       "type": "entry",
       "pack": "myth-speakers",
-      "slug": "ritual:ash-strewn-ending",
-      "foundry": "Compendium.pf2e.spells-srd.Item.QqMlN9VSHfD2v4Qv",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Religion (mythic) or Performance (mythic)"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Crafting, Pharasma Lore, or Survival"
-        }
-      ],
-      "document": {
-        "_id": "QqMlN9VSHfD2v4Qv",
-        "name": "Ash-Strewn Ending",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder #218: Titanbane",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 4
-          },
-          "traits": {
-            "value": ["death", "mythic"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>Lo, speak of the hero-gods and their ash-strewn endings! Sing of their might as it falls on the land! Taste the bone and char that binds their life to yours! This ritual focuses on the burning of a mythic creature's corpse on a pyre in an outdoor location. Once the corpse has been reduced to ashes, the wind scatters those ashes across a 1,000-foot radius. As the ash lands on creatures within this radius, a fragment of the dead creature's mythic power flows into them.</p><hr /><p><strong>Critical Success</strong> Death has a lessened claim upon those in the ritual's area of effect. All creatures that were of a level equal to or lower than the level of the mythic creature incinerated as part of the ritual gain resistance 10 to void damage and a +2 status bonus to saving throws against death effects and to recovery checks.</p>\n<p><strong>Success</strong> As critical success, but only as long as the creature remains in the ritual's area.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> Grief washes over the area, and the threat of death looms more closely over the casters, who all gain weakness 10 to void damage and a –2 status penalty to saving throws against death effects and to recovery checks. This is a curse effect.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Ash-Strewn Ending]</p><hr /><p><strong>Heightened (6th)</strong> The area increases to a 1-mile radius, the duration increases to 1 month, the void resistance (or weakness) increases to 15, and the status bonus (or penalty) increases to +3.</p>\n<p><strong>Heightened (8th)</strong> The area increases to 10 miles, the duration increases to 1 year, the void resistance (or weakness) increases to 20, and the status bonus (or penalty) increases to +4.</p>\n<p><strong>Heightened (10th)</strong> As 8th rank, but one GM-selected non-mythic creature in the area becomes mythic. This creature's attitude and personality is favorable toward the primary caster.</p>"
-          },
-          "rules": [],
-          "area": {
-            "type": "burst",
-            "value": 1000
-          },
-          "cost": {
-            "value": ""
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "1 week"
-          },
-          "range": {
-            "value": "10 feet"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Religion (mythic) or Performance (mythic)"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Crafting, Pharasma Lore, or Survival"
-            }
-          },
-          "target": {
-            "value": ""
-          },
-          "time": {
-            "value": "8 hours"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "myth-speakers",
       "slug": "ritual:footholds-and-foothills",
       "foundry": "Compendium.pf2e.spells-srd.Item.QGfVFyQhoalZbE9s",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
@@ -832,173 +2541,28 @@
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "area that doesn't contain any structures"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Athletics (mythic) or Nature (mythic)"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Athletics, Acrobatics, Nature, or Survival"
         }
-      ],
-      "document": {
-        "_id": "QGfVFyQhoalZbE9s",
-        "name": "Footholds and Foothills",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder #218: Titanbane",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 5
-          },
-          "traits": {
-            "value": ["mythic"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>The physical world resists changes, but this can be subdued like any other foe. The hero-god of movement and mountains, the sure-footed Helidys, found the islands of Iblydos stubborn and unwilling to bend to his will. He asked a sandbar to lower itself so his ship could pass, but it refused. He asked again, and the sandbar told him to wait for the tides to change. On his third ask, he didn't wait for a response, and instead leapt from his ship and wrestled with it. The sandbar pushed and pulled with the currents, but Helidys succeeded and flattened the sandbar into a ribbon with his bare hands.</p>\n<p>When you cast this ritual, select to add, remove, roughen, or smooth out the area.</p>\n<p><strong>Add</strong> You create new terrain, selecting earth, stone, or water when you cast this ritual. Any creature within the newly created terrain's area moves to the closest available space. The new terrain can be created in a space that would not typically support it, such as a floating island.</p>\n<p><strong>Remove</strong> You create a 30-foot-deep crater-like depression in the area. Unless otherwise specified, the terrain immediately beneath the destroyed area is the same type. Water flows into the crater if such is present along the area's circumference. Creatures standing on the destroyed terrain can attempt to @UUID[Compendium.pf2e.actionspf2e.Item.Grab an Edge] if they are adjacent to a non-destroyed space. Otherwise, they use the typical rules for falling.</p>\n<p><strong>Roughen</strong> You transform the area into difficult terrain. If the area was already difficult terrain, it becomes greater difficult terrain.</p>\n<p><strong>Smooth</strong> You transform an area of difficult terrain into normal terrain, or an area of greater difficult terrain into difficult terrain.</p><hr /><p><strong>Critical Success</strong> You transform the area of your choice permanently.</p>\n<p><strong>Success</strong> You transform the area for the ritual's duration.</p>\n<p><strong>Failure</strong> You fail to transform the area.</p>\n<p><strong>Critical Failure</strong> The ritual backfires, and now the land knows how to easily beat you. For the next week, the primary caster treats all instances of the terrain they attempted to manipulate as difficult terrain (or difficult terrain as greater difficult terrain).</p><hr /><p><strong>Heightened (+1)</strong> The area increases by 20 feet.</p>"
-          },
-          "rules": [],
-          "area": {
-            "type": "burst",
-            "value": 30
-          },
-          "cost": {
-            "value": ""
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "1 week"
-          },
-          "heightening": {
-            "area": 20,
-            "damage": {},
-            "interval": 1,
-            "type": "interval"
-          },
-          "range": {
-            "value": "120 feet"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Athletics (mythic) or Nature (mythic)"
-            },
-            "secondary": {
-              "casters": 2,
-              "checks": "Athletics, Acrobatics, Nature, or Survival"
-            }
-          },
-          "target": {
-            "value": "area that doesn't contain any structures"
-          },
-          "time": {
-            "value": "1 day"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "myth-speakers",
       "slug": "ritual:labyrinthine-prison",
       "foundry": "Compendium.pf2e.spells-srd.Item.WRRbNyGam4ytTRgr",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 creature of up to 8th level"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Art Lore (trained), Crafting (trained), or Thievery (trained)"
         }
-      ],
-      "document": {
-        "_id": "WRRbNyGam4ytTRgr",
-        "name": "Labyrinthine Prison",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder #217: Death Sails a Wine-Dark Sea",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 3
-          },
-          "traits": {
-            "value": ["mythic", "teleportation"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>This ritual was developed by a long-dead minotaur hero-god whose cult trained to hunt and trap evil beings. It creates a maze of ever-shifting warped space woven from intertwined demiplanes that twist in ways few can solve.</p>\n<p>You and the secondary casters draw a maze of twisted space into being with the target at its center. An unwilling target must be @UUID[Compendium.pf2e.conditionitems.Item.Immobilized], @UUID[Compendium.pf2e.conditionitems.Item.Unconscious], or otherwise prevented from leaving the area for the entire casting time, or the ritual fails. An unwilling target can attempt a Will save to resist the ritual; on a critical success, treat the result as critically failing to cast the ritual. While the target is trapped within the labyrinthine prison, they cannot escape it, as even abilities that give access to other planes are subject to being twisted into the maze. Instead the only way to escape is by succeeding at a Maze Lore, Perception, or Survival check against the labyrinthine prison's DC. This check can be attempted once per week, and the first check can only be attempted after a week has passed. If all casters spend one Mythic Point each, this interval changes to one year, and the DC uses the primary caster's mythic proficiency.</p><hr /><p><strong>Critical Success</strong> As success, and the twisted space renders the target @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 2} while within.</p>\n<p><strong>Success</strong> The target is trapped within the labyrinthine prison for the duration of ritual.</p>\n<p><strong>Failure</strong> The ritual fails to trap the target.</p>\n<p><strong>Critical Failure</strong> As failure, and the casters are all @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 4} for 1 week.</p><hr /><p><strong>Heightened (4th)</strong> The maximum level of the target is 10. The cost is the target's level (minimum 1) × 40 gp. The interval becomes 1 month, and spending Mythic Points increases it to 5 years.</p>\n<p><strong>Heightened (5th)</strong> The maximum level of the target is 12. The cost is the target's level (minimum 1) × 75 gp. The interval becomes 2 months, and spending Mythic Points increases it to 10 years.</p>\n<p><strong>Heightened (6th)</strong> The maximum level of the target is 14. The cost is the target's level (minimum 1) × 125 gp. The interval becomes 6 months, and spending Mythic Points increases it to 30 years.</p>\n<p><strong>Heightened (7th)</strong> The maximum level of the target is 16. The cost is the target's level (minimum 1) × 200 gp. The interval becomes 1 year, and spending Mythic Points increases it to 50 years.</p>\n<p><strong>Heightened (8th)</strong> The maximum level of the target is 18. The cost is the target's level (minimum 1) × 300 gp. The interval becomes 2 years, and spending Mythic Points increases it to 100 years.</p>\n<p><strong>Heightened (9th)</strong> The maximum level of the target is 20. The cost is the target's level (minimum 1) × 600 gp. The interval becomes 5 years, and spending Mythic Points increases it to 200 years.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "fine paper and ink worth a total value of the target's level × 25 gp"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "varies"
-          },
-          "range": {
-            "value": "60 feet"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Deception (expert), Maze Lore (trained), or Religion (expert)"
-            },
-            "secondary": {
-              "casters": 2,
-              "checks": "Art Lore (trained), Crafting (trained), or Thievery (trained)"
-            }
-          },
-          "target": {
-            "value": "1 creature of up to 8th level"
-          },
-          "time": {
-            "value": "1 day"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "myth-speakers",
       "slug": "ritual:rite-of-cleansing-flame",
       "foundry": "Compendium.pf2e.spells-srd.Item.KwDyrUIlnOrpdxYi",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
@@ -1014,69 +2578,8 @@
             "value": "instantaneous",
             "sustained": false
           }
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "DC 18 Acrobatics, Nature, or Performance"
         }
-      ],
-      "document": {
-        "_id": "KwDyrUIlnOrpdxYi",
-        "name": "Rite of Cleansing Flame",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder #216: The Acropolis Pyre",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 2
-          },
-          "traits": {
-            "value": ["consecration", "fire"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>Drawing on the latent power suffused within Pol-Bailax by its phoenix patron, you and the secondary casters send an ephemeral rush of cleansing energy through the city. Those within the area when the ritual successfully concludes are immediately cured of all detrimental emotion and mental effects; affected creatures cease any current hostilities as though they'd failed a save against calm, though this doesn't control their future actions.</p><hr /><p><strong>Critical Success</strong> The ritual's power lingers within its casters, granting them a +1 status bonus against emotion and mental effects for 1 month.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Rite of Cleansing Flame (Critical Success)]</p>\n<p><strong>Success</strong> The ritual succeeds.</p>\n<p><strong>Failure</strong> The ritual has its intended effect, but alters its casters' forms as they fail to contain the phoenix's power. All casters develop a feature reminiscent of a phoenix, such as feathers, glowing red eyes, or talons, and gain weakness 5 to cold and unholy. This is a curse effect.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Rite of Cleansing Flame (Failure)]</p>\n<p><strong>Critical Failure</strong> As failure, but each caster must succeed at a @Check[fortitude|dc:17] save or be permanently @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 1} for as long as they have the phoenix features.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "rare incense worth 300 gp and 1 Mythic Point from the primary caster"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "instantaneous"
-          },
-          "range": {
-            "value": ""
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "DC 20 Religion or Occultism"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "DC 18 Acrobatics, Nature, or Performance"
-            }
-          },
-          "target": {
-            "value": "The city-state of Pol-Bailax"
-          },
-          "time": {
-            "value": "8 hours"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",

@@ -105,25 +105,33 @@ export function spellData(input: KindInput): object | undefined {
   };
 }
 
-/** A ritual's data, unparsed; undefined when its casting time or checks do not map. */
+/** A ritual's data, unparsed; undefined when its casting time does not map. */
 export function ritualData(input: KindInput): object | undefined {
   const { log } = input;
   const system = systemOf(FoundrySpellSystem, input);
   const casting = system && castingOf(system, log);
   const ritual = system?.ritual;
-  const checks = ritual ? ritualChecks(ritual, log) : undefined;
-  return casting && checks && { ...casting, ...checks };
+  return casting === undefined || !ritual ? undefined : { ...casting, ...ritualChecks(ritual) };
 }
 
-/** A ritual's primary and secondary checks; undefined, and reported, when either does not map. */
-function ritualChecks({ primary, secondary }: FoundryRitual, log: GapLog): object | undefined {
-  const check = primaryCheckOf(primary.check);
+/** A check Pioneer's fields cannot state, kept as the text Foundry gives. */
+function textCheck(text: string): object {
+  return { text: text.trim() };
+}
+
+/**
+ * A ritual's primary and secondary checks. Where Foundry's wording maps, the checks are structured; where it does not
+ * ("skill corresponding to the target's casting tradition (trained)"), the check is kept as its text, so the ritual
+ * still imports.
+ */
+function ritualChecks({ primary, secondary }: FoundryRitual): object {
   const checks = secondaryChecksOf(secondary.checks);
-  if (check === undefined) {
-    report(log, { reason: KindDataGapReason.UnmappedValue, field: 'ritual.primary.check', raw: primary.check });
-  }
-  if (checks === undefined) {
-    report(log, { reason: KindDataGapReason.UnmappedValue, field: 'ritual.secondary.checks', raw: secondary.checks });
-  }
-  return check && checks && { primary: check, secondary: { checks, casters: secondary.casters } };
+  const hasText = secondary.checks.trim() !== '';
+  return {
+    primary: primaryCheckOf(primary.check) ?? textCheck(primary.check),
+    secondary: {
+      checks: checks ?? (hasText ? [textCheck(secondary.checks)] : []),
+      ...setFields({ casters: secondary.casters ?? undefined }),
+    },
+  };
 }

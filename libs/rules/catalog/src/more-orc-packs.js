@@ -50,6 +50,7 @@ export async function triumphOfTheTuskPack() {
     import('@pioneer/content/packs/triumph-of-the-tusk/effect.json'),
     import('@pioneer/content/packs/triumph-of-the-tusk/equipment.json'),
     import('@pioneer/content/packs/triumph-of-the-tusk/feat.json'),
+    import('@pioneer/content/packs/triumph-of-the-tusk/ritual.json'),
     import('@pioneer/content/packs/triumph-of-the-tusk/spell.json'),
     import('@pioneer/content/packs/triumph-of-the-tusk/weapon.json'),
   ]);

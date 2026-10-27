@@ -73,6 +73,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -243,6 +246,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -523,6 +529,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "793aaf5b-d7fe-5ee0-a975-2e390c49b87a",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -708,6 +718,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -912,6 +925,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "4e39b07f-fa18-5fd7-b9cf-f387ecc283b3",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1009,6 +1026,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "4e39b07f-fa18-5fd7-b9cf-f387ecc283b3",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1257,6 +1278,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "a5a10f1b-c3b1-5c42-b710-f9ae2554d6be",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1345,6 +1370,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1433,6 +1461,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1522,6 +1553,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "92e80e27-278f-54cb-9d9b-4c2a371ee0ec",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1746,6 +1781,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1851,6 +1889,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1940,6 +1981,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "c4f12e04-a4a0-5a2b-9067-1245771dae37",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2020,6 +2065,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "4620f0d4-2009-58a9-84df-b5561e104b37",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2273,6 +2322,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2404,6 +2456,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "b38a9035-5568-5bcc-900b-4814c2d802d2",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2484,6 +2540,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2679,6 +2738,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2899,6 +2961,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "aaa48c49-a934-5571-9e67-3745ecca6bb7",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3050,6 +3116,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3139,6 +3208,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "36225662-9b8f-59a0-808a-0c950236cfbb",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3228,6 +3301,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "36225662-9b8f-59a0-808a-0c950236cfbb",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3308,6 +3385,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "841596e6-76b9-55b1-94aa-972d9effc1f5",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3388,6 +3469,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "841596e6-76b9-55b1-94aa-972d9effc1f5",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3468,6 +3553,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "841596e6-76b9-55b1-94aa-972d9effc1f5",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3565,6 +3654,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "31720489-efeb-5eff-a480-4dcc6f79e9ff",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3662,6 +3755,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"

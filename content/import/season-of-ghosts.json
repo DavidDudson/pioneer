@@ -5724,38 +5724,6 @@
     {
       "type": "entry",
       "pack": "season-of-ghosts",
-      "slug": "effect:spell-effect-open-the-wall-of-ghosts-critical-success",
-      "foundry": "Compendium.pf2e.spell-effects.Item.lGU4GIF2GUn21zFa",
-      "gaps": [
-        {
-          "type": "link",
-          "entry": "season-of-ghosts/ritual:open-the-wall-of-ghosts",
-          "element": {
-            "type": "ref",
-            "id": "a16956c7-3a6d-53c8-9603-46b43568d9ac"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "season-of-ghosts",
-      "slug": "effect:spell-effect-sweetest-solstice",
-      "foundry": "Compendium.pf2e.spell-effects.Item.HDT5oiQXXnRdDIKR",
-      "gaps": [
-        {
-          "type": "link",
-          "entry": "season-of-ghosts/ritual:sweetest-solstice",
-          "element": {
-            "type": "ref",
-            "id": "041929f8-ee78-51a1-8eef-2bb6e8c63ace"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "season-of-ghosts",
       "slug": "equipment:cape-of-justice",
       "foundry": "Compendium.pf2e.equipment-srd.Item.vXMIKXn3RHh3UET8",
       "gaps": [
@@ -6269,79 +6237,14 @@
       "pack": "season-of-ghosts",
       "slug": "ritual:gnaw-at-the-moon",
       "foundry": "Compendium.pf2e.spells-srd.Item.yrsgOdj5oqp7lEQY",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "yourself and the secondary casters"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Crafting, Occultism, or Religion"
         }
-      ],
-      "document": {
-        "_id": "yrsgOdj5oqp7lEQY",
-        "name": "Gnaw at the Moon",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 2
-          },
-          "traits": {
-            "value": [],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>It's said that after his demise at the hands of jealous Fumeiyoshi, Tsukiyo's corpse was left unguarded; this provided a humble matron-rat opportunities to nibble at god flesh, a meal that transformed her into Lao Shu Po. Gnaw at the moon, an obscure folk magic ritual popular among Shenmen's downtrodden, allows you to honor the Old Rat Woman's audacity and unlikely ascent.</p>\n<p>This ritual can only be performed on a night when the moon is visible in the sky above; you can't perform this ritual during a totally moonless night, while indoors, or while underground. Performing this ritual on the night of the full moon reduces the DCs of the ritual's skill checks by 2. You set out offerings of mooncakes and cups of tea on a flat surface (such as a table or a tray on the floor), assiduously ignore this food and drink, and praise the night's beauty while admiring and thanking the moon.</p>\n<p>At the end of a successful ritual, bite marks appear on the mooncakes, and some of the tea disappears as if sipped while no one was looking. Supposedly, the ritual and offerings gain Lao Shu Po's attention, who sends her rodent children to eat and drink their fill and grant stolen blessings of moonlit sight. The effusive admiration for the moon is said to avert Tsukiyo's displeasure for commemorating the event of his murder; after all, old tales warn against giving offense to the moon, lest it slice your ears in retribution.</p><hr /><p><strong>Critical Success</strong> The targets gain darkvision.</p>\n<p><strong>Success</strong> The targets gain low-light vision.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> You and the targets are @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 1} for 24 hours. Your ears feel lacerated and raw as your earlobes become crisscrossed with tiny cuts.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "mooncakes and rare tea worth 100 gp"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "8 hours"
-          },
-          "range": {
-            "value": "30 feet"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Diplomacy (expert)"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Crafting, Occultism, or Religion"
-            }
-          },
-          "target": {
-            "value": "yourself and the secondary casters"
-          },
-          "time": {
-            "value": "1 hour"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
@@ -6362,391 +6265,56 @@
       "pack": "season-of-ghosts",
       "slug": "ritual:mindscape-shift",
       "foundry": "Compendium.pf2e.spells-srd.Item.VJgSQBYwXGDbMmiW",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "yourself and the secondary casters"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Arcana, Deception, Diplomacy, Occultism, Perception, or Willowshore Lore"
         }
-      ],
-      "document": {
-        "_id": "VJgSQBYwXGDbMmiW",
-        "name": "Mindscape Shift",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 3
-          },
-          "traits": {
-            "value": ["teleportation"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "",
-            "gm": "<p>You attempt to transport the targets from a mindscape they're currently within into an adjacent, nearly identical mindscape, such as to or from the Willowshore mindscape into Heh Shan-Bao's mindscape—the mindscape in which Governor Heh Shan-Bao is trapped. Unlike the use of @UUID[Compendium.pf2e.spells-srd.Item.Mindscape Door] which projects the mind into a mindscape and leaves the physical body behind, <em>mindscape shift</em> teleports its targets entirely into the new mindscape. If the mindscape's creator wants to prevent anyone from entering or exiting it, the DC of the primary check is the creator's Will DC if that would be higher than the ritual's normal DC (note that in this adventure, Heh Shan-Bao doesn't seek to take this action against the PCs visiting his mindscape, as he has his own plans for them). When you successfully travel to the other mindscape, you and the targets appear in the same corresponding location you occupied in the previous mindscape, and if no such corresponding location exists in the target mindscape, the ritual automatically has a critical failure result.</p><hr><p><strong>Critical Success</strong> You transport the targets as intended and can leave a portal back to the previous mindscape that lasts for up to 24 hours. It typically looks like an ordinary door or passage appropriate to the mindscape. Any target of the spell can enter or exit through this portal as they would an ordinary door. If you wish, you can make this door passable by anyone.</p><p><strong>Success</strong> You transport the targets as intended.</p><p><strong>Failure</strong> You fail to transport the targets.</p><p><strong>Critical Failure</strong> Not only do you fail to transport the targets, you also cause mental feedback to inflict @Damage[9d6[mental]] damage to all ritual casters (@Check[will|dc:26|basic] save).</p><hr><p><strong>Heightened (8th)</strong> You can transport the targets to any mindscape you have visited before or have detailed knowledge of. Your arrival point within the target mindscape is somewhere you've visited or somewhere chosen by the GM.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "focusing diagrams and incense worth 28 gp"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": ""
-          },
-          "range": {
-            "value": "touch"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Arcana or Occultism (expert) or Willowshore Lore"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Arcana, Deception, Diplomacy, Occultism, Perception, or Willowshore Lore"
-            }
-          },
-          "target": {
-            "value": "yourself and the secondary casters"
-          },
-          "time": {
-            "value": "1 hour"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "season-of-ghosts",
       "slug": "ritual:open-the-wall-of-ghosts",
       "foundry": "Compendium.pf2e.spells-srd.Item.PvkEzzCaDT07DcJb",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "the Wall of Ghosts"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Deception, Diplomacy, or Intimidation"
         }
-      ],
-      "document": {
-        "_id": "PvkEzzCaDT07DcJb",
-        "name": "Open the Wall of Ghosts",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 2
-          },
-          "traits": {
-            "value": ["consecration"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "",
-            "gm": "<p>Your research into the nature of the so-called Willowshore Curse has revealed a possible method of opening a doorway through the eerie Wall of Ghosts found west of town. By starting with a @UUID[Compendium.pf2e.spells-srd.Item.Consecrate] ritual and then applying Sangpotshi theories of the cyclical nature of life and reincarnation, along with insights gleaned from Zoudou's notes, you've created a magical ritual that can quiet the angry spirits that haunt this misty barrier and allow other creatures to pass through into the regions beyond.</p><p>This ritual is unlikely to grant total protection from the ghosts or evil spirits within the wall itself, so once you open the wall, you and your allies might need to face additional dangers within before you can exit the other side. In addition, the ritual must be performed during a crescent or new moon (a time that equates to the second half of each month).</p><hr><p><strong>Critical Success</strong> The ritual succeeds and offers unexpected protection while you're passing through the Wall of Ghosts. While you're within the Wall of Ghosts, you and the secondary casters to the ritual gain a +2 status bonus to Armor Class and saving throws.</p><p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Open the Wall of Ghosts (Critical Success)]</p><p><strong>Success</strong> The ritual succeeds.</p><p><strong>Failure</strong> The ritual fails.</p><p><strong>Critical Failure</strong> The ritual fails spectacularly, and two of the ghosts trapped within the wall tear free and attack. Treat each of these ghosts as a @UUID[Compendium.pf2e.pathfinder-monster-core.Actor.Ghost Commoner], save that their ghostly hand attacks deal mental damage rather than void damage.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "rice grains and incense worth 60 gp"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "1 year"
-          },
-          "range": {
-            "value": "40 feet"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Occultism or Religion (expert)"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Deception, Diplomacy, or Intimidation"
-            }
-          },
-          "target": {
-            "value": "the Wall of Ghosts"
-          },
-          "time": {
-            "value": "1 day"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "season-of-ghosts",
-      "slug": "ritual:ransack-the-night",
-      "foundry": "Compendium.pf2e.spells-srd.Item.ksJFGSGlNpUhwcsp",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Arcana, Intimidation, or Occultism"
-        }
-      ],
-      "document": {
-        "_id": "ksJFGSGlNpUhwcsp",
-        "name": "Ransack the Night",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 3
-          },
-          "traits": {
-            "value": ["darkness"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>When Fumeiyoshi was punished by the Celestial Court for deicide and fratricide, the rat who would become Lao Shu Po robbed the cangue-bound Fumeiyoshi of a sizable chunk of his shadow. This fully catalyzed the rat's transformation into Lao Shu Po, the new Tian goddess of night. <em>Ransack the night</em> is a Laoite ritual allowing you to mimic this divine thievery and shroud yourself in the night's cerements.</p>\n<p>This ritual can only be performed at night. You dig narrow troughs into the dirt and toss blessed salt as well as the juice of citrus fruits into these gashes in the ground. Performing this ritual in an area actively haunted by undead or frequented by fiends reduces the DCs of the ritual's skill checks by 2. If the ritual is successful, a smoky black miasma, said to be the blood and tears of Fumeiyoshi himself, emerges from the broken earth to augment and enhance your spiritual aura, helping you to remain undetected by fiends and undead.</p><hr /><p><strong>Critical Success</strong> Fiends and undead who are 5th level or lower treat you as if you were @UUID[Compendium.pf2e.conditionitems.Item.Concealed]. If you take a hostile action against a fiend or undead, you lose this concealment against that fiend or undead until the end of your next turn.</p>\n<p><strong>Success</strong> As critical success, but when you lose concealment against a fiend or undead, you don't regain concealment from this ritual against that fiend or undead.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> The miasma occludes your senses instead; for 24 hours, the targets treat fiends and undead as if they were concealed.</p><hr /><p><strong>Heightened (+1)</strong> Increase the level of affected creatures by 2.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "blessed salt, citrus fruits (such as yuzu or limes), and rare spices worth 25 gp × the spell rank"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "12 hours"
-          },
-          "range": {
-            "value": ""
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Religion (expert)"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Arcana, Intimidation, or Occultism"
-            }
-          },
-          "target": {
-            "value": ""
-          },
-          "time": {
-            "value": "1 hour"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "season-of-ghosts",
       "slug": "ritual:regale-the-lost-ones",
       "foundry": "Compendium.pf2e.spells-srd.Item.FQZaQXiKtHdVjSc5",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "a settlement with a level equal to or lower than twice the ritual's level"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Acrobatics, Occultism, or Religion"
         }
-      ],
-      "document": {
-        "_id": "FQZaQXiKtHdVjSc5",
-        "name": "Regale the Lost Ones",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 2
-          },
-          "traits": {
-            "value": [],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>Autumn's shorter days herald an increase in hauntings, which only intensify during winter's cold, dark nights. As fall draws to a close, some of Shenmen's villages hire or set up Tian opera troupes to enact <em>regale the lost ones</em> rituals, where they perform dramas drawn from literary classics and historical events that incorporate acting, music, acrobatics, and martial arts.</p>\n<p>These ritual performances fulfill a dual purpose; not only do they bring cheer to the living, but they also entertain and placate the \"lost ones\"—a euphemism for ghosts and other spirits—and seek to reduce the likelihood of attacks from such entities. Performing this ritual during the season of fall reduces the DCs of the ritual's skill checks by 2.</p>\n<p>If the ritual is successful, sentient undead and other spirits become less hostile, allowing villagers to focus their efforts on dealing with mindless undead and other more physical threats. This ritual can only be attempted once per year per settlement; additional attempts to <em>regale the lost ones</em> in the same settlement automatically result in a critical failure.</p><hr /><p><strong>Critical Success</strong> Haunts and undead in the settlement that are level 3 or lower become easier to defeat. Reduce all Disable DCs for affected haunts in the settlement by 2, and all affected undead within the settlement begin combat @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}. If the PCs perform this ritual during Act 2 or Act 3, they gain 3 Hope Points.</p>\n<p><strong>Success</strong> Haunts in the settlement that are level 3 or lower become easier to notice and defeat. Reduce all Disable DCs for affected haunts in the settlement by 1. If the PCs perform this ritual during Act 2 or Act 3, they gain 1 Hope Point.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> Haunts and undead in the settlement that are level 3 or lower become more difficult to notice and defeat. Increase all Disable DCs for affected haunts in the settlement by 2, and all affected undead within the settlement gain the elite adjustment. If the PCs perform this ritual during Act 2 or Act 3, they lose 3 Hope Points.</p><hr /><p><strong>Heightened (+1)</strong> Increase the level of affected haunts and undead by 2.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "fees for opera actors, their meals, facial paint, costumes, incense, and offerings of alcohol, tobacco, and food for the lost ones with a total value of 2 gp × the spell rank × the settlement's level"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "1 year"
-          },
-          "range": {
-            "value": ""
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Performance (expert)"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Acrobatics, Occultism, or Religion"
-            }
-          },
-          "target": {
-            "value": "a settlement with a level equal to or lower than twice the ritual's level"
-          },
-          "time": {
-            "value": "4 hours"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "season-of-ghosts",
       "slug": "ritual:sweetest-solstice",
       "foundry": "Compendium.pf2e.spells-srd.Item.wAJ8mXPYbyAg0qWX",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "a settlement with a level equal to or lower than twice the ritual's level"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Diplomacy, Performance, or Religion"
         }
-      ],
-      "document": {
-        "_id": "wAJ8mXPYbyAg0qWX",
-        "name": "Sweetest Solstice",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Season of Ghosts Hardcover Compilation",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 2
-          },
-          "traits": {
-            "value": [],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>On long winter nights, many families in Tian Xia share a dish of glutinous rice balls. Wealthier families also dye these rice balls an auspicious pinkish-red in jujube juice and might serve or stuff them with expensive sweetened pastes of red beans, sesame, taro, or lotus. Sweetest solstice is a folk ritual that incorporates this tradition and allows entire villages to experience communal goodwill by celebrating a luxurious version of this dish together.</p>\n<p>This ritual is performed over 1 hour of cooking a soup of crushed black sesame and sugar in several large cauldrons while good-natured jokes and puns praising Daikitsu, Kofusachi, and other benevolent deities are uttered; quips inspired by Hei Feng and Sun Wukong are usually included in these jovialities, for these rambunctious deities are always ready for feasts and humor. Each time a joke or pun is made, a rice ball is dropped into the boiling soups.</p>\n<p>This ritual can only be performed once each winter season. If performed on the night of the winter solstice, the DCs of the ritual's skill checks are reduced by 2.</p>\n<p>If the ritual is successful, the delicious black sesame soup, like the longest of nights, seems never-ending and even hides windfalls of chewy sweetness. Sometimes, this small mercy of hot meals, and the hope for pleasant surprises to come, is all a community needs to endure the bleakest of winters together.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Sweetest Solstice]</p>\n<hr /><p><strong>Critical Success</strong> The pot contains enough black sesame soup and rice balls to feed a hot meal to everyone in the settlement for a month. The casters of the ritual gain a +1 status bonus to saves against emotion and fear effects until the end of winter.</p>\n<p><strong>Success</strong> The pot contains enough black sesame soup and rice balls to feed a hot meal to everyone in the settlement for a week. The casters of the ritual gain a +1 status bonus to saves against fear effects for 1 month or until the end of winter, whichever comes first.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> The soup becomes tainted; it not only provides no nourishment but spreads food poisoning through the town (this might have disastrous effects). The casters of the ritual become particularly affected by illness and become @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 4} and can't reduce the condition for 12 hours.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "sesame paste, sugar, rice balls, food dye, cooking pots, and utensils with a total value of 2 gp × the spell rank × the settlement's level"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": ""
-          },
-          "range": {
-            "value": ""
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Cooking Lore (expert)"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Diplomacy, Performance, or Religion"
-            }
-          },
-          "target": {
-            "value": "a settlement with a level equal to or lower than twice the ritual's level"
-          },
-          "time": {
-            "value": "1 hour"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",

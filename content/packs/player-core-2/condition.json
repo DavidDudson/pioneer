@@ -32,7 +32,8 @@
       "valued": true,
       "group": "abilities",
       "overrides": [],
-      "implies": []
+      "implies": [],
+      "recovery": {}
     }
   }
 ]

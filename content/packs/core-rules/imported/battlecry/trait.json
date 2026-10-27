@@ -20,6 +20,26 @@
     }
   },
   {
+    "id": "837dd808-c741-51f6-abb7-2f830c79cc35",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:charau-ka",
+    "name": "Charau-ka",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "battlecry"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
     "id": "0bdb1a41-c4be-589a-9718-18a78a281274",
     "pack": "core-rules",
     "kind": "trait",

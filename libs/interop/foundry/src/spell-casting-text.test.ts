@@ -159,14 +159,12 @@ describe('ritual checks', () => {
     expect(primaryCheckOf(text)).toEqual(expected);
   });
 
-  test.each([
-    'Nature (proficiency)',
-    'Arcana (master) or Religion (proficiency)',
-    'Religion (expert; you must be a demon)',
-    'Perception (master)',
-  ])('primary %p does not map', (text) => {
-    expect(primaryCheckOf(text)).toBeUndefined();
-  });
+  test.each(['Nature (proficiency)', 'Arcana (master) or Religion (proficiency)', 'Perception (master)'])(
+    'primary %p does not map',
+    (text) => {
+      expect(primaryCheckOf(text)).toBeUndefined();
+    },
+  );
 
   test.each([
     ['', []],

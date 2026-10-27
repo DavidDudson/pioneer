@@ -160,7 +160,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.origin.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.Fky50BHCHmRTnHas"
     },
@@ -2495,7 +2500,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.origin.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.iGJ6C4AUQZcSEx1W"
     },
@@ -2857,6 +2867,12 @@
         "type": "status",
         "value": 2,
         "slug": "mythic-allies-status"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["hp"],
+        "type": "untyped",
+        "value": "@item.origin.level"
       },
       {
         "key": "GrantItem",
@@ -4032,7 +4048,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "2 * @item.origin.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.zmow6d0PswEqLcrM"
     },
@@ -4308,6 +4329,10 @@
       }
     ],
     "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.origin.level"
+      },
       {
         "key": "RollOption",
         "option": "option:to-war-damage",

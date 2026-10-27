@@ -625,6 +625,151 @@
     }
   },
   {
+    "id": "001cd54e-67ea-53d1-aadf-434939c4af1e",
+    "pack": "tian-xia-world-guide",
+    "kind": "ritual",
+    "slug": "ritual:the-unseeing-blade-master",
+    "name": "The Unseeing Blade Master",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["trial"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-world-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There are many legends of blade masters who, not wanting to rely on flawed mortal eyes, learned to fight through reliance on both their other keen senses and knowledge from the universe itself. Those who intentionally seek out the path often do so by running through forms in thick clouds of incense."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Making a Strike against an enemy you can see is anathema to this ritual and immediately ends its benefits. If the ritual is ended in this way, you must conduct an Atone ritual before attempting this ritual again."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, except you can instead defeat an enemy in single combat that both uses a sword and is higher level than you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You call a blessing into your sword to guide you on the path and are bound by the ritual's anathema. Once you've used that sword against 20 enemies, each significant enough to grant XP, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "a7539372-4fec-53a0-8996-95d3194acd8c"
+          },
+          {
+            "type": "text",
+            "text": " feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The incense is dispersed by a strange gust of wind and you learn nothing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The sword you're intending to use for the ritual becomes broken. If you aren't permanently blind, you're instead "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 month and can't repeat this ritual during that time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.5xf9wK9xyAeGFPw7"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incense worth 1,500 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "text": "Perception (master)"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:religion", "skill:lore:warfare"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
     "id": "cd95fa35-3552-58ed-9ebd-4131165963d0",
     "pack": "tian-xia-world-guide",
     "kind": "ritual",

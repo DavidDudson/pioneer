@@ -3032,18 +3032,6 @@
     {
       "type": "entry",
       "pack": "spore-war",
-      "slug": "equipment:viridian-crown",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.LxTtq31HIP8KjBH3",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "spore-war",
       "slug": "feat:demon-slayer",
       "foundry": "Compendium.pf2e.feats-srd.Item.OLa87RacjBfMIVEQ",
       "gaps": [
@@ -3076,7 +3064,7 @@
         {
           "type": "field",
           "reason": "invalid-data",
-          "field": "secondary.checks",
+          "field": "secondary.checks.0.skills",
           "raw": {
             "rank": 9,
             "time": {
@@ -3104,19 +3092,13 @@
             "secondary": {
               "checks": [
                 {
-                  "skills": ["skill:arcana"]
-                },
-                {
-                  "skills": ["skill:nature"]
-                },
-                {
-                  "skills": ["skill:religion"]
-                },
-                {
-                  "skills": ["skill:survival"]
-                },
-                {
-                  "skills": ["skill:lore:or-tanglebriar"]
+                  "skills": [
+                    "skill:arcana",
+                    "skill:nature",
+                    "skill:religion",
+                    "skill:survival",
+                    "skill:lore:tanglebriar"
+                  ]
                 }
               ],
               "casters": 3

@@ -1791,7 +1791,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.origin.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.j6DbvXzg5lTgw3Bq"
     },
@@ -2185,7 +2190,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "@item.origin.level + 2"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.DawVHfoPKbPJsz4k"
     },
@@ -5271,7 +5282,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "@item.origin.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.GFLiTESBmoyQ3sLx"
     },
@@ -7730,6 +7747,10 @@
     ],
     "rules": [
       {
+        "key": "TempHP",
+        "value": "max(floor(@item.origin.level / 2), 1)"
+      },
+      {
         "key": "GrantItem",
         "item": "8f532bca-94cb-536c-8449-6ae20659be87"
       }
@@ -9329,7 +9350,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "floor(@item.origin.level / 2)"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.EgOcWruvNdVIpNAC"
     },
@@ -13962,8 +13988,8 @@
             "text": "Granted by "
           },
           {
-            "type": "text",
-            "text": "Fortifying Brew"
+            "type": "ref",
+            "id": "15215e04-e308-5ac1-b000-c5151d882d02"
           }
         ]
       },
@@ -14890,7 +14916,71 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "22 + @level"
+          },
+          "size": "huge",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 30
+            }
+          ],
+          "speeds": {
+            "land": 40
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            }
+          ],
+          "tempHP": 20,
+          "strikes": [
+            {
+              "slug": "foot",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["agile", "reach-15", "unarmed"],
+              "damage": {
+                "dice": 4,
+                "die": "d6",
+                "damageType": "bludgeoning",
+                "modifier": 13
+              }
+            },
+            {
+              "slug": "trunk",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["agile", "reach-15", "unarmed"],
+              "damage": {
+                "dice": 4,
+                "die": "d6",
+                "damageType": "bludgeoning",
+                "modifier": 16
+              }
+            },
+            {
+              "slug": "tusk",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["reach-15", "unarmed"],
+              "damage": {
+                "dice": 4,
+                "die": "d8",
+                "damageType": "piercing",
+                "modifier": 19
+              }
+            }
+          ],
+          "traits": ["animal"]
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.gOeu0lPtKQcLh1Xz"
     },
@@ -15318,7 +15408,75 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "20 + @level"
+          },
+          "size": "medium",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 23
+            }
+          ],
+          "speeds": {
+            "land": 40
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "tempHP": 10,
+          "resistances": [
+            {
+              "type": "physical",
+              "value": "ternary(gte(@item.level, 8), 4, 3)"
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "sacred-armament",
+              "modifier": 21,
+              "damage": {
+                "dice": 3,
+                "die": "d6",
+                "modifier": 8
+              }
+            }
+          ]
+        },
+        "brackets": [
+          {
+            "start": 8,
+            "armorClass": {
+              "modifier": "21 + @level"
+            },
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 29
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "sacred-armament",
+                "traits": ["reach"],
+                "modifier": 28,
+                "damage": {
+                  "modifier": 15
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.W4lb3417rNDd9tCq"
     },
@@ -15698,7 +15856,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": "@item.origin.level"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.5gpsh5UviUnFIRXY"
     },

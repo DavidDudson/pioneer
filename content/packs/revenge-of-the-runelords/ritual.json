@@ -1,0 +1,188 @@
+[
+  {
+    "id": "466d8697-acc0-5409-9d24-2afe161130eb",
+    "pack": "revenge-of-the-runelords",
+    "kind": "ritual",
+    "slug": "ritual:raise-runelord",
+    "name": "Raise Runelord",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["dream", "illusion", "mythic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "revenge-of-the-runelords"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "By drawing upon fragments of physical remains or treasured objects of a dead runelord and upon remnant energies of each runelord that live on after their deaths in the Dreamlands, this ritual creates a physical illusion of a long-dead runelord. There can only exist a limited number of risen runelords at a time, since each must be created from one of the finite number of dead runelords, although there's no limit as to how many times a risen runelord can be created to replace one who was destroyed. Risen runelords cannot be made from living or undead runelords. This leaves 32 potential risen runelords in the world at any one time as of the start of Revenge of the Runelords. This ritual creates an 11th-level risen runelord associated with the original runelord's sin, but the duration of that runelord's life depends on the ritual's result. As long as this ritual's inventor, Runelord Xanderghul, still lives, any attempt to cast this ritual by any other creature can never achieve a greater success than failure."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create a risen runelord with a lifespan of decades, if not more."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create a risen runelord with a lifespan of 10 days."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to create the risen runelord."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to create a risen runelord but also attract the attention of vengeful psychopomps who manifest in place of the risen runelord. This should be a severe encounter of a level equal to the primary caster against a mix of psychopomps, who attack at once and fight to the death."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can create a 14th-level risen runelord, and the cost is 3,000 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can create a 16th-level risen runelord, and the cost is 5,000 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can create an 18th-level risen runelord, and the cost is 10,000 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can create a 20th-level risen runelord, and the cost is 20,000 gp."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.fr1AGcQo7WuvLvUi"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "gemstones worth 1,500 gp, fragments or significant items associated with the dead runelord"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana"],
+        "mythic": true
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:religion"]
+          },
+          {
+            "skills": ["skill:occultism"]
+          },
+          {
+            "skills": ["skill:society"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  }
+]

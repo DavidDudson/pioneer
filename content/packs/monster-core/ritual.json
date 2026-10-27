@@ -1,0 +1,366 @@
+[
+  {
+    "id": "04cfe956-a54c-5dfc-b9ee-48ce7a9b6af8",
+    "pack": "monster-core",
+    "kind": "ritual",
+    "slug": "ritual:angelic-messenger",
+    "name": "Angelic Messenger",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transport yourself to either a celestial plane or a world in the Universe where worshippers of your patron can be found. You must be of no higher level than double "
+          },
+          {
+            "type": "text",
+            "text": "angelic messenger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s spell rank."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but if you've never visited that plane or world before, you appear right in front of the message's intended recipient."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You arrive on the target plane or world at the last location you visited on that plane or world, or to a random location within 10d10 miles of your message's intended recipient if you've never visited that plane or world before."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't travel."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You accidentally travel to the wrong plane, possibly a dangerous plane."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.joEruBVz31Uxczzq"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "primary": {
+        "skills": ["skill:religion"],
+        "proficiency": "expert",
+        "note": "you must be an angel"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "b246f1ff-00a0-5803-a51c-7ddc4f8a7e7f",
+    "pack": "monster-core",
+    "kind": "ritual",
+    "slug": "ritual:demonic-pact",
+    "name": "Demonic Pact",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call in a favor from one demon of level 2 or lower, two demons of level 0 or lower, or three demons of level –1 or lower."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You conjure the demon or demons. They are eager to pursue the task, so they don't ask for a favor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You conjure the demon or demons. They are not eager to pursue the task, so they require a favor in return."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't conjure any demons."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The demon or demons are angry that you disturbed them. They appear before you, but they immediately attack you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the level of demon you call by 2 for each option."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.tsKnoBuBbKMXkiz5"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "primary": {
+        "skills": ["skill:religion"],
+        "proficiency": "expert",
+        "note": "you must be a demon"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "384908e2-5d73-5427-a5e4-666478fc6bf2",
+    "pack": "monster-core",
+    "kind": "ritual",
+    "slug": "ritual:diabolic-pact",
+    "name": "Diabolic Pact",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "monster-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You make an appeal to a powerful devil, asking them to bind some of their subordinates to your service. If you succeed, the devil sends you their choice of one devil of level 2 or lower, two devils of level 0 or lower, or three devils of level –1 or lower."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The devils are sent to you and serve you for 1d4 weeks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The devils are sent to you and serve you for 1d4 days."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your request is denied."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Not only is your request denied, but the powerful devil sends word of its displeasure to your master."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the level of devil sent to you by 2 for each option."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.30BBep9U4BDV0EgQ"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "primary": {
+        "skills": ["skill:religion"],
+        "proficiency": "expert",
+        "note": "you must be a devil"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  }
+]

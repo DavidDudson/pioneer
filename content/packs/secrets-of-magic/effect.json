@@ -2062,7 +2062,7 @@
     "name": "Spell Effect: Corrosive Body (Temp HP)",
     "level": 7,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

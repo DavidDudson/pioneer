@@ -2817,22 +2817,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "class-feature:mystic-life-force",
-      "foundry": "Compendium.pf2e.feats-srd.Item.FpaycWJyvksEiRc3",
-      "gaps": [
-        {
-          "type": "link",
-          "entry": "war-of-immortals/ritual:embodied-font",
-          "element": {
-            "type": "ref",
-            "id": "f38a448b-7e34-541e-a702-7e30f1412492"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "class-feature:noble-branch",
       "foundry": "Compendium.pf2e.classfeatures.Item.ndSCXO9Dg57fmZIY",
       "gaps": [
@@ -6207,22 +6191,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "effect:effect-a-challenge-for-heroes-ally",
-      "foundry": "Compendium.pf2e.feat-effects.Item.Fky50BHCHmRTnHas",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "@item.origin.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "effect:effect-a-challenge-for-heroes-enemy",
       "foundry": "Compendium.pf2e.feat-effects.Item.pUXV4sks4p9Jc8Wb",
       "gaps": [
@@ -6673,22 +6641,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "effect:effect-invigorating-surge",
-      "foundry": "Compendium.pf2e.feat-effects.Item.iGJ6C4AUQZcSEx1W",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "@item.origin.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "effect:effect-multifaceted-will",
       "foundry": "Compendium.pf2e.feat-effects.Item.VM3A4YSG72JCpWMg",
       "gaps": [
@@ -6701,23 +6653,6 @@
             "selector": "saving-throw",
             "type": "status",
             "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "effect:effect-mythic-allies",
-      "foundry": "Compendium.pf2e.feat-effects.Item.X22o74v8rk7ySnzX",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "hp",
-            "value": "@item.origin.level"
           }
         }
       ]
@@ -6971,22 +6906,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "effect:effect-storied-companion",
-      "foundry": "Compendium.pf2e.feat-effects.Item.zmow6d0PswEqLcrM",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "2*@item.origin.level"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "effect:effect-stymie-the-gods",
       "foundry": "Compendium.pf2e.feat-effects.Item.1bnJJb4hsnMOw9cQ",
       "gaps": [
@@ -7131,22 +7050,6 @@
             "selector": ["attack-roll", "damage", "skill-check"],
             "type": "status",
             "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "effect:effect-to-war",
-      "foundry": "Compendium.pf2e.feat-effects.Item.3zNPch2pttYW2n1j",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "@item.origin.level"
           }
         }
       ]
@@ -9811,22 +9714,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "feat:rites-of-liberation",
-      "foundry": "Compendium.pf2e.feats-srd.Item.vxHNj5PuYIdR5fEa",
-      "gaps": [
-        {
-          "type": "link",
-          "entry": "war-of-immortals/ritual:freedom",
-          "element": {
-            "type": "ref",
-            "id": "b2eed0d2-52b6-59e5-ae96-b331bc2a76cf"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "feat:sanctified-soul",
       "foundry": "Compendium.pf2e.feats-srd.Item.qV9sAyHN90uYu4OO",
       "gaps": [
@@ -10746,737 +10633,108 @@
       "pack": "war-of-immortals",
       "slug": "ritual:awaken-curse",
       "foundry": "Compendium.pf2e.spells-srd.Item.6P2fzrYkaiiptxlY",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 curse"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Arcana (mythic) or Occultism (mythic)"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Arcana, Medicine, or Occultism"
         }
-      ],
-      "document": {
-        "_id": "6P2fzrYkaiiptxlY",
-        "name": "Awaken Curse",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 8
-          },
-          "traits": {
-            "value": ["mythic"],
-            "rarity": "uncommon",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You siphon a tiny portion of life force from each of the ritual's casters to empower a curse against disrupting effects. The difficulty of the counteract check to remove the curse changes based on the success of the ritual. Additionally, the first three times the curse is successfully counteracted, it leaps to the closest possible target within 100 feet, forcing the new target to attempt a saving throw against the curse's initial effects. Saves against the curse are attempted at the same DC as the curse when it was cast, subject to changes based on the ritual's success. If any creature successfully saves against the curse's initial effects, the curse dissipates harmlessly.</p><hr /><p><strong>Critical Success</strong> The first counteract attempt against the curse automatically fails. After that, the curse's counteract rank increases by 2 (to a maximum of 10).</p>\n<p><strong>Success</strong> The curse's counteract rank increases by 1 (to a maximum of 10).</p>\n<p><strong>Failure</strong> The curse's counteract rank is unchanged.</p>\n<p><strong>Critical Failure</strong> You fail to grasp the curse's nuances and entangle yourself in its effects. The curse is lifted from the original target, and you and each secondary caster is affected by the curse with no saving throw.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": ""
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "unlimited"
-          },
-          "range": {
-            "value": "1 mile"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Arcana (mythic) or Occultism (mythic)"
-            },
-            "secondary": {
-              "casters": 2,
-              "checks": "Arcana, Medicine, or Occultism"
-            }
-          },
-          "target": {
-            "value": "1 curse"
-          },
-          "time": {
-            "value": "1 day"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "war-of-immortals",
       "slug": "ritual:band-of-heroes",
       "foundry": "Compendium.pf2e.spells-srd.Item.q9QGc0PJMFWxFOCz",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "all casters involved in ritual"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Diplomacy (mythic) or Society (mythic)"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Diplomacy, Intimidation, or Society"
         }
-      ],
-      "document": {
-        "_id": "q9QGc0PJMFWxFOCz",
-        "name": "Band of Heroes",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 3
-          },
-          "traits": {
-            "value": ["mythic"],
-            "rarity": "uncommon",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>The sun rises on a gathering of heroes bonded to a cause. While only one secondary caster can attempt the secondary check, each secondary caster must also spend 1 Mythic Point upon successful completion of the ritual (see below). A secondary caster who chooses not to spend the Mythic Point can't benefit from the ritual's effects.</p><hr /><p><strong>Critical Success</strong> As success, but the first time a caster gains the @UUID[Compendium.pf2e.conditionitems.Item.Doomed], @UUID[Compendium.pf2e.conditionitems.Item.Dying], or @UUID[Compendium.pf2e.conditionitems.Item.Wounded] condition during the ritual's duration, reduce the value of that condition by 1 (minimum 0).</p>\n<p><strong>Success</strong> Each secondary caster must spend 1 Mythic Point. For the duration of the ritual, when a caster @UUID[Compendium.pf2e.actionspf2e.Item.Aid]{Aids} another caster, they can attempt the associated check at mythic proficiency. On a success, the circumstance bonus the Aiding caster grants is increased to +2, and on a critical success, the circumstance bonus is increased to +5.</p>\n<p><strong>Failure</strong> The ritual has no effect. The secondary casters don't need to each spend 1 Mythic Point.</p>\n<p><strong>Critical Failure</strong> The ritual fails, and the casters rupture their own connections to their mythic destinies. None of the casters can gain Mythic Points for 1 week.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": ""
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "24 hours"
-          },
-          "range": {
-            "value": "30 feet"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Diplomacy (mythic) or Society (mythic)"
-            },
-            "secondary": {
-              "casters": 2,
-              "checks": "Diplomacy, Intimidation, or Society"
-            }
-          },
-          "target": {
-            "value": "all casters involved in ritual"
-          },
-          "time": {
-            "value": "1 hour"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "ritual:city-of-sin",
-      "foundry": "Compendium.pf2e.spells-srd.Item.9WMEO6JEcAulgUv3",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Diplomacy (mythic) or Society (mythic)"
-        }
-      ],
-      "document": {
-        "_id": "9WMEO6JEcAulgUv3",
-        "name": "City of Sin",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 7
-          },
-          "traits": {
-            "value": ["emotion", "mental", "mythic"],
-            "rarity": "uncommon",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p><strong>Area</strong> 7-mile-radius circle centered on you</p><hr /><p>Each day during the casting of this ritual, intelligent creatures within range become increasingly prone to shed their inhibitions and give in to whatever tempts them. Exposed communities experience increases in crime, vice, and violence (however the community defines those vices). At the ritual's culmination, chaos ensues as everyone from every walk of life chooses temptation over faithfulness to their convictions.</p><hr /><p><strong>Critical Success</strong> Intelligent creatures in the ritual's area might betray even their most closely held convictions, including behaviors anathema to their class or faith. They take a –4 circumstance penalty to saves against mental effects and to their @UUID[Compendium.pf2e.actionspf2e.Item.Coerce] and @UUID[Compendium.pf2e.actionspf2e.Item.Request] DCs.</p>\n<p><strong>Success</strong> Intelligent creatures in the ritual's area become more likely to give in to temptation, indulging vices and violating all but the strongest convictions. They take a –2 circumstance penalty to saves against mental effects and to their Coerce and Request DCs.</p>\n<p><strong>Failure</strong> Intelligent creatures in the ritual's radius behave normally but gain the general sense that something unnatural tried to manipulate their actions.</p>\n<p><strong>Critical Failure</strong> As failure above, except communities of intelligent creatures in the ritual's area bond over any events they experienced during the ritual's casting. They commit themselves to shared principles for behavior, gaining a +2 circumstance bonus to saves against mental effects and to their Coerce and Request DCs for 1 week.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": ""
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "1 month"
-          },
-          "range": {
-            "value": ""
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Diplomacy (mythic) or Society (mythic)"
-            },
-            "secondary": {
-              "casters": 2,
-              "checks": "Intimidation, Underworld Lore"
-            }
-          },
-          "target": {
-            "value": ""
-          },
-          "time": {
-            "value": "7 days"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "ritual:create-demiplane",
-      "foundry": "Compendium.pf2e.spells-srd.Item.ZwwIUavMbEwcZz35",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Arcana (mythic), Nature (mythic), Occultism (mythic), or Religion (mythic)"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Arcana, Nature, Occultism, Religion (whichever three aren't used for the primary check)"
-        }
-      ],
-      "document": {
-        "_id": "ZwwIUavMbEwcZz35",
-        "name": "Create Demiplane",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 8
-          },
-          "traits": {
-            "value": ["mythic", "teleportation"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>Few incantations are as renowned as the power to create worlds. To cast this ritual, you must be on the Astral Plane, the Ethereal Plane, or a plane that connects to one of the two. A demiplane created with this ritual exists on the Astral or Ethereal Plane. It can have the appearance of any mundane environment or structure, such as a glorious cathedral, a forest clearing, a comfortably furnished cavern, or anything else imaginable. All demiplanes have finite, unbreachable boundaries, which might resemble stone, wood, or something more unnatural, such as a wall of mist or unceasing void.</p>\n<p>Demiplanes have environmental conditions appropriate for the Universe, though the primary caster can dictate a general climate or light level as well as whether the demiplane experiences seasons or a day-night cycle. The demiplane has no native plants or animals, but they can be introduced, and plants will grow in a demiplane's light.</p>\n<p>When you first cast <em>create demiplane</em>, the casters are teleported to the demiplane. The demiplane has no direct access to other worlds, so @UUID[Compendium.pf2e.spells-srd.Item.Interplanar Teleport] or similar abilities are necessary to access it. As part of casting the ritual to create a new demiplane, you create a planar key to the demiplane that serves as an <em>interplanar teleport</em> locus for that demiplane. Most resemble ornate keys, but some take the form of maps, compasses, or dowsing rods.</p>\n<p>If you have the original planar key to an existing demiplane and are also on that demiplane, you can cast this ritual again. Each time, you can either expand the demiplane's size or add one special trait or feature described below.</p><ul><li><strong>Bounteous</strong> The demiplane has a functional ecosystem with plants and animals appropriate to the environment. This ecosystem doesn't require any additional effort on your part to maintain.</li><li><strong>Elemental</strong> The demiplane gains the air, earth, fire, metal, water, or wood planar essence trait.</li><li><strong>Gravity</strong> The demiplane gains a gravity trait of your choice.</li><li><strong>Key</strong> You create an additional planar key that can be used to access the demiplane with <em>interplanar teleport</em> and improve it with <em>create demiplane</em>.</li><li><strong>Portal</strong> You create a permanent gateway between the demiplane and a single other location. You must spend the ritual's casting time constructing the gateway on the external side, which typically resembles an arch or doorway of some sort. The gate is always active, but it can be secured as you would any door.</li><li><strong>Scope</strong> The demiplane can be unbounded instead of finite, though still with the same size.</li></ul><hr /><p><strong>Critical Success</strong> You create a new demiplane whose area consists of 10 contiguous squares, each 100 feet on a side. The ceiling is 40 feet high. If modifying an existing demiplane, you can instead either add this area to the demiplane's size or add two special traits or features.</p>\n<p><strong>Success</strong> As critical success, but the demiplane's area is two squares, each 100 feet on a side, with a ceiling 20 feet high. If modifying an existing demiplane, you can add one special trait or feature.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> Something goes horribly wrong, and all casters are teleported to an unknown but hostile plane.</p><hr /><p><strong>Heightened (10th)</strong> The ritual creates a square area 2,000 feet on a side, with a ceiling 60 feet high (or two contiguous areas of this size on a critical success). The cost of the ritual increases to 20,000 gp.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "precious materials worth a total value of 800 gp"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": ""
-          },
-          "range": {
-            "value": ""
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Arcana (mythic), Nature (mythic), Occultism (mythic), or Religion (mythic)"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Arcana, Nature, Occultism, Religion (whichever three aren't used for the primary check)"
-            }
-          },
-          "target": {
-            "value": ""
-          },
-          "time": {
-            "value": "9 days"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "war-of-immortals",
       "slug": "ritual:curse-of-calamity",
       "foundry": "Compendium.pf2e.spells-srd.Item.CGB3a9gJU5S8gjKk",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 community, group, or settlement"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Occultism (mythic)"
         }
-      ],
-      "document": {
-        "_id": "CGB3a9gJU5S8gjKk",
-        "name": "Curse of Calamity",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 9
-          },
-          "traits": {
-            "value": ["curse", "misfortune", "mythic"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You condemn your targets to violent misfortune. At the GM's discretion, you can target a group of individuals within range who serve the same cause, such as a nation's army, or who have a shared identity, such as members of a single faith. You can also choose to target a settlement that's a village or town, or a neighborhood community within a larger settlement.</p><hr /><p><strong>Critical Success</strong> As success, and the targets experience extreme accidents that threaten life, limb, or other loss. The GM adjudicates these occurrences on a case-by-case basis, but in general, the population experiences a disturbing rise in unfortunate casualties.</p>\n<p><strong>Success</strong> The targets experience misfortune during even routine tasks that result in minor injuries. This bad luck increases when you're close; the first time each round a target within 15 feet of you attempts an attack roll or skill check, they must roll twice and use the worse result.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> You unwittingly curse yourself. For the next 24 hours, each caster must roll all attack rolls and skill checks twice and use the worse result.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": ""
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "1 year"
-          },
-          "range": {
-            "value": "1 mile"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Occultism (mythic)"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Arcana, Nature, Religion"
-            }
-          },
-          "target": {
-            "value": "1 community, group, or settlement"
-          },
-          "time": {
-            "value": "3 days"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "war-of-immortals",
       "slug": "ritual:embodied-font",
       "foundry": "Compendium.pf2e.spells-srd.Item.HBxsMKXzZM0HviEE",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "the disembodied wildspell associated with the primary caster"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "skill corresponding to the target's casting tradition (trained)"
         }
-      ],
-      "document": {
-        "_id": "HBxsMKXzZM0HviEE",
-        "name": "Embodied Font",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 8
-          },
-          "traits": {
-            "value": [],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You place the magic items into a neat pile and attempt to draw out their power to form a new body that the target can inhabit.</p><hr /><p><strong>Critical Success</strong> The target materializes within range, with full Hit Points, 1 Mythic Point, and as if having just completed daily preparations.</p>\n<p><strong>Success</strong> As critical success, but all the target's spells and spell slots are expended.</p>\n<p><strong>Failure</strong> As success, but the target is @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 1}, @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 1}, @UUID[Compendium.pf2e.conditionitems.Item.Doomed]{Doomed 1}, and @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 1} for 1 week.</p>\n<p><strong>Critical Failure</strong> The ritual fails and can't be attempted again for that target for 1 week. The magic items are still consumed.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "magic items with a value of at least 2,000 gp"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": ""
-          },
-          "range": {
-            "value": "10 feet"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "skill corresponding to the target's casting tradition (trained)"
-            },
-            "secondary": {
-              "casters": 0,
-              "checks": ""
-            }
-          },
-          "target": {
-            "value": "the disembodied wildspell associated with the primary caster"
-          },
-          "time": {
-            "value": "1 day"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "war-of-immortals",
       "slug": "ritual:freedom",
       "foundry": "Compendium.pf2e.spells-srd.Item.4ddJSjC9Zz5DX0oG",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Arcana (mythic) or Occultism (mythic)"
-        },
         {
           "type": "enricher",
           "enricher": "@Check[overrideTraits]"
         }
-      ],
-      "document": {
-        "_id": "4ddJSjC9Zz5DX0oG",
-        "name": "Freedom",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 8
-          },
-          "traits": {
-            "value": ["mythic"],
-            "rarity": "uncommon",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You perform a ritual to free a creature imprisoned, petrified, or otherwise put into stasis by any magical effects. You free them from all such effects, even effects like @UUID[Compendium.pf2e.spells-srd.Item.Imprisonment] that don't have a duration, as long as <em>freedom</em>'s spell rank is equal to or higher than the effect's spell rank. To perform the ritual, you must be within 10 feet of the target, or within 10 feet of the place where the target was imprisoned (in the case of effects that trap the creature in an unreachable prison, like the oubliette form of <em>imprisonment</em>). You must know the name of the creature and details of its background; if the creature isn't a close associate, a failure or critical failure on a secondary @Check[society|overrideTraits:true] check reduces even a critical success on the primary check to a failure.</p><hr /><p><strong>Critical Success</strong> You free the target from all magical effects imprisoning it, petrifying it, or putting it into stasis. It gains a +1 status bonus to saving throws to resist those same magical effects for 1 week.</p>\n<p><strong>Success</strong> You free the target from all magical effects imprisoning it, petrifying it, or putting it into stasis.</p>\n<p><strong>Failure</strong> You fail to free the target.</p>\n<p><strong>Critical Failure</strong> The magical effects imprisoning the target, petrifying the target, or putting it into stasis affect you and all secondary casters.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "valuable oils and objects associated with the target worth a total value of 100 gp × the spell rank × the target's level"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": ""
-          },
-          "range": {
-            "value": ""
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Arcana (mythic) or Occultism (mythic)"
-            },
-            "secondary": {
-              "casters": 2,
-              "checks": "Society"
-            }
-          },
-          "target": {
-            "value": "1 creature"
-          },
-          "time": {
-            "value": "1 day"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "war-of-immortals",
       "slug": "ritual:imprisonment",
       "foundry": "Compendium.pf2e.spells-srd.Item.2CNqkt2s2IYkVnv6",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 creature of up to 16th level"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Arcana (mythic) or Occultism (mythic)"
         }
-      ],
-      "document": {
-        "_id": "2CNqkt2s2IYkVnv6",
-        "name": "Imprisonment",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 8
-          },
-          "traits": {
-            "value": ["mythic"],
-            "rarity": "uncommon",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You perform a ritual to imprison a creature in one of several forms. While some versions of this ritual offer all the forms, others include only a single form or only a few of them. Whichever form you use, the effect can't be counteracted, though it can be ended by @UUID[Compendium.pf2e.spells-srd.Item.Freedom]. Some forms of <em>imprisonment</em> can be ended by other means. Because the ritual requires the target to remain within 10 feet at all times, it typically requires you to subdue the target first.</p><ul><li><strong>Chains</strong> You bind the creature with chains, rendering it unable to use any actions other than to speak. Other creatures that attempt to approach, harm the chains, or free the trapped creature in any way must succeed at a Will save or be unable to do so forever. The chains have Hardness equal to 5 × the <em>imprisonment</em> ritual's spell rank and double that many Hit Points. Destroying the chains frees the target.</li><li><strong>Prison</strong> You render the creature completely unable to leave a particular confined area or structure of your choice, such as a jail cell or sealed cave. The magic also prevents the creature from damaging its prison, either directly or indirectly, to break free. If the creature's prison is entirely destroyed by some external force, the creature is freed, though for some larger or natural prisons, this might be unfeasible.</li><li><strong>Slumber</strong> You put the creature into an eternal sleep. This is a sleep effect. The creature ceases aging and doesn't require food or drink. A single sincere physical display of affection from a creature who genuinely loves the target—whether romantically, filially, or otherwise—frees it from the slumber.</li><li><strong>Temporal Stasis</strong> You send the creature into a state of suspended animation outside the flow of time. The creature doesn't grow older and can't be affected by any effect from within the normal timestream. While casting this ritual, you can optionally name any amount of time for the stasis; after this duration elapses, the stasis ends. Unlike other forms of <em>imprisonment</em>, temporal stasis can be counteracted by a @UUID[Compendium.pf2e.spells-srd.Item.Dispel Magic] or @UUID[Compendium.pf2e.spells-srd.Item.Haste] spell.</li><li><strong>Object (9th or 10th rank)</strong> You either shrink the creature to an inch in height or transform it into an insubstantial form whose body trails away into wisps below its head. Either way, you trap it inside a bottle, gem, jar, lamp, or similar container. The creature ceases aging and doesn't require food or drink. The creature is still aware of its surroundings and can move within the container and speak, but it can't use any other actions. Destroying the container kills the target rather than freeing it.</li><li><p><strong>Oubliette (10th rank only)</strong> You entomb the target in a state of suspended animation deep beneath the surface of the ground and out of tune with reality so that it can't be reached by any means. You also prevent most magic from revealing the location where the <em>imprisonment</em> occurred. Powerful magic, such as the @UUID[Compendium.pf2e.spells-srd.Item.Wish] ritual, can reveal the location of the <em>imprisonment</em>, but even such magic can't free the target from the oubliette; only a 10th-rank <em>freedom</em> ritual can do so.</p></li></ul><hr /><p><strong>Critical Success</strong> You imprison the target. You can either use a form of <em>imprisonment</em> that usually requires a spell rank 1 higher than your ritual or impose an –2 circumstance penalty to any checks for <em>freedom</em> rituals that would free the creature.</p>\n<p><strong>Success</strong> You imprison the target.</p>\n<p><strong>Failure</strong> You fail to imprison the target.</p>\n<p><strong>Critical Failure</strong> You imprison yourself and the secondary casters in the same way you intended to imprison the target.</p><hr /><p><strong>Heightened (9th)</strong> You can use the object form of <em>imprisonment</em> in addition to the other options, and you can target a creature of up to 18th level. The base cost increases to 2,000 gp.</p>\n<p><strong>Heightened (10th)</strong> You can use the object and oubliette forms of <em>imprisonment</em> in addition to the other options, and you can target a creature of up to 20th level. The base cost increases to 6,000 gp.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "reagents to construct the magical prison worth a total value of 800 gp × the target's level"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": ""
-          },
-          "range": {
-            "value": "10 feet"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Arcana (mythic) or Occultism (mythic)"
-            },
-            "secondary": {
-              "casters": 6,
-              "checks": "Crafting, Society"
-            }
-          },
-          "target": {
-            "value": "1 creature of up to 16th level"
-          },
-          "time": {
-            "value": "1 day"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "war-of-immortals",
       "slug": "ritual:kaiju-ward",
       "foundry": "Compendium.pf2e.spells-srd.Item.nxnGKgcVii5KTwtM",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "1 physical structure"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Crafting (mythic)"
         }
-      ],
-      "document": {
-        "_id": "nxnGKgcVii5KTwtM",
-        "name": "Kaiju Ward",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 6
-          },
-          "traits": {
-            "value": ["mythic"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You protect a physical structure from the devastation caused by immense creatures. This structure can be artificially constructed, like a castle or wall, or a natural subject, like a specific tree or grove. A given casting of this ritual can protect a subject as small as a single-story house and no larger than the wall surrounding a large city.</p><hr /><p><strong>Critical Success</strong> As success, but the target structure also doubles its Hit Points and Broken Threshold.</p>\n<p><strong>Success</strong> The target structure gains a +4 status bonus to AC and its Hardness increases by 10. It also gains resistance 20 to acid, cold, electricity, fire, and sonic damage; this resistance applies before its Hardness. These benefits apply only to attacks made by Gargantuan creatures or siege engines.</p>\n<p><strong>Failure</strong> The ritual doesn't succeed.</p>\n<p><strong>Critical Failure</strong> The target is considerably weakened, reducing its Hardness by 10 (minimum 0).</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": ""
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "14 days"
-          },
-          "range": {
-            "value": "touch"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Crafting (mythic)"
-            },
-            "secondary": {
-              "casters": 4,
-              "checks": "Engineering Lore, Kaiju Lore, Survival, Warfare Lore"
-            }
-          },
-          "target": {
-            "value": "1 physical structure"
-          },
-          "time": {
-            "value": "8 hours"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "war-of-immortals",
       "slug": "ritual:oceans-roar",
       "foundry": "Compendium.pf2e.spells-srd.Item.6WZgtQ2Iw9CTbv2c",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "target.value",
           "raw": "body of water no larger than a 7-mile radius area"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Nature (mythic)"
         },
         {
           "type": "enricher",
@@ -11486,387 +10744,63 @@
           "type": "enricher",
           "enricher": "@UUID[pathfinder-monster-core]"
         }
-      ],
-      "document": {
-        "_id": "6WZgtQ2Iw9CTbv2c",
-        "name": "Ocean's Roar",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 9
-          },
-          "traits": {
-            "value": ["mythic", "water"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You invoke consciousness in a large body of water, such as a coastline, lake, or lagoon. An ancient elemental spirit awakens in the water, seeking instantly to defend itself from aggressors or punish trespassers. You must cast this ritual either directly above the surface of the water or completely submerged at the bottom of the body of water. Such spirits are known to crash ships, devastate shores, and drag enemies under the waves, but can also respond favorably to competent casters.</p>\n<p>This new entity must be appeased by those who sail it. Appeasing the spirit requires a @Check[diplomacy|overrideTraits:true] or @Check[nature|overrideTraits:true] check at the ritual's casting DC. Those negotiating with the spirit might make offerings to gain the spirit's favor, but such reprieve is short in duration and must be attempted each time a vessel passes near. The nature of these offerings is subject to the GM's discretion.</p><hr /><p><strong>Critical Success</strong> As success, except the spirit looks kindly on the caster and those who travel with them. The spirit never takes hostile action against them or any vessel they travel on and increases their swim Speed or their vessel's Speed by 10 feet while within the affected area. Additionally, the spirit's Strike gains the @UUID[Compendium.pf2e.bestiary-ability-glossary-srd.Item.Improved Grab] ability with an Athletics modifier of +38.</p>\n<p><strong>Success</strong> The spirit takes up residence in the body of water, defending it aggressively or attacking organized threats on adjacent shores. The spirit manifests as either a massive tsunami (<em>GM Core</em> 90, 96) that repeats every hour or a massive fist of water that can make a melee Strike every round against any target within the affected area. This Strike has a +33 modifier and deals 3d8+19 bludgeoning damage. The spirit can make this Strike against two targets within 30 feet, rolling once to attack and comparing the result against the AC of both targets.</p>\n<p><strong>Failure</strong> The ritual has no effect, though tides and waves are more severe than normal for 24 hours.</p>\n<p><strong>Critical Failure</strong> The ritual backfires, causing four @UUID[Compendium.pf2e.pathfinder-monster-core.Actor.Elemental Tsunami]{Elemental Tsunamis} to appear surrounding the casters and attack them for their insolence. If not defeated, the tsunamis remain for 1 week, attacking any waterborne vessels within the targeted area.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "1 or more boats or ships worth a total of 10,000 gp"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "unlimited"
-          },
-          "range": {
-            "value": "10 feet"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Nature (mythic)"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Diplomacy, Sailing Lore, Survival"
-            }
-          },
-          "target": {
-            "value": "body of water no larger than a 7-mile radius area"
-          },
-          "time": {
-            "value": "1 day"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "war-of-immortals",
       "slug": "ritual:unbearable-cacophony",
       "foundry": "Compendium.pf2e.spells-srd.Item.XhfsRLfQjN3ed1zI",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "range.value",
           "raw": "1-mile radius circle centered on you"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Performance (mythic)"
         }
-      ],
-      "document": {
-        "_id": "XhfsRLfQjN3ed1zI",
-        "name": "Unbearable Cacophony",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 7
-          },
-          "traits": {
-            "value": ["curse", "mythic"],
-            "rarity": "uncommon",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You amplify the sound of every item and creature to impossible levels. Deaf creatures and creatures immune to sonic damage remain unaffected in most cases.</p><hr /><p><strong>Critical Success</strong> As success, and you and the secondary casters gain sonic resistance equal to your level for the duration.</p>\n<p><strong>Success</strong> Any sound produced by a creature or object (such as a cricket, a ringing anvil, or a lion's roar) deals sonic damage equal to the level of the creature or item (minimum 1) to every creature within 15 feet (basic Fortitude save with a DC equal to the ritual's casting DC). For every size category over Tiny of the item or creature making noise, this damage increases by 2. Organized groups of creatures, such as a singing quartet or a swarm of insects, count as the next size category larger for this effect. Effects that normally deal sonic damage to creatures and objects ignore half the creature or object's sonic resistance or Hardness.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> An intense sound of ringing echoes in each caster's ears, imparting a weakness to sonic damage equal to their level for 1 day.</p><hr /><p><strong>Heightened (+2)</strong> The increase in damage made by creatures larger than Tiny increases to 6 per size category.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": "valuable crystals and tuning forks worth 300 gp"
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "3 days"
-          },
-          "range": {
-            "value": "1-mile radius circle centered on you"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Performance (mythic)"
-            },
-            "secondary": {
-              "casters": 2,
-              "checks": "Arcana, Nature"
-            }
-          },
-          "target": {
-            "value": ""
-          },
-          "time": {
-            "value": "1 day"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "war-of-immortals",
       "slug": "ritual:void-harvest",
       "foundry": "Compendium.pf2e.spells-srd.Item.NjK0kWRC6FYsPwXC",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "range.value",
           "raw": "1-mile radius circle centered on you"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Religion (mythic)"
         }
-      ],
-      "document": {
-        "_id": "NjK0kWRC6FYsPwXC",
-        "name": "Void Harvest",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 9
-          },
-          "traits": {
-            "value": ["curse", "mythic", "void"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>The sky darkens over the affected area and the air becomes oppressive as you open a direct conduit to the Void, a plane of vast nothingness. Living creatures start to feel their life force draining away as the terror of oblivion begins to grip their hearts.</p>\n<p>Each year on the anniversary of the ritual's casting, a total of four casters can spend 1 hour at the center of the affected area to sustain the effect. To do so, one caster must spend 1 Mythic Point and succeed at a Religion check against the ritual's casting DC. Each year the ritual is successfully sustained, the radius increases from its original point by 1 mile. The effect fades away if the check fails or if there are no other attempts to sustain the ritual.</p><hr /><p><strong>Critical Success</strong> As success, but living creatures in the area take a –2 status penalty to saves against death effects or effects that deal void damage.</p>\n<p><strong>Success</strong> The first time each day a living creature in the area takes damage, it must succeed at a Will save with a DC equal to the ritual's casting DC or gain the @UUID[Compendium.pf2e.conditionitems.Item.Doomed]{Doomed 1} condition; if it already has the doomed condition, it instead increases the value of it by 1. Dead creatures can't be raised or resurrected so long as their body remains in the ritual's area. Undead creatures gain vitality resistance equal to their level while in the area.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> An explosion of energy from the Void washes over the casters. Each caster becomes @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 4}. This condition can't be removed for 1 week.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": ""
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "1 year"
-          },
-          "range": {
-            "value": "1-mile radius circle centered on you"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Religion (mythic)"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Medicine (master), Occultism, Void Lore"
-            }
-          },
-          "target": {
-            "value": ""
-          },
-          "time": {
-            "value": "8 hours"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "war-of-immortals",
       "slug": "ritual:wild-feast",
       "foundry": "Compendium.pf2e.spells-srd.Item.5y3RlXMDPovOmrhp",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "range.value",
           "raw": "centered on you"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Nature (mythic)"
         }
-      ],
-      "document": {
-        "_id": "5y3RlXMDPovOmrhp",
-        "name": "Wild Feast",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 4
-          },
-          "traits": {
-            "value": ["mythic"],
-            "rarity": "rare",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>You draw forth latent hostility in the local flora and fauna. Even domesticated animals might turn on their owners.</p><hr /><p><strong>Critical Success</strong> As success, except that animal companions, pets, familiars with the animal, fungus, or plant trait, and similar creatures (subject to the GM's discretion) are also initially affected. Each day for the duration, during daily preparations, its master must succeed at a @Check[diplomacy] or @Check[nature] check against a DC equal to the ritual's casting DC or the creature temporarily loses the minion trait and can't be Commanded that day. The creature remains near its master but doesn't help them in any way.</p>\n<p><strong>Success</strong> Carnivorous animals and plants in the area are automatically hostile toward humanoids and other natural enemies. Animal companions, pets, familiars with the animal, fungus, or plant trait, and similar creatures don't turn on their masters, but attempts to @UUID[Compendium.pf2e.actionspf2e.Item.Command an Animal] or to @UUID[Compendium.pf2e.actionspf2e.Item.Demoralize] any creatures with the animal, fungus, or plant trait take a –2 status penalty.</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> A terrible hunger awakens within the casters. Each caster is permanently cursed to hunger for the taste of flesh of their own ancestry; this is identical to the ghoul's forbidden cravings curse, except the raw meat must be from a member of their own ancestry. The DC of this curse is equal to the ritual's casting DC.</p><hr /><p><strong>Heightened (+2)</strong> Double the ritual's area.</p>"
-          },
-          "rules": [],
-          "area": {
-            "type": "burst",
-            "value": 500
-          },
-          "cost": {
-            "value": ""
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "3 days"
-          },
-          "range": {
-            "value": "centered on you"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Nature (mythic)"
-            },
-            "secondary": {
-              "casters": 2,
-              "checks": "Diplomacy, Survival"
-            }
-          },
-          "target": {
-            "value": ""
-          },
-          "time": {
-            "value": "8 hours"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",
       "pack": "war-of-immortals",
       "slug": "ritual:world-in-shadow",
       "foundry": "Compendium.pf2e.spells-srd.Item.bODHqeXoEc8GVU6a",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "field",
           "reason": "unmapped-value",
           "field": "range.value",
           "raw": "8-mile radius circle centered on you"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.primary.check",
-          "raw": "Arcana (mythic), Nature (mythic), or Occultism (mythic), Religion (mythic)"
-        },
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "ritual.secondary.checks",
-          "raw": "Arcana, Nature, Occultism, Religion (cannot be the same skill as for the primary check)"
         }
-      ],
-      "document": {
-        "_id": "bODHqeXoEc8GVU6a",
-        "name": "World in Shadow",
-        "type": "spell",
-        "system": {
-          "publication": {
-            "title": "Pathfinder War of Immortals",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 5
-          },
-          "traits": {
-            "value": ["darkness", "mythic"],
-            "rarity": "uncommon",
-            "traditions": []
-          },
-          "description": {
-            "value": "<p>This ritual must be cast at night, at which point darkness becomes everlasting. Casters with darkvision gain a +1 circumstance bonus to their check to cast the ritual.</p><hr /><p><strong>Critical Success</strong> As success, except that all light levels within the area are lowered by two steps toward darkness, and light effects that would counteract the darkness take a –2 status penalty to their counteract checks.</p>\n<p><strong>Success</strong> All light levels within the area are lowered by one step toward darkness. Areas that are already dark become magical darkness. Light effects that would counteract the darkness only do so in the area of the counteracting spell or effect (for example, 40 feet for a @UUID[Compendium.pf2e.spells-srd.Item.Light] spell).</p>\n<p><strong>Failure</strong> The ritual has no effect.</p>\n<p><strong>Critical Failure</strong> The casters are all plunged into their own personal darknesses. For 1 week, each caster can see no farther than 5 feet regardless of ambient light level. Anything beyond that distance is treated as if it were in magical darkness that can't be counteracted; darkvision and greater darkvision similarly can't penetrate this darkness.</p>"
-          },
-          "rules": [],
-          "area": null,
-          "cost": {
-            "value": ""
-          },
-          "counteraction": false,
-          "damage": {},
-          "defense": null,
-          "duration": {
-            "sustained": false,
-            "value": "5 days"
-          },
-          "range": {
-            "value": "8-mile radius circle centered on you"
-          },
-          "requirements": "",
-          "ritual": {
-            "primary": {
-              "check": "Arcana (mythic), Nature (mythic), or Occultism (mythic), Religion (mythic)"
-            },
-            "secondary": {
-              "casters": 3,
-              "checks": "Arcana, Nature, Occultism, Religion (cannot be the same skill as for the primary check)"
-            }
-          },
-          "target": {
-            "value": ""
-          },
-          "time": {
-            "value": "8 hours"
-          }
-        },
-        "folder": "6JF73zNhT8zbp1qC"
-      }
+      ]
     },
     {
       "type": "entry",

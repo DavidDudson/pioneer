@@ -109,6 +109,7 @@ export async function warOfImmortalsPack() {
     import('@pioneer/content/packs/war-of-immortals/effect.json'),
     import('@pioneer/content/packs/war-of-immortals/equipment.json'),
     import('@pioneer/content/packs/war-of-immortals/feat.json'),
+    import('@pioneer/content/packs/war-of-immortals/ritual.json'),
     import('@pioneer/content/packs/war-of-immortals/rune.json'),
     import('@pioneer/content/packs/war-of-immortals/spell.json'),
     import('@pioneer/content/packs/war-of-immortals/weapon.json'),
@@ -197,6 +198,7 @@ export async function monsterCorePack() {
     import('@pioneer/content/packs/monster-core/creature.json'),
     import('@pioneer/content/packs/monster-core/effect.json'),
     import('@pioneer/content/packs/monster-core/equipment.json'),
+    import('@pioneer/content/packs/monster-core/ritual.json'),
     import('@pioneer/content/packs/monster-core/weapon.json'),
   ]);
 }
@@ -226,6 +228,7 @@ export async function secretsOfMagicPack() {
     import('@pioneer/content/packs/secrets-of-magic/effect.json'),
     import('@pioneer/content/packs/secrets-of-magic/equipment.json'),
     import('@pioneer/content/packs/secrets-of-magic/feat.json'),
+    import('@pioneer/content/packs/secrets-of-magic/ritual.json'),
     import('@pioneer/content/packs/secrets-of-magic/spell.json'),
     import('@pioneer/content/packs/secrets-of-magic/weapon.json'),
   ]);

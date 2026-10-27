@@ -214,6 +214,7 @@ export async function mythSpeakersPack() {
     import('@pioneer/content/packs/myth-speakers/effect.json'),
     import('@pioneer/content/packs/myth-speakers/equipment.json'),
     import('@pioneer/content/packs/myth-speakers/feat.json'),
+    import('@pioneer/content/packs/myth-speakers/ritual.json'),
     import('@pioneer/content/packs/myth-speakers/shield.json'),
     import('@pioneer/content/packs/myth-speakers/spell.json'),
     import('@pioneer/content/packs/myth-speakers/weapon.json'),
@@ -229,6 +230,7 @@ export async function revengeOfTheRunelordsPack() {
     import('@pioneer/content/packs/revenge-of-the-runelords/effect.json'),
     import('@pioneer/content/packs/revenge-of-the-runelords/equipment.json'),
     import('@pioneer/content/packs/revenge-of-the-runelords/feat.json'),
+    import('@pioneer/content/packs/revenge-of-the-runelords/ritual.json'),
     import('@pioneer/content/packs/revenge-of-the-runelords/weapon.json'),
   ]);
 }
