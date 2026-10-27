@@ -1,0 +1,472 @@
+[
+  {
+    "id": "33df0082-e501-5c8a-8e93-0186060c3e14",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:mild-cold",
+    "name": "Mild Cold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2820"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It deals no damage, and a creature that stays in it becomes fatigued after 4 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "restrictions": [],
+      "consequences": [
+        {
+          "after": {
+            "count": 4,
+            "unit": "hour"
+          },
+          "applies": "5e3582c3-701c-5169-9c69-4221096722c2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "07b920b3-2eeb-5c35-a5d6-e0bebc18f7f0",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:severe-cold",
+    "name": "Severe Cold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2820"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It deals minor cold damage every hour, and a creature that stays in it becomes fatigued after 4 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "restrictions": [],
+      "consequences": [
+        {
+          "after": {
+            "count": 1,
+            "unit": "hour"
+          },
+          "damage": {
+            "category": "minor",
+            "type": "cold"
+          },
+          "repeats": true
+        },
+        {
+          "after": {
+            "count": 4,
+            "unit": "hour"
+          },
+          "applies": "5e3582c3-701c-5169-9c69-4221096722c2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "4eac1f69-6ae0-5c6a-bb54-67c1fd641594",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:extreme-cold",
+    "name": "Extreme Cold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2820"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It deals minor cold damage every 10 minutes, and a creature that stays in it becomes fatigued after 4 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "restrictions": [],
+      "consequences": [
+        {
+          "after": {
+            "count": 10,
+            "unit": "minute"
+          },
+          "damage": {
+            "category": "minor",
+            "type": "cold"
+          },
+          "repeats": true
+        },
+        {
+          "after": {
+            "count": 4,
+            "unit": "hour"
+          },
+          "applies": "5e3582c3-701c-5169-9c69-4221096722c2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "7c37d345-4cb5-5f7f-a4e1-ac5f7aa4deb1",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:incredible-cold",
+    "name": "Incredible Cold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2820"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It deals moderate cold damage every minute, and a creature that stays in it becomes fatigued after 2 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "restrictions": [],
+      "consequences": [
+        {
+          "after": {
+            "count": 1,
+            "unit": "minute"
+          },
+          "damage": {
+            "category": "moderate",
+            "type": "cold"
+          },
+          "repeats": true
+        },
+        {
+          "after": {
+            "count": 2,
+            "unit": "hour"
+          },
+          "applies": "5e3582c3-701c-5169-9c69-4221096722c2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "edb5720c-8d81-5478-8527-f14f7a0fef26",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:mild-heat",
+    "name": "Mild Heat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2820"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It deals no damage, and a creature that stays in it becomes fatigued after 4 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "restrictions": [],
+      "consequences": [
+        {
+          "after": {
+            "count": 4,
+            "unit": "hour"
+          },
+          "applies": "5e3582c3-701c-5169-9c69-4221096722c2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eda6ec10-db87-5634-8a37-7a2ee12f3805",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:severe-heat",
+    "name": "Severe Heat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2820"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It deals minor fire damage every hour, and a creature that stays in it becomes fatigued after 4 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "restrictions": [],
+      "consequences": [
+        {
+          "after": {
+            "count": 1,
+            "unit": "hour"
+          },
+          "damage": {
+            "category": "minor",
+            "type": "fire"
+          },
+          "repeats": true
+        },
+        {
+          "after": {
+            "count": 4,
+            "unit": "hour"
+          },
+          "applies": "5e3582c3-701c-5169-9c69-4221096722c2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "02bbd3de-459e-585a-abc4-3ddc107c1174",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:extreme-heat",
+    "name": "Extreme Heat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2820"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It deals minor fire damage every 10 minutes, and a creature that stays in it becomes fatigued after 4 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "restrictions": [],
+      "consequences": [
+        {
+          "after": {
+            "count": 10,
+            "unit": "minute"
+          },
+          "damage": {
+            "category": "minor",
+            "type": "fire"
+          },
+          "repeats": true
+        },
+        {
+          "after": {
+            "count": 4,
+            "unit": "hour"
+          },
+          "applies": "5e3582c3-701c-5169-9c69-4221096722c2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "3172612c-7293-5263-8b51-ae96363ad944",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:incredible-heat",
+    "name": "Incredible Heat",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2820"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It deals moderate fire damage every minute, and a creature that stays in it becomes fatigued after 2 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "restrictions": [],
+      "consequences": [
+        {
+          "after": {
+            "count": 1,
+            "unit": "minute"
+          },
+          "damage": {
+            "category": "moderate",
+            "type": "fire"
+          },
+          "repeats": true
+        },
+        {
+          "after": {
+            "count": 2,
+            "unit": "hour"
+          },
+          "applies": "5e3582c3-701c-5169-9c69-4221096722c2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "6509830c-99c9-5470-b90e-90fa4e579b4e",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:wind",
+    "name": "Wind",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2821"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wind imposes a circumstance penalty on auditory Perception checks depending on its strength. It also interferes with physical ranged attacks such as arrows, imposing a circumstance penalty to attack rolls involving such weapons, and potentially making attacks with them impossible in powerful windstorms."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wind snuffs out handheld flames; lanterns protect their flame from the wind, but particularly powerful winds can extinguish these as well."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wind is difficult or greater difficult terrain when Flying. Moving in wind of sufficient strength requires a Maneuver in Flight action, and fliers are blown away on a critical failure or if they don't succeed at a minimum of one such check each round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even on the ground, particularly strong winds might require a creature to succeed at an Athletics check to move, knocking the creature back and prone on a critical failure. On such checks, Small creatures typically take a –1 circumstance penalty, and Tiny creatures typically take a –2 penalty."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["attack-roll", "perception"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Wind imposes a circumstance penalty on auditory Perception checks depending on its strength. It also interferes with physical ranged attacks such as arrows, imposing a circumstance penalty to attack rolls involving such weapons, and potentially making attacks with them impossible in powerful windstorms."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  }
+]
