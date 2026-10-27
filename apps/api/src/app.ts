@@ -40,6 +40,7 @@ export function createApp(db: Database, env: Env, extensions: readonly AppExtens
         flaggedItems: character.flaggedItems,
         keyItems: character.keyItems,
         keyItemPromotion: character.keyItemPromotion,
+        transferLines: character.transferLines,
       }),
     )
     .use(homebrew(db, clock, identityParts.authenticator))

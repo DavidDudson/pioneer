@@ -5,6 +5,7 @@ import {
   CharacterFlaggedItems,
   CharacterKeyItemPromotion,
   CharacterKeyItems,
+  CharacterTransferLines,
   CharacterPackService,
   CharacterUnenabledService,
   CharacterVariantLimits,
@@ -103,6 +104,8 @@ export interface Characters {
   readonly keyItems: CharacterKeyItems;
   /** Turns a line a character already has into a key item's holder copy. */
   readonly keyItemPromotion: CharacterKeyItemPromotion;
+  /** The lines members offer to each other's characters. */
+  readonly transferLines: CharacterTransferLines;
 }
 
 /**
@@ -136,6 +139,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     flaggedItems: new CharacterFlaggedItems(characterContent),
     keyItems: new CharacterKeyItems(repository, clock),
     keyItemPromotion: new CharacterKeyItemPromotion(repository, characterContent, clock),
+    transferLines: new CharacterTransferLines(repository),
     routes: characterRoutes(service, authenticator)
       .use(pathbuilderImportRoutes(importer, authenticator))
       .use(pioneerFileRoutes(pioneerFiles, authenticator))

@@ -3,6 +3,7 @@ import type {
   CampaignPackService,
   CampaignPartyService,
   CampaignItemApprovalService,
+  CampaignItemTransferService,
   CampaignKeyItemService,
   CampaignRuleLimitService,
   CampaignService,
@@ -13,20 +14,36 @@ import { ContractRouter } from '@pioneer/shared/server';
 import type { RequestAuthenticator } from '@pioneer/shared/server';
 
 import { campaignItemApprovalRoutes } from './campaign-item-approval-routes';
+import { campaignItemTransferRoutes } from './campaign-item-transfer-routes';
 import { campaignKeyItemRoutes } from './campaign-key-item-routes';
 import { campaignRuleLimitRoutes } from './campaign-rule-limit-routes';
 import { campaignVariantRoutes } from './campaign-variant-routes';
 
+/** The services behind the routes for the items a campaign's characters hold, offer and are given. */
+interface ItemServices {
+  readonly itemApprovals: CampaignItemApprovalService;
+  readonly keyItems: CampaignKeyItemService;
+  readonly itemTransfers: CampaignItemTransferService;
+}
+
 /** The application services the campaign routes call. */
-export interface CampaignServices {
+export interface CampaignServices extends ItemServices {
   readonly campaigns: CampaignService;
   readonly invites: CampaignInviteService;
   readonly party: CampaignPartyService;
   readonly packs: CampaignPackService;
   readonly variants: CampaignVariantService;
   readonly ruleLimits: CampaignRuleLimitService;
-  readonly itemApprovals: CampaignItemApprovalService;
-  readonly keyItems: CampaignKeyItemService;
+}
+
+/** The routes for approving rule-breaking items, key items and item transfers. */
+function campaignItemRoutes(
+  { itemApprovals, keyItems, itemTransfers }: ItemServices,
+  auth: RequestAuthenticator,
+): ContractRouter['app'] {
+  return campaignItemApprovalRoutes(itemApprovals, auth)
+    .use(campaignKeyItemRoutes(keyItems, auth))
+    .use(campaignItemTransferRoutes(itemTransfers, auth));
 }
 
 /**
@@ -34,7 +51,7 @@ export interface CampaignServices {
  * signed-in user (401 otherwise); which campaigns that user may see is the services' policy.
  */
 export function campaignRoutes(
-  { campaigns: service, invites, party, packs, variants, ruleLimits, itemApprovals, keyItems }: CampaignServices,
+  { campaigns: service, invites, party, packs, variants, ruleLimits, ...items }: CampaignServices,
   auth: RequestAuthenticator,
 ): ContractRouter['app'] {
   return new ContractRouter('campaign-routes')
@@ -79,6 +96,5 @@ export function campaignRoutes(
     )
     .app.use(campaignVariantRoutes(variants, auth))
     .use(campaignRuleLimitRoutes(ruleLimits, auth))
-    .use(campaignItemApprovalRoutes(itemApprovals, auth))
-    .use(campaignKeyItemRoutes(keyItems, auth));
+    .use(campaignItemRoutes(items, auth));
 }

@@ -1,6 +1,7 @@
 import {
   CampaignInviteService,
   CampaignItemApprovalService,
+  CampaignItemTransferService,
   CampaignKeyItemService,
   CampaignPackService,
   CampaignPartyService,
@@ -13,6 +14,7 @@ import {
   DrizzleCampaignInviteRepository,
   DrizzleCampaignItemApprovalRepository,
   DrizzleCampaignKeyItemRepository,
+  DrizzleItemTransferRepository,
   DrizzleCampaignPackRepository,
   DrizzleCampaignPartyRepository,
   DrizzleCampaignRepository,
@@ -23,6 +25,7 @@ import type {
   CharacterFlaggedItems,
   CharacterKeyItemPromotion,
   CharacterKeyItems,
+  CharacterTransferLines,
 } from '@pioneer/character/application';
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
 import { DrizzlePackDependencyRepository, DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
@@ -34,6 +37,7 @@ import { CampaignPackEnablementDirectory } from './campaign-pack-enablement-dire
 import { CampaignVariantLimitsOfContent } from './campaign-variant-limits';
 import { CampaignVariantRuleCatalog } from './campaign-variant-rule-catalog';
 import { CharacterKeyItemHolders } from './character-key-item-holders';
+import { CharacterTransferLinesAdapter } from './character-transfer-lines';
 import type { Database } from './database';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
 import { OwnedCharacterDirectory } from './owned-character-directory';
@@ -72,6 +76,7 @@ export interface CampaignParts {
   readonly flaggedItems: CharacterFlaggedItems;
   readonly keyItems: CharacterKeyItems;
   readonly keyItemPromotion: CharacterKeyItemPromotion;
+  readonly transferLines: CharacterTransferLines;
 }
 
 /** The pack service: a homebrew pack is enabled only where its access policy allows. */
@@ -122,6 +127,24 @@ function keyItemService(
   );
 }
 
+/** The item transfer service: an offer reads the giver's line through the character context. */
+function itemTransferService(
+  db: Database,
+  repository: DrizzleCampaignRepository,
+  { clock, parts }: { readonly clock: Clock; readonly parts: CampaignParts },
+): CampaignItemTransferService {
+  return new CampaignItemTransferService(
+    {
+      campaigns: repository,
+      transfers: new DrizzleItemTransferRepository(db),
+      party: new DrizzleCampaignPartyRepository(db),
+      characters: new OwnedCharacterDirectory(db),
+      lines: new CharacterTransferLinesAdapter(parts.transferLines),
+    },
+    clock,
+  );
+}
+
 /** The campaign context's part of the composition root: services and routes. */
 export function campaigns(db: Database, clock: Clock, parts: CampaignParts): ContractRouter['app'] {
   const repository = new DrizzleCampaignRepository(db);
@@ -141,10 +164,18 @@ export function campaigns(db: Database, clock: Clock, parts: CampaignParts): Con
   const packs = packService(db, repository, clock);
   const variants = variantService(db, repository, clock);
   const ruleLimits = ruleLimitService(db, repository, clock);
-  const itemApprovals = itemApprovalService(db, repository, { clock, flaggedItems: parts.flaggedItems });
-  const keyItems = keyItemService(db, repository, { clock, parts });
   return campaignRoutes(
-    { campaigns: service, invites, party, packs, variants, ruleLimits, itemApprovals, keyItems },
+    {
+      campaigns: service,
+      invites,
+      party,
+      packs,
+      variants,
+      ruleLimits,
+      itemApprovals: itemApprovalService(db, repository, { clock, flaggedItems: parts.flaggedItems }),
+      keyItems: keyItemService(db, repository, { clock, parts }),
+      itemTransfers: itemTransferService(db, repository, { clock, parts }),
+    },
     parts.authenticator,
   );
 }

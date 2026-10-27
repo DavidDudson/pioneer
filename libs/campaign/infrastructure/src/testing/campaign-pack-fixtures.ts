@@ -1,6 +1,7 @@
 import {
   CampaignPackService,
   CampaignItemApprovalService,
+  CampaignItemTransferService,
   CampaignKeyItemService,
   CampaignRuleLimitService,
   CampaignVariantService,
@@ -9,7 +10,9 @@ import {
   InMemoryCampaignKeyItemRepository,
   InMemoryCampaignPartyRepository,
   InMemoryCharacterDirectory,
+  InMemoryItemTransferRepository,
   InMemoryKeyItemHolders,
+  InMemoryTransferLines,
   InMemoryCampaignRuleLimitRepository,
   InMemoryFlaggedItems,
   InMemoryCampaignVariantLimits,
@@ -17,7 +20,12 @@ import {
   InMemoryPackCatalog,
   InMemoryVariantRuleCatalog,
 } from '@pioneer/campaign/application';
-import type { CampaignPartyRepository, CampaignRepository, CharacterDirectory } from '@pioneer/campaign/application';
+import type {
+  CampaignPartyRepository,
+  CampaignRepository,
+  CharacterDirectory,
+  TransferLines,
+} from '@pioneer/campaign/application';
 import type { Clock } from '@pioneer/shared/kernel';
 
 /** A pack service over in-memory ports, for route tests; `catalog` says which packs exist. */
@@ -68,6 +76,11 @@ export interface KeyItemWorld {
   readonly characters?: CharacterDirectory;
 }
 
+/** What an item transfer test can bring of its own. */
+export interface ItemTransferWorld extends KeyItemWorld {
+  readonly lines?: TransferLines;
+}
+
 /** The key items service over in-memory ports; no character is in the party until a test attaches one. */
 export function keyItemService(
   campaigns: CampaignRepository,
@@ -86,6 +99,22 @@ export function keyItemService(
       holders: new InMemoryKeyItemHolders(),
       flagged: new InMemoryFlaggedItems(),
     },
+    clock,
+  );
+}
+
+/** The item transfer service over in-memory ports; no character is in the party and none has a line until a test says. */
+export function itemTransferService(
+  campaigns: CampaignRepository,
+  clock: Clock,
+  {
+    party = new InMemoryCampaignPartyRepository(campaigns),
+    characters = new InMemoryCharacterDirectory(),
+    lines = new InMemoryTransferLines(),
+  }: ItemTransferWorld = {},
+): CampaignItemTransferService {
+  return new CampaignItemTransferService(
+    { campaigns, transfers: new InMemoryItemTransferRepository(), party, characters, lines },
     clock,
   );
 }

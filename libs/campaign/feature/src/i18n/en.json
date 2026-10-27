@@ -130,6 +130,11 @@
       "runeNotAllowed": "Rune not allowed: {rune}"
     }
   },
+  "transfers": {
+    "keyItemLine": "A key item cannot be offered; the GM controls it.",
+    "alreadyOffered": "That item is already on offer.",
+    "sameCharacter": "A character cannot offer to itself."
+  },
   "keyItems": {
     "heading": "Key items",
     "loadError": "Could not load the key items.",
