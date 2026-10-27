@@ -1,14 +1,14 @@
 import type { CharacterDocument } from './character-document';
 import { CharacterPatchField } from './character-patch';
-import type { SpellAccessPatch, UnplacedFeatPatch } from './character-patch';
-import { withoutUnplacedFeat } from './unplaced-feats';
+import type { SpellAccessPatch, UnplacedPickPatch } from './character-patch';
+import { dismissedPick } from './unplaced-picks';
 
-/** The edits that add to or take from a list the build keeps: spell access, or the feats an import found no slot for. */
-export type BuildListPatch = SpellAccessPatch | UnplacedFeatPatch;
+/** The edits that add to or take from a list the build keeps: spell access, or the picks an import found no slot for. */
+export type BuildListPatch = SpellAccessPatch | UnplacedPickPatch;
 
 /**
  * The document with the build's list changed by `patch`. Spell access gains `patch.spell` at the end unless listed, or
- * loses it, and a pick of a spell taken out stays (#478); an unplaced feat is taken off its list.
+ * loses it, and a pick of a spell taken out stays (#478); an unplaced feat, heritage or language is taken off the build.
  */
 export function withBuildListEdit(document: CharacterDocument, patch: BuildListPatch): CharacterDocument {
   const { build } = document;
@@ -25,8 +25,10 @@ export function withBuildListEdit(document: CharacterDocument, patch: BuildListP
         build: { ...build, spellAccess: build.spellAccess.filter((spell) => spell !== patch.spell) },
       };
     }
-    case CharacterPatchField.DismissUnplacedFeat: {
-      return { ...document, build: withoutUnplacedFeat(build, patch.feat) };
+    case CharacterPatchField.DismissUnplacedFeat:
+    case CharacterPatchField.DismissUnplacedHeritage:
+    case CharacterPatchField.DismissUnplacedLanguage: {
+      return { ...document, build: dismissedPick(build, patch) };
     }
     default: {
       const unreachable: never = patch;

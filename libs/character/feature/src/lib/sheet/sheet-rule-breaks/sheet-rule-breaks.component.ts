@@ -7,6 +7,7 @@ import {
   partitionApproved,
   runeContent,
   unplacedFeatBreaks,
+  unplacedPickBreaks,
 } from '@pioneer/character/domain';
 import { BadgeTone, Tag } from '@pioneer/frontier';
 
@@ -32,14 +33,14 @@ export class SheetRuleBreaks {
   readonly #items = injectContentRegistry(INVENTORY_CONTENT_KINDS);
   readonly #limits = inject(CharacterRuleLimitStore);
   protected readonly Tone = BadgeTone;
-  /** The items past a limit that no approval covers (none while the item kinds load), and the feats no slot holds. */
+  /** The items past a limit that no approval covers (none while the item kinds load), and the feats, heritage and languages no slot holds. */
   protected readonly count: Signal<number> = computed(() => {
     const registry = this.#items.data();
     const character = this.#store.selected();
     if (character === undefined) {
       return 0;
     }
-    const feats = unplacedFeatBreaks(character.document).length;
+    const feats = unplacedFeatBreaks(character.document).length + unplacedPickBreaks(character.document).length;
     if (registry === undefined) {
       return feats;
     }

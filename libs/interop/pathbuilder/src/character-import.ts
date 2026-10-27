@@ -64,6 +64,8 @@ export const CharacterImportReport = z.object({
   ruleBreaking: RuleBreakingCount,
   /** The imported feats no slot offers, kept on the character and flagged rather than forced into a slot. */
   ruleBreakingFeats: RuleBreakingCount,
+  /** The imported heritage and languages no slot holds, kept on the character and flagged the same way. */
+  ruleBreakingPicks: RuleBreakingCount,
 });
 export type CharacterImportReport = z.infer<typeof CharacterImportReport>;
 
@@ -108,6 +110,7 @@ export interface ImportOutcome {
   readonly discrepancies: DiscrepancyReport;
   readonly ruleBreaking: RuleBreakingCount;
   readonly ruleBreakingFeats: RuleBreakingCount;
+  readonly ruleBreakingPicks: RuleBreakingCount;
 }
 
 /** The report shown on a character created from `value`. */

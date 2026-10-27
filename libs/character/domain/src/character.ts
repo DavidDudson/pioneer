@@ -1,5 +1,5 @@
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import type { ContentId, SlotKey } from '@pioneer/rules/sdk';
+import type { SlotKey } from '@pioneer/rules/sdk';
 import { FIRST_VERSION, InstantCodec, Version } from '@pioneer/shared/kernel';
 import type { Temporal, UserId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -22,7 +22,8 @@ import type { EditInputs } from './item-purchase';
 import { storableLimits } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
 import { signatureKeyOf } from './signature-spells';
-import { withoutUnplacedFeat } from './unplaced-feats';
+import { withoutPlacedPick } from './unplaced-picks';
+import type { UnplacedPicks } from './unplaced-picks';
 
 /**
  * JSON shape of a character on the wire: its document at the current schema version, plus the row's version and
@@ -108,7 +109,7 @@ export class Character {
     readonly level?: CharacterLevel;
     readonly choices?: Readonly<Record<SlotKey, ChoiceValue>>;
     readonly inventory?: Inventory;
-    readonly unplacedFeats?: readonly ContentId[] | undefined;
+    readonly unplaced?: UnplacedPicks | undefined;
     readonly now: Temporal.Instant;
   }): Character {
     return new Character({
@@ -120,7 +121,7 @@ export class Character {
         level: input.level ?? CharacterLevel.parse(CHARACTER_LEVEL_MIN),
         build: {
           choices: { ...input.choices, [ANCESTRY_SLOT]: ChoiceValue.parse(input.ancestry) },
-          unplacedFeats: input.unplacedFeats,
+          ...input.unplaced,
         },
         inventory: input.inventory,
       }),
@@ -173,7 +174,9 @@ export class Character {
       }
       case CharacterPatchField.GrantSpellAccess:
       case CharacterPatchField.RevokeSpellAccess:
-      case CharacterPatchField.DismissUnplacedFeat: {
+      case CharacterPatchField.DismissUnplacedFeat:
+      case CharacterPatchField.DismissUnplacedHeritage:
+      case CharacterPatchField.DismissUnplacedLanguage: {
         return { document: withBuildListEdit(this.document, patch) };
       }
       case CharacterPatchField.SetAppearance:
@@ -248,13 +251,13 @@ export class Character {
     const choices: Record<SlotKey, ChoiceValue> = { ...build.choices, [slot]: value };
     const old = build.choices[slot];
     if (inputs.countsAsSwap !== true || old === undefined) {
-      return { ...this.document, build: { ...withoutUnplacedFeat(build, value), choices } };
+      return { ...this.document, build: { ...withoutPlacedPick(build, slot, value), choices } };
     }
     const signature = signatureKeyOf(slot);
     if (signature !== undefined && choices[signature] === old) {
       choices[signature] = value;
     }
-    const swapped = { ...withoutUnplacedFeat(build, value), choices, repertoireSwaps: this.#swapped(slot) };
+    const swapped = { ...withoutPlacedPick(build, slot, value), choices, repertoireSwaps: this.#swapped(slot) };
     return { ...this.document, build: swapped };
   }
 

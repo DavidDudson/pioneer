@@ -120,6 +120,13 @@ import report counts them (`ruleBreakingFeats`), the feats tab lists them and th
 inventory's rule breaks. A rule a published variant covers (Dual Class, Free Archetype, No Dedication Lock) is
 enabled by the import instead; the flag is for everything else.
 
+A heritage the ancestry does not offer and a language no language slot has room for are kept the same way, in
+`build.unplacedHeritage` and `build.unplacedLanguages` (schema version 12). `unplacedPickBreaks` flags the heritage
+while the heritage slot is empty and each language no slot pick holds. Picking in the slot, or `dismissUnplacedHeritage`
+and `dismissUnplacedLanguage`, takes them off. The import report counts them (`ruleBreakingPicks`), the plan tab lists
+the heritage, the exploration tab the languages, and the sheet header counts them with the rest. A second class with no
+Dual Class variant in the loaded packs is still only named in the report as not offered.
+
 ### Schema versions
 
 Every stored document carries `schemaVersion`. `decodeCharacterDocument` upgrades an older document to the current

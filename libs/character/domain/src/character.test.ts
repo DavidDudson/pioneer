@@ -126,7 +126,14 @@ describe('Character', () => {
     const unpicked = new Character({
       document: {
         ...original.document,
-        build: { choices: {}, spellAccess: [], unplacedFeats: [], repertoireSwaps: [], boons: [] },
+        build: {
+          choices: {},
+          spellAccess: [],
+          unplacedFeats: [],
+          unplacedLanguages: [],
+          repertoireSwaps: [],
+          boons: [],
+        },
       },
       version: original.version,
       createdAt: original.createdAt,

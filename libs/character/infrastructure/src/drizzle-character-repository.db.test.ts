@@ -183,6 +183,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
       choices: {},
       spellAccess: [],
       unplacedFeats: [],
+      unplacedLanguages: [],
       repertoireSwaps: [],
       boons: [],
     });

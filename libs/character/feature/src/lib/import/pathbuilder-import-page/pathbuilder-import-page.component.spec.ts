@@ -162,6 +162,7 @@ describe('PathbuilderImportPage create', () => {
         discrepancies: { compared: 0, differences: [] },
         ruleBreaking: RuleBreakingCount.parse(0),
         ruleBreakingFeats: RuleBreakingCount.parse(0),
+        ruleBreakingPicks: RuleBreakingCount.parse(0),
       },
     });
 

@@ -35,6 +35,8 @@ export const CharacterCommand = {
   GrantSpellAccess: 'grantSpellAccess',
   RevokeSpellAccess: 'revokeSpellAccess',
   DismissUnplacedFeat: 'dismissUnplacedFeat',
+  DismissUnplacedHeritage: 'dismissUnplacedHeritage',
+  DismissUnplacedLanguage: 'dismissUnplacedLanguage',
   /** Play state (#343, #344, #345): written to `character_play`, never to the build. */
   CastWand: 'castWand',
   OverchargeWand: 'overchargeWand',
@@ -115,6 +117,8 @@ export const PATCH_COMMANDS = {
   [CharacterPatchField.GrantSpellAccess]: CharacterCommand.GrantSpellAccess,
   [CharacterPatchField.RevokeSpellAccess]: CharacterCommand.RevokeSpellAccess,
   [CharacterPatchField.DismissUnplacedFeat]: CharacterCommand.DismissUnplacedFeat,
+  [CharacterPatchField.DismissUnplacedHeritage]: CharacterCommand.DismissUnplacedHeritage,
+  [CharacterPatchField.DismissUnplacedLanguage]: CharacterCommand.DismissUnplacedLanguage,
   [CharacterPatchField.SetAppearance]: CharacterCommand.SetAppearance,
   [CharacterPatchField.SetPersonality]: CharacterCommand.SetPersonality,
 } as const satisfies Record<CharacterPatchField, CharacterCommand>;

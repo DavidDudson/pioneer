@@ -4,6 +4,7 @@ import { Grid, InlineField, Stack, Text } from '@pioneer/frontier';
 import { SkillPicker, SlotPicker } from '@pioneer/rules/ui';
 
 import type { SlotPickField } from '../sheet-slot-picks';
+import { SheetUnplacedPicks } from '../sheet-unplaced-picks/sheet-unplaced-picks.component';
 
 /**
  * A grid of slot pickers on the sheet, one inline edit per slot, each offering what its slot offers: the trained skills
@@ -12,7 +13,7 @@ import type { SlotPickField } from '../sheet-slot-picks';
  */
 @Component({
   selector: 'pio-sheet-pick-fields',
-  imports: [Grid, InlineField, SkillPicker, SlotPicker, Stack, Text, TranslocoPipe],
+  imports: [Grid, InlineField, SheetUnplacedPicks, SkillPicker, SlotPicker, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-pick-fields.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

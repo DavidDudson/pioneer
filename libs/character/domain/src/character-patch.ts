@@ -58,6 +58,10 @@ export const CharacterPatchField = {
   RevokeSpellAccess: 'revokeSpellAccess',
   /** An imported feat no slot took, taken off the list so it stops being flagged. */
   DismissUnplacedFeat: 'dismissUnplacedFeat',
+  /** An imported heritage the ancestry does not offer, taken off the build so it stops being flagged. */
+  DismissUnplacedHeritage: 'dismissUnplacedHeritage',
+  /** An imported language no slot held, taken off the list so it stops being flagged. */
+  DismissUnplacedLanguage: 'dismissUnplacedLanguage',
   /** What the character looks like; empty rich text clears it. */
   SetAppearance: 'setAppearance',
   /** How the character acts and what they care about; empty rich text clears it. */
@@ -111,6 +115,8 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.GrantSpellAccess), spell: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.RevokeSpellAccess), spell: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedFeat), feat: ContentId }),
+  z.object({ field: z.literal(CharacterPatchField.DismissUnplacedHeritage), heritage: ContentId }),
+  z.object({ field: z.literal(CharacterPatchField.DismissUnplacedLanguage), language: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.SetAppearance), value: RichText }),
   z.object({ field: z.literal(CharacterPatchField.SetPersonality), value: RichText }),
 ]);
@@ -129,10 +135,15 @@ export type SpellAccessPatch = Extract<
   { readonly field: typeof CharacterPatchField.GrantSpellAccess | typeof CharacterPatchField.RevokeSpellAccess }
 >;
 
-/** The edit that takes an imported feat off the list of those no slot holds. */
-export type UnplacedFeatPatch = Extract<
+/** The edits that take an imported feat, heritage or language off what no slot holds. */
+export type UnplacedPickPatch = Extract<
   CharacterPatch,
-  { readonly field: typeof CharacterPatchField.DismissUnplacedFeat }
+  {
+    readonly field:
+      | typeof CharacterPatchField.DismissUnplacedFeat
+      | typeof CharacterPatchField.DismissUnplacedHeritage
+      | typeof CharacterPatchField.DismissUnplacedLanguage;
+  }
 >;
 
 /** The edits that write the appearance or the personality. */
@@ -152,7 +163,7 @@ export type UntargetedPatch = Extract<
       | typeof CharacterPatchField.ClearSlot
       | typeof CharacterPatchField.GrantSpellAccess
       | typeof CharacterPatchField.RevokeSpellAccess
-      | typeof CharacterPatchField.DismissUnplacedFeat
+      | UnplacedPickPatch['field']
       | ProsePatch['field'];
   }
 >;
@@ -165,6 +176,8 @@ const UNTARGETED_FIELDS: ReadonlySet<CharacterPatchField> = new Set<UntargetedPa
   CharacterPatchField.GrantSpellAccess,
   CharacterPatchField.RevokeSpellAccess,
   CharacterPatchField.DismissUnplacedFeat,
+  CharacterPatchField.DismissUnplacedHeritage,
+  CharacterPatchField.DismissUnplacedLanguage,
   CharacterPatchField.SetAppearance,
   CharacterPatchField.SetPersonality,
 ]);

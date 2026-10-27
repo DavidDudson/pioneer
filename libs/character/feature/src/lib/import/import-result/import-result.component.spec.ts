@@ -28,6 +28,7 @@ const EMPTY: CharacterImportReport = {
   discrepancies: { compared: 0, differences: [] },
   ruleBreaking: RuleBreakingCount.parse(0),
   ruleBreakingFeats: RuleBreakingCount.parse(0),
+  ruleBreakingPicks: RuleBreakingCount.parse(0),
 };
 
 async function render(report: CharacterImportReport): Promise<ComponentFixture<ImportResult>> {
@@ -66,6 +67,7 @@ describe(ImportResult, () => {
       discrepancies: { compared: 0, differences: [] },
       ruleBreaking: RuleBreakingCount.parse(0),
       ruleBreakingFeats: RuleBreakingCount.parse(0),
+      ruleBreakingPicks: RuleBreakingCount.parse(0),
     });
 
     expect(text(fixture)).toContain("weren't kept: Class features and Spells");
@@ -116,6 +118,14 @@ describe(ImportResult, () => {
     const fixture = await render({ ...EMPTY, ruleBreakingFeats: RuleBreakingCount.parse(2) });
 
     expect(text(fixture)).toContain('2 feats fit no slot, so they were kept as imported but break a rule.');
+  });
+
+  it('counts the imported heritage and languages no slot holds', async () => {
+    const fixture = await render({ ...EMPTY, ruleBreakingPicks: RuleBreakingCount.parse(1) });
+
+    expect(text(fixture)).toContain(
+      '1 heritage or language fits no slot, so it was kept as imported but breaks a rule.',
+    );
   });
 
   it('leaves out the rule-breaking line when no imported item breaks a rule', async () => {
