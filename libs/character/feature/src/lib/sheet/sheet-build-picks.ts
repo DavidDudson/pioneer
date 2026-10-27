@@ -60,7 +60,7 @@ export interface BuildPicks extends EngineReads, ClassPicks {
   readonly hasSecondClass: Signal<boolean>;
   /** The second class's subclass and key attribute. */
   readonly second: ClassPicks;
-  /** Immunities, weaknesses and resistances from the engine; undefined while the character or the content loads. */
+  /** Immunities, weaknesses and resistances with the rules in play, a form's among them; undefined while loading. */
   readonly defences: Signal<Defences | undefined>;
   /** The attribute modifiers and the boosts still to pick; undefined while the character or the content loads. */
   readonly attributes: Signal<SheetAttributes | undefined>;
@@ -171,7 +171,7 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
     ...classPicks(sources, CLASS_SLOT, BoostSource.Class),
     hasSecondClass: computed(() => hasSecondClass() ?? false),
     second: classPicks(sources, SECOND_CLASS_SLOT, BoostSource.SecondClass),
-    defences: loaded(sources, sheetDefences),
+    defences: loaded({ ...sources, registry: sources.engineRegistry }, sheetDefences),
     attributes: loaded(sources, sheetAttributes),
     features: loaded(sources, sheetClassFeatures),
     buildLines: computed(() => {

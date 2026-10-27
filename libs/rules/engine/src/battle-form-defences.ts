@@ -31,7 +31,7 @@ function formAdjustmentLines(
       return [];
     }
     const { id, label, origin } = form;
-    return [{ id, label, origin, type: target.data, exceptions: exceptions ?? NONE, ...result }];
+    return [{ id, label, origin, type: target.data, exceptions: exceptions ?? NONE, ...result, fromForm: true }];
   });
 }
 
@@ -43,7 +43,7 @@ export function formDefences(form: FormInPlay | undefined, context: RuleContext)
   const { id, label, origin } = form;
   const types = new Set((form.form.immunities ?? []).map(({ type }) => type));
   return {
-    immunities: [...types].map((type) => ({ id, label, origin, type, status: APPLIED })),
+    immunities: [...types].map((type) => ({ id, label, origin, type, status: APPLIED, fromForm: true })),
     weaknesses: formAdjustmentLines(form, form.form.weaknesses, context),
     resistances: formAdjustmentLines(form, form.form.resistances, context),
   };

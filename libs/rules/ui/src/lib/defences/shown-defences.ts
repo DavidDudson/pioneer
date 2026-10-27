@@ -6,6 +6,8 @@ import type { MarkedStatus } from './defences-messages';
 export interface Standing {
   readonly status: MarkedStatus | undefined;
   readonly detail: string | undefined;
+  /** "from Plant Form" when a battle form gives the line; undefined otherwise. */
+  readonly fromForm: string | undefined;
   /** Shown as the line's origin chain and sources. */
   readonly origin: Origin;
 }

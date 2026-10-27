@@ -52,6 +52,8 @@ export interface ImmunityLine {
   readonly origin: Origin;
   readonly type: Immunity;
   readonly status: DefenceStatus;
+  /** Set when a battle form in force gives the line: the sheet marks it as from the form. */
+  readonly fromForm?: true;
 }
 
 /** One weakness or resistance from a `Weakness` or `Resistance` element, and whether it counts. */
@@ -64,6 +66,8 @@ export interface AdjustmentLine {
   readonly value: DamageAmount | undefined;
   readonly exceptions: readonly DamageException[];
   readonly status: DefenceStatus;
+  /** Set when a battle form in force gives the line: the sheet marks it as from the form. */
+  readonly fromForm?: true;
 }
 
 /**
