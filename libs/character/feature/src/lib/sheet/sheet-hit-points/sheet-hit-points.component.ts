@@ -14,6 +14,7 @@ import {
   Text,
 } from '@pioneer/frontier';
 import { HitPoints } from '@pioneer/rules/sdk';
+import type { ContentId } from '@pioneer/rules/sdk';
 
 import { PlayStore } from '../../data/play-store';
 import { describeSaveError } from '../sheet-field';
@@ -113,15 +114,22 @@ export class SheetHitPoints {
     return this.#i18n.translate(key, params);
   };
 
+  /** The form's name, or a generic one while its entry has none. */
+  #formName(entry: ContentId): string {
+    return this.#sheet.picks.entryNames().get(entry) ?? this.#translated('character.sheet.hp.unnamedForm');
+  }
+
   #translated(key: string, params?: Readonly<Record<string, string | number | undefined>>): string {
     return this.#i18n.translate(key, params);
   }
 
-  #grantedText({ key, amount, reach, size, stoppedBy }: GrantedLine): string {
+  #grantedText({ key, amount, reach, size, form, stoppedBy }: GrantedLine): string {
     const text = this.#translated(key, {
       amount,
       reach,
       size: size === undefined ? undefined : this.#translated(size),
+      form: form === undefined ? undefined : this.#formName(form.entry),
+      own: form === undefined ? undefined : this.#translated(form.own),
     });
     if (stoppedBy.length === 0) {
       return text;

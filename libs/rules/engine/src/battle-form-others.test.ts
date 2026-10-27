@@ -64,13 +64,25 @@ describe('battle form: senses and size', () => {
 
     const { size } = vitalsInPlay({ rules: [rule], facts }, SCOPE);
 
-    expect(size).toMatchObject({ size: Size.Large, base: Size.Medium, reach: 10, origins: [rule.origin] });
+    expect(size).toMatchObject({
+      size: Size.Large,
+      base: Size.Medium,
+      reach: 10,
+      origins: [rule.origin],
+      form: rule.origin,
+    });
   });
 
   test('a CreatureSize element then applies to the form’s size', () => {
     const rules = [formRule({ size: 'large' }), inPlay({ key: 'CreatureSize', value: 1 }, 'enlarge')];
 
     expect(vitalsInPlay({ rules, facts }, SCOPE).size).toMatchObject({ size: Size.Huge, reach: 15 });
+  });
+
+  test('a size an element sets without a form is not marked as the form’s', () => {
+    const rules = [inPlay({ key: 'CreatureSize', value: 1 }, 'enlarge')];
+
+    expect(vitalsInPlay({ rules, facts }, SCOPE).size?.form).toBeUndefined();
   });
 
   test('a form that names no size changes none', () => {
