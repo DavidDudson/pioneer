@@ -65,6 +65,14 @@ describe('CharacterSheetPage feats with no slot', () => {
     );
   });
 
+  it('counts the flagged feats in the sheet header', async () => {
+    const { root } = await openSheet(fighter([POWER_ATTACK]), { packs: PACKS });
+
+    await vi.waitFor(() => {
+      expect(textOf(root)).toContain('1 item breaks a rule');
+    });
+  });
+
   it('lists nothing when every imported feat has a slot', async () => {
     const { root } = await openSheet(fighter([]), { packs: PACKS });
 

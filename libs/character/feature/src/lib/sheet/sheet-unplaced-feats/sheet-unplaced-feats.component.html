@@ -13,12 +13,22 @@
               </pio-content-preview>
               <fr-badge [tone]="Tone.Warning">{{ row.reason.key | transloco: row.reason.params }}</fr-badge>
             </fr-stack>
-            <fr-async-button
-              variant="ghost"
-              [ariaLabel]="'character.sheet.unplacedFeats.dismissNamed' | transloco: { name }"
-              [action]="dismiss(row.id)"
-              >{{ 'character.sheet.unplacedFeats.dismiss' | transloco }}</fr-async-button
-            >
+            <fr-stack direction="horizontal" align="center" gap="xs">
+              @if (row.slots.length > 0) {
+                <fr-select
+                  [options]="row.slots"
+                  [ariaLabel]="'character.sheet.unplacedFeats.moveNamed' | transloco: { name }"
+                  [placeholder]="'character.sheet.unplacedFeats.move' | transloco"
+                  (valueChange)="move(row.id)($event)"
+                />
+              }
+              <fr-async-button
+                variant="ghost"
+                [ariaLabel]="'character.sheet.unplacedFeats.dismissNamed' | transloco: { name }"
+                [action]="dismiss(row.id)"
+                >{{ 'character.sheet.unplacedFeats.dismiss' | transloco }}</fr-async-button
+              >
+            </fr-stack>
           </fr-stack>
         </fr-list-item>
       }

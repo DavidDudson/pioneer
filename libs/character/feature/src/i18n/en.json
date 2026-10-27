@@ -199,9 +199,11 @@
     },
     "unplacedFeats": {
       "heading": "Feats with no slot",
-      "explain": "The import found these feats but no slot offers them, so they were kept as imported and break a rule. Pick one in a feat slot to place it, or dismiss it.",
+      "explain": "The import found these feats but no slot offers them, so they were kept as imported and break a rule. Pick one in a feat slot or move it to one that offers it now, or dismiss it.",
       "dismiss": "Dismiss",
-      "dismissNamed": "Dismiss {name}"
+      "dismissNamed": "Dismiss {name}",
+      "move": "Move to slot",
+      "moveNamed": "Move {name} to a slot"
     },
     "feats": {
       "slot": "{prompt}, level {level}",
