@@ -9,6 +9,9 @@
           <fr-stack gap="3xs">
             <fr-stack direction="horizontal" gap="xs" align="center" wrap>
               <fr-text [tone]="defence.status === Superseded ? 'muted' : 'default'">{{ defence.text }}</fr-text>
+              @if (defence.fromForm; as form) {
+                <fr-badge tone="info">{{ form }}</fr-badge>
+              }
               @if (defence.status; as status) {
                 <fr-badge [tone]="STATUS_TONES[status]">{{ STATUS_MESSAGES[status] | transloco }}</fr-badge>
               }

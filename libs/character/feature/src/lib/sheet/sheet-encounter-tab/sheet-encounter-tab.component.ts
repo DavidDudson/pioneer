@@ -3,7 +3,14 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { SheetMode, TurnPhase } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Section, SectionIndex, SectionLink, Stack } from '@pioneer/frontier';
 import { ActionMode, SpellPreparation } from '@pioneer/rules/sdk';
-import { DefencesView, ENTRY_PREVIEWS, SpellcastingView, StatisticsView, StrikesView } from '@pioneer/rules/ui';
+import {
+  DefencesView,
+  ENTRY_PREVIEWS,
+  SensesView,
+  SpellcastingView,
+  StatisticsView,
+  StrikesView,
+} from '@pioneer/rules/ui';
 import type { EntryPreviews, NamedStrike } from '@pioneer/rules/ui';
 
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
@@ -34,6 +41,7 @@ import { SheetWands } from '../sheet-wands/sheet-wands.component';
     AsyncPending,
     AsyncRegion,
     DefencesView,
+    SensesView,
     Section,
     SectionIndex,
     SectionLink,

@@ -5,6 +5,7 @@ export { numberStyle } from './lib/breakdown/number-style';
 export { OriginChainView } from './lib/origin-chain/origin-chain.component';
 export { NO_ORIGIN_NAMES, type OriginNames } from './lib/origin-chain/origin-names';
 export { DefencesView } from './lib/defences/defences.component';
+export { SensesView } from './lib/senses/senses.component';
 export { ContentPreview } from './lib/entry-preview/content-preview.component';
 export { EntryPreviewView } from './lib/entry-preview/entry-preview.component';
 export {

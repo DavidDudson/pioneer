@@ -36,6 +36,9 @@ function section(root: HTMLElement, anchor: string): HTMLElement {
   return present(root.querySelector<HTMLElement>(`section[aria-labelledby="${anchor}"]`));
 }
 
+/** The actions list renders after the spellcasting section, which a loaded runner can take longer than a second over. */
+const SLOW_RENDER = 10_000;
+
 describe('CharacterSheetPage form limits', () => {
   beforeAll(async () => {
     await prebuildServerStateTesting([], PACKS);
@@ -52,18 +55,23 @@ describe('CharacterSheetPage form limits', () => {
   it('gives the Cast a Spell action the form as the reason it is unavailable', async () => {
     const { root } = await openSheet(CLERIC, { tab: SheetMode.Encounter, play: plant, packs: PACKS });
 
-    const all = await vi.waitFor(() =>
-      present(
-        [...section(root, 'sheet-actions').querySelectorAll<HTMLElement>('button, [role="radio"], [role="tab"]')].find(
-          (control) => textOf(control) === 'All',
+    const all = await vi.waitFor(
+      () =>
+        present(
+          [
+            ...section(root, 'sheet-actions').querySelectorAll<HTMLElement>('button, [role="radio"], [role="tab"]'),
+          ].find((control) => textOf(control) === 'All'),
         ),
-      ),
+      { timeout: SLOW_RENDER },
     );
     all.click();
 
-    await vi.waitFor(() => {
-      expect(textOf(section(root, 'sheet-actions'))).toContain("Can't cast spells in");
-    });
+    await vi.waitFor(
+      () => {
+        expect(textOf(section(root, 'sheet-actions'))).toContain("Can't cast spells in");
+      },
+      { timeout: SLOW_RENDER },
+    );
   });
 
   it('says nothing of casting in a form that lets the character cast', async () => {

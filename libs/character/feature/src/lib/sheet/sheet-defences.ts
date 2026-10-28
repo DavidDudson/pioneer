@@ -1,18 +1,15 @@
+import { characterDefences } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
-import { deriveDefences, statisticContent } from '@pioneer/rules/engine';
 import type { Defences } from '@pioneer/rules/engine';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 
-import { statisticInputsOf } from './sheet-inputs';
-
-const NO_DEFENCES: Defences = { immunities: [], weaknesses: [], resistances: [] };
+import { sheetSources } from './sheet-sources';
 
 /**
- * A character's defences from the engine. No rule elements are in play until the builder puts the character's
- * ancestry, class, feats and items there, so every list is empty for now. Without a proficiency bonus table (no core
- * rules pack) nothing can be derived, and the lists are empty too.
+ * A character's defences from the engine, with the rule elements in play: the battle form's, and those of the
+ * character's items, effects and build. Without a proficiency bonus table (no core rules pack) nothing can be
+ * derived, and the lists are empty.
  */
 export function sheetDefences(registry: ContentRegistry, character: Character): Defences {
-  const content = statisticContent(registry);
-  return content === undefined ? NO_DEFENCES : deriveDefences(content, statisticInputsOf(registry, character));
+  return characterDefences(character.document, sheetSources(registry, character));
 }

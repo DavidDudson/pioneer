@@ -13,6 +13,7 @@ export const SHEET_SECTIONS = {
   deity: { anchor: 'sheet-deity', headingKey: 'character.sheet.deity.heading' },
   attributes: { anchor: 'sheet-attributes', headingKey: 'character.sheet.attributesHeading' },
   defences: { anchor: 'sheet-defences', headingKey: 'character.sheet.defencesHeading' },
+  senses: { anchor: 'sheet-senses', headingKey: 'character.sheet.sensesHeading' },
   skills: { anchor: 'sheet-skills', headingKey: 'character.sheet.skillsHeading' },
   strikes: { anchor: 'sheet-strikes', headingKey: 'character.sheet.strikesHeading' },
   /** What the character can do now and ever, in the tab's mode (#353). */
@@ -60,6 +61,7 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSectio
   ],
   [SheetMode.Encounter]: [
     SHEET_SECTIONS.defences,
+    SHEET_SECTIONS.senses,
     SHEET_SECTIONS.skills,
     SHEET_SECTIONS.strikes,
     SHEET_SECTIONS.actions,

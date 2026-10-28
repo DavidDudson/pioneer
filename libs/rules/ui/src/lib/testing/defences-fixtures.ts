@@ -117,3 +117,18 @@ export const BARBARIAN_DEFENCES: Defences = {
     adjustment(RAGE, 'physical', { value: RAGE_PHYSICAL, exceptions: ['adamantine'], status: WHILE_RAGING }),
   ],
 };
+
+const FORM_FIRE = 10;
+
+/** A dwarf in Golem Form: the form's immunity and fire resistance, which beats the dwarf's own and supersedes it. */
+export const FORM_DEFENCES: Defences = {
+  immunities: [{ ...immunity(GOLEM_FORM, 'poison'), fromForm: true }],
+  weaknesses: [],
+  resistances: [
+    { ...adjustment(GOLEM_FORM, 'fire', { value: FORM_FIRE }), fromForm: true },
+    adjustment(DWARF, 'fire', {
+      value: DWARF_FIRE,
+      status: { kind: DefenceStatusKind.Superseded, by: RuleId.parse(`${GOLEM_FORM}#0`) },
+    }),
+  ],
+};

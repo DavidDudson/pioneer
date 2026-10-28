@@ -16,6 +16,8 @@ export const DefencesMessage = {
   Resistance: 'rules.defences.resistance',
   /** "physical (bleed, bludgeoning, piercing, slashing)": a group and the types it covers. */
   GroupTypes: 'rules.defences.groupTypes',
+  /** "from Plant Form": the badge on a line a battle form gives. */
+  FromForm: 'rules.defences.fromForm',
   AppliesWhen: 'rules.defences.appliesWhen',
   /** A failed line that was conditional: the error, then that it applies only in some situations. */
   FailedConditional: 'rules.defences.failedConditional',

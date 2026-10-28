@@ -26,12 +26,12 @@ describe('CharacterSheetPage modes', () => {
     });
     expect(textOf(root.querySelector('pio-sheet-save-status'))).toBe('All changes saved');
     await vi.waitFor(() => {
-      expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(6);
+      expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(7);
     });
 
     await openTab(root, 'Downtime', 'Rest and preparations');
     expect(textOf(root.querySelector('h1'))).toBe('Merisiel');
-    expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(6);
+    expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(7);
   });
 
   it('shows AC, saves and Perception in the vitals with their ranks, and what sets AC', async () => {
@@ -45,6 +45,7 @@ describe('CharacterSheetPage modes', () => {
         'Reflex +2',
         'Will +1',
         'Perception +1',
+        'Speed 30',
       ]);
     });
     // The tiles' own ranks, not the empty ones the rows inside them hold for a skill's.

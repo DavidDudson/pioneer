@@ -395,6 +395,8 @@ export {
   type RollSetupsRequest,
   type StatisticSources,
 } from './character-statistics';
+export { characterDefences } from './character-defences';
+export { type CharacterSenses, characterSenses } from './character-senses';
 export { characterEffects, type EffectsRequest } from './character-effects';
 export {
   applyExplorationCommand,

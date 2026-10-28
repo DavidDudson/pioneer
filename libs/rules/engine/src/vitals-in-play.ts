@@ -49,6 +49,8 @@ export interface SizeInPlay {
   readonly resizeEquipment: boolean;
   /** Every element that changes the size, in the order found. */
   readonly origins: readonly Origin[];
+  /** The battle form that sets the size the elements start from; absent when none does. */
+  readonly form?: Origin;
 }
 
 export interface VitalsInPlay {
@@ -189,6 +191,7 @@ function resized(resizes: readonly Kind<CreatureSizeElement>[], base: Size, form
     reach: reachOf(size, reach),
     resizeEquipment: resizes.some(({ element }) => element.resizeEquipment === true),
     origins: [...(form?.form.size === undefined ? [] : [form.origin]), ...resizes.map(({ origin }) => origin)],
+    ...(form?.form.size === undefined ? {} : { form: form.origin }),
   };
 }
 

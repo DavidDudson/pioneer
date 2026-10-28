@@ -50,13 +50,18 @@ describe('battle form: senses and size', () => {
 
     const senses = sensesInPlay({ rules, facts });
 
-    expect(senses).toEqual([{ sense: SCENT, acuity: 'imprecise', range: Feet.parse(30), origins: [rule.origin] }]);
+    expect(senses).toEqual([
+      { sense: SCENT, acuity: 'imprecise', range: Feet.parse(30), origins: [rule.origin], fromForm: true },
+    ]);
   });
 
   test('a form that lists no senses leaves them alone', () => {
     const rules = [inPlay({ key: 'Sense', sense: DARKVISION }, 'ancestry'), formRule({ speeds: { fly: 30 } })];
 
-    expect(sensesInPlay({ rules, facts }).map(({ sense }) => sense)).toEqual([DARKVISION]);
+    const senses = sensesInPlay({ rules, facts });
+
+    expect(senses.map(({ sense }) => sense)).toEqual([DARKVISION]);
+    expect(senses.map(({ fromForm }) => fromForm)).toEqual([undefined]);
   });
 
   test('the form’s size sets the size and the reach it gives', () => {
@@ -64,13 +69,25 @@ describe('battle form: senses and size', () => {
 
     const { size } = vitalsInPlay({ rules: [rule], facts }, SCOPE);
 
-    expect(size).toMatchObject({ size: Size.Large, base: Size.Medium, reach: 10, origins: [rule.origin] });
+    expect(size).toMatchObject({
+      size: Size.Large,
+      base: Size.Medium,
+      reach: 10,
+      origins: [rule.origin],
+      form: rule.origin,
+    });
   });
 
   test('a CreatureSize element then applies to the form’s size', () => {
     const rules = [formRule({ size: 'large' }), inPlay({ key: 'CreatureSize', value: 1 }, 'enlarge')];
 
     expect(vitalsInPlay({ rules, facts }, SCOPE).size).toMatchObject({ size: Size.Huge, reach: 15 });
+  });
+
+  test('a size an element sets without a form is not marked as the form’s', () => {
+    const rules = [inPlay({ key: 'CreatureSize', value: 1 }, 'enlarge')];
+
+    expect(vitalsInPlay({ rules, facts }, SCOPE).size?.form).toBeUndefined();
   });
 
   test('a form that names no size changes none', () => {

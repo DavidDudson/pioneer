@@ -144,7 +144,7 @@ describe(sheetStatistics, () => {
   it('lists the class DC after Perception', async () => {
     const registry = await equipmentRegistry();
     const names = sheetStatistics(registry, carrying(EMPTY_INVENTORY)).map(({ name }) => name);
-    expect(names.slice(-2)).toStrictEqual(['Perception', 'Class DC']);
+    expect(names.slice(-3)).toStrictEqual(['Perception', 'Class DC', 'Speed']);
   });
 
   it('adds worn armour to AC and an invested cloak to Perception, each named by its item', async () => {

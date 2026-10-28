@@ -11,6 +11,7 @@ import {
   BARBARIAN_DEFENCES,
   DWARF,
   ENTRY_NAMES,
+  FORM_DEFENCES,
   FIRE_RING,
   GOLEM_FORM,
   IN_DARKNESS,
@@ -105,6 +106,22 @@ describe(DefencesView, () => {
       { heading: 'Weaknesses', items: [], empty: 'No weaknesses.' },
       { heading: 'Resistances', items: [], empty: 'No resistances.' },
     ]);
+  });
+
+  it("marks the lines a battle form gives as from the form, and the character's own beside them", async () => {
+    const { immunities, resistances } = await render(FORM_DEFENCES);
+
+    expect(immunities.items).toStrictEqual(['Immunity poison | from Golem Form']);
+    expect(resistances.items).toStrictEqual([
+      'Resistance 10 fire | from Golem Form',
+      'Resistance 5 fire | Superseded | Golem Form counts instead.',
+    ]);
+  });
+
+  it('marks nothing as from a form while none gives a line', async () => {
+    const { lists } = await render(BARBARIAN_DEFENCES);
+
+    expect(lists.flatMap(({ items }) => items).filter((item) => item.includes('from'))).toStrictEqual([]);
   });
 
   it('shows a skeleton shaped like each list while loading', async () => {
