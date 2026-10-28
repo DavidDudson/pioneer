@@ -1,4 +1,4 @@
-import { ConditionValue, ContentKind, Slug, slugName } from '@pioneer/rules/sdk';
+import { ConditionValue, ContentKind, DurationCount, DurationUnitSchema, Slug, slugName } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -175,6 +175,8 @@ export const TurnCommandField = {
   LeaveEncounter: 'leaveEncounter',
   /** Set the attacks made this turn by hand, for an attack the sheet could not see. */
   SetAttacks: 'setAttacks',
+  /** Time passes: each environment the character is in has more time spent in it, and its consequences happen. */
+  PassTime: 'passTime',
 } as const;
 export type TurnCommandField = ValueOf<typeof TurnCommandField>;
 
@@ -184,6 +186,10 @@ export const TurnCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(TurnCommandField.EndTurn) }),
   z.object({ field: z.literal(TurnCommandField.LeaveEncounter) }),
   z.object({ field: z.literal(TurnCommandField.SetAttacks), count: AttackCount }),
+  z.object({
+    field: z.literal(TurnCommandField.PassTime),
+    duration: z.strictObject({ count: DurationCount, unit: DurationUnitSchema }),
+  }),
 ]);
 export type TurnCommand = z.infer<typeof TurnCommandSchema>;
 

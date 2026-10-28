@@ -79,7 +79,7 @@ function typed(result: TermResult, type: PersistentDamage['type']): TermResult {
 }
 
 /** The roll of a persistent damage condition's formula, or none when the formula is not plain dice. */
-function rolled({ formula, type }: PersistentDamage, random: RandomSource): RollResult | undefined {
+export function rolled({ formula, type }: PersistentDamage, random: RandomSource): RollResult | undefined {
   const parsed = parseDiceExpression(DiceExpressionText.parse(formula));
   if (!parsed.ok) {
     return undefined;

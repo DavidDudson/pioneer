@@ -8,6 +8,8 @@ import { isEffectCommand } from './effect-commands';
 import type { EffectCommand } from './effect-commands';
 import { applyEffectEdit } from './effect-ending';
 import type { ActiveEffect, EffectContent } from './effects';
+import { exposureAfterCommand } from './environment-exposure';
+import type { Exposure } from './environment-exposure';
 import { applyEnvironmentCommand, isEnvironmentCommand } from './environments';
 import type { ActiveEnvironments, EnvironmentCommand } from './environments';
 import { applyExplorationCommand, isExplorationCommand } from './exploration-commands';
@@ -46,6 +48,7 @@ export type CountingPlay = RestPlay & {
   readonly toggles: Toggles;
   readonly effects: readonly ActiveEffect[];
   readonly environments: ActiveEnvironments;
+  readonly exposure: Exposure;
   readonly breath?: BreathState | undefined;
   readonly activeSpells: readonly ActiveSpell[];
   readonly spendLog: SpendLog;
@@ -98,7 +101,11 @@ function applyChoiceCommand<Play extends CountingPlay>(
     return { ...play, breath: applyBreathCommand(command) };
   }
   return isEnvironmentCommand(command)
-    ? { ...play, environments: applyEnvironmentCommand(play.environments, command) }
+    ? {
+        ...play,
+        environments: applyEnvironmentCommand(play.environments, command),
+        exposure: exposureAfterCommand(play.exposure, command),
+      }
     : { ...play, toggles: applyToggleCommand(play.toggles, command) };
 }
 

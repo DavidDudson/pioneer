@@ -163,7 +163,12 @@
       "none": "No environments in the content yet",
       "lifted": "{reason} Lifted by {source}.",
       "blocked": "{reason}",
-      "active": "In:"
+      "active": "In:",
+      "passTime": {
+        "label": "Time passes:",
+        "tenMinutes": "10 minutes",
+        "oneHour": "1 hour"
+      }
     },
     "skills": {
       "formTraits": "Your form gives you the traits {traits} on this roll."
@@ -623,7 +628,9 @@
     "airLost": "You have {air, plural, one {# round} other {# rounds}} of air left.",
     "suffocationSaved": "Suffocation: Fortitude save {total} against DC {dc} holds.",
     "suffocationFailed": "Suffocation: Fortitude save {total} against DC {dc} fails; you take {amount} damage.",
-    "suffocationDied": "Suffocation: Fortitude save {total} against DC {dc} critically fails; you die."
+    "suffocationDied": "Suffocation: Fortitude save {total} against DC {dc} critically fails; you die.",
+    "environmentDamage": "The environment hurts you: you take {amount}.",
+    "environmentCondition": "Time in the environment takes its toll: you gain a condition."
   },
   "import": {
     "title": "Import from Pathbuilder",

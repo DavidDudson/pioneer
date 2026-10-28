@@ -40,6 +40,22 @@ describe('EnvironmentData', () => {
     expect(kept).toEqual(data);
   });
 
+  test('a consequence can deal damage instead of applying something', () => {
+    const damage = { after: { count: 1, unit: 'hour' }, damage: { category: 'minor', type: 'cold' }, repeats: true };
+
+    const kept: unknown = EnvironmentData.parse({ consequences: [damage] }).consequences;
+
+    expect(kept).toEqual([damage]);
+  });
+
+  test('a consequence that both applies and deals damage is an error', () => {
+    const both = { ...suffocation, damage: { category: 'minor', type: 'cold' } };
+
+    expect(issues({ consequences: [both] })).toEqual([
+      { path: ['consequences', 0], message: message(RulesMessage.ConsequenceAppliesOrDamage) },
+    ]);
+  });
+
   test('a repeated restriction id is an error at the repeat', () => {
     const result = issues({ restrictions: [speech, fireEffects, { ...speech, reason: 'Again.' }] });
 
@@ -56,6 +72,10 @@ describe('EnvironmentData', () => {
     ['a consequence after no time', { consequences: [{ ...suffocation, after: { count: 0, unit: 'round' } }] }],
     ['a consequence after an unknown unit', { consequences: [{ ...suffocation, after: { count: 1, unit: 'eon' } }] }],
     ['a consequence applying nothing', { consequences: [{ after: suffocation.after }] }],
+    [
+      'damage of an unknown category',
+      { consequences: [{ after: suffocation.after, damage: { category: 'huge', type: 'cold' } }] },
+    ],
     ['an unknown field', { restrictions: [], consequences: [], depth: 30 }],
   ])('rejects %s', (_name, data) => {
     expect(EnvironmentData.safeParse(data).success).toBe(false);

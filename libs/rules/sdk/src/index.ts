@@ -94,7 +94,13 @@ export { MagicTradition, MagicTraditionSchema, SpellcastingTraditionData } from 
 export { FeatCategory, UNLIMITED } from './feat';
 export { ConditionData, ConditionEffect, ConditionGroup, ConditionRecovery, ConditionTrigger } from './condition';
 export { ContentKind, ContentKindSchema } from './content-kind';
-export { EnvironmentConsequence, EnvironmentData, EnvironmentRestriction } from './environment';
+export {
+  EnvironmentConsequence,
+  EnvironmentData,
+  EnvironmentDamage,
+  EnvironmentDamageCategory,
+  EnvironmentRestriction,
+} from './environment';
 export {
   ContentPack,
   type ContentPackLoader,

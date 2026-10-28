@@ -30,6 +30,8 @@ export const TurnEventKind = {
   FlatCheck: 'flatCheck',
   AirLost: 'airLost',
   Suffocation: 'suffocation',
+  EnvironmentDamage: 'environmentDamage',
+  EnvironmentCondition: 'environmentCondition',
 } as const;
 export type TurnEventKind = ValueOf<typeof TurnEventKind>;
 
@@ -49,6 +51,8 @@ export const TurnMessage = {
   SuffocationSaved: 'character.turn.suffocationSaved',
   SuffocationFailed: 'character.turn.suffocationFailed',
   SuffocationDied: 'character.turn.suffocationDied',
+  EnvironmentDamage: 'character.turn.environmentDamage',
+  EnvironmentCondition: 'character.turn.environmentCondition',
 } as const;
 export type TurnMessage = ValueOf<typeof TurnMessage>;
 
@@ -119,6 +123,22 @@ export const TurnEventSchema = z.discriminatedUnion('kind', [
     degree: DegreeOfSuccessSchema,
     /** The Hit Points the failed save cost after the character's defences; none for a save that held. */
     taken: HitPoints,
+    message: MessageDescriptorSchema,
+  }),
+  z.object({
+    kind: z.literal(TurnEventKind.EnvironmentDamage),
+    environment: ContentId,
+    /** The dice rolled, for the roll card. */
+    roll: RollResult,
+    /** The roll applied to the character's defences, as any damage is. */
+    damage: DamageApplication,
+    message: MessageDescriptorSchema,
+  }),
+  z.object({
+    kind: z.literal(TurnEventKind.EnvironmentCondition),
+    environment: ContentId,
+    condition: ContentId,
+    instance: ConditionInstanceId,
     message: MessageDescriptorSchema,
   }),
 ]);
@@ -197,6 +217,32 @@ export function flatCheck(
 /** The turn ended with `air` rounds of breath left. */
 export function airLost(air: AirRounds): TurnEvent {
   return { kind: TurnEventKind.AirLost, air, message: message(TurnMessage.AirLost, { air }) };
+}
+
+/** Time in `environment` made the character take the damage `roll` rolled, which `damage` shows applied to its defences. */
+export function environmentDamaged(environment: ContentId, { roll, damage }: PersistentRoll): TurnEvent {
+  return {
+    kind: TurnEventKind.EnvironmentDamage,
+    environment,
+    roll,
+    damage,
+    message: message(TurnMessage.EnvironmentDamage, { amount: damage.taken }),
+  };
+}
+
+/** Time in `environment` put the condition `condition` on the character, as `instance`. */
+export function environmentConditioned(
+  environment: ContentId,
+  condition: ContentId,
+  instance: ConditionInstanceId,
+): TurnEvent {
+  return {
+    kind: TurnEventKind.EnvironmentCondition,
+    environment,
+    condition,
+    instance,
+    message: message(TurnMessage.EnvironmentCondition),
+  };
 }
 
 /** What a save against suffocation came to: its roll against its DC, and the Hit Points the failure cost. */
