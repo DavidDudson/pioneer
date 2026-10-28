@@ -71,6 +71,7 @@ export async function gmCorePack() {
     import('@pioneer/content/packs/gm-core/armor.json'),
     import('@pioneer/content/packs/gm-core/consumable.json'),
     import('@pioneer/content/packs/gm-core/effect.json'),
+    import('@pioneer/content/packs/gm-core/environment.json'),
     import('@pioneer/content/packs/gm-core/equipment.json'),
     import('@pioneer/content/packs/gm-core/rune.json'),
     import('@pioneer/content/packs/gm-core/shield.json'),
