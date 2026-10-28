@@ -163,3 +163,71 @@ describe('proposeAonMappings Equipment fallback for weapons, armor and shields',
     expect(result.unmatched).toEqual([feat.slug, missing.slug]);
   });
 });
+
+describe('proposeAonMappings legacy and remaster rows', () => {
+  const legacy = AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=30');
+  const remaster = AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=31');
+  const entries = [listed('Twin', 'Feats', 30), listed('Twin', 'Feats', 31)];
+
+  test('takes the one row the book prints a page for, whatever its ID', () => {
+    const twin = entry(ContentKind.Feat, 'Twin');
+    const { proposals } = proposeAonMappings([twin], [{ book: BOOK, entries, printed: new Set([legacy]) }], new Set());
+    expect(proposals.get(twin.slug)?.aon).toBe(legacy);
+  });
+
+  test('stays ambiguous when the book prints both rows or neither', () => {
+    const twin = entry(ContentKind.Feat, 'Twin');
+    const both = proposeAonMappings([twin], [{ book: BOOK, entries, printed: new Set([legacy, remaster]) }], new Set());
+    const neither = proposeAonMappings([twin], [{ book: BOOK, entries }], new Set());
+    expect(both.ambiguous).toEqual([twin.slug]);
+    expect(neither.ambiguous).toEqual([twin.slug]);
+  });
+});
+
+describe('proposeAonMappings other books and plurals', () => {
+  const other = BookId.parse('gm-core');
+  const home: AonListing = { book: BOOK, entries: [] };
+  const url = AonUrl.parse('https://2e.aonprd.com/Equipment.aspx?ID=40');
+
+  test('maps a weapon, armor or shield to the one URL another book lists, keeping the cited book', () => {
+    const shield = entry(ContentKind.Shield, 'Spined Shield');
+    const away: AonListing = { book: other, entries: [listed('Spined Shield', 'Equipment', 40)] };
+    const { proposals } = proposeAonMappings([shield], [home, away], new Set());
+    expect(proposals.get(shield.slug)).toEqual({ book: BOOK, aon: url });
+  });
+
+  test('does not guess between two URLs in other books, nor for another kind', () => {
+    const shield = entry(ContentKind.Shield, 'Spined Shield');
+    const feat = entry(ContentKind.Feat, 'Spined Shield');
+    const away: AonListing = { book: other, entries: [listed('Spined Shield', 'Equipment', 40)] };
+    const more: AonListing = {
+      book: BookId.parse('player-core-2'),
+      entries: [listed('Spined Shield', 'Equipment', 41)],
+    };
+    const result = proposeAonMappings([shield, feat], [home, away, more], new Set());
+    expect(result.ambiguous).toEqual([shield.slug]);
+    expect(result.unmatched).toEqual([feat.slug]);
+  });
+
+  test('looks up the plural of a name last', () => {
+    const bola = entry(ContentKind.Weapon, 'Windlass Bola');
+    const listing: AonListing = { book: BOOK, entries: [listed('Windlass Bolas', 'Equipment', 40)] };
+    expect(proposeAonMappings([bola], [listing], new Set()).proposals.get(bola.slug)?.aon).toBe(url);
+  });
+});
+
+describe('proposeAonMappings superseded pages', () => {
+  const entries = [listed('Hand Cannon', 'Weapons', 50), listed('Hand Cannon', 'Weapons', 52)];
+
+  test('takes the highest ID of a weapon with several rows of one page', () => {
+    const cannon = entry(ContentKind.Weapon, 'Hand Cannon');
+    const { proposals } = proposeAonMappings([cannon], [{ book: BOOK, entries }], new Set());
+    expect(proposals.get(cannon.slug)?.aon).toBe(AonUrl.parse('https://2e.aonprd.com/Weapons.aspx?ID=52'));
+  });
+
+  test('stays ambiguous for a kind this was not checked on', () => {
+    const twin = entry(ContentKind.Feat, 'Twin');
+    const feats = [listed('Twin', 'Feats', 3), listed('Twin', 'Feats', 4)];
+    expect(proposeAonMappings([twin], [{ book: BOOK, entries: feats }], new Set()).ambiguous).toEqual([twin.slug]);
+  });
+});

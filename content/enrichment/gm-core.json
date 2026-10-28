@@ -2569,6 +2569,46 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2828",
     "page": 235
   },
+  "weapon:acid-flask-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3286",
+    "page": 244
+  },
+  "weapon:acid-flask-lesser": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3286",
+    "page": 244
+  },
+  "weapon:acid-flask-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3286",
+    "page": 244
+  },
+  "weapon:acid-flask-moderate": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3286",
+    "page": 244
+  },
+  "weapon:alchemists-fire-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3287",
+    "page": 244
+  },
+  "weapon:alchemists-fire-lesser": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3287",
+    "page": 244
+  },
+  "weapon:alchemists-fire-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3287",
+    "page": 244
+  },
+  "weapon:alchemists-fire-moderate": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3287",
+    "page": 244
+  },
   "weapon:animal-staff": {
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3035",
@@ -2589,6 +2629,10 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2862",
     "page": 241
   },
+  "weapon:bountys-light": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4194"
+  },
   "weapon:caterwaul-sling": {
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2863",
@@ -2598,6 +2642,26 @@
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2864",
     "page": 242
+  },
+  "weapon:dread-ampoule-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3292",
+    "page": 245
+  },
+  "weapon:dread-ampoule-lesser": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3292",
+    "page": 245
+  },
+  "weapon:dread-ampoule-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3292",
+    "page": 245
+  },
+  "weapon:dread-ampoule-moderate": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3292",
+    "page": 245
   },
   "weapon:fighters-fork": {
     "book": "gm-core",
@@ -2623,6 +2687,26 @@
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2866",
     "page": 242
+  },
+  "weapon:glue-bomb-greater": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3295",
+    "page": 245
+  },
+  "weapon:glue-bomb-lesser": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3295",
+    "page": 245
+  },
+  "weapon:glue-bomb-major": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3295",
+    "page": 245
+  },
+  "weapon:glue-bomb-moderate": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3295",
+    "page": 245
   },
   "weapon:handwraps-of-mighty-blows": {
     "book": "gm-core",

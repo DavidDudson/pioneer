@@ -829,6 +829,11 @@
     "page": 186,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1232"
   },
+  "consumable:practice-target": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1205",
+    "page": 179
+  },
   "consumable:puff-dragon": {
     "book": "guns-and-gears",
     "page": 80,
@@ -2639,6 +2644,11 @@
     "page": 159,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=219"
   },
+  "weapon:hand-cannon": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=523",
+    "page": 153
+  },
   "weapon:harmona-gun": {
     "book": "guns-and-gears",
     "page": 153,
@@ -2718,6 +2728,10 @@
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1187",
     "page": 167
+  },
+  "weapon:pistol-wand": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3589"
   },
   "weapon:rapier-pistol": {
     "book": "guns-and-gears",

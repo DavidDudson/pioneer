@@ -9,7 +9,7 @@ import path from 'node:path';
 import { proposeAonMappings } from '@pioneer/rules/catalog';
 import type { AonListing } from '@pioneer/rules/catalog';
 import { AonListingFile, AonPagesFile, BookId, ContentEntryFile, EnrichmentMappingFile } from '@pioneer/rules/sdk';
-import type { AonListedEntry, ContentEntry, EntrySlug } from '@pioneer/rules/sdk';
+import type { AonUrl, ContentEntry, EntrySlug } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 import * as z from 'zod';
 
@@ -21,12 +21,12 @@ const ENRICHMENT = path.join(ROOT, 'content', 'enrichment');
 const JSON_INDENT = 2;
 const JsonArray = z.array(z.unknown()).readonly();
 
-/** The entries AoN's search index holds for a book that its Sources page does not list (ADR-0074). */
-async function indexOnly(book: BookId): Promise<readonly AonListedEntry[]> {
+/** What AoN's search index holds for a book: the entries its Sources page does not list (ADR-0074), and its pages. */
+async function indexed(book: BookId): Promise<AonPagesFile> {
   const file = Bun.file(path.join(PAGES, `${book}.json`));
   const exists = await file.exists();
   const json: unknown = exists ? await file.json() : {};
-  return AonPagesFile.parse(json).entries;
+  return AonPagesFile.parse(json);
 }
 
 async function readListings(): Promise<readonly AonListing[]> {
@@ -35,7 +35,12 @@ async function readListings(): Promise<readonly AonListing[]> {
     files.map(async (file) => {
       const json: unknown = await Bun.file(path.join(LISTINGS, file)).json();
       const book = BookId.parse(path.basename(file, '.json'));
-      return { book, entries: [...AonListingFile.parse(json).entries, ...(await indexOnly(book))] };
+      const { entries, pages } = await indexed(book);
+      return {
+        book,
+        entries: [...AonListingFile.parse(json).entries, ...entries],
+        printed: new Set(Object.keys(pages) as AonUrl[]),
+      };
     }),
   );
 }

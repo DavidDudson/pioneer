@@ -5484,6 +5484,11 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2146",
     "page": 105
   },
+  "weapon:windlass-bola": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1873",
+    "page": 34
+  },
   "weapon:wrecker": {
     "book": "treasure-vault",
     "page": 31,

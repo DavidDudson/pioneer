@@ -1508,7 +1508,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2763"
       }
     ],
     "description": [

@@ -104,6 +104,11 @@
     "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3700",
     "page": 92
   },
+  "creature:hateful-logger": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3688",
+    "page": 41
+  },
   "creature:lloyd-the-leaper": {
     "book": "wardens-of-wildwood",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3689",
