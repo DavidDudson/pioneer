@@ -53,3 +53,9 @@ describe('Player Core underwater environment', () => {
     expect(note).toMatchObject({ selectors: ['ranged-attack-roll'] });
   });
 });
+
+describe('Aquatic Combat effect', () => {
+  test('is not committed beside the underwater environment, which would apply its rules twice', () => {
+    expect(PLAYER_CORE.some(({ slug }) => slug === 'effect:effect-aquatic-combat')).toBe(false);
+  });
+});

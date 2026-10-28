@@ -3524,36 +3524,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-aquatic-combat",
-      "foundry": "Compendium.pf2e.other-effects.Item.TPbr1kErAAJKBi3V",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "damageType": "fire",
-            "key": "AdjustModifier",
-            "predicate": [
-              {
-                "or": ["item:damage:persistent:fire", "item:damage:fire"]
-              },
-              {
-                "not": "item:trait:impulse"
-              }
-            ],
-            "selectors": ["inline-damage", "attack-damage", "spell-damage"],
-            "suppress": true
-          }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-assisting-shot",
       "foundry": "Compendium.pf2e.feat-effects.Item.zcJii1XyOne9EvMr",
       "gaps": [

@@ -128,6 +128,25 @@ describe('selectEntries', () => {
     ]);
   });
 
+  test('skips an effect that a committed Pioneer entry replaces', () => {
+    const aquatic = item('Effect: Aquatic Combat', 'effect', remaster('Pathfinder Player Core'));
+    const { selected, skipped } = selectEntries(
+      release({
+        'packs/pf2e/feats/aquatic.json': JSON.stringify({
+          ...aquatic,
+          system: { ...(aquatic as { system: object }).system, slug: 'effect-aquatic-combat' },
+        }),
+      }),
+      new Set([playerCore]),
+    );
+
+    expect(names(selected)).not.toContain('aquatic.json');
+    expect(skipped.find(({ path }) => path.endsWith('aquatic.json'))).toMatchObject({
+      reason: SkipReason.Superseded,
+      detail: 'effect-aquatic-combat',
+    });
+  });
+
   test('skips a remaster entry that is not ORC', () => {
     const cup = item('CUP Feat', 'feat', { title: 'Pathfinder Player Core', license: 'Paizo CUP', remaster: true });
     const { selected, skipped } = selectEntries(
