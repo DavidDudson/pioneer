@@ -1,0 +1,22 @@
+<fr-refreshable-field
+  [label]="label()"
+  [hint]="hint()"
+  [placeholder]="placeholder()"
+  [error]="error()"
+  [errors]="errors()"
+  [touched]="touched()"
+  [disabled]="disabled()"
+  [load]="roll"
+  [(value)]="value"
+>
+  <fr-button
+    frAction
+    variant="ghost"
+    size="sm"
+    iconOnly
+    [ariaLabel]="'character.rollTable.open' | transloco: { title: title() }"
+    (pressed)="tableOpen.set(true)"
+  >
+    <fr-icon [icon]="TableIcon" />
+  </fr-button>
+</fr-refreshable-field>

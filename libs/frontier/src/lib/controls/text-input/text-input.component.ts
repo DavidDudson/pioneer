@@ -21,8 +21,12 @@ export class TextInput extends Control {
   public readonly value = model('');
   public readonly placeholder = input('');
   public readonly monospace = input(false, { transform: booleanAttribute });
+  /** Room at the end for two icon buttons, which the parent places over the control (a refreshable input). */
+  public readonly trailing = input(false, { transform: booleanAttribute });
 
-  protected readonly classes = computed(() => controlVariants({ monospace: this.monospace() }));
+  protected readonly classes = computed(() =>
+    controlVariants({ monospace: this.monospace(), adorned: this.trailing() ? 'pair' : false }),
+  );
   protected readonly control = viewChild<ElementRef<HTMLInputElement>>('control');
 
   public constructor() {

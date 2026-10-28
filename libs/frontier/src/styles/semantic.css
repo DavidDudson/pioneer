@@ -21,8 +21,10 @@
 
   /* Sizes. Touch targets are 2.75rem (44px); controls shrink only under a fine pointer. */
   --fr-size-touch: 2.75rem;
+  --fr-size-touch-pair: calc(var(--fr-size-touch) * 2);
   --fr-size-control-sm: 2rem;
   --fr-size-control-md: 2.5rem;
+  --fr-size-control-md-pair: calc(var(--fr-size-control-md) * 2);
   --fr-size-control-lg: 3rem;
   --fr-size-listbox: 16rem;
   --fr-size-picker: 24rem;

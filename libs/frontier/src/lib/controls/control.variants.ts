@@ -22,6 +22,8 @@ export const controlVariants = cva(
       /** Room for an icon at each end (search icon, clear button), each a touch target wide. */
       adorned: {
         true: 'ps-touch pe-touch pointer-fine:ps-control-md pointer-fine:pe-control-md',
+        /** Room for two icon buttons at the end (a refreshable input). */
+        pair: 'ps-sm pe-touch-pair pointer-fine:pe-control-md-pair',
         false: 'px-sm',
       },
     },

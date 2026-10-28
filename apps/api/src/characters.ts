@@ -15,6 +15,7 @@ import {
   PathbuilderImportService,
   PioneerFileService,
   PlayService,
+  GenerateCharacterService,
   SheetModeService,
 } from '@pioneer/character/application';
 import {
@@ -34,6 +35,7 @@ import {
   pathbuilderImportRoutes,
   pioneerFileRoutes,
   playRoutes,
+  generateCharacterRoutes,
   sheetModeRoutes,
 } from '@pioneer/character/infrastructure';
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
@@ -144,6 +146,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
       .use(pathbuilderImportRoutes(importer, authenticator))
       .use(pioneerFileRoutes(pioneerFiles, authenticator))
       .use(sheetModeRoutes(sheetModes, authenticator))
+      .use(generateCharacterRoutes(new GenerateCharacterService(repository, characterContent, clock), authenticator))
       .use(featDisplayRoutes(featDisplay, authenticator))
       .use(characterAllyRoutes(allies, authenticator))
       .use(characterPackRoutes(packs, authenticator))

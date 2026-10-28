@@ -1,0 +1,25 @@
+<fr-text-input
+  trailing
+  [ariaLabel]="ariaLabel()"
+  [disabled]="disabled()"
+  [invalid]="ariaInvalid() || failed()"
+  [placeholder]="placeholder()"
+  [(value)]="value"
+/>
+<span [class]="actionsClasses">
+  <ng-content select="[frAction]" />
+  <fr-button
+    variant="ghost"
+    size="sm"
+    iconOnly
+    [disabled]="disabled() || loading()"
+    [ariaLabel]="'frontier.refreshableInput.refresh' | transloco"
+    (pressed)="refresh()"
+  >
+    @if (loading()) {
+      <fr-spinner />
+    } @else {
+      <fr-icon [icon]="RefreshIcon" />
+    }
+  </fr-button>
+</span>
