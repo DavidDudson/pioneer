@@ -814,6 +814,31 @@
     "page": 150,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3970"
   },
+  "equipment:magical-medal-gorillas-might": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3971",
+    "page": 151
+  },
+  "equipment:magical-medal-griffons-heart": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3971",
+    "page": 151
+  },
+  "equipment:magical-medal-phoenixs-fire": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3971",
+    "page": 151
+  },
+  "equipment:magical-medal-unicorns-purity": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3971",
+    "page": 151
+  },
+  "equipment:magical-medal-wolf-pack": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3971",
+    "page": 151
+  },
   "equipment:marshals-baton": {
     "book": "battlecry",
     "page": 145,

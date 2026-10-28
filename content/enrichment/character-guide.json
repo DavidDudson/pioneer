@@ -129,6 +129,11 @@
     "page": 111,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=525"
   },
+  "equipment:pathfinder-chronicle": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2763",
+    "page": 110
+  },
   "equipment:pathfinders-coin": {
     "book": "character-guide",
     "page": 110,

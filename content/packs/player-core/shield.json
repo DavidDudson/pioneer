@@ -109,7 +109,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2827"
       }
     ],
     "description": [

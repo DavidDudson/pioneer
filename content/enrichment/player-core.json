@@ -519,6 +519,18 @@
     "page": 223,
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=218"
   },
+  "armor:armorskin-robes-of-air": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5241"
+  },
+  "armor:armorskin-robes-of-fire": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5241"
+  },
+  "armor:armorskin-robes-of-water": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5241"
+  },
   "armor:breastplate": {
     "book": "player-core",
     "page": 273,
@@ -6049,6 +6061,10 @@
     "page": 274,
     "aon": "https://2e.aonprd.com/Shields.aspx?ID=17"
   },
+  "shield:spined-shield": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2827"
+  },
   "shield:steel-shield": {
     "book": "player-core",
     "page": 274,
@@ -8788,6 +8804,10 @@
     "book": "player-core",
     "page": 278,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=418"
+  },
+  "weapon:tiger-fork": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3474"
   },
   "weapon:trident": {
     "book": "player-core",

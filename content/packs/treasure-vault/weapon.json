@@ -24576,7 +24576,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 34,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1873"
       }
     ],
     "description": [

@@ -49,6 +49,8 @@ export interface AonMatchable {
 export interface AonListing {
   readonly book: BookId;
   readonly entries: readonly AonListedEntry[];
+  /** The URLs the book prints a page for (`content/aon/pages/<book>.json`); AoN rows without one are not in the book. */
+  readonly printed?: ReadonlySet<AonUrl>;
 }
 
 /**
@@ -77,11 +79,14 @@ function pageOf(url: AonUrl): string {
   return new URL(url).pathname.replace(/^\//u, '').replace(/\.aspx$/iu, '');
 }
 
-/** "Alchemist's Lab (Expanded)" and "Rope, Silk" also look up "Alchemist's Lab" and "Rope", after the full name. */
+/**
+ * "Alchemist's Lab (Expanded)" and "Rope, Silk" also look up "Alchemist's Lab" and "Rope", after the full name, and
+ * "Windlass Bola" looks up AoN's plural "Windlass Bolas" last.
+ */
 function nameVariants(name: string): readonly string[] {
   const withoutParenthetical = name.replace(/\s*\([^)]*\)\s*$/u, '');
   const withoutSuffix = withoutParenthetical.replace(/,.*$/u, '');
-  return [...new Set([name, withoutParenthetical, withoutSuffix])];
+  return [...new Set([name, withoutParenthetical, withoutSuffix, `${withoutSuffix}s`])];
 }
 
 /** Listing entries by normalised name and the kinds their page holds; the Equipment fallback is keyed apart. */
@@ -139,7 +144,52 @@ function candidates(index: ListingIndex, entry: AonMatchable): readonly AonUrl[]
   return own.length > 0 || !EQUIPMENT_FALLBACK_KINDS.includes(entry.kind) ? own : candidatesIn(index, entry, true);
 }
 
-function matchEntry(entry: AonMatchable, indexes: ReadonlyMap<BookId, ListingIndex>): Outcome {
+/**
+ * AoN keeps a row for the legacy and the remastered page of an item, and a book prints only one of them: with more
+ * than one candidate, the one URL the book's own page table holds. Several, or none, stay ambiguous.
+ */
+function printedIn(urls: readonly AonUrl[], printed: ReadonlySet<AonUrl> | undefined): readonly AonUrl[] {
+  const inBook = printed === undefined ? [] : urls.filter((url) => printed.has(url));
+  return inBook.length === 1 ? inBook : urls;
+}
+
+/**
+ * AoN supersedes a page by adding a row with a higher ID (checked on Acid Flask, Celestial Peachwood Sword and Hand
+ * Cannon: the old page says "There is a more recent version"). For a weapon, armor or shield with several rows of one
+ * AoN page still, the highest ID; rows of different pages stay ambiguous.
+ */
+function newest(entry: AonMatchable, urls: readonly AonUrl[]): readonly AonUrl[] {
+  const pages = new Set(urls.map((url) => pageOf(url)));
+  const ids = urls.map((url) => ({ url, id: Number(new URL(url).searchParams.get('ID')) }));
+  if (
+    urls.length < 2 ||
+    pages.size !== 1 ||
+    !EQUIPMENT_FALLBACK_KINDS.includes(entry.kind) ||
+    ids.some(({ id }) => !Number.isInteger(id))
+  ) {
+    return urls;
+  }
+  const [top] = ids.toSorted((left, right) => right.id - left.id);
+  return top === undefined ? urls : [top.url];
+}
+
+/**
+ * For a weapon, armor or shield its cited books' listings lack (a base item AoN lists in the book that remastered it):
+ * the one URL every other listing holds for the name. The page, which only the cited book gives, is not proposed.
+ */
+function elsewhere(entry: AonMatchable, indexes: ReadonlyMap<BookId, ListingIndex>): readonly AonUrl[] {
+  if (!EQUIPMENT_FALLBACK_KINDS.includes(entry.kind)) {
+    return [];
+  }
+  const found = [...indexes.values()].flatMap((index) => candidates(index, entry));
+  return [...new Set(found)];
+}
+
+function matchEntry(
+  entry: AonMatchable,
+  indexes: ReadonlyMap<BookId, ListingIndex>,
+  printed: ReadonlyMap<BookId, ReadonlySet<AonUrl> | undefined>,
+): Outcome {
   const book = openSource(entry, indexes);
   if (book === undefined) {
     return { kind: 'skipped' };
@@ -148,7 +198,8 @@ function matchEntry(entry: AonMatchable, indexes: ReadonlyMap<BookId, ListingInd
     return { kind: 'unlisted' };
   }
   const index = indexes.get(book);
-  const urls = index === undefined ? [] : candidates(index, entry);
+  const own = index === undefined ? [] : newest(entry, printedIn(candidates(index, entry), printed.get(book)));
+  const urls = own.length > 0 ? own : elsewhere(entry, indexes);
   const [url] = urls;
   if (urls.length > 1) {
     return { kind: 'ambiguous' };
@@ -170,9 +221,10 @@ export function proposeAonMappings(
   mapped: ReadonlySet<EntrySlug>,
 ): AonProposals {
   const indexes = new Map(listings.map((listing) => [listing.book, indexListing(listing)]));
+  const printed = new Map(listings.map((listing) => [listing.book, listing.printed]));
   const results = entries
     .filter(({ slug }) => !mapped.has(slug))
-    .map((entry) => ({ entry, outcome: matchEntry(entry, indexes) }));
+    .map((entry) => ({ entry, outcome: matchEntry(entry, indexes, printed) }));
   const slugsOf = (kind: Outcome['kind']): readonly EntrySlug[] =>
     results.filter(({ outcome }) => outcome.kind === kind).map(({ entry }) => entry.slug);
   const proposals = new Map(

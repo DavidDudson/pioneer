@@ -10368,7 +10368,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "page": 41,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=3688"
       }
     ],
     "description": [],
