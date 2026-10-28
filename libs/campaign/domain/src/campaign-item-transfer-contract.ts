@@ -67,4 +67,17 @@ export const CampaignItemTransferContract = {
     body: NoBody,
     response: TransferAnswerView,
   }),
+  /**
+   * The owner of the giver character withdraws a pending offer, which stays with the giver as it was; neither character
+   * is touched. Withdrawing an offer already withdrawn changes nothing and answers the same. An offer that is not in the
+   * campaign, or one the user is not the giver's owner of, is a 404; one already accepted or declined, a 409.
+   */
+  withdrawTransfer: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/campaigns/:id/transfers/:transferId/withdraw',
+    params: ByTransfer,
+    query: NoQuery,
+    body: NoBody,
+    response: TransferAnswerView,
+  }),
 } as const;

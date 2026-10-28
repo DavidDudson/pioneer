@@ -645,6 +645,12 @@ campaign_links        id, campaign_id, token_hash (unique), created_at, last_use
   who no longer holds the line or coins, a key item, or a recipient with no room a 409 with a message key, and the
   whole accept rolls back. A line moves with what it holds, stowed and not invested. Coin offers do not reserve coins,
   so the purse is checked again at accept. The offer and both characters are audited under the accepting commands.
+  `POST /campaigns/:id/transfers/:transferId/withdraw` is the giver owner's alone (anyone else, the recipient
+  included, gets a 404). It only marks the offer withdrawn, audited as `withdraw-campaign-transfer`, and touches
+  neither character. Withdrawing again is a no-op that answers the same; withdrawing an accepted or declined offer is
+  a 409, and a withdrawn offer cannot be accepted or declined. Of a withdraw and an accept at once, the pending-only
+  update lets exactly one win. A giver's sheet edit after the offer makes it unacceptable (a 409 on the stored giver
+  version), so withdrawing is the giver's way out.
   Inventory is build data, so transfers work in every sync mode.
 - **Permissions.** Policies live in the campaign context's application layer, with the acting user from identity's
   `RequestAuthenticator` (ADR-0007), or the campaign from a link token for module routes. Owners edit builds;

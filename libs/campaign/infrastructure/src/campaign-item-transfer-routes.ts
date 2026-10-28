@@ -23,5 +23,8 @@ export function campaignItemTransferRoutes(
     )
     .handleSignedIn(CampaignContract.declineTransfer, auth, async ({ actor, params }) =>
       service.decline(actor, params.id, params.transferId),
+    )
+    .handleSignedIn(CampaignContract.withdrawTransfer, auth, async ({ actor, params }) =>
+      service.withdraw(actor, params.id, params.transferId),
     ).app;
 }

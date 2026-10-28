@@ -136,6 +136,7 @@
     "sameCharacter": "A character cannot offer to itself.",
     "notEnoughCoins": "The giver does not hold that many coins.",
     "notPending": "That offer has already been answered or withdrawn.",
+    "alreadyAnswered": "The recipient has already answered that offer.",
     "lineGone": "The giver no longer has that item.",
     "recipientFull": "The recipient has no room for that item."
   },

@@ -135,6 +135,47 @@ export class CampaignItemTransferService {
     return { id: transfer.id, status: TransferStatus.Declined };
   }
 
+  /**
+   * The owner of the giver character withdraws a pending offer; it stays with the giver and neither character is
+   * touched. Withdrawing one already withdrawn is a no-op that answers the same. Not a member, an offer outside the
+   * campaign, or a giver the user does not own: 404. An offer already accepted or declined: 409.
+   */
+  public async withdraw(actor: UserId, id: CampaignId, transferId: ItemTransferId): Promise<TransferAnswerView> {
+    const transfer = await this.#withdrawable(actor, id, transferId);
+    const withdrawn = { id: transfer.id, status: TransferStatus.Withdrawn };
+    if (transfer.status === TransferStatus.Withdrawn) {
+      return withdrawn;
+    }
+    const answered = await this.#transfers.answer({ actor, campaignId: id, id: transfer.id, status: withdrawn.status });
+    if (!answered) {
+      await this.#settled(id, transfer);
+    }
+    return withdrawn;
+  }
+
+  /** An offer of the campaign made by one of the actor's own live characters, still in the party, in any status. */
+  async #withdrawable(actor: UserId, id: CampaignId, transferId: ItemTransferId): Promise<Transfer> {
+    await this.#viewed(actor, id);
+    const transfer = await this.#transfers.findById(id, transferId);
+    if (transfer === undefined) {
+      throw new NotFoundError('ItemTransfer', transferId);
+    }
+    await this.#inParty(id, transfer);
+    await this.#owned(actor, transfer);
+    return transfer;
+  }
+
+  /** After a withdraw found its offer no longer pending: fine when a second withdraw got there first, else a 409. */
+  async #settled(id: CampaignId, transfer: Transfer): Promise<void> {
+    const current = await this.#transfers.findById(id, transfer.id);
+    if (current?.status !== TransferStatus.Withdrawn) {
+      throw new ConflictError(
+        `Transfer ${transfer.id} was already answered`,
+        message(ItemTransferMessage.AlreadyAnswered),
+      );
+    }
+  }
+
   /** A pending offer of the campaign made to one of the actor's own live characters, still in the party. */
   async #answerable(actor: UserId, id: CampaignId, transferId: ItemTransferId): Promise<Transfer> {
     await this.#viewed(actor, id);

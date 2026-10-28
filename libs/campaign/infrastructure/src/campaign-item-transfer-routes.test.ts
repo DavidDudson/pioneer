@@ -1,100 +1,21 @@
 import { describe, expect, test } from 'bun:test';
 
+import { newId, UserId } from '@pioneer/shared/kernel';
+
 import {
-  CampaignInviteService,
-  CampaignPartyService,
-  CampaignService,
-  InMemoryCampaignInviteRepository,
-  InMemoryCampaignPartyRepository,
-  InMemoryCampaignRepository,
-  InMemoryCharacterDirectory,
-  InMemoryMemberDirectory,
-  InMemoryTransferLines,
-} from '@pioneer/campaign/application';
-import { CharacterId, ReviewedItemId } from '@pioneer/campaign/domain';
-import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
-import { problemHandler } from '@pioneer/shared/server';
-import { actingAs, FakeAuthenticator } from '@pioneer/shared/server/testing';
-import { Elysia } from 'elysia';
-import type { AnyElysia } from 'elysia';
-
-import { campaignRoutes } from './campaign-routes';
-import {
-  itemApprovalService,
-  itemTransferService,
-  keyItemService,
-  packService,
-  ruleLimitService,
-  variantService,
-} from './testing/campaign-pack-fixtures';
-
-const amiri = UserId.parse(newId());
-const ezren = UserId.parse(newId());
-const kyra = CharacterId.parse(newId());
-const mordred = CharacterId.parse(newId());
-const longsword = ReviewedItemId.parse(newId());
-const caliburn = ReviewedItemId.parse(newId());
-
-function table(): AnyElysia {
-  const clock = fixedClock('2026-10-17T10:00:00Z');
-  const campaigns = new InMemoryCampaignRepository();
-  const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren');
-  const inviteRepository = new InMemoryCampaignInviteRepository();
-  const party = new InMemoryCampaignPartyRepository(campaigns);
-  const characters = new InMemoryCharacterDirectory()
-    .character({ id: kyra, ownerId: ezren, name: 'Kyra' })
-    .character({ id: mordred, ownerId: ezren, name: 'Mordred' });
-  const lines = new InMemoryTransferLines()
-    .hasLine(kyra, longsword)
-    .hasLine(kyra, caliburn, { keyItem: true })
-    .hasCoins(kyra, { gp: 10 });
-  const services = {
-    campaigns: new CampaignService({ campaigns, invites: inviteRepository, directory }, clock),
-    invites: new CampaignInviteService(campaigns, inviteRepository, clock),
-    party: new CampaignPartyService({ campaigns, party, characters, directory }, clock),
-    packs: packService(campaigns, clock),
-    variants: variantService(campaigns, clock),
-    ruleLimits: ruleLimitService(campaigns, clock),
-    itemApprovals: itemApprovalService(campaigns, clock),
-    keyItems: keyItemService(campaigns, clock),
-    itemTransfers: itemTransferService(campaigns, clock, { party, characters, lines }),
-  };
-  return new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator()));
-}
-
-interface RequestOptions {
-  readonly as?: UserId;
-  readonly body?: unknown;
-}
-
-function request(method: string, path: string, { as, body }: RequestOptions): Request {
-  return new Request(`http://localhost${path}`, {
-    method,
-    headers: { 'content-type': 'application/json', ...(as === undefined ? {} : actingAs(as)) },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-  });
-}
-
-async function json<Json>(response: Response): Promise<Json> {
-  return (await response.json()) as Json;
-}
-
-/** A campaign run by Amiri with Ezren as a player, whose Kyra and Mordred are in the party. */
-async function campaign(handler: AnyElysia): Promise<string> {
-  const created = await handler.handle(
-    request('POST', '/campaigns', { as: amiri, body: { name: 'Abomination Vaults' } }),
-  );
-  const { id } = await json<{ readonly id: string }>(created);
-  const issued = await handler.handle(request('POST', `/campaigns/${id}/invites`, { as: amiri }));
-  const { token } = await json<{ readonly token: string }>(issued);
-  await handler.handle(request('POST', '/campaigns/join', { as: ezren, body: { token } }));
-  await Promise.all(
-    [kyra, mordred].map(async (characterId) =>
-      handler.handle(request('POST', `/campaigns/${id}/characters`, { as: ezren, body: { characterId } })),
-    ),
-  );
-  return id;
-}
+  amiri,
+  caliburn,
+  campaign,
+  ezren,
+  json,
+  kyra,
+  longsword,
+  mordred,
+  offered,
+  request,
+  table,
+  Answer,
+} from './testing/transfer-route-fixtures';
 
 describe('item transfer routes', () => {
   test('a player offers a line of their character to another, and it comes back pending', async () => {
@@ -109,7 +30,7 @@ describe('item transfer routes', () => {
     );
 
     expect(response.status).toBe(200);
-    expect(await json<object>(response)).toMatchObject({ from: kyra, to: mordred, item: longsword, status: 'pending' });
+    expect(await response.json()).toMatchObject({ from: kyra, to: mordred, item: longsword, status: 'pending' });
   });
 
   test('a signed-out caller gets 401, a stranger to the campaign 404, and a key item 409', async () => {
@@ -156,7 +77,7 @@ describe('coin transfer routes', () => {
     );
 
     expect(response.status).toBe(200);
-    expect(await json<object>(response)).toMatchObject({
+    expect(await response.json()).toMatchObject({
       from: kyra,
       to: mordred,
       coins: { pp: 0, gp: 4, sp: 0, cp: 0 },
@@ -204,23 +125,6 @@ describe('coin transfer routes', () => {
   });
 });
 
-interface Answer {
-  readonly id: string;
-  readonly status: string;
-}
-
-/** Ezren offers Kyra's longsword to Mordred, whom he also owns, and gets the offer's id. */
-async function offered(handler: AnyElysia, id: string): Promise<string> {
-  const response = await handler.handle(
-    request('POST', `/campaigns/${id}/transfers/items`, {
-      as: ezren,
-      body: { from: kyra, to: mordred, item: longsword },
-    }),
-  );
-  const offer = await json<Answer>(response);
-  return offer.id;
-}
-
 describe('answering an offer', () => {
   test("the recipient's owner accepts an offer, and a second answer is a 409", async () => {
     const handler = table();
@@ -231,7 +135,7 @@ describe('answering an offer', () => {
       request('POST', `/campaigns/${id}/transfers/${transfer}/accept`, { as: ezren }),
     );
     const again = await handler.handle(request('POST', `/campaigns/${id}/transfers/${transfer}/accept`, { as: ezren }));
-    const answer = await json<Answer>(accepted);
+    const answer = await json(accepted, Answer);
 
     expect(accepted.status).toBe(200);
     expect(answer).toStrictEqual({ id: transfer, status: 'accepted' });
@@ -246,7 +150,7 @@ describe('answering an offer', () => {
     const declined = await handler.handle(
       request('POST', `/campaigns/${id}/transfers/${transfer}/decline`, { as: ezren }),
     );
-    const answer = await json<Answer>(declined);
+    const answer = await json(declined, Answer);
 
     expect(declined.status).toBe(200);
     expect(answer).toStrictEqual({ id: transfer, status: 'declined' });

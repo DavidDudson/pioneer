@@ -5,6 +5,7 @@ export const ItemTransferMessage = {
   SameCharacter: 'campaign.transfers.sameCharacter',
   NotEnoughCoins: 'campaign.transfers.notEnoughCoins',
   NotPending: 'campaign.transfers.notPending',
+  AlreadyAnswered: 'campaign.transfers.alreadyAnswered',
   LineGone: 'campaign.transfers.lineGone',
   RecipientFull: 'campaign.transfers.recipientFull',
 } as const;
