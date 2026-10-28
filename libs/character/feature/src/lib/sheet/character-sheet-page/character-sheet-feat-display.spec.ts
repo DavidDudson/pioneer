@@ -6,6 +6,7 @@ import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { classFeatSlotKey } from '../../testing/class-feat-slots';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { TEST_PACKS } from '../../testing/test-packs';
@@ -36,7 +37,7 @@ const DISPLAY_PACKS_LOADER: PackContentsLoader = {
 const PACKS = [...TEST_PACKS, DISPLAY_PACKS_LOADER];
 
 /** Player Core's fighter's 1st-level class feat slot: the class and the rule index of its `ChoiceSet`. */
-const FIGHTER_FEAT_1 = `${playerCoreClassId('fighter')}:31`;
+const FIGHTER_FEAT_1 = await classFeatSlotKey('fighter', 1);
 
 /** Merisiel as a 1st-level fighter who took Weapon Training. */
 const FIGHTER = {

@@ -7,6 +7,7 @@ import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { openFeatTable } from '../../testing/feat-table-testing';
+import { classFeatSlotKey } from '../../testing/class-feat-slots';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { cutTo, TEST_PACKS } from '../../testing/test-packs';
@@ -46,7 +47,7 @@ const featId = (name: string): string => present(fighterFeats.otherEntries.find(
 const POWER_ATTACK = featId('Power-attack');
 const SUDDEN_CHARGE = featId('Sudden-charge');
 /** Player Core's fighter's 1st-level class feat slot: the class and the rule index of its `ChoiceSet`. */
-const FIGHTER_FEAT_1 = `${playerCoreClassId('fighter')}:31`;
+const FIGHTER_FEAT_1 = await classFeatSlotKey('fighter', 1);
 
 /** Player Core with its feats, for the feats a feature grants. */
 const FEAT_PACKS = cutTo(FEAT_CONTENT_KINDS);
