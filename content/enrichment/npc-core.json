@@ -1383,5 +1383,10 @@
     "book": "npc-core",
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2338",
     "page": 26
+  },
+  "weapon:musket-staff-of-force": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3587",
+    "page": 81
   }
 }

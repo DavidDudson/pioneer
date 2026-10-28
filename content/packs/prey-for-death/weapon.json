@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 101,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3485"
       }
     ],
     "description": [
@@ -242,7 +244,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 101,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3486"
       }
     ],
     "description": [
@@ -415,7 +419,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 102,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3487"
       }
     ],
     "description": [
@@ -680,7 +686,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 102,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3488"
       }
     ],
     "description": [
@@ -776,7 +784,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 102,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3489"
       }
     ],
     "description": [

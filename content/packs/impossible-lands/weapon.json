@@ -277,7 +277,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "page": 306,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1811"
       }
     ],
     "description": [
@@ -366,7 +368,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "page": 306,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1811"
       }
     ],
     "description": [
@@ -454,7 +458,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "page": 306,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1811"
       }
     ],
     "description": [
@@ -543,7 +549,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-lands"
+        "book": "impossible-lands",
+        "page": 306,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1811"
       }
     ],
     "description": [

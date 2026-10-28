@@ -104,6 +104,56 @@
     "page": 106,
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=396"
   },
+  "armor:accoutrements-of-bone": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4978",
+    "page": 202
+  },
+  "armor:chained-mist": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4979",
+    "page": 202
+  },
+  "armor:crystal-lattice": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4980",
+    "page": 202
+  },
+  "armor:energy-shield-tunic": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4977",
+    "page": 202
+  },
+  "armor:energy-shield-tunic-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4977",
+    "page": 202
+  },
+  "armor:invisible-chain-shirt": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4981",
+    "page": 202
+  },
+  "armor:laboratory-coat": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4982",
+    "page": 203
+  },
+  "armor:rebounding-breastplate": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4983",
+    "page": 203
+  },
+  "armor:robe-of-beneficence": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4984",
+    "page": 203
+  },
+  "armor:suit-of-false-impression": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4985",
+    "page": 203
+  },
   "class:magus": {
     "book": "impossible-magic",
     "page": 9,
@@ -3179,6 +3229,71 @@
     "page": 205,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4997"
   },
+  "shield:archers-bulwark": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4998",
+    "page": 206
+  },
+  "shield:burr-shield": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4999",
+    "page": 206
+  },
+  "shield:cowards-shield": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5000",
+    "page": 206
+  },
+  "shield:emergency-escape-shield": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5001",
+    "page": 206
+  },
+  "shield:resolute-shield": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5002",
+    "page": 206
+  },
+  "shield:shield-of-endurance": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5003",
+    "page": 206
+  },
+  "shield:shield-of-mental-fortitude": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5004",
+    "page": 206
+  },
+  "shield:shield-of-silent-words": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5006",
+    "page": 207
+  },
+  "shield:shield-of-the-bear": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5005",
+    "page": 206
+  },
+  "shield:spellshock-shield": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5007",
+    "page": 207
+  },
+  "shield:staff-storing-shield": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5008",
+    "page": 207
+  },
+  "shield:stifling-shield": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5009",
+    "page": 207
+  },
+  "shield:verdant-buckler": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5010",
+    "page": 207
+  },
   "spell:aberrant-form": {
     "book": "impossible-magic",
     "page": 122,
@@ -4653,5 +4768,285 @@
     "book": "impossible-magic",
     "page": 184,
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2912"
+  },
+  "weapon:arcing-hand-crossbow": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5011",
+    "page": 208
+  },
+  "weapon:auspicious-scepter": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5012",
+    "page": 208
+  },
+  "weapon:birchstaff": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5161",
+    "page": 238
+  },
+  "weapon:birchstaff-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5161",
+    "page": 238
+  },
+  "weapon:birchstaff-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5161",
+    "page": 238
+  },
+  "weapon:blade-of-four-energies": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5013",
+    "page": 208
+  },
+  "weapon:blade-of-four-energies-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5013",
+    "page": 208
+  },
+  "weapon:blessed-lantern-flail": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5014",
+    "page": 208
+  },
+  "weapon:chatterer-of-follies": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5015",
+    "page": 208
+  },
+  "weapon:conflagration-club": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5016",
+    "page": 209
+  },
+  "weapon:continuum-staff": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5162",
+    "page": 238
+  },
+  "weapon:corrosive-staff": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5163",
+    "page": 238
+  },
+  "weapon:corrosive-staff-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5163",
+    "page": 238
+  },
+  "weapon:corrosive-staff-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5163",
+    "page": 238
+  },
+  "weapon:debilitating-dart": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5017",
+    "page": 209
+  },
+  "weapon:fanged-staff": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5164",
+    "page": 238
+  },
+  "weapon:fey-staff": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5165",
+    "page": 239
+  },
+  "weapon:fey-staff-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5165",
+    "page": 239
+  },
+  "weapon:fey-staff-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5165",
+    "page": 239
+  },
+  "weapon:gloaming-shard": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5018",
+    "page": 209
+  },
+  "weapon:guiding-starknife": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5019",
+    "page": 209
+  },
+  "weapon:hundred-moth-caress": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5020",
+    "page": 209
+  },
+  "weapon:memento-mori-staff": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5166",
+    "page": 239
+  },
+  "weapon:mirrorblade": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5021",
+    "page": 209
+  },
+  "weapon:north-winds-night-verse": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5022",
+    "page": 209
+  },
+  "weapon:ouroboros-flail": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5023",
+    "page": 210
+  },
+  "weapon:ouroboros-flail-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5023",
+    "page": 210
+  },
+  "weapon:ouroboros-flail-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5023",
+    "page": 210
+  },
+  "weapon:phantom-fang": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5024",
+    "page": 210
+  },
+  "weapon:phase-spike": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5025",
+    "page": 210
+  },
+  "weapon:pick-of-arcane-accuracy": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5026",
+    "page": 210
+  },
+  "weapon:quotidian-staff": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5167",
+    "page": 239
+  },
+  "weapon:quotidian-staff-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5167",
+    "page": 239
+  },
+  "weapon:serpents-lash": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5027",
+    "page": 211
+  },
+  "weapon:singing-shortbow": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5028",
+    "page": 211
+  },
+  "weapon:singing-shortbow-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5028",
+    "page": 211
+  },
+  "weapon:sonic-tuning-mace": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5029",
+    "page": 211
+  },
+  "weapon:sonic-tuning-mace-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5029",
+    "page": 211
+  },
+  "weapon:south-winds-scorch-song": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5030",
+    "page": 211
+  },
+  "weapon:staff-of-encroaching-shadows": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5168",
+    "page": 239
+  },
+  "weapon:staff-of-encroaching-shadows-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5168",
+    "page": 239
+  },
+  "weapon:staff-of-encroaching-shadows-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5168",
+    "page": 239
+  },
+  "weapon:staff-of-natures-cunning": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5169",
+    "page": 239
+  },
+  "weapon:staff-of-natures-cunning-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5169",
+    "page": 239
+  },
+  "weapon:staff-of-natures-cunning-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5169",
+    "page": 239
+  },
+  "weapon:staff-of-the-desert-winds": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5170",
+    "page": 240
+  },
+  "weapon:staff-of-the-desert-winds-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5170",
+    "page": 240
+  },
+  "weapon:staff-of-the-desert-winds-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5170",
+    "page": 240
+  },
+  "weapon:staff-of-the-desert-winds-true": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5170",
+    "page": 240
+  },
+  "weapon:staff-of-the-mages-friend": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5171",
+    "page": 240
+  },
+  "weapon:staff-of-the-mages-friend-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5171",
+    "page": 240
+  },
+  "weapon:staff-of-the-mages-friend-major": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5171",
+    "page": 240
+  },
+  "weapon:void-sickle": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5031",
+    "page": 211
+  },
+  "weapon:wanderers-staff": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5172",
+    "page": 240
+  },
+  "weapon:wanderers-staff-greater": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5172",
+    "page": 240
+  },
+  "weapon:wandmender": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5032",
+    "page": 211
   }
 }

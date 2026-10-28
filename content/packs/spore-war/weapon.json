@@ -294,7 +294,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "page": 77,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3688"
       }
     ],
     "description": [
@@ -1465,7 +1467,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "page": 77,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3689"
       }
     ],
     "description": [
@@ -1725,7 +1729,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3692"
       }
     ],
     "description": [

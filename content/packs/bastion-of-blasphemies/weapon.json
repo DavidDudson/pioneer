@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "bastion-of-blasphemies"
+        "book": "bastion-of-blasphemies",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5200"
       }
     ],
     "description": [

@@ -34,6 +34,41 @@
     "page": 57,
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=206"
   },
+  "armor:tales-in-timber": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2648",
+    "page": 202
+  },
+  "armor:tales-in-timber-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2648",
+    "page": 202
+  },
+  "armor:tales-in-timber-major": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2648",
+    "page": 202
+  },
+  "armor:wisp-chain": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2587",
+    "page": 76
+  },
+  "armor:wisp-chain-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2587",
+    "page": 76
+  },
+  "armor:wisp-chain-major": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2587",
+    "page": 76
+  },
+  "armor:wisp-chain-true": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2587",
+    "page": 76
+  },
   "background:alloysmith": {
     "book": "rage-of-elements",
     "page": 44,
@@ -1474,6 +1509,36 @@
     "page": 178,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2634"
   },
+  "shield:broadleaf-shield": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2638",
+    "page": 200
+  },
+  "shield:broadleaf-shield-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2638",
+    "page": 200
+  },
+  "shield:broadleaf-shield-major": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2638",
+    "page": 200
+  },
+  "shield:broadleaf-shield-true": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2638",
+    "page": 200
+  },
+  "shield:kizidhars-shield": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2642",
+    "page": 201
+  },
+  "shield:limestone-shield": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2592",
+    "page": 99
+  },
   "spell:airlift": {
     "book": "rage-of-elements",
     "page": 70,
@@ -2043,5 +2108,165 @@
     "book": "rage-of-elements",
     "page": 73,
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=1327"
+  },
+  "weapon:atmospheric-staff": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2576",
+    "page": 74
+  },
+  "weapon:atmospheric-staff-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2576",
+    "page": 74
+  },
+  "weapon:atmospheric-staff-lesser": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2576",
+    "page": 74
+  },
+  "weapon:atmospheric-staff-major": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2576",
+    "page": 74
+  },
+  "weapon:carver-cutter": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2640",
+    "page": 201
+  },
+  "weapon:carver-cutter-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2640",
+    "page": 201
+  },
+  "weapon:carver-cutter-major": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2640",
+    "page": 201
+  },
+  "weapon:carver-cutter-true": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2640",
+    "page": 201
+  },
+  "weapon:lionfish-spear": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2629",
+    "page": 177
+  },
+  "weapon:lionfish-spear-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2629",
+    "page": 177
+  },
+  "weapon:obsidian-edge": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2606",
+    "page": 123
+  },
+  "weapon:obsidian-edge-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2606",
+    "page": 123
+  },
+  "weapon:obsidian-edge-major": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2606",
+    "page": 123
+  },
+  "weapon:obsidian-edge-true": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2606",
+    "page": 123
+  },
+  "weapon:rustbringer": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2617",
+    "page": 147
+  },
+  "weapon:rustbringer-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2617",
+    "page": 147
+  },
+  "weapon:scalding-gauntlets": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2608",
+    "page": 124
+  },
+  "weapon:scalding-gauntlets-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2608",
+    "page": 124
+  },
+  "weapon:scalding-gauntlets-major": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2608",
+    "page": 124
+  },
+  "weapon:scalding-gauntlets-true": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2608",
+    "page": 124
+  },
+  "weapon:spellsap-grenade": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2619",
+    "page": 147
+  },
+  "weapon:spellsap-grenade-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2619",
+    "page": 147
+  },
+  "weapon:splintering-spear": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2646",
+    "page": 202
+  },
+  "weapon:splintering-spear-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2646",
+    "page": 202
+  },
+  "weapon:splintering-spear-major": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2646",
+    "page": 202
+  },
+  "weapon:staff-of-metal": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2621",
+    "page": 148
+  },
+  "weapon:staff-of-metal-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2621",
+    "page": 148
+  },
+  "weapon:staff-of-metal-major": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2621",
+    "page": 148
+  },
+  "weapon:sticky-algae-bomb-greater": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2633",
+    "page": 178
+  },
+  "weapon:sticky-algae-bomb-lesser": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2633",
+    "page": 178
+  },
+  "weapon:sticky-algae-bomb-major": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2633",
+    "page": 178
+  },
+  "weapon:sticky-algae-bomb-moderate": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2633",
+    "page": 178
   }
 }

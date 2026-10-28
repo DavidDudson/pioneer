@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "the-dead-gods-hand"
+        "book": "the-dead-gods-hand",
+        "page": 143,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5220"
       }
     ],
     "description": [
@@ -214,7 +216,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "the-dead-gods-hand"
+        "book": "the-dead-gods-hand",
+        "page": 141,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5214"
       }
     ],
     "description": [
@@ -362,7 +366,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "the-dead-gods-hand"
+        "book": "the-dead-gods-hand",
+        "page": 141,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5215"
       }
     ],
     "description": [
@@ -430,7 +436,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "the-dead-gods-hand"
+        "book": "the-dead-gods-hand",
+        "page": 145,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5223"
       }
     ],
     "description": [
@@ -662,7 +670,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "the-dead-gods-hand"
+        "book": "the-dead-gods-hand",
+        "page": 145,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5223"
       }
     ],
     "description": [

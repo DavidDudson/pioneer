@@ -273,5 +273,25 @@
     "book": "gatewalkers",
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2533",
     "page": 231
+  },
+  "weapon:aether-marbles-greater": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4032",
+    "page": 235
+  },
+  "weapon:aether-marbles-lesser": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4032",
+    "page": 235
+  },
+  "weapon:aether-marbles-moderate": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4032",
+    "page": 235
+  },
+  "weapon:bioluminescence-bomb": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4022",
+    "page": 230
   }
 }

@@ -2059,10 +2059,55 @@
     "page": 112,
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2135"
   },
+  "weapon:bow-of-sun-slaying": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3478",
+    "page": 131
+  },
+  "weapon:caress-of-the-great-serpent": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3461",
+    "page": 126
+  },
+  "weapon:deathseeker": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3464",
+    "page": 128
+  },
+  "weapon:flashblade": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3465",
+    "page": 128
+  },
+  "weapon:flashblade-greater": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3465",
+    "page": 128
+  },
+  "weapon:flashblade-major": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3465",
+    "page": 128
+  },
+  "weapon:frost-fair-yanyuedao": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3479",
+    "page": 131
+  },
   "weapon:gakgung": {
     "book": "tian-xia-character-guide",
     "page": 128,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=334"
+  },
+  "weapon:heavenly-rolling-flames": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3466",
+    "page": 129
+  },
+  "weapon:jian-of-lifes-duality": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3467",
+    "page": 129
   },
   "weapon:liuyedao": {
     "book": "tian-xia-character-guide",
@@ -2079,6 +2124,11 @@
     "page": 127,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=492"
   },
+  "weapon:staff-of-sun-wukong": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3481",
+    "page": 131
+  },
   "weapon:tetsubo": {
     "book": "tian-xia-character-guide",
     "page": 127,
@@ -2088,6 +2138,21 @@
     "book": "tian-xia-character-guide",
     "page": 127,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=540"
+  },
+  "weapon:twisting-gale": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3475",
+    "page": 130
+  },
+  "weapon:worldringer": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3477",
+    "page": 131
+  },
+  "weapon:worldringer-greater": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3477",
+    "page": 131
   },
   "weapon:zhuazhi-bang": {
     "book": "tian-xia-character-guide",

@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4961"
       }
     ],
     "description": [
@@ -169,7 +171,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4965"
       }
     ],
     "description": [
@@ -354,7 +358,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4976"
       }
     ],
     "description": [
@@ -490,7 +496,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "high-seas"
+        "book": "high-seas",
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4976"
       }
     ],
     "description": [

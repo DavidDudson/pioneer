@@ -1,4 +1,9 @@
 {
+  "armor:scene-stealers-tunic": {
+    "book": "curtain-call",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3628",
+    "page": 79
+  },
   "consumable:netherwalk-incense": {
     "book": "curtain-call",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3629",

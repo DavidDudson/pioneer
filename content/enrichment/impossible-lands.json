@@ -1174,6 +1174,26 @@
     "page": 220,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=262"
   },
+  "weapon:goo-grenade-greater": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1811",
+    "page": 306
+  },
+  "weapon:goo-grenade-lesser": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1811",
+    "page": 306
+  },
+  "weapon:goo-grenade-major": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1811",
+    "page": 306
+  },
+  "weapon:goo-grenade-moderate": {
+    "book": "impossible-lands",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1811",
+    "page": 306
+  },
   "weapon:kalis": {
     "book": "impossible-lands",
     "page": 220,

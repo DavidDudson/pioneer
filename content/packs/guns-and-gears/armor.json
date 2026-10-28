@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 86,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1144"
       }
     ],
     "description": [

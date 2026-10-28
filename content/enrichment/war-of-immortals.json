@@ -1853,10 +1853,20 @@
     "page": 147,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=505"
   },
+  "weapon:freedoms-flame": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3509",
+    "page": 151
+  },
   "weapon:gladius": {
     "book": "war-of-immortals",
     "page": 147,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=510"
+  },
+  "weapon:gut-ripper": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3512",
+    "page": 171
   },
   "weapon:kestros": {
     "book": "war-of-immortals",
@@ -1872,6 +1882,16 @@
     "book": "war-of-immortals",
     "page": 147,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=506"
+  },
+  "weapon:shadowpiercer": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3510",
+    "page": 152
+  },
+  "weapon:shard-of-self-destruction": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3516",
+    "page": 208
   },
   "weapon:war-gavel": {
     "book": "war-of-immortals",

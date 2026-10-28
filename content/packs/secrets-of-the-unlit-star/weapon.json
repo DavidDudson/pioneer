@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-the-unlit-star"
+        "book": "secrets-of-the-unlit-star",
+        "page": 59,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4355"
       }
     ],
     "description": [
@@ -123,7 +125,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-the-unlit-star"
+        "book": "secrets-of-the-unlit-star",
+        "page": 59,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4351"
       }
     ],
     "description": [
@@ -192,7 +196,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-the-unlit-star"
+        "book": "secrets-of-the-unlit-star",
+        "page": 59,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4354"
       }
     ],
     "description": [
@@ -257,7 +263,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-the-unlit-star"
+        "book": "secrets-of-the-unlit-star",
+        "page": 60,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4356"
       }
     ],
     "description": [
@@ -336,7 +344,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-the-unlit-star"
+        "book": "secrets-of-the-unlit-star",
+        "page": 59,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4352"
       }
     ],
     "description": [

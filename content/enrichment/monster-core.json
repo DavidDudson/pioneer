@@ -2149,6 +2149,11 @@
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3181",
     "page": 302
   },
+  "weapon:blackaxe": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3176",
+    "page": 329
+  },
   "weapon:shears": {
     "book": "monster-core",
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=446",

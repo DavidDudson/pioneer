@@ -1,4 +1,9 @@
 {
+  "armor:dragon-turtle-armor": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4059",
+    "page": 296
+  },
   "consumable:animal-turning-fulu": {
     "book": "season-of-ghosts",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4082",
@@ -369,6 +374,11 @@
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=241",
     "page": 314
   },
+  "shield:evil-reflecting-shield": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4061",
+    "page": 296
+  },
   "spell:cycle-of-retribution": {
     "book": "season-of-ghosts",
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2537",
@@ -418,5 +428,75 @@
     "book": "season-of-ghosts",
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2546",
     "page": 309
+  },
+  "weapon:branch-of-the-great-sugi": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4103",
+    "page": 307
+  },
+  "weapon:dragonfire-halfbow": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4060",
+    "page": 296
+  },
+  "weapon:fiends-hunger": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4062",
+    "page": 296
+  },
+  "weapon:four-tiger-blade": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4063",
+    "page": 296
+  },
+  "weapon:lumber-lords-axe": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4064",
+    "page": 297
+  },
+  "weapon:purgatory-emissarys-staff": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4096",
+    "page": 304
+  },
+  "weapon:senseis-parasol": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4065",
+    "page": 297
+  },
+  "weapon:silversoul-bomb": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4058",
+    "page": 296
+  },
+  "weapon:silversoul-bomb-greater": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4058",
+    "page": 296
+  },
+  "weapon:silversoul-bomb-major": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4058",
+    "page": 296
+  },
+  "weapon:spirit-fan": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4109",
+    "page": 308
+  },
+  "weapon:thundering-fury-dadao": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4066",
+    "page": 297
+  },
+  "weapon:ugly-cutes-gift": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4067",
+    "page": 297
+  },
+  "weapon:vashus-ninth-life": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4102",
+    "page": 306
   }
 }

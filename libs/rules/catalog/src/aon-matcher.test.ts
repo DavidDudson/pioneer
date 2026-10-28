@@ -125,3 +125,41 @@ describe('proposeAonMappings name variants and kinds', () => {
     expect(result.unmatched).toEqual([missing.slug]);
   });
 });
+
+describe('proposeAonMappings Equipment fallback for weapons, armor and shields', () => {
+  const listing: AonListing = {
+    book: BOOK,
+    entries: [
+      listed('Staff of Air', 'Equipment', 20),
+      listed('Lion’s Shield', 'Equipment', 21),
+      listed('Longsword', 'Weapons', 22),
+      listed('Longsword', 'Equipment', 23),
+    ],
+  };
+
+  test('maps a magic weapon and a graded variant of it to the Equipment page of the base item', () => {
+    const staff = entry(ContentKind.Weapon, 'Staff of Air');
+    const greater = entry(ContentKind.Weapon, 'Staff of Air (Greater)');
+    const shield = entry(ContentKind.Shield, "Lion's Shield");
+    const { proposals } = proposeAonMappings([staff, greater, shield], [listing], new Set());
+    const air = AonUrl.parse('https://2e.aonprd.com/Equipment.aspx?ID=20');
+    expect(proposals.get(staff.slug)?.aon).toBe(air);
+    expect(proposals.get(greater.slug)?.aon).toBe(air);
+    expect(proposals.get(shield.slug)?.aon).toBe(AonUrl.parse('https://2e.aonprd.com/Equipment.aspx?ID=21'));
+  });
+
+  test('prefers the weapon page, so a base item an Equipment row shares a name with is not ambiguous', () => {
+    const longsword = entry(ContentKind.Weapon, 'Longsword');
+    const result = proposeAonMappings([longsword], [listing], new Set());
+    expect(result.proposals.get(longsword.slug)?.aon).toBe(AonUrl.parse('https://2e.aonprd.com/Weapons.aspx?ID=22'));
+    expect(result.ambiguous).toEqual([]);
+  });
+
+  test('does not fall back for another kind, nor for a name the Equipment page lacks', () => {
+    const feat = entry(ContentKind.Feat, 'Staff of Air');
+    const missing = entry(ContentKind.Weapon, 'Staff of Water');
+    const result = proposeAonMappings([feat, missing], [listing], new Set());
+    expect(result.proposals.size).toBe(0);
+    expect(result.unmatched).toEqual([feat.slug, missing.slug]);
+  });
+});

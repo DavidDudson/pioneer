@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 296,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4059"
       }
     ],
     "description": [

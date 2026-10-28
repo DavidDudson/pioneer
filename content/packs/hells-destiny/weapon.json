@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hells-destiny"
+        "book": "hells-destiny",
+        "page": 226,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4955"
       }
     ],
     "description": [
@@ -146,7 +148,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hells-destiny"
+        "book": "hells-destiny",
+        "page": 226,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4955"
       }
     ],
     "description": [

@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=515"
       }
     ],
     "description": [
@@ -137,7 +139,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 92,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=517"
       }
     ],
     "description": [
@@ -406,7 +410,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 100,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=521"
       }
     ],
     "description": [

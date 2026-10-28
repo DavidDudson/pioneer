@@ -89,6 +89,151 @@
     "page": 66,
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=330"
   },
+  "armor:alkenstar-phalanx": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3801",
+    "page": 120
+  },
+  "armor:ankhrav-carapace": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3802",
+    "page": 120
+  },
+  "armor:autoload-leathers": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3803",
+    "page": 120
+  },
+  "armor:balloon-padding": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3804",
+    "page": 120
+  },
+  "armor:bismuth-armor": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3805",
+    "page": 120
+  },
+  "armor:buoyant-buckle": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3806",
+    "page": 120
+  },
+  "armor:command-cuirass": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3807",
+    "page": 120
+  },
+  "armor:crafting-leathers": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3808",
+    "page": 121
+  },
+  "armor:deep-pockets": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3809",
+    "page": 121
+  },
+  "armor:deep-sea-plate": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3810",
+    "page": 121
+  },
+  "armor:eagle-wing": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3811",
+    "page": 121
+  },
+  "armor:frost-furs": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3812",
+    "page": 121
+  },
+  "armor:grisly-brigandine": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3813",
+    "page": 121
+  },
+  "armor:incendiary-plate": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3814",
+    "page": 121
+  },
+  "armor:juggernaut-plate": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3815",
+    "page": 122
+  },
+  "armor:lifting-leather": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3816",
+    "page": 122
+  },
+  "armor:locust-leather": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3817",
+    "page": 122
+  },
+  "armor:message-mail": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3818",
+    "page": 122
+  },
+  "armor:mitigation-mail": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3819",
+    "page": 122
+  },
+  "armor:mitigation-mail-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3819",
+    "page": 122
+  },
+  "armor:mitigation-mail-major": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3819",
+    "page": 122
+  },
+  "armor:parachute-mail": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3820",
+    "page": 122
+  },
+  "armor:reactive-mail": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3821",
+    "page": 122
+  },
+  "armor:reactive-mail-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3821",
+    "page": 122
+  },
+  "armor:reactive-mail-major": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3821",
+    "page": 122
+  },
+  "armor:shadow-shroud": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3822",
+    "page": 123
+  },
+  "armor:thunder-mail": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3823",
+    "page": 123
+  },
+  "armor:umbral-armor": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3824",
+    "page": 123
+  },
+  "armor:wilderness-weave": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3825",
+    "page": 123
+  },
   "background:aeronaut": {
     "book": "battlecry",
     "page": 17,
@@ -2114,6 +2259,81 @@
     "page": 95,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=216"
   },
+  "shield:bivouac-targe": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3826",
+    "page": 124
+  },
+  "shield:dragon-shield": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3827",
+    "page": 124
+  },
+  "shield:energized-shield-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3828",
+    "page": 124
+  },
+  "shield:energized-shield-lesser": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3828",
+    "page": 124
+  },
+  "shield:energized-shield-major": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3828",
+    "page": 124
+  },
+  "shield:energized-shield-moderate": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3828",
+    "page": 124
+  },
+  "shield:medics-shield": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3829",
+    "page": 124
+  },
+  "shield:siege-shield": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3830",
+    "page": 124
+  },
+  "shield:sun-slayer": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3831",
+    "page": 124
+  },
+  "shield:testudo-shield": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3832",
+    "page": 124
+  },
+  "shield:testudo-shield-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3832",
+    "page": 124
+  },
+  "shield:tiger-shield": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3833",
+    "page": 125
+  },
+  "shield:vambrace-of-gorum": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3834",
+    "page": 125
+  },
+  "shield:vanguards-shield": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3835",
+    "page": 125
+  },
+  "shield:war-mages-buckler": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3836",
+    "page": 125
+  },
   "spell:barbed-spear": {
     "book": "battlecry",
     "page": 71,
@@ -2274,6 +2494,16 @@
     "page": 118,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=528"
   },
+  "weapon:belkzen-deadsmasher": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3837",
+    "page": 126
+  },
+  "weapon:belkzen-deadsmasher-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3837",
+    "page": 126
+  },
   "weapon:bladed-gauntlet": {
     "book": "battlecry",
     "page": 118,
@@ -2284,10 +2514,45 @@
     "page": 118,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=536"
   },
+  "weapon:chain-of-command": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3840",
+    "page": 126
+  },
+  "weapon:chainbreaker": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3839",
+    "page": 126
+  },
+  "weapon:chainbreaker-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3839",
+    "page": 126
+  },
+  "weapon:dazzling-shortbow": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3841",
+    "page": 126
+  },
+  "weapon:doomsweeper": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3842",
+    "page": 126
+  },
+  "weapon:draddeths-edge": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3843",
+    "page": 127
+  },
   "weapon:fauchard": {
     "book": "battlecry",
     "page": 118,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=529"
+  },
+  "weapon:final-stand": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3844",
+    "page": 127
   },
   "weapon:gaff": {
     "book": "battlecry",
@@ -2299,25 +2564,110 @@
     "page": 118,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=538"
   },
+  "weapon:generals-word": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3845",
+    "page": 127
+  },
+  "weapon:gravediggers-call": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3846",
+    "page": 127
+  },
+  "weapon:horselords-longbow": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3848",
+    "page": 128
+  },
+  "weapon:jistkan-colossus-crusher": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3849",
+    "page": 128
+  },
+  "weapon:jistkan-war-crossbow": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3850",
+    "page": 128
+  },
+  "weapon:kithrender": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3851",
+    "page": 128
+  },
+  "weapon:lamentation-of-the-faithless": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3852",
+    "page": 128
+  },
+  "weapon:last-hope": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3853",
+    "page": 129
+  },
   "weapon:lion-scythe": {
     "book": "battlecry",
     "page": 118,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=533"
+  },
+  "weapon:mageslayer": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3854",
+    "page": 130
   },
   "weapon:maul-spade": {
     "book": "battlecry",
     "page": 118,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=537"
   },
+  "weapon:radiant-victory": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3855",
+    "page": 130
+  },
+  "weapon:reapers-toll": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3856",
+    "page": 130
+  },
   "weapon:repeating-hand-crossbow": {
     "book": "battlecry",
     "page": 118,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=539"
   },
+  "weapon:revenant-blade": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3857",
+    "page": 130
+  },
+  "weapon:righteous-fury": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3858",
+    "page": 130
+  },
   "weapon:scourge": {
     "book": "battlecry",
     "page": 118,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=531"
+  },
+  "weapon:talonstrike-blade": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3859",
+    "page": 126
+  },
+  "weapon:talonstrike-blade-greater": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3859",
+    "page": 126
+  },
+  "weapon:ulfen-shieldbreaker": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3860",
+    "page": 131
+  },
+  "weapon:undead-scourge": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3861",
+    "page": 131
   },
   "weapon:war-lance": {
     "book": "battlecry",

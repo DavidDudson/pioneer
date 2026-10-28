@@ -4,6 +4,11 @@
     "page": 81,
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=312"
   },
+  "armor:canopy-bulwark": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3595",
+    "page": 81
+  },
   "consumable:arboreal-wand-rank-2": {
     "book": "wardens-of-wildwood",
     "page": 81,

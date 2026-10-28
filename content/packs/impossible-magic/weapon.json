@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5011"
       }
     ],
     "description": [
@@ -137,7 +139,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5012"
       }
     ],
     "description": [
@@ -287,7 +291,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 238,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5161"
       }
     ],
     "description": [
@@ -440,7 +446,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 238,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5161"
       }
     ],
     "description": [
@@ -657,7 +665,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 238,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5161"
       }
     ],
     "description": [
@@ -930,7 +940,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5013"
       }
     ],
     "description": [
@@ -1329,7 +1341,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5013"
       }
     ],
     "description": [
@@ -1728,7 +1742,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5014"
       }
     ],
     "description": [
@@ -1942,7 +1958,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5015"
       }
     ],
     "description": [
@@ -2092,7 +2110,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5016"
       }
     ],
     "description": [
@@ -2308,7 +2328,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 238,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5162"
       }
     ],
     "description": [
@@ -2722,7 +2744,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 238,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5163"
       }
     ],
     "description": [
@@ -2867,7 +2891,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 238,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5163"
       }
     ],
     "description": [
@@ -3068,7 +3094,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 238,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5163"
       }
     ],
     "description": [
@@ -3333,7 +3361,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5017"
       }
     ],
     "description": [
@@ -3399,7 +3429,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 238,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5164"
       }
     ],
     "description": [
@@ -3636,7 +3668,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5165"
       }
     ],
     "description": [
@@ -3825,7 +3859,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5165"
       }
     ],
     "description": [
@@ -4086,7 +4122,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5165"
       }
     ],
     "description": [
@@ -4411,7 +4449,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5018"
       }
     ],
     "description": [
@@ -4550,7 +4590,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5019"
       }
     ],
     "description": [
@@ -4743,7 +4785,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5020"
       }
     ],
     "description": [
@@ -4875,7 +4919,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5166"
       }
     ],
     "description": [
@@ -5213,7 +5259,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5021"
       }
     ],
     "description": [
@@ -5428,7 +5476,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5022"
       }
     ],
     "description": [
@@ -5588,7 +5638,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5023"
       }
     ],
     "description": [
@@ -5786,7 +5838,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5023"
       }
     ],
     "description": [
@@ -5984,7 +6038,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5023"
       }
     ],
     "description": [
@@ -6182,7 +6238,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5024"
       }
     ],
     "description": [
@@ -6331,7 +6389,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5025"
       }
     ],
     "description": [
@@ -6459,7 +6519,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5026"
       }
     ],
     "description": [
@@ -6611,7 +6673,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5167"
       }
     ],
     "description": [
@@ -6773,7 +6837,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5167"
       }
     ],
     "description": [
@@ -6963,7 +7029,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 211,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5027"
       }
     ],
     "description": [
@@ -7092,7 +7160,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 211,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5028"
       }
     ],
     "description": [
@@ -7312,7 +7382,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 211,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5028"
       }
     ],
     "description": [
@@ -7532,7 +7604,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 211,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5029"
       }
     ],
     "description": [
@@ -7668,7 +7742,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 211,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5029"
       }
     ],
     "description": [
@@ -7804,7 +7880,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 211,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5030"
       }
     ],
     "description": [
@@ -7964,7 +8042,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5168"
       }
     ],
     "description": [
@@ -8125,7 +8205,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5168"
       }
     ],
     "description": [
@@ -8350,7 +8432,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5168"
       }
     ],
     "description": [
@@ -8659,7 +8743,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5169"
       }
     ],
     "description": [
@@ -8848,7 +8934,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5169"
       }
     ],
     "description": [
@@ -9093,7 +9181,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 239,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5169"
       }
     ],
     "description": [
@@ -9394,7 +9484,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 240,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5170"
       }
     ],
     "description": [
@@ -9590,7 +9682,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 240,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5170"
       }
     ],
     "description": [
@@ -9858,7 +9952,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 240,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5170"
       }
     ],
     "description": [
@@ -10174,7 +10270,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 240,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5170"
       }
     ],
     "description": [
@@ -10538,7 +10636,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 240,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5171"
       }
     ],
     "description": [
@@ -10683,7 +10783,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 240,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5171"
       }
     ],
     "description": [
@@ -10876,7 +10978,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 240,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5171"
       }
     ],
     "description": [
@@ -11125,7 +11229,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 211,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5031"
       }
     ],
     "description": [
@@ -11266,7 +11372,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 240,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5172"
       }
     ],
     "description": [
@@ -11455,7 +11563,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 240,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5172"
       }
     ],
     "description": [
@@ -11700,7 +11810,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 211,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5032"
       }
     ],
     "description": [

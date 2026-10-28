@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 181,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1045"
       }
     ],
     "description": [
@@ -161,7 +163,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 181,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1045"
       }
     ],
     "description": [
@@ -311,7 +315,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 181,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1045"
       }
     ],
     "description": [
@@ -461,7 +467,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 185,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1059"
       }
     ],
     "description": [

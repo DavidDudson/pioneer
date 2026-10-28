@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 130,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2244"
       }
     ],
     "description": [
@@ -210,7 +212,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 130,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2244"
       }
     ],
     "description": [
@@ -473,7 +477,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 130,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2244"
       }
     ],
     "description": [
@@ -800,7 +806,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 62,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1971"
       }
     ],
     "description": [
@@ -851,7 +859,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 35,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1881"
       }
     ],
     "description": [
@@ -1122,7 +1132,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1882"
       }
     ],
     "description": [
@@ -1267,7 +1279,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 193,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2392"
       }
     ],
     "description": [
@@ -1762,7 +1776,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2155"
       }
     ],
     "description": [
@@ -1961,7 +1977,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 130,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2245"
       }
     ],
     "description": [
@@ -2181,7 +2199,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 130,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2245"
       }
     ],
     "description": [
@@ -2473,7 +2493,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 130,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2245"
       }
     ],
     "description": [
@@ -2882,7 +2904,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 190,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2374"
       }
     ],
     "description": [
@@ -3013,7 +3037,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 35,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1878"
       }
     ],
     "description": [
@@ -3288,7 +3314,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1902"
       }
     ],
     "description": [
@@ -3531,7 +3559,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1902"
       }
     ],
     "description": [
@@ -3828,7 +3858,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 131,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2246"
       }
     ],
     "description": [
@@ -4131,7 +4163,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 131,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2246"
       }
     ],
     "description": [
@@ -4482,7 +4516,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 131,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2246"
       }
     ],
     "description": [
@@ -4878,7 +4914,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1903"
       }
     ],
     "description": [
@@ -4974,7 +5012,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1903"
       }
     ],
     "description": [
@@ -5181,7 +5221,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 178,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2360"
       }
     ],
     "description": [
@@ -5485,7 +5527,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 131,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2247"
       }
     ],
     "description": [
@@ -5958,7 +6002,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 131,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2248"
       }
     ],
     "description": [
@@ -6317,7 +6363,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 178,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2361"
       }
     ],
     "description": [
@@ -6611,7 +6659,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 131,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2249"
       }
     ],
     "description": [
@@ -6790,7 +6840,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 131,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2249"
       }
     ],
     "description": [
@@ -7025,7 +7077,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 131,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2249"
       }
     ],
     "description": [
@@ -7473,7 +7527,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1883"
       }
     ],
     "description": [
@@ -7756,7 +7812,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 103,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2138"
       }
     ],
     "description": [
@@ -8002,7 +8060,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 132,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2250"
       }
     ],
     "description": [
@@ -8327,7 +8387,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 132,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2250"
       }
     ],
     "description": [
@@ -8728,7 +8790,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1884"
       }
     ],
     "description": [
@@ -8819,7 +8883,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1885"
       }
     ],
     "description": [
@@ -9390,7 +9456,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 132,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2251"
       }
     ],
     "description": [
@@ -9658,7 +9726,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 179,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2363"
       }
     ],
     "description": [
@@ -9901,7 +9971,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1886"
       }
     ],
     "description": [
@@ -10103,7 +10175,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 34,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1874"
       }
     ],
     "description": [
@@ -10216,7 +10290,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 132,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2252"
       }
     ],
     "description": [
@@ -10454,7 +10530,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 132,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2252"
       }
     ],
     "description": [
@@ -10748,7 +10826,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 132,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2252"
       }
     ],
     "description": [
@@ -11168,7 +11248,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 132,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2253"
       }
     ],
     "description": [
@@ -11670,7 +11752,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 38,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1890"
       }
     ],
     "description": [
@@ -12260,7 +12344,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2254"
       }
     ],
     "description": [
@@ -12511,7 +12597,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2254"
       }
     ],
     "description": [
@@ -12854,7 +12942,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1904"
       }
     ],
     "description": [
@@ -12965,7 +13055,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1904"
       }
     ],
     "description": [
@@ -13129,7 +13221,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2255"
       }
     ],
     "description": [
@@ -13330,7 +13424,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2255"
       }
     ],
     "description": [
@@ -13611,7 +13707,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2255"
       }
     ],
     "description": [
@@ -14144,7 +14242,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 39,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1891"
       }
     ],
     "description": [
@@ -14451,7 +14551,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2256"
       }
     ],
     "description": [
@@ -14771,7 +14873,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 34,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1872"
       }
     ],
     "description": [
@@ -14905,7 +15009,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 34,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1875"
       }
     ],
     "description": [
@@ -15171,7 +15277,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 35,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1879"
       }
     ],
     "description": [
@@ -15278,7 +15386,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 34,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1876"
       }
     ],
     "description": [
@@ -15707,7 +15817,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1887"
       }
     ],
     "description": [
@@ -15952,7 +16064,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 35,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1877"
       }
     ],
     "description": [
@@ -16052,7 +16166,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1905"
       }
     ],
     "description": [
@@ -16148,7 +16264,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1905"
       }
     ],
     "description": [
@@ -16302,7 +16420,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1906"
       }
     ],
     "description": [
@@ -16501,7 +16621,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1906"
       }
     ],
     "description": [
@@ -16699,7 +16821,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1906"
       }
     ],
     "description": [
@@ -16898,7 +17022,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1906"
       }
     ],
     "description": [
@@ -17097,7 +17223,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2257"
       }
     ],
     "description": [
@@ -17406,7 +17534,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 39,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1892"
       }
     ],
     "description": [
@@ -17581,7 +17711,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 39,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1893"
       }
     ],
     "description": [
@@ -17758,7 +17890,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2258"
       }
     ],
     "description": [
@@ -18083,7 +18217,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2258"
       }
     ],
     "description": [
@@ -18464,7 +18600,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2258"
       }
     ],
     "description": [
@@ -18929,7 +19067,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2259"
       }
     ],
     "description": [
@@ -19189,7 +19329,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2259"
       }
     ],
     "description": [
@@ -19513,7 +19655,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2259"
       }
     ],
     "description": [
@@ -19884,7 +20028,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2260"
       }
     ],
     "description": [
@@ -20058,7 +20204,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2260"
       }
     ],
     "description": [
@@ -20296,7 +20444,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2260"
       }
     ],
     "description": [
@@ -20590,7 +20740,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2261"
       }
     ],
     "description": [
@@ -20780,7 +20932,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2261"
       }
     ],
     "description": [
@@ -21026,7 +21180,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2261"
       }
     ],
     "description": [
@@ -21336,7 +21492,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2262"
       }
     ],
     "description": [
@@ -21516,7 +21674,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2262"
       }
     ],
     "description": [
@@ -21752,7 +21912,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2262"
       }
     ],
     "description": [
@@ -22044,7 +22206,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 35,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1880"
       }
     ],
     "description": [
@@ -22256,7 +22420,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 39,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1894"
       }
     ],
     "description": [
@@ -22416,7 +22582,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1907"
       }
     ],
     "description": [
@@ -22508,7 +22676,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1907"
       }
     ],
     "description": [
@@ -22653,7 +22823,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 38,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1888"
       }
     ],
     "description": [
@@ -22834,7 +23006,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 38,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1889"
       }
     ],
     "description": [
@@ -23014,7 +23188,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 104,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2145"
       }
     ],
     "description": [
@@ -23398,7 +23574,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 180,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2367"
       }
     ],
     "description": [
@@ -23875,7 +24053,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2146"
       }
     ],
     "description": [
@@ -24601,7 +24781,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2263"
       }
     ],
     "description": [
@@ -25029,7 +25211,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2264"
       }
     ],
     "description": [
@@ -25246,7 +25430,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2264"
       }
     ],
     "description": [
@@ -25535,7 +25721,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2264"
       }
     ],
     "description": [

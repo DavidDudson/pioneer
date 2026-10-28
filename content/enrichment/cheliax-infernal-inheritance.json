@@ -19,6 +19,11 @@
     "page": 174,
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=400"
   },
+  "armor:gleaming-cuirass": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5248",
+    "page": 176
+  },
   "background:asmodean-apostate": {
     "book": "cheliax-infernal-inheritance",
     "page": 44,
@@ -1043,5 +1048,15 @@
     "book": "cheliax-infernal-inheritance",
     "page": 102,
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2937"
+  },
+  "weapon:pike-of-the-monster-slayer": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5245",
+    "page": 129
+  },
+  "weapon:soulpiercer": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5251",
+    "page": 176
   }
 }
