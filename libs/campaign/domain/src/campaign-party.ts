@@ -2,7 +2,13 @@ import { InstantCodec, UserId } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { CharacterId, MemberName, PartyCharacterLevel, PartyCharacterName } from './campaign-fields';
+import {
+  CharacterId,
+  MemberName,
+  PartyCharacterLevel,
+  PartyCharacterName,
+  PartyCharacterOrigin,
+} from './campaign-fields';
 import type { CampaignCharacterId, CampaignMemberId } from './campaign-fields';
 
 /**
@@ -22,6 +28,9 @@ export const OwnedCharacter = z.object({
   characterId: CharacterId,
   name: PartyCharacterName,
   level: PartyCharacterLevel,
+  /** What its build picked; absent while the slot is empty. */
+  ancestry: PartyCharacterOrigin.optional(),
+  class: PartyCharacterOrigin.optional(),
 });
 export type OwnedCharacter = z.output<typeof OwnedCharacter>;
 

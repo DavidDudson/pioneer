@@ -29,7 +29,13 @@ export interface CampaignPartyPorts {
 
 /** A character's summary as the picker lists it. */
 function owned(character: CharacterSummary): OwnedCharacter {
-  return { characterId: character.id, name: character.name, level: character.level };
+  return {
+    characterId: character.id,
+    name: character.name,
+    level: character.level,
+    ancestry: character.ancestry,
+    class: character.class,
+  };
 }
 
 /**

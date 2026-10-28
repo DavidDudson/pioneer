@@ -1,4 +1,4 @@
-import { CharacterId, PartyCharacterLevel, PartyCharacterName } from '@pioneer/campaign/domain';
+import { CharacterId, PartyCharacterLevel, PartyCharacterName, PartyCharacterOrigin } from '@pioneer/campaign/domain';
 import type { UserId } from '@pioneer/shared/kernel';
 
 import { CharacterDirectory } from './character-directory';
@@ -11,6 +11,8 @@ interface CharacterFixture {
   readonly name: string;
   readonly level?: number;
   readonly archived?: boolean;
+  readonly ancestry?: string;
+  readonly class?: string;
 }
 
 /** Directory adapter for tests: characters given up front. */
@@ -18,7 +20,15 @@ export class InMemoryCharacterDirectory extends CharacterDirectory {
   readonly #characters = new Map<CharacterId, CharacterSummary>();
 
   /** Adds a character, at level 1 unless given. */
-  public character({ id, ownerId, name, level = 1, archived = false }: CharacterFixture): this {
+  public character({
+    id,
+    ownerId,
+    name,
+    level = 1,
+    archived = false,
+    ancestry,
+    class: className,
+  }: CharacterFixture): this {
     const characterId = CharacterId.parse(id);
     this.#characters.set(characterId, {
       id: characterId,
@@ -26,6 +36,8 @@ export class InMemoryCharacterDirectory extends CharacterDirectory {
       name: PartyCharacterName.parse(name),
       level: PartyCharacterLevel.parse(level),
       archived,
+      ...(ancestry === undefined ? {} : { ancestry: PartyCharacterOrigin.parse(ancestry) }),
+      ...(className === undefined ? {} : { class: PartyCharacterOrigin.parse(className) }),
     });
     return this;
   }

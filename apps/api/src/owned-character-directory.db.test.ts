@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { CharacterId, PartyCharacterLevel, PartyCharacterName } from '@pioneer/campaign/domain';
+import { CharacterId, PartyCharacterLevel, PartyCharacterName, PartyCharacterOrigin } from '@pioneer/campaign/domain';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
@@ -18,6 +18,7 @@ interface CharacterRow {
   readonly ownerId: UserId;
   readonly name: string;
   readonly level: number;
+  readonly choices?: Readonly<Record<string, string>>;
 }
 
 describe.skipIf(adminUrl === undefined)('OwnedCharacterDirectory (postgres)', () => {
@@ -29,9 +30,9 @@ describe.skipIf(adminUrl === undefined)('OwnedCharacterDirectory (postgres)', ()
   const kyra = CharacterId.parse(newId());
   let database: TestDatabase;
 
-  async function insertCharacter({ id, ownerId, name, level }: CharacterRow): Promise<void> {
+  async function insertCharacter({ id, ownerId, name, level, choices }: CharacterRow): Promise<void> {
     await database.db.execute(
-      sql`insert into characters (id, version, owner_id, name, level, schema_version, document, created_at, updated_at) values (${id}, 1, ${ownerId}, ${name}, ${level}, 1, ${JSON.stringify({ schemaVersion: 1, id, ownerId, name, level })}::jsonb, ${at}, ${at})`,
+      sql`insert into characters (id, version, owner_id, name, level, schema_version, document, created_at, updated_at) values (${id}, 1, ${ownerId}, ${name}, ${level}, 1, ${JSON.stringify({ schemaVersion: 1, id, ownerId, name, level, build: { choices: choices ?? {} } })}::jsonb, ${at}, ${at})`,
     );
   }
 
@@ -72,6 +73,36 @@ describe.skipIf(adminUrl === undefined)('OwnedCharacterDirectory (postgres)', ()
     expect(await directory.ownedBy(nobody)).toStrictEqual([]);
   });
 
+  test('carries the ancestry and class the build picked, and leaves out an empty slot', async () => {
+    const human = PartyCharacterOrigin.parse(newId());
+    const fighter = PartyCharacterOrigin.parse(newId());
+    const picked = CharacterId.parse(newId());
+    const owner = UserId.parse(newId());
+    await database.db.execute(
+      sql`insert into users (id, display_name, email_verified, created_at, updated_at) values (${owner}, 'Lini', false, ${at}, ${at})`,
+    );
+    await insertCharacter({
+      id: picked,
+      ownerId: owner,
+      name: 'Harsk',
+      level: 2,
+      choices: { ancestry: human, class: fighter },
+    });
+    await insertCharacter({
+      id: CharacterId.parse(newId()),
+      ownerId: owner,
+      name: 'Zed',
+      level: 1,
+      choices: { ancestry: human },
+    });
+    const owned = await new OwnedCharacterDirectory(database.db).ownedBy(owner);
+    expect(
+      owned.map((character) => ({ name: character.name, ancestry: character.ancestry, class: character.class })),
+    ).toStrictEqual([
+      { name: PartyCharacterName.parse('Harsk'), ancestry: human, class: fighter },
+      { name: PartyCharacterName.parse('Zed'), ancestry: human, class: undefined },
+    ]);
+  });
   test('an archived character is not listed as owned but is found by id, flagged', async () => {
     const archived = CharacterId.parse(newId());
     await insertCharacter({ id: archived, ownerId: seelah, name: 'Old Kyra', level: 5 });

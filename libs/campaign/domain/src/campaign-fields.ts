@@ -103,3 +103,10 @@ export type CampaignRuleLimitId = z.infer<typeof CampaignRuleLimitId>;
 /** Row id of one approval of a rule-breaking item; the audit log keys every row by an `id`. */
 export const CampaignItemApprovalId = Uuid.brand<'CampaignItemApprovalId'>();
 export type CampaignItemApprovalId = z.infer<typeof CampaignItemApprovalId>;
+
+/**
+ * A content entry a character's build picked (its ancestry or class), as the rules context names it. Same brand as
+ * there; the campaign context only carries it so a client can look the name up.
+ */
+export const PartyCharacterOrigin = Uuid.brand<'ContentId'>();
+export type PartyCharacterOrigin = z.infer<typeof PartyCharacterOrigin>;

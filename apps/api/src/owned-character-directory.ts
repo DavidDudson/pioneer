@@ -1,9 +1,9 @@
 import { CharacterDirectory } from '@pioneer/campaign/application';
 import type { CharacterSummary } from '@pioneer/campaign/application';
-import { CharacterId, PartyCharacterLevel, PartyCharacterName } from '@pioneer/campaign/domain';
+import { CharacterId, PartyCharacterLevel, PartyCharacterName, PartyCharacterOrigin } from '@pioneer/campaign/domain';
 import { characters } from '@pioneer/character/infrastructure';
 import type { UserId } from '@pioneer/shared/kernel';
-import { and, asc, eq, inArray, isNull } from 'drizzle-orm';
+import { and, asc, eq, inArray, isNull, sql } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 /** The columns a summary is read from. */
@@ -13,6 +13,8 @@ const SUMMARY = {
   name: characters.name,
   level: characters.level,
   archivedAt: characters.archivedAt,
+  ancestry: sql<string | null>`${characters.document} -> 'build' -> 'choices' ->> 'ancestry'`,
+  class: sql<string | null>`${characters.document} -> 'build' -> 'choices' ->> 'class'`,
 };
 
 interface SummaryRow {
@@ -21,6 +23,17 @@ interface SummaryRow {
   readonly name: string;
   readonly level: number;
   readonly archivedAt: string | null;
+  readonly ancestry: string | null;
+  readonly class: string | null;
+}
+
+/** A picked entry as a field of the summary; a slot that is empty, or holds something that is no entry id, is left out. */
+function originOf(
+  slot: 'ancestry' | 'class',
+  value: string | null,
+): Partial<Record<typeof slot, PartyCharacterOrigin>> {
+  const parsed = PartyCharacterOrigin.safeParse(value);
+  return parsed.success ? { [slot]: parsed.data } : {};
 }
 
 function toSummary(row: SummaryRow): CharacterSummary {
@@ -30,6 +43,8 @@ function toSummary(row: SummaryRow): CharacterSummary {
     name: PartyCharacterName.parse(row.name),
     level: PartyCharacterLevel.parse(row.level),
     archived: row.archivedAt !== null,
+    ...originOf('ancestry', row.ancestry),
+    ...originOf('class', row.class),
   };
 }
 
