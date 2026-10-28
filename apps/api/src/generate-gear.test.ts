@@ -92,6 +92,14 @@ describe('generated gear', () => {
     expect(kindsCarried(character, items, CarryState.Worn)).toContain(ContentKind.Armor);
   });
 
+  test.each([
+    ['Alchemist', 4, 20],
+    ['Alchemist', 5, 525_389_030],
+  ] as const)('%s at level %i, seed %i, holds a weapon', (name, level, seed) => {
+    const at = CharacterLevel.parse(level);
+    expect(gearProblems(geared(name, at, seed), at)).toEqual([]);
+  });
+
   test('any class, level and seed gives legal gear within the budget', () => {
     assert(
       property(

@@ -151,13 +151,22 @@ function attempt({ character, want }: Buying, entry: ItemEntry, shop: Shop): Cha
   return equipped !== undefined && unencumbered(equipped, shop) ? equipped : undefined;
 }
 
-/** The items `character` may buy for `want` with at most `cap`: common, no higher in level than it, and priced. */
+/** Whether `entry` is a weapon that is worn, such as handwraps, which is not one a character holds. */
+function wornWeapon(entry: ItemEntry): boolean {
+  return entry.kind === ContentKind.Weapon && isWearable(entry);
+}
+
+/**
+ * The items `character` may buy for `want` with at most `cap`: common, no higher in level than it, and priced. A
+ * weapon bought for use is one it can hold.
+ */
 function candidates({ character, want }: Buying, cap: CopperValue, shop: Shop): readonly ItemEntry[] {
   const owned = new Set<ContentId>(character.document.inventory.items.map((line) => line.item));
   return [...shop.items.values()].filter((entry) => {
     const cost = priceOf(entry);
     return (
       want.kinds.includes(entry.kind) &&
+      !(want.used && wornWeapon(entry)) &&
       entry.rarity === Rarity.Common &&
       entry.level <= character.document.level &&
       cost !== undefined &&
@@ -177,14 +186,22 @@ function topOf(offer: readonly ItemEntry[]): readonly ItemEntry[] {
   return offer.filter((entry) => entry.level + LEVEL_BAND >= best);
 }
 
-/** `character` with one purchase for `want`, picked at random, or as it was when nothing fits. */
+/**
+ * `character` with one purchase for `want`, picked at random from near the top of what its level allows, or as it was
+ * when nothing fits. Gear that is used falls back to anything on offer, so a weak character that can carry none of the
+ * best still holds a weapon.
+ */
 function buy(character: Character, want: Want, shop: Shop): Character {
   const left = coinsValue(character.document.inventory.coins);
   const cap = CopperValue.parse(Math.floor(left / want.share));
-  for (const entry of shuffle(shop.source, topOf(candidates({ character, want }, cap, shop))).slice(0, ATTEMPTS_MAX)) {
-    const bought = attempt({ character, want }, entry, shop);
-    if (bought !== undefined) {
-      return bought;
+  const offer = candidates({ character, want }, cap, shop);
+  const pools = want.used ? [topOf(offer), offer] : [topOf(offer)];
+  for (const pool of pools) {
+    for (const entry of shuffle(shop.source, pool).slice(0, ATTEMPTS_MAX)) {
+      const bought = attempt({ character, want }, entry, shop);
+      if (bought !== undefined) {
+        return bought;
+      }
     }
   }
   return character;
