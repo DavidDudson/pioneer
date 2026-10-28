@@ -635,6 +635,1650 @@
     {
       "type": "entry",
       "pack": "gatewalkers",
+      "slug": "creature:ainamuuren",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.kgW2ycNTgQsMmkTC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status bonus to saves against holy spells and effects"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:alkoasha",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.JrMv2lQ1hRTpMumk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "hydra regeneration"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "items.effect",
+          "raw": "Effect: Hydra Heads"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:ancient-tupilaq",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.bnKUnG9XzsKzIUxK",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(28 when broken); construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:animate-dream",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.l64HY5lbpITe0WHZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:apothecarys-cabinet",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.uTaGZT1vl7UG9tdf",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(20 when broken); construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:arctic-bloom",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.MiOTuSswwDadkxoq",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "pheromones (precise) 20 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Pheromones"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:aspect-of-ruun",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.eRRWMgdYHwNIm6zp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "tongues"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "doubleVS": ["non-magical"],
+            "exceptions": ["force", "ghost-touch", "spirit", "spirit"],
+            "key": "Resistance",
+            "predicate": [
+              {
+                "not": "bond-with-mortal"
+              }
+            ],
+            "type": "all-damage",
+            "value": 5
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "predicate": ["item:slug:heal"],
+            "property": "dice-faces",
+            "selectors": ["spell-damage", "spell-healing"],
+            "slug": "base",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:blackfrost-guecubu",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.Yy2DDehhj47BMWgP",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "tundra glide"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess", "success"],
+            "predicate": ["action:shove"],
+            "selector": "skill-check",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:blackfrost-prophet",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.5kcL1xtNY0apAwhO",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "ice climb 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:blackfrost-zombie",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.2mq2bKfkW7gtxKla",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "ice climb 20 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:bolan-nogasso",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.qsRrYCsKLiMwZ1I9",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Leaf Mask"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:capstan-swabbie",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.9pu5FhW9oW1mZaaC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Anchor"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:captain-salah",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.EfoaqozIWUdm8unh",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "22 with shield raised"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Horse Skull Helmet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:creeping-evil",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.u1VUKkC4mBDhi7YZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:crownbound-constellation",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.6HB8S40uMTxM9prV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:delphon",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.bz5OjD8rYMm1M4EC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "selfEffect",
+          "raw": "Compendium.pf2e.bestiary-effects.Item.Effect: Untamed Shift (Oaksteward)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Oak Leaf Mask"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:demonic-muckrager",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.SbJe7zmuevvBFhad",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:demontangle",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.NeNIMJO0P1KA8KCM",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:deniigi",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.Ol3XPxYXHmSHYlk8",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Winter Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:dreamscraper",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.8typuC7n5nE01Gzu",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "freedom of movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:elder-thing",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.tjDGU0T5RYZG49EN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:elder-thing-researcher",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.4LTBKID3ZcZgyOVw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "all-around vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:equendia",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.AeM32zT3kFOOAugS",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "snow vision"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Aura",
+          "raw": {
+            "effects": [
+              {
+                "affects": "all",
+                "events": ["enter"],
+                "includesSelf": false,
+                "predicate": ["target:mode:living"],
+                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Despair"
+              }
+            ],
+            "key": "Aura",
+            "radius": 30,
+            "slug": "great-despair",
+            "traits": ["emotion", "fear", "incapacitation", "mental", "occult"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "strike-damage",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:etward-ritalson",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.MnOXwpGD3vJIFydk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 30 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "strikes.Moderate Alchemist's Fire.damage",
+          "raw": {
+            "damage": "2",
+            "damageType": "fire",
+            "category": "persistent"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Formula Book"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Manor Keys"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Black Tentacles (Level 5)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Confusion (Level 4)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Scroll of Fly (Level 4)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:ghodrak-the-quick",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.rrMtTABR1587fJGU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "initiative",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "hatchet-attack",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Gray Post Keys"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Map of Skywatch"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:green-monkey",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.yTREQiKhDqp16UeO",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "tongues"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:ilakni",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.PAQHiQqCcfFo8koZ",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "burrow through blackfrost ice only"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 circumstance vs. diseases and poisons"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:immolis",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.X7ScCatwncmk5P9o",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "heatsense 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:innumma",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.cFXimh6v7f02kWri",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Winter Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:jarvs",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.58GbVCENX813DbHw",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. linguistic effects"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:kaneepo-the-slim",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.ZzVs5T27LnLhRZ5u",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:kvernknurr",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.7LdB1zPPNiWX4Ji5",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:leiko",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.xZjA4N72SIQ2zosk",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "swift steps, tenebral form"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:mindmoppet",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.qbTNd1UeIxYEihNs",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "mindsense (precise) 120 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "one other language; telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Shell (Porcelain Doll)"
+        },
+        {
+          "type": "trait",
+          "trait": "lawful"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:myroga",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.A9gKXEQXwKb4U6wA",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "ley line sense (imprecise) 1 mile"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:oaksteward-enforcer",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.kneoApQfhlRhhp1R",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "selfEffect",
+          "raw": "Compendium.pf2e.bestiary-effects.Item.Effect: Untamed Shift (Oaksteward)"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:oaksteward-enforcer-gatehouse",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.MmyFD8SI0IvzCTuR",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "selfEffect",
+          "raw": "Compendium.pf2e.bestiary-effects.Item.Effect: Untamed Shift (Oaksteward)"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Oak Leaf Mask"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:ocluai",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.RwdczmexMQkSckwL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language; telepathy 100 feet, images only"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:ogmunzorius",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.m1M7f4Rd5zuBRVDe",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.resistances.doubleVs",
+          "raw": ["non-magical"]
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:pholebis",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.mcNpKicW6L1E327u",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "speak with animals"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Faerie Fire"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Tree Shape"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Negate Aroma"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Ray of Frost"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:protosoul",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.78E4gYNIFP3jd8Bt",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 0,
+              "value": 0
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:quarry-construct",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.itAkkjCM3EUQ4heC",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(14 when broken), construct armor"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "predicate": [
+              {
+                "or": [
+                  "construct-armor",
+                  {
+                    "lt": ["hp-percent", 50]
+                  }
+                ]
+              }
+            ],
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:sakuachi",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.wdeje31VJ7Ivcdd6",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Winter Clothing"
+        },
+        {
+          "type": "trait",
+          "trait": "good"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:sickly-eshmok",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.41cLllp5tBGim7Cp",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "Telepathy 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "option": "change-shape",
+            "selection": "wasp",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Plant.Fungus",
+                "value": "fungus"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.Wasp",
+                "value": "wasp"
+              }
+            ],
+            "toggleable": true,
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 19,
+            "damage": {
+              "base": {
+                "damageType": "slashing",
+                "dice": 2,
+                "die": "d8",
+                "modifier": 7
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Tendril",
+            "predicate": ["change-shape:fungus"],
+            "slug": "tendril",
+            "traits": ["agile", "magical", "reach-10", "unholy"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Strike",
+          "raw": {
+            "attackModifier": 19,
+            "damage": {
+              "base": {
+                "damageType": "piercing",
+                "dice": 2,
+                "die": "d8",
+                "modifier": 7
+              }
+            },
+            "key": "Strike",
+            "label": "PF2E.BattleForm.Attack.Stinger",
+            "predicate": ["change-shape:wasp"],
+            "slug": "stinger",
+            "traits": ["magical", "unholy"]
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "tendril-attack",
+            "text": "{item|description}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:skin-beetle",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.BlF4FiqivSuigBxy",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[pathfinder-bestiary-3]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:skin-beetle-swarm",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.COyGm2KW6YKFE67u",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[pathfinder-bestiary-3]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:snowy-owl",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.DP1XF7ygEPlBOdVB",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Hide Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:stone-breasted-owl",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.DWT0VLHV9MCbbjbx",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "tongues"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.DamageAlteration",
+          "raw": {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "predicate": ["item:slug:heal"],
+            "property": "dice-faces",
+            "selectors": ["spell-damage", "spell-healing"],
+            "slug": "base",
+            "value": 10
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:temagyr",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.DAfDg86y1mWHHQEy",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:the-guest",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.FGOMsKi1Z0a7uJJy",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 circumstance vs. diseases and poisons"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "outcome": ["criticalSuccess"],
+            "selector": "strike-damage",
+            "text": "{item|system.description.value}",
+            "title": "{item|name}",
+            "visibility": "owner"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:the-looksee-man",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.cgCENLL4fwwGxvzo",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.offGuardable",
+            "value": "@actor.level"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Spellbook"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Ring With Nethys Mask Sigil"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:ulikuq",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.WY4QIzNxE69QH2yd",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Winter Clothing"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:valmar",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.f1Wpj3sqUrfr4m6K",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.ac.details",
+          "raw": "(25 with shield raised)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "immortal flesh"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+2 status to all saves vs. poison"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Keys"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:vhisa-resgrido",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.wt9kH6AwMRuSeGBV",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "resources",
+          "raw": {
+            "focus": {
+              "max": 1,
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Ghost Sound"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Mage Hand"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Magic Aura"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Unseen Servant"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "spellcasting.spells",
+          "raw": "Inspire Courage"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Lute"
+        },
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Thieves' Tools"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
+      "slug": "creature:yaiafineti",
+      "foundry": "Compendium.pf2e.gatewalkers-bestiary.Actor.piLAtgB51zXEHmFt",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "pheromones (precise) 20 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "pheromones"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "gatewalkers",
       "slug": "effect:effect-cooperative-hunting",
       "foundry": "Compendium.pf2e.bestiary-effects.Item.FngohajUtnPe9vmJ",
       "gaps": [
@@ -1477,6 +3121,13 @@
       "slug": "untyped",
       "reason": "unmapped-value",
       "detail": "untyped"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "language",
+      "slug": "wildsong",
+      "reason": "unmapped-value",
+      "detail": "secret"
     }
   ]
 }

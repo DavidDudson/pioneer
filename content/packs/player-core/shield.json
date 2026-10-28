@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Shields.aspx?ID=17",
-        "page": 274
+        "page": 274,
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=17"
       }
     ],
     "description": [
@@ -219,8 +219,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Shields.aspx?ID=19",
-        "page": 274
+        "page": 274,
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=19"
       }
     ],
     "description": [
@@ -309,8 +309,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Shields.aspx?ID=20",
-        "page": 274
+        "page": 274,
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=20"
       }
     ],
     "description": [
@@ -408,8 +408,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Shields.aspx?ID=18",
-        "page": 274
+        "page": 274,
+        "aon": "https://2e.aonprd.com/Shields.aspx?ID=18"
       }
     ],
     "description": [

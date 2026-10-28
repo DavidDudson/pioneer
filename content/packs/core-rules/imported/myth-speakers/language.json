@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1dce1e9e-a8af-5518-9c72-d3fa2d3ac66c",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:iblydan",
+    "name": "Iblydosi",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

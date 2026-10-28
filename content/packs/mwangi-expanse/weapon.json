@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "mwangi-expanse",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=168",
-        "page": 86
+        "page": 86,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=168"
       }
     ],
     "description": [

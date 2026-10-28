@@ -304,10 +304,6 @@
             "property": "other-tags",
             "value": "studious-spell"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -359,10 +355,6 @@
             "property": "other-tags",
             "value": "studious-spell"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -1554,10 +1546,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:yaksha"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -2077,18 +2065,6 @@
     {
       "type": "entry",
       "pack": "tian-xia-character-guide",
-      "slug": "feat:distant-waterbirds-poise",
-      "foundry": "Compendium.pf2e.feats-srd.Item.3HaftIWhhxIGWzE7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
       "slug": "feat:dokkaebi-fire",
       "foundry": "Compendium.pf2e.feats-srd.Item.gRa4bvQn7rI1LoRl",
       "gaps": [
@@ -2417,18 +2393,6 @@
     {
       "type": "entry",
       "pack": "tian-xia-character-guide",
-      "slug": "feat:feast-planner",
-      "foundry": "Compendium.pf2e.feats-srd.Item.SuIRAnpe0RvNrx6I",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core 2"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
       "slug": "feat:fiend-trampling-stature",
       "foundry": "Compendium.pf2e.feats-srd.Item.nk8jtjNodT15IU1N",
       "gaps": [
@@ -2670,18 +2634,6 @@
     {
       "type": "entry",
       "pack": "tian-xia-character-guide",
-      "slug": "feat:ghost-path-epiphany",
-      "foundry": "Compendium.pf2e.feats-srd.Item.G96zcEKvxtWLn701",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
       "slug": "feat:golden-dragons-bounty",
       "foundry": "Compendium.pf2e.feats-srd.Item.HvbVV8wjJmVmkYt7",
       "gaps": [
@@ -2781,10 +2733,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[feats-srd] Pathfinder Lost Omens Impossible Lands"
         }
       ]
     },
@@ -4441,10 +4389,6 @@
             "property": "other-tags",
             "value": "ancestral-spell:yaksha"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -4588,22 +4532,6 @@
             "text": "PF2E.SpecificRule.Magus.UnsheathingTheSwordLight.Note",
             "title": "{item|name}"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
-      "slug": "feat:vermillion-threads",
-      "foundry": "Compendium.pf2e.feats-srd.Item.gcDnshdIZVfp9bbz",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[actionspf2e] Pathfinder Impossible Magic"
         }
       ]
     },
@@ -4763,10 +4691,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[equipment-srd] Pathfinder Lost Omens Impossible Lands"
         }
       ]
     },
@@ -4869,18 +4793,6 @@
             "type": "{item|flags.system.rulesSelections.withstandTheStorm}",
             "value": "@actor.level"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
-      "slug": "feat:witness-of-earth",
-      "foundry": "Compendium.pf2e.feats-srd.Item.NhBKdOa02dCMxUnG",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
         }
       ]
     },
@@ -5374,20 +5286,6 @@
     {
       "type": "entry",
       "pack": "tian-xia-character-guide",
-      "slug": "heritage:shimmertongue-nagaji",
-      "foundry": "Compendium.pf2e.heritages.Item.Cmj0pI0GPHl7kBUB",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "ancestry",
-          "raw": "Compendium.pf2e.ancestries.Item.J7T7bDLaQGoY1sMF"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
       "slug": "heritage:steadfast-tanuki",
       "foundry": "Compendium.pf2e.heritages.Item.5gqcEsJ4gkE6W5jj",
       "gaps": [
@@ -5608,20 +5506,6 @@
         {
           "type": "enricher",
           "enricher": "@Damage[options]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
-      "slug": "weapon:twisting-gale",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.2iKqXkRAq8qwlFlT",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "runes.property",
-          "raw": "impactful"
         }
       ]
     },

@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "the-dead-gods-hand",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5216",
-        "page": 142
+        "page": 142,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5216"
       }
     ],
     "description": [
@@ -157,6 +157,9 @@
       },
       "bulk": "light",
       "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"

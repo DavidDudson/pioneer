@@ -18,4 +18,3 @@ export const secretsOfTheUnlitStarPack: PackLoader;
 export const troublesInGraycePack: PackLoader;
 export const hellsDestinyPack: PackLoader;
 export const bastionOfBlasphemiesPack: PackLoader;
-export const theDeadGodsHandPack: PackLoader;

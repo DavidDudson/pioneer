@@ -1704,8 +1704,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=330",
-        "page": 30
+        "page": 30,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=330"
       }
     ],
     "description": [
@@ -1909,8 +1909,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=271",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=271"
       }
     ],
     "description": [
@@ -2830,8 +2830,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=272",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=272"
       }
     ],
     "description": [
@@ -2961,8 +2961,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=273",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=273"
       }
     ],
     "description": [
@@ -3775,8 +3775,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=332",
-        "page": 30
+        "page": 30,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=332"
       }
     ],
     "description": [
@@ -5071,8 +5071,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=344",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=344"
       }
     ],
     "description": [
@@ -5129,8 +5129,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=275",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=275"
       }
     ],
     "description": [
@@ -5852,8 +5852,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=276",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=276"
       }
     ],
     "description": [
@@ -5905,8 +5905,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=333",
-        "page": 30
+        "page": 30,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=333"
       }
     ],
     "description": [
@@ -6559,8 +6559,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=277",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=277"
       }
     ],
     "description": [
@@ -7309,8 +7309,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=278",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=278"
       }
     ],
     "description": [
@@ -7362,8 +7362,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=345",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=345"
       }
     ],
     "description": [
@@ -7421,8 +7421,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=279",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=279"
       }
     ],
     "description": [
@@ -9012,8 +9012,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=280",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=280"
       }
     ],
     "description": [
@@ -9065,8 +9065,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=281",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=281"
       }
     ],
     "description": [
@@ -9118,8 +9118,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=282",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=282"
       }
     ],
     "description": [
@@ -9171,8 +9171,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=283",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=283"
       }
     ],
     "description": [
@@ -9224,8 +9224,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=284",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=284"
       }
     ],
     "description": [
@@ -9277,8 +9277,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=285",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=285"
       }
     ],
     "description": [
@@ -9330,8 +9330,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=286",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=286"
       }
     ],
     "description": [
@@ -11115,8 +11115,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=336",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=336"
       }
     ],
     "description": [
@@ -11565,8 +11565,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=287",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=287"
       }
     ],
     "description": [
@@ -11618,8 +11618,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=288",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=288"
       }
     ],
     "description": [
@@ -12043,8 +12043,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=289",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=289"
       }
     ],
     "description": [
@@ -12096,8 +12096,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=291",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=291"
       }
     ],
     "description": [
@@ -12149,8 +12149,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=346",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=346"
       }
     ],
     "description": [
@@ -12208,8 +12208,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=292",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=292"
       }
     ],
     "description": [
@@ -13077,8 +13077,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=293",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=293"
       }
     ],
     "description": [
@@ -13981,8 +13981,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=294",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=294"
       }
     ],
     "description": [
@@ -14034,8 +14034,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=296",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=296"
       }
     ],
     "description": [
@@ -14087,8 +14087,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=347",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=347"
       }
     ],
     "description": [
@@ -14234,8 +14234,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=297",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=297"
       }
     ],
     "description": [
@@ -14287,8 +14287,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=298",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=298"
       }
     ],
     "description": [
@@ -14340,8 +14340,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=299",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=299"
       }
     ],
     "description": [
@@ -14393,8 +14393,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=337",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=337"
       }
     ],
     "description": [
@@ -15111,8 +15111,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=300",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=300"
       }
     ],
     "description": [
@@ -15490,8 +15490,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=301",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=301"
       }
     ],
     "description": [
@@ -15543,8 +15543,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=338",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=338"
       }
     ],
     "description": [
@@ -15602,8 +15602,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=302",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=302"
       }
     ],
     "description": [
@@ -15655,8 +15655,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=303",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=303"
       }
     ],
     "description": [
@@ -16245,8 +16245,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=339",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=339"
       }
     ],
     "description": [
@@ -22137,8 +22137,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=341",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=341"
       }
     ],
     "description": [
@@ -22196,8 +22196,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=304",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=304"
       }
     ],
     "description": [
@@ -22601,8 +22601,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=306",
-        "page": 30
+        "page": 30,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=306"
       }
     ],
     "description": [
@@ -23293,8 +23293,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=307",
-        "page": 30
+        "page": 30,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=307"
       }
     ],
     "description": [
@@ -23346,8 +23346,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=308",
-        "page": 30
+        "page": 30,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=308"
       }
     ],
     "description": [
@@ -24543,8 +24543,8 @@
       {
         "kind": "book",
         "book": "treasure-vault",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=348",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=348"
       }
     ],
     "description": [

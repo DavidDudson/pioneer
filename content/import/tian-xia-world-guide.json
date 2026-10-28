@@ -1077,66 +1077,6 @@
       ]
     },
     {
-      "type": "entry",
-      "pack": "tian-xia-world-guide",
-      "slug": "ritual:perfection-of-essence",
-      "foundry": "Compendium.pf2e.spells-srd.Item.kExRMPVI07iIFCaa",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-world-guide",
-      "slug": "ritual:power-of-the-beasts",
-      "foundry": "Compendium.pf2e.spells-srd.Item.otdzpPYzWMJt76Rh",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-world-guide",
-      "slug": "ritual:seed-of-mercy",
-      "foundry": "Compendium.pf2e.spells-srd.Item.opXqASAY37ltENB8",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-world-guide",
-      "slug": "ritual:the-unseeing-blade-master",
-      "foundry": "Compendium.pf2e.spells-srd.Item.5xf9wK9xyAeGFPw7",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-world-guide",
-      "slug": "ritual:wild-allegiance",
-      "foundry": "Compendium.pf2e.spells-srd.Item.BBw5oGFvoQc3gg52",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
-        }
-      ]
-    },
-    {
       "type": "vocabulary",
       "kind": "damage-type",
       "slug": "untyped",

@@ -135,3 +135,17 @@ export async function foolishHousekeepingPack() {
     import('@pioneer/content/packs/foolish-housekeeping/feat.json'),
   ]);
 }
+
+export async function theDeadGodsHandPack() {
+  return pack(import('@pioneer/content/packs/the-dead-gods-hand/pack.json'), [
+    import('@pioneer/content/packs/the-dead-gods-hand/armor.json'),
+    import('@pioneer/content/packs/the-dead-gods-hand/background.json'),
+    import('@pioneer/content/packs/the-dead-gods-hand/consumable.json'),
+    import('@pioneer/content/packs/the-dead-gods-hand/creature.json'),
+    import('@pioneer/content/packs/the-dead-gods-hand/effect.json'),
+    import('@pioneer/content/packs/the-dead-gods-hand/equipment.json'),
+    import('@pioneer/content/packs/the-dead-gods-hand/feat.json'),
+    import('@pioneer/content/packs/the-dead-gods-hand/ritual.json'),
+    import('@pioneer/content/packs/the-dead-gods-hand/weapon.json'),
+  ]);
+}

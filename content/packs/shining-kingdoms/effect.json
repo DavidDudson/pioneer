@@ -2135,6 +2135,18 @@
       {
         "key": "GrantItem",
         "item": "943dfd55-ad09-5abf-9138-95a6149d3302"
+      },
+      {
+        "key": "Weakness",
+        "type": ["spirit"],
+        "value": "@item.origin.level / 2",
+        "predicate": ["veil-of-spirits:failure"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["spirit"],
+        "value": "@item.origin.level",
+        "predicate": ["veil-of-spirits:critical-failure"]
       }
     ],
     "externalIds": {

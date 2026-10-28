@@ -2871,8 +2871,8 @@
       {
         "kind": "book",
         "book": "claws-of-the-tyrant",
-        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3824",
-        "page": 115
+        "page": 115,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3824"
       }
     ],
     "description": [

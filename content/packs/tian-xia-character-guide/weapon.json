@@ -1232,8 +1232,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=334",
-        "page": 128
+        "page": 128,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=334"
       }
     ],
     "description": [
@@ -1737,8 +1737,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=491",
-        "page": 127
+        "page": 127,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=491"
       }
     ],
     "description": [
@@ -1790,8 +1790,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=495",
-        "page": 127
+        "page": 127,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=495"
       }
     ],
     "description": [
@@ -1843,8 +1843,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=492",
-        "page": 127
+        "page": 127,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=492"
       }
     ],
     "description": [
@@ -2176,8 +2176,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=493",
-        "page": 127
+        "page": 127,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=493"
       }
     ],
     "description": [
@@ -2229,8 +2229,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=540",
-        "page": 127
+        "page": 127,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=540"
       }
     ],
     "description": [
@@ -2433,7 +2433,7 @@
       "runes": {
         "potency": 2,
         "striking": 2,
-        "property": []
+        "property": ["8a83a07a-a165-50a5-a061-a1669493db9b"]
       }
     }
   },
@@ -2774,8 +2774,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=494",
-        "page": 127
+        "page": 127,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=494"
       }
     ],
     "description": [

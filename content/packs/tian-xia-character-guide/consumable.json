@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3458",
-        "page": 105
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3458"
       }
     ],
     "description": [
@@ -95,6 +95,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "three"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -114,8 +117,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3458",
-        "page": 105
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3458"
       }
     ],
     "description": [
@@ -197,6 +200,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "three"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -216,8 +222,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3459",
-        "page": 105
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3459"
       }
     ],
     "description": [
@@ -300,6 +306,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "94440993-df77-5834-b866-caca5568aa49",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -319,8 +329,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3459",
-        "page": 105
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3459"
       }
     ],
     "description": [
@@ -420,6 +430,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "636f4b24-2fd8-55c7-a461-c2e0150a6cd7",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -439,8 +453,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3482",
-        "page": 105
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3482"
       }
     ],
     "description": [
@@ -518,6 +532,7 @@
       },
       "bulk": "light",
       "category": "other",
+      "effect": "0a92812d-2eda-5e13-b95b-87fd979d5acb",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -537,8 +552,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3460",
-        "page": 105
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3460"
       }
     ],
     "description": [
@@ -629,6 +644,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "1d9ad047-b7af-54f7-a9e0-f0f36b1a5b0c",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -648,8 +667,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3455",
-        "page": 104
+        "page": 104,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3455"
       }
     ],
     "description": [
@@ -750,6 +769,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "99b3d56b-4f5e-596e-94a0-3e06adc9749e",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -769,8 +792,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3471",
-        "page": 130
+        "page": 130,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3471"
       }
     ],
     "description": [
@@ -859,6 +882,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -878,8 +904,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3457",
-        "page": 105
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3457"
       }
     ],
     "description": [
@@ -980,6 +1006,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "fe400341-ecc6-59ba-9963-c0c9abdbd5ad",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -999,8 +1029,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3456",
-        "page": 105
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3456"
       }
     ],
     "description": [
@@ -1101,6 +1131,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "3c926486-632a-5e80-b2dc-8d8df7c01bfd",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1120,8 +1154,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3456",
-        "page": 105
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3456"
       }
     ],
     "description": [
@@ -1222,6 +1256,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "3c926486-632a-5e80-b2dc-8d8df7c01bfd",
       "usage": {
         "type": "held",
         "hands": "one"

@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "myth-speakers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3990",
-        "page": 81
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3990"
       }
     ],
     "description": [
@@ -191,8 +191,8 @@
       {
         "kind": "book",
         "book": "myth-speakers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3991",
-        "page": 81
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3991"
       }
     ],
     "description": [
@@ -444,8 +444,8 @@
       {
         "kind": "book",
         "book": "myth-speakers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3992",
-        "page": 81
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3992"
       }
     ],
     "description": [

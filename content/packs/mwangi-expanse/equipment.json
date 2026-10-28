@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "mwangi-expanse",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=956",
-        "page": 34
+        "page": 34,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=956"
       }
     ],
     "description": [
@@ -172,8 +172,8 @@
       {
         "kind": "book",
         "book": "mwangi-expanse",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=957",
-        "page": 207
+        "page": 207,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=957"
       }
     ],
     "description": [
@@ -264,8 +264,8 @@
       {
         "kind": "book",
         "book": "mwangi-expanse",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=958",
-        "page": 230
+        "page": 230,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=958"
       }
     ],
     "description": [

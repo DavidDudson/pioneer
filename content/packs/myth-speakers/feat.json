@@ -110,8 +110,8 @@
       {
         "kind": "book",
         "book": "myth-speakers",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8007",
-        "page": 82
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8007"
       }
     ],
     "description": [
@@ -931,8 +931,8 @@
       {
         "kind": "book",
         "book": "myth-speakers",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8006",
-        "page": 82
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8006"
       }
     ],
     "description": [

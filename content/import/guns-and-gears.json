@@ -3796,6 +3796,12 @@
       "foundry": "Compendium.pf2e.equipment-srd.Item.sK2zEyhxxP6UnhQk",
       "gaps": [
         {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "effect",
+          "raw": "Compendium.pf2e.equipment-effects.Item.Effect: Blast Boots (Major)"
+        },
+        {
           "type": "enricher",
           "enricher": "@UUID[equipment-effects] Pathfinder Guns & Gears"
         }
@@ -5391,18 +5397,6 @@
         {
           "type": "markup",
           "markup": "table[class]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "guns-and-gears",
-      "slug": "equipment:paper-shredder",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.e011UgQLOJtdUqoW",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
         }
       ]
     },

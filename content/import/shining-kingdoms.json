@@ -106,6 +106,265 @@
     {
       "type": "entry",
       "pack": "shining-kingdoms",
+      "slug": "creature:aurosrath",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.JBqs1ubClFxHETSa",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["item:damage:fire"],
+            "selector": "damage-received",
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "creature:beiran-frosthunt",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.5arJo93OwqfLB3AY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "(4 segments); Thresholds 36 (3 segments), 18 (2 segments)"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "troop movement"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "area-damage"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "splash-damage"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "creature:bibliodaemon",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.kfxdeVTJONSMfJbG",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "items",
+          "raw": "Gavel"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "holy"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "creature:corbayrant",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.TRmzCBwEeJFqiQ3D",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "blindsight (precise) 100 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Note",
+          "raw": {
+            "key": "Note",
+            "selector": "damage-received",
+            "text": "{item|description}",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "creature:failed-prophet",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.37kLxtNV11aIPPja",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "perception.details",
+          "raw": "wealthsense (imprecise) 60 feet"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.Resistance",
+          "raw": {
+            "exceptions": [
+              {
+                "definition": ["item:magical", "item:damage:type:bludgeoning"],
+                "label": "magical bludgeoning"
+              }
+            ],
+            "key": "Resistance",
+            "type": "physical",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "creature:lamp-blighter",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.9DeZiBTu0jJNLyN3",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.allSaves",
+          "raw": "+1 status to all saves vs. magic"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-value",
+          "field": "attributes.weaknesses.type",
+          "raw": "cold-iron"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "creature:shroudwing",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.hqcLqrv4W6QBSgAa",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "creature:torn-quartet",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.olc4TteO0olHUkCi",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.hp.details",
+          "raw": "void healing"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "details.languages.details",
+          "raw": "can't speak any language"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "creature:vorvorak",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.pdlOJpeKtLDMKjJY",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "canal walker"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
+      "slug": "creature:walcofinde",
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.0vbjFotLwkIoPy2m",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "attributes.speed.details",
+          "raw": "Wall Glide"
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hp.negativeHealing",
+            "value": true
+          }
+        },
+        {
+          "type": "field",
+          "reason": "unmapped-field",
+          "field": "abilities.rules.RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+            "option": "target:condition:off-guard",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "shining-kingdoms",
       "slug": "effect:effect-crimson-godsblood-serum",
       "foundry": "Compendium.pf2e.equipment-effects.Item.m942gdWRO19p0QS8",
       "gaps": [
@@ -457,34 +716,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Actions.Prompt",
             "rollOption": "spirit-ward"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "shining-kingdoms",
-      "slug": "effect:spell-effect-veil-of-spirits",
-      "foundry": "Compendium.pf2e.spell-effects.Item.0L9LAkGW2FtmZOgb",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": ["veil-of-spirits:failure"],
-            "type": "spirit",
-            "value": "(@item.origin.level / 2)"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": ["veil-of-spirits:critical-failure"],
-            "type": "spirit",
-            "value": "@item.origin.level"
           }
         }
       ]

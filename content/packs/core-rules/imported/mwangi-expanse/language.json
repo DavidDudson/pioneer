@@ -36,6 +36,24 @@
     "data": {}
   },
   {
+    "id": "459fd41a-0c0b-5e67-b0c3-4444c237def7",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:kaava",
+    "name": "Kaava",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "mwangi-expanse"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
     "id": "b745db88-1954-5388-877c-38be8fa7f922",
     "pack": "core-rules",
     "kind": "language",

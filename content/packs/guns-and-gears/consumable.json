@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102",
-        "page": 66
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
       }
     ],
     "description": [
@@ -48,6 +48,7 @@
       },
       "bulk": 1,
       "category": "gadget",
+      "effect": "0f961bd7-baf6-5a0d-aa9d-6f8ab3a1cdef",
       "usage": {
         "type": "affixed",
         "to": "armor-or-travelers-clothing"
@@ -67,8 +68,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102",
-        "page": 66
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
       }
     ],
     "description": [
@@ -103,6 +104,7 @@
       },
       "bulk": 1,
       "category": "gadget",
+      "effect": "a20a1e63-c3f2-5b3a-b0ed-82c18c69e6ff",
       "usage": {
         "type": "affixed",
         "to": "armor-or-travelers-clothing"
@@ -122,8 +124,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102",
-        "page": 66
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
       }
     ],
     "description": [
@@ -158,6 +160,7 @@
       },
       "bulk": 1,
       "category": "gadget",
+      "effect": "a3926b32-84d4-517e-a26f-f324729c3fb1",
       "usage": {
         "type": "affixed",
         "to": "armor-or-travelers-clothing"
@@ -177,8 +180,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102",
-        "page": 66
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
       }
     ],
     "description": [
@@ -213,6 +216,7 @@
       },
       "bulk": 1,
       "category": "gadget",
+      "effect": "c9abdcb3-a1a2-549e-b976-7317cc2de864",
       "usage": {
         "type": "affixed",
         "to": "armor-or-travelers-clothing"
@@ -232,8 +236,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102",
-        "page": 66
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1102"
       }
     ],
     "description": [
@@ -268,6 +272,7 @@
       },
       "bulk": 1,
       "category": "gadget",
+      "effect": "8a7b0d52-8549-5cc2-9e91-d36c03e6ed30",
       "usage": {
         "type": "affixed",
         "to": "armor-or-travelers-clothing"
@@ -287,8 +292,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
       }
     ],
     "description": [
@@ -333,8 +338,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
       }
     ],
     "description": [
@@ -379,8 +384,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
       }
     ],
     "description": [
@@ -425,8 +430,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
       }
     ],
     "description": [
@@ -471,8 +476,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1103"
       }
     ],
     "description": [
@@ -517,8 +522,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1121",
-        "page": 78
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1121"
       }
     ],
     "description": [
@@ -677,8 +682,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1225",
-        "page": 184
+        "page": 184,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1225"
       }
     ],
     "description": [
@@ -757,6 +762,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "firearm"
@@ -776,8 +784,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1226",
-        "page": 184
+        "page": 184,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1226"
       }
     ],
     "description": [
@@ -864,6 +872,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "firearm"
@@ -883,8 +894,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1188",
-        "page": 168
+        "page": 168,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1188"
       }
     ],
     "description": [
@@ -1306,8 +1317,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1122",
-        "page": 78
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1122"
       }
     ],
     "description": [
@@ -1462,8 +1473,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190",
-        "page": 169
+        "page": 169,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190"
       }
     ],
     "description": [
@@ -1537,6 +1548,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1556,8 +1570,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190",
-        "page": 169
+        "page": 169,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190"
       }
     ],
     "description": [
@@ -1650,6 +1664,9 @@
       "bulk": 5,
       "category": "other",
       "uses": 500,
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1669,8 +1686,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190",
-        "page": 169
+        "page": 169,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1190"
       }
     ],
     "description": [
@@ -1763,6 +1780,9 @@
       "bulk": 50,
       "category": "other",
       "uses": 5000,
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1782,8 +1802,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
       }
     ],
     "description": [
@@ -1867,6 +1887,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "worn",
         "slot": "shoes"
@@ -1886,8 +1909,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
       }
     ],
     "description": [
@@ -1954,6 +1977,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "worn",
         "slot": "shoes"
@@ -1973,8 +1999,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
       }
     ],
     "description": [
@@ -2068,6 +2094,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "worn",
         "slot": "shoes"
@@ -2087,8 +2116,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1104"
       }
     ],
     "description": [
@@ -2164,6 +2193,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "worn",
         "slot": "shoes"
@@ -2183,8 +2215,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1222",
-        "page": 183
+        "page": 183,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1222"
       }
     ],
     "description": [
@@ -2229,8 +2261,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1105",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1105"
       }
     ],
     "description": [
@@ -2281,6 +2313,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2300,8 +2335,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1106",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1106"
       }
     ],
     "description": [
@@ -2360,6 +2395,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "worn",
         "slot": "garment"
@@ -2379,8 +2417,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1106",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1106"
       }
     ],
     "description": [
@@ -2439,6 +2477,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "worn",
         "slot": "garment"
@@ -2458,8 +2499,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1106",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1106"
       }
     ],
     "description": [
@@ -2518,6 +2559,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "worn",
         "slot": "garment"
@@ -2537,8 +2581,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1123",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1123"
       }
     ],
     "description": [
@@ -2583,8 +2627,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1107",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1107"
       }
     ],
     "description": [
@@ -2653,6 +2697,10 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
+      "effect": "f921863a-f111-541c-b56c-05c102d75c55",
       "usage": {
         "type": "worn",
         "slot": "eyepiece"
@@ -2672,8 +2720,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1107",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1107"
       }
     ],
     "description": [
@@ -2742,6 +2790,10 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
+      "effect": "f921863a-f111-541c-b56c-05c102d75c55",
       "usage": {
         "type": "worn",
         "slot": "eyepiece"
@@ -2761,8 +2813,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1124",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1124"
       }
     ],
     "description": [
@@ -2807,8 +2859,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1108",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1108"
       }
     ],
     "description": [
@@ -2891,6 +2943,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2910,8 +2965,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1108",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1108"
       }
     ],
     "description": [
@@ -2994,6 +3049,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3013,8 +3071,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1125",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1125"
       }
     ],
     "description": [
@@ -3171,8 +3229,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1126",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1126"
       }
     ],
     "description": [
@@ -3329,8 +3387,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1191",
-        "page": 169
+        "page": 169,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1191"
       }
     ],
     "description": [
@@ -3522,8 +3580,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1109",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1109"
       }
     ],
     "description": [
@@ -3686,6 +3744,10 @@
       },
       "bulk": 1,
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
+      "effect": "b711bca2-043f-50ef-a3e1-6f7510c5ea64",
       "usage": {
         "type": "worn"
       }
@@ -3704,8 +3766,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1227",
-        "page": 184
+        "page": 184,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1227"
       }
     ],
     "description": [
@@ -3807,6 +3869,10 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "5d7a6576-423e-5539-9e93-c25e4e43cc30",
       "usage": {
         "type": "affixed",
         "to": "crossbow-or-firearm"
@@ -3826,8 +3892,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1192",
-        "page": 169
+        "page": 169,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1192"
       }
     ],
     "description": [
@@ -3934,8 +4000,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
       }
     ],
     "description": [
@@ -3987,6 +4053,9 @@
       "bulk": 1,
       "size": "small",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4006,8 +4075,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
       }
     ],
     "description": [
@@ -4058,6 +4127,9 @@
       },
       "bulk": 1,
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4077,8 +4149,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
       }
     ],
     "description": [
@@ -4130,6 +4202,9 @@
       "bulk": 1,
       "size": "small",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4149,8 +4224,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1110"
       }
     ],
     "description": [
@@ -4202,6 +4277,9 @@
       "bulk": 1,
       "size": "small",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4221,8 +4299,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
       }
     ],
     "description": [
@@ -4322,6 +4400,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -4341,8 +4422,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
       }
     ],
     "description": [
@@ -4442,6 +4523,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -4461,8 +4545,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
       }
     ],
     "description": [
@@ -4562,6 +4646,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -4581,8 +4668,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1111"
       }
     ],
     "description": [
@@ -4682,6 +4769,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -4701,8 +4791,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1193",
-        "page": 170
+        "page": 170,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1193"
       }
     ],
     "description": [
@@ -4791,8 +4881,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1193",
-        "page": 170
+        "page": 170,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1193"
       }
     ],
     "description": [
@@ -4881,8 +4971,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1193",
-        "page": 170
+        "page": 170,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1193"
       }
     ],
     "description": [
@@ -4971,8 +5061,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1194",
-        "page": 170
+        "page": 170,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1194"
       }
     ],
     "description": [
@@ -5115,8 +5205,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1128",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1128"
       }
     ],
     "description": [
@@ -5198,8 +5288,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1127",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1127"
       }
     ],
     "description": [
@@ -5281,8 +5371,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
       }
     ],
     "description": [
@@ -5377,6 +5467,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -5396,8 +5489,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
       }
     ],
     "description": [
@@ -5475,6 +5568,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -5494,8 +5590,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
       }
     ],
     "description": [
@@ -5590,6 +5686,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -5609,8 +5708,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1112"
       }
     ],
     "description": [
@@ -5697,6 +5796,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -5716,8 +5818,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1129",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1129"
       }
     ],
     "description": [
@@ -5799,8 +5901,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1113",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1113"
       }
     ],
     "description": [
@@ -5885,6 +5987,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "worn",
         "slot": "shoes"
@@ -5904,8 +6009,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1136",
-        "page": 82
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1136"
       }
     ],
     "description": [
@@ -5956,6 +6061,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -5975,8 +6083,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1114",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1114"
       }
     ],
     "description": [
@@ -6036,6 +6144,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "worn",
         "slot": "gloves"
@@ -6055,8 +6166,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1114",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1114"
       }
     ],
     "description": [
@@ -6116,6 +6227,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "worn",
         "slot": "gloves"
@@ -6135,8 +6249,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1228",
-        "page": 184
+        "page": 184,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1228"
       }
     ],
     "description": [
@@ -6201,6 +6315,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "a-ranged-weapon"
@@ -6220,8 +6337,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1195",
-        "page": 170
+        "page": 170,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1195"
       }
     ],
     "description": [
@@ -6318,8 +6435,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1229",
-        "page": 184
+        "page": 184,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1229"
       }
     ],
     "description": [
@@ -6412,6 +6529,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -6475,8 +6595,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
       }
     ],
     "description": [
@@ -6572,8 +6692,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
       }
     ],
     "description": [
@@ -6669,8 +6789,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
       }
     ],
     "description": [
@@ -6766,8 +6886,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1115"
       }
     ],
     "description": [
@@ -6863,8 +6983,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1230",
-        "page": 186
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1230"
       }
     ],
     "description": [
@@ -6943,6 +7063,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -6962,8 +7085,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1230",
-        "page": 186
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1230"
       }
     ],
     "description": [
@@ -7060,6 +7183,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -7079,8 +7205,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1230",
-        "page": 186
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1230"
       }
     ],
     "description": [
@@ -7177,6 +7303,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "armor"
@@ -7196,8 +7325,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1116",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1116"
       }
     ],
     "description": [
@@ -7266,6 +7395,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -7430,8 +7562,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1117",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1117"
       }
     ],
     "description": [
@@ -7516,6 +7648,9 @@
       },
       "bulk": 1,
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "worn",
         "slot": "garment"
@@ -7535,8 +7670,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1117",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1117"
       }
     ],
     "description": [
@@ -7630,6 +7765,9 @@
       },
       "bulk": 1,
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "worn",
         "slot": "garment"
@@ -7649,8 +7787,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1117",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1117"
       }
     ],
     "description": [
@@ -7744,6 +7882,9 @@
       },
       "bulk": 1,
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "worn",
         "slot": "garment"
@@ -7763,8 +7904,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
       }
     ],
     "description": [
@@ -7815,6 +7956,9 @@
       },
       "bulk": 1,
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -7834,8 +7978,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
       }
     ],
     "description": [
@@ -7886,6 +8030,9 @@
       },
       "bulk": 1,
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -7905,8 +8052,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
       }
     ],
     "description": [
@@ -7957,6 +8104,9 @@
       },
       "bulk": 1,
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -7976,8 +8126,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1118"
       }
     ],
     "description": [
@@ -8028,6 +8178,9 @@
       },
       "bulk": 1,
       "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -8047,8 +8200,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1196",
-        "page": 171
+        "page": 171,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1196"
       }
     ],
     "description": [
@@ -8196,8 +8349,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1196",
-        "page": 171
+        "page": 171,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1196"
       }
     ],
     "description": [
@@ -8345,8 +8498,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1196",
-        "page": 171
+        "page": 171,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1196"
       }
     ],
     "description": [
@@ -8494,8 +8647,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1130",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1130"
       }
     ],
     "description": [
@@ -8637,8 +8790,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1231",
-        "page": 186
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1231"
       }
     ],
     "description": [
@@ -8725,6 +8878,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "weapon"
@@ -8744,8 +8900,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1232",
-        "page": 186
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1232"
       }
     ],
     "description": [
@@ -8824,6 +8980,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "firearm-with-a-reload-of-1"
@@ -8888,8 +9047,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1131",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1131"
       }
     ],
     "description": [
@@ -10493,8 +10652,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1137",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1137"
       }
     ],
     "description": [
@@ -10604,6 +10763,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "a-shield"
@@ -10623,8 +10785,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1132",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1132"
       }
     ],
     "description": [
@@ -10816,8 +10978,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1233",
-        "page": 186
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1233"
       }
     ],
     "description": [
@@ -10904,6 +11066,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "crossbow-or-firearm"
@@ -10923,8 +11088,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1197",
-        "page": 171
+        "page": 171,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1197"
       }
     ],
     "description": [
@@ -11053,8 +11218,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1235",
-        "page": 186
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1235"
       }
     ],
     "description": [
@@ -11105,6 +11270,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "affixed",
         "to": "firearm-with-the-kickback-trait"
@@ -11124,8 +11292,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1119",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1119"
       }
     ],
     "description": [
@@ -11184,6 +11352,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -11203,8 +11374,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1119",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1119"
       }
     ],
     "description": [
@@ -11263,6 +11434,9 @@
       },
       "bulk": "light",
       "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -11282,8 +11456,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1234",
-        "page": 186
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1234"
       }
     ],
     "description": [
@@ -11371,6 +11545,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "a-two-handed-firearm-or-crossbow"
@@ -11390,8 +11567,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1234",
-        "page": 186
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1234"
       }
     ],
     "description": [
@@ -11479,6 +11656,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "a-two-handed-firearm-or-crossbow"
@@ -11498,8 +11678,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1234",
-        "page": 186
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1234"
       }
     ],
     "description": [
@@ -11587,6 +11767,9 @@
       },
       "bulk": "negligible",
       "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "a-two-handed-firearm-or-crossbow"
@@ -11606,8 +11789,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1133",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1133"
       }
     ],
     "description": [
@@ -11678,8 +11861,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1198",
-        "page": 171
+        "page": 171,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1198"
       }
     ],
     "description": [
@@ -11769,8 +11952,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1198",
-        "page": 171
+        "page": 171,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1198"
       }
     ],
     "description": [
@@ -11860,8 +12043,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1134",
-        "page": 81
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1134"
       }
     ],
     "description": [
@@ -12008,8 +12191,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1199",
-        "page": 171
+        "page": 171,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1199"
       }
     ],
     "description": [
@@ -12090,8 +12273,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1120",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1120"
       }
     ],
     "description": [
@@ -12142,6 +12325,9 @@
       },
       "bulk": 2,
       "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"

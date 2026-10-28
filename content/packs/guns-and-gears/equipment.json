@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1220",
-        "page": 183
+        "page": 183,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1220"
       }
     ],
     "description": [
@@ -57,8 +57,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1140",
-        "page": 84
+        "page": 84,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1140"
       }
     ],
     "description": [
@@ -145,8 +145,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1096",
-        "page": 64
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1096"
       }
     ],
     "description": [
@@ -190,8 +190,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1097",
-        "page": 64
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1097"
       }
     ],
     "description": [
@@ -249,8 +249,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1201",
-        "page": 178
+        "page": 178,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1201"
       }
     ],
     "description": [
@@ -311,8 +311,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1201",
-        "page": 178
+        "page": 178,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1201"
       }
     ],
     "description": [
@@ -373,8 +373,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1141",
-        "page": 85
+        "page": 85,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1141"
       }
     ],
     "description": [
@@ -418,8 +418,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1142",
-        "page": 85
+        "page": 85,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1142"
       }
     ],
     "description": [
@@ -472,8 +472,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1145",
-        "page": 87
+        "page": 87,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1145"
       }
     ],
     "description": [
@@ -517,8 +517,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1202",
-        "page": 179
+        "page": 179,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1202"
       }
     ],
     "description": [
@@ -578,8 +578,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1212",
-        "page": 180
+        "page": 180,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1212"
       }
     ],
     "description": [
@@ -679,8 +679,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1212",
-        "page": 180
+        "page": 180,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1212"
       }
     ],
     "description": [
@@ -780,8 +780,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1146",
-        "page": 87
+        "page": 87,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1146"
       }
     ],
     "description": [
@@ -848,8 +848,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1098",
-        "page": 64
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1098"
       }
     ],
     "description": [
@@ -901,8 +901,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1098",
-        "page": 64
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1098"
       }
     ],
     "description": [
@@ -963,8 +963,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1203",
-        "page": 179
+        "page": 179,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1203"
       }
     ],
     "description": [
@@ -1022,8 +1022,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1147",
-        "page": 87
+        "page": 87,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1147"
       }
     ],
     "description": [
@@ -1127,8 +1127,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1204",
-        "page": 179
+        "page": 179,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1204"
       }
     ],
     "description": [
@@ -1222,8 +1222,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1162",
-        "page": 91
+        "page": 91,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1162"
       }
     ],
     "description": [
@@ -1406,8 +1406,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1135",
-        "page": 82
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1135"
       }
     ],
     "description": [
@@ -1581,8 +1581,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1099",
-        "page": 64
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1099"
       }
     ],
     "description": [
@@ -1626,8 +1626,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1099",
-        "page": 64
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1099"
       }
     ],
     "description": [
@@ -1680,8 +1680,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1209",
-        "page": 179
+        "page": 179,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1209"
       }
     ],
     "description": [
@@ -1802,8 +1802,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1217",
-        "page": 182
+        "page": 182,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1217"
       }
     ],
     "description": [
@@ -1847,8 +1847,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1149",
-        "page": 87
+        "page": 87,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1149"
       }
     ],
     "description": [
@@ -1892,8 +1892,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1150",
-        "page": 87
+        "page": 87,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1150"
       }
     ],
     "description": [
@@ -2130,8 +2130,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1151",
-        "page": 88
+        "page": 88,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1151"
       }
     ],
     "description": [
@@ -2175,8 +2175,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1210",
-        "page": 180
+        "page": 180,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1210"
       }
     ],
     "description": [
@@ -2282,8 +2282,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1218",
-        "page": 182
+        "page": 182,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1218"
       }
     ],
     "description": [
@@ -2373,8 +2373,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1223",
-        "page": 183
+        "page": 183,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1223"
       }
     ],
     "description": [
@@ -2499,8 +2499,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1152",
-        "page": 88
+        "page": 88,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1152"
       }
     ],
     "description": [
@@ -2544,8 +2544,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1211",
-        "page": 180
+        "page": 180,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1211"
       }
     ],
     "description": [
@@ -2797,8 +2797,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1214",
-        "page": 181
+        "page": 181,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1214"
       }
     ],
     "description": [
@@ -2905,8 +2905,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1214",
-        "page": 181
+        "page": 181,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1214"
       }
     ],
     "description": [
@@ -3013,8 +3013,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1214",
-        "page": 181
+        "page": 181,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1214"
       }
     ],
     "description": [
@@ -3121,8 +3121,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1236",
-        "page": 88
+        "page": 88,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1236"
       }
     ],
     "description": [
@@ -3186,8 +3186,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1100",
-        "page": 65
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1100"
       }
     ],
     "description": [
@@ -3231,8 +3231,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1154",
-        "page": 88
+        "page": 88,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1154"
       }
     ],
     "description": [
@@ -3294,8 +3294,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1155",
-        "page": 88
+        "page": 88,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1155"
       }
     ],
     "description": [
@@ -3357,8 +3357,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1219",
-        "page": 182
+        "page": 182,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1219"
       }
     ],
     "description": [
@@ -3411,8 +3411,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1219",
-        "page": 182
+        "page": 182,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1219"
       }
     ],
     "description": [
@@ -3488,8 +3488,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1156",
-        "page": 89
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1156"
       }
     ],
     "description": [
@@ -3532,8 +3532,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1200",
-        "page": 177
+        "page": 177,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1200"
       }
     ],
     "description": [
@@ -3585,8 +3585,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1215",
-        "page": 182
+        "page": 182,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1215"
       }
     ],
     "description": [
@@ -3685,8 +3685,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1216",
-        "page": 182
+        "page": 182,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1216"
       }
     ],
     "description": [
@@ -3826,8 +3826,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1206",
-        "page": 179
+        "page": 179,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1206"
       }
     ],
     "description": [
@@ -3871,8 +3871,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1163",
-        "page": 91
+        "page": 91,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1163"
       }
     ],
     "description": [
@@ -4054,8 +4054,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138"
       }
     ],
     "description": [
@@ -4119,8 +4119,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138"
       }
     ],
     "description": [
@@ -4184,8 +4184,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138"
       }
     ],
     "description": [
@@ -4258,8 +4258,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1138"
       }
     ],
     "description": [
@@ -4341,8 +4341,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1158",
-        "page": 89
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1158"
       }
     ],
     "description": [
@@ -4394,8 +4394,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1157",
-        "page": 89
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1157"
       }
     ],
     "description": [
@@ -4512,8 +4512,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1164",
-        "page": 91
+        "page": 91,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1164"
       }
     ],
     "description": [
@@ -4729,8 +4729,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1159",
-        "page": 89
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1159"
       }
     ],
     "description": [
@@ -4792,8 +4792,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1159",
-        "page": 89
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1159"
       }
     ],
     "description": [
@@ -4855,8 +4855,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1207",
-        "page": 179
+        "page": 179,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1207"
       }
     ],
     "description": [
@@ -4939,8 +4939,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1224",
-        "page": 184
+        "page": 184,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1224"
       }
     ],
     "description": [
@@ -5002,8 +5002,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1139",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1139"
       }
     ],
     "description": [
@@ -5272,8 +5272,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1101",
-        "page": 65
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1101"
       }
     ],
     "description": [
@@ -5326,8 +5326,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1101",
-        "page": 65
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1101"
       }
     ],
     "description": [

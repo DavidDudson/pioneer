@@ -1,0 +1,20 @@
+[
+  {
+    "id": "08e71d2b-f6fb-5be5-8655-0495e59d92de",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:ancient-osiriani",
+    "name": "Ancient Osiriani",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "the-dead-gods-hand"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

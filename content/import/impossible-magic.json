@@ -370,10 +370,6 @@
             "path": "flags.system.eidolon.tradition",
             "value": "divine"
           }
-        },
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Monster Core"
         }
       ]
     },
@@ -1534,18 +1530,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[equipment-effects] "
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-magic",
-      "slug": "consumable:detect-anathema-fulu",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.0Wxiz4hJPERJPDAF",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Player Core"
         }
       ]
     },

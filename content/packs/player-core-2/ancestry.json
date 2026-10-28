@@ -11,8 +11,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=77",
-        "page": 8
+        "page": 8,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=77"
       }
     ],
     "description": [
@@ -222,8 +222,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=78",
-        "page": 12
+        "page": 12,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=78"
       }
     ],
     "description": [
@@ -427,8 +427,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=79",
-        "page": 16
+        "page": 16,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=79"
       }
     ],
     "description": [
@@ -626,8 +626,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=80",
-        "page": 20
+        "page": 20,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=80"
       }
     ],
     "description": [
@@ -833,8 +833,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=81",
-        "page": 24
+        "page": 24,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=81"
       }
     ],
     "description": [
@@ -1046,8 +1046,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=82",
-        "page": 28
+        "page": 28,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=82"
       }
     ],
     "description": [
@@ -1257,8 +1257,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=83",
-        "page": 32
+        "page": 32,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=83"
       }
     ],
     "description": [
@@ -1465,8 +1465,8 @@
       {
         "kind": "book",
         "book": "player-core-2",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=84",
-        "page": 36
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=84"
       }
     ],
     "description": [

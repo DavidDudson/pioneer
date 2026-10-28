@@ -63,6 +63,11 @@ sherif = "sherif"
 youre = "youre"
 # Slug: `feat:complete-the-heros-journey` is Complete the Hero's Journey.
 heros = "heros"
+# Creature names: Rin (Season of Ghosts), Sie Goluo (Mwangi Expanse), ittan-momen (Dark Archive), Astral Spindel (Howl of the Wild).
+rin = "rin"
+sie = "sie"
+momen = "momen"
+spindel = "spindel"
 # Verex's Ruin, a cursed weapon (War of Immortals).
 verex = "verex"
 # Slug: `option:against-poison-disease-onself` is Foundry's own spelling of a rule option (Rage of Elements).
@@ -88,6 +93,8 @@ ranage = "ranage"
 resilence = "resilence"
 modifer = "modifer"
 sucess = "sucess"
+# Paizo's misspelling in a creature ability, kept as imported.
+witha = "witha"
 # A slug and its predicate in Foundry data: `bowl-ower-and-stomp` (Battlecry).
 ower = "ower"
 # Paizo's misspelling in a Monster Core creature ability (Familiar Shadow).

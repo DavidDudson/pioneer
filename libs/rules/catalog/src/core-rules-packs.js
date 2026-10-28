@@ -34,6 +34,7 @@ function earlierVocabulary() {
 function laterVocabulary() {
   return [
     import('@pioneer/content/packs/core-rules/imported/mwangi-expanse/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/rage-of-elements/language.json'),
     import('@pioneer/content/packs/core-rules/imported/rage-of-elements/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/rage-of-elements/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/secrets-of-magic/sense.json'),
@@ -60,11 +61,15 @@ function laterVocabulary() {
     import('@pioneer/content/packs/core-rules/imported/monster-core-2/sense.json'),
     import('@pioneer/content/packs/core-rules/imported/monster-core-2/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/npc-core/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/season-of-ghosts/language.json'),
     import('@pioneer/content/packs/core-rules/imported/season-of-ghosts/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/season-of-ghosts/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/myth-speakers/language.json'),
     import('@pioneer/content/packs/core-rules/imported/myth-speakers/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/myth-speakers/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/revenge-of-the-runelords/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/bastion-of-blasphemies/statistic.json'),
+    import('@pioneer/content/packs/core-rules/imported/the-dead-gods-hand/language.json'),
     import('@pioneer/content/packs/core-rules/imported/the-dead-gods-hand/statistic.json'),
   ];
 }
@@ -89,6 +94,7 @@ function adventureVocabulary() {
     import('@pioneer/content/packs/core-rules/imported/prey-for-death/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/clockwork-mystery/statistic.json'),
     import('@pioneer/content/packs/core-rules/imported/tian-xia-world-guide/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/gatewalkers/language.json'),
   ];
 }
 

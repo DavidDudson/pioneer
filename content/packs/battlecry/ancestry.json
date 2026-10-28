@@ -11,8 +11,8 @@
       {
         "kind": "book",
         "book": "battlecry",
-        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=95",
-        "page": 10
+        "page": 10,
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=95"
       }
     ],
     "description": [

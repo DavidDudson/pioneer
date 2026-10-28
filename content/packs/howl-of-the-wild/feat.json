@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5440",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5440"
       }
     ],
     "description": [
@@ -105,8 +105,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5327",
-        "page": 32
+        "page": 32,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5327"
       }
     ],
     "description": [
@@ -141,8 +141,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5369",
-        "page": 43
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5369"
       }
     ],
     "description": [
@@ -188,8 +188,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5487",
-        "page": 76
+        "page": 76,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5487"
       }
     ],
     "description": [
@@ -258,8 +258,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5410",
-        "page": 59
+        "page": 59,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5410"
       }
     ],
     "description": [
@@ -338,8 +338,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5314",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5314"
       }
     ],
     "description": [
@@ -385,8 +385,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5490",
-        "page": 76
+        "page": 76,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5490"
       }
     ],
     "description": [
@@ -464,8 +464,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5464",
-        "page": 72
+        "page": 72,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5464"
       }
     ],
     "description": [
@@ -558,8 +558,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5349",
-        "page": 37
+        "page": 37,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5349"
       }
     ],
     "description": [
@@ -603,8 +603,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5361",
-        "page": 42
+        "page": 42,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5361"
       }
     ],
     "description": [
@@ -649,8 +649,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5273",
-        "page": 18
+        "page": 18,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5273"
       }
     ],
     "description": [
@@ -709,8 +709,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5274",
-        "page": 18
+        "page": 18,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5274"
       }
     ],
     "description": [
@@ -786,8 +786,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5290",
-        "page": 20
+        "page": 20,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5290"
       }
     ],
     "description": [
@@ -822,8 +822,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5316",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5316"
       }
     ],
     "description": [
@@ -837,7 +837,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "0dc8196c-25de-5b39-a30a-e6e597d586e0"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.IsQEDgcyM10kyHTq"
     },
@@ -869,8 +874,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5297",
-        "page": 24
+        "page": 24,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5297"
       }
     ],
     "description": [
@@ -929,8 +934,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5298",
-        "page": 25
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5298"
       }
     ],
     "description": [
@@ -965,8 +970,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5319",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5319"
       }
     ],
     "description": [
@@ -1012,8 +1017,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5528",
-        "page": 82
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5528"
       }
     ],
     "description": [
@@ -1076,8 +1081,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5491",
-        "page": 77
+        "page": 77,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5491"
       }
     ],
     "description": [
@@ -1155,8 +1160,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5370",
-        "page": 43
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5370"
       }
     ],
     "description": [
@@ -1191,8 +1196,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5488",
-        "page": 76
+        "page": 76,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5488"
       }
     ],
     "description": [
@@ -1239,8 +1244,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5382",
-        "page": 45
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5382"
       }
     ],
     "description": [
@@ -1278,8 +1283,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5424",
-        "page": 66
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5424"
       }
     ],
     "description": [
@@ -1325,8 +1330,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5416",
-        "page": 65
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5416"
       }
     ],
     "description": [
@@ -1391,8 +1396,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5433",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5433"
       }
     ],
     "description": [
@@ -1438,8 +1443,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5539",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5539"
       }
     ],
     "description": [
@@ -1517,8 +1522,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5399",
-        "page": 56
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5399"
       }
     ],
     "description": [
@@ -1595,8 +1600,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5472",
-        "page": 73
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5472"
       }
     ],
     "description": [
@@ -1701,8 +1706,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5469",
-        "page": 73
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5469"
       }
     ],
     "description": [
@@ -1749,8 +1754,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5362",
-        "page": 42
+        "page": 42,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5362"
       }
     ],
     "description": [
@@ -1785,8 +1790,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5462",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5462"
       }
     ],
     "description": [
@@ -1833,8 +1838,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5322",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5322"
       }
     ],
     "description": [
@@ -1893,8 +1898,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5323",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5323"
       }
     ],
     "description": [
@@ -1961,8 +1966,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5458",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5458"
       }
     ],
     "description": [
@@ -2009,8 +2014,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5389",
-        "page": 50
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5389"
       }
     ],
     "description": [
@@ -2053,8 +2058,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5420",
-        "page": 65
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5420"
       }
     ],
     "description": [
@@ -2100,8 +2105,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5448",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5448"
       }
     ],
     "description": [
@@ -2179,8 +2184,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5437",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5437"
       }
     ],
     "description": [
@@ -2258,8 +2263,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5436",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5436"
       }
     ],
     "description": [
@@ -2342,8 +2347,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5406",
-        "page": 57
+        "page": 57,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5406"
       }
     ],
     "description": [
@@ -2389,8 +2394,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5455",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5455"
       }
     ],
     "description": [
@@ -2452,8 +2457,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5275",
-        "page": 19
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5275"
       }
     ],
     "description": [
@@ -2500,8 +2505,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5392",
-        "page": 50
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5392"
       }
     ],
     "description": [
@@ -2585,8 +2590,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5286",
-        "page": 20
+        "page": 20,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5286"
       }
     ],
     "description": [
@@ -2669,8 +2674,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5281",
-        "page": 19
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5281"
       }
     ],
     "description": [
@@ -2716,8 +2721,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5294",
-        "page": 21
+        "page": 21,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5294"
       }
     ],
     "description": [
@@ -2799,8 +2804,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5291",
-        "page": 20
+        "page": 20,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5291"
       }
     ],
     "description": [
@@ -2895,8 +2900,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5276",
-        "page": 19
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5276"
       }
     ],
     "description": [
@@ -2939,8 +2944,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5499",
-        "page": 78
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5499"
       }
     ],
     "description": [
@@ -3037,8 +3042,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5540",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5540"
       }
     ],
     "description": [
@@ -3116,8 +3121,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5400",
-        "page": 56
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5400"
       }
     ],
     "description": [
@@ -3219,8 +3224,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5438",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5438"
       }
     ],
     "description": [
@@ -3298,8 +3303,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5459",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5459"
       }
     ],
     "description": [
@@ -3346,8 +3351,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5492",
-        "page": 77
+        "page": 77,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5492"
       }
     ],
     "description": [
@@ -3442,8 +3447,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5404",
-        "page": 56
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5404"
       }
     ],
     "description": [
@@ -3534,8 +3539,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5456",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5456"
       }
     ],
     "description": [
@@ -3597,8 +3602,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5317",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5317"
       }
     ],
     "description": [
@@ -3651,8 +3656,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5503",
-        "page": 78
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5503"
       }
     ],
     "description": [
@@ -3721,8 +3726,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5328",
-        "page": 32
+        "page": 32,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5328"
       }
     ],
     "description": [
@@ -3766,8 +3771,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5467",
-        "page": 73
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5467"
       }
     ],
     "description": [
@@ -3822,8 +3827,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5359",
-        "page": 39
+        "page": 39,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5359"
       }
     ],
     "description": [
@@ -3965,8 +3970,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5418",
-        "page": 65
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5418"
       }
     ],
     "description": [
@@ -4012,8 +4017,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5493",
-        "page": 77
+        "page": 77,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5493"
       }
     ],
     "description": [
@@ -4069,8 +4074,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5518",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5518"
       }
     ],
     "description": [
@@ -4227,8 +4232,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5277",
-        "page": 19
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5277"
       }
     ],
     "description": [
@@ -4277,8 +4282,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5526",
-        "page": 81
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5526"
       }
     ],
     "description": [
@@ -4383,8 +4388,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5287",
-        "page": 20
+        "page": 20,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5287"
       }
     ],
     "description": [
@@ -4419,8 +4424,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5278",
-        "page": 19
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5278"
       }
     ],
     "description": [
@@ -4513,8 +4518,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5521",
-        "page": 81
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5521"
       }
     ],
     "description": [
@@ -4561,8 +4566,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5473",
-        "page": 73
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5473"
       }
     ],
     "description": [
@@ -4609,8 +4614,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5405",
-        "page": 56
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5405"
       }
     ],
     "description": [
@@ -4666,8 +4671,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5363",
-        "page": 43
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5363"
       }
     ],
     "description": [
@@ -4731,8 +4736,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5535",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5535"
       }
     ],
     "description": [
@@ -4810,8 +4815,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5299",
-        "page": 25
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5299"
       }
     ],
     "description": [
@@ -4861,8 +4866,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5494",
-        "page": 77
+        "page": 77,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5494"
       }
     ],
     "description": [
@@ -4951,8 +4956,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5320",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5320"
       }
     ],
     "description": [
@@ -4987,8 +4992,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5532",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5532"
       }
     ],
     "description": [
@@ -5102,8 +5107,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5495",
-        "page": 78
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5495"
       }
     ],
     "description": [
@@ -5171,8 +5176,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5445",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5445"
       }
     ],
     "description": [
@@ -5307,8 +5312,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5504",
-        "page": 78
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5504"
       }
     ],
     "description": [
@@ -5386,8 +5391,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5500",
-        "page": 78
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5500"
       }
     ],
     "description": [
@@ -5483,8 +5488,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5505",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5505"
       }
     ],
     "description": [
@@ -5601,8 +5606,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5489",
-        "page": 76
+        "page": 76,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5489"
       }
     ],
     "description": [
@@ -5670,8 +5675,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5506",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5506"
       }
     ],
     "description": [
@@ -5749,8 +5754,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5428",
-        "page": 66
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5428"
       }
     ],
     "description": [
@@ -5830,8 +5835,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5516",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5516"
       }
     ],
     "description": [
@@ -5927,8 +5932,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5332",
-        "page": 32
+        "page": 32,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5332"
       }
     ],
     "description": [
@@ -5987,8 +5992,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5307",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5307"
       }
     ],
     "description": [
@@ -6078,8 +6083,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5350",
-        "page": 37
+        "page": 37,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5350"
       }
     ],
     "description": [
@@ -6114,8 +6119,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5475",
-        "page": 74
+        "page": 74,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5475"
       }
     ],
     "description": [
@@ -6162,8 +6167,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5514",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5514"
       }
     ],
     "description": [
@@ -6232,8 +6237,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5375",
-        "page": 44
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5375"
       }
     ],
     "description": [
@@ -6312,8 +6317,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5364",
-        "page": 43
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5364"
       }
     ],
     "description": [
@@ -6362,8 +6367,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5315",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5315"
       }
     ],
     "description": [
@@ -6416,8 +6421,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5395",
-        "page": 51
+        "page": 51,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5395"
       }
     ],
     "description": [
@@ -6459,8 +6464,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5376",
-        "page": 44
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5376"
       }
     ],
     "description": [
@@ -6513,8 +6518,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5542",
-        "page": 97
+        "page": 97,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5542"
       }
     ],
     "description": [
@@ -6568,8 +6573,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5393",
-        "page": 51
+        "page": 51,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5393"
       }
     ],
     "description": [
@@ -6622,8 +6627,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5282",
-        "page": 19
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5282"
       }
     ],
     "description": [
@@ -6669,8 +6674,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5529",
-        "page": 82
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5529"
       }
     ],
     "description": [
@@ -6720,8 +6725,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5351",
-        "page": 37
+        "page": 37,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5351"
       }
     ],
     "description": [
@@ -6765,8 +6770,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5434",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5434"
       }
     ],
     "description": [
@@ -6812,8 +6817,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5331",
-        "page": 32
+        "page": 32,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5331"
       }
     ],
     "description": [
@@ -6859,8 +6864,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5442",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5442"
       }
     ],
     "description": [
@@ -6938,8 +6943,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5446",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5446"
       }
     ],
     "description": [
@@ -7017,8 +7022,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5353",
-        "page": 38
+        "page": 38,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5353"
       }
     ],
     "description": [
@@ -7102,8 +7107,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5338",
-        "page": 33
+        "page": 33,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5338"
       }
     ],
     "description": [
@@ -7141,8 +7146,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5383",
-        "page": 45
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5383"
       }
     ],
     "description": [
@@ -7186,8 +7191,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5365",
-        "page": 43
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5365"
       }
     ],
     "description": [
@@ -7236,8 +7241,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5360",
-        "page": 39
+        "page": 39,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5360"
       }
     ],
     "description": [
@@ -7386,8 +7391,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5371",
-        "page": 43
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5371"
       }
     ],
     "description": [
@@ -7422,8 +7427,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5300",
-        "page": 25
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5300"
       }
     ],
     "description": [
@@ -7476,8 +7481,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5476",
-        "page": 74
+        "page": 74,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5476"
       }
     ],
     "description": [
@@ -7625,8 +7630,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5308",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5308"
       }
     ],
     "description": [
@@ -7689,8 +7694,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5301",
-        "page": 25
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5301"
       }
     ],
     "description": [
@@ -7753,8 +7758,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5479",
-        "page": 74
+        "page": 74,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5479"
       }
     ],
     "description": [
@@ -7804,8 +7809,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5396",
-        "page": 51
+        "page": 51,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5396"
       }
     ],
     "description": [
@@ -7891,8 +7896,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5333",
-        "page": 32
+        "page": 32,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5333"
       }
     ],
     "description": [
@@ -7936,8 +7941,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5343",
-        "page": 36
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5343"
       }
     ],
     "description": [
@@ -7996,8 +8001,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5344",
-        "page": 36
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5344"
       }
     ],
     "description": [
@@ -8073,8 +8078,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5341",
-        "page": 33
+        "page": 33,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5341"
       }
     ],
     "description": [
@@ -8120,8 +8125,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5366",
-        "page": 43
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5366"
       }
     ],
     "description": [
@@ -8180,8 +8185,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5367",
-        "page": 43
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5367"
       }
     ],
     "description": [
@@ -8239,8 +8244,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5339",
-        "page": 33
+        "page": 33,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5339"
       }
     ],
     "description": [
@@ -8275,8 +8280,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5402",
-        "page": 56
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5402"
       }
     ],
     "description": [
@@ -8369,8 +8374,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5468",
-        "page": 73
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5468"
       }
     ],
     "description": [
@@ -8417,8 +8422,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5295",
-        "page": 21
+        "page": 21,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5295"
       }
     ],
     "description": [
@@ -8501,8 +8506,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5288",
-        "page": 20
+        "page": 20,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5288"
       }
     ],
     "description": [
@@ -8559,8 +8564,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5421",
-        "page": 65
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5421"
       }
     ],
     "description": [
@@ -8609,8 +8614,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5309",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5309"
       }
     ],
     "description": [
@@ -8656,8 +8661,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5409",
-        "page": 59
+        "page": 59,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5409"
       }
     ],
     "description": [
@@ -8734,8 +8739,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5372",
-        "page": 43
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5372"
       }
     ],
     "description": [
@@ -8783,8 +8788,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5302",
-        "page": 25
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5302"
       }
     ],
     "description": [
@@ -8896,8 +8901,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5411",
-        "page": 59
+        "page": 59,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5411"
       }
     ],
     "description": [
@@ -8932,8 +8937,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5425",
-        "page": 66
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5425"
       }
     ],
     "description": [
@@ -8979,8 +8984,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5394",
-        "page": 51
+        "page": 51,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5394"
       }
     ],
     "description": [
@@ -9029,8 +9034,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5398",
-        "page": 51
+        "page": 51,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5398"
       }
     ],
     "description": [
@@ -9076,8 +9081,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5283",
-        "page": 20
+        "page": 20,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5283"
       }
     ],
     "description": [
@@ -9123,8 +9128,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5279",
-        "page": 19
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5279"
       }
     ],
     "description": [
@@ -9176,8 +9181,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5345",
-        "page": 36
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5345"
       }
     ],
     "description": [
@@ -9239,8 +9244,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5296",
-        "page": 21
+        "page": 21,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5296"
       }
     ],
     "description": [
@@ -9308,8 +9313,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5451",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5451"
       }
     ],
     "description": [
@@ -9429,8 +9434,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5496",
-        "page": 78
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5496"
       }
     ],
     "description": [
@@ -9492,8 +9497,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5427",
-        "page": 66
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5427"
       }
     ],
     "description": [
@@ -9542,8 +9547,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5422",
-        "page": 65
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5422"
       }
     ],
     "description": [
@@ -9645,8 +9650,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5435",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5435"
       }
     ],
     "description": [
@@ -9722,8 +9727,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5368",
-        "page": 43
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5368"
       }
     ],
     "description": [
@@ -9758,8 +9763,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5289",
-        "page": 20
+        "page": 20,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5289"
       }
     ],
     "description": [
@@ -9819,8 +9824,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5522",
-        "page": 81
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5522"
       }
     ],
     "description": [
@@ -9940,8 +9945,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5379",
-        "page": 45
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5379"
       }
     ],
     "description": [
@@ -10049,8 +10054,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5280",
-        "page": 19
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5280"
       }
     ],
     "description": [
@@ -10088,8 +10093,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5497",
-        "page": 78
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5497"
       }
     ],
     "description": [
@@ -10192,8 +10197,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5533",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5533"
       }
     ],
     "description": [
@@ -10330,8 +10335,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5413",
-        "page": 63
+        "page": 63,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5413"
       }
     ],
     "description": [
@@ -10551,8 +10556,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5525",
-        "page": 81
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5525"
       }
     ],
     "description": [
@@ -10630,8 +10635,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5508",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5508"
       }
     ],
     "description": [
@@ -10681,8 +10686,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5477",
-        "page": 74
+        "page": 74,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5477"
       }
     ],
     "description": [
@@ -10737,8 +10742,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5324",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5324"
       }
     ],
     "description": [
@@ -10800,8 +10805,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5449",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5449"
       }
     ],
     "description": [
@@ -10848,8 +10853,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5519",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5519"
       }
     ],
     "description": [
@@ -10896,8 +10901,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5457",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5457"
       }
     ],
     "description": [
@@ -10944,8 +10949,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5329",
-        "page": 32
+        "page": 32,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5329"
       }
     ],
     "description": [
@@ -11006,8 +11011,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5357",
-        "page": 39
+        "page": 39,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5357"
       }
     ],
     "description": [
@@ -11109,8 +11114,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5373",
-        "page": 43
+        "page": 43,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5373"
       }
     ],
     "description": [
@@ -11168,8 +11173,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5465",
-        "page": 73
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5465"
       }
     ],
     "description": [
@@ -11281,8 +11286,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5513",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5513"
       }
     ],
     "description": [
@@ -11360,8 +11365,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5292",
-        "page": 21
+        "page": 21,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5292"
       }
     ],
     "description": [
@@ -11407,8 +11412,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5536",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5536"
       }
     ],
     "description": [
@@ -11486,8 +11491,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5483",
-        "page": 75
+        "page": 75,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5483"
       }
     ],
     "description": [
@@ -11537,8 +11542,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5517",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5517"
       }
     ],
     "description": [
@@ -11629,8 +11634,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5334",
-        "page": 33
+        "page": 33,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5334"
       }
     ],
     "description": [
@@ -11714,8 +11719,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5401",
-        "page": 56
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5401"
       }
     ],
     "description": [
@@ -11806,8 +11811,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5284",
-        "page": 20
+        "page": 20,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5284"
       }
     ],
     "description": [
@@ -11873,8 +11878,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5524",
-        "page": 81
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5524"
       }
     ],
     "description": [
@@ -12037,8 +12042,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5429",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5429"
       }
     ],
     "description": [
@@ -12106,8 +12111,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5498",
-        "page": 78
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5498"
       }
     ],
     "description": [
@@ -12210,8 +12215,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5512",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5512"
       }
     ],
     "description": [
@@ -12270,8 +12275,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5412",
-        "page": 63
+        "page": 63,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5412"
       }
     ],
     "description": [
@@ -12313,8 +12318,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5310",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5310"
       }
     ],
     "description": [
@@ -12391,8 +12396,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5303",
-        "page": 25
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5303"
       }
     ],
     "description": [
@@ -12445,8 +12450,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5358",
-        "page": 39
+        "page": 39,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5358"
       }
     ],
     "description": [
@@ -12481,8 +12486,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5346",
-        "page": 36
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5346"
       }
     ],
     "description": [
@@ -12530,8 +12535,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5390",
-        "page": 50
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5390"
       }
     ],
     "description": [
@@ -12583,8 +12588,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5384",
-        "page": 50
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5384"
       }
     ],
     "description": [
@@ -12619,8 +12624,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5509",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5509"
       }
     ],
     "description": [
@@ -12670,8 +12675,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5318",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5318"
       }
     ],
     "description": [
@@ -12730,8 +12735,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5380",
-        "page": 45
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5380"
       }
     ],
     "description": [
@@ -12780,8 +12785,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5354",
-        "page": 38
+        "page": 38,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5354"
       }
     ],
     "description": [
@@ -12825,8 +12830,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5430",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5430"
       }
     ],
     "description": [
@@ -12934,8 +12939,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5377",
-        "page": 44
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5377"
       }
     ],
     "description": [
@@ -12979,8 +12984,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5355",
-        "page": 38
+        "page": 38,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5355"
       }
     ],
     "description": [
@@ -13129,8 +13134,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5325",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5325"
       }
     ],
     "description": [
@@ -13170,8 +13175,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5285",
-        "page": 20
+        "page": 20,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5285"
       }
     ],
     "description": [
@@ -13206,8 +13211,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5482",
-        "page": 75
+        "page": 75,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5482"
       }
     ],
     "description": [
@@ -13285,8 +13290,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5480",
-        "page": 75
+        "page": 75,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5480"
       }
     ],
     "description": [
@@ -13336,8 +13341,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5385",
-        "page": 50
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5385"
       }
     ],
     "description": [
@@ -13372,8 +13377,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5537",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5537"
       }
     ],
     "description": [
@@ -13455,8 +13460,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5478",
-        "page": 74
+        "page": 74,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5478"
       }
     ],
     "description": [
@@ -13534,8 +13539,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5419",
-        "page": 65
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5419"
       }
     ],
     "description": [
@@ -13589,8 +13594,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5541",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5541"
       }
     ],
     "description": [
@@ -13697,8 +13702,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5452",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5452"
       }
     ],
     "description": [
@@ -13759,8 +13764,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5330",
-        "page": 32
+        "page": 32,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5330"
       }
     ],
     "description": [
@@ -13832,8 +13837,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5335",
-        "page": 33
+        "page": 33,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5335"
       }
     ],
     "description": [
@@ -13879,8 +13884,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5460",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5460"
       }
     ],
     "description": [
@@ -13941,8 +13946,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5484",
-        "page": 75
+        "page": 75,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5484"
       }
     ],
     "description": [
@@ -14059,8 +14064,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5443",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5443"
       }
     ],
     "description": [
@@ -14138,8 +14143,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5423",
-        "page": 66
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5423"
       }
     ],
     "description": [
@@ -14193,8 +14198,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5470",
-        "page": 73
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5470"
       }
     ],
     "description": [
@@ -14355,8 +14360,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5461",
-        "page": 71
+        "page": 71,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5461"
       }
     ],
     "description": [
@@ -14412,8 +14417,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5447",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5447"
       }
     ],
     "description": [
@@ -14491,8 +14496,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5342",
-        "page": 33
+        "page": 33,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5342"
       }
     ],
     "description": [
@@ -14590,8 +14595,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5326",
-        "page": 31
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5326"
       }
     ],
     "description": [
@@ -14637,8 +14642,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5378",
-        "page": 44
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5378"
       }
     ],
     "description": [
@@ -14708,8 +14713,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5450",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5450"
       }
     ],
     "description": [
@@ -14787,8 +14792,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5374",
-        "page": 44
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5374"
       }
     ],
     "description": [
@@ -14827,8 +14832,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5311",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5311"
       }
     ],
     "description": [
@@ -14887,8 +14892,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5352",
-        "page": 38
+        "page": 38,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5352"
       }
     ],
     "description": [
@@ -14930,8 +14935,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5336",
-        "page": 33
+        "page": 33,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5336"
       }
     ],
     "description": [
@@ -14986,8 +14991,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5531",
-        "page": 82
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5531"
       }
     ],
     "description": [
@@ -15076,8 +15081,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5386",
-        "page": 50
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5386"
       }
     ],
     "description": [
@@ -15131,8 +15136,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5387",
-        "page": 50
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5387"
       }
     ],
     "description": [
@@ -15176,8 +15181,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5463",
-        "page": 72
+        "page": 72,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5463"
       }
     ],
     "description": [
@@ -15267,8 +15272,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5431",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5431"
       }
     ],
     "description": [
@@ -15336,8 +15341,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5293",
-        "page": 21
+        "page": 21,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5293"
       }
     ],
     "description": [
@@ -15372,8 +15377,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5347",
-        "page": 37
+        "page": 37,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5347"
       }
     ],
     "description": [
@@ -15408,8 +15413,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5453",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5453"
       }
     ],
     "description": [
@@ -15456,8 +15461,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5481",
-        "page": 75
+        "page": 75,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5481"
       }
     ],
     "description": [
@@ -15535,8 +15540,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5304",
-        "page": 25
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5304"
       }
     ],
     "description": [
@@ -15624,8 +15629,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5439",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5439"
       }
     ],
     "description": [
@@ -15703,8 +15708,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5444",
-        "page": 69
+        "page": 69,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5444"
       }
     ],
     "description": [
@@ -15793,8 +15798,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5356",
-        "page": 38
+        "page": 38,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5356"
       }
     ],
     "description": [
@@ -15923,8 +15928,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5426",
-        "page": 66
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5426"
       }
     ],
     "description": [
@@ -15970,8 +15975,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5501",
-        "page": 78
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5501"
       }
     ],
     "description": [
@@ -16021,8 +16026,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5474",
-        "page": 74
+        "page": 74,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5474"
       }
     ],
     "description": [
@@ -16107,8 +16112,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5381",
-        "page": 45
+        "page": 45,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5381"
       }
     ],
     "description": [
@@ -16185,8 +16190,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5538",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5538"
       }
     ],
     "description": [
@@ -16275,8 +16280,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5408",
-        "page": 57
+        "page": 57,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5408"
       }
     ],
     "description": [
@@ -16353,8 +16358,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5305",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5305"
       }
     ],
     "description": [
@@ -16662,8 +16667,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5403",
-        "page": 56
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5403"
       }
     ],
     "description": [
@@ -16729,8 +16734,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5507",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5507"
       }
     ],
     "description": [
@@ -16788,8 +16793,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5407",
-        "page": 57
+        "page": 57,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5407"
       }
     ],
     "description": [
@@ -16912,8 +16917,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5340",
-        "page": 33
+        "page": 33,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5340"
       }
     ],
     "description": [
@@ -16963,8 +16968,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5523",
-        "page": 81
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5523"
       }
     ],
     "description": [
@@ -17039,8 +17044,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5321",
-        "page": 27
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5321"
       }
     ],
     "description": [
@@ -17110,8 +17115,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5391",
-        "page": 50
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5391"
       }
     ],
     "description": [
@@ -17162,8 +17167,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5510",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5510"
       }
     ],
     "description": [
@@ -17210,8 +17215,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5397",
-        "page": 51
+        "page": 51,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5397"
       }
     ],
     "description": [
@@ -17246,8 +17251,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5312",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5312"
       }
     ],
     "description": [
@@ -17293,8 +17298,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5471",
-        "page": 73
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5471"
       }
     ],
     "description": [
@@ -17341,8 +17346,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5454",
-        "page": 70
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5454"
       }
     ],
     "description": [
@@ -17645,8 +17650,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5388",
-        "page": 50
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5388"
       }
     ],
     "description": [
@@ -17681,8 +17686,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5432",
-        "page": 67
+        "page": 67,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5432"
       }
     ],
     "description": [
@@ -17764,8 +17769,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5348",
-        "page": 37
+        "page": 37,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5348"
       }
     ],
     "description": [
@@ -17800,8 +17805,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5466",
-        "page": 73
+        "page": 73,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5466"
       }
     ],
     "description": [
@@ -17890,8 +17895,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5486",
-        "page": 76
+        "page": 76,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5486"
       }
     ],
     "description": [
@@ -18009,6 +18014,11 @@
       {
         "key": "ActorTraits",
         "add": ["beast", "werecreature"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "e114f41a-9129-5b91-b7d2-f88e152b9c0c",
+        "allowDuplicate": false
       },
       {
         "key": "ItemAlteration",
@@ -18300,8 +18310,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5441",
-        "page": 68
+        "page": 68,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5441"
       }
     ],
     "description": [
@@ -18351,8 +18361,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5485",
-        "page": 75
+        "page": 75,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5485"
       }
     ],
     "description": [
@@ -18430,8 +18440,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5515",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5515"
       }
     ],
     "description": [
@@ -18496,8 +18506,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5520",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5520"
       }
     ],
     "description": [
@@ -18558,8 +18568,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5313",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5313"
       }
     ],
     "description": [
@@ -18626,8 +18636,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5414",
-        "page": 63
+        "page": 63,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5414"
       }
     ],
     "description": [
@@ -18784,8 +18794,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5530",
-        "page": 82
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5530"
       }
     ],
     "description": [
@@ -18835,8 +18845,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5534",
-        "page": 83
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5534"
       }
     ],
     "description": [
@@ -18914,8 +18924,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5527",
-        "page": 82
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5527"
       }
     ],
     "description": [
@@ -18987,8 +18997,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5511",
-        "page": 79
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5511"
       }
     ],
     "description": [
@@ -19035,8 +19045,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5502",
-        "page": 78
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5502"
       }
     ],
     "description": [
@@ -19130,8 +19140,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5306",
-        "page": 26
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5306"
       }
     ],
     "description": [
@@ -19183,8 +19193,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5415",
-        "page": 65
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5415"
       }
     ],
     "description": [
@@ -19230,8 +19240,8 @@
       {
         "kind": "book",
         "book": "howl-of-the-wild",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5417",
-        "page": 65
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5417"
       }
     ],
     "description": [

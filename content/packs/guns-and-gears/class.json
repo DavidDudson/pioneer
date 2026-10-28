@@ -11,8 +11,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=20",
-        "page": 105
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=20"
       }
     ],
     "description": [
@@ -1020,8 +1020,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=19",
-        "page": 15
+        "page": 15,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=19"
       }
     ],
     "description": [

@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4014",
-        "page": 223
+        "page": 223,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4014"
       }
     ],
     "description": [
@@ -82,6 +82,7 @@
       },
       "bulk": "light",
       "category": "catalyst",
+      "effect": "862a6a94-1bcb-5837-b0fb-a39680bf741d",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -101,8 +102,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015",
-        "page": 223
+        "page": 223,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
       }
     ],
     "description": [
@@ -246,8 +247,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015",
-        "page": 223
+        "page": 223,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
       }
     ],
     "description": [
@@ -391,8 +392,8 @@
       {
         "kind": "book",
         "book": "draconic-codex",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015",
-        "page": 223
+        "page": 223,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4015"
       }
     ],
     "description": [

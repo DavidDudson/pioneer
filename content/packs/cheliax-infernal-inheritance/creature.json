@@ -1,0 +1,5145 @@
+[
+  {
+    "id": "2b57cd4c-31d6-5672-a1e5-27c20cb2ad8a",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:animate-aria",
+    "name": "Animate Aria",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["construct", "mindless"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An animate aria is the spirit of music in physical form. Granted life through magic and ceremony, these constructs emanate the inspiring music used to create them, usually acting as expensive and entertaining decor for the wealthy elite as well as simple servants and guardians."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a construct of sound, an aria is usually heard and not seen, though it does have a physical body: a large humanoid-shaped framework without any distinguishing physical features, approximately 12 feet tall, made up of stylized symbols of musical notation. It can completely suppress its natural invisibility if needed, and while its musical aura can't be fully silenced, it can be reduced to a pleasant indoor volume suitable for light entertainment. The music used in the ritual to created an animate aria is the only sound that the construct can emit. It doesn't have the creative spark to create new music, though an animate aria in distress can emit all of the measures of its song at once to create a painful and deafening discordance. When it does so, the musical notation that makes up an animate aria's visible form briefly becomes jagged and broken, making the construct easier to see."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Animate arias are especially vulnerable to magic with sonic and silencing effects, which disrupt the melody that sustains them. When subjected to such effects, the extremities of the construct's shape begin to fade away, starting with its hands and feet. Those who create and maintain animate arias refer to this development as \"diminishing.\""
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.GXp4UmJtU7y5W0Sl"
+    },
+    "data": {
+      "role": "monster",
+      "size": "large",
+      "perception": 15,
+      "attributes": {
+        "str": 5,
+        "dex": 6,
+        "con": 1,
+        "int": -5,
+        "wis": 0,
+        "cha": -5
+      },
+      "armorClass": 27,
+      "saves": {
+        "fortitude": 17,
+        "reflex": 20,
+        "will": 15
+      },
+      "hitPoints": 160,
+      "immunities": [],
+      "weaknesses": [
+        {
+          "type": "sonic",
+          "value": 10
+        }
+      ],
+      "resistances": [],
+      "speed": 20,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 20
+        },
+        {
+          "skill": "athletics",
+          "modifier": 18
+        },
+        {
+          "skill": "performance",
+          "modifier": 22
+        },
+        {
+          "skill": "stealth",
+          "modifier": 16
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        },
+        {
+          "sense": "echolocation",
+          "acuity": "precise",
+          "range": 90
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Sound Fist",
+          "range": "melee",
+          "bonus": 19,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d10",
+              "damageType": "bludgeoning",
+              "bonus": 9
+            }
+          ],
+          "traits": ["magical", "reach-10"],
+          "reach": 10
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Echolocation",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "An animate aria can use its hearing as a precise sense at the listed range."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Aura Forte",
+          "traits": ["auditory", "aura", "mental", "sonic"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "30 feet. The aria emanates an inspirational song, bolstering its compatriots. Allies within the aura that can hear gain a +1 circumstance bonus to saving throws against emotion effects and to attack rolls and weapon damage rolls."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Dissonance",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the aria is subject to a magical effect that disrupts or prevents sound, such as a silence spell, its aura forte and natural invisibility are suppressed, and it takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "force"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage at the end of each of its turns for the duration of the effect."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Natural Invisibility",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The animate aria is permanently Invisible, but it's Hidden rather than Undetected to any creatures within 30 feet that can hear. It can Sustain this effect to suppress or reactivate its invisibility."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Con Fuoco",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The animate aria has taken damage since the end of its previous turn"
+                }
+              ]
+            }
+          ],
+          "traits": ["fire"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The animate aria has taken damage since the end of its previous turn"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The aria intensifies its song, heating the air around it. If the aria's next action is to make a fist of sound Strike, it deals an additional 1d10 fire damage."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Crescendo",
+          "cost": "two",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "traits": ["auditory", "sonic"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per day"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The animate aria unleashes a cacophony of sound, dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "8d8",
+                      "damageType": "sonic"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to all enemies within 30 feet with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 28,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save. A creature that fails the save is also Deafened for 1 minute. After using Crescendo, the animate aria's natural invisibility is suppressed until the start of its next turn. It can't use Crescendo again for 1d4 rounds."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "c02b10c3-0a50-597e-b3b2-646d7fcc8398",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:cephalophix",
+    "name": "Cephalophix",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["devil", "fiend", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The striking image of the cephalophix's head resting in their hands is enough to give any mortal pause, but the horrifying shrieks and splattering black tar that spray from their mouths is disturbing to even other devils. Cephalophixes hate all magic with passion and fury, and they especially loathe divine magic, believing it to be the gods' unfair finger on the scales of planar conflict. The irony that they require magic to combat it isn't lost on them, but they aren't above any method that leads to the death of another magic user. Their hatred of all magic makes it difficult for other devils to work with cephalophixes, and more powerful devils usually keep them in soundproof cages until they're needed. Cephalophixes prefer this arrangement as well, meditating in solitude far from the magic and its users that they despise."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.aseZMeOX7zahFwss"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 9,
+      "attributes": {
+        "str": 5,
+        "dex": 2,
+        "con": 3,
+        "int": 4,
+        "wis": 4,
+        "cha": 2
+      },
+      "armorClass": 19,
+      "saves": {
+        "fortitude": 15,
+        "reflex": 9,
+        "will": 12
+      },
+      "hitPoints": 95,
+      "immunities": ["visual"],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "physical",
+          "value": 5,
+          "exceptions": ["silver"]
+        },
+        {
+          "type": "poison",
+          "value": 5
+        }
+      ],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 9
+        },
+        {
+          "skill": "arcana",
+          "modifier": 13
+        },
+        {
+          "skill": "athletics",
+          "modifier": 12
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 9
+        },
+        {
+          "skill": "nature",
+          "modifier": 13
+        },
+        {
+          "skill": "occultism",
+          "modifier": 13
+        },
+        {
+          "skill": "religion",
+          "modifier": 13
+        }
+      ],
+      "senses": [
+        {
+          "sense": "echolocation",
+          "acuity": "precise",
+          "range": 40
+        },
+        {
+          "sense": "magicsense",
+          "acuity": "precise",
+          "range": 100
+        }
+      ],
+      "languages": ["common", "diabolic"],
+      "strikes": [
+        {
+          "name": "Jaws",
+          "range": "melee",
+          "bonus": 15,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "bludgeoning",
+              "bonus": 5
+            }
+          ],
+          "traits": ["magical", "unholy", "versatile-s"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tar Vomit"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Vomit",
+          "range": "melee",
+          "bonus": 13,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d10",
+              "damageType": "spirit",
+              "bonus": 5
+            }
+          ],
+          "traits": ["magical", "spirit", "unholy"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tar Vomit"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Echolocation",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A cephalophix can use their hearing as a precise sense at the listed range."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Magic Sense",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A cephalophix can detect the source of any magic within range as a precise sense."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Hateful Counteract",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature the cephalophix perceives with a precise sense Casts a Spell"
+                }
+              ]
+            }
+          ],
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per day"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature the cephalophix perceives with a precise sense Casts a Spell"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The cephalophix attempts to counteract the triggering spell. Their counteract rank is 3, and their counteract modifier is +13. If they succeed, the triggering creature takes mental damage equal to twice the counteracted spell's rank."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Reactive Resistance",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The cephalophix takes acid, cold, electricity, fire, sonic, or spirit damage"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The cephalophix takes acid, cold, electricity, fire, sonic, or spirit damage"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The cephalophix loses any resistances they have to acid, cold, electricity, fire, sonic, or spirit damage, then gains resistance 5 to the triggering damage type. This resistance applies to the triggering damage and lasts until they use Reactive Resistance again."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Tar Vomit",
+          "traits": ["unholy"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Creatures hit by a cephalophix's Strikes are covered in black tar suffused with unholy energy. They take a –5-foot status penalty to their Speeds until the end of their next turn (or a –10-foot status penalty on a critical hit), and they must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 22
+                },
+                {
+                  "type": "text",
+                  "text": " save or be Stupefied 1 for the same duration (Stupefied 2 on a critical failure)."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "bfed5868-c81b-5662-9bd2-f52360f8abc7"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Tortured Shriek",
+          "cost": "two",
+          "traits": ["sonic"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The cephalophix unleashes a deafening shriek, dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d10",
+                      "damageType": "sonic"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to all creatures in a "
+                },
+                {
+                  "type": "template",
+                  "shape": "cone",
+                  "size": 30
+                },
+                {
+                  "type": "text",
+                  "text": " with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 19,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save. Creatures that fail are also Deafened until the start of the cephalophix's next turn, or for 1 minute on a critical failure."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Innate Spells",
+          "tradition": "divine",
+          "preparation": "innate",
+          "dc": 19,
+          "attack": 11,
+          "spells": [
+            {
+              "spell": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd",
+              "rank": 4
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "c6959703-cf45-5f6d-9f5a-b236c45415b3",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:cerberus",
+    "name": "Cerberus",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["beast", "fiend", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cerberuses are flayed, fiendish, three-headed watchdogs of Hell. Their bodies bulge with furless, blood-soaked muscle and sinew, and their eyes churn with hellfire. Three massive heads each display a set of razor-sharp teeth, which carry a curse that prevents their prey from escaping even to other planes. These cruel hounds delight in malice, their sadistic cunning perfectly suiting them for tracking, trapping, and eviscerating the damned and the undead. When a cerberus has their scent, neither can escape from the beast's relentless tracking."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While cerberuses form matriarchal packs in the wilds of the unholy planes, they can understand Diabolic and will take instruction from any they sufficiently respect or fear. This loyalty means they're often put to work as infernal guardians, trackers, and enforcers of their masters' will. While not as clever as most humanoids, cerberuses have a cunning that the foolish might dismiss. These fiendish hounds are fully capable of devising and executing complex plans—often leading to the demise of incautious masters."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.IJNmrR6Xl5OWvkGp"
+    },
+    "data": {
+      "role": "monster",
+      "size": "large",
+      "perception": 17,
+      "attributes": {
+        "str": 5,
+        "dex": 4,
+        "con": 4,
+        "int": 0,
+        "wis": 2,
+        "cha": 1
+      },
+      "armorClass": 24,
+      "saves": {
+        "fortitude": 17,
+        "reflex": 14,
+        "will": 11
+      },
+      "hitPoints": 90,
+      "immunities": ["fire"],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 30,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 13
+        },
+        {
+          "skill": "athletics",
+          "modifier": 15
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 13
+        },
+        {
+          "skill": "stealth",
+          "modifier": 15
+        },
+        {
+          "skill": "survival",
+          "modifier": 16
+        }
+      ],
+      "languages": ["diabolic"],
+      "strikes": [
+        {
+          "name": "Jaws",
+          "range": "melee",
+          "bonus": 17,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 8
+            }
+          ],
+          "traits": ["agile", "unholy"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Inescapable Jaws"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Soul Scent",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The cerberus can Track even undead that are incorporeal or otherwise wouldn't leave a trace."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Snap",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The cerberus is hit by a melee attack"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The cerberus is hit by a melee attack"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The cerberus lashes out with one of their heads, dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "piercing"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to an enemy within their reach ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 21,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save)."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Hellbound Assault",
+          "cost": "two",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The cerberus attacks a single target with all three heads, overwhelming their foe. The cerberus Strikes with their jaws. On a successful attack, the cerberus deals an additional "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "piercing"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage. On a failure (but not a critical failure), the cerberus deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6+4",
+                      "damageType": "piercing"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to the target. This Strike counts as two attacks toward the cerberus's multiple attack penalty."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Hellish Gaze",
+          "cost": "two",
+          "traits": ["divine", "emotion", "fear", "incapacitation", "mental", "unholy"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The cerberus stares into the soul of their prey, striking fear into its heart. The cerberus targets up to three creatures within 30 feet that must each attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 24
+                },
+                {
+                  "type": "text",
+                  "text": " save."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Critical Success",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is unaffected."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Success",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is Frightened 1."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Failure",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is Stunned 1 for 1 round and Frightened 2."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Critical Failure",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The creature is stunned 1 for 1 round and Frightened 4."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Inescapable Jaws",
+          "traits": ["curse", "divine", "unholy"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A bite from the cerberus prevents creatures from escaping Hell. The target must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 24
+                },
+                {
+                  "type": "text",
+                  "text": " saving throw or be unable to use teleportation effects or leave the plane in any other way for 1 minute. A holy creature takes a –2 circumstance penalty to this save. On a success, the target is temporarily immune to this curse for 24 hours."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "55419948-f2ea-5d5c-988a-03c4b95e4010",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:enfiron",
+    "name": "Enfiron",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["devil", "fiend", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.dTCCc0qV1bUG3TZ7"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 28,
+      "attributes": {
+        "str": 4,
+        "dex": 7,
+        "con": 3,
+        "int": 5,
+        "wis": 5,
+        "cha": 8
+      },
+      "armorClass": 33,
+      "saves": {
+        "fortitude": 23,
+        "reflex": 28,
+        "will": 26
+      },
+      "hitPoints": 225,
+      "immunities": ["fire"],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "physical",
+          "value": 10,
+          "exceptions": ["silver"]
+        },
+        {
+          "type": "poison",
+          "value": 10
+        }
+      ],
+      "speed": 40,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 25
+        },
+        {
+          "skill": "athletics",
+          "modifier": 20
+        },
+        {
+          "skill": "deception",
+          "modifier": 31
+        },
+        {
+          "skill": "diplomacy",
+          "modifier": 31
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 28
+        },
+        {
+          "skill": "religion",
+          "modifier": 25
+        },
+        {
+          "skill": "stealth",
+          "modifier": 28
+        }
+      ],
+      "senses": [
+        {
+          "sense": "greater-darkvision"
+        }
+      ],
+      "languages": ["common", "diabolic"],
+      "strikes": [
+        {
+          "name": "Spike",
+          "range": "melee",
+          "bonus": 29,
+          "damage": [
+            {
+              "dice": 3,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 12
+            }
+          ],
+          "traits": ["agile", "finesse", "magical", "unholy"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Enfiron Venom"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Silencing Stab",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature within the enfiron's reach speaks"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature within the enfiron's reach speaks"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The enfiron makes a spike Strike against the triggering creature. If the enfiron is under the effects of Change Shape, the Strike deals piercing damage regardless of their appearance. If the target fails the saving throw against enfiron venom, it's afflicted at stage 2. The enfiron also attempts a Deception check, comparing the result to the Perception DCs of all creatures that can see the attack (excluding the target). On a success, that creature is unaware of the attack."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Change Shape",
+          "cost": "one",
+          "traits": ["concentrate", "divine", "polymorph"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The enfiron can take the appearance of any Small or Medium humanoid. This doesn't change their Speed or their attack and damage modifiers with their Strikes but might change the damage type their Strikes deal (typically to bludgeoning)."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster changes its shape indefinitely. It can use this action again to return to its natural shape or adopt a new shape. Unless otherwise noted, a monster cannot use Change Shape to appear as a specific individual. Using Change Shape counts as creating a disguise for the Impersonate use of Deception. The monster's transformation automatically defeats Perception DCs to determine whether the creature is a member of the ancestry or creature type into which it transformed, and it gains a +4 status bonus to its Deception DC to prevent others from seeing through its disguise. Change Shape abilities specify what shapes the monster can adopt. The monster doesn't gain any special abilities of the new shape, only its physical form. For example, in each shape, it replaces its normal Speeds and Strikes, and might potentially change its senses or size. Any changes are listed in its stat block."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Enfiron Venom",
+          "traits": ["poison"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Throw",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 34
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Maximum Duration",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 6 rounds"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 1",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "poison"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage and Stupefied 1 (1 round)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 2",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "7d6",
+                      "damageType": "poison"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage, Stupefied 2, and unable to speak (1 round)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 3",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "8d6",
+                      "damageType": "poison"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage, stupefied 2, unable to speak, and must hold its breath or suffocate (1 round)"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Hidden Wounds",
+          "traits": ["divine", "illusion"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Any wounds the enfiron inflicts, even from spells, appear to be instantly but superficially mended, as if no violence took place against the target. A creature attempting to Treat Wounds on a victim must first disbelieve the illusion ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "perception",
+                  "dc": 31
+                },
+                {
+                  "type": "text",
+                  "text": " check) or take a –2 circumstance penalty to the check. If a creature fails a check to Treat Wounds without first disbelieving the illusion, they get a critical failure instead."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Innate Spells",
+          "tradition": "divine",
+          "preparation": "innate",
+          "dc": 34,
+          "attack": 26,
+          "spells": [
+            {
+              "spell": "54bcf730-ab6d-5ba7-9747-86a6debbd00c",
+              "rank": 6
+            },
+            {
+              "spell": "ec6df711-1ab8-5f9d-8e01-6827c947eeff",
+              "rank": 6,
+              "constant": true
+            },
+            {
+              "spell": "8f96da2d-86f2-5d01-880b-1a2466bb279a",
+              "rank": 5
+            },
+            {
+              "spell": "72597ff4-3a09-5802-9fd2-d42b78034487",
+              "rank": 5
+            },
+            {
+              "spell": "055bd3d8-a0b8-539f-84f8-4baab9936d67",
+              "rank": 6,
+              "constant": true
+            },
+            {
+              "spell": "9d2d34b7-d94e-51d0-b169-e6cb9f4f0b2a",
+              "rank": 4
+            },
+            {
+              "spell": "06dcb2ac-6b0e-512e-bcc4-7dd4abe5d503",
+              "rank": 4
+            },
+            {
+              "spell": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd",
+              "rank": 5
+            },
+            {
+              "spell": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd",
+              "rank": 4
+            },
+            {
+              "spell": "137e9f3a-3af5-5004-9a32-dba8fdaff034",
+              "rank": 3
+            },
+            {
+              "spell": "35e13fee-4d0a-5aca-a41d-01306797c215",
+              "rank": 6
+            },
+            {
+              "spell": "e8221b18-c4c7-5d99-a604-a3cf119d41b1",
+              "rank": 2
+            },
+            {
+              "spell": "e8221b18-c4c7-5d99-a604-a3cf119d41b1",
+              "rank": 4
+            },
+            {
+              "spell": "306213b0-9e11-55d8-b630-8786ea86a27d",
+              "rank": 2
+            },
+            {
+              "spell": "306213b0-9e11-55d8-b630-8786ea86a27d",
+              "rank": 4
+            },
+            {
+              "spell": "427481f6-06b8-5e15-9f76-a87a84b28d01",
+              "rank": 1
+            },
+            {
+              "spell": "c798a1dd-dd19-5020-8adf-40c66538310e",
+              "rank": 1
+            },
+            {
+              "spell": "c319a7b8-ee8e-5f50-97c7-16151916ad80",
+              "rank": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "222e0694-2b6f-5e67-9590-4696b65bba25",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:erinys",
+    "name": "Erinys",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["fiend", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As mortals persevere against the predations and schemes of the denizens of the unholy planes—daemons, demons, devils, and the like—such fiends are driven to fury, and a desire for vengeance against mortals rises in their collective wills. Erinyes are those emotions made manifest. While not as ancient as some of their extraplanar counterparts, erinyes have existed for as long as mortals have fought back against fiends. An erinys's form mocks mortals' frailty: a humanoid shape with wings as black as pitch and eyes that glow with baleful fire. Fiendish vipers slither constantly across their skin and through their hair, and an erinys can form these snakes into a living whip or direct them to bite anyone who draws too near. Most erinyes wear deep black robes or armor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Erinyes can be found wherever unholy fiends feel a strong desire for vengeance. Erinyes consider themselves mercenaries, working for whatever fiendish faction gives them the opportunity to vent their wrath on mortals. They can be found throughout the unholy planes and the Universe. Rarely, an erinys will make a deal with a mortal to perform acts of vengeance on that mortal's behalf, especially if those acts are particularly violent."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.KrxJlsL2iG1cuaYq"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 16,
+      "attributes": {
+        "str": 6,
+        "dex": 4,
+        "con": 4,
+        "int": 1,
+        "wis": 3,
+        "cha": 0
+      },
+      "armorClass": 26,
+      "saves": {
+        "fortitude": 14,
+        "reflex": 18,
+        "will": 16
+      },
+      "hitPoints": 135,
+      "immunities": ["acid", "fire"],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "poison",
+          "value": 10
+        }
+      ],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 16
+        },
+        {
+          "skill": "athletics",
+          "modifier": 18
+        },
+        {
+          "skill": "deception",
+          "modifier": 14
+        },
+        {
+          "skill": "diplomacy",
+          "modifier": 14
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 16
+        },
+        {
+          "skill": "religion",
+          "modifier": 18
+        },
+        {
+          "skill": "stealth",
+          "modifier": 16
+        },
+        {
+          "skill": "survival",
+          "modifier": 18
+        }
+      ],
+      "senses": [
+        {
+          "sense": "greater-darkvision"
+        }
+      ],
+      "languages": ["chthonian", "daemonic", "diabolic"],
+      "speeds": [
+        {
+          "movement": "fly",
+          "speed": 40
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Scourge of Snakes",
+          "range": "melee",
+          "bonus": 20,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "bludgeoning",
+              "bonus": 10
+            }
+          ],
+          "traits": ["magical", "reach-10", "unholy", "versatile-p"],
+          "reach": 10
+        },
+        {
+          "name": "Snake Fangs",
+          "range": "melee",
+          "bonus": 20,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "poison"
+            },
+            {
+              "dice": 2,
+              "die": "d4",
+              "damageType": "piercing",
+              "bonus": 7
+            }
+          ],
+          "traits": ["agile", "magical", "poison", "unholy"]
+        },
+        {
+          "name": "Flaming Gaze",
+          "range": "melee",
+          "bonus": 18,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d10",
+              "damageType": "fire",
+              "bonus": 4
+            }
+          ],
+          "traits": ["fire", "magical", "unholy"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Scourge of Snakes",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If an erinys ever drops or is disarmed of their scourge of snakes, the scourge discorporates into a tangle of fiendish vipers that immediately returns to the erinys. The erinys can reform a discorporated scourge of snakes with an Interact action, but they can never have more than one scourge of snakes at a time."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "+1 Status to All Saves vs. Magic",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "status",
+              "value": 1,
+              "predicate": ["item:magical"]
+            }
+          ]
+        },
+        {
+          "name": "Retributive Glare",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature within 60 feet damages the erinys"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature within 60 feet damages the erinys"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " With a glance, the erinys burns the one that dared hurt them. The erinys makes a flaming gaze Strike against the triggering creature, dealing an additional "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d8",
+                      "damageType": "fire",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage on a critical hit. This attack doesn't trigger reactions."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:retributive-glare",
+              "toggleable": true
+            },
+            {
+              "key": "DamageDice",
+              "selectors": ["flaming-gaze-damage"],
+              "diceNumber": 1,
+              "dieSize": "d8",
+              "damageType": "fire",
+              "category": "persistent",
+              "critical": true,
+              "predicate": ["option:retributive-glare"]
+            }
+          ]
+        },
+        {
+          "name": "Frenzy of Coils",
+          "cost": "three",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The erinys is holding a scourge of snakes"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The erinys is holding a scourge of snakes"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The erinys makes a scourge of snakes Strike against each enemy within reach. Each attack counts toward the erinys's multiple attack penalty, but the penalty doesn't increase until they've made all their attacks."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Furious Fangs",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The erinys's last action was a scourge of snakes Strike that dealt damage"
+                }
+              ]
+            }
+          ],
+          "traits": ["magical", "poison", "unholy"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The erinys's last action was a scourge of snakes Strike that dealt damage"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " One of the snakes that makes up the erinys's scourge bites at the same target as the required Strike. The target takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "3d6",
+                      "damageType": "poison"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 26,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save). On a failure, the target also becomes Sickened 1 (Sickened 2 on a critical failure) as they're wracked with terrible pain."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Innate Spells",
+          "tradition": "divine",
+          "preparation": "innate",
+          "dc": 23,
+          "attack": 0,
+          "spells": [
+            {
+              "spell": "c9f296d5-7325-5ec8-be5d-eb9502269e2f",
+              "rank": 4
+            },
+            {
+              "spell": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd",
+              "rank": 4
+            },
+            {
+              "spell": "e8221b18-c4c7-5d99-a604-a3cf119d41b1",
+              "rank": 2
+            },
+            {
+              "spell": "a8b9cc60-f471-559b-a07c-6ad022c23b56",
+              "rank": 3
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "38f083f6-86b7-5043-bd38-4257665ce391"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bf85bc8a-dbc2-50e5-99ff-9b42f1350eda",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:hellknight",
+    "name": "Hellknight",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["human", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While Hellknights are widely feared and usually respected, most joined due to their sense of duty and their wish to be a part of a greater whole, working to bring forth a world where laws and order rule."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The word \"Hellknight\" is enough to strike fear into even the most seasoned of veterans. When even one Hellknight enters a town, many cower in their homes, praying that the feared soldier has no business with them. Hellknights are easily identified by their unique armor, among the most iconic in all of Golarion. Decorated with fearsome adornments, the individual Hellknight's goals are clear since those enhancements are the very things that identify their order. Donning this armor without the title of Hellknight is a foolish endeavor, as the punishment for doing so will often yield a fate worse than death."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Joining the ranks of the Hellknights is no small matter either. A trial by fire is an understatement, for they must best a devil in a duel, and their victory must be witnessed by a Hellknight in good standing. Once initiated, the requirement for Hellknights of all orders is to steadfastly uphold the Measure and the Chain, a two-faceted approach to their edicts. The Measure is a series of laws that the Hellknights believe all humanoids should adhere. The Chain is the three-pronged approach that they take to enforce the Measure: order, discipline, and mercilessness. The laws within the Measure and how they focus on them through the lens of the Chain is how Hellknights have earned their fearsome reputation."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.ycDOqqKnRqKLL9D4"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 16,
+      "attributes": {
+        "str": 6,
+        "dex": 2,
+        "con": 4,
+        "int": 1,
+        "wis": 3,
+        "cha": 4
+      },
+      "armorClass": 25,
+      "saves": {
+        "fortitude": 18,
+        "reflex": 12,
+        "will": 15
+      },
+      "hitPoints": 120,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "mental",
+          "value": 5
+        },
+        {
+          "type": "slashing",
+          "value": 3
+        }
+      ],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 17
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 17
+        },
+        {
+          "skill": "religion",
+          "modifier": 15
+        },
+        {
+          "skill": "society",
+          "modifier": 14
+        },
+        {
+          "skill": "hell-lore",
+          "modifier": 16
+        }
+      ],
+      "languages": ["common", "diabolic"],
+      "strikes": [
+        {
+          "name": "Composite Longbow",
+          "range": "melee",
+          "bonus": 16,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 7
+            }
+          ],
+          "traits": ["deadly-d10", "magical", "propulsive", "reload-0", "volley-30"]
+        },
+        {
+          "name": "Morningstar",
+          "range": "melee",
+          "bonus": 18,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "bludgeoning",
+              "bonus": 10
+            }
+          ],
+          "traits": ["versatile-p"]
+        },
+        {
+          "name": "Fist",
+          "range": "melee",
+          "bonus": 17,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "bludgeoning",
+              "bonus": 10
+            }
+          ],
+          "traits": ["agile", "nonlethal", "unarmed"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "+1 Status to All Saves vs. Mental",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "status",
+              "value": 1,
+              "predicate": ["item:trait:mental"]
+            }
+          ]
+        },
+        {
+          "name": "A Hellknight Knows No Fear",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Whenever a Hellknight would become frightened, reduce the condition value by 1 (to a minimum of 0). If the Hellknight succeeds against an effect with the fear trait, they get a critical success instead."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Reactive Strike",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster attempts a melee Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the monster disrupts that action. This Strike doesn't count toward the monster's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Rebuke Incompetence",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature critically fails an attack roll against the Hellknight"
+                }
+              ]
+            }
+          ],
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Hellknight is aware of the attack and can see the attacker"
+                }
+              ]
+            }
+          ],
+          "traits": ["mental"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature critically fails an attack roll against the Hellknight"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The Hellknight is aware of the attack and can see the attacker"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The Hellknight rebukes the pitiful attempt to damage them, dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d4",
+                      "damageType": "mental",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to the triggering creature."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Fearsome Stare",
+          "cost": "one",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Hellknight glares viciously, attempting a single Intimidation check to Demoralize all creatures within 15 feet. Demoralize loses the auditory trait and gains the visual trait, and the Hellknight doesn't take a penalty if a creature doesn't understand their language."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Grievous Blow",
+          "cost": "two",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Hellknight makes a morningstar Strike. On a success, the attack deals an additional die of weapon damage, and the target is Frightened 1 (Frightened 2 on a critical hit). This counts as two attacks for the Hellknight's multiple attack penalty."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Steadfast Formation",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Hellknight is adjacent to another Hellknight"
+                }
+              ]
+            }
+          ],
+          "traits": ["manipulate"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The Hellknight is adjacent to another Hellknight"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The Hellknight assumes a defensive stance, giving themself and an adjacent Hellknight a +2 circumstance bonus to AC for 1 round. This bonus is lost if the Hellknights are no longer adjacent to each other."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "items": [
+        {
+          "item": "7b6af176-5515-58b8-8072-9f8f3f5e918f"
+        },
+        {
+          "item": "3200dc7f-03bd-50bf-96e2-1893f46612d1"
+        },
+        {
+          "item": "3fda838f-09bf-5cbc-aa7c-5daa8f20e240"
+        },
+        {
+          "item": "b937cd13-b787-5e21-b0d2-990106de9f0f"
+        },
+        {
+          "item": "a281f8a7-40ba-5555-9267-ec1d8b012961",
+          "quantity": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "6cea9a5a-14b6-525f-904b-bdd204c1c854",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:hellknight-signifer",
+    "name": "Hellknight Signifer",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["human", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The average Hellknights' most distinguishing piece of apparel is their fearsome plate armor, but the signifer's most infamous attire is their mask. The signifer's mask, notable for its lack of eyeholes, renders the wearer incognito while still evoking fear in their enemies. Unlike other Hellknights, signifers rely on more than physical might, instead blending powerful magic to augment their abilities or wrack their opponents' minds. Through using spells with mental effects to break their opponents' resolves or by summoning unholy creatures to their sides to bolster their numbers, signifers manipulate the battlefield in unique ways."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The word \"Hellknight\" is enough to strike fear into even the most seasoned of veterans. When even one Hellknight enters a town, many cower in their homes, praying that the feared soldier has no business with them. Hellknights are easily identified by their unique armor, among the most iconic in all of Golarion. Decorated with fearsome adornments, the individual Hellknight's goals are clear since those enhancements are the very things that identify their order. Donning this armor without the title of Hellknight is a foolish endeavor, as the punishment for doing so will often yield a fate worse than death."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Joining the ranks of the Hellknights is no small matter either. A trial by fire is an understatement, for they must best a devil in a duel, and their victory must be witnessed by a Hellknight in good standing. Once initiated, the requirement for Hellknights of all orders is to steadfastly uphold the Measure and the Chain, a two-faceted approach to their edicts. The Measure is a series of laws that the Hellknights believe all humanoids should adhere. The Chain is the three-pronged approach that they take to enforce the Measure: order, discipline, and mercilessness. The laws within the Measure and how they focus on them through the lens of the Chain is how Hellknights have earned their fearsome reputation."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.N28EADL0fBhU9N3F"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 16,
+      "attributes": {
+        "str": 4,
+        "dex": 2,
+        "con": 3,
+        "int": 2,
+        "wis": 6,
+        "cha": 4
+      },
+      "armorClass": 24,
+      "saves": {
+        "fortitude": 15,
+        "reflex": 12,
+        "will": 18
+      },
+      "hitPoints": 115,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "mental",
+          "value": 5
+        },
+        {
+          "type": "slashing",
+          "value": 3
+        }
+      ],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 16
+        },
+        {
+          "skill": "deception",
+          "modifier": 15
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 18
+        },
+        {
+          "skill": "religion",
+          "modifier": 17
+        },
+        {
+          "skill": "society",
+          "modifier": 14
+        },
+        {
+          "skill": "hell-lore",
+          "modifier": 16
+        }
+      ],
+      "languages": ["common", "diabolic"],
+      "strikes": [
+        {
+          "name": "Composite Longbow",
+          "range": "melee",
+          "bonus": 14,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 6
+            }
+          ],
+          "traits": ["deadly-d10", "magical", "propulsive", "reload-0", "volley-30"]
+        },
+        {
+          "name": "Morningstar",
+          "range": "melee",
+          "bonus": 16,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "bludgeoning",
+              "bonus": 8
+            }
+          ],
+          "traits": ["versatile-p"]
+        },
+        {
+          "name": "Fist",
+          "range": "melee",
+          "bonus": 15,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "bludgeoning",
+              "bonus": 8
+            }
+          ],
+          "traits": ["agile", "nonlethal", "unarmed"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "+1 Status to All Saves vs. Mental",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "status",
+              "value": 1,
+              "predicate": ["item:trait:mental"]
+            }
+          ]
+        },
+        {
+          "name": "+2 Status to All Saves vs. Visual",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "status",
+              "value": 2,
+              "predicate": ["item:trait:visual"]
+            }
+          ]
+        },
+        {
+          "name": "A Hellknight Knows No Fear",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Whenever a Hellknight Signifer would become frightened, reduce the condition value by 1 (to a minimum of 0). If the Hellknight succeeds against an effect with the fear trait, they get a critical success instead."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "AdjustDegreeOfSuccess",
+              "selectors": ["saving-throw"],
+              "adjustment": {
+                "success": "one-degree-better"
+              },
+              "predicate": ["item:trait:fear"]
+            }
+          ]
+        },
+        {
+          "name": "All May Hear",
+          "cost": "one",
+          "traits": ["concentrate", "divine", "spellshape"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the next action the Hellknight signifer uses is to Cast a Spell with the linguistic trait, the spell affects its target as if the target and the Hellknight signifer shared a common language. The target must have a language."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Decreed Strikes",
+          "cost": "free",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Hellknight signifer's most recent action was to cast a non-cantrip spell"
+                }
+              ]
+            }
+          ],
+          "frequency": {
+            "max": 1,
+            "per": "turn"
+          },
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per turn"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The Hellknight signifer's most recent action was to cast a non-cantrip spell"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Until the end of the signifer's turn, their Strikes deal an additional "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "spirit"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage and gain the divine trait if they didn't have it already. If the spell dealt a different type of damage, their Strikes deal this type of damage instead (or one type of the signifer's choice if the spell dealt multiple types of damage)."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Signifer's Focus",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If a reaction would disrupt the Hellknight signifer's spellcasting, they can attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "flat",
+                  "dc": 15
+                },
+                {
+                  "type": "text",
+                  "text": ". On a success, the action isn't disrupted."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Signifer's Mask",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A Hellknight signifer wears a personalized mask that's devoid of eyeholes. The mask doesn't obscure their vision, though others can't see their eyes. While wearing a signifer's mask, the signifer gains a +1 circumstance bonus to Deception checks to Lie and Deception DCs against Sense Motive. A signifer's mask has no benefit for creatures other than the signifer whom it was made for."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Steadfast Formation",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Hellknight Signifer is adjacent to another Hellknight"
+                }
+              ]
+            }
+          ],
+          "traits": ["manipulate"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The Hellknight Signifer is adjacent to another Hellknight"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The Hellknight Signifer assumes a defensive stance, giving themself and an adjacent Hellknight a +2 circumstance bonus to AC for 1 round. This bonus is lost if the Hellknights are no longer adjacent to each other."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Prepared Spells",
+          "tradition": "divine",
+          "preparation": "prepared",
+          "dc": 25,
+          "attack": 17,
+          "spells": [
+            {
+              "spell": "c9f296d5-7325-5ec8-be5d-eb9502269e2f",
+              "rank": 4
+            },
+            {
+              "spell": "749d15ad-5bf7-53bd-a646-cbbec6452867",
+              "rank": 3
+            },
+            {
+              "spell": "1ce2f883-74e2-5f2d-99fa-78356f6720d6",
+              "rank": 2
+            },
+            {
+              "spell": "3597aeb0-883c-562a-82ca-37e92210633d",
+              "rank": 2
+            },
+            {
+              "spell": "e0681ca0-8a1d-5d21-a033-813e782d04b5",
+              "rank": 2
+            },
+            {
+              "spell": "42ecad5f-026b-577a-9b47-b97ae76568c9",
+              "rank": 1
+            },
+            {
+              "spell": "15904512-5f17-5bba-b1a0-1f892989912c",
+              "rank": 1
+            },
+            {
+              "spell": "0964edfe-0384-5444-908b-fe24653c28f5",
+              "rank": 1
+            },
+            {
+              "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+              "rank": 1
+            },
+            {
+              "spell": "a593a292-4fca-5280-9857-56a2178b1618",
+              "rank": 1
+            },
+            {
+              "spell": "cfa16eeb-cd33-54aa-904d-2c72742cd3ac",
+              "rank": 1
+            },
+            {
+              "spell": "a8b9cc60-f471-559b-a07c-6ad022c23b56",
+              "rank": 1
+            },
+            {
+              "spell": "c319a7b8-ee8e-5f50-97c7-16151916ad80",
+              "rank": 1
+            },
+            {
+              "spell": "6dee4f5d-f584-5402-af2a-d3738ec685b3",
+              "rank": 1
+            },
+            {
+              "spell": "b9046731-3460-5540-a530-52134df5346a",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "7b6af176-5515-58b8-8072-9f8f3f5e918f"
+        },
+        {
+          "item": "3200dc7f-03bd-50bf-96e2-1893f46612d1"
+        },
+        {
+          "item": "da993afa-b9c1-5da4-8379-fbac67e5ab20"
+        },
+        {
+          "item": "b937cd13-b787-5e21-b0d2-990106de9f0f"
+        },
+        {
+          "item": "3b234ed6-780d-5b55-ad59-2dee27df4d87"
+        },
+        {
+          "item": "302b6a19-e6e6-59d8-b4e4-c7945bf1d327"
+        },
+        {
+          "item": "a281f8a7-40ba-5555-9267-ec1d8b012961",
+          "quantity": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "62cb9fc4-dec2-5bc4-aaef-f62d6506b3ab",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:kophos",
+    "name": "Kophos",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["fiend", "unholy", "velstrac"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kophoses are pain purists who believe that screams and tears detract from the experience of suffering. These velstracs gouge out their eyes and cut out their tongues to make such outbursts impossible, covering the empty cavities with patches of their own skin or spiked lumps of metal, though they are still disturbingly able to see and speak. Beyond these self-inflicted injuries, they resemble typical humans, though their bodies are covered in countless gashes and scars that slowly, gruesomely heal themselves. They wrap themselves in dozens of barbed chains."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kophoses consider it their purpose to find mortals who either inflict physical suffering on others or who are plagued with constant pain due to medical conditions and teach them how to be silent and stoic in their agony."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.AwjII9OV7U9Lx5oz"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 32,
+      "attributes": {
+        "str": 5,
+        "dex": 9,
+        "con": 6,
+        "int": 5,
+        "wis": 7,
+        "cha": 6
+      },
+      "armorClass": 40,
+      "saves": {
+        "fortitude": 31,
+        "reflex": 32,
+        "will": 29
+      },
+      "hitPoints": 280,
+      "immunities": ["cold", "fear-effects"],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 30,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 33
+        },
+        {
+          "skill": "athletics",
+          "modifier": 26
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 30
+        },
+        {
+          "skill": "medicine",
+          "modifier": 33
+        },
+        {
+          "skill": "religion",
+          "modifier": 33
+        },
+        {
+          "skill": "stealth",
+          "modifier": 33
+        },
+        {
+          "skill": "torture-lore",
+          "modifier": 30
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["common", "diabolic", "shadowtongue"],
+      "strikes": [
+        {
+          "name": "Chain Scourge",
+          "range": "melee",
+          "bonus": 32,
+          "damage": [
+            {
+              "dice": 3,
+              "die": "d4",
+              "damageType": "slashing",
+              "bonus": 15
+            }
+          ],
+          "traits": ["agile", "disarm", "finesse", "magical", "sweep", "unholy"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Bloody Epiphany"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Painsight",
+          "traits": ["divine"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A velstrac automatically knows whether a creature it sees has any of the doomed, dying, and wounded conditions, as well as the value of those conditions."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "+1 Status to All Saves vs. Magic",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "status",
+              "value": 1,
+              "predicate": ["item:magical"]
+            }
+          ]
+        },
+        {
+          "name": "Regeneration 25 (Deactivated by Holy or Silver)",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "This monster regains the listed number of Hit Points each round at the beginning of its turn. Its Dying condition never increases beyond Dying 3 as long as its regeneration is active. However, if it takes damage of a type listed in the regeneration entry, its regeneration deactivates until the end of its next turn. Deactivate the regeneration before applying any damage of a listed type, since that damage might kill the monster by bringing it to Dying 4."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Silent Agony",
+          "traits": ["aura", "divine", "emotion", "fear", "mental", "visual"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "30 feet. When a creature ends its turn in the aura, it feels as if its mouth is sealing shut with excruciating pain. The creature must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 36
+                },
+                {
+                  "type": "text",
+                  "text": " save or become Stupefied 2 for 1 round. On a critical failure, it also can't make any sound with its mouth for as long as it's stupefied. This prevents it from using sonic or auditory actions that require its mouth, casting spells, and using linguistic actions. Velstracs are immune to this effect."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Bloody Epiphany",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature hit by a kophos's chain scourge Strike must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 38
+                },
+                {
+                  "type": "text",
+                  "text": " save or take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "bleed",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage. For as long as it is taking this persistent damage, a creature is engrossed by the pain from its own wounds and is Slowed 1. A creature stupefied by the kophos's silent agony can't willingly attempt to stop this bleeding, on itself or others. A creature that critically succeeds at its Fortitude save is temporarily immune to bloody epiphany for 24 hours."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Feed on Pain",
+          "cost": "two",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Three or more creatures within the kophos's silent agony aura are stupefied, slowed, or frightened"
+                }
+              ]
+            }
+          ],
+          "traits": ["concentrate", "divine", "mental"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Three or more creatures within the kophos's silent agony aura are stupefied, slowed, or frightened"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Each of the required creatures takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "5d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 38,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save), and the kophos regains a number of Hit Points equal to the highest amount of mental damage taken."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Focus Gaze",
+          "cost": "one",
+          "traits": ["concentrate", "divine", "emotion", "fear", "mental", "visual"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The kophos stares at a creature it can see within 30 feet. The target must immediately attempt a Will save against silent agony. If the creature fails its save and was already stupefied, it instead begins craving pain at the hands of the kophos, taking a –2 circumstance penalty to AC against the kophos's attacks for as long as it remains stupefied. After attempting this save, the creature is then temporarily immune to Focus Gaze (but not the normal silent agony aura) until the start of the kophos's next turn."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Silent Magic",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When the kophos Casts a Spell, it gains the subtle trait."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "ItemAlteration",
+              "items": ["item:type:spell"],
+              "property": "traits",
+              "mode": "add",
+              "value": "subtle"
+            }
+          ]
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Innate Spells",
+          "tradition": "divine",
+          "preparation": "innate",
+          "dc": 38,
+          "attack": 0,
+          "spells": [
+            {
+              "spell": "3e61b605-c274-5409-a4e1-9cb72132821d",
+              "rank": 7
+            },
+            {
+              "spell": "ec6df711-1ab8-5f9d-8e01-6827c947eeff",
+              "rank": 9,
+              "constant": true
+            },
+            {
+              "spell": "a8b9cc60-f471-559b-a07c-6ad022c23b56",
+              "rank": 3
+            },
+            {
+              "spell": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6",
+              "rank": 9
+            },
+            {
+              "spell": "831dfab1-0c8e-592f-9a9d-5d8b27b69014",
+              "rank": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6e2f726b-cc14-5a0b-a181-abe40f8c3549",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:living-effigy",
+    "name": "Living Effigy",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["construct", "mindless"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This massive collection of bone-white branches and blood-matted fur stalks the grove it protects with relentless dedication, hunting down trespassers and delivering retribution at its creator's command with brutal efficiency. These fetid guardians are created in a bloody ritual using the twigs of a dying plant and the fur of a rabid animal and are given life with the sacrifice of an intelligent creature. They're usually seen at the side of corrupted druids, keeping their sanctums safe from trespassers. Other druids or rangers might stomach the gruesome ritual if they find themselves desperate enough to need protection at any cost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These twisted constructs are almost undetectable in the wild despite their prodigious size, gliding invisibly between the trees. The unnatural growth that surrounds an effigy at all times gives its presence away—but by the time the vines wrap around an intruder's legs, it's far too late to escape the creature's wrath. Without warning, the effigy then emerges from the soil in an explosion of rocks and wood splinters, carving a bloody path through its enemies. Effigies often leave a single obvious escape route when they attack, forcing their prey to delve deeper into the woods where more of their kind lie in wait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.CAh3tIdAo90ZmM3H"
+    },
+    "data": {
+      "role": "monster",
+      "size": "huge",
+      "perception": 15,
+      "attributes": {
+        "str": 7,
+        "dex": 3,
+        "con": 6,
+        "int": -5,
+        "wis": 0,
+        "cha": -5
+      },
+      "armorClass": 30,
+      "saves": {
+        "fortitude": 24,
+        "reflex": 21,
+        "will": 18
+      },
+      "hitPoints": 195,
+      "immunities": [],
+      "weaknesses": [
+        {
+          "type": "fire",
+          "value": 10
+        }
+      ],
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 10
+        },
+        {
+          "type": "electricity",
+          "value": 10
+        },
+        {
+          "type": "physical",
+          "value": 10,
+          "exceptions": ["adamantine"]
+        }
+      ],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 21
+        },
+        {
+          "skill": "stealth",
+          "modifier": 24
+        }
+      ],
+      "speeds": [
+        {
+          "movement": "burrow",
+          "speed": 20
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Gnarled Branch",
+          "range": "melee",
+          "bonus": 24,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "bludgeoning",
+              "bonus": 13
+            }
+          ],
+          "traits": ["magical", "reach-20"],
+          "reach": 20,
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Grab"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Grove Guardian",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The living effigy can't leave the confines of the grove in which it was created."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Ensnaring Vines",
+          "traits": ["aura", "primal"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "30 feet. Twisted vines lash around the effigy, hampering its opponents. Spaces within the aura are difficult terrain. A creature that ends its turn in the area must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 30
+                },
+                {
+                  "type": "text",
+                  "text": " save or treat squares in the area as greater difficult terrain instead until the end of its next turn. The effigy can activate or deactivate this aura using a single action, which has the concentrate trait."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:ensnaring-vines",
+              "toggleable": true
+            }
+          ]
+        },
+        {
+          "name": "Constricting Roots",
+          "cost": "one",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The effigy deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "3d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 30,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save) to up to five creatures Grabbed or Restrained by it, in a space of its wall of thorns, or prevented from flying by its earthbind."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Earth Glide",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The effigy can Burrow through any earthen matter, including rock. When it does so, it moves at its full burrow Speed, leaving no tunnels or signs of its passing."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Forest Passage",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The effigy ignores difficult terrain caused by plants and fungi, such as bushes, vines, and undergrowth."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Hidden Avalanche",
+          "cost": "three",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The effigy plunges through the ground, forcefully expelling rocks and other debris along its path. The effigy Burrows twice. Any creature that's adjacent to it during this movement takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d10",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage ("
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 30,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save). On a critical failure, the creature is also knocked Prone. A creature can only take this damage once per turn."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Grab",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature Grabbed or Restrained"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature Grabbed or Restrained"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " If used after a Strike, the monster attempts to Grapple the creature using the body part it attacked with. This attempt neither applies nor counts toward the creature's multiple attack penalty."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster can instead use Grab and choose one creature it's grabbing or restraining with an appendage that has Grab to automatically extend that condition to the end of the monster's next turn."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Primal Innate Spells",
+          "tradition": "primal",
+          "preparation": "innate",
+          "dc": 30,
+          "attack": 0,
+          "spells": [
+            {
+              "spell": "3cddd734-8a89-5de8-9c13-65748a0c7c32",
+              "rank": 3
+            },
+            {
+              "spell": "9dfded9c-826b-57e9-989b-6b4ea568d4b8",
+              "rank": 5,
+              "uses": 2
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "de5550c9-4f02-50fc-9b6c-4dda866c2c67",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:munagola",
+    "name": "Munagola",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["devil", "fiend", "unholy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Munagolas are some of the most feared fiendish warriors in Hell, for they combine the aerial strength and craftiness of erinyes with sheer brute force rivaling that of the strongest devils. The first munagola was forged by Eiseth, Hell's Valkyrie, from the flesh of other devils. The process took centuries but resulted in a loyal soldier to rival her own rage and might. Since she established her realm in Dis, Eiseth has created armies of executioner devils to serve her will."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Munagolas are vicious combatants, empowered by their fury and growing stronger with each successful blow, but their true strength lies in their commanding presence on the battlefield. They often lead troops of other flying devils from the front, driving them to faster and deadlier assaults that leave the enemies of their queen with no chance to respond."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Munagolas and erinyes who serve Eiseth work well together, though a few munagolas hold contempt for the members of the Golden Company, believing their ostentatious armor to belittle the glory of battle. However, even such devils can't argue with the Golden Company's results."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.mbu0D45HPRNAwgEU"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 24,
+      "attributes": {
+        "str": 7,
+        "dex": 6,
+        "con": 6,
+        "int": 3,
+        "wis": 5,
+        "cha": 6
+      },
+      "armorClass": 30,
+      "saves": {
+        "fortitude": 23,
+        "reflex": 21,
+        "will": 19
+      },
+      "hitPoints": 195,
+      "immunities": ["fire"],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "physical",
+          "value": 10,
+          "exceptions": ["silver"]
+        }
+      ],
+      "speed": 30,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 23
+        },
+        {
+          "skill": "athletics",
+          "modifier": 22
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 21
+        },
+        {
+          "skill": "religion",
+          "modifier": 18
+        },
+        {
+          "skill": "stealth",
+          "modifier": 21
+        }
+      ],
+      "senses": [
+        {
+          "sense": "greater-darkvision"
+        }
+      ],
+      "languages": ["common", "diabolic", "draconic", "empyrean"],
+      "speeds": [
+        {
+          "movement": "fly",
+          "speed": 40
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Flaming Greataxe",
+          "range": "melee",
+          "bonus": 24,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d12",
+              "damageType": "slashing",
+              "bonus": 11
+            },
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "spirit"
+            }
+          ],
+          "traits": ["fire", "magical", "sweep", "unholy"]
+        },
+        {
+          "name": "Horn",
+          "range": "melee",
+          "bonus": 23,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 11
+            },
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "spirit"
+            }
+          ],
+          "traits": ["agile", "magical", "unarmed", "unholy"]
+        },
+        {
+          "name": "Flaming Composite Longbow",
+          "range": "melee",
+          "bonus": 23,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 7
+            },
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "spirit"
+            }
+          ],
+          "traits": ["deadly-d10", "fire", "magical", "reload-0", "unholy", "volley-30"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Greater Darkvision",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature with greater darkvision can see perfectly well in areas of darkness and dim light, though such vision is in black and white only. A creature with greater darkvision can see through even forms of magical darkness."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Telepathy 100 feet",
+          "traits": ["aura", "magical"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A monster with telepathy can communicate mentally with any creatures within the listed radius, as long as they share a language. This doesn't give any special access to their thoughts, and communicates no more information than normal speech would."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "+1 Status to All Saves vs. Magic",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "status",
+              "value": 1,
+              "predicate": ["item:magical"]
+            }
+          ]
+        },
+        {
+          "name": "No Escape",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A foe within reach moves away from the munagola."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A foe within reach moves away from the munagola."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effects",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The munagola Strides or Flies up to their Speed, following the retreating foe and keeping it in reach until the foe stops moving or the munagola has moved their full Speed."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Felling Assault",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When a munagola hits with a melee Strike, they gain Improved Knockdown on all subsequent melee Strikes against that target until the end of the munagola's turn."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect: Felling Assault"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Flames of Fury",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Any weapon a munagola holds gains the effects of a "
+                },
+                {
+                  "type": "text",
+                  "text": "Flaming",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " rune while they hold it."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "AdjustStrike",
+              "strikes": [
+                {
+                  "not": "item:category:unarmed"
+                }
+              ],
+              "property": "property-runes",
+              "mode": "add",
+              "value": "flaming"
+            }
+          ]
+        },
+        {
+          "name": "Flight Commander of Dis",
+          "cost": "one",
+          "traits": ["auditory", "linguistic"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The munagola directs aerial maneuvers, granting themself and unholy allies with fly Speeds within 30 feet a +20-foot status bonus to their fly Speeds for 1 round."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "e226a227-e2a6-576a-9efd-ddf2665f1b84"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Sudden Dive",
+          "cost": "two",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The munagola Flies twice. If they end their flight at a lower elevation than they started and within melee reach of at least one enemy, they can make a melee Strike against that enemy, gaining a +1 circumstance bonus to the Strike."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "domain": "attack-roll",
+              "option": "option:sudden-dive",
+              "toggleable": true,
+              "priority": 50
+            },
+            {
+              "key": "FlatModifier",
+              "selectors": ["melee-attack-roll"],
+              "type": "circumstance",
+              "value": 1,
+              "predicate": ["option:sudden-dive"]
+            }
+          ]
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Innate Spells",
+          "tradition": "divine",
+          "preparation": "innate",
+          "dc": 27,
+          "attack": 19,
+          "spells": [
+            {
+              "spell": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd",
+              "rank": 5
+            },
+            {
+              "spell": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd",
+              "rank": 4
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "7b6af176-5515-58b8-8072-9f8f3f5e918f"
+        },
+        {
+          "item": "56860e3f-5bd7-5ada-b769-323e0b01dbab"
+        },
+        {
+          "item": "38f083f6-86b7-5043-bd38-4257665ce391"
+        }
+      ]
+    }
+  },
+  {
+    "id": "8617f876-b476-581a-b382-5686522814f8",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:shadowbound-mare",
+    "name": "Shadowbound Mare",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["animal", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prized by those who hunt elusive and incorporeal prey, these mares have a reputation for steadfastness."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.SIQiiVPX1M0RWiGn"
+    },
+    "data": {
+      "role": "monster",
+      "size": "large",
+      "perception": 11,
+      "attributes": {
+        "str": 5,
+        "dex": 3,
+        "con": 3,
+        "int": -4,
+        "wis": 2,
+        "cha": -1
+      },
+      "armorClass": 20,
+      "saves": {
+        "fortitude": 12,
+        "reflex": 11,
+        "will": 8
+      },
+      "hitPoints": 60,
+      "immunities": ["bleed", "paralyzed"],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "physical",
+          "value": 5,
+          "exceptions": ["ghost-touch"]
+        }
+      ],
+      "speed": 40,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 10
+        },
+        {
+          "skill": "athletics",
+          "modifier": 12
+        },
+        {
+          "skill": "stealth",
+          "modifier": 10
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Hoof",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "bludgeoning",
+              "bonus": 5
+            }
+          ],
+          "traits": []
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Buck",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature Mounts or uses the Command an Animal action while riding the monster."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "check",
+                  "statistic": "save:reflex"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Most monsters that serve as mounts can attempt to buck off unwanted or annoying riders, but most mounts will not use this reaction against a trusted creature unless the mounts are spooked or mistreated."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature Mounts or uses the Command an Animal action while riding the monster."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The triggering creature must succeed at a Reflex saving throw against the listed DC or fall off the creature and land Prone. If the save is a critical failure, the triggering creature also takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage in addition to the normal damage for the fall."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Gallop",
+          "cost": "two",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The shadowbound mare Strides twice. It has a +10-foot circumstance bonus to its Speed during these Strides."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:gallop",
+              "toggleable": true
+            },
+            {
+              "key": "FlatModifier",
+              "selectors": ["land-speed"],
+              "type": "circumstance",
+              "value": 10,
+              "predicate": ["option:gallop"]
+            }
+          ]
+        },
+        {
+          "name": "Light Vulnerability",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Attacks against the shadowbound creature are treated as magical if made by a creature that's in magical light or with an object that's in magical light (such as from the light spell)."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Shadow Form",
+          "cost": "three",
+          "traits": ["concentrate", "polymorph", "shadow"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A shadowbound creature can assume a shadowy form. In this state, the creature gains the incorporeal trait. It has resistance 10 to all damage (except force, ghost touch, spirit, or vitality; double resistance vs. non-magical), is immune to precision damage, and can't use any actions with the attack or manipulate trait. It has a fly Speed of 15 feet and can slip through tiny cracks. The shadowbound creature can Dismiss this effect to become solid again, but if it does so in an area of bright light, it's Stunned 1 for 1 round."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:shadow-form",
+              "toggleable": true
+            },
+            {
+              "key": "FlatModifier",
+              "selectors": ["fly-speed"],
+              "type": "untyped",
+              "value": 15,
+              "predicate": ["option:shadow-form"]
+            },
+            {
+              "key": "ActorTraits",
+              "add": ["incorporeal"],
+              "predicate": ["option:shadow-form"]
+            },
+            {
+              "key": "Immunity",
+              "type": ["precision"],
+              "predicate": ["option:shadow-form"]
+            }
+          ]
+        },
+        {
+          "name": "Shadow Touch",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The creature's Strikes affect incorporeal creatures with the effects of a ghost touch property rune."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "AdjustStrike",
+              "property": "property-runes",
+              "mode": "add",
+              "value": "ghost-touch"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "fa726ebe-3d4e-5419-86be-476b4a331433",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:strix-hunter",
+    "name": "Strix Hunter",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["humanoid", "strix"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Where there is one strix hunter, more likely lie in wait. Strix hunters rely on practiced coordination with their kin, spending many hours training until their maneuvers seamlessly link together. This allows hunters to unleash a barrage of attacks while staying on the move and rapidly trading positions in battle. While strix hunters might train in groups of a dozen or more, a hunting party on the prowl is typically made up of no more than six individuals. These hunters interchange roles and have no set leader, with each member calling the shots in a loose rotation. This communal decision-making style shines when facing intelligent foes, baffling opponents who might normally rely on targeting a leader to break formation and morale."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether they fight together or alone, strix hunters rely on their ability to swoop in and out of melee while quickly changing weapons to disorient their enemies and keep them from finding any one tactic to fight back. The coordinated flurry of arrows, blades, and talons a strix hunting party can deliver is usually devastating to their prey. If the victim should live through it, they are left reeling."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Strix hunters rarely take trophies from their kills, as they consider the use of their martial skills to be practical elements of survival—whether they are hunting for food or driving off unwanted intruders."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.pdGunu9U8dHDSjeI"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 17,
+      "attributes": {
+        "str": 4,
+        "dex": 5,
+        "con": 2,
+        "int": 0,
+        "wis": 2,
+        "cha": 0
+      },
+      "armorClass": 24,
+      "saves": {
+        "fortitude": 11,
+        "reflex": 17,
+        "will": 13
+      },
+      "hitPoints": 80,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 15
+        },
+        {
+          "skill": "athletics",
+          "modifier": 13
+        },
+        {
+          "skill": "diplomacy",
+          "modifier": 10
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 13
+        },
+        {
+          "skill": "nature",
+          "modifier": 13
+        },
+        {
+          "skill": "performance",
+          "modifier": 10
+        },
+        {
+          "skill": "survival",
+          "modifier": 15
+        }
+      ],
+      "senses": [
+        {
+          "sense": "low-light-vision"
+        }
+      ],
+      "languages": ["common", "diabolic"],
+      "speeds": [
+        {
+          "movement": "fly",
+          "speed": 25
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Shortbow",
+          "range": "melee",
+          "bonus": 17,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 4
+            }
+          ],
+          "traits": ["deadly-d10", "reload-0"]
+        },
+        {
+          "name": "Shortsword",
+          "range": "melee",
+          "bonus": 16,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 8
+            }
+          ],
+          "traits": ["agile", "finesse", "versatile-s"]
+        },
+        {
+          "name": "Talon",
+          "range": "melee",
+          "bonus": 16,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "slashing",
+              "bonus": 8
+            }
+          ],
+          "traits": ["agile", "finesse"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Darting Swap",
+          "cost": "one",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The strix hunter Strides or Flies once, then Interacts to swap weapons."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Intimidating Dive",
+          "cost": "three",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The strix hunter Flies downward up to twice their Speed and then makes a Strike. If the Strike hits and the hunter moved at least 20 feet downward, the hunter attempts to Demoralize the target."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Singing Shot",
+          "cost": "two",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The hunter is holding a ranged weapon and their prey is within their first range increment"
+                }
+              ]
+            }
+          ],
+          "traits": ["auditory"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The hunter is holding a ranged weapon and their prey is within their first range increment"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The strix hunter sings out, calling for a tandem attack. The strix hunter makes a ranged Strike against their prey, and a single ally within 30 feet can use their reaction to make a Strike against the same target. If both attacks hit, the target is Off-Guard until the start of the hunter's next turn."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Stalk Prey",
+          "cost": "one",
+          "traits": ["concentrate"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The strix hunter designates a single creature they can see and hear, or one they're Tracking, as their prey. The hunter gains a +2 circumstance bonus to Perception checks to Seek the prey and to Survival checks to Track the prey. The first time the hunter hits their prey in a round, they deal an additional 1d8 precision damage. These effects last until the hunter uses Stalk Prey again."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "DamageDice",
+              "selectors": ["strike-damage"],
+              "diceNumber": 1,
+              "dieSize": "d8",
+              "category": "precision",
+              "predicate": ["option:stalk-prey"]
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "22033d3f-8f51-58ca-9fc4-4eccb68055dd"
+        },
+        {
+          "item": "5cff4768-7afd-5f34-af65-fafa5d6f08dd"
+        },
+        {
+          "item": "3966e322-a2d1-57e9-a938-eb314e1948b8"
+        },
+        {
+          "item": "a281f8a7-40ba-5555-9267-ec1d8b012961",
+          "quantity": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "f723f17b-01c0-514d-baa3-1859066e8b50",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:umbral-shepherd",
+    "name": "Umbral Shepherd",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["incorporeal", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Umbral shepherds are often brought to Golarion by shadowcallers, where they serve as spies, puppeteers, and manipulators for the glory of Zon-Kuthon. Unwavering in their obedience to their lord, these entities ruthlessly possess mortal hosts to carry out their master's will."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bond created by a shepherd's parasitic possession is antithetical to life. As the shepherd sustains themself with a mortal form, they drag the host's body toward its doom. This degeneration also risks the shepherd's existence, which depends on the host's continued life, so they must find a new host before the last fully succumbs. Those tracking an umbral shepherd often do so by following the trail of desperate and broken hosts this process leaves behind. The trail is rarely random. The shepherd is drawn toward the goal set by their divine master; it is often possible to identify a shepherd's next target if their ultimate goal is understood."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Despite this determination, a cornered shepherd is not above choosing targets of opportunity. If one of these parasites identifies its pursuers, its favorite tactic is to isolate the most vulnerable of the group and possess them, providing false leads or alerting allies to delay and even kill the rest of the hunting party."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In the Netherworld, umbral shepherds naturally resemble humanoid figures with an ashen torso and a twisted demonic face. No two shepherds are truly alike except for their lack of visible limbs; some bear marks of torture and open wounds, while others possess features that are more diabolic than demonic. They can also manipulate their own essence to manifest shadowy tendrils, burrowing bloodlessly through flesh with gruesome ease as their vile rot infects surrounding tissue."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.3is3lYgxI3ZrC0ck"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 15,
+      "attributes": {
+        "str": -5,
+        "dex": 4,
+        "con": 1,
+        "int": 5,
+        "wis": 2,
+        "cha": 4
+      },
+      "armorClass": 19,
+      "saves": {
+        "fortitude": 9,
+        "reflex": 15,
+        "will": 12
+      },
+      "hitPoints": 60,
+      "immunities": ["bleed", "disease", "paralyzed", "poison", "precision"],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "all",
+          "value": 5,
+          "exceptions": ["force", "ghost-touch", "spirit"]
+        }
+      ],
+      "speed": 0,
+      "skills": [
+        {
+          "skill": "deception",
+          "modifier": 13
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 12
+        },
+        {
+          "skill": "stealth",
+          "modifier": 12
+        },
+        {
+          "skill": "netherworld-lore",
+          "modifier": 12
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["common", "diabolic", "shadowtongue"],
+      "speeds": [
+        {
+          "movement": "fly",
+          "speed": 40
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Shadow Touch",
+          "range": "melee",
+          "bonus": 13,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "spirit",
+              "bonus": 3
+            }
+          ],
+          "traits": ["agile", "magical", "spirit", "unholy"],
+          "effects": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Shadowy Sublimation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Burrowing Tentacle",
+          "range": "melee",
+          "bonus": 13,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 3
+            }
+          ],
+          "traits": ["fatal-d12", "magical", "reach-15"],
+          "reach": 15
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Hostbound",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "An umbral shepherd in the Universe without a host takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "spirit"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage at the end of each of its turns."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Parasitic Possession",
+          "cost": "two",
+          "traits": ["incapacitation", "mental", "occult", "possession"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The umbral shepherd attempts to possess an adjacent corporeal creature. This has the same effect as the possession spell (DC 22) with an unlimited duration, except they aren't Unconscious and aren't Paralyzed when the effect ends, though they are killed if host dies. A creature possessed by an umbral shepherd applies shadowy sublimation to all its Strikes and is Doomed 1. This doomed condition doesn't reduce naturally unless the umbral shepherd spends an entire day without possessing the creature. For each consecutive month the shepherd possesses the creature, the doomed value increases by 1, to a maximum of 4."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Shadowy Sublimation",
+          "traits": ["curse", "disease", "occult"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Throw",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 22
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 1",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Enfeebled 1 (1 hour)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 2",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " enfeebled 1 and Drained 1 (1 day)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stage 3",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " enfeebled 1, drained 1 and Blinded (1 day)"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "eb78a2b3-95d8-5b0e-ad3c-acb0cbb7e58c",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "creature",
+    "slug": "creature:yzobu",
+    "name": "Yzobu",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["animal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Yzobus are herd beasts common across northern plains and mountains, resembling a cross between a steer, a sturdy horse, and a yak. They most notably feature a pungent stench caused by bodily secretions building up within their thick, shaggy pelts-a stench so strong that yzobu herds can often be smelled before they appear. Territorial and aggressive, yzobus often attack other creatures on sight. When threatened, a herd launches into a stampede, trampling any in their path and goring survivors with their distinctive horns."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some ranchers trade yzobu hides as a workable leather for mercenaries and guards, but the powerful smell means that most ranchers tend their small herds on the outskirts of towns. Typically, yzobus aren't raised to a specific age, but rather are killed whenever one escapes and poses a threat. The hides require an intensive tanning process with almost constant brushing and hours soaking in salt water-but the effort results in a leather both soft to the touch and sturdy enough to work as an effective armor for several years."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hides aren't the only yzobu products worth harvesting. A female yzobu's milk is rich and nutrient-rich, making it a staple food source in some regions. Their meat is less enticing but still edible."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These beasts remain a permanent part of hobgoblin society, where their aggressive temperaments and durable, sturdy bodies are great assets. Hobgoblins possess an immunity to yzobu stench, and they view the fact that other races sickened by it as further evidence of their own superiority. They also highly prize yzobu mounts, and hobgoblin commanders often paint their yzobu's horns in varying colors and patterns to show how many enemies the mount has killed. Yzobu cavalry are a staple of hobgoblin military action, and they played a key role in the recent Ironfang Invasion that led to the formation of the new hobgoblin nation of Oprak in Avistan. The establishment of Oprak meant that many Avistani who had never encountered yzobus before have grown familiar-if not enchanted-with their distinctive odor."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.H7PDLOIbDG9zt4H1"
+    },
+    "data": {
+      "role": "monster",
+      "size": "large",
+      "perception": 6,
+      "attributes": {
+        "str": 4,
+        "dex": 3,
+        "con": 4,
+        "int": -5,
+        "wis": 1,
+        "cha": 2
+      },
+      "armorClass": 15,
+      "saves": {
+        "fortitude": 9,
+        "reflex": 6,
+        "will": 4
+      },
+      "hitPoints": 25,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 30,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 7
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 5
+        },
+        {
+          "skill": "survival",
+          "modifier": 4
+        }
+      ],
+      "senses": [
+        {
+          "sense": "low-light-vision"
+        },
+        {
+          "sense": "scent",
+          "acuity": "imprecise",
+          "range": 30
+        }
+      ],
+      "strikes": [
+        {
+          "name": "Horn",
+          "range": "melee",
+          "bonus": 7,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 4
+            }
+          ],
+          "traits": ["unarmed"]
+        },
+        {
+          "name": "Hoof",
+          "range": "melee",
+          "bonus": 7,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "bludgeoning",
+              "bonus": 4
+            }
+          ],
+          "traits": ["agile"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Bucking Blow",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature ends its turn flanking the yzobu"
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature ends its turn flanking the yzobu"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The yzobu makes a hoof Strike against the triggering creature."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Pungent Aura",
+          "traits": ["aura", "olfactory"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "10 feet. Creatures other than yzobus or hobgoblins that enter or start their turn in the yzobu's aura must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 17
+                },
+                {
+                  "type": "text",
+                  "text": " save or become Sickened 1 (Sickened 2 on a critical failure). A creature that succeeds at its save or recovers from being sickened is temporarily immune to all yzobus' auras for 1 minute."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "Aura",
+              "slug": "pungent-aura",
+              "radius": 10,
+              "traits": ["olfactory"]
+            }
+          ]
+        },
+        {
+          "name": "Trample",
+          "cost": "three",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Medium or smaller, hoof, "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 14,
+                  "basic": true
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster Strides up to double its Speed and can move through the spaces of creatures of the listed size, Trampling each creature whose space it enters. The monster can attempt to Trample the same creature only once in a single use of Trample. The monster deals the damage of the listed Strike, but trampled creatures can attempt a basic Reflex save at the listed DC (no damage on a critical success, half damage on a success, double damage on a critical failure)."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ]
+    }
+  }
+]

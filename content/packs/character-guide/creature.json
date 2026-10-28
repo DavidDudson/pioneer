@@ -1,0 +1,3682 @@
+[
+  {
+    "id": "5ef69972-a2a3-5e68-a735-b3e9b0f8fb10",
+    "pack": "character-guide",
+    "kind": "creature",
+    "slug": "creature:changeling-hellknight",
+    "name": "Changeling Hellknight",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["changeling", "human", "humanoid", "lawful"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.95IcOUvxABvj5lvo"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 13,
+      "attributes": {
+        "str": 4,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 4,
+        "cha": 4
+      },
+      "armorClass": 22,
+      "saves": {
+        "fortitude": 9,
+        "reflex": 10,
+        "will": 13
+      },
+      "hitPoints": 45,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "mental",
+          "value": 2
+        },
+        {
+          "type": "slashing",
+          "value": 2
+        }
+      ],
+      "speed": 20,
+      "skills": [
+        {
+          "skill": "deception",
+          "modifier": 13
+        },
+        {
+          "skill": "medicine",
+          "modifier": 11
+        },
+        {
+          "skill": "nature",
+          "modifier": 13
+        },
+        {
+          "skill": "stealth",
+          "modifier": 10
+        },
+        {
+          "skill": "survival",
+          "modifier": 11
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["common"],
+      "strikes": [
+        {
+          "name": "Claw",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "slashing",
+              "bonus": 4
+            }
+          ],
+          "traits": ["agile", "unarmed"]
+        },
+        {
+          "name": "Halberd",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d10",
+              "damageType": "piercing",
+              "bonus": 6
+            }
+          ],
+          "traits": ["reach-10", "versatile-s"],
+          "reach": 10
+        }
+      ],
+      "abilities": [
+        {
+          "name": "+2 Circumstance to All Saves vs. Dream and Sleep",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "circumstance",
+              "value": 2,
+              "predicate": [
+                {
+                  "or": ["option:dream", "option:sleep"]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Primal Spontaneous Spells",
+          "tradition": "primal",
+          "preparation": "spontaneous",
+          "dc": 22,
+          "attack": 12,
+          "spells": [
+            {
+              "spell": "d54ee3a3-6742-53c8-9070-17edcb0cae19",
+              "rank": 2
+            },
+            {
+              "spell": "02c769dd-dba8-5437-8189-28b9800afaac",
+              "rank": 1
+            },
+            {
+              "spell": "600c3684-32bc-5dbc-8b49-99924728c1cd",
+              "rank": 1
+            }
+          ]
+        },
+        {
+          "name": "Primal Focus Spells",
+          "tradition": "primal",
+          "preparation": "focus",
+          "dc": 22,
+          "attack": 12,
+          "spells": [
+            {
+              "spell": "87889c0f-1a02-511d-91d3-390744da4fb7",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "77421382-2e1e-5a1e-893b-6a98de69c3fe"
+        },
+        {
+          "item": "08ac81e2-dbc4-597c-805d-9466ef2fcb28"
+        }
+      ]
+    }
+  },
+  {
+    "id": "86a9a501-9b42-5357-8bf0-3d92fd98e0d1",
+    "pack": "character-guide",
+    "kind": "creature",
+    "slug": "creature:charming-scoundrel",
+    "name": "Charming Scoundrel",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["chaotic", "gnome", "good", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This handsome gnome sports an impressive coiffure and a flashy costume that catches the eye.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While most Firebrands enjoy the attention their exploits bring, the charming scoundrel takes this to extremes, often boasting about their daring exploits and attempting to parlay stories of their notorious deeds into free drinks or lodging. The scoundrel sees little harm in taking credit for any activities attributed to the organization, provided that intervention from local law enforcement seems unlikely. They are likely to take on high-profile jobs for the Firebrands just for the thrill of later recounting the narrow scrapes of their adventure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The charming scoundrel is as dramatic in combat as outside of it, often darting from opponent to opponent and disorienting foes with flashy swordplay. If a battle is going well, the scoundrel will often shout taunts at slow-footed opponents or encouragement to allies. While prideful and competitive, the scoundrel is a pragmatist at heart and will opt to add a tale of a cunning escape to their repertoire if the odds seem stacked against them."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wherever oppression or an opportunity for daring adventure can be found, the Firebrands can be found chasing after. PCs might find the Firebrands to be allies in a quest for righteous rebellion or justice against slavery, or they might find these dashing daredevils to be friendly-or not so friendly-rivals for the same treasure. The charming scoundrel presented here could easily be a low level freedom fighter or foil for the PCs, or might serve as crew for the privateer captain. The privateer captain can serve as a transport willing to take the PCs to the most dangerous locations, an intermittent ally that provides a timely rescue when least expected, a competing explorer, or a powerful and deadly enemy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.EMl8hARVJk8SNVyW"
+    },
+    "data": {
+      "role": "monster",
+      "size": "small",
+      "perception": 8,
+      "attributes": {
+        "str": 1,
+        "dex": 4,
+        "con": 2,
+        "int": 1,
+        "wis": 0,
+        "cha": 3
+      },
+      "armorClass": 21,
+      "saves": {
+        "fortitude": 9,
+        "reflex": 13,
+        "will": 9
+      },
+      "hitPoints": 54,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 12
+        },
+        {
+          "skill": "athletics",
+          "modifier": 7
+        },
+        {
+          "skill": "deception",
+          "modifier": 11
+        },
+        {
+          "skill": "diplomacy",
+          "modifier": 9
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 9
+        },
+        {
+          "skill": "medicine",
+          "modifier": 9
+        },
+        {
+          "skill": "performance",
+          "modifier": 9
+        },
+        {
+          "skill": "society",
+          "modifier": 7
+        },
+        {
+          "skill": "stealth",
+          "modifier": 10
+        },
+        {
+          "skill": "thievery",
+          "modifier": 10
+        },
+        {
+          "skill": "theater-lore",
+          "modifier": 7
+        }
+      ],
+      "senses": [
+        {
+          "sense": "low-light-vision"
+        }
+      ],
+      "languages": ["common", "fey", "gnomish"],
+      "strikes": [
+        {
+          "name": "Shortsword",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 6
+            }
+          ],
+          "traits": ["agile", "versatile-s"]
+        },
+        {
+          "name": "Sap",
+          "range": "melee",
+          "bonus": 9,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "bludgeoning",
+              "bonus": 2
+            }
+          ],
+          "traits": ["agile", "nonlethal"]
+        },
+        {
+          "name": "Hand Crossbow",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 2
+            }
+          ],
+          "traits": ["reload-1"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Deny Advantage",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The charming scoundrel isn't Off-Guard to flanking, Hidden, or Undetected creatures of 4th-level or lower, or creatures of 4th-level or lower using surprise attack."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Advancing Flourish",
+          "cost": "two",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The charming scoundrel Strides twice. If they end their movement within melee reach of an enemy, they can Feint."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Sneak Attack",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The charming scoundrel deals an extra 2d6 precision damage to Off-Guard creatures."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "DamageDice",
+              "selectors": ["strike-damage"],
+              "diceNumber": 2,
+              "dieSize": "d6",
+              "category": "precision",
+              "predicate": ["target:condition:off-guard"]
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "51394e89-d32f-5157-a8c8-4a26df55ef20"
+        },
+        {
+          "item": "01d52b79-3964-59ed-ba54-ba1d79bbc689"
+        },
+        {
+          "item": "6e8f688e-e8af-5f14-8d19-78961b746e8c"
+        },
+        {
+          "item": "f7fb0c74-e723-5bf1-8d3b-028a036544d2",
+          "quantity": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "496a5f12-72b7-5d55-99d7-524771f4b622",
+    "pack": "character-guide",
+    "kind": "creature",
+    "slug": "creature:hellknight-armiger",
+    "name": "Hellknight Armiger",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["dwarf", "humanoid", "lawful"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This menacing dwarf wears a suit of armor emblazoned with the symbol of her Hellknight order, and she wields a mighty flail.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Armigers are the foot soldiers of the Hellknights and form the largest group of members for most orders. Whatever their specific reasons for joining the organization, armigers share the Hellknights' dedication to spreading the rule of law across Golarion. This commitment sees them serving in a variety of missions, whether it be rooting out bandits and crooks, imprisoning smugglers and black marketeers, or investigating rumors of sedition. While frontier villagers sometimes welcome the assurance of safety that the Hellknights bring, free thinkers and historians chafe at the restrictions on movement and expression that armigers enforce."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Although armigers are not yet full knights, those who underestimate them have made a grievous error. Once ordered to take a position or eliminate a foe, an armiger is unerring in fulfilling their order. During battle, they wade eagerly into the fray, targeting servants of chaotic gods and those they observe using underhanded tactics."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Firm believers in enforcing the law at any cost, Hellknights are often based in Cheliax, but they travel to all across Golarion to enforce their ideals of order. This rigid viewpoint and intolerance for dissent means that PCs can just as easily find villains in these Hellknights as they can allies; an agent of the Hellknight Order of the Chain might aid the PCs in subduing a vile and violent criminal, or might hunt down the PCs due to mild infractions of unjust laws. The Hellknight armiger presented here might be an unrepentant enforcer seeking to quell rebellion among the oppressed, a dedicated monster hunter, a censor of artistic innovation, a savior to victims of kidnapping, a spy and torturer, or a lawful crusader against demonic incursions. Hellknight paravicars, meanwhile, are absolute exemplars of their orders, and PCs who encounter them will likely find themselves in the midst of momentous events."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.UuPPceVcGk1RwSbB"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 11,
+      "attributes": {
+        "str": 4,
+        "dex": 1,
+        "con": 3,
+        "int": 0,
+        "wis": 3,
+        "cha": 0
+      },
+      "armorClass": 22,
+      "saves": {
+        "fortitude": 12,
+        "reflex": 10,
+        "will": 10
+      },
+      "hitPoints": 75,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "mental",
+          "value": 5
+        }
+      ],
+      "speed": 20,
+      "skills": [
+        {
+          "skill": "athletics",
+          "modifier": 12
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 10
+        },
+        {
+          "skill": "religion",
+          "modifier": 10
+        },
+        {
+          "skill": "society",
+          "modifier": 7
+        },
+        {
+          "skill": "hell-lore",
+          "modifier": 8
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["common", "dwarven"],
+      "strikes": [
+        {
+          "name": "War Flail",
+          "range": "melee",
+          "bonus": 13,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d10",
+              "damageType": "bludgeoning",
+              "bonus": 6
+            }
+          ],
+          "traits": ["disarm", "sweep", "trip"]
+        },
+        {
+          "name": "Composite Longbow",
+          "range": "melee",
+          "bonus": 10,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 4
+            }
+          ],
+          "traits": ["deadly-d10", "propulsive", "reload-0", "volley-30"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "+1 Status to All Saves vs. Fear",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "status",
+              "value": 1,
+              "predicate": ["option:fear"]
+            }
+          ]
+        },
+        {
+          "name": "Attack of Opportunity",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster attempts a melee Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the monster disrupts that action. This Strike doesn't count toward the monster's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Weapon Mastery",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When the Hellknight armiger scores a critical hit with their war flail, their target is knocked Prone."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "items": [
+        {
+          "item": "7b6af176-5515-58b8-8072-9f8f3f5e918f"
+        },
+        {
+          "item": "832976f2-1547-507b-8d64-0359a959b9be"
+        },
+        {
+          "item": "6c6438b9-b581-59d9-8ffa-c23d7a23d501"
+        },
+        {
+          "item": "a281f8a7-40ba-5555-9267-ec1d8b012961",
+          "quantity": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "978b7ee6-aa2c-5c2b-8466-e2de84f258d1",
+    "pack": "character-guide",
+    "kind": "creature",
+    "slug": "creature:hellknight-paravicar",
+    "name": "Hellknight Paravicar",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["human", "humanoid", "lawful"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Face covered by a menacing helm and body clad in ornate plate, this figure projects an aura of immutable authority.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each order of Hellknights is led by a powerful paravicar, a general in charge of dictating the order's tactics and the administration of its resources. Within the order, the word of these figures is law, and members from the lowliest squire to the most senior knight follow commands from a paravicar with unswerving devotion. Paravicars see their personal dedication to the order's edicts as an example for all members and hold themselves to the same high standards as their underlings. Though they seldom need to call upon them, paravicars use their considerable infernal powers to reinforce their positions in the Hellknight's hierarchy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In combat, paravicars take direct command of their troops of knights and armigers. Paravicars are experienced campaigners who prefer calculated tactical gambits to hot-headed, risky maneuvers that could leave their forces exposed. If pressed into combat, paravicars use their abilities to demoralize their foes and compel enemies to become their allies or to flee the field."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Firm believers in enforcing the law at any cost, Hellknights are often based in Cheliax, but they travel to all across Golarion to enforce their ideals of order. This rigid viewpoint and intolerance for dissent means that PCs can just as easily find villains in these Hellknights as they can allies; an agent of the Hellknight Order of the Chain might aid the PCs in subduing a vile and violent criminal, or might hunt down the PCs due to mild infractions of unjust laws. The Hellknight armiger presented here might be an unrepentant enforcer seeking to quell rebellion among the oppressed, a dedicated monster hunter, a censor of artistic innovation, a savior to victims of kidnapping, a spy and torturer, or a lawful crusader against demonic incursions. Hellknight paravicars, meanwhile, are absolute exemplars of their orders, and PCs who encounter them will likely find themselves in the midst of momentous events."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.mJxgYD8TQg1W2oXC"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 20,
+      "attributes": {
+        "str": 4,
+        "dex": 2,
+        "con": 2,
+        "int": 0,
+        "wis": 3,
+        "cha": 5
+      },
+      "armorClass": 30,
+      "saves": {
+        "fortitude": 19,
+        "reflex": 19,
+        "will": 24
+      },
+      "hitPoints": 145,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "arcana",
+          "modifier": 16
+        },
+        {
+          "skill": "deception",
+          "modifier": 21
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 23
+        },
+        {
+          "skill": "religion",
+          "modifier": 21
+        },
+        {
+          "skill": "society",
+          "modifier": 16
+        }
+      ],
+      "languages": ["common", "diabolic"],
+      "strikes": [
+        {
+          "name": "Morningstar",
+          "range": "melee",
+          "bonus": 21,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "bludgeoning",
+              "bonus": 8
+            }
+          ],
+          "traits": ["magical", "versatile-p"]
+        },
+        {
+          "name": "Crossbow",
+          "range": "melee",
+          "bonus": 19,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 4
+            }
+          ],
+          "traits": ["magical", "reload-1"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Steady Spellcasting",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If a reaction would disrupt the Hellknight paravicar's spellcasting, they can attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "flat",
+                  "dc": 15
+                },
+                {
+                  "type": "text",
+                  "text": ". On a success, the action isn't disrupted."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Universal Obedience",
+          "cost": "one",
+          "traits": ["divine", "manipulate"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the next action the Hellknight paravicar uses is to Cast a sorcerer Spell with the linguistic trait, the spell affects its target as if the target and the Hellknight paravicar shared a common language. The target must have a language."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Spontaneous Spells",
+          "tradition": "divine",
+          "preparation": "spontaneous",
+          "dc": 30,
+          "attack": 20,
+          "spells": [
+            {
+              "spell": "ef577445-0666-5e29-869e-6783ca9b096a",
+              "rank": 6
+            },
+            {
+              "spell": "b8c1200d-0dd9-594c-8caf-d3550e4a150b",
+              "rank": 6
+            },
+            {
+              "spell": "b2355f5f-2795-58d8-a713-df34a0257e46",
+              "rank": 5
+            },
+            {
+              "spell": "d599a398-831f-5769-989c-37f737e7fbd5",
+              "rank": 6
+            },
+            {
+              "spell": "d599a398-831f-5769-989c-37f737e7fbd5",
+              "rank": 5
+            },
+            {
+              "spell": "06dcb2ac-6b0e-512e-bcc4-7dd4abe5d503",
+              "rank": 4
+            },
+            {
+              "spell": "4dd829e2-04f0-5cff-ab8f-bb762c3586cf",
+              "rank": 3
+            },
+            {
+              "spell": "52e6a91e-087f-5216-962c-d8cde645e96c",
+              "rank": 6
+            },
+            {
+              "spell": "52e6a91e-087f-5216-962c-d8cde645e96c",
+              "rank": 3
+            },
+            {
+              "spell": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc",
+              "rank": 3
+            },
+            {
+              "spell": "6bcf1643-218b-5e08-9fa5-62ff7c800b72",
+              "rank": 2
+            },
+            {
+              "spell": "42ecad5f-026b-577a-9b47-b97ae76568c9",
+              "rank": 1
+            },
+            {
+              "spell": "a3738cb8-aa5d-5084-b250-86fe19b7498d",
+              "rank": 1
+            },
+            {
+              "spell": "15904512-5f17-5bba-b1a0-1f892989912c",
+              "rank": 5
+            },
+            {
+              "spell": "15904512-5f17-5bba-b1a0-1f892989912c",
+              "rank": 1
+            },
+            {
+              "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+              "rank": 1
+            },
+            {
+              "spell": "a8b9cc60-f471-559b-a07c-6ad022c23b56",
+              "rank": 3
+            },
+            {
+              "spell": "87cbc7c8-756e-521d-baaf-9c09d1ddfb3c",
+              "rank": 1
+            },
+            {
+              "spell": "949e0a89-f44b-598d-8adb-3d9d31db900e",
+              "rank": 5
+            },
+            {
+              "spell": "b0b84836-b7a0-59ca-9379-6efdfb022f9e",
+              "rank": 1
+            },
+            {
+              "spell": "6dee4f5d-f584-5402-af2a-d3738ec685b3",
+              "rank": 1
+            },
+            {
+              "spell": "161eed43-e585-5c4f-a01f-3a11431b5e75",
+              "rank": 1
+            }
+          ]
+        },
+        {
+          "name": "Sorcerer Bloodline Spells",
+          "tradition": "divine",
+          "preparation": "focus",
+          "dc": 30,
+          "attack": 20,
+          "spells": [
+            {
+              "spell": "61284d6a-794a-5cd1-a735-a7565191341c",
+              "rank": 5
+            },
+            {
+              "spell": "a2a8cef5-b3e9-52bd-9f9b-9ec30ce7f724",
+              "rank": 3
+            },
+            {
+              "spell": "8e121447-9045-5f59-928d-5fedd0026b2b",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "d2cc3864-d2af-594f-8c80-0fb1b8c0f561"
+        },
+        {
+          "item": "3200dc7f-03bd-50bf-96e2-1893f46612d1"
+        },
+        {
+          "item": "3fda838f-09bf-5cbc-aa7c-5daa8f20e240"
+        },
+        {
+          "item": "b2977408-c13c-5084-86b9-4e273c38142e"
+        },
+        {
+          "item": "f7fb0c74-e723-5bf1-8d3b-028a036544d2",
+          "quantity": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "d74b3f9b-ccfe-5ef3-9325-bd6825ecaf43",
+    "pack": "character-guide",
+    "kind": "creature",
+    "slug": "creature:pathfinder-field-agent",
+    "name": "Pathfinder Field Agent",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["elf", "human", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This half-elf woman looks dressed to travel anywhere and prepared for any eventuality she might find along the way.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "No two field agents follow the same path to join the Pathfinder Society, nor the same path once they embark on their first expedition. The Society's treacherous missions require all types of adventurers, from seasoned combatants to ruin delvers and experts in the occult. Some field agents are highly specialized, filling a single role in a larger group of Pathfinders, while others branch out into a broad range of abilities."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This field agent seeks the thrill of discovering lost treasures from the Inner Sea's many ancient ruins. She scouts ahead for her team, keeping an eye out for enemies, traps, and other dangers. In fights, she is cautious and practical, preferring to stay mobile and out of sight. She sneaks in for a finishing blow when victory is certain."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Pathfinder Society is a large and influential organization seeking to learn and share their knowledge to others, and its members can be found even in the least likely of places. PCs who are members of the Pathfinder Society might accompany a Pathfinder field agent or get news and assignments from a Pathfinder venture-captain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.VkG5yl9xcmziwpQD"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 11,
+      "attributes": {
+        "str": 0,
+        "dex": 4,
+        "con": 3,
+        "int": 2,
+        "wis": 2,
+        "cha": 0
+      },
+      "armorClass": 21,
+      "saves": {
+        "fortitude": 10,
+        "reflex": 13,
+        "will": 11
+      },
+      "hitPoints": 60,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 12
+        },
+        {
+          "skill": "arcana",
+          "modifier": 8
+        },
+        {
+          "skill": "athletics",
+          "modifier": 6
+        },
+        {
+          "skill": "deception",
+          "modifier": 6
+        },
+        {
+          "skill": "diplomacy",
+          "modifier": 6
+        },
+        {
+          "skill": "stealth",
+          "modifier": 12
+        },
+        {
+          "skill": "survival",
+          "modifier": 8
+        },
+        {
+          "skill": "thievery",
+          "modifier": 10
+        },
+        {
+          "skill": "pathfinder-society-lore",
+          "modifier": 11
+        }
+      ],
+      "senses": [
+        {
+          "sense": "low-light-vision"
+        }
+      ],
+      "languages": ["common", "elven"],
+      "strikes": [
+        {
+          "name": "Rapier",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 6
+            }
+          ],
+          "traits": ["deadly-d8", "disarm"]
+        },
+        {
+          "name": "Shortbow",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 2
+            }
+          ],
+          "traits": ["deadly-d10", "reload-0"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Scout's Warning",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The field agent is about to roll a Perception check for initiative."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The field agent is about to roll a Perception check for initiative."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The field agent audibly or visually warns their allies of imminent danger. This ability gains the auditory trait if the warning is audible, and the visual trait if the warning is visual. Any ally who is able to hear the agent (if the warning is audible) or see the agent (if the warning is visual) gains a +1 circumstance bonus to their initiative roll."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect: Scout's Warning"
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Deny Advantage",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The field agent isn't Off-Guard to flanking, Hidden, or Undetected creatures of 4th level or lower, or to creatures of 4th-level or lower using surprise attack."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Mobility",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When the field agent takes a Stride action to move half their Speed or less, that movement does not trigger reactions."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Sneak Attack",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The pathfinder agent deals an extra 2d6 precision damage to Off-Guard creatures."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "DamageDice",
+              "selectors": ["strike-damage"],
+              "diceNumber": 2,
+              "dieSize": "d6",
+              "category": "precision",
+              "predicate": ["target:condition:off-guard"]
+            }
+          ]
+        },
+        {
+          "name": "Surprise Attack",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "On the first round of combat, any creatures that haven't acted yet are Off-Guard to the field agent."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Trap Finder",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The field agent has an intuitive sense that alerts them to the dangers and presence of traps. They gain a +1 circumstance bonus to Perception checks to find traps, to AC against attacks made by traps, and to saves against traps. Even if they aren't Searching, they still get a check to find traps. They can disable traps that require a proficiency rank of master in Thievery."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:trap-finder",
+              "toggleable": true,
+              "display": {
+                "label": "Trap Finder (detecting or defending against traps)"
+              }
+            },
+            {
+              "key": "FlatModifier",
+              "selectors": ["perception"],
+              "type": "circumstance",
+              "value": 1,
+              "predicate": ["option:trap-finder"],
+              "display": {
+                "label": "Trap Finder (to find traps)"
+              }
+            },
+            {
+              "key": "FlatModifier",
+              "selectors": ["ac"],
+              "type": "circumstance",
+              "value": 1,
+              "predicate": ["option:trap-finder"],
+              "display": {
+                "label": "Trap Finder (against traps)"
+              }
+            },
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "circumstance",
+              "value": 1,
+              "predicate": ["option:trap-finder"],
+              "display": {
+                "label": "Trap Finder (against traps)"
+              }
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "e7f55096-1e75-5c6a-80e9-b32baeb75ed3"
+        },
+        {
+          "item": "22033d3f-8f51-58ca-9fc4-4eccb68055dd"
+        },
+        {
+          "item": "6e8f688e-e8af-5f14-8d19-78961b746e8c"
+        },
+        {
+          "item": "4fd52652-1862-5543-86f6-8fb59c6d5a68"
+        },
+        {
+          "item": "d23bfd70-9419-5bc2-b3fc-19f4ca7421c0"
+        },
+        {
+          "item": "a281f8a7-40ba-5555-9267-ec1d8b012961",
+          "quantity": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "e78c5e47-3a0d-5477-b34d-a3ab07f25386",
+    "pack": "character-guide",
+    "kind": "creature",
+    "slug": "creature:pathfinder-venture-captain",
+    "name": "Pathfinder Venture-Captain",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["good", "human", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The barnacle-crusted armor of this dwarf hints at a thousand exciting tales.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The venture-captains of the Pathfinder Society rose through the ranks of the organization by following a unique path. An individual venture-captain has overcome numerous challenges, and each has countless stories to tell-and the scars to go with them. Each venture-captain maintains a lodge somewhere in the Inner Sea, where Pathfinder agents can rest, share stories, and set out on new missions. The venture-captain assigns these missions themselves, and they can draw on the significant resources of the Pathfinder Society-as well as any local allies they have-to ensure the missions' success."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This venture-captain operates a lodge that also serves as a tavern. His interest in epic tales led him to join the Society, and he gladly shares these stories with interested parties. Opportunistic field agents can gain the venture-captain's favor by recovering unique and valuable liquors. The venture-captain hopes to one day publish a Pathfinder Chronicle of his own."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Pathfinder Society is a large and influential organization seeking to learn and share their knowledge to others, and its members can be found even in the least likely of places. PCs who are members of the Pathfinder Society might accompany a Pathfinder field agent or get news and assignments from a Pathfinder venture-captain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.o4XTf77fEEoFVTdA"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 20,
+      "attributes": {
+        "str": 5,
+        "dex": 1,
+        "con": 3,
+        "int": 1,
+        "wis": 2,
+        "cha": 4
+      },
+      "armorClass": 32,
+      "saves": {
+        "fortitude": 22,
+        "reflex": 18,
+        "will": 19
+      },
+      "hitPoints": 195,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 20,
+      "skills": [
+        {
+          "skill": "diplomacy",
+          "modifier": 21
+        },
+        {
+          "skill": "occultism",
+          "modifier": 16
+        },
+        {
+          "skill": "performance",
+          "modifier": 19
+        },
+        {
+          "skill": "alcohol-lore",
+          "modifier": 20
+        },
+        {
+          "skill": "bardic-lore",
+          "modifier": 16
+        }
+      ],
+      "languages": ["common", "dwarven"],
+      "strikes": [
+        {
+          "name": "Warhammer",
+          "range": "melee",
+          "bonus": 24,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "bludgeoning",
+              "bonus": 11
+            }
+          ],
+          "traits": ["magical", "shove"]
+        },
+        {
+          "name": "Composite Longbow",
+          "range": "melee",
+          "bonus": 20,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 8
+            }
+          ],
+          "traits": ["deadly-d10", "magical", "propulsive", "reload-0", "volley-30"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Attack of Opportunity",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster attempts a melee Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the monster disrupts that action. This Strike doesn't count toward the monster's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Fortitude Saves",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Successes are considered Critical Successes"
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "AdjustDegreeOfSuccess",
+              "selectors": ["save:fortitude"],
+              "adjustment": {
+                "success": "one-degree-better"
+              },
+              "checkType": "save"
+            }
+          ]
+        },
+        {
+          "name": "Shield Block",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster has its shield raised and takes damage from a physical attack."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster has its shield raised and takes damage from a physical attack."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster snaps its shield into place to deflect a blow. The shield prevents the monster from taking an amount of damage up to the shield's Hardness. The monster and the shield each take any remaining damage, possibly breaking or destroying the shield."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Unshakable",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Anytime the venture-captain gains the Frightened condition, reduce its value by 1."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Bardic Lore",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The venture-captain can Recall Knowledge on any topic using their Bardic Lore skill."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Paragon's Guard",
+          "cost": "one",
+          "traits": ["stance"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "While the venture-captain is in this stance and wielding a shield, their shield is always raised."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Weapon Mastery (Hammer)",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The venture-captain has spent hours training with the hammer. They gain access to the critical specialization effect of all simple and martial hammers."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Occult Spontaneous Spells",
+          "tradition": "occult",
+          "preparation": "spontaneous",
+          "dc": 27,
+          "attack": 19,
+          "spells": [
+            {
+              "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+              "rank": 1
+            },
+            {
+              "spell": "02c769dd-dba8-5437-8189-28b9800afaac",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "7b6af176-5515-58b8-8072-9f8f3f5e918f"
+        },
+        {
+          "item": "55d4d53c-06dd-59ad-86b4-113d31611e52"
+        },
+        {
+          "item": "6f0a245f-ec33-5437-b381-7ee03c8aebc6"
+        },
+        {
+          "item": "6c6438b9-b581-59d9-8ffa-c23d7a23d501"
+        },
+        {
+          "item": "c86c0b62-b372-56c0-a124-df84b21514b0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c17a05f8-2714-5459-8f78-4a7058df7add",
+    "pack": "character-guide",
+    "kind": "creature",
+    "slug": "creature:privateer-captain",
+    "name": "Privateer Captain",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["chaotic", "good", "human", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A faint crust of salt rimes the coattails of this mariner, and her steely eyes gaze from beneath the brim of her tricorne hat.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dismissively called a pirate or thief by some, the privateer captain commands a loyal crew that plies the waters of the Inner Sea and beyond. Privateers work for their own profit and reputation, of course, but they also commit themselves to keeping the sea-lanes free from navies that strive to enforce land law on the unbounded waves. Tyrants and slavers are their favorite targets, and many a greedy colonizer or trafficker in flesh has been sent to the bottom of the sea after the captain liberated their cargo. Generally, however, the privateer captain is willing to spare prisoners so that they might be ransomed and spread tales of Firebrands' actions across the region."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The privateer captain is often at the vanguard of boarding parties. Many call on the power of the fickle goddess Besmara to strengthen their crew in battle and sanctify each shipboard raid. As at home in water as on deck, a privateer captain will gladly leap into the sea to pursue a foe or rescue a fallen crewmate. Though the privateer captain might run under a false flag or attempt to deceive a foe before battle, they generally honor agreements to surrender and make a point to keep their word, particularly when dealing with other Firebrands."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wherever oppression or an opportunity for daring adventure can be found, the Firebrands can be found chasing after. PCs might find the Firebrands to be allies in a quest for righteous rebellion or justice against slavery, or they might find these dashing daredevils to be friendly-or not so friendly-rivals for the same treasure. The charming scoundrel presented here could easily be a low level freedom fighter or foil for the PCs, or might serve as crew for the privateer captain. The privateer captain can serve as a transport willing to take the PCs to the most dangerous locations, an intermittent ally that provides a timely rescue when least expected, a competing explorer, or a powerful and deadly enemy."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.48bZvtRcd7T6FmA7"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 21,
+      "attributes": {
+        "str": 1,
+        "dex": 4,
+        "con": 3,
+        "int": 0,
+        "wis": 5,
+        "cha": 3
+      },
+      "armorClass": 30,
+      "saves": {
+        "fortitude": 19,
+        "reflex": 20,
+        "will": 23
+      },
+      "hitPoints": 175,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 20
+        },
+        {
+          "skill": "athletics",
+          "modifier": 17
+        },
+        {
+          "skill": "deception",
+          "modifier": 21
+        },
+        {
+          "skill": "religion",
+          "modifier": 23
+        },
+        {
+          "skill": "thievery",
+          "modifier": 22
+        },
+        {
+          "skill": "sailing-lore",
+          "modifier": 19
+        }
+      ],
+      "senses": [
+        {
+          "sense": "see-invisibility"
+        }
+      ],
+      "languages": ["common", "thalassic"],
+      "strikes": [
+        {
+          "name": "Rapier",
+          "range": "melee",
+          "bonus": 21,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "piercing",
+              "bonus": 5
+            }
+          ],
+          "traits": ["deadly-d8", "disarm", "magical"]
+        },
+        {
+          "name": "Crossbow",
+          "range": "melee",
+          "bonus": 21,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 5
+            }
+          ],
+          "traits": ["magical", "reload-1"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Reach Spell",
+          "cost": "one",
+          "traits": ["concentrate", "spellshape"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the next action the privateer captain uses is to Cast a Spell that has a range, increase that spell's range by 30 feet. As is standard for increasing spell ranges, if the spell normally has a range of touch, extend its range to 30 feet."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Sink or Swim",
+          "cost": "one",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "traits": ["divine", "water"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per day"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The privateer captain exerts their influence on a surrounding body of water. For 1 minute, if an ally within 60 feet rolls a success on an Athletics check to Swim, they get a critical success instead, and if any enemy within 60 feet rolls a failure on an Athletics check to Swim, it gets a critical failure instead."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "For the ability's duration, enemies within 60 feet of the privateer captain treat the water as turbulent (if it was not already rougher), requiring an "
+                },
+                {
+                  "type": "check",
+                  "statistic": "skill:athletics",
+                  "dc": 20
+                },
+                {
+                  "type": "text",
+                  "text": " check to Swim, or the water's usual DC, whichever is higher."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Prepared Spells",
+          "tradition": "divine",
+          "preparation": "prepared",
+          "dc": 30,
+          "attack": 22,
+          "spells": [
+            {
+              "spell": "fcd3c0c1-a3b8-5747-bbad-0ca5e7f7c495",
+              "rank": 6
+            },
+            {
+              "spell": "4a5766e0-5406-55a9-8b98-36cc6238824d",
+              "rank": 5
+            },
+            {
+              "spell": "07ae3cd7-dcbd-519c-a9f0-6c9c385a5139",
+              "rank": 5
+            },
+            {
+              "spell": "4dd829e2-04f0-5cff-ab8f-bb762c3586cf",
+              "rank": 3
+            },
+            {
+              "spell": "b434b2d9-47e5-519e-a542-6dae12c51157",
+              "rank": 2
+            },
+            {
+              "spell": "d54ee3a3-6742-53c8-9070-17edcb0cae19",
+              "rank": 2
+            },
+            {
+              "spell": "306213b0-9e11-55d8-b630-8786ea86a27d",
+              "rank": 2
+            },
+            {
+              "spell": "42fa4e93-acfd-52ff-a186-cef177164f63",
+              "rank": 2
+            },
+            {
+              "spell": "62b9b05e-2f86-5c8b-bc12-2500cd4d9959",
+              "rank": 2
+            },
+            {
+              "spell": "331c6b08-d0c7-5f40-a23e-692a10a5e4c9",
+              "rank": 1
+            },
+            {
+              "spell": "42ecad5f-026b-577a-9b47-b97ae76568c9",
+              "rank": 1
+            },
+            {
+              "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+              "rank": 1
+            },
+            {
+              "spell": "e48e01db-df29-5558-b6a3-a78233bae1d1",
+              "rank": 1
+            },
+            {
+              "spell": "1330902b-a95f-54ea-9a07-3764617bd887",
+              "rank": 1
+            },
+            {
+              "spell": "b0b84836-b7a0-59ca-9379-6efdfb022f9e",
+              "rank": 1
+            },
+            {
+              "spell": "6dee4f5d-f584-5402-af2a-d3738ec685b3",
+              "rank": 1
+            }
+          ]
+        },
+        {
+          "name": "Cleric Domain Spells",
+          "tradition": "divine",
+          "preparation": "focus",
+          "dc": 30,
+          "attack": 22,
+          "spells": [
+            {
+              "spell": "8430391b-5917-5983-8fed-0fe8d43fb733",
+              "rank": 4
+            },
+            {
+              "spell": "f6191882-e6ce-5212-a3ef-e9e1d3007d75",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "d2cc3864-d2af-594f-8c80-0fb1b8c0f561"
+        },
+        {
+          "item": "e7f55096-1e75-5c6a-80e9-b32baeb75ed3"
+        },
+        {
+          "item": "876b57d5-e44e-58f1-b040-ab19eb6bd5b2"
+        },
+        {
+          "item": "afe38f9f-9558-511f-8f33-724d5c8c5718"
+        },
+        {
+          "item": "f7fb0c74-e723-5bf1-8d3b-028a036544d2",
+          "quantity": 100
+        }
+      ]
+    }
+  },
+  {
+    "id": "e023827f-4424-5586-8f4f-e8b87713e8b3",
+    "pack": "character-guide",
+    "kind": "creature",
+    "slug": "creature:rain-scribe",
+    "name": "Rain-Scribe",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["elf", "good", "human", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sharp-eyed half-elf wears weather-beaten gear that would easily blend in with any natural terrain, and carries an elaborately carved walking staff.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When a group of adepts leaves the Magaambya, whether to investigate a magical phenomenon, conduct a diplomatic mission, or visit scholars in a distant land, a Rain-Scribe often serves as their guide. An expert in travel through difficult environments, the Rain-Scribe provides for their companions while helping them avoid the many hazards of travel in the Inner Sea. Rain-Scribes are some of the most well-traveled members of the academy, and most have secured alliances or promises of safe passage through the lands where they walk."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Should the Rain-Scribe or their companions be attacked on their journeys, the scribe is a capable combatant who strives to turn their communion with the natural world into their greatest advantage in battle. Whether by using primal magic against their foes or striking unseen from the underbrush, the Rain-Scribe assures that no opponent threatens their traveling companions for long."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Incredible events have rocked the lands of Avistan over the past 10 years, from whole cities reappearing out of a loop in time to magical explosions vaporizing the prison of Gallowspire. These marvels, both terrible and awe inspiring, inevitably attracted the attention of the Magaambya academy, home of scholars of magic in all its forms. Scholars, emissaries, and spies alike have now established Magaambyan centers in the north, seeking to learn and to help those they can along the way."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.2SBKFCog4JY3WrOW"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 13,
+      "attributes": {
+        "str": 2,
+        "dex": 3,
+        "con": 1,
+        "int": 1,
+        "wis": 4,
+        "cha": 0
+      },
+      "armorClass": 21,
+      "saves": {
+        "fortitude": 9,
+        "reflex": 9,
+        "will": 12
+      },
+      "hitPoints": 54,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [
+        {
+          "type": "poison",
+          "value": 2
+        }
+      ],
+      "speed": 30,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 9
+        },
+        {
+          "skill": "arcana",
+          "modifier": 7
+        },
+        {
+          "skill": "athletics",
+          "modifier": 8
+        },
+        {
+          "skill": "nature",
+          "modifier": 12
+        },
+        {
+          "skill": "stealth",
+          "modifier": 11
+        },
+        {
+          "skill": "survival",
+          "modifier": 12
+        }
+      ],
+      "senses": [
+        {
+          "sense": "low-light-vision"
+        }
+      ],
+      "languages": ["common", "mwangi", "wildsong"],
+      "strikes": [
+        {
+          "name": "Scimitar",
+          "range": "melee",
+          "bonus": 9,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d6",
+              "damageType": "slashing",
+              "bonus": 2
+            }
+          ],
+          "traits": ["forceful", "sweep"]
+        },
+        {
+          "name": "Composite Longbow",
+          "range": "melee",
+          "bonus": 10,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 1
+            }
+          ],
+          "traits": ["deadly-d10", "propulsive", "reload-0", "volley-30"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "+1 Status to All Saves vs. Poison",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["saving-throw"],
+              "type": "status",
+              "value": 1,
+              "predicate": ["option:poison"]
+            }
+          ]
+        },
+        {
+          "name": "Chameleon Step",
+          "cost": "two",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Rain-Scribe must be in natural terrain."
+                }
+              ]
+            }
+          ],
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "traits": ["illusion", "primal", "visual"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per day"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The Rain-Scribe must be in natural terrain."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The Rain-Scribe shifts their coloration and the coloration of their gear to match the surroundings and then immediately Sneaks, even while being observed. The Rain-Scribe must end their movement concealed or behind cover to remain hidden or undetected."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Primal Prepared Spells",
+          "tradition": "primal",
+          "preparation": "prepared",
+          "dc": 21,
+          "attack": 11,
+          "spells": [
+            {
+              "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+              "rank": 1
+            },
+            {
+              "spell": "af70a0e9-8098-5ea9-9c72-12ee05e62eb1",
+              "rank": 1
+            },
+            {
+              "spell": "e48e01db-df29-5558-b6a3-a78233bae1d1",
+              "rank": 1
+            },
+            {
+              "spell": "b0b84836-b7a0-59ca-9379-6efdfb022f9e",
+              "rank": 1
+            }
+          ]
+        },
+        {
+          "name": "Primal Focus Spells",
+          "tradition": "primal",
+          "preparation": "focus",
+          "dc": 21,
+          "attack": 11,
+          "spells": [
+            {
+              "spell": "61f84b31-8da0-5b2f-89a8-9ae353d08524",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "7b6af176-5515-58b8-8072-9f8f3f5e918f"
+        },
+        {
+          "item": "1b6601dc-34b8-5e5d-a3e2-d565836389dd"
+        },
+        {
+          "item": "0cf9e7e6-43c0-564f-977d-24782f91ef6b"
+        },
+        {
+          "item": "a281f8a7-40ba-5555-9267-ec1d8b012961",
+          "quantity": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "8446677a-9348-5408-99a4-bb8522e555a1",
+    "pack": "character-guide",
+    "kind": "creature",
+    "slug": "creature:stone-giant-monk",
+    "name": "Stone Giant Monk",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["earth", "giant", "humanoid", "lawful"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.401MnHX5aO21P2Y8"
+    },
+    "data": {
+      "role": "monster",
+      "size": "large",
+      "perception": 16,
+      "attributes": {
+        "str": 6,
+        "dex": 2,
+        "con": 4,
+        "int": 0,
+        "wis": 1,
+        "cha": 0
+      },
+      "armorClass": 28,
+      "saves": {
+        "fortitude": 20,
+        "reflex": 16,
+        "will": 16
+      },
+      "hitPoints": 170,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 40,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 16
+        },
+        {
+          "skill": "athletics",
+          "modifier": 22
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 16
+        },
+        {
+          "skill": "stealth",
+          "modifier": 16
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        }
+      ],
+      "languages": ["common", "jotun"],
+      "strikes": [
+        {
+          "name": "Fist",
+          "range": "melee",
+          "bonus": 22,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "bludgeoning",
+              "bonus": 16
+            }
+          ],
+          "traits": ["agile", "reach-10", "unarmed"],
+          "reach": 10
+        },
+        {
+          "name": "Rock",
+          "range": "melee",
+          "bonus": 20,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d6",
+              "damageType": "bludgeoning",
+              "bonus": 14
+            }
+          ],
+          "traits": ["brutal"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Catch Rock",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster is targeted with a thrown rock Strike or a rock would fall on the monster."
+                }
+              ]
+            }
+          ],
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster must have a free hand but can Release anything it's holding as part of this reaction."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster must have a free hand but can Release anything it's holding as part of this reaction."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster is targeted with a thrown rock Strike or a rock would fall on the monster."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster gains a +4 circumstance bonus to its AC against the triggering attack or to any defense against the falling rock. If the attack misses or the monster successfully defends against the falling rock, the monster catches the rock, takes no damage, and is now holding the rock."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:catch-rock",
+              "toggleable": true
+            },
+            {
+              "key": "FlatModifier",
+              "selectors": ["ac", "saving-throw"],
+              "type": "circumstance",
+              "value": 4,
+              "predicate": ["option:catch-rock"]
+            }
+          ]
+        },
+        {
+          "name": "Big Swing",
+          "cost": "two",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The stone giant makes a fist Strike. The target is Pushed up to 10 feet on a hit or up to 20 feet on a critical hit."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the target collides with a solid object or lands on the ground, it takes bludgeoning damage as though it had fallen the distance it moved."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Throw Rock",
+          "cost": "one",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster picks up a rock within reach or retrieves a stowed rock and throws it, making a ranged Strike."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Focus Spells",
+          "tradition": "divine",
+          "preparation": "focus",
+          "dc": 24,
+          "attack": 16,
+          "spells": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "060dd096-4b27-574f-aa88-bd0f7faad4a8",
+    "pack": "character-guide",
+    "kind": "creature",
+    "slug": "creature:tempest-sun-mage",
+    "name": "Tempest-Sun Mage",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["good", "human", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A wooden mask carved with a stoic leopard's features covers the face of this scholar. Her long cloak is embroidered with the names of fellow tribe members.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Tempest-Sun Mages are the chosen protectors of the Magaambya academy and the lands that surround it, watching from the skies for any sign of incursion approaching from the surrounding jungle. They are known as much for the close bonds that they form with their companions as for their extensive knowledge of magical forces, and many mages inscribe the names of important allies on their clothing or gear as reminders of the reason for their vigilance and dedication. The diligence and power of the Tempest-Sun Mages has ensured that no invading force has ever come within 20 miles of the university they defend."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the Tempest-Sun Mages are not defending the academy itself or accompanying envoys or teachers to distant locales, they use their mastery of arcane and primal magic to keep watch in the surrounding city and beyond, keeping an eye on the balance of power throughout the whole of the Mwangi Expanse. This magical intelligence often allows them to foresee threats to the academy or any nearby towns before such threats can even organize and approach."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While Tempest-Sun Mages generally prefer to disable or incapacitate enemies, and readily call upon on their companions from the Uzunjati to reason with foes when possible, they do not hesitate to unleash lethal force against dangerous or implacable enemies, often taking to the air and raining down elemental fury. In particular, these mages have little tolerance for demons, having previously suffered attacks from the worshippers of the demon lord Angazhan who inhabit the city of Usaro."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Incredible events have rocked the lands of Avistan over the past 10 years, from whole cities reappearing out of a loop in time to magical explosions vaporizing the prison of Gallowspire. These marvels, both terrible and awe inspiring, inevitably attracted the attention of the Magaambya academy, home of scholars of magic in all its forms. Scholars, emissaries, and spies alike have now established Magaambyan centers in the north, seeking to learn and to help those they can along the way."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.M2Vi2mkwMZv1ZRka"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 18,
+      "attributes": {
+        "str": 0,
+        "dex": 4,
+        "con": 3,
+        "int": 5,
+        "wis": 3,
+        "cha": 1
+      },
+      "armorClass": 28,
+      "saves": {
+        "fortitude": 19,
+        "reflex": 20,
+        "will": 21
+      },
+      "hitPoints": 145,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 30,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 18
+        },
+        {
+          "skill": "arcana",
+          "modifier": 23
+        },
+        {
+          "skill": "diplomacy",
+          "modifier": 16
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 16
+        },
+        {
+          "skill": "medicine",
+          "modifier": 19
+        },
+        {
+          "skill": "nature",
+          "modifier": 21
+        },
+        {
+          "skill": "survival",
+          "modifier": 21
+        },
+        {
+          "skill": "magaambya-lore",
+          "modifier": 23
+        }
+      ],
+      "languages": ["common", "mwangi"],
+      "strikes": [
+        {
+          "name": "Staff Of Abjuration",
+          "range": "melee",
+          "bonus": 16,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "bludgeoning",
+              "bonus": 2
+            }
+          ],
+          "traits": ["two-hand-d8"]
+        },
+        {
+          "name": "Crossbow",
+          "range": "melee",
+          "bonus": 20,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 2
+            }
+          ],
+          "traits": ["reload-1"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Mask Bond",
+          "cost": "free",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Tempest-Sun Mage has not acted yet on their turn"
+                }
+              ]
+            }
+          ],
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "traits": ["arcane"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per day"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The Tempest-Sun Mage has not acted yet on their turn"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The Tempest-Sun Mage expends the power stored in their bonded item, which is their mask. This gives them the ability to cast one spell they prepared today and already cast, without spending a spell slot. They must still Cast the Spell and meet the spell's other requirements."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Reach Spell",
+          "cost": "one",
+          "traits": ["concentrate", "spellshape"],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If the next action the Tempest-Sun Mage uses is to Cast a Spell that has a range, increase that spell's range by 30 feet. As is standard for increasing spell ranges, if the spell normally has a range of touch, extend its range to 30 feet."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Arcane Prepared Spells",
+          "tradition": "arcane",
+          "preparation": "prepared",
+          "dc": 30,
+          "attack": 20,
+          "spells": [
+            {
+              "spell": "088c1f48-de0f-5b8a-83b3-24ce61a928bc",
+              "rank": 6
+            },
+            {
+              "spell": "3dcf91db-01f1-596c-96b5-d635c0248044",
+              "rank": 6
+            },
+            {
+              "spell": "877e8c19-8f14-5568-8d0b-4b9c520e07ea",
+              "rank": 5
+            },
+            {
+              "spell": "3c2ab746-3091-512f-9309-804440742c21",
+              "rank": 5
+            },
+            {
+              "spell": "1516123c-bc37-5053-be15-24201abb1d02",
+              "rank": 5
+            },
+            {
+              "spell": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b",
+              "rank": 4
+            },
+            {
+              "spell": "12b87fec-1e48-544a-8e02-78d8f5b1e78b",
+              "rank": 4
+            },
+            {
+              "spell": "989ec875-261d-5d4f-a181-fedf889f9d4b",
+              "rank": 3
+            },
+            {
+              "spell": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a",
+              "rank": 3
+            },
+            {
+              "spell": "9aed7b61-843a-5ec7-b205-94e5369630f3",
+              "rank": 3
+            },
+            {
+              "spell": "cfa1a3f3-2450-52eb-95d6-875232fd5219",
+              "rank": 3
+            },
+            {
+              "spell": "6b5f6ce5-ac5a-52f3-ba0a-ca65c2e0d167",
+              "rank": 1
+            },
+            {
+              "spell": "c91ac947-a9ec-5f07-b5f9-a054617eb571",
+              "rank": 1
+            },
+            {
+              "spell": "f94a3b5e-8e3c-5781-81a5-5eca9bd19421",
+              "rank": 1
+            },
+            {
+              "spell": "e48e01db-df29-5558-b6a3-a78233bae1d1",
+              "rank": 1
+            },
+            {
+              "spell": "b0b84836-b7a0-59ca-9379-6efdfb022f9e",
+              "rank": 1
+            }
+          ]
+        },
+        {
+          "name": "Arcane Focus Spells",
+          "tradition": "arcane",
+          "preparation": "focus",
+          "dc": 30,
+          "attack": 20,
+          "spells": [
+            {
+              "spell": "de29237a-f0d9-5846-b61e-05728566d476",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "d2cc3864-d2af-594f-8c80-0fb1b8c0f561"
+        },
+        {
+          "item": "ca91efd7-5930-5a55-8d86-bc70391e3693"
+        },
+        {
+          "item": "b2977408-c13c-5084-86b9-4e273c38142e"
+        },
+        {
+          "item": "f7fb0c74-e723-5bf1-8d3b-028a036544d2",
+          "quantity": 20
+        }
+      ]
+    }
+  },
+  {
+    "id": "ea398d44-d377-585e-80a0-b059aef4bea2",
+    "pack": "character-guide",
+    "kind": "creature",
+    "slug": "creature:veteran-reclaimer",
+    "name": "Veteran Reclaimer",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["chaotic", "good", "human", "humanoid", "orc"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This grizzled half-orc wields a longbow with the familiarity of a woman who considers it more as an extension of her body than a weapon.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When Lastwall fell, many of the former Knights of Ozem became disheartened and scattered, wandering aimlessly through the wilds of the Inner Sea. Though the horrific events that led to the fall of Lastwall shook their faith in the traditional hierarchy of the Knights, they hardened their resolve to hunt all undead from the face of Golarion. These Crimson Reclaimers still see the Whispering Tyrant as their primary foe, but they can be found in many of the most haunted regions of the world, living off the land and hunting the restless dead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While heroism and fervor for their cause still burns in their heart, veteran reclaimers have lived long enough to lose their taste for tales of courtly valor and valiant last stands. They have learned the value of caution and thus engage their enemies from range and use terrain to their advantage. They are quick to strike back at enemies that harm their allies, knowing staunch teammates are essential in the face of the world's many horrors."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though the nation of Lastwall is shattered and its leaders have fled, the courage of those who once defended its shining walls remains strong. The Knights of Lastwall are found in places of great calamity, escorting civilians and beating back the undead. Should the PCs ever venture into a crisis zone, they may likely as not see the Knights of Lastwall there as well, be they forming an armored wall to defend the innocent or creeping through deathly wastelands where even the bravest know mortal fear. Unless the PCs are evil or unwitting dupes of Tar-Baphon's agents, the Whispering Way, these knights mostly serve as precious allies in realms where friendly faces are rare. The virtuous defender could be a member of a knightly squad or a recruiter seeking those willing to risk their lives to save Avistan from a terrible peril. The veteran reclaimer is likely found in the depths of the Gravelands or other truly forsaken realms, where even the slightest misstep can lead to death or worse. Such cunning but virtuous souls might request help leading people to safety, act as a guide through unknown territory, or offer valuable advice and information about dangerous creatures or traps the PCs might risk encountering."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.hxyImo4ts3O0BrAY"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 24,
+      "attributes": {
+        "str": 4,
+        "dex": 5,
+        "con": 4,
+        "int": 0,
+        "wis": 3,
+        "cha": 0
+      },
+      "armorClass": 29,
+      "saves": {
+        "fortitude": 20,
+        "reflex": 23,
+        "will": 19
+      },
+      "hitPoints": 195,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 25,
+      "skills": [
+        {
+          "skill": "acrobatics",
+          "modifier": 20
+        },
+        {
+          "skill": "athletics",
+          "modifier": 19
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 15
+        },
+        {
+          "skill": "medicine",
+          "modifier": 19
+        },
+        {
+          "skill": "nature",
+          "modifier": 18
+        },
+        {
+          "skill": "religion",
+          "modifier": 20
+        },
+        {
+          "skill": "survival",
+          "modifier": 22
+        }
+      ],
+      "senses": [
+        {
+          "sense": "darkvision"
+        },
+        {
+          "sense": "low-light-vision"
+        }
+      ],
+      "languages": ["common", "orcish"],
+      "strikes": [
+        {
+          "name": "Bastard Sword",
+          "range": "melee",
+          "bonus": 21,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "slashing",
+              "bonus": 8
+            }
+          ],
+          "traits": ["magical", "two-hand-d12"]
+        },
+        {
+          "name": "Dagger",
+          "range": "melee",
+          "bonus": 21,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "piercing",
+              "bonus": 8
+            }
+          ],
+          "traits": ["agile", "versatile-s"]
+        },
+        {
+          "name": "Dagger",
+          "range": "melee",
+          "bonus": 21,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d4",
+              "damageType": "piercing",
+              "bonus": 8
+            }
+          ],
+          "traits": ["agile", "thrown-10", "versatile-s"]
+        },
+        {
+          "name": "Composite Longbow",
+          "range": "melee",
+          "bonus": 22,
+          "damage": [
+            {
+              "dice": 2,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 6
+            }
+          ],
+          "traits": ["deadly-d10", "magical", "propulsive", "reload-0", "volley-30"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "Crimson Vengeance",
+          "cost": "one",
+          "requirements": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The veteran reclaimer is wielding a ranged weapon with reload 0."
+                }
+              ]
+            }
+          ],
+          "frequency": {
+            "max": 1,
+            "per": "round"
+          },
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Frequency",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " once per round"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Requirements",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The veteran reclaimer is wielding a ranged weapon with reload 0."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The veteran reclaimer makes two Strikes with the required weapon against a target that has attacked the veteran reclaimer or one of their allies within the last round (the multiple attack penalty applies normally)."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If both hit the creature, combine their damage for the purpose of resistances and weaknesses."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Nature's Edge",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Enemies are Off-Guard to the veteran reclaimer in areas of natural difficult terrain or in areas of difficult terrain resulting from a snare."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Reflex Saves",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Successes are treated as Critical Successes"
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "Note",
+              "selectors": ["save:reflex"],
+              "title": "Reflex Saves",
+              "text": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "When you roll a success on a Reflex save, you get a critical success instead."
+                    }
+                  ]
+                }
+              ],
+              "outcome": ["success"]
+            },
+            {
+              "key": "AdjustDegreeOfSuccess",
+              "selectors": ["save:reflex"],
+              "adjustment": {
+                "success": "one-degree-better"
+              },
+              "checkType": "save"
+            }
+          ]
+        },
+        {
+          "name": "Vengeful Edge",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When attacking a creature that attacked the veteran reclaimer or one of their allies within the last round, the veteran reclaimer has a multiple attack penalty of -3, or -2 with their dagger."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:vengeful-edge",
+              "toggleable": true
+            }
+          ]
+        },
+        {
+          "name": "Weapon Mastery",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When the veteran reclaimer critically hits a creature who attacked the veteran reclaimer or one of their allies within the last round, the reclaimer applies the weapon's critical specialization effect."
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "key": "RollOption",
+              "option": "option:weapon-mastery",
+              "toggleable": true
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "57aa94ba-0a8c-5120-a4d4-a5439f9ba49d"
+        },
+        {
+          "item": "7b6af176-5515-58b8-8072-9f8f3f5e918f"
+        },
+        {
+          "item": "aea5fd3d-cb47-57b8-9622-601490152a97"
+        },
+        {
+          "item": "38f083f6-86b7-5043-bd38-4257665ce391"
+        },
+        {
+          "item": "b2977408-c13c-5084-86b9-4e273c38142e"
+        },
+        {
+          "item": "a281f8a7-40ba-5555-9267-ec1d8b012961",
+          "quantity": 100
+        }
+      ]
+    }
+  },
+  {
+    "id": "26102d91-cd8e-5e7e-b532-ff5ef1d42d34",
+    "pack": "character-guide",
+    "kind": "creature",
+    "slug": "creature:virtuous-defender",
+    "name": "Virtuous Defender",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["good", "human", "humanoid", "lawful"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With his well-worn plate armor and mighty shield, this tall figure appears ready to stand against any foe.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even with the fall of the nation of Lastwall, many people still dedicate their lives to opposing the forces and schemes of the Whispering Tyrant. Styling themselves the Shining Sentinels, they see themselves as a bulwark against the further spread of the Tyrant's influence. When not rallying troops to battle against their sworn foe or protecting villages from undead incursions, these knights travel the Inner Sea in hopes of recruiting other righteous souls to fight against the undead hordes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many Shining Sentinels are servants of good deities, such as Iomedae; in battle, they turn their god-given powers against their foes. These virtuous warriors put the safety of their companions before their own and often hold defensive positions to protect their allies."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though the nation of Lastwall is shattered and its leaders have fled, the courage of those who once defended its shining walls remains strong. The Knights of Lastwall are found in places of great calamity, escorting civilians and beating back the undead. Should the PCs ever venture into a crisis zone, they may likely as not see the Knights of Lastwall there as well, be they forming an armored wall to defend the innocent or creeping through deathly wastelands where even the bravest know mortal fear. Unless the PCs are evil or unwitting dupes of Tar-Baphon's agents, the Whispering Way, these knights mostly serve as precious allies in realms where friendly faces are rare. The virtuous defender could be a member of a knightly squad or a recruiter seeking those willing to risk their lives to save Avistan from a terrible peril. The veteran reclaimer is likely found in the depths of the Gravelands or other truly forsaken realms, where even the slightest misstep can lead to death or worse. Such cunning but virtuous souls might request help leading people to safety, act as a guide through unknown territory, or offer valuable advice and information about dangerous creatures or traps the PCs might risk encountering."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.lost-omens-bestiary.Actor.bc1jeTvmzKeYGVw9"
+    },
+    "data": {
+      "role": "monster",
+      "size": "medium",
+      "perception": 10,
+      "attributes": {
+        "str": 4,
+        "dex": 0,
+        "con": 3,
+        "int": 0,
+        "wis": 1,
+        "cha": 3
+      },
+      "armorClass": 22,
+      "saves": {
+        "fortitude": 12,
+        "reflex": 6,
+        "will": 12
+      },
+      "hitPoints": 70,
+      "immunities": [],
+      "weaknesses": [],
+      "resistances": [],
+      "speed": 20,
+      "skills": [
+        {
+          "skill": "diplomacy",
+          "modifier": 12
+        },
+        {
+          "skill": "intimidation",
+          "modifier": 11
+        },
+        {
+          "skill": "religion",
+          "modifier": 9
+        },
+        {
+          "skill": "survival",
+          "modifier": 9
+        },
+        {
+          "skill": "shining-crusade-lore",
+          "modifier": 8
+        }
+      ],
+      "languages": ["common", "varisian"],
+      "strikes": [
+        {
+          "name": "Longsword",
+          "range": "melee",
+          "bonus": 12,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "slashing",
+              "bonus": 6
+            }
+          ],
+          "traits": ["versatile-p"]
+        },
+        {
+          "name": "Composite Longbow",
+          "range": "melee",
+          "bonus": 8,
+          "damage": [
+            {
+              "dice": 1,
+              "die": "d8",
+              "damageType": "piercing",
+              "bonus": 4
+            }
+          ],
+          "traits": ["deadly-d10", "reload-0", "volley-30"]
+        }
+      ],
+      "abilities": [
+        {
+          "name": "+3 Status to Reflex vs. Damaging Effects",
+          "traits": [],
+          "description": [],
+          "rules": [
+            {
+              "key": "FlatModifier",
+              "selectors": ["save:reflex"],
+              "type": "status",
+              "value": 3,
+              "predicate": ["option:damaging-effect"]
+            }
+          ]
+        },
+        {
+          "name": "Retributive Strike",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "An enemy damages the monster's ally, and both are within 15 feet of the monster."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The virtuous defender can Step to put the foe in reach before making a melee Retributive Strike."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Damage Reduction",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 6"
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " An enemy damages the monster's ally, and both are within 15 feet of the monster."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The ally gains resistance to all damage against the triggering damage equal to 2 + the monster's level. If the foe is within reach, the monster makes a melee Strike against it."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Shield Ally",
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The virtuous defender's shield is sturdier in their hands. The statistics for the shield above include this benefit; it's a normal steel shield for anyone else."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        },
+        {
+          "name": "Shield Block",
+          "cost": "reaction",
+          "trigger": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The monster has its shield raised and takes damage from a physical attack."
+                }
+              ]
+            }
+          ],
+          "traits": [],
+          "description": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trigger",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster has its shield raised and takes damage from a physical attack."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Effect",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The monster snaps its shield into place to deflect a blow. The shield prevents the monster from taking an amount of damage up to the shield's Hardness. The monster and the shield each take any remaining damage, possibly breaking or destroying the shield."
+                }
+              ]
+            }
+          ],
+          "rules": []
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Divine Focus Spells",
+          "tradition": "divine",
+          "preparation": "focus",
+          "dc": 19,
+          "attack": 11,
+          "spells": [
+            {
+              "spell": "63af3503-b13d-5e5f-9c69-ab215b1ca711",
+              "rank": 1
+            },
+            {
+              "spell": "86a57df8-744c-52ca-b4a3-a66542dfce68",
+              "rank": 1
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "item": "7b6af176-5515-58b8-8072-9f8f3f5e918f"
+        },
+        {
+          "item": "e38c39d9-c59f-5dd5-9739-8a3b9b5a3eba"
+        },
+        {
+          "item": "9c6b3db9-466d-5f41-94de-a389dd76350f"
+        },
+        {
+          "item": "25f6cde4-3c35-515a-b41b-0a634380ca7f"
+        },
+        {
+          "item": "a281f8a7-40ba-5555-9267-ec1d8b012961",
+          "quantity": 20
+        }
+      ]
+    }
+  }
+]

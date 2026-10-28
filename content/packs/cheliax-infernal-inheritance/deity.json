@@ -195,8 +195,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=735",
-        "page": 50
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=735"
       }
     ],
     "description": [
@@ -340,8 +340,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=733",
-        "page": 49
+        "page": 49,
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=733"
       }
     ],
     "description": [
@@ -489,8 +489,8 @@
       {
         "kind": "book",
         "book": "cheliax-infernal-inheritance",
-        "aon": "https://2e.aonprd.com/Deities.aspx?ID=734",
-        "page": 49
+        "page": 49,
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=734"
       }
     ],
     "description": [

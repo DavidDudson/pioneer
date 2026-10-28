@@ -115,8 +115,8 @@
       {
         "kind": "book",
         "book": "npc-core",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3590",
-        "page": 107
+        "page": 107,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3590"
       }
     ],
     "description": [
@@ -267,8 +267,8 @@
       {
         "kind": "book",
         "book": "npc-core",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3584",
-        "page": 59
+        "page": 59,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3584"
       }
     ],
     "description": [

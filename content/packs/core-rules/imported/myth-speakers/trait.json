@@ -1,0 +1,42 @@
+[
+  {
+    "id": "7f89daf4-cbc0-51d6-a6d2-197b12f5f931",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:gigas",
+    "name": "Gigas",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  },
+  {
+    "id": "41897144-e485-5e3e-acfb-a09bc0e385df",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:stheno",
+    "name": "Stheno",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["ancestry", "creature", "heritage"]
+    }
+  }
+]

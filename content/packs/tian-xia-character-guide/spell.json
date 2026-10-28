@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2134",
-        "page": 112
+        "page": 112,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2134"
       }
     ],
     "description": [
@@ -116,8 +116,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2132",
-        "page": 95
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2132"
       }
     ],
     "description": [
@@ -204,8 +204,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2133",
-        "page": 95
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2133"
       }
     ],
     "description": [
@@ -563,8 +563,8 @@
       {
         "kind": "book",
         "book": "tian-xia-character-guide",
-        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2135",
-        "page": 112
+        "page": 112,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2135"
       }
     ],
     "description": [

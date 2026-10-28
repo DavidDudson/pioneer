@@ -11,8 +11,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Classes.aspx?ID=23",
-        "page": 13
+        "page": 13,
+        "aon": "https://2e.aonprd.com/Classes.aspx?ID=23"
       }
     ],
     "description": [
@@ -202,6 +202,15 @@
       {
         "key": "GrantItem",
         "item": "8985d83b-75be-538c-8d01-824287acf38d",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "ffa82ea1-1d92-58b0-b19c-ae3e23446328",
         "predicate": [
           {
             "gte": ["self:level", 13]

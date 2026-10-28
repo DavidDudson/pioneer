@@ -12,8 +12,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2636",
-        "page": 200
+        "page": 200,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2636"
       }
     ],
     "description": [
@@ -89,6 +89,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -108,8 +111,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2636",
-        "page": 200
+        "page": 200,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2636"
       }
     ],
     "description": [
@@ -185,6 +188,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -204,8 +210,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2636",
-        "page": 200
+        "page": 200,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2636"
       }
     ],
     "description": [
@@ -281,6 +287,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -300,8 +309,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2577",
-        "page": 74
+        "page": 74,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2577"
       }
     ],
     "description": [
@@ -411,6 +420,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "a6a2d2a5-623d-5e4b-bcc1-edca8bcc6255",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -430,8 +443,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2637",
-        "page": 200
+        "page": 200,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2637"
       }
     ],
     "description": [
@@ -535,6 +548,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -554,8 +570,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2625",
-        "page": 176
+        "page": 176,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2625"
       }
     ],
     "description": [
@@ -671,6 +687,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "reaction"
+      },
       "usage": {
         "type": "affixed",
         "to": "melee-weapon"
@@ -690,8 +709,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2602",
-        "page": 122
+        "page": 122,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2602"
       }
     ],
     "description": [
@@ -739,6 +758,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -758,8 +780,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2639",
-        "page": 200
+        "page": 200,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2639"
       }
     ],
     "description": [
@@ -949,6 +971,9 @@
       },
       "bulk": 1,
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -968,8 +993,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2588",
-        "page": 98
+        "page": 98,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2588"
       }
     ],
     "description": [
@@ -1046,6 +1071,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -1065,8 +1093,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2653",
-        "page": 224
+        "page": 224,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2653"
       }
     ],
     "description": [
@@ -1133,6 +1161,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1152,8 +1183,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2653",
-        "page": 224
+        "page": 224,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2653"
       }
     ],
     "description": [
@@ -1220,6 +1251,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1239,8 +1273,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2653",
-        "page": 224
+        "page": 224,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2653"
       }
     ],
     "description": [
@@ -1307,6 +1341,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1326,8 +1363,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2589",
-        "page": 98
+        "page": 98,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2589"
       }
     ],
     "description": [
@@ -1461,6 +1498,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "two"
@@ -1480,8 +1520,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2613",
-        "page": 146
+        "page": 146,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2613"
       }
     ],
     "description": [
@@ -1560,6 +1600,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "medium-heavy-metal-armor"
@@ -1579,8 +1622,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2613",
-        "page": 146
+        "page": 146,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2613"
       }
     ],
     "description": [
@@ -1659,6 +1702,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "medium-heavy-metal-armor"
@@ -1678,8 +1724,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2613",
-        "page": 146
+        "page": 146,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2613"
       }
     ],
     "description": [
@@ -1758,6 +1804,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "free"
+      },
       "usage": {
         "type": "affixed",
         "to": "medium-heavy-metal-armor"
@@ -1777,8 +1826,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2581",
-        "page": 75
+        "page": 75,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2581"
       }
     ],
     "description": [
@@ -1854,6 +1903,7 @@
       },
       "bulk": "light",
       "category": "other",
+      "effect": "3f226a27-8119-529f-9ee6-d11f059c6353",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1873,8 +1923,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2641",
-        "page": 201
+        "page": 201,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2641"
       }
     ],
     "description": [
@@ -2015,6 +2065,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "199912f5-432d-52b3-b8ad-9a5c677b28ab",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2034,8 +2088,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2583",
-        "page": 75
+        "page": 75,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2583"
       }
     ],
     "description": [
@@ -2156,6 +2210,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "7566aae8-6191-5501-ace3-8b0b155f470c",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2175,8 +2233,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2630",
-        "page": 178
+        "page": 178,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2630"
       }
     ],
     "description": [
@@ -2363,6 +2421,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2382,8 +2443,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2630",
-        "page": 178
+        "page": 178,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2630"
       }
     ],
     "description": [
@@ -2570,6 +2631,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2589,8 +2653,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2630",
-        "page": 178
+        "page": 178,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2630"
       }
     ],
     "description": [
@@ -2777,6 +2841,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2796,8 +2863,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2594",
-        "page": 100
+        "page": 100,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2594"
       }
     ],
     "description": [
@@ -2897,6 +2964,10 @@
       },
       "bulk": "light",
       "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "9efa307c-04be-5f3e-9953-1daf167fcaa5",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2916,8 +2987,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2585",
-        "page": 76
+        "page": 76,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2585"
       }
     ],
     "description": [
@@ -3003,6 +3074,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3022,8 +3096,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2585",
-        "page": 76
+        "page": 76,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2585"
       }
     ],
     "description": [
@@ -3110,6 +3184,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "d851f1b7-6da1-5a11-b0e1-b91d18e4a60b",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3129,8 +3207,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2585",
-        "page": 76
+        "page": 76,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2585"
       }
     ],
     "description": [
@@ -3235,6 +3313,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3254,8 +3335,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2585",
-        "page": 76
+        "page": 76,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2585"
       }
     ],
     "description": [
@@ -3360,6 +3441,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3379,8 +3463,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2585",
-        "page": 76
+        "page": 76,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2585"
       }
     ],
     "description": [
@@ -3467,6 +3551,10 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "80d209ef-b245-5651-9c11-accfb1e2e32a",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3486,8 +3574,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2597",
-        "page": 100
+        "page": 100,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2597"
       }
     ],
     "description": [
@@ -3570,6 +3658,9 @@
       },
       "bulk": "light",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3589,8 +3680,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2586",
-        "page": 76
+        "page": 76,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2586"
       }
     ],
     "description": [
@@ -3698,6 +3789,7 @@
       },
       "bulk": "light",
       "category": "other",
+      "effect": "d46aed2b-3fc7-5c2b-85b7-5adbbe508e16",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3717,8 +3809,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2647",
-        "page": 202
+        "page": 202,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2647"
       }
     ],
     "description": [
@@ -3778,6 +3870,9 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3797,8 +3892,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2611",
-        "page": 125
+        "page": 125,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2611"
       }
     ],
     "description": [
@@ -3882,6 +3977,10 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "810f11fe-c325-5e27-bc52-026c872a2f11",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3901,8 +4000,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2649",
-        "page": 203
+        "page": 203,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2649"
       }
     ],
     "description": [
@@ -4052,6 +4151,10 @@
       },
       "bulk": "negligible",
       "category": "other",
+      "activation": {
+        "cost": "two"
+      },
+      "effect": "f649ff93-0f4c-56fb-8089-f364f6f1fd80",
       "damage": {
         "formula": "4d8+10",
         "kind": "healing"
@@ -4075,8 +4178,8 @@
       {
         "kind": "book",
         "book": "rage-of-elements",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2598",
-        "page": 100
+        "page": 100,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2598"
       }
     ],
     "description": [

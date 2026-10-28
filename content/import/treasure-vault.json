@@ -6100,18 +6100,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:dullahan-codex",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.1wrRaLsT6nuz8gj6",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder War of Immortals"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:eidolon-cape",
       "foundry": "Compendium.pf2e.equipment-srd.Item.nxAMYJrG96yn9iBq",
       "gaps": [
@@ -6784,18 +6772,6 @@
             "type": "circumstance",
             "value": -4
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:starfaring-cloak",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.oPZ2s4KmwaNXiUcc",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder War of Immortals"
         }
       ]
     },

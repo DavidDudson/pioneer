@@ -706,8 +706,8 @@
       {
         "kind": "book",
         "book": "myth-speakers",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3993",
-        "page": 82
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3993"
       }
     ],
     "description": [

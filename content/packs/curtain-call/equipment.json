@@ -341,8 +341,8 @@
       {
         "kind": "book",
         "book": "curtain-call",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3632",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3632"
       }
     ],
     "description": [
@@ -1682,8 +1682,8 @@
       {
         "kind": "book",
         "book": "curtain-call",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3633",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3633"
       }
     ],
     "description": [
@@ -1938,8 +1938,8 @@
       {
         "kind": "book",
         "book": "curtain-call",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3630",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3630"
       }
     ],
     "description": [
@@ -3045,8 +3045,8 @@
       {
         "kind": "book",
         "book": "curtain-call",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3631",
-        "page": 80
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3631"
       }
     ],
     "description": [
@@ -3161,8 +3161,8 @@
       {
         "kind": "book",
         "book": "curtain-call",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3634",
-        "page": 81
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3634"
       }
     ],
     "description": [
@@ -3413,8 +3413,8 @@
       {
         "kind": "book",
         "book": "curtain-call",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3635",
-        "page": 81
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3635"
       }
     ],
     "description": [

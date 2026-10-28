@@ -90,6 +90,24 @@
     "data": {}
   },
   {
+    "id": "2f20da4d-484b-5f8d-9926-3b33c3457aaf",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:lashunta",
+    "name": "Lashunta",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
     "id": "c199caf1-3728-5535-95aa-02230f9a51fc",
     "pack": "core-rules",
     "kind": "language",

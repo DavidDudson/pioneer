@@ -1,0 +1,20 @@
+[
+  {
+    "id": "be082443-4bea-562b-8bd1-209767ecfa1a",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:hwan",
+    "name": "Hwan",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "season-of-ghosts"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

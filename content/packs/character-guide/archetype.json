@@ -11,8 +11,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=24",
-        "page": 74
+        "page": 74,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=24"
       }
     ],
     "description": [
@@ -63,8 +63,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=30",
-        "page": 104
+        "page": 104,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=30"
       }
     ],
     "description": [
@@ -115,8 +115,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=28",
-        "page": 95
+        "page": 95,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=28"
       }
     ],
     "description": [
@@ -167,8 +167,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=27",
-        "page": 94
+        "page": 94,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=27"
       }
     ],
     "description": [
@@ -229,8 +229,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=29",
-        "page": 101
+        "page": 101,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=29"
       }
     ],
     "description": [
@@ -281,8 +281,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=31",
-        "page": 113
+        "page": 113,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=31"
       }
     ],
     "description": [
@@ -333,8 +333,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=32",
-        "page": 114
+        "page": 114,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=32"
       }
     ],
     "description": [
@@ -385,8 +385,8 @@
       {
         "kind": "book",
         "book": "character-guide",
-        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=33",
-        "page": 115
+        "page": 115,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=33"
       }
     ],
     "description": [
