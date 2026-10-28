@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages, SelectField } from '@pioneer/frontier';
+import { frontierMessages } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
 import { AccountPreferences, SessionStore } from '@pioneer/identity/data-access';
 import { DistanceUnit, Locale } from '@pioneer/shared/kernel';
 import { ApiClient, PREFERENCE_STORAGE, provideI18n } from '@pioneer/shared/web';
@@ -91,7 +92,7 @@ describe('SettingsPage', () => {
     await vi.waitFor(() => {
       expect(page.querySelector('fr-segmented-field')?.textContent).toContain('Could not save that to your account.');
     });
-    expect([...page.querySelectorAll('fr-select-field')].map((field) => field.textContent)).not.toContain(
+    expect([...page.querySelectorAll('fr-picker-field')].map((field) => field.textContent)).not.toContain(
       expect.stringContaining('Could not save'),
     );
   });
@@ -102,7 +103,7 @@ describe('SettingsPage', () => {
       expect(root(harness).textContent).toContain('Rules language');
     });
     const [ui, content] = harness.fixture.debugElement.queryAll(
-      (each) => each.componentInstance instanceof SelectField,
+      (each) => each.componentInstance instanceof PickerField,
     );
     // English is the only locale, so no pick in the DOM changes the value; fire each field's output instead.
     ui?.triggerEventHandler('valueChange', Locale.English);
