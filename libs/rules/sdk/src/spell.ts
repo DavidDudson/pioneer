@@ -2,7 +2,7 @@ import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { Slug } from './content-id';
+import { ContentId, Slug } from './content-id';
 import { ContentText } from './content-text';
 import { DamageTypeSchema } from './damage';
 import { DamageFormula, SpellDamageFormula } from './damage-formula';
@@ -23,6 +23,7 @@ export type DamageKind = ValueOf<typeof DamageKind>;
 const DAMAGE_KINDS = Object.keys(DamageKind).length;
 const DAMAGE_PARTS_MAX = 8;
 const MATERIALS_MAX = 4;
+const EFFECTS_MAX = 16;
 
 /** Names a damage part so heightening can add to it (Foundry pf2e's damage record key, `0`). */
 const DamagePartKey = Slug.brand<'DamagePartKey'>();
@@ -238,6 +239,8 @@ export const SpellData = z
     dismissNote: RichText.optional(),
     /** It counteracts (Dispel Magic). */
     counteraction: z.boolean().optional(),
+    /** The effects casting it can put on the caster, one per form it offers (Animal Form has one for each animal), so casting can offer the forms. */
+    effects: z.array(ContentId).min(1).max(EFFECTS_MAX).readonly().check(uniqueItems).optional(),
   })
   .check((context) => {
     checkIncreases(context);

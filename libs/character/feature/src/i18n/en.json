@@ -506,6 +506,10 @@
       "fromGm": "From the GM",
       "remaining": "{count, plural, one {# round left} other {# rounds left}}"
     },
+    "formPreview": {
+      "feet": "{value} feet",
+      "tempHp": "Temporary Hit Points"
+    },
     "counted": {
       "slot": "{source} rank {rank} slots",
       "poolSlot": "{source} {pool} rank {rank} slots",

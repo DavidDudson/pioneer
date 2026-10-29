@@ -1,9 +1,12 @@
-import { computed, inject, Injectable } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import type { Provider } from '@angular/core';
 import {
   abilityFrequencies,
   abilityUseKey,
+  EffectCommandField,
+  EffectInstanceId,
   PlayCommandField,
+  SELF,
   SlotCountKey,
   SpendCount,
   SpendId,
@@ -11,8 +14,8 @@ import {
   UseCountKey,
 } from '@pioneer/character/domain';
 import type { SpellSpend, SpendCommand, SpendCost, SpendRequest, TurnState } from '@pioneer/character/domain';
-import { ActionCost, ContentKind } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import { ActionCost } from '@pioneer/rules/sdk';
+import type { ContentId, ContentKind, ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
 import { ActionUser } from '@pioneer/rules/ui';
 import type { ActionUse, UsePayment } from '@pioneer/rules/ui';
 import { newId } from '@pioneer/shared/kernel';
@@ -21,10 +24,12 @@ import { injectContentRegistry } from '../data/content-registry-query';
 import { PlayStore } from '../data/play-store';
 import { ACTION_CONTENT_KINDS, makesAttack, spendCostOf } from './sheet-actions';
 import { sustainedCast } from './sheet-active-list';
+import { formCastOf, FORM_CAST_CONTENT_KINDS } from './sheet-form-cast';
+import type { FormCast, FormCastChoice } from './sheet-form-cast';
 import { raisedEdit, shieldIds } from './sheet-shields';
 
-/** What a spend reads: the actions, and the spells a sustained cast starts an active spell from. */
-const SPENDER_CONTENT_KINDS: readonly ContentKind[] = [...ACTION_CONTENT_KINDS, ContentKind.Spell];
+/** What a spend reads: the actions, the spells a sustained cast starts an active spell from, and the effects of a form cast. */
+const SPENDER_CONTENT_KINDS: readonly ContentKind[] = [...ACTION_CONTENT_KINDS, ...FORM_CAST_CONTENT_KINDS];
 
 /** The cost of Sustain and of the Dismiss action: one action. */
 const ONE_ACTION: SpendCost = { kind: SpendKind.Actions, count: SpendCount.parse(1) };
@@ -85,7 +90,58 @@ export class SheetSpender extends ActionUser {
   /** The turn as the play state has it; undefined while that loads. */
   public readonly turn = computed((): TurnState | undefined => this.#play.play.data()?.play.turn);
 
+  /** The cast of a battle form spell waiting for its form to be picked; nothing is spent until it is. */
+  public readonly pendingForm = signal<FormCast | undefined>(undefined);
+
   public override async use(request: ActionUse): Promise<void> {
+    const registry = this.#registry.data();
+    const cast = registry === undefined ? undefined : formCastOf(registry, request);
+    if (cast !== undefined) {
+      this.pendingForm.set(cast);
+      return;
+    }
+    await this.#spend(request);
+  }
+
+  /** Whether the pending cast is being spent and applied, which can no longer be given up. */
+  public readonly casting = signal(false);
+
+  /** Gives up the pending form cast, which spent nothing; a cast being spent is left to finish. */
+  public cancelForm(): void {
+    if (!this.casting()) {
+      this.pendingForm.set(undefined);
+    }
+  }
+
+  /**
+   * Casts the pending spell as one edit pair: the spend, which the server refuses when the turn, the slot or the Focus
+   * Points cannot pay, then the form put on the character, with the temporary Hit Points it gives. The cast stays
+   * pending when the spend is refused.
+   */
+  public async castForm(choice: FormCastChoice, tempHp: HitPoints | undefined): Promise<void> {
+    const cast = this.pendingForm();
+    if (cast === undefined) {
+      return;
+    }
+    this.casting.set(true);
+    try {
+      await this.#spend(cast.request);
+      await this.#play.send({
+        field: EffectCommandField.ApplyEffect,
+        id: EffectInstanceId.parse(newId()),
+        effect: choice.effect,
+        source: SELF,
+        rank: cast.rank,
+        ...(choice.form === undefined ? {} : { form: choice.form }),
+        ...(tempHp === undefined ? {} : { tempHp }),
+      });
+      this.pendingForm.set(undefined);
+    } finally {
+      this.casting.set(false);
+    }
+  }
+
+  async #spend(request: ActionUse): Promise<void> {
     const registry = this.#registry.data();
     const spend = registry === undefined ? undefined : spendOf(registry, request);
     if (spend === undefined) {

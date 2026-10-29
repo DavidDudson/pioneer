@@ -665,7 +665,8 @@
       },
       "traditions": ["arcane", "primal"],
       "damage": [],
-      "dismiss": true
+      "dismiss": true,
+      "effects": ["d30c5c51-b09b-5534-956e-2b486c206c2d"]
     }
   },
   {
@@ -2335,7 +2336,18 @@
       },
       "traditions": ["primal"],
       "damage": [],
-      "dismiss": true
+      "dismiss": true,
+      "effects": [
+        "0864651a-fc5b-52be-99a6-6f40369fa731",
+        "848026fb-0722-5bea-b8de-834d61ed43c4",
+        "da3a2ec6-94e3-51c1-a310-9bf18df26744",
+        "3458261a-2d3a-5f9c-aca7-99d77babb21c",
+        "6e176e05-e3ab-5271-b3b7-b423c6588ab2",
+        "90b7674f-f4f0-5345-a680-7ccc9fb1032e",
+        "48bbaa3c-aef1-56f5-a99f-c5b87bd9f192",
+        "810e2729-7fc9-5db8-bdbf-9ec460d5dbfc",
+        "05b20b04-e1a0-508b-9d8f-5018cb7aa663"
+      ]
     }
   },
   {
@@ -12971,7 +12983,15 @@
       },
       "traditions": ["primal"],
       "damage": [],
-      "dismiss": true
+      "dismiss": true,
+      "effects": [
+        "942c093a-fa61-502b-bcef-f54a166c21f4",
+        "75944d72-2b39-5c73-b59c-045230cf67e4",
+        "f434251f-9c7c-5d5f-a94d-45da7c07fdc9",
+        "7d9252cd-6e9f-53d1-a4de-3188bc0bcee8",
+        "d479a56f-1b30-5a50-8ca5-7b81130a58d5",
+        "762f97ed-8b59-5df2-955e-1d7279c94e0f"
+      ]
     }
   },
   {
@@ -18085,7 +18105,8 @@
       },
       "traditions": ["arcane", "primal"],
       "damage": [],
-      "dismiss": true
+      "dismiss": true,
+      "effects": ["6403730c-6b7c-59a6-a401-44019061cacd"]
     }
   },
   {
@@ -32991,7 +33012,8 @@
       },
       "traditions": ["arcane", "primal"],
       "damage": [],
-      "dismiss": true
+      "dismiss": true,
+      "effects": ["fc636190-3ca4-5f21-9062-f5aed671e532"]
     }
   },
   {
@@ -34033,7 +34055,8 @@
       },
       "traditions": ["primal"],
       "damage": [],
-      "dismiss": true
+      "dismiss": true,
+      "effects": ["74febbfb-7cab-5a0f-b63d-91aceaa5dfde"]
     }
   },
   {
@@ -36671,7 +36694,8 @@
       },
       "traditions": ["arcane", "primal"],
       "damage": [],
-      "dismiss": true
+      "dismiss": true,
+      "effects": ["d31d167b-a23c-57cb-a6b6-709a67e21b1d"]
     }
   },
   {
@@ -38335,7 +38359,8 @@
       },
       "traditions": ["primal"],
       "damage": [],
-      "dismiss": true
+      "dismiss": true,
+      "effects": ["364d6d32-3a80-511d-95b1-952f32748076"]
     }
   },
   {
