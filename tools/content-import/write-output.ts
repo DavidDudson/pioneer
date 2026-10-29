@@ -1,5 +1,5 @@
 /**
- * Writes pack output (`pack-writes.ts` says where): replaces the target pack's entry files and what its earlier runs
+ * Writes pack output (`pack-writes.ts` says where): overwrites the target pack's entry files and replaces what its earlier runs
  * added to `core-rules`, writes the backlog beside the pin, and formats every file with oxfmt so a re-run is a clean
  * diff. The catalog loads pack files through static imports in `json-packs.js`, which the import cannot add, so it
  * names the files to register there and the imports left pointing at files it removed.
@@ -55,15 +55,16 @@ export async function committedEntries({ pack }: PackTargets): Promise<readonly 
   return entries.flat();
 }
 
+/**
+ * Clears what this pack's earlier runs added to the vocabulary pack. The target pack's entry files are overwritten
+ * where the import writes them and left alone where it does not, so a hand-made file (`environment.json`) survives.
+ */
 async function removeReplaced(targets: PackTargets): Promise<void> {
   const directory = path.posix.join(PACKS_DIRECTORY, targets.pack);
   const manifest = await Bun.file(path.join(ROOT, directory, MANIFEST)).exists();
   if (!manifest) {
     throw new Error(`${directory}/${MANIFEST} is missing; commit the pack's manifest first`);
   }
-  const packFileNames = await scan('*.json', directory);
-  const entryFiles = packFileNames.filter((file) => path.posix.basename(file) !== MANIFEST);
-  await Promise.all(entryFiles.map(async (file) => rm(path.join(ROOT, file))));
   await rm(path.join(ROOT, importedDirectory(targets)), { recursive: true, force: true });
 }
 

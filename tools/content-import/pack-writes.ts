@@ -1,6 +1,6 @@
 /**
  * Where pack output goes (ADR-0031, ADR-0033): the target pack's entries in `content/packs/<pack>/<kind>.json`,
- * replacing every entry file there but `pack.json`; the vocabulary it adds to `core-rules` in
+ * overwriting the entry files it writes and leaving any other file there (a hand-made one) alone; the vocabulary it adds to `core-rules` in
  * `content/packs/core-rules/imported/<pack>/<kind>.json`, beside and never into the hand-authored files; and its
  * backlog in `content/import/<pack>.json`, beside its pin. Paths are relative to the repository root.
  */

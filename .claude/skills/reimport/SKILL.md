@@ -6,8 +6,9 @@ argument-hint: '<pack> [book]'
 
 # Re-import a pack and keep the hand additions
 
-`just content-import` replaces `content/packs/<pack>/` whole (ADR-0031). Everything done by hand since the last
-import is gone from the working tree, and the importer cannot tell it was there. The committed JSON is the source
+`just content-import` overwrites the entry files it writes in `content/packs/<pack>/` (ADR-0031) and leaves any other
+file there, such as the hand-made `environment.json`. Everything done by hand since the last import in the files it
+writes is gone from the working tree, and the importer cannot tell it was there. The committed JSON is the source
 of truth, so a re-import is only done as: **import, restore hand additions from HEAD, review the diff, commit.**
 Never commit the raw import.
 
@@ -48,8 +49,9 @@ Never commit the raw import.
 
 ## Adding hand data so the next re-import survives it
 
-The restore only protects `description`, `rules` and keys under `data`. A hand addition anywhere else (a new
-top-level field, a changed `traits`, `level`, `sources`) is lost. Put it under `data`, in a rule, or extend
+The restore only protects `description`, `rules`, traits the import lacks and keys under `data` (a value the import
+left blank comes back too). A hand addition anywhere else (a new top-level field, a changed `level`, `sources`) is
+lost. Put it under `data`, in a rule, or extend
 `tools/content-import/restore-additions.ts` and say so here. Prefer teaching the importer the translation over a
 hand edit when the data comes from Foundry.
 

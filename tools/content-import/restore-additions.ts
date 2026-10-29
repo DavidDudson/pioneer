@@ -4,33 +4,15 @@ import { parseArgs } from 'node:util';
 /**
  * `just content-restore --pack <pack> [--ref HEAD] [--dry-run]`: after a re-import replaced `content/packs/<pack>/`,
  * puts back the hand additions the import cannot know about (ADR-0031: the committed pack is the source of truth).
- * Entries are matched by id against the files at `--ref`, and the merge is per field:
+ * Entries are matched by id against the files at `--ref`; `restore-merge.ts` says what comes back per field.
  *
- * - `description`: the ref wins. Hand edits restore link text, names and typos the import loses or re-breaks.
- * - `rules`: when the ref holds a rule the import lacks, the ref's whole list wins, since a hand-fixed rule and the
- *   import's version of it cannot be told apart per rule. When both hold the same rules, the ref's order is kept.
- * - `data`: a key the ref has and the import dropped (`dismiss`, `modes`, `prerequisitePredicate`, ...) comes back.
- *   Keys the import now sets stay, so its new coverage survives.
- *
- * Everything else is the import's. The report names each restored entry and field; review it, because a field the
- * import now translates better than the ref is also overwritten by "ref wins".
+ * The report names each restored entry and field; review it, because a field the import now translates better than
+ * the ref is also overwritten by "ref wins".
  */
 import { $ } from 'bun';
 
-type Json = Record<string, unknown>;
-
-interface Entry {
-  readonly id: string;
-  readonly name: string;
-  readonly description?: unknown;
-  readonly rules?: unknown;
-  readonly data?: Json;
-}
-
-interface Restored {
-  readonly entry: Entry;
-  readonly fields: readonly string[];
-}
+import { restore } from './restore-merge.ts';
+import type { Entry, Restored } from './restore-merge.ts';
 
 interface FileResult {
   readonly file: string;
@@ -41,43 +23,6 @@ interface FileResult {
 const ROOT = path.resolve(import.meta.dir, '../..');
 
 const same = (left: unknown, right: unknown): boolean => JSON.stringify(left) === JSON.stringify(right);
-
-function ruleSet(rules: unknown): Set<string> {
-  const list = (rules ?? []) as readonly unknown[];
-  return new Set(list.map((rule) => JSON.stringify(rule)));
-}
-
-function mergedRules(committed: Entry, fresh: Entry): Restored {
-  const have = ruleSet(fresh.rules);
-  const held = ruleSet(committed.rules);
-  const lost = [...held].some((rule) => !have.has(rule));
-  const reordered = held.size === have.size && !same(committed.rules, fresh.rules);
-  return {
-    entry: lost || reordered ? { ...fresh, rules: committed.rules } : fresh,
-    fields: lost ? ['rules'] : [],
-  };
-}
-
-function mergedData(committed: Entry, fresh: Entry): Restored {
-  const held = Object.entries(committed.data ?? {});
-  const dropped = held.filter(([key]) => !(key in (fresh.data ?? {})));
-  return {
-    entry: dropped.length > 0 ? { ...fresh, data: { ...fresh.data, ...Object.fromEntries(dropped) } } : fresh,
-    fields: dropped.map(([key]) => `data.${key}`),
-  };
-}
-
-function restore(committed: Entry, fresh: Entry): Restored {
-  const described = same(committed.description, fresh.description)
-    ? fresh
-    : { ...fresh, description: committed.description };
-  const rules = mergedRules(committed, described);
-  const data = mergedData(committed, rules.entry);
-  return {
-    entry: data.entry,
-    fields: [...(described === fresh ? [] : ['description']), ...rules.fields, ...data.fields],
-  };
-}
 
 function reportOf(file: string, committed: readonly Entry[], imported: ReadonlyMap<unknown, Restored>): string[] {
   const name = path.basename(file);
@@ -90,22 +35,28 @@ function reportOf(file: string, committed: readonly Entry[], imported: ReadonlyM
   });
 }
 
-async function restoreFile(file: string, ref: string): Promise<FileResult> {
-  const target = Bun.file(path.join(ROOT, file));
-  const fileExists = await target.exists();
-  if (!fileExists) {
-    return { file, report: [], merged: undefined };
-  }
-  const refText = await $`git show ${ref}:${file}`.cwd(ROOT).text();
-  const committed = JSON.parse(refText) as Entry[];
-  const imported = JSON.parse(await target.text()) as Entry[];
+/** Each committed entry the import also holds, restored, by id. */
+function restoredBy(committed: readonly Entry[], imported: readonly Entry[]): ReadonlyMap<string, Restored> {
   const byId = new Map(imported.map((entry) => [entry.id, entry]));
-  const restored = new Map(
+  return new Map(
     committed.flatMap((old) => {
       const incoming = byId.get(old.id);
       return incoming === undefined ? [] : [[old.id, restore(old, incoming)] as const];
     }),
   );
+}
+
+async function restoreFile(file: string, ref: string): Promise<FileResult> {
+  const target = Bun.file(path.join(ROOT, file));
+  const fileExists = await target.exists();
+  const refText = await $`git show ${ref}:${file}`.cwd(ROOT).text();
+  const committed = JSON.parse(refText) as Entry[];
+  if (!fileExists) {
+    const report = [`${path.basename(file)}  WHOLE FILE (the import did not write it, the ref has it)`];
+    return { file, report, merged: committed };
+  }
+  const imported = JSON.parse(await target.text()) as Entry[];
+  const restored = restoredBy(committed, imported);
   const merged = imported.map((entry) => restored.get(entry.id)?.entry ?? entry);
   const changed = merged.some((entry, index) => !same(entry, imported[index]));
   return { file, report: reportOf(file, committed, restored), merged: changed ? merged : undefined };
