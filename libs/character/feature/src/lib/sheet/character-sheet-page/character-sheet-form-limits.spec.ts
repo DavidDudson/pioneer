@@ -36,7 +36,7 @@ function section(root: HTMLElement, anchor: string): HTMLElement {
   return present(root.querySelector<HTMLElement>(`section[aria-labelledby="${anchor}"]`));
 }
 
-/** The actions list renders after the spellcasting section, which a loaded runner can take longer than a second over. */
+/** Both sections render asynchronously, and a loaded runner can take longer than waitFor's one second default. */
 const SLOW_RENDER = 10_000;
 
 describe('CharacterSheetPage form limits', () => {
@@ -47,9 +47,14 @@ describe('CharacterSheetPage form limits', () => {
   it('says in the spellcasting section that the form forbids casting', async () => {
     const { root } = await openSheet(CLERIC, { tab: SheetMode.Encounter, play: plant, packs: PACKS });
 
-    await vi.waitFor(() => {
-      expect(textOf(section(root, 'sheet-spellcasting'))).toContain("Spell Effect: Plant Form: you can't cast spells.");
-    });
+    await vi.waitFor(
+      () => {
+        expect(textOf(section(root, 'sheet-spellcasting'))).toContain(
+          "Spell Effect: Plant Form: you can't cast spells.",
+        );
+      },
+      { timeout: SLOW_RENDER },
+    );
   });
 
   it('gives the Cast a Spell action the form as the reason it is unavailable', async () => {
@@ -77,9 +82,13 @@ describe('CharacterSheetPage form limits', () => {
   it('says nothing of casting in a form that lets the character cast', async () => {
     const { root } = await openSheet(CLERIC, { tab: SheetMode.Encounter, play: humanoid, packs: PACKS });
 
-    await vi.waitFor(() => {
-      expect(textOf(section(root, 'sheet-spellcasting')).length).toBeGreaterThan(0);
-    });
+    await vi.waitFor(
+      () => {
+        expect(textOf(section(root, 'sheet-spellcasting')).length).toBeGreaterThan(0);
+        expect(textOf(section(root, 'sheet-actions')).length).toBeGreaterThan(0);
+      },
+      { timeout: SLOW_RENDER },
+    );
     expect(textOf(section(root, 'sheet-spellcasting'))).not.toContain("you can't cast spells");
     expect(textOf(section(root, 'sheet-actions'))).not.toContain("Can't cast spells in");
   });
