@@ -22,7 +22,7 @@ import type { SheetFeats } from './sheet-feats';
 
 const FIGHTER = ['fighter'];
 const FEAT_PACKS = cutTo(FEAT_CONTENT_KINDS);
-const FIGHTER_FEAT_1 = `${playerCoreClassId('fighter')}:27`;
+const FIGHTER_FEAT_1 = `${playerCoreClassId('fighter')}:31`;
 
 const prerequisites = (text: string): object[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
@@ -54,8 +54,8 @@ const GATED_FEATS: PackContentsLoader = {
 };
 
 /** The fighter's 2nd- and 4th-level class feat slots: the class and the rule index of each `ChoiceSet`. */
-const FIGHTER_FEAT_2 = `${playerCoreClassId('fighter')}:29`;
-const FIGHTER_FEAT_4 = `${playerCoreClassId('fighter')}:31`;
+const FIGHTER_FEAT_2 = `${playerCoreClassId('fighter')}:33`;
+const FIGHTER_FEAT_4 = `${playerCoreClassId('fighter')}:35`;
 
 /** A fighter at `level`. */
 function fighterAt(level: number): Character {

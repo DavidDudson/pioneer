@@ -116,7 +116,7 @@ describe('granted repertoire spells in Player Core 2', () => {
       feature: 'mystery',
       pick: 'flames',
       level: 11,
-      extra: { [`${idOf('class-feature:flames')}:4`]: sarenrae },
+      extra: { [`${idOf('class-feature:flames')}:8`]: sarenrae },
     };
     const document = character(flames);
     const slots = preparedSlots(document, preparedReads(document, contentOf())).filter((slot) => slot.deitySpell);
