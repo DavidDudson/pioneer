@@ -1045,7 +1045,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=384"
       }
     ],
     "description": [
@@ -1110,7 +1112,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 92,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7020"
       }
     ],
     "description": [
@@ -1507,7 +1511,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 94,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7033"
       }
     ],
     "description": [
@@ -1689,7 +1695,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=398"
       }
     ],
     "description": [
@@ -1782,7 +1790,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-character-guide"
+        "book": "tian-xia-character-guide",
+        "page": 55,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=389"
       }
     ],
     "description": [

@@ -9,6 +9,11 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2292",
     "page": 416
   },
+  "action:anchor": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4500",
+    "page": 68
+  },
   "action:arrest-a-fall": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2308",
@@ -499,10 +504,20 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2382",
     "page": 236
   },
+  "action:true-shapeshift": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4767",
+    "page": 135
+  },
   "action:tumble-through": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2370",
     "page": 233
+  },
+  "action:verdant-rest": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4758",
+    "page": 135
   },
   "archetype:bard": {
     "book": "player-core",

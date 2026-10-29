@@ -200,7 +200,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 48,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=4313"
       }
     ],
     "description": [
@@ -1261,7 +1263,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 22,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=4190"
       }
     ],
     "description": [

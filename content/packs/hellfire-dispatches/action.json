@@ -306,7 +306,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "page": 34,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8848"
       }
     ],
     "description": [
@@ -400,7 +402,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hellfire-dispatches"
+        "book": "hellfire-dispatches",
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8817"
       }
     ],
     "description": [

@@ -331,7 +331,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 75,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8150"
       }
     ],
     "description": [

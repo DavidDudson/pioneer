@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "claws-of-the-tyrant"
+        "book": "claws-of-the-tyrant",
+        "page": 113,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7759"
       }
     ],
     "description": [

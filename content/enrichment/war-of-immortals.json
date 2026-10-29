@@ -1,4 +1,9 @@
 {
+  "action:a-challenge-for-heroes": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7185",
+    "page": 41
+  },
   "action:a-moment-unending": {
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3013",
@@ -14,20 +19,50 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3024",
     "page": 46
   },
+  "action:bless-ally": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7331",
+    "page": 115
+  },
+  "action:blinding-of-the-needle": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7163",
+    "page": 36
+  },
   "action:break-free": {
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3009",
     "page": 43
+  },
+  "action:break-the-suns-legs": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7191",
+    "page": 42
+  },
+  "action:burn-out-of-time": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7189",
+    "page": 42
   },
   "action:captivating-charm": {
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3012",
     "page": 44
   },
+  "action:coiling-serpents": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7164",
+    "page": 36
+  },
   "action:crash-against-me": {
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3023",
     "page": 46
+  },
+  "action:drain-realm": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7323",
+    "page": 111
   },
   "action:drink-of-my-foes": {
     "book": "war-of-immortals",
@@ -39,6 +74,11 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3011",
     "page": 44
   },
+  "action:enter-seat-of-power": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7326",
+    "page": 112
+  },
   "action:feed-the-masses": {
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3016",
@@ -49,10 +89,25 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3015",
     "page": 44
   },
+  "action:find-fault": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7197",
+    "page": 53
+  },
+  "action:fleeting-arc-through-heaven-and-earth": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7190",
+    "page": 42
+  },
   "action:flowing-spirit-strike": {
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3014",
     "page": 44
+  },
+  "action:flyby-attack": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7333",
+    "page": 115
   },
   "action:fracture-mountains": {
     "book": "war-of-immortals",
@@ -69,15 +124,40 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3065",
     "page": 60
   },
+  "action:heaven-rains-an-ending": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7182",
+    "page": 40
+  },
+  "action:heavy-is-the-crown": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7183",
+    "page": 40
+  },
+  "action:intercession-spell": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7402",
+    "page": 133
+  },
   "action:liars-hidden-blade": {
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3022",
     "page": 45
   },
+  "action:manifest-realm": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7320",
+    "page": 110
+  },
   "action:marathon-dash": {
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3026",
     "page": 46
+  },
+  "action:mark-the-center": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7171",
+    "page": 38
   },
   "action:no-scar-but-this": {
     "book": "war-of-immortals",
@@ -88,6 +168,21 @@
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3029",
     "page": 47
+  },
+  "action:only-you-and-i": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7181",
+    "page": 40
+  },
+  "action:plant-thirty-barbs": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7188",
+    "page": 41
+  },
+  "action:race-the-skies": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7174",
+    "page": 38
   },
   "action:raise-the-walls": {
     "book": "war-of-immortals",
@@ -104,10 +199,50 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2983",
     "page": 78
   },
+  "action:ringing-challenge": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7162",
+    "page": 36
+  },
+  "action:royal-grace": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7403",
+    "page": 135
+  },
+  "action:sever-four-dragonfly-wings": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7166",
+    "page": 37
+  },
+  "action:shed-the-mortal-skin": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7184",
+    "page": 41
+  },
   "action:shift-immanence": {
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3030",
     "page": 25
+  },
+  "action:skirt-the-underworld": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7186",
+    "page": 41
+  },
+  "action:spasm-of-the-berserker": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7179",
+    "page": 39
+  },
+  "action:speed-of-arms": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7386",
+    "page": 128
+  },
+  "action:spread-realm": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7323",
+    "page": 111
   },
   "action:strike-breathe-rend": {
     "book": "war-of-immortals",
@@ -118,6 +253,21 @@
     "book": "war-of-immortals",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3020",
     "page": 45
+  },
+  "action:topple-the-pillar-of-heaven": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7176",
+    "page": 39
+  },
+  "action:ultimatum-of-liberation": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7357",
+    "page": 123
+  },
+  "action:unleash-realm": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7323",
+    "page": 111
   },
   "archetype:animist": {
     "book": "war-of-immortals",

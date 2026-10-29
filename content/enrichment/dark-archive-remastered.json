@@ -1,18 +1,48 @@
 {
+  "action:accept-echo": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8405",
+    "page": 55
+  },
   "action:amulets-abeyance": {
     "book": "dark-archive-remastered",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3548",
     "page": 36
+  },
+  "action:assume-a-role": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8448",
+    "page": 126
   },
   "action:calculate-threats": {
     "book": "dark-archive-remastered",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3541",
     "page": 16
   },
+  "action:daydream-trance": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8515",
+    "page": 206
+  },
+  "action:dragon-breath": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8466",
+    "page": 166
+  },
   "action:drink-from-the-chalice": {
     "book": "dark-archive-remastered",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3550",
     "page": 37
+  },
+  "action:empty-vessel": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8433",
+    "page": 120
+  },
+  "action:entitys-resurgence": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8456",
+    "page": 140
   },
   "action:expel-maelstrom": {
     "book": "dark-archive-remastered",
@@ -34,6 +64,11 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3554",
     "page": 41
   },
+  "action:glimpse-vulnerability": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8398",
+    "page": 49
+  },
   "action:implements-interruption": {
     "book": "dark-archive-remastered",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3555",
@@ -44,15 +79,30 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3547",
     "page": 35
   },
+  "action:mirror-trickery": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8434",
+    "page": 120
+  },
   "action:mirrors-reflection": {
     "book": "dark-archive-remastered",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3553",
     "page": 39
   },
+  "action:objection": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8404",
+    "page": 55
+  },
   "action:psychic-defense": {
     "book": "dark-archive-remastered",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3557",
     "page": 201
+  },
+  "action:psychometric-assessment": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8431",
+    "page": 79
   },
   "action:recall-the-teachings": {
     "book": "dark-archive-remastered",
@@ -73,6 +123,11 @@
     "book": "dark-archive-remastered",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3549",
     "page": 37
+  },
+  "action:set-free": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8407",
+    "page": 56
   },
   "action:unleash-psyche": {
     "book": "dark-archive-remastered",

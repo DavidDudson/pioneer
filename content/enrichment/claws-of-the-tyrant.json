@@ -1,4 +1,9 @@
 {
+  "action:spirit-sanctification": {
+    "book": "claws-of-the-tyrant",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7759",
+    "page": 113
+  },
   "creature:chained-norn": {
     "book": "claws-of-the-tyrant",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3849",

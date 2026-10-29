@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 96,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=9338"
       }
     ],
     "description": [
@@ -1871,7 +1873,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 96,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=9338"
       }
     ],
     "description": [
@@ -1954,7 +1958,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 104,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=9363"
       }
     ],
     "description": [
@@ -2165,7 +2171,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 106,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=9376"
       }
     ],
     "description": [
@@ -2441,7 +2449,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 102,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=9355"
       }
     ],
     "description": [
@@ -2508,7 +2518,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=9301"
       }
     ],
     "description": [

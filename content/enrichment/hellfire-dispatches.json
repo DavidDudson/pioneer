@@ -9,6 +9,16 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3758",
     "page": 109
   },
+  "action:size-up": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8848",
+    "page": 34
+  },
+  "action:warding-shift": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8817",
+    "page": 25
+  },
   "archetype:golden-legionnaire": {
     "book": "hellfire-dispatches",
     "page": 32,

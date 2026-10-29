@@ -49,7 +49,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=245"
       }
     ],
     "description": [
@@ -142,7 +144,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 194,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=2963"
       }
     ],
     "description": [
@@ -582,7 +586,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 30,
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=240"
       }
     ],
     "description": [
@@ -658,7 +664,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 194,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=2963"
       }
     ],
     "description": [
@@ -1040,7 +1048,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 30,
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=241"
       }
     ],
     "description": [

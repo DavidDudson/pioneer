@@ -39,10 +39,35 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2936",
     "page": 12
   },
+  "action:nudging-whisper": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=384",
+    "page": 50
+  },
+  "action:overwhelming-combination": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7020",
+    "page": 92
+  },
   "action:path-of-the-tempest": {
     "book": "tian-xia-character-guide",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2911",
     "page": 116
+  },
+  "action:starlit-transformation": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7033",
+    "page": 94
+  },
+  "action:tactical-retreat": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=398",
+    "page": 66
+  },
+  "action:tap-the-past": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=389",
+    "page": 55
   },
   "ancestry:samsaran": {
     "book": "tian-xia-character-guide",

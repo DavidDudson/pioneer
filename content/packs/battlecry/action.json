@@ -852,7 +852,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 65,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7958"
       }
     ],
     "description": [
@@ -1077,7 +1079,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 60,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7932"
       }
     ],
     "description": [
@@ -1217,7 +1221,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7913"
       }
     ],
     "description": [
@@ -2133,7 +2139,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7964"
       }
     ],
     "description": [
@@ -3778,7 +3786,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 58,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7922"
       }
     ],
     "description": [

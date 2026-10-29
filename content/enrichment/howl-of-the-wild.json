@@ -1,4 +1,79 @@
 {
+  "action:administer-ambient-magic": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5452",
+    "page": 70
+  },
+  "action:bite-and-sting": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5463",
+    "page": 72
+  },
+  "action:claw-stance": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5436",
+    "page": 68
+  },
+  "action:dampening-harmonics": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=311",
+    "page": 49
+  },
+  "action:dazzle-seeker": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=286",
+    "page": 18
+  },
+  "action:death-drone": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5472",
+    "page": 73
+  },
+  "action:devour-ambient-magic": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5460",
+    "page": 71
+  },
+  "action:drape-ambient-magic": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5455",
+    "page": 70
+  },
+  "action:i-defy-you": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5336",
+    "page": 33
+  },
+  "action:lantern-beam": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=312",
+    "page": 49
+  },
+  "action:lantern-strobe": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=312",
+    "page": 49
+  },
+  "action:raise-slabs": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=307",
+    "page": 42
+  },
+  "action:repel-ambient-magic": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5451",
+    "page": 70
+  },
+  "action:shielding-wave": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=300",
+    "page": 36
+  },
+  "action:spit-ambient-magic": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5451",
+    "page": 70
+  },
   "action:stargut-hydra-skymetal-metamorphosis-abysium": {
     "book": "howl-of-the-wild",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3293",
@@ -33,6 +108,31 @@
     "book": "howl-of-the-wild",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3293",
     "page": 164
+  },
+  "action:stridulating-song": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=310",
+    "page": 49
+  },
+  "action:swarm-forth": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5463",
+    "page": 72
+  },
+  "action:talon-stance": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5436",
+    "page": 68
+  },
+  "action:trench-digging": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=309",
+    "page": 48
+  },
+  "action:turn-aside-ambient-magic": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5456",
+    "page": 70
   },
   "ancestry:athamaru": {
     "book": "howl-of-the-wild",

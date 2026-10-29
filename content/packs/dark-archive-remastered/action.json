@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 55,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8405"
       }
     ],
     "description": [
@@ -187,7 +189,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 126,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8448"
       }
     ],
     "description": [
@@ -1348,7 +1352,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 206,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8515"
       }
     ],
     "description": [
@@ -1430,7 +1436,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 166,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8466"
       }
     ],
     "description": [
@@ -1700,7 +1708,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 120,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8433"
       }
     ],
     "description": [
@@ -1804,7 +1814,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 140,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8456"
       }
     ],
     "description": [
@@ -2420,7 +2432,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 49,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8398"
       }
     ],
     "description": [
@@ -2709,7 +2723,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 120,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8434"
       }
     ],
     "description": [
@@ -2892,7 +2908,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 55,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8404"
       }
     ],
     "description": [
@@ -3263,7 +3281,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 79,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8431"
       }
     ],
     "description": [
@@ -4305,7 +4325,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8407"
       }
     ],
     "description": [

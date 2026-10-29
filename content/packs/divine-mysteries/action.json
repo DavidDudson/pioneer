@@ -43,7 +43,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "page": 292,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7571"
       }
     ],
     "description": [
@@ -93,7 +95,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "page": 294,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7581"
       }
     ],
     "description": [
@@ -339,7 +343,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "page": 288,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7557"
       }
     ],
     "description": [

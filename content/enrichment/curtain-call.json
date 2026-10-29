@@ -1,4 +1,29 @@
 {
+  "action:dancing-dodge": {
+    "book": "curtain-call",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7639",
+    "page": 82
+  },
+  "action:impromptu-investment": {
+    "book": "curtain-call",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7640",
+    "page": 82
+  },
+  "action:pitch-perfect-projection": {
+    "book": "curtain-call",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7636",
+    "page": 82
+  },
+  "action:reactive-falsehood": {
+    "book": "curtain-call",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7637",
+    "page": 82
+  },
+  "action:swift-choreography": {
+    "book": "curtain-call",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7644",
+    "page": 83
+  },
   "armor:scene-stealers-tunic": {
     "book": "curtain-call",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3628",
