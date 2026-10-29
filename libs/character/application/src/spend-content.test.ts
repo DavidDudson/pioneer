@@ -4,6 +4,7 @@ import {
   ActiveSpellId,
   EffectInstanceId,
   EffectRounds,
+  SELF,
   SpellSpendKind,
   SpendCount,
   SpendId,
@@ -11,7 +12,7 @@ import {
   SpendProblem,
   SlotCountKey,
 } from '@pioneer/character/domain';
-import type { ActiveSpell, SpendRequest } from '@pioneer/character/domain';
+import type { ActiveEffect, ActiveSpell, SpendRequest } from '@pioneer/character/domain';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentId, ContentKind, ContentRegistry, RollOption, SpellRank } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
@@ -19,11 +20,12 @@ import { newId } from '@pioneer/shared/kernel';
 
 import { contentRefusal } from './spend-content';
 
+const FORM = { key: 'BattleForm', form: {} };
 const effects = new ContentPackBuilder()
   .withId('player-core')
-  .withEffect('ape-form', 2)
+  .withEffect('ape-form', 2, [FORM])
   .withEffect('bear-form', 2)
-  .withEffect('plant-form', 5);
+  .withEffect('plant-form', 5, [FORM]);
 const APE = ContentId.parse(effects.idOf(ContentKind.Effect, 'ape-form'));
 const BEAR = ContentId.parse(effects.idOf(ContentKind.Effect, 'bear-form'));
 const PLANT = ContentId.parse(effects.idOf(ContentKind.Effect, 'plant-form'));
@@ -59,11 +61,12 @@ const registry = new ContentRegistry();
 registry.register(pack.build());
 
 const SLOT = SlotCountKey.parse('wizard:3');
-const NO_SPELLS = { activeSpells: [] };
+const EFFECT = EffectInstanceId.parse(newId());
+const SHAPED: ActiveEffect = { id: EFFECT, effect: APE, source: SELF };
+const NO_SPELLS = { activeSpells: [], activeEffects: [SHAPED] };
 const TEN_MINUTES = EffectRounds.parse(100);
 const ONE_MINUTE = EffectRounds.parse(10);
 const ACTIVE = ActiveSpellId.parse(newId());
-const EFFECT = EffectInstanceId.parse(newId());
 
 /** The id of the entry of `kind` the pack gave `name`. */
 function idOf(kind: ContentKind, name: string): ContentId {
@@ -171,12 +174,14 @@ describe('contentRefusal for sustained spells', () => {
 
   test('the Dismiss action is allowed for a spell whose content has it', () => {
     const { request: dismiss, active } = dismissing(idOf(ContentKind.Spell, 'mirror'));
-    expect(contentRefusal(dismiss, registry, { activeSpells: active })).toBeUndefined();
+    expect(contentRefusal(dismiss, registry, { ...NO_SPELLS, activeSpells: active })).toBeUndefined();
   });
 
   test('the Dismiss action is refused for a spell whose content has none', () => {
     const { request: dismiss, active } = dismissing(idOf(ContentKind.Spell, 'barrier'));
-    expect(contentRefusal(dismiss, registry, { activeSpells: active })).toBe(SpendProblem.DismissNotAllowed);
+    expect(contentRefusal(dismiss, registry, { ...NO_SPELLS, activeSpells: active })).toBe(
+      SpendProblem.DismissNotAllowed,
+    );
   });
 
   test('a form shift to a form the spell lists is allowed', () => {
@@ -187,7 +192,7 @@ describe('contentRefusal for sustained spells', () => {
   test('a form shift to a form with a predicate needs the character to satisfy it', () => {
     const shift = request(idOf(ContentKind.Spell, 'shift'), { shift: { effect: EFFECT, to: PLANT } });
     const has = new PredicateFacts([RollOption.parse('feat:plant-shape')], new Map());
-    expect(contentRefusal(shift, registry, { activeSpells: [], facts: has })).toBeUndefined();
+    expect(contentRefusal(shift, registry, { ...NO_SPELLS, facts: has })).toBeUndefined();
     expect(contentRefusal(shift, registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
   });
 
@@ -201,6 +206,12 @@ describe('contentRefusal for sustained spells', () => {
     const hide = request(idOf(ContentKind.Feat, 'hide'), { shift: { effect: EFFECT, to: APE } });
     expect(contentRefusal(morph, registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
     expect(contentRefusal(hide, registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
+  });
+
+  test('a form shift of an effect that is not a polymorph one is refused', () => {
+    const shift = request(idOf(ContentKind.Spell, 'shift'), { shift: { effect: EFFECT, to: APE } });
+    const boon: ActiveEffect = { ...SHAPED, effect: BEAR };
+    expect(contentRefusal(shift, registry, { ...NO_SPELLS, activeEffects: [boon] })).toBe(SpendProblem.ShiftNotAllowed);
   });
 
   test('dismissing a spell that is not active is left to the play state to refuse', () => {

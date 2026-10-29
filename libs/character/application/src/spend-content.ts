@@ -1,12 +1,13 @@
 import {
   activeSpellOf,
+  effectContent,
   isSpellEffectOffered,
   SpellSpendKind,
   spellContent,
   SpendProblem,
   sustainedRounds,
 } from '@pioneer/character/domain';
-import type { ActiveSpell, SpendRequest } from '@pioneer/character/domain';
+import type { ActiveEffect, ActiveSpell, FormShift, SpendRequest } from '@pioneer/character/domain';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentKind, spellEffectId, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
@@ -80,14 +81,23 @@ function wrongDismiss({ spell }: SpendRequest, registry: ContentRegistry, active
   return dismissed !== undefined && spellEntryOf(registry, dismissed.spell)?.data.dismiss !== true;
 }
 
-/** Whether the spend shifts a form that the action's content does not: the spell must shift forms, and list the form it shifts to, offered to the character by its roll options. */
+/** Whether the spend shifts an effect on the character that is not a polymorph effect, which only a form can be. */
+function shiftsNonForm(shift: FormShift, registry: ContentRegistry, active: readonly ActiveEffect[]): boolean {
+  const target = active.find(({ id }) => id === shift.effect);
+  return target !== undefined && effectContent(registry).get(target.effect)?.polymorph !== true;
+}
+
+/** Whether the spend shifts a form that the action's content does not: the effect must be a polymorph one, the spell must shift forms, and list the form it shifts to, offered to the character by its roll options. */
 function wrongShift(
   { action, shift }: SpendRequest,
   registry: ContentRegistry,
-  facts: PredicateFacts | undefined,
+  { facts, activeEffects }: Pick<SpendSpells, 'facts' | 'activeEffects'>,
 ): boolean {
   if (shift === undefined) {
     return false;
+  }
+  if (shiftsNonForm(shift, registry, activeEffects)) {
+    return true;
   }
   const data = spellEntryOf(registry, action)?.data;
   return (
@@ -99,6 +109,8 @@ function wrongShift(
 /** What a spend's content check reads of the play state: the active spells a sustain or dismissal names. */
 export interface SpendSpells {
   readonly activeSpells: readonly ActiveSpell[];
+  /** The effects on the character, which a form shift changes one of. */
+  readonly activeEffects: readonly ActiveEffect[];
   /** The character's roll options, which a form shift's predicate reads; none refuses a form with a predicate. */
   readonly facts?: PredicateFacts | undefined;
 }
@@ -110,7 +122,7 @@ export interface SpendSpells {
 export function contentRefusal(
   request: SpendRequest,
   registry: ContentRegistry,
-  { activeSpells, facts }: SpendSpells,
+  { activeSpells, activeEffects, facts }: SpendSpells,
 ): SpendProblem | undefined {
   if (falseAttack(request, registry)) {
     return SpendProblem.AttackNotAllowed;
@@ -121,7 +133,7 @@ export function contentRefusal(
   if (wrongSustain(request, registry)) {
     return SpendProblem.NotSustained;
   }
-  if (wrongShift(request, registry, facts)) {
+  if (wrongShift(request, registry, { facts, activeEffects })) {
     return SpendProblem.ShiftNotAllowed;
   }
   return wrongDismiss(request, registry, activeSpells) ? SpendProblem.DismissNotAllowed : undefined;

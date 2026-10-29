@@ -62,6 +62,29 @@ describe('a spend that shifts a form', () => {
     expect(play.spendLog[0]?.shifted).toStrictEqual(BEAR_FORM);
   });
 
+  test("swaps the old form's temporary Hit Points for the new form's, and back when undone", () => {
+    const held: PlayState = { ...playWith(BEAR_FORM), hp: { damage: HitPoints.parse(0), temp: HitPoints.parse(5) } };
+    const shifted = applyPlayCommand(held, shiftTo(plant), LIMITS);
+    expect(shifted.hp.temp).toBe(HitPoints.parse(8));
+    const undone = applyPlayCommand(shifted, { field: PlayCommandField.UndoSpend, id: spendId(FIRST) }, LIMITS);
+    expect(undone.hp.temp).toBe(HitPoints.parse(5));
+    expect(undone.effects).toStrictEqual([BEAR_FORM]);
+  });
+
+  test('drops the temporary Hit Points when the new form gives none', () => {
+    const held: PlayState = { ...playWith(BEAR_FORM), hp: { damage: HitPoints.parse(0), temp: HitPoints.parse(5) } };
+    const play = applyPlayCommand(held, shiftTo({ effect: FORM, to: PLANT }), LIMITS);
+    expect(play.hp.temp).toBe(HitPoints.parse(0));
+    expect(play.effects[0]?.tempHp).toBeUndefined();
+  });
+
+  test('keeps temporary Hit Points from another source that are more than the old form raised', () => {
+    const held: PlayState = { ...playWith(BEAR_FORM), hp: { damage: HitPoints.parse(0), temp: HitPoints.parse(12) } };
+    const play = applyPlayCommand(held, shiftTo(plant), LIMITS);
+    expect(play.hp.temp).toBe(HitPoints.parse(12));
+    expect(play.effects[0]?.tempHp).toBeUndefined();
+  });
+
   test('is refused when the effect is not on the character', () => {
     expect(spendRefusal(playWith(), shiftTo(plant), REFUSAL_LIMITS)).toBe(SpendProblem.NoSuchEffect);
   });

@@ -9,6 +9,7 @@ import { heldIn, Resource } from './resources';
 import { SpendCommandField, SpendKind, SpendProblem, spendLogged, spendUndone } from './spend-log';
 import type { SpendCommand, SpendCost, SpendCount, SpendEntry, SpendLog, SpendRequest, SpendTime } from './spend-log';
 import { shiftRefusal, shiftSpent, shiftUndoRefusal, shiftUndone } from './spend-shift';
+import type { ShiftPlay } from './spend-shift';
 import { spellRefusal, spellSpent, spellUndoRefusal, spellUndone } from './spend-spells';
 import { StaffCommandField } from './staff-commands';
 import type { StaffCast, StaffCommand } from './staff-commands';
@@ -31,6 +32,7 @@ export type SpendPlay = ResourcePlay & {
   readonly spendLog: SpendLog;
   readonly activeSpells: readonly ActiveSpell[];
   readonly effects: readonly ActiveEffect[];
+  readonly hp: ShiftPlay['hp'];
 };
 
 /** Whether `command` spends from the turn or takes a spend back. */
@@ -236,12 +238,14 @@ function undone(play: SpendPlay, entry: SpendEntry, limits: ResourceLimits): Spe
   const slotted = withSlot(given, { slot: entry.slot, field: ResourceCommandField.RefundSlot }, limits);
   const focused = withFocus(slotted, { focus: entry.focus, field: ResourceCommandField.RegainResource }, limits);
   const refunded = withUse(focused, { use: entry.use, field: ResourceCommandField.RefundUse }, limits);
+  const { effects, temp } = shiftUndone(play, entry);
   return {
     ...refunded,
     turn: withAttack(refundedTo(play.turn, entry), entry, -1),
     spendLog: spendUndone(play.spendLog, entry.id),
     activeSpells: spellUndone(play, entry),
-    effects: shiftUndone(play, entry),
+    effects,
+    hp: { ...play.hp, temp },
   };
 }
 
@@ -253,7 +257,7 @@ function spent(play: SpendPlay, request: SpendRequest, limits: ResourceLimits & 
   const focused = withFocus(slotted, { focus: request.focus, field: ResourceCommandField.SpendResource }, limits);
   const used = withUse(focused, { use: request.use, field: ResourceCommandField.SpendUse }, limits);
   const { activeSpells, dismissed } = spellSpent(play, request);
-  const { effects, shifted } = shiftSpent(play, request);
+  const { effects, temp, shifted } = shiftSpent(play, request);
   const entry: SpendEntry = {
     ...request,
     at: limits.now,
@@ -267,6 +271,7 @@ function spent(play: SpendPlay, request: SpendRequest, limits: ResourceLimits & 
     spendLog: spendLogged(play.spendLog, entry),
     activeSpells,
     effects,
+    hp: { ...play.hp, temp },
   };
 }
 

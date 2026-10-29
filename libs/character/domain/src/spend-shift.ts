@@ -1,15 +1,21 @@
+import { HitPoints } from '@pioneer/rules/sdk';
+
 import type { ActiveEffect } from './effects';
 import { SpendProblem } from './spend-log';
 import type { SpendEntry, SpendRequest } from './spend-log';
 
+const NONE = HitPoints.parse(0);
+
 /** The part of a play state a form shift reads and writes. */
 export interface ShiftPlay {
   readonly effects: readonly ActiveEffect[];
+  readonly hp: { readonly damage: HitPoints; readonly temp: HitPoints };
 }
 
-/** The active effects after a spend, and the effect a form shift changed, as it was. */
+/** The active effects and temporary Hit Points after a form shift, and the effect it changed, as it was. */
 export interface ShiftChange {
   readonly effects: readonly ActiveEffect[];
+  readonly temp: HitPoints;
   readonly shifted?: ActiveEffect;
 }
 
@@ -32,16 +38,39 @@ export function shiftRefusal({ effects }: ShiftPlay, { shift }: SpendRequest): S
   return effects.some(({ id }) => id === shift.effect) ? undefined : SpendProblem.NoSuchEffect;
 }
 
-/** `play`'s active effects after the spend `request`: the effect it shifts has the new form and keeps its time left. */
-export function shiftSpent({ effects }: ShiftPlay, { shift }: SpendRequest): ShiftChange {
+/** The temporary Hit Points after a form shift, and what the new form raised them to. */
+interface TempSwap {
+  readonly temp: HitPoints;
+  readonly raised: HitPoints;
+}
+
+/**
+ * The temporary Hit Points after a form that raised them to `from` gives way to one that gives `to`, and what the new
+ * form raised them to. Temporary Hit Points do not stack, so the old form's are only dropped while they are no more than
+ * it raised them to, and the new form's count only when they are more than what is left.
+ */
+function swapped(temp: HitPoints, from: HitPoints, to: HitPoints): TempSwap {
+  const kept = temp <= from ? NONE : temp;
+  return { temp: HitPoints.parse(Math.max(kept, to)), raised: to > kept ? to : NONE };
+}
+
+/** `effect` with the form `to` and the temporary Hit Points it raised `raised`, which are left off when it raised none. */
+function formed(effect: ActiveEffect, to: Pick<ActiveEffect, 'effect' | 'form'>, raised: HitPoints): ActiveEffect {
+  return withForm(effect, { ...to, ...(raised > NONE ? { tempHp: raised } : {}) });
+}
+
+/** `play`'s active effects and temporary Hit Points after the spend `request`: the effect it shifts has the new form and keeps its time left. */
+export function shiftSpent({ effects, hp }: ShiftPlay, { shift }: SpendRequest): ShiftChange {
   const target = shift === undefined ? undefined : effects.find(({ id }) => id === shift.effect);
   if (shift === undefined || target === undefined) {
-    return { effects };
+    return { effects, temp: hp.temp };
   }
+  const { temp, raised } = swapped(hp.temp, target.tempHp ?? NONE, shift.tempHp ?? NONE);
   return {
     effects: effects.map((each) =>
-      each.id === shift.effect ? withForm(each, { effect: shift.to, form: shift.form, tempHp: shift.tempHp }) : each,
+      each.id === shift.effect ? formed(each, { effect: shift.to, form: shift.form }, raised) : each,
     ),
+    temp,
     shifted: target,
   };
 }
@@ -54,10 +83,15 @@ export function shiftUndoRefusal({ effects }: ShiftPlay, { shift, shifted }: Spe
   return effects.some(({ id }) => id === shift.effect) ? undefined : SpendProblem.NoSuchEffect;
 }
 
-/** `play`'s active effects after the spend `entry` is taken back: the shifted effect has its old form, and the time it has left now. */
-export function shiftUndone({ effects }: ShiftPlay, { shift, shifted }: SpendEntry): readonly ActiveEffect[] {
-  if (shift === undefined || shifted === undefined) {
-    return effects;
+/** `play`'s active effects and temporary Hit Points after the spend `entry` is taken back: the shifted effect has its old form, and the time it has left now. */
+export function shiftUndone(
+  { effects, hp }: ShiftPlay,
+  { shift, shifted }: SpendEntry,
+): Pick<ShiftChange, 'effects' | 'temp'> {
+  const target = shift === undefined ? undefined : effects.find(({ id }) => id === shift.effect);
+  if (shift === undefined || shifted === undefined || target === undefined) {
+    return { effects, temp: hp.temp };
   }
-  return effects.map((each) => (each.id === shift.effect ? withForm(each, shifted) : each));
+  const { temp, raised } = swapped(hp.temp, target.tempHp ?? NONE, shifted.tempHp ?? NONE);
+  return { effects: effects.map((each) => (each.id === shift.effect ? formed(each, shifted, raised) : each)), temp };
 }

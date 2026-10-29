@@ -82,7 +82,7 @@ function contentProblem(
   if (range !== undefined && !costAllowed(command.cost, range)) {
     return SpendProblem.CostNotAllowed;
   }
-  return contentRefusal(command, registry, { activeSpells: play.activeSpells, facts });
+  return contentRefusal(command, registry, { activeSpells: play.activeSpells, activeEffects: play.effects, facts });
 }
 
 /**
