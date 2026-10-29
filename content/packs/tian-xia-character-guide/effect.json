@@ -112,6 +112,70 @@
     }
   },
   {
+    "id": "ded7e7ac-6ace-58a3-8ccb-19fdbeefa508",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-among-humanity",
+    "name": "Effect: Among Humanity",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "11f62dbd-ddbb-5631-a6e5-d1a35349edce"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Change Shape into your humanoid form, you gain the effects of 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": " for 1 hour or until you shift back, except it is a polymorph effect rather than an illusion."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "04515f53-498c-5f81-bfef-3efde98d0b2a",
+        "allowDuplicate": false
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "64d124ec-2bb2-5c7a-a54a-945c2b7e307a",
     "pack": "tian-xia-character-guide",
     "kind": "effect",
@@ -598,6 +662,149 @@
       "duration": {
         "type": "time",
         "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1c862caf-c6cb-5401-96b5-f158dee91d12",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-combined-form",
+    "name": "Effect: Combined Form",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "6d212515-4da1-57c0-bc89-c858e04fb55e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are melded into an ally's transformation, granting the ally the effects of a 2nd- or 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+          },
+          {
+            "type": "text",
+            "text": " spell and temporary Hit Points equal to your level. You can't be separately targeted and can't act except to speak or to use Change Shape to exit the Combined Form, which ends the enlarge effect and removes any remaining temporary Hit Points. You exit automatically if the ally becomes "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " or the polymorph effect ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5c1a0ea0-7359-5adc-a97e-5d06a2f5dac8",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-convocation-of-earth-and-moon",
+    "name": "Effect: Convocation of Earth and Moon",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5237e99c-bd4c-5b01-b2c4-e236579de424"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You emerge in a towering form of swirling energy, gaining the benefits of both the 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+          },
+          {
+            "type": "text",
+            "text": " spells. The form lasts for 5 minutes or until you use the ability again to return to your normal form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "7c663891-4a1a-5ec1-a77a-5321b7e22b2e",
+        "allowDuplicate": false
+      },
+      {
+        "key": "GrantItem",
+        "item": "890194f7-3997-5613-b3a5-ed9c3d020784",
+        "allowDuplicate": false
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 5,
         "unit": "minute",
         "expiry": "turn-start"
       }
@@ -3005,6 +3212,73 @@
     }
   },
   {
+    "id": "e34b2722-b851-59a2-b7cb-26f25b7ec98b",
+    "pack": "tian-xia-character-guide",
+    "kind": "effect",
+    "slug": "effect:effect-strength-of-eight-legions",
+    "name": "Effect: Strength of Eight Legions",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "tian-xia-character-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "da26444e-05d8-5670-847a-50f6784ea6cf"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your frame and limbs swell with warlike might. You permanently gain the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+          },
+          {
+            "type": "text",
+            "text": ", and your maximum Hit Points increase by your level."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+        "allowDuplicate": false
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["hp"],
+        "type": "untyped",
+        "value": "@level"
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
     "id": "b019a42a-f9e6-5abe-8d7d-5087d7571a10",
     "pack": "tian-xia-character-guide",
     "kind": "effect",
@@ -3434,7 +3708,7 @@
     "name": "Stance: Kaiju Stance",
     "level": 1,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
