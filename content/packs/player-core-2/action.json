@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 182,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=6235"
       }
     ],
     "description": [
@@ -52,7 +54,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=6378"
       }
     ],
     "description": [
@@ -591,7 +595,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=6317"
       }
     ],
     "description": [
@@ -830,7 +836,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 52,
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=467"
       }
     ],
     "description": [
@@ -1553,7 +1561,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=6257"
       }
     ],
     "description": [
@@ -1731,7 +1741,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=6385"
       }
     ],
     "description": [
@@ -2760,7 +2772,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 13,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=320"
       }
     ],
     "description": [
@@ -3099,7 +3113,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 21,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=339"
       }
     ],
     "description": [
@@ -3180,7 +3196,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=342"
       }
     ],
     "description": [
@@ -3223,7 +3241,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 37,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=361"
       }
     ],
     "description": [
@@ -3342,7 +3362,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=6320"
       }
     ],
     "description": [
@@ -3531,7 +3553,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 52,
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=465"
       }
     ],
     "description": [

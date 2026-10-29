@@ -9,6 +9,11 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2124",
     "page": 15
   },
+  "action:decompose": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4313",
+    "page": 48
+  },
   "action:elemental-blast": {
     "book": "rage-of-elements",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2125",
@@ -58,6 +63,11 @@
     "book": "rage-of-elements",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2127",
     "page": 17
+  },
+  "action:pacifying-infusion": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4190",
+    "page": 22
   },
   "archetype:kineticist": {
     "book": "rage-of-elements",

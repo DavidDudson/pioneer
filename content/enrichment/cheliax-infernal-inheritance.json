@@ -1,4 +1,29 @@
 {
+  "action:forged-in-fire": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=691",
+    "page": 45
+  },
+  "action:hellish-impression": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=692",
+    "page": 45
+  },
+  "action:inflict-punishment": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=693",
+    "page": 45
+  },
+  "action:invoke-infernal-bargain": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9478",
+    "page": 78
+  },
+  "action:invoke-infernal-flames": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9479",
+    "page": 78
+  },
   "ancestry:bugbear": {
     "book": "cheliax-infernal-inheritance",
     "page": 26,

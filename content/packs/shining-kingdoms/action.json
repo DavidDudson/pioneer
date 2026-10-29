@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 172,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7735"
       }
     ],
     "description": [
@@ -431,7 +433,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 122,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7699"
       }
     ],
     "description": [

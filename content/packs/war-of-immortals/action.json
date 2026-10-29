@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 41,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7185"
       }
     ],
     "description": [
@@ -287,7 +289,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 115,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7331"
       }
     ],
     "description": [
@@ -395,7 +399,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7163"
       }
     ],
     "description": [
@@ -500,7 +506,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 42,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7191"
       }
     ],
     "description": [
@@ -551,7 +559,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 42,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7189"
       }
     ],
     "description": [
@@ -662,7 +672,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7164"
       }
     ],
     "description": [
@@ -778,7 +790,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 111,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7323"
       }
     ],
     "description": [
@@ -1009,7 +1023,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 112,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7326"
       }
     ],
     "description": [
@@ -1195,7 +1211,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 53,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7197"
       }
     ],
     "description": [
@@ -1262,7 +1280,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 42,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7190"
       }
     ],
     "description": [
@@ -1422,7 +1442,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 115,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7333"
       }
     ],
     "description": [
@@ -1649,7 +1671,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 40,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7182"
       }
     ],
     "description": [
@@ -1683,7 +1707,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 40,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7183"
       }
     ],
     "description": [
@@ -1760,7 +1786,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7402"
       }
     ],
     "description": [
@@ -1939,7 +1967,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 110,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7320"
       }
     ],
     "description": [
@@ -2071,7 +2101,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 38,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7171"
       }
     ],
     "description": [
@@ -3405,7 +3437,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 40,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7181"
       }
     ],
     "description": [
@@ -3548,7 +3582,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 41,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7188"
       }
     ],
     "description": [
@@ -3582,7 +3618,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 38,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7174"
       }
     ],
     "description": [
@@ -3854,7 +3892,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 36,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7162"
       }
     ],
     "description": [
@@ -3952,7 +3992,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7403"
       }
     ],
     "description": [
@@ -4027,7 +4069,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 37,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7166"
       }
     ],
     "description": [
@@ -4061,7 +4105,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 41,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7184"
       }
     ],
     "description": [
@@ -4186,7 +4232,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 41,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7186"
       }
     ],
     "description": [
@@ -4257,7 +4305,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 39,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7179"
       }
     ],
     "description": [
@@ -4316,7 +4366,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 128,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7386"
       }
     ],
     "description": [
@@ -4383,7 +4435,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 111,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7323"
       }
     ],
     "description": [
@@ -4582,7 +4636,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 39,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7176"
       }
     ],
     "description": [
@@ -4649,7 +4705,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 123,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7357"
       }
     ],
     "description": [
@@ -4756,7 +4814,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 111,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7323"
       }
     ],
     "description": [

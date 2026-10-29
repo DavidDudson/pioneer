@@ -4,6 +4,16 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=903",
     "page": 36
   },
+  "action:banshee-cry": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8533",
+    "page": 135
+  },
+  "action:bullet-dancer-stance": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3235",
+    "page": 132
+  },
   "action:call-gun": {
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=3269",
@@ -23,6 +33,11 @@
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3632",
     "page": 32
+  },
+  "action:coughing-dragon": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8529",
+    "page": 134
   },
   "action:covered-reload": {
     "book": "guns-and-gears",
@@ -54,6 +69,11 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=917",
     "page": 110
   },
+  "action:goblin-jubilee": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8532",
+    "page": 135
+  },
   "action:grim-swagger": {
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=913",
@@ -63,6 +83,16 @@
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=907",
     "page": 108
+  },
+  "action:jumping-jenny": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8531",
+    "page": 135
+  },
+  "action:launch-fireworks": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8528",
+    "page": 134
   },
   "action:living-fortification": {
     "book": "guns-and-gears",
@@ -99,6 +129,11 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=905",
     "page": 41
   },
+  "action:set-explosives": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3240",
+    "page": 133
+  },
   "action:siegebreaker": {
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=921",
@@ -108,6 +143,11 @@
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=7437",
     "page": 141
+  },
+  "action:spellsling": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3229",
+    "page": 130
   },
   "action:spinning-crush": {
     "book": "guns-and-gears",

@@ -60,6 +60,8 @@ export { BookRegistry, bookRegistry } from './book-registry';
 export { proposeAonMappings } from './aon-matcher';
 export type { AonListing, AonMatchable, AonProposals } from './aon-matcher';
 export { proposeCreatureActions } from './creature-actions';
+export { proposeGrantedActions } from './granted-actions';
+export type { ActionGranter, GrantedAction, GrantedActionProposals } from './granted-actions';
 export type { CreatureActionProposals } from './creature-actions';
 export { checkEnrichment } from './enrichment-check';
 export type { EnrichmentCheck, EnrichmentTarget } from './enrichment-check';

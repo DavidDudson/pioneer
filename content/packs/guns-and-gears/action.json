@@ -122,7 +122,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8533"
       }
     ],
     "description": [
@@ -242,7 +244,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 132,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3235"
       }
     ],
     "description": [
@@ -532,7 +536,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8529"
       }
     ],
     "description": [
@@ -928,7 +934,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8532"
       }
     ],
     "description": [
@@ -1302,7 +1310,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8531"
       }
     ],
     "description": [
@@ -1344,7 +1354,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8528"
       }
     ],
     "description": [
@@ -2256,7 +2268,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3240"
       }
     ],
     "description": [
@@ -2533,7 +2547,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 130,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3229"
       }
     ],
     "description": [

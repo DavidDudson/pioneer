@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7639"
       }
     ],
     "description": [
@@ -91,7 +93,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7640"
       }
     ],
     "description": [
@@ -755,7 +759,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7636"
       }
     ],
     "description": [
@@ -789,7 +795,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7637"
       }
     ],
     "description": [
@@ -1194,7 +1202,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "page": 83,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7644"
       }
     ],
     "description": [

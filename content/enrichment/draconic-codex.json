@@ -1,4 +1,24 @@
 {
+  "action:bounce-away": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=425",
+    "page": 210
+  },
+  "action:channel-draconic-essence": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8090",
+    "page": 218
+  },
+  "action:draconic-salvation": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8090",
+    "page": 218
+  },
+  "action:fortify-focus": {
+    "book": "draconic-codex",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8057",
+    "page": 212
+  },
   "action:winged-leap": {
     "book": "draconic-codex",
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=8104",

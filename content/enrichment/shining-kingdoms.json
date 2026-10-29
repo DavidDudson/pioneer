@@ -1,4 +1,9 @@
 {
+  "action:designate-ally": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7735",
+    "page": 172
+  },
   "action:failed-prophet-broken-mindscape": {
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3811",
@@ -23,6 +28,11 @@
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3811",
     "page": 181
+  },
+  "action:remove-head": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7699",
+    "page": 122
   },
   "archetype:blackjacket": {
     "book": "shining-kingdoms",

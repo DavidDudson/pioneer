@@ -404,6 +404,7 @@
         "tools/content-coverage.ts",
         "tools/propose-aon.ts",
         "tools/propose-creature-actions.ts",
+        "tools/propose-granted-actions.ts",
         "tools/propose-pages.ts",
         "tools/aon-sources/main.ts",
         "tools/aon-pages/main.ts",

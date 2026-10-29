@@ -1,4 +1,19 @@
 {
+  "action:bond-with-spirit": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7571",
+    "page": 292
+  },
+  "action:enter-spirit-trance": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7581",
+    "page": 294
+  },
+  "action:mystic-aegis": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7557",
+    "page": 288
+  },
   "archetype:mortal-herald": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=305",

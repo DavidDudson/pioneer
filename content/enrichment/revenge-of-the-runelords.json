@@ -14,6 +14,11 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3527",
     "page": 74
   },
+  "action:enter-runewell": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8150",
+    "page": 75
+  },
   "action:flash-of-memory": {
     "book": "revenge-of-the-runelords",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3529",

@@ -1,4 +1,9 @@
 {
+  "action:absorb-magic": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9338",
+    "page": 96
+  },
   "action:act-together": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=4268",
@@ -39,10 +44,35 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=4267",
     "page": 64
   },
+  "action:overflowing-blade": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9338",
+    "page": 96
+  },
+  "action:part-the-veil": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9363",
+    "page": 104
+  },
+  "action:rouse-the-world": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9376",
+    "page": 106
+  },
   "action:share-senses": {
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=4269",
     "page": 65
+  },
+  "action:shift-spell": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9355",
+    "page": 102
+  },
+  "action:solitary-invocation": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=9301",
+    "page": 90
   },
   "action:spellstrike": {
     "book": "impossible-magic",

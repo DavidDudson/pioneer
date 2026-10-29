@@ -54,6 +54,11 @@
     "aon": "https://2e.aonprd.com/Tactics.aspx?ID=9",
     "page": 26
   },
+  "action:engineers-efficiency": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7958",
+    "page": 65
+  },
   "action:executioners-volley": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Tactics.aspx?ID=29",
@@ -64,10 +69,20 @@
     "aon": "https://2e.aonprd.com/Tactics.aspx?ID=2",
     "page": 25
   },
+  "action:guerrilla-assault": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7932",
+    "page": 60
+  },
   "action:haunting-visage": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3306",
     "page": 72
+  },
+  "action:infiltrators-draw": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7913",
+    "page": 56
   },
   "action:insta-ballista": {
     "book": "battlecry",
@@ -119,6 +134,11 @@
     "aon": "https://2e.aonprd.com/Tactics.aspx?ID=6",
     "page": 25
   },
+  "action:raise-the-horde": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7964",
+    "page": 66
+  },
   "action:ready-aim-fire": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Tactics.aspx?ID=25",
@@ -158,6 +178,11 @@
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Tactics.aspx?ID=18",
     "page": 27
+  },
+  "action:spread-propaganda": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7922",
+    "page": 58
   },
   "action:strike-hard": {
     "book": "battlecry",

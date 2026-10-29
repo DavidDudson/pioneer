@@ -4,6 +4,11 @@
     "aon": "https://2e.aonprd.com/Tactics.aspx?ID=36",
     "page": 227
   },
+  "action:for-my-house": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8973",
+    "page": 223
+  },
   "action:for-talmandor-for-freedom": {
     "book": "hells-destiny",
     "aon": "https://2e.aonprd.com/Tactics.aspx?ID=37",
