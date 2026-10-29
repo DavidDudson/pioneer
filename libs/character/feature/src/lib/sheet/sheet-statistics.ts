@@ -5,6 +5,7 @@ import { HitPoints, Selector } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import type { NamedStatistic } from '@pioneer/rules/ui';
 
+import { withoutForms } from './sheet-effects';
 import { sheetSources } from './sheet-sources';
 
 /** The sheet's statistics, in order: Armor Class, the three saves, Perception, the class DC, then the land Speed. */
@@ -94,14 +95,14 @@ export function sheetVitalsInPlay(registry: ContentRegistry, character: Characte
 
 /**
  * The temporary Hit Points `candidate`, a polymorph effect, would give the character: what its form sets, worked out by
- * the engine with the effect on the character, and none when the effect is not what the character would get them from.
+ * the engine with the effect on the character in place of any form it has, and none when the effect is not what the character would get them from.
  */
 export function sheetFormTempHp(
   registry: ContentRegistry,
   character: Character,
   candidate: ActiveEffect,
 ): HitPoints | undefined {
-  const effects = [...character.document.play.effects, candidate];
+  const effects = [...withoutForms(registry, character.document.play.effects), candidate];
   const vitals = sheetVitalsInPlay(registry, withPlay(character, { ...character.document.play, effects }));
   const temp = vitals?.temporaryHitPoints;
   const fromEffect = temp?.origins.some(({ entry }) => entry === candidate.effect) === true;

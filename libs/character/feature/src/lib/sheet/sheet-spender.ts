@@ -103,9 +103,14 @@ export class SheetSpender extends ActionUser {
     await this.#spend(request);
   }
 
-  /** Gives up the pending form cast, which spent nothing. */
+  /** Whether the pending cast is being spent and applied, which can no longer be given up. */
+  public readonly casting = signal(false);
+
+  /** Gives up the pending form cast, which spent nothing; a cast being spent is left to finish. */
   public cancelForm(): void {
-    this.pendingForm.set(undefined);
+    if (!this.casting()) {
+      this.pendingForm.set(undefined);
+    }
   }
 
   /**
@@ -118,17 +123,22 @@ export class SheetSpender extends ActionUser {
     if (cast === undefined) {
       return;
     }
-    await this.#spend(cast.request);
-    await this.#play.send({
-      field: EffectCommandField.ApplyEffect,
-      id: EffectInstanceId.parse(newId()),
-      effect: choice.effect,
-      source: SELF,
-      rank: cast.rank,
-      ...(choice.form === undefined ? {} : { form: choice.form }),
-      ...(tempHp === undefined ? {} : { tempHp }),
-    });
-    this.pendingForm.set(undefined);
+    this.casting.set(true);
+    try {
+      await this.#spend(cast.request);
+      await this.#play.send({
+        field: EffectCommandField.ApplyEffect,
+        id: EffectInstanceId.parse(newId()),
+        effect: choice.effect,
+        source: SELF,
+        rank: cast.rank,
+        ...(choice.form === undefined ? {} : { form: choice.form }),
+        ...(tempHp === undefined ? {} : { tempHp }),
+      });
+      this.pendingForm.set(undefined);
+    } finally {
+      this.casting.set(false);
+    }
   }
 
   async #spend(request: ActionUse): Promise<void> {

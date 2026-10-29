@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 import { EffectInstanceId, SELF } from '@pioneer/character/domain';
 import type { ActiveEffect } from '@pioneer/character/domain';
@@ -34,8 +34,17 @@ export class SheetFormPicker {
   readonly #registry = injectContentRegistry(EQUIPMENT_CONTENT_KINDS);
 
   protected readonly pending = this.spender.pendingForm;
+
   /** The value of the form picked, among the options. */
   protected readonly picked = signal<string | undefined>(undefined);
+
+  public constructor() {
+    // Another cast opened in the picker leaves nothing picked: the form picked for the last one is not among its choices.
+    effect(() => {
+      this.pending();
+      this.picked.set(undefined);
+    });
+  }
 
   protected readonly options = computed((): readonly FormPickerOption[] =>
     (this.pending()?.choices ?? []).map(({ value, label }) => ({ value, label })),
@@ -81,14 +90,10 @@ export class SheetFormPicker {
     const registry = this.#registry.data();
     const character = this.#sheet.character();
     const candidate = this.#candidate();
-    if (choice === undefined) {
+    if (choice === undefined || registry === undefined || character === undefined || candidate === undefined) {
       return;
     }
-    const tempHp =
-      registry === undefined || character === undefined || candidate === undefined
-        ? undefined
-        : sheetFormTempHp(registry, character, candidate);
-    await this.spender.castForm(choice, tempHp);
+    await this.spender.castForm(choice, sheetFormTempHp(registry, character, candidate));
     this.picked.set(undefined);
   };
 
