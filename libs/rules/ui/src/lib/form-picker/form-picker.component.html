@@ -1,0 +1,38 @@
+<fr-surface padding="sm">
+  <fr-stack gap="sm">
+    <fr-text weight="semibold">{{ Message.Title | transloco: { spell: spell() } }}</fr-text>
+    <fr-select
+      [ariaLabel]="Message.Pick | transloco"
+      [placeholder]="Message.Pick | transloco"
+      [options]="selectOptions()"
+      [value]="picked()"
+      (valueChange)="picked.set($event)"
+    />
+    @if (preview(); as shown) {
+      @if (shown.rows.length === 0) {
+        <fr-text tone="muted">{{ Message.Unchanged | transloco }}</fr-text>
+      } @else {
+        <fr-stack gap="xs">
+          @for (row of shown.rows; track row.name) {
+            <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+              <fr-text weight="semibold">{{ row.name }}</fr-text>
+              <fr-text>{{ Message.Form | transloco: { value: row.form } }}</fr-text>
+              <fr-text tone="muted">{{ Message.Own | transloco: { value: row.own } }}</fr-text>
+            </fr-stack>
+          }
+        </fr-stack>
+      }
+    }
+    <fr-stack direction="horizontal" gap="sm">
+      <fr-async-button
+        size="sm"
+        [action]="confirm()"
+        [disabled]="picked() === undefined"
+        [describeError]="describeError()"
+      >
+        {{ Message.Confirm | transloco }}
+      </fr-async-button>
+      <fr-button size="sm" (click)="cancelled.emit()">{{ Message.Cancel | transloco }}</fr-button>
+    </fr-stack>
+  </fr-stack>
+</fr-surface>

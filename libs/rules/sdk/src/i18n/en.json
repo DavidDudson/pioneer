@@ -1228,7 +1228,14 @@
       "active": "In form: {name}",
       "dismiss": "Dismiss",
       "baseView": "Show base sheet",
-      "reference": "Base sheet, for reference only. The form is still active."
+      "reference": "Base sheet, for reference only. The form is still active.",
+      "pickerTitle": "Cast {spell}: choose a form",
+      "pick": "Form",
+      "previewForm": "{value} in the form",
+      "previewOwn": "yours {value}",
+      "previewUnchanged": "This form changes none of the numbers shown here.",
+      "confirm": "Cast and transform",
+      "cancel": "Cancel"
     },
     "spellList": {
       "castAt": "Cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
