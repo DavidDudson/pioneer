@@ -59,6 +59,14 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4046",
     "page": 70
   },
+  "armor:robes-of-xin-edasseril": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5229"
+  },
+  "armor:sorshens-scintillating-garment": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5227"
+  },
   "consumable:elixir-of-the-peaks-greater": {
     "book": "revenge-of-the-runelords",
     "page": 69,
@@ -487,5 +495,17 @@
   "ritual:raise-runelord": {
     "book": "revenge-of-the-runelords",
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=221"
+  },
+  "weapon:belimariuss-invidious-halberd": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5225"
+  },
+  "weapon:sorshens-sinuous-guisarme": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5228"
+  },
+  "weapon:timeflaying-blade": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5230"
   }
 }

@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3758"
       }
     ],
     "description": [
@@ -138,7 +139,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3638"
       }
     ],
     "description": [
@@ -407,7 +409,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "curtain-call"
+        "book": "curtain-call",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3639"
       }
     ],
     "description": [

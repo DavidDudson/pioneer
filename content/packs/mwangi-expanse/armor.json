@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "mwangi-expanse"
+        "book": "mwangi-expanse",
+        "page": 107,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=164"
       }
     ],
     "description": [

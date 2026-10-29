@@ -768,5 +768,10 @@
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3764",
     "page": 52
+  },
+  "weapon:spectral-dagger": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7704",
+    "page": 124
   }
 }

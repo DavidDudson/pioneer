@@ -593,7 +593,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 124,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7704"
       }
     ],
     "description": [

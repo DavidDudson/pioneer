@@ -134,6 +134,11 @@
     "page": 100,
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=277"
   },
+  "armor:bakuwa-lizardfolk-bony-plates": {
+    "book": "tian-xia-character-guide",
+    "aon": "https://2e.aonprd.com/Heritages.aspx?ID=377",
+    "page": 44
+  },
   "background:acupuncturist": {
     "book": "tian-xia-character-guide",
     "page": 10,

@@ -4,6 +4,10 @@
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=313",
     "page": 80
   },
+  "armor:aurochs-hide-armor": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3682"
+  },
   "creature:aurochs": {
     "book": "triumph-of-the-tusk",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3753",
@@ -134,9 +138,29 @@
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=7654",
     "page": 81
   },
+  "weapon:faultline-hammer": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3659"
+  },
+  "weapon:kinetic-club": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3660"
+  },
   "weapon:orc-skewermaul": {
     "book": "triumph-of-the-tusk",
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=527",
     "page": 79
+  },
+  "weapon:returning-starknife": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3678"
+  },
+  "weapon:shadefield-knife": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3680"
+  },
+  "weapon:venom-lash": {
+    "book": "triumph-of-the-tusk",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3666"
   }
 }

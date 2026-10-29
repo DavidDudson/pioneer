@@ -164,7 +164,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3588"
       }
     ],
     "description": [
