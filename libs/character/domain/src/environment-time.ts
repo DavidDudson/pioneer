@@ -4,7 +4,7 @@ import { DamageFormula, EnvironmentDamageCategory } from '@pioneer/rules/sdk';
 import type { ContentId, DamageTarget, EnvironmentConsequence, EnvironmentDamage } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
-import { ConditionInstanceId, UNLIMITED } from './conditions';
+import { ConditionInstanceId, conditionProblem, UNLIMITED } from './conditions';
 import { elapsedIn, exposureAfter, exposureWith, occurrences, spanRounds } from './environment-exposure';
 import type { EnvironmentDuration, ExposureRounds } from './environment-exposure';
 import type { EnvironmentContent } from './environments';
@@ -70,11 +70,14 @@ function conditioned(passing: Passing, environment: ContentId, condition: Conten
     return passing;
   }
   const instance = ConditionInstanceId.parse(newId());
-  const added = applyPlayCommand(
-    play,
-    { field: PlayCommandField.AddCondition, condition: { id: instance, condition, duration: UNLIMITED } },
-    passing.inputs.limits,
-  );
+  const command = {
+    field: PlayCommandField.AddCondition,
+    condition: { id: instance, condition, duration: UNLIMITED },
+  } as const;
+  if (conditionProblem(play.conditions, command, passing.inputs.limits.valued) !== undefined) {
+    return passing;
+  }
+  const added = applyPlayCommand(play, command, passing.inputs.limits);
   return moved(passing, added, [environmentConditioned(environment, condition, instance)]);
 }
 
@@ -116,7 +119,7 @@ function stayed(passing: Passing, environment: ContentId, rounds: ExposureRounds
  * Time passes: each environment the character is in has that much more time spent in it, and the consequences its
  * content lists for that time happen (heat and cold deal damage on a schedule, long exposure makes a character
  * fatigued). Damage goes through the character's defences; a dead character takes nothing, and a condition the
- * character has is not put on again. Dice come from `random`.
+ * character has is not put on again, nor one the conditions refuse (unknown, valued without a value, or too many). Dice come from `random`.
  */
 export function passTime(play: PlayState, duration: EnvironmentDuration, inputs: PassTimeInputs): TurnOutcome {
   const rounds = spanRounds(duration);

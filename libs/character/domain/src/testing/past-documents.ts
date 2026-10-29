@@ -102,6 +102,12 @@ const VERSION_11 = {
   schemaVersion: 11,
 };
 
+/** Version 12, before play kept how long the character has been in each environment. */
+const VERSION_12 = {
+  ...VERSION_11,
+  schemaVersion: 12,
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -118,4 +124,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_9.schemaVersion), VERSION_9],
   [CharacterSchemaVersion.parse(VERSION_10.schemaVersion), VERSION_10],
   [CharacterSchemaVersion.parse(VERSION_11.schemaVersion), VERSION_11],
+  [CharacterSchemaVersion.parse(VERSION_12.schemaVersion), VERSION_12],
 ]);

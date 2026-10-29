@@ -178,6 +178,7 @@ export class PlayService {
     const limits = turnLimits(
       await derivedMaxHitPoints(this.#content, character, play),
       await this.#effects(character),
+      conditionValued(registry),
     );
     const turn = turnCommandInputs({ registry, slots, inputs, variants }, character.document, limits);
     return applyTurnCommand(play, command, { inputs: turn, random: cryptoRandom });

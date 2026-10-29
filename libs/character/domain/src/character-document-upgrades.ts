@@ -40,6 +40,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 11 → 12: the heritage and languages an import found no slot for, kept on the build. A version 11 build has none. */
   (document) => document,
+  /** 12 → 13: how long the character has been in each environment (#1291). A version 12 `play` has none, which reads as no time spent. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */
