@@ -2,6 +2,7 @@ import { preparedReads, preparedSlots, signatureSlots } from '@pioneer/character
 import type { CharacterDocument, SlotContent } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
 import {
+  ContentId,
   ContentKind,
   contentId,
   contentPackFromContents,
@@ -12,6 +13,7 @@ import {
 import { beforeAll, describe, expect, it } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
+import { choiceSlotKey } from '../testing/class-feat-slots';
 import { PREBUILD_TIMEOUT } from '../testing/provide-server-state-testing';
 import { cutTo } from '../testing/test-packs';
 import { sheetSlotContent } from './sheet-slot-content';
@@ -109,14 +111,15 @@ describe('granted repertoire spells in Player Core 2', () => {
     });
   });
 
-  it('lets an oracle add up to three spells of a deity that grants a domain of its mystery', () => {
+  it('lets an oracle add up to three spells of a deity that grants a domain of its mystery', async () => {
+    const flamesDeitySlot = await choiceSlotKey(ContentId.parse(idOf('class-feature:flames')), 'divine-access-deity');
     const sarenrae = contentId(PackId.parse('divine-mysteries'), EntrySlug.parse('deity:sarenrae'));
     const flames: Build = {
       className: 'oracle',
       feature: 'mystery',
       pick: 'flames',
       level: 11,
-      extra: { [`${idOf('class-feature:flames')}:8`]: sarenrae },
+      extra: { [flamesDeitySlot]: sarenrae },
     };
     const document = character(flames);
     const slots = preparedSlots(document, preparedReads(document, contentOf())).filter((slot) => slot.deitySpell);

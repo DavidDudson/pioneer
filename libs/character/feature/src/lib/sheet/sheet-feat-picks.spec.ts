@@ -14,6 +14,7 @@ import {
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from '../testing/provide-server-state-testing';
+import { classFeatSlotKey } from '../testing/class-feat-slots';
 import { cutTo } from '../testing/test-packs';
 import { featFieldsOf, plannedFeatFieldsOf } from './sheet-feat-picks';
 import type { FeatPickSources } from './sheet-feat-picks';
@@ -22,7 +23,7 @@ import type { SheetFeats } from './sheet-feats';
 
 const FIGHTER = ['fighter'];
 const FEAT_PACKS = cutTo(FEAT_CONTENT_KINDS);
-const FIGHTER_FEAT_1 = `${playerCoreClassId('fighter')}:31`;
+const FIGHTER_FEAT_1 = await classFeatSlotKey('fighter', 1);
 
 const prerequisites = (text: string): object[] => [{ type: 'paragraph', content: [{ type: 'text', text }] }];
 
@@ -54,8 +55,8 @@ const GATED_FEATS: PackContentsLoader = {
 };
 
 /** The fighter's 2nd- and 4th-level class feat slots: the class and the rule index of each `ChoiceSet`. */
-const FIGHTER_FEAT_2 = `${playerCoreClassId('fighter')}:33`;
-const FIGHTER_FEAT_4 = `${playerCoreClassId('fighter')}:35`;
+const FIGHTER_FEAT_2 = await classFeatSlotKey('fighter', 2);
+const FIGHTER_FEAT_4 = await classFeatSlotKey('fighter', 4);
 
 /** A fighter at `level`. */
 function fighterAt(level: number): Character {
