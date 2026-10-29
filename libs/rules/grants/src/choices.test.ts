@@ -185,6 +185,26 @@ describe('resolveGrants choices', () => {
     expect(result.errors).toEqual([]);
   });
 
+  test('keeps a pick that its own rollOption rules out of the other options, as Specialty Crafting lists them', () => {
+    const content = [
+      entry('crafter', [
+        {
+          key: 'ChoiceSet',
+          flag: 'specialty',
+          rollOption: 'specialty-crafting',
+          choices: [
+            { value: 'alchemy', label: 'Alchemy', predicate: [{ not: 'specialty-crafting:alchemy' }] },
+            { value: 'pottery', label: 'Pottery', predicate: [{ not: 'specialty-crafting:pottery' }] },
+          ],
+        },
+      ]),
+    ];
+    const result = resolve(content, [picked('crafter')], { picks: [[slotOf('crafter', 0), 'alchemy']] });
+    expect(result.errors).toEqual([]);
+    expect(result.open).toEqual([]);
+    expect(result.rollOptions).toContain(RollOption.parse('specialty-crafting:alchemy'));
+  });
+
   test('opens no slot for a ChoiceSet whose predicate is not true, and its grant waits quietly', () => {
     const content = [
       entry('fighter', [
