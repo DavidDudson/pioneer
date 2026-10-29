@@ -127,7 +127,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "prey-for-death"
+        "book": "prey-for-death",
+        "page": 119,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3397"
       }
     ],
     "description": [

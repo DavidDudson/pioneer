@@ -1,4 +1,39 @@
 {
+  "action:stargut-hydra-skymetal-metamorphosis-abysium": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3293",
+    "page": 164
+  },
+  "action:stargut-hydra-skymetal-metamorphosis-adamantine": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3293",
+    "page": 164
+  },
+  "action:stargut-hydra-skymetal-metamorphosis-djezet": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3293",
+    "page": 164
+  },
+  "action:stargut-hydra-skymetal-metamorphosis-inubrix": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3293",
+    "page": 164
+  },
+  "action:stargut-hydra-skymetal-metamorphosis-noqual": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3293",
+    "page": 164
+  },
+  "action:stargut-hydra-skymetal-metamorphosis-orichalcum": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3293",
+    "page": 164
+  },
+  "action:stargut-hydra-skymetal-metamorphosis-siccatite": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3293",
+    "page": 164
+  },
   "ancestry:athamaru": {
     "book": "howl-of-the-wild",
     "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=71",

@@ -64,10 +64,95 @@
     "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=64",
     "page": 359
   },
+  "action:graveknight-betrayed-revivification": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030",
+    "page": 179
+  },
+  "action:graveknight-create-grave-squire": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030",
+    "page": 179
+  },
+  "action:graveknight-dark-deliverance": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030",
+    "page": 179
+  },
+  "action:graveknight-devastating-blast": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030",
+    "page": 179
+  },
+  "action:graveknight-graveknights-curse": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030",
+    "page": 179
+  },
+  "action:graveknight-phantom-mount": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030",
+    "page": 179
+  },
+  "action:graveknight-rejuvenation": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030",
+    "page": 179
+  },
+  "action:graveknight-ruinous-weapons": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030",
+    "page": 179
+  },
+  "action:graveknight-sacrilegious-aura": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030",
+    "page": 179
+  },
+  "action:graveknight-weapon-master": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3030",
+    "page": 179
+  },
   "action:greater-constrict": {
     "book": "monster-core",
     "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=65",
     "page": 359
+  },
+  "action:lich-blasphemous-utterances": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3082",
+    "page": 219
+  },
+  "action:lich-cold-beyond-cold": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3082",
+    "page": 219
+  },
+  "action:lich-dark-deliverance": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3082",
+    "page": 219
+  },
+  "action:lich-drain-soul-cage": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3082",
+    "page": 219
+  },
+  "action:lich-rejuvenation": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3082",
+    "page": 219
+  },
+  "action:lich-siphon-life": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3082",
+    "page": 219
+  },
+  "action:lich-void-shroud": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3082",
+    "page": 219
   },
   "action:lifesense": {
     "book": "monster-core",

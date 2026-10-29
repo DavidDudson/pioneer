@@ -59,6 +59,8 @@ import { checkPackSources } from './source-check';
 export { BookRegistry, bookRegistry } from './book-registry';
 export { proposeAonMappings } from './aon-matcher';
 export type { AonListing, AonMatchable, AonProposals } from './aon-matcher';
+export { proposeCreatureActions } from './creature-actions';
+export type { CreatureActionProposals } from './creature-actions';
 export { checkEnrichment } from './enrichment-check';
 export type { EnrichmentCheck, EnrichmentTarget } from './enrichment-check';
 export { checkPackSources, packEntries, SourceCheckError, sourceIssues } from './source-check';

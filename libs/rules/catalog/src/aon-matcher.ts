@@ -47,7 +47,7 @@ const FALLBACK_KINDS_BY_PAGE: Readonly<Record<string, readonly ContentKind[]>> =
 const FALLBACK_KINDS: ReadonlySet<ContentKind> = new Set(Object.values(FALLBACK_KINDS_BY_PAGE).flat());
 
 /** The kinds whose superseded rows were checked against AoN's own "more recent version" notes. */
-const NEWEST_KINDS: readonly ContentKind[] = new Set([
+const NEWEST_KINDS: ReadonlySet<ContentKind> = new Set([
   ...EQUIPMENT_FALLBACK_KINDS,
   ContentKind.Creature,
   ContentKind.Feat,
@@ -185,7 +185,7 @@ function newest(entry: AonMatchable, urls: readonly AonUrl[]): readonly AonUrl[]
   if (
     urls.length < 2 ||
     pages.size !== 1 ||
-    !NEWEST_KINDS.includes(entry.kind) ||
+    !NEWEST_KINDS.has(entry.kind) ||
     (entry.kind === ContentKind.Creature && entry.name.includes('(')) ||
     ids.some(({ id }) => !Number.isInteger(id))
   ) {
