@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { EmptyState, List, ListItem, Skeleton } from '@pioneer/frontier';
 import type { SlotKey } from '@pioneer/rules/sdk';
@@ -37,7 +37,7 @@ export class ChoicesView {
   /** The choices in sheet order, or undefined while they load. */
   public readonly lines = input<readonly ChoiceLine[] | undefined>();
   /** Whether chosen choices offer the keep toggle. */
-  public readonly lockable = input(false);
+  public readonly lockable = input(false, { transform: booleanAttribute });
   /** The slots that are kept. */
   public readonly locked = input<ReadonlySet<SlotKey>>(new Set());
   /** A keep toggle was pressed. */

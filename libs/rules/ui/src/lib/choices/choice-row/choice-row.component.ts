@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Badge, BadgeTone, Stack, Text, ToggleButton } from '@pioneer/frontier';
 import { message } from '@pioneer/shared/kernel';
@@ -61,7 +61,7 @@ function shownOf(line: ChoiceLine): ShownChoice {
 export class ChoiceRow {
   public readonly line = input.required<ChoiceLine>();
   /** Whether a chosen choice offers the keep toggle. */
-  public readonly lockable = input(false);
+  public readonly lockable = input(false, { transform: booleanAttribute });
   /** Whether the choice is kept. */
   public readonly locked = input(false);
   /** The keep toggle was pressed: the choice is now kept, or not. */

@@ -82,6 +82,10 @@
     "importSampleFailed": "Could not import the sample character. Try again."
   },
   "sheet": {
+    "reroll": {
+      "action": "Re-roll the rest",
+      "pending": "Re-rolling…"
+    },
     "sidePanel": {
       "title": "Content",
       "open": "Search content"

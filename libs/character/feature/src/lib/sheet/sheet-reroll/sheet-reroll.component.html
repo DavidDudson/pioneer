@@ -1,0 +1,13 @@
+<fr-stack gap="md">
+  <pio-sheet-pick-fields [fields]="picks.choiceFields()" />
+  <pio-choices lockable [lines]="picks.choices()" [locked]="locked()" (lockChange)="keep($event)" />
+  <fr-stack direction="horizontal" justify="end">
+    <fr-async-button
+      [action]="reroll"
+      [describeError]="describeError"
+      [pendingLabel]="'character.sheet.reroll.pending' | transloco"
+    >
+      {{ 'character.sheet.reroll.action' | transloco }}
+    </fr-async-button>
+  </fr-stack>
+</fr-stack>
