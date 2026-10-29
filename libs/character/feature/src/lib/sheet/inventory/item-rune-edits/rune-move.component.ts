@@ -3,18 +3,32 @@ import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { CharacterPatchField, InventoryItemId } from '@pioneer/character/domain';
+import { CharacterPatchField, InventoryItemId, runedItemOf } from '@pioneer/character/domain';
 import type { InventoryItem, RunedContent, RuneRef } from '@pioneer/character/domain';
-import { AsyncButton, AsyncForm, SelectField, Stack } from '@pioneer/frontier';
-import type { SelectOption } from '@pioneer/frontier';
-import { RuneType } from '@pioneer/rules/sdk';
+import { AsyncButton, AsyncForm, Stack } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
+import { RunedItem } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
 import { injectItemNames } from '../item-names';
+import { PickerRows } from '../picker-rows';
 import { etchedRunes, runeKey, runeOfKey, transferTargets } from './rune-options';
-import { describeRuneError, runeLabel } from './rune-text';
+import {
+  etchedRows,
+  RUNE_ORDER,
+  runeColumns,
+  runeRowLabel,
+  runeValue,
+  slotsOf,
+  TARGET_ORDER,
+  targetColumns,
+  targetRowLabel,
+  targetValue,
+} from './rune-picker';
+import type { RuneRow, RuneTargetRow } from './rune-picker';
+import { describeRuneError } from './rune-text';
 
 /** What the move form submits: the rune, by its key, and the item it goes onto. */
 const MoveRuneForm = z.object({ rune: z.string().min(1), to: InventoryItemId });
@@ -24,13 +38,20 @@ interface MoveRuneModel {
 }
 const EMPTY_MOVE: MoveRuneModel = { rune: '', to: '' };
 
+/** Each kind of item a rune goes on, spelled out so the message check sees every key. */
+const ITEM_KIND_KEYS: Readonly<Record<RunedItem, string>> = {
+  [RunedItem.Weapon]: 'character.sheet.runes.itemKind.weapon',
+  [RunedItem.Armor]: 'character.sheet.runes.itemKind.armor',
+  [RunedItem.Shield]: 'character.sheet.runes.itemKind.shield',
+};
+
 /**
  * A form to move a rune etched onto one weapon, armour or shield onto another of the same kind, shown while the item
  * has a rune to move and somewhere to move it. A specific item's runes are its own, so they never move.
  */
 @Component({
   selector: 'pio-rune-move',
-  imports: [AsyncButton, AsyncForm, FormField, SelectField, Stack, TranslocoPipe],
+  imports: [AsyncButton, AsyncForm, FormField, PickerField, Stack, TranslocoPipe],
   templateUrl: './rune-move.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -55,31 +76,83 @@ export class RuneMove {
     return item === undefined ? [] : etchedRunes(item, this.content().items.get(item.item));
   });
 
-  protected readonly runes: Signal<readonly SelectOption<string>[]> = computed(() => {
+  readonly #words = computed(() => {
     this.#messages();
-    const item = this.#item();
-    return this.#etched().map((rune) => ({
-      value: runeKey(rune),
-      label: runeLabel(this.#i18n, this.content(), {
-        rune,
-        grade: rune.type === RuneType.Fundamental ? item?.runes?.[rune.rune] : undefined,
-      }),
-    }));
+    return {
+      fundamental: this.#i18n.translate('character.sheet.runes.kind.fundamental'),
+      property: this.#i18n.translate('character.sheet.runes.kind.property'),
+    };
   });
+
+  /** The runes etched onto the item, as rows with their level, effect and price. */
+  protected readonly runes = new PickerRows<RuneRow>(
+    computed(() => {
+      const item = this.#item();
+      const entry = item === undefined ? undefined : this.content().items.get(item.item);
+      return etchedRows(
+        this.content(),
+        { item, entry, runes: this.#etched(), key: runeKey },
+        { i18n: this.#i18n, words: this.#words() },
+      );
+    }),
+    RUNE_ORDER,
+  );
+  protected readonly runeColumns = computed(() => {
+    this.#messages();
+    return runeColumns({
+      name: this.#i18n.translate('character.sheet.runes.columns.name'),
+      kind: this.#i18n.translate('character.sheet.runes.columns.kind'),
+      level: this.#i18n.translate('character.sheet.runes.columns.level'),
+      effect: this.#i18n.translate('character.sheet.runes.columns.effect'),
+      price: this.#i18n.translate('character.sheet.runes.columns.price'),
+      slots: this.#i18n.translate('character.sheet.runes.columns.slots'),
+      slotsUsed: this.#i18n.translate('character.sheet.runes.columns.slotsUsed'),
+    });
+  });
+  protected readonly runeValue = runeValue;
+  protected readonly runeLabel = runeRowLabel;
 
   readonly #names = injectItemNames(this.content);
 
-  /** The items the rune can move onto, by the names their rows show, so two longswords read apart. */
-  protected readonly targets: Signal<readonly SelectOption<InventoryItemId>[]> = computed(() => {
-    const character = this.#store.selected();
-    const names = this.#names();
-    return character === undefined
-      ? []
-      : transferTargets(character.document.inventory, this.content(), this.id()).map((id) => ({
-          value: id,
-          label: names.get(id) ?? id,
-        }));
+  /** The items the rune can move onto, by the names their rows show, so two longswords read apart, with their open slots. */
+  protected readonly targets = new PickerRows<RuneTargetRow>(
+    computed((): readonly RuneTargetRow[] => {
+      this.#messages();
+      const character = this.#store.selected();
+      const names = this.#names();
+      if (character === undefined) {
+        return [];
+      }
+      const { inventory } = character.document;
+      return transferTargets(inventory, this.content(), this.id()).flatMap((id): RuneTargetRow[] => {
+        const item = inventory.items.find((each) => each.id === id);
+        const entry = item === undefined ? undefined : this.content().items.get(item.item);
+        const runed = runedItemOf(entry);
+        return item === undefined || runed === undefined
+          ? []
+          : [
+              {
+                value: id,
+                label: names.get(id) ?? id,
+                kind: this.#i18n.translate(ITEM_KIND_KEYS[runed]),
+                ...slotsOf(item, entry),
+              },
+            ];
+      });
+    }),
+    TARGET_ORDER,
+  );
+  protected readonly targetColumns = computed(() => {
+    this.#messages();
+    return targetColumns({
+      name: this.#i18n.translate('character.sheet.runes.targetColumns.name'),
+      kind: this.#i18n.translate('character.sheet.runes.targetColumns.kind'),
+      slots: this.#i18n.translate('character.sheet.runes.targetColumns.slots'),
+      slotsUsed: this.#i18n.translate('character.sheet.runes.targetColumns.slotsUsed'),
+    });
   });
+  protected readonly targetValue = targetValue;
+  protected readonly targetLabel = targetRowLabel;
 
   protected readonly model = signal<MoveRuneModel>(EMPTY_MOVE);
   protected readonly form = form(this.model, (path) => {

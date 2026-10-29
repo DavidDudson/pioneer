@@ -12,23 +12,15 @@ import {
   field,
   openInventory,
   patchSent,
-  pick,
+  pickRow,
   present,
   row,
+  rowLabels,
   settle,
   SWORD,
   VALEROS,
 } from '../../../testing/inventory-sheet-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../../testing/provide-server-state-testing';
-
-/** The options the open select lists. */
-async function optionsShown(): Promise<string[]> {
-  return vi.waitFor(() => {
-    const shown = [...document.querySelectorAll<HTMLElement>('[role="option"]')].map((each) => each.textContent.trim());
-    expect(shown.length).toBeGreaterThan(0);
-    return shown;
-  });
-}
 
 const FLAMING_POTENCY_1 = { potency: 1, property: [runeFixtureId(RuneFixture.Flaming)] };
 
@@ -58,9 +50,7 @@ const RUNED_PAIR = {
 /** Etches +1 potency onto the sword and has the server return `character`. */
 async function etchedAs(section: HTMLElement, character: object): Promise<void> {
   const potency = field(row(section, 'Longsword'), 'Potency rune on Longsword');
-  present(potency.querySelector<HTMLElement>('button')).click();
-  await settle();
-  await pick(potency, 'fr-select button', '+1');
+  await pickRow(potency, '+1');
   const etched = await patchSent();
   etched.flush({ character, slots: [], cleared: [], languages: { known: [], open: 0 } });
 }
@@ -74,9 +64,7 @@ describe('InventorySection runes', () => {
   it('etches a potency rune onto the sword by sending its grade', async () => {
     const section = await openInventory();
     const potency = field(row(section, 'Longsword'), 'Potency rune on Longsword');
-    present(potency.querySelector<HTMLElement>('button')).click();
-    await settle();
-    await pick(potency, 'fr-select button', '+1');
+    await pickRow(potency, '+1');
     const sent = await patchSent();
     expect(sent.request.body).toStrictEqual({
       expectedVersion: 3,
@@ -91,11 +79,7 @@ describe('InventorySection runes', () => {
     expect(sword.textContent).not.toContain('Resilient rune on Longsword');
     expect(row(section, 'Backpack').textContent).not.toContain('Runes on');
     const striking = field(sword, 'Striking rune on Longsword');
-    present(striking.querySelector<HTMLElement>('button')).click();
-    await settle();
-    present(striking.querySelector<HTMLElement>('fr-select button')).click();
-    await settle();
-    await expect(optionsShown()).resolves.toStrictEqual([
+    await expect(rowLabels(striking)).resolves.toStrictEqual([
       'None',
       'Striking',
       'Greater Striking',
@@ -131,9 +115,9 @@ describe('InventorySection runes', () => {
       await settle();
       return present(row(section, '+1 Flaming Longsword').querySelector<HTMLElement>('pio-rune-move fr-async-form'));
     });
-    const [rune, onto] = move.querySelectorAll<HTMLElement>('fr-select-field');
-    await pick(present(rune), 'fr-select button', 'Flaming');
-    await pick(present(onto), 'fr-select button', 'Longsword');
+    const [rune, onto] = move.querySelectorAll<HTMLElement>('fr-picker-field');
+    await pickRow(present(rune), 'Flaming');
+    await pickRow(present(onto), 'Longsword');
     button(move, 'Move').click();
     const sent = await patchSent();
     expect(sent.request.body).toStrictEqual({

@@ -1,15 +1,25 @@
-@if (runes().length > 0 && targets().length > 0) {
+@if (runes.all().length > 0 && targets.all().length > 0) {
   <fr-async-form [form]="form" [action]="move" [describeError]="describeError">
     <fr-stack direction="horizontal" gap="sm" align="end" wrap>
-      <fr-select-field
+      <fr-picker-field
         [label]="'character.sheet.runes.moveRuneOf' | transloco: { name: name() }"
-        [options]="runes()"
+        [rows]="runes.shown()"
+        [columns]="runeColumns()"
+        [rowValue]="runeValue"
+        [rowLabel]="runeLabel"
         [formField]="form.rune"
+        (searched)="runes.query.set($event)"
+        (sorted)="runes.ordering.set($event)"
       />
-      <fr-select-field
+      <fr-picker-field
         [label]="'character.sheet.runes.moveOnto' | transloco: { name: name() }"
-        [options]="targets()"
+        [rows]="targets.shown()"
+        [columns]="targetColumns()"
+        [rowValue]="targetValue"
+        [rowLabel]="targetLabel"
         [formField]="form.to"
+        (searched)="targets.query.set($event)"
+        (sorted)="targets.ordering.set($event)"
       />
       <fr-async-button type="submit" size="sm" [pendingLabel]="'character.sheet.runes.moving' | transloco">
         {{ 'character.sheet.runes.move' | transloco: { name: name() } }}

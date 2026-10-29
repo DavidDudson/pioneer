@@ -6,12 +6,17 @@
     <fr-grid [columns]="3">
       @for (row of gradeRows(); track row.rune) {
         <fr-inline-field [label]="row.label" [edit]="row.edit">
-          <fr-select
+          <fr-picker
             frInlineEditor
             [ariaLabel]="row.label"
-            [options]="row.options"
+            [rows]="row.rows.shown()"
+            [columns]="runeColumns()"
+            [rowValue]="runeValue"
+            [rowLabel]="runeLabel"
             [value]="row.edit.draft()"
             (valueChange)="row.edit.change($event)"
+            (searched)="row.rows.query.set($event)"
+            (sorted)="row.rows.ordering.set($event)"
             (committed)="row.edit.flushSoon()"
             (cancelled)="row.edit.cancel()"
           />
@@ -34,13 +39,18 @@
     @if (needsPotency()) {
       <fr-text variant="caption" tone="subtle">{{ 'character.sheet.runes.needsPotency' | transloco }}</fr-text>
     }
-    @if (propertyChoices().length > 0) {
+    @if (propertyPicker.all().length > 0) {
       <fr-async-form [form]="form" [action]="add" [describeError]="describeError">
         <fr-stack direction="horizontal" gap="sm" align="end" wrap>
-          <fr-select-field
+          <fr-picker-field
             [label]="'character.sheet.runes.propertyOf' | transloco: { name: name() }"
-            [options]="propertyChoices()"
+            [rows]="propertyPicker.shown()"
+            [columns]="runeColumns()"
+            [rowValue]="runeValue"
+            [rowLabel]="runeLabel"
             [formField]="form.rune"
+            (searched)="propertyPicker.query.set($event)"
+            (sorted)="propertyPicker.ordering.set($event)"
           />
           <fr-async-button type="submit" size="sm" [pendingLabel]="'character.sheet.runes.etching' | transloco">
             {{ 'character.sheet.runes.etch' | transloco: { name: name() } }}

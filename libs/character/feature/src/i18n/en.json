@@ -159,7 +159,31 @@
       "move": "Move rune off {name}",
       "moving": "Moving…",
       "unknownRune": "A rune no loaded content has",
-      "failed": "The rune couldn't be changed. Try again."
+      "failed": "The rune couldn't be changed. Try again.",
+      "kind": {
+        "fundamental": "Fundamental",
+        "property": "Property"
+      },
+      "columns": {
+        "name": "Rune",
+        "kind": "Kind",
+        "level": "Level",
+        "effect": "Effect",
+        "price": "Price",
+        "slots": "Property slot",
+        "slotsUsed": "Property slots used"
+      },
+      "targetColumns": {
+        "name": "Item",
+        "kind": "Kind",
+        "slots": "Property slots",
+        "slotsUsed": "Property slots used"
+      },
+      "itemKind": {
+        "weapon": "Weapon",
+        "armor": "Armour",
+        "shield": "Shield"
+      }
     },
     "inventory": {
       "heading": "Inventory",
