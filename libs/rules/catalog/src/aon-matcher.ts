@@ -46,12 +46,13 @@ const FALLBACK_KINDS_BY_PAGE: Readonly<Record<string, readonly ContentKind[]>> =
 };
 const FALLBACK_KINDS: ReadonlySet<ContentKind> = new Set(Object.values(FALLBACK_KINDS_BY_PAGE).flat());
 
-/** The kinds whose superseded rows were checked against AoN's own "more recent version" notes. */
-const NEWEST_KINDS: ReadonlySet<ContentKind> = new Set([
-  ...EQUIPMENT_FALLBACK_KINDS,
-  ContentKind.Creature,
-  ContentKind.Feat,
-]);
+/**
+ * The kinds whose superseded rows were checked against AoN's own flag for a hidden row (`exclude_from_search`): the
+ * higher ID was the current one for every creature and feat group. A weapon, armor or shield is left out because the
+ * current row is not always the higher ID: Hand Cannon's current row is the higher (NPC Core 523 over Guns & Gears
+ * 193), Repeating Crossbow's the lower (Guns & Gears 176 over the Tian Xia Character Guide's 448).
+ */
+const NEWEST_KINDS: ReadonlySet<ContentKind> = new Set([ContentKind.Creature, ContentKind.Feat]);
 
 /** The kinds some AoN page holds. An entry of any other kind (effects, class features) has no AoN page to find. */
 const LISTED_KINDS: ReadonlySet<ContentKind> = new Set(Object.values(KINDS_BY_PAGE).flat());
@@ -173,8 +174,8 @@ function printedIn(urls: readonly AonUrl[], printed: ReadonlySet<AonUrl> | undef
 }
 
 /**
- * AoN supersedes a page by adding a row with a higher ID (checked on Acid Flask, Celestial Peachwood Sword, Hand
- * Cannon, Banshee Cry Display and Anadi Elder: the old page says "There is a more recent version"). For an entry of
+ * AoN supersedes a page by adding a row with a higher ID (checked on Banshee Cry Display and Anadi Elder, and on
+ * every creature and feat group in the listings: the old page says "There is a more recent version"). For an entry of
  * a kind it was checked on with several rows of one AoN page still, the highest ID; rows of different pages stay
  * ambiguous. A creature whose name carries a parenthetical ("Gurglegut (Level 12)") is one of several rows that differ
  * by level, not a superseded one, so it stays ambiguous.
