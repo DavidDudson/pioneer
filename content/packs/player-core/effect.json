@@ -18498,6 +18498,993 @@
     }
   },
   {
+    "id": "6e9ec020-d767-5371-9efd-c2a1e12cf4c2",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-insect-form-ant",
+    "name": "Spell Effect: Insect Form (Ant)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 30 feet, climb Speed 30 feet; mandibles 2d6 bludgeoning."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "medium",
+          "speeds": {
+            "land": 30,
+            "climb": 30
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "mandibles",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 2,
+                "die": "d6",
+                "damageType": "bludgeoning"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 13
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 4,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4697e9a2-84b4-5564-a24f-602eeb280e77",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-insect-form-beetle",
+    "name": "Spell Effect: Insect Form (Beetle)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 25 feet; mandibles 2d10 bludgeoning."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "medium",
+          "speeds": {
+            "land": 25
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "mandibles",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 2,
+                "die": "d10",
+                "damageType": "bludgeoning"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 13
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 4,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1bacec27-0b89-5406-b1c7-6834451eab0b",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-insect-form-centipede",
+    "name": "Spell Effect: Insect Form (Centipede)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 25 feet, climb Speed 25 feet; darkvision; mandibles 1d8 piercing plus 1d4 persistent poison."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "medium",
+          "speeds": {
+            "land": 25,
+            "climb": 25
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "mandibles",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 1,
+                "die": "d8",
+                "damageType": "piercing"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 13
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 2,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["mandibles-damage"],
+        "diceNumber": "ternary(gte(@item.level, 5), 2, 1)",
+        "dieSize": "d4",
+        "damageType": "poison",
+        "category": "persistent"
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9a569d5e-01de-5449-a4cf-dcd341455ee6",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-insect-form-mantis",
+    "name": "Spell Effect: Insect Form (Mantis)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 40 feet; imprecise scent 30 feet; foreleg 2d8 piercing."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "medium",
+          "speeds": {
+            "land": 40
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 30
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "foreleg",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 2,
+                "die": "d8",
+                "damageType": "piercing"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 13
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "foreleg",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "foreleg",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "foreleg",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 4,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "99274af8-3bcf-5c30-b7bf-39b65c9c774e",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-insect-form-scorpion",
+    "name": "Spell Effect: Insect Form (Scorpion)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 40 feet; darkvision, imprecise tremorsense 60 feet; stinger 1d8 piercing plus 1d4 persistent poison; pincer (agile) 1d6 bludgeoning."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "medium",
+          "speeds": {
+            "land": 40
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            },
+            {
+              "sense": "367b9fa7-8944-5208-9949-9457984b7c59",
+              "acuity": "imprecise",
+              "range": 60
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "stinger",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 1,
+                "die": "d8",
+                "damageType": "piercing"
+              }
+            },
+            {
+              "slug": "pincer",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile"],
+              "damage": {
+                "dice": 1,
+                "die": "d6",
+                "damageType": "bludgeoning"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 13
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "stinger",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              },
+              {
+                "slug": "pincer",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "stinger",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              },
+              {
+                "slug": "pincer",
+                "traits": ["unarmed", "agile", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "stinger",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 2,
+                  "modifier": 2
+                }
+              },
+              {
+                "slug": "pincer",
+                "traits": ["unarmed", "agile", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 2,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["stinger-damage"],
+        "diceNumber": "ternary(gte(@item.level, 5), 2, 1)",
+        "dieSize": "d4",
+        "damageType": "poison",
+        "category": "persistent"
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9be195ac-f2e4-5db5-8380-bc08a532ec47",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-insect-form-spider",
+    "name": "Spell Effect: Insect Form (Spider)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 25 feet, climb Speed 25 feet; darkvision; fangs 1d6 piercing plus 1d4 persistent poison. Its web is not modelled."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "medium",
+          "speeds": {
+            "land": 25,
+            "climb": 25
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "fangs",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 1,
+                "die": "d6",
+                "damageType": "piercing"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 13
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "fangs",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "fangs",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "fangs",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 2,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["fangs-damage"],
+        "diceNumber": "ternary(gte(@item.level, 5), 2, 1)",
+        "dieSize": "d4",
+        "damageType": "poison",
+        "category": "persistent"
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "31a1133a-fdee-537c-b808-bfbea37957d7",
     "pack": "player-core",
     "kind": "effect",
@@ -19126,6 +20113,87 @@
         "type": "time",
         "count": 1,
         "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "971143cc-3b1e-56f4-8570-f162ddbecad4",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-migration",
+    "name": "Spell Effect: Migration",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e23d024e-ae69-5014-94ce-275ccbbb3c09"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take on animal forms most fitting your movement and environment: a land, burrow, climb, fly and swim Speed of 40 feet, and immunity to mild, severe and extreme cold and heat. You can't Strike, cast spells, or use most manipulate actions in animal form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 40
+      },
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "upgrade",
+        "value": 40
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 40
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 40
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 40
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
         "expiry": "turn-start"
       }
     }
@@ -21022,6 +22090,106 @@
         "type": "time",
         "count": 10,
         "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "deba9049-8f95-5a00-a262-fae6044e1f81",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-one-with-plants",
+    "name": "Spell Effect: One with Plants",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "57003239-0bcf-5e13-9b4f-8dfd8e31ba40"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become a Large plant, typically a tree, for 8 hours, or merge with a plant for 10 minutes. While transformed, you can't move or affect anything outside the plant."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b6bb0da5-a7b5-59f4-a278-f9b492513a64",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-one-with-stone",
+    "name": "Spell Effect: One with Stone",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "82b08e7f-45f7-5928-ab63-d207273019ee"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become a Large stone for 8 hours, or merge with stone for 10 minutes. While transformed, you can't move or affect anything outside the stone."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
         "expiry": "turn-start"
       }
     }
