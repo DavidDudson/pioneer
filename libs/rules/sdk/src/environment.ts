@@ -76,9 +76,12 @@ function uniqueRestrictionIds(context: z.core.ParsePayload<readonly EnvironmentR
 /**
  * An environment's `data` on the `ContentEntry` envelope: a situation a character is in (underwater, darkness, extreme
  * cold), which is not a condition. Its adjustments are its `rules`, applied while it is active; this is what it forbids
- * and what staying in it costs.
+ * and what staying in it costs. Environments stack (a forest with difficult terrain, an ocean with underwater), except
+ * within a `group`: the tiers of one scale (cold, heat) or levels of one hazard (difficult and greater difficult
+ * terrain), where turning one on turns the others of its group off.
  */
 export const EnvironmentData = z.strictObject({
+  group: Slug.optional(),
   restrictions: z.array(EnvironmentRestriction).max(LIST_MAX).readonly().check(uniqueRestrictionIds).default([]),
   consequences: z.array(EnvironmentConsequence).max(LIST_MAX).readonly().default([]),
 });

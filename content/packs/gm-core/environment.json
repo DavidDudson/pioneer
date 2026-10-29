@@ -28,6 +28,7 @@
     ],
     "rules": [],
     "data": {
+      "group": "temperature",
       "restrictions": [],
       "consequences": [
         {
@@ -69,6 +70,7 @@
     ],
     "rules": [],
     "data": {
+      "group": "temperature",
       "restrictions": [],
       "consequences": [
         {
@@ -121,6 +123,7 @@
     ],
     "rules": [],
     "data": {
+      "group": "temperature",
       "restrictions": [],
       "consequences": [
         {
@@ -173,6 +176,7 @@
     ],
     "rules": [],
     "data": {
+      "group": "temperature",
       "restrictions": [],
       "consequences": [
         {
@@ -225,6 +229,7 @@
     ],
     "rules": [],
     "data": {
+      "group": "temperature",
       "restrictions": [],
       "consequences": [
         {
@@ -266,6 +271,7 @@
     ],
     "rules": [],
     "data": {
+      "group": "temperature",
       "restrictions": [],
       "consequences": [
         {
@@ -318,6 +324,7 @@
     ],
     "rules": [],
     "data": {
+      "group": "temperature",
       "restrictions": [],
       "consequences": [
         {
@@ -370,6 +377,7 @@
     ],
     "rules": [],
     "data": {
+      "group": "temperature",
       "restrictions": [],
       "consequences": [
         {
@@ -462,6 +470,352 @@
             ]
           }
         ]
+      }
+    ],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "926502aa-dbe9-5fe1-a7c1-f167f383a800",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:aquatic",
+    "name": "Aquatic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2770"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aquatic environments are among the most challenging for PCs short of other worlds and unusual planes. PCs in an aquatic environment need a way to breathe and must usually Swim to move, though a PC who sinks to the bottom can walk awkwardly, using the rules for greater difficult terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "terrain:aquatic"
+      },
+      {
+        "key": "RollOption",
+        "option": "terrain:water"
+      }
+    ],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "ced42404-2aa3-5d4a-88de-a8b22161172f",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:arctic",
+    "name": "Arctic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 91,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2773"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The main challenge in an arctic environment is the extreme low temperature, but arctic environments also contain ice and snow. The disasters that most often strike in arctic environments are avalanches, blizzards, and floods."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "terrain:arctic"
+      }
+    ],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "1f3143ef-10db-5f1f-9612-5a4c593aee90",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:desert",
+    "name": "Desert",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 91,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2776"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Desert encompasses sandy and rocky deserts as well as badlands. Sandy deserts often have quicksand hazards and sandstorms."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "terrain:desert"
+      }
+    ],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "bb462e72-2a29-5e89-9b7f-327c7934b7a7",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:forest",
+    "name": "Forest",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 91,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2779"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These diverse environments include jungles and other wooded areas. They are sometimes struck by wildfires."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "terrain:forest"
+      }
+    ],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "aebcb13e-3b96-5b6e-b787-b5ac84a905af",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:mountain",
+    "name": "Mountain",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 91,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2783"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mountain environments also include hills, which share many aspects of mountains, though not their more extreme features. The most common disasters here are avalanches."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "terrain:mountain"
+      }
+    ],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "293383e9-8eed-577a-9135-95e305c1a752",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:plains",
+    "name": "Plains",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 92,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2789"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The plains environment encompasses grasslands such as savannas and farmland. The most common disasters in plains are tornadoes and wildfires."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "terrain:plains"
+      }
+    ],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "88c43dee-b016-54d7-8127-3c9569057150",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:swamp",
+    "name": "Swamp",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 92,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2792"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wetlands are the most common kind of swamp, but this category also includes drier marshes such as moors. Swamps often contain quicksand hazards."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "terrain:swamp"
+      }
+    ],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "59115a35-a766-5b69-9fc6-77434bd0efe3",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:underground",
+    "name": "Underground",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 94,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2808"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Underground environments consist of caves and natural underground areas. Deep underground vaults have some of the same terrain features as mountains, such as chasms and cliffs. The most common disasters underground are collapses."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "terrain:underground"
+      }
+    ],
+    "data": {
+      "restrictions": [],
+      "consequences": []
+    }
+  },
+  {
+    "id": "3b506823-8c79-5a11-b969-cadbde5a56a1",
+    "pack": "gm-core",
+    "kind": "environment",
+    "slug": "environment:urban",
+    "name": "Urban",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core",
+        "page": 92,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2795"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Urban environments include open city spaces as well as buildings. The building information also applies to ruins and constructed dungeons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "terrain:urban"
       }
     ],
     "data": {

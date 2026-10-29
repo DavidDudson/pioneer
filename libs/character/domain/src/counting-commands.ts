@@ -10,8 +10,8 @@ import { applyEffectEdit } from './effect-ending';
 import type { ActiveEffect, EffectContent } from './effects';
 import { exposureAfterCommand } from './environment-exposure';
 import type { Exposure } from './environment-exposure';
-import { applyEnvironmentCommand, isEnvironmentCommand } from './environments';
-import type { ActiveEnvironments, EnvironmentCommand } from './environments';
+import { applyEnvironmentCommand, displacedBy, isEnvironmentCommand } from './environments';
+import type { ActiveEnvironments, EnvironmentCommand, EnvironmentGroups } from './environments';
 import { applyExplorationCommand, isExplorationCommand } from './exploration-commands';
 import type { ExplorationActivity, ExplorationCommand } from './exploration-commands';
 import { applyResourceCommand, ResourceCommandField } from './resource-commands';
@@ -57,7 +57,11 @@ export type CountingPlay = RestPlay & {
 };
 
 /** What a counting edit reads besides the play state: the restoring actions' limits and the effect content. */
-export type CountingLimits = RestLimits & { readonly effects: EffectContent; readonly spend: SpendLimits };
+export type CountingLimits = RestLimits & {
+  readonly effects: EffectContent;
+  readonly environmentGroups: EnvironmentGroups;
+  readonly spend: SpendLimits;
+};
 
 /** Whether `command` is a pool, slot or use edit. */
 function isResourceCommand<Command extends { readonly field: unknown }>(
@@ -89,10 +93,31 @@ function resourceLimits(limits: CountingLimits): ResourceLimits {
   return { points: limits.resources, counted: limits.counted, staffCost: limits.staff.castCost ?? NO_CHARGES };
 }
 
+/** `play` after an environment is turned on or off; turning one on turns off the others of its group. */
+function applyEnvironmentSet<Play extends CountingPlay>(
+  play: Play,
+  command: EnvironmentCommand,
+  groups: EnvironmentGroups,
+): Play {
+  let { environments, exposure } = play;
+  const turnedOff = command.active ? displacedBy(environments, groups, command.environment) : [];
+  for (const environment of turnedOff) {
+    const off: EnvironmentCommand = { field: command.field, environment, active: false };
+    environments = applyEnvironmentCommand(environments, off);
+    exposure = exposureAfterCommand(exposure, off);
+  }
+  return {
+    ...play,
+    environments: applyEnvironmentCommand(environments, command),
+    exposure: exposureAfterCommand(exposure, command),
+  };
+}
+
 /** `play` after a toggle or an environment set, or the exploration activity chosen. */
 function applyChoiceCommand<Play extends CountingPlay>(
   play: Play,
   command: ToggleCommand | ExplorationCommand | EnvironmentCommand | BreathCommand,
+  groups: EnvironmentGroups,
 ): Play {
   if (isExplorationCommand(command)) {
     return { ...play, exploration: applyExplorationCommand(command) };
@@ -100,13 +125,10 @@ function applyChoiceCommand<Play extends CountingPlay>(
   if (isBreathCommand(command)) {
     return { ...play, breath: applyBreathCommand(command) };
   }
-  return isEnvironmentCommand(command)
-    ? {
-        ...play,
-        environments: applyEnvironmentCommand(play.environments, command),
-        exposure: exposureAfterCommand(play.exposure, command),
-      }
-    : { ...play, toggles: applyToggleCommand(play.toggles, command) };
+  if (isEnvironmentCommand(command)) {
+    return applyEnvironmentSet(play, command, groups);
+  }
+  return { ...play, toggles: applyToggleCommand(play.toggles, command) };
 }
 
 /** `play` after an edit of its active effects or active spells. */
@@ -138,7 +160,7 @@ export function applyCountingCommand<Play extends CountingPlay>(
     isEnvironmentCommand(command) ||
     isBreathCommand(command)
   ) {
-    return applyChoiceCommand(play, command);
+    return applyChoiceCommand(play, command, limits.environmentGroups);
   }
   if (isEffectCommand(command) || isActiveSpellCommand(command)) {
     return applyListCommand(play, command, limits);
