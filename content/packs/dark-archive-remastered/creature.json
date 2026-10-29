@@ -950,7 +950,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 152,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4648"
       }
     ],
     "description": [],
@@ -1504,7 +1506,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 192,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4650"
       }
     ],
     "description": [],
@@ -1808,7 +1812,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 153,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4649"
       }
     ],
     "description": [

@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 189,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3406"
       }
     ],
     "description": [
@@ -745,7 +747,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 183,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3405"
       }
     ],
     "description": [
@@ -1433,7 +1437,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 170,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3400"
       }
     ],
     "description": [
@@ -1942,7 +1948,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 173,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3403"
       }
     ],
     "description": [
@@ -2366,7 +2374,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 172,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3402"
       }
     ],
     "description": [
@@ -3075,7 +3085,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 171,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3401"
       }
     ],
     "description": [
@@ -3461,7 +3473,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 195,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3407"
       }
     ],
     "description": [
@@ -4368,7 +4382,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 201,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3408"
       }
     ],
     "description": [
@@ -4898,7 +4914,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 207,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3409"
       }
     ],
     "description": [
@@ -5618,7 +5636,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 177,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3404"
       }
     ],
     "description": [
@@ -6244,7 +6264,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 214,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3410"
       }
     ],
     "description": [

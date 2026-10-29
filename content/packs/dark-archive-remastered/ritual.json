@@ -464,7 +464,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=232"
       }
     ],
     "description": [
@@ -1143,7 +1145,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "dark-archive-remastered"
+        "book": "dark-archive-remastered",
+        "page": 147,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=230"
       }
     ],
     "description": [

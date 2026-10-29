@@ -567,7 +567,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 267,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=147"
       }
     ],
     "description": [
@@ -751,7 +753,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 267,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=148"
       }
     ],
     "description": [
@@ -1820,7 +1824,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 270,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=154"
       }
     ],
     "description": [

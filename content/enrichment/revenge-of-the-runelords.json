@@ -74,6 +74,86 @@
     "page": 69,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4042"
   },
+  "creature:ayavah": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4272",
+    "page": 93
+  },
+  "creature:eron-of-jandelay": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4264",
+    "page": 88
+  },
+  "creature:gavergash": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4273",
+    "page": 49
+  },
+  "creature:kandirvek": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4269",
+    "page": 42
+  },
+  "creature:natbakh": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4265",
+    "page": 89
+  },
+  "creature:pridespawn-sentinel": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4270",
+    "page": 56
+  },
+  "creature:pyroclastic-mukradi": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4268",
+    "page": 35
+  },
+  "creature:risen-runelord-envy": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275",
+    "page": 90
+  },
+  "creature:risen-runelord-gluttony": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275",
+    "page": 90
+  },
+  "creature:risen-runelord-greed": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275",
+    "page": 90
+  },
+  "creature:risen-runelord-lust": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275",
+    "page": 90
+  },
+  "creature:risen-runelord-pride": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275",
+    "page": 90
+  },
+  "creature:risen-runelord-sloth": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275",
+    "page": 90
+  },
+  "creature:risen-runelord-wrath": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275",
+    "page": 90
+  },
+  "creature:trinity-initiate": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4267",
+    "page": 19
+  },
+  "creature:vesinra": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4274",
+    "page": 22
+  },
   "equipment:cyrusian-wand-1st-rank-spell": {
     "book": "revenge-of-the-runelords",
     "page": 70,
@@ -398,5 +478,9 @@
     "book": "revenge-of-the-runelords",
     "page": 74,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=8144"
+  },
+  "ritual:raise-runelord": {
+    "book": "revenge-of-the-runelords",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=221"
   }
 }

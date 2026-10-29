@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 216,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=65"
       }
     ],
     "description": [
@@ -161,7 +163,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "secrets-of-magic"
+        "book": "secrets-of-magic",
+        "page": 217,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=66"
       }
     ],
     "description": [

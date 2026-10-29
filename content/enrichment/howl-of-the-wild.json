@@ -249,6 +249,376 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3267",
     "page": 119
   },
+  "creature:alicorn": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3320",
+    "page": 191
+  },
+  "creature:almiraj": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3253",
+    "page": 124
+  },
+  "creature:apothecary-bee": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3254",
+    "page": 125
+  },
+  "creature:ascendant-griffon": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3287",
+    "page": 157
+  },
+  "creature:barded-manticore": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3300",
+    "page": 173
+  },
+  "creature:blooming-guardian": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3256",
+    "page": 128
+  },
+  "creature:carnotaurus": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3263",
+    "page": 137
+  },
+  "creature:chaos-falcon": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3270",
+    "page": 143
+  },
+  "creature:concert-frog": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3281",
+    "page": 151
+  },
+  "creature:crying-cicada": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3258",
+    "page": 134
+  },
+  "creature:decapod-dinghy": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3259",
+    "page": 135
+  },
+  "creature:desert-manticore": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3299",
+    "page": 172
+  },
+  "creature:drthak": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3268",
+    "page": 140
+  },
+  "creature:fangtooth-school": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3276",
+    "page": 149
+  },
+  "creature:flynkett": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3279",
+    "page": 150
+  },
+  "creature:ghost-ape": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3272",
+    "page": 146
+  },
+  "creature:giant-coppermouth": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3283",
+    "page": 152
+  },
+  "creature:giant-fangtooth": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3278",
+    "page": 149
+  },
+  "creature:giant-tardigrade": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3316",
+    "page": 187
+  },
+  "creature:goblin-shark": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3307",
+    "page": 179
+  },
+  "creature:greater-chimera": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3257",
+    "page": 133
+  },
+  "creature:harbor-seal": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3305",
+    "page": 178
+  },
+  "creature:hardhead-mole": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3288",
+    "page": 158
+  },
+  "creature:hexmoth": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3290",
+    "page": 159
+  },
+  "creature:hexworm": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3289",
+    "page": 159
+  },
+  "creature:holdfast": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3291",
+    "page": 160
+  },
+  "creature:hooplamander": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3292",
+    "page": 161
+  },
+  "creature:karkadann": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3318",
+    "page": 190
+  },
+  "creature:leopard-seal": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3306",
+    "page": 178
+  },
+  "creature:lightning-turtle": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3284",
+    "page": 153
+  },
+  "creature:magnegor": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3297",
+    "page": 168
+  },
+  "creature:magnetic-gecko": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3282",
+    "page": 152
+  },
+  "creature:majungasaurus": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3262",
+    "page": 137
+  },
+  "creature:mammoth-land-star": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3298",
+    "page": 169
+  },
+  "creature:marp": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3301",
+    "page": 174
+  },
+  "creature:mirror-wolf": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3312",
+    "page": 183
+  },
+  "creature:mist-bear": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3273",
+    "page": 147
+  },
+  "creature:mjolgat": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3302",
+    "page": 175
+  },
+  "creature:mocking-chorus": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3296",
+    "page": 167
+  },
+  "creature:morthak": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3267",
+    "page": 140
+  },
+  "creature:pale-horse": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3319",
+    "page": 190
+  },
+  "creature:plated-python": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3286",
+    "page": 155
+  },
+  "creature:prismhydra": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3295",
+    "page": 166
+  },
+  "creature:protoceratops": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3261",
+    "page": 136
+  },
+  "creature:rift-chameleon": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3271",
+    "page": 146
+  },
+  "creature:royal-basilisk": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3255",
+    "page": 127
+  },
+  "creature:rumindrol": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3303",
+    "page": 176
+  },
+  "creature:scroungefeather": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3304",
+    "page": 177
+  },
+  "creature:shotalashu": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3309",
+    "page": 180
+  },
+  "creature:sky-fisher": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3310",
+    "page": 181
+  },
+  "creature:soniphak": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3269",
+    "page": 141
+  },
+  "creature:sporeback-frog": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3280",
+    "page": 151
+  },
+  "creature:stargut-hydra": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3293",
+    "page": 164
+  },
+  "creature:stonefish": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3274",
+    "page": 148
+  },
+  "creature:stonefish-swarm": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3275",
+    "page": 148
+  },
+  "creature:stony-bat": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3285",
+    "page": 154
+  },
+  "creature:stony-goat": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3313",
+    "page": 184
+  },
+  "creature:storm-snake": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3314",
+    "page": 185
+  },
+  "creature:sunscale-serpent": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3311",
+    "page": 182
+  },
+  "creature:swordfish": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3277",
+    "page": 149
+  },
+  "creature:taldan-cave-squirrel": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3315",
+    "page": 186
+  },
+  "creature:tardigrade-swarm": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3317",
+    "page": 187
+  },
+  "creature:therizinosaurus": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3264",
+    "page": 138
+  },
+  "creature:thruneosaurus-rex": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3266",
+    "page": 139
+  },
+  "creature:titanosaur": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3265",
+    "page": 138
+  },
+  "creature:troodon": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3260",
+    "page": 136
+  },
+  "creature:tyrafdir": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3294",
+    "page": 165
+  },
+  "creature:vibrant-pup-swarm": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3321",
+    "page": 192
+  },
+  "creature:virtuosic-lyrebird": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3322",
+    "page": 193
+  },
+  "creature:warden-of-caverns-and-burrows": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3325",
+    "page": 203
+  },
+  "creature:warden-of-forests-and-meadows": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3326",
+    "page": 205
+  },
+  "creature:warden-of-peaks-and-skies": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3328",
+    "page": 209
+  },
+  "creature:weremoose": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3323",
+    "page": 196
+  },
+  "creature:wereshark": {
+    "book": "howl-of-the-wild",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3324",
+    "page": 197
+  },
   "equipment:alluring-lantern": {
     "book": "howl-of-the-wild",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3177",

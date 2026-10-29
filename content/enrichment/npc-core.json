@@ -1,4 +1,14 @@
 {
+  "action:troop-defenses": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=86",
+    "page": 231
+  },
+  "action:troop-movement": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=85",
+    "page": 231
+  },
   "consumable:diglys-oil-of-sympathy-greater": {
     "book": "npc-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3586",

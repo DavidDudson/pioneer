@@ -219,6 +219,21 @@
     "page": 114,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4134"
   },
+  "creature:mother-mitera": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4648",
+    "page": 152
+  },
+  "creature:the-morrowkin": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4650",
+    "page": 192
+  },
+  "creature:verdures-moonflower": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4649",
+    "page": 153
+  },
   "equipment:book-of-lost-days": {
     "book": "dark-archive-remastered",
     "page": 160,
@@ -1439,6 +1454,11 @@
     "page": 145,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=226"
   },
+  "ritual:mindscape-door": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=232",
+    "page": 199
+  },
   "ritual:oblivious-expulsion": {
     "book": "dark-archive-remastered",
     "page": 145,
@@ -1453,6 +1473,11 @@
     "book": "dark-archive-remastered",
     "page": 146,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=229"
+  },
+  "ritual:vital-singularity": {
+    "book": "dark-archive-remastered",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=230",
+    "page": 147
   },
   "spell:astral-rain": {
     "book": "dark-archive-remastered",

@@ -3044,6 +3044,11 @@
     "page": 110,
     "aon": "https://2e.aonprd.com/Heritages.aspx?ID=439"
   },
+  "ritual:asmodean-wager": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=244",
+    "page": 188
+  },
   "ritual:awaken-object": {
     "book": "impossible-magic",
     "page": 188,
@@ -3054,10 +3059,20 @@
     "page": 189,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=246"
   },
+  "ritual:borrow-time": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=247",
+    "page": 190
+  },
   "ritual:cloudborne-haven": {
     "book": "impossible-magic",
     "page": 190,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=248"
+  },
+  "ritual:confound-the-eye-and-confuse-the-mind": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=250",
+    "page": 191
   },
   "ritual:dread-ambience": {
     "book": "impossible-magic",
@@ -3073,6 +3088,21 @@
     "book": "impossible-magic",
     "page": 192,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=253"
+  },
+  "ritual:glance-of-the-divine": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=254",
+    "page": 192
+  },
+  "ritual:guardians-aegis": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=255",
+    "page": 193
+  },
+  "ritual:haven-in-the-ether": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=256",
+    "page": 193
   },
   "ritual:ideal-mimicry": {
     "book": "impossible-magic",
@@ -3094,6 +3124,11 @@
     "page": 195,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=260"
   },
+  "ritual:peer-into-the-past": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=261",
+    "page": 195
+  },
   "ritual:portrait-of-spite": {
     "book": "impossible-magic",
     "page": 196,
@@ -3103,6 +3138,11 @@
     "book": "impossible-magic",
     "page": 101,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=243"
+  },
+  "ritual:release-the-ego-to-restore-the-soul": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=263",
+    "page": 196
   },
   "ritual:resolute-obliteration": {
     "book": "impossible-magic",
@@ -3124,10 +3164,20 @@
     "page": 198,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=269"
   },
+  "ritual:the-worlds-a-stage": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=272",
+    "page": 199
+  },
   "ritual:uncouple-memory": {
     "book": "impossible-magic",
     "page": 198,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=270"
+  },
+  "ritual:unsealing-of-secrets": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=271",
+    "page": 199
   },
   "rune:bane": {
     "book": "impossible-magic",

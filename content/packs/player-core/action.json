@@ -7988,7 +7988,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 173,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=4952"
       }
     ],
     "description": [
@@ -8314,7 +8316,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 417,
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=2298"
       }
     ],
     "description": [
@@ -10062,7 +10066,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 191,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5019"
       }
     ],
     "description": [
@@ -10164,7 +10170,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 190,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5015"
       }
     ],
     "description": [
@@ -10985,7 +10993,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=4745"
       }
     ],
     "description": [

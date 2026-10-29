@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=15"
       }
     ],
     "description": [
@@ -61,7 +63,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 28,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=27"
       }
     ],
     "description": [
@@ -182,7 +186,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=16"
       }
     ],
     "description": [
@@ -281,7 +287,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=7"
       }
     ],
     "description": [
@@ -390,7 +398,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 28,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=28"
       }
     ],
     "description": [
@@ -492,7 +502,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=1"
       }
     ],
     "description": [
@@ -526,7 +538,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=17"
       }
     ],
     "description": [
@@ -693,7 +707,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=8"
       }
     ],
     "description": [
@@ -743,7 +759,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=9"
       }
     ],
     "description": [
@@ -919,7 +937,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 28,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=29"
       }
     ],
     "description": [
@@ -1012,7 +1032,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=2"
       }
     ],
     "description": [
@@ -1255,7 +1277,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 29,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=30"
       }
     ],
     "description": [
@@ -1430,7 +1454,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=22"
       }
     ],
     "description": [
@@ -1696,7 +1722,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=3"
       }
     ],
     "description": [
@@ -1756,7 +1784,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=4"
       }
     ],
     "description": [
@@ -1816,7 +1846,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=5"
       }
     ],
     "description": [
@@ -1891,7 +1923,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=10"
       }
     ],
     "description": [
@@ -1933,7 +1967,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=23"
       }
     ],
     "description": [
@@ -1988,7 +2024,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 28,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=24"
       }
     ],
     "description": [
@@ -2059,7 +2097,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 25,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=6"
       }
     ],
     "description": [
@@ -2162,7 +2202,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 28,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=25"
       }
     ],
     "description": [
@@ -2316,7 +2358,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=11"
       }
     ],
     "description": [
@@ -2367,7 +2411,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 28,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=26"
       }
     ],
     "description": [
@@ -2537,7 +2583,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 29,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=31"
       }
     ],
     "description": [
@@ -2668,7 +2716,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=12"
       }
     ],
     "description": [
@@ -2913,7 +2963,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=18"
       }
     ],
     "description": [
@@ -3826,7 +3878,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=13"
       }
     ],
     "description": [
@@ -3860,7 +3914,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=19"
       }
     ],
     "description": [
@@ -4034,7 +4090,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 26,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=14"
       }
     ],
     "description": [
@@ -4088,7 +4146,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=20"
       }
     ],
     "description": [
@@ -4192,7 +4252,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 27,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=21"
       }
     ],
     "description": [
@@ -4268,7 +4330,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 29,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=32"
       }
     ],
     "description": [

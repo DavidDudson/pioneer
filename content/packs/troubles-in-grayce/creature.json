@@ -1374,7 +1374,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "troubles-in-grayce"
+        "book": "troubles-in-grayce",
+        "page": 120,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4770"
       }
     ],
     "description": [
@@ -3722,7 +3724,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "troubles-in-grayce"
+        "book": "troubles-in-grayce",
+        "page": 121,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4771"
       }
     ],
     "description": [
@@ -4229,7 +4233,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "troubles-in-grayce"
+        "book": "troubles-in-grayce",
+        "page": 122,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4772"
       }
     ],
     "description": [
@@ -5576,7 +5582,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "troubles-in-grayce"
+        "book": "troubles-in-grayce",
+        "page": 123,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4773"
       }
     ],
     "description": [
@@ -6021,7 +6029,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "troubles-in-grayce"
+        "book": "troubles-in-grayce",
+        "page": 124,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4774"
       }
     ],
     "description": [
@@ -6454,7 +6464,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "troubles-in-grayce"
+        "book": "troubles-in-grayce",
+        "page": 125,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4775"
       }
     ],
     "description": [

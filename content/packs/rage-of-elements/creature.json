@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 158,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2652"
       }
     ],
     "description": [
@@ -228,7 +230,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2614"
       }
     ],
     "description": [
@@ -745,7 +749,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 217,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2686"
       }
     ],
     "description": [
@@ -1034,7 +1040,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 150,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2640"
       }
     ],
     "description": [
@@ -1851,7 +1859,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 102,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2622"
       }
     ],
     "description": [
@@ -2312,7 +2322,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 80,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2615"
       }
     ],
     "description": [
@@ -2732,7 +2744,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 181,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2661"
       }
     ],
     "description": [
@@ -3574,7 +3588,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 126,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2631"
       }
     ],
     "description": [
@@ -3862,7 +3878,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 127,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2632"
       }
     ],
     "description": [
@@ -4256,7 +4274,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 151,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2641"
       }
     ],
     "description": [
@@ -4708,7 +4728,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2675"
       }
     ],
     "description": [
@@ -4959,7 +4981,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 180,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2660"
       }
     ],
     "description": [
@@ -5243,7 +5267,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2616"
       }
     ],
     "description": [
@@ -5554,7 +5580,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 104,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2625"
       }
     ],
     "description": [
@@ -5858,7 +5886,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 103,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2623"
       }
     ],
     "description": [
@@ -6105,7 +6135,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2617"
       }
     ],
     "description": [
@@ -6354,7 +6386,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 180,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2659"
       }
     ],
     "description": [
@@ -6525,7 +6559,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 105,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2626"
       }
     ],
     "description": [
@@ -6963,7 +6999,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2679"
       }
     ],
     "description": [
@@ -7836,7 +7874,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 182,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2662"
       }
     ],
     "description": [
@@ -8323,7 +8363,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 152,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2643"
       }
     ],
     "description": [],
@@ -8461,7 +8503,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 226,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2687"
       }
     ],
     "description": [
@@ -8933,7 +8977,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 104,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2624"
       }
     ],
     "description": [
@@ -9177,7 +9223,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 214,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2683"
       }
     ],
     "description": [
@@ -9579,7 +9627,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 129,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2636"
       }
     ],
     "description": [
@@ -10069,7 +10119,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 84,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2620"
       }
     ],
     "description": [],
@@ -10488,7 +10540,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 106,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2627"
       }
     ],
     "description": [
@@ -10985,7 +11039,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 227,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2688"
       }
     ],
     "description": [
@@ -11529,7 +11585,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 154,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2646"
       }
     ],
     "description": [
@@ -11689,7 +11747,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 212,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2681"
       }
     ],
     "description": [
@@ -11994,7 +12054,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 213,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2682"
       }
     ],
     "description": [
@@ -12540,7 +12602,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 129,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2633"
       }
     ],
     "description": [
@@ -12830,7 +12894,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 107,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2628"
       }
     ],
     "description": [
@@ -13123,7 +13189,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 207,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2674"
       }
     ],
     "description": [
@@ -13503,7 +13571,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 155,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2649"
       }
     ],
     "description": [
@@ -13750,7 +13820,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 129,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2635"
       }
     ],
     "description": [
@@ -14238,7 +14310,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 215,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2684"
       }
     ],
     "description": [
@@ -14585,7 +14659,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 159,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2654"
       }
     ],
     "description": [
@@ -14895,7 +14971,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 153,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2645"
       }
     ],
     "description": [
@@ -15113,7 +15191,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 153,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2644"
       }
     ],
     "description": [
@@ -15312,7 +15392,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 152,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2642"
       }
     ],
     "description": [
@@ -15561,7 +15643,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 206,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2671"
       }
     ],
     "description": [
@@ -15819,7 +15903,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 131,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2637"
       }
     ],
     "description": [
@@ -16096,7 +16182,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 131,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2638"
       }
     ],
     "description": [
@@ -16479,7 +16567,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 183,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2663"
       }
     ],
     "description": [
@@ -16756,7 +16846,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 157,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2651"
       }
     ],
     "description": [
@@ -17169,7 +17261,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 216,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2685"
       }
     ],
     "description": [
@@ -17567,7 +17661,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 206,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2672"
       }
     ],
     "description": [
@@ -17788,7 +17884,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 184,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2664"
       }
     ],
     "description": [
@@ -18152,7 +18250,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 185,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2665"
       }
     ],
     "description": [
@@ -18456,7 +18556,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 158,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2653"
       }
     ],
     "description": [
@@ -18739,7 +18841,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2678"
       }
     ],
     "description": [],
@@ -19043,7 +19147,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 162,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2657"
       }
     ],
     "description": [
@@ -20101,7 +20207,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2676"
       }
     ],
     "description": [
@@ -20347,7 +20455,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 154,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2647"
       }
     ],
     "description": [
@@ -20706,7 +20816,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 132,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2690"
       }
     ],
     "description": [
@@ -21156,7 +21268,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 155,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2648"
       }
     ],
     "description": [
@@ -21526,7 +21640,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2666"
       }
     ],
     "description": [
@@ -22100,7 +22216,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 156,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2650"
       }
     ],
     "description": [
@@ -22385,7 +22503,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2677"
       }
     ],
     "description": [
@@ -22901,7 +23021,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 128,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2634"
       }
     ],
     "description": [
@@ -23377,7 +23499,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2639"
       }
     ],
     "description": [
@@ -23765,7 +23889,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2639"
       }
     ],
     "description": [
@@ -24171,7 +24297,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 163,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2658"
       }
     ],
     "description": [
@@ -24463,7 +24591,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 187,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2667"
       }
     ],
     "description": [
@@ -24730,7 +24860,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 211,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2680"
       }
     ],
     "description": [
@@ -25009,7 +25141,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 109,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2630"
       }
     ],
     "description": [
@@ -25718,7 +25852,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 108,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2629"
       }
     ],
     "description": [
@@ -26235,7 +26371,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 204,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2669"
       }
     ],
     "description": [
@@ -26413,7 +26551,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2618"
       }
     ],
     "description": [
@@ -26706,7 +26846,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 85,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2621"
       }
     ],
     "description": [
@@ -27060,7 +27202,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 207,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2673"
       }
     ],
     "description": [
@@ -27273,7 +27417,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 205,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2670"
       }
     ],
     "description": [
@@ -27534,7 +27680,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 204,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2668"
       }
     ],
     "description": [
@@ -28298,7 +28446,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 160,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2655"
       }
     ],
     "description": [
@@ -28703,7 +28853,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rage-of-elements"
+        "book": "rage-of-elements",
+        "page": 161,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2656"
       }
     ],
     "description": [

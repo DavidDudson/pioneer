@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 204,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4966"
       }
     ],
     "description": [
@@ -329,7 +331,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 206,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4968"
       }
     ],
     "description": [
@@ -739,7 +743,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 205,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4967"
       }
     ],
     "description": [
@@ -1097,7 +1103,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 207,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4969"
       }
     ],
     "description": [],
@@ -1527,7 +1535,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 209,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4971"
       }
     ],
     "description": [
@@ -1959,7 +1969,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 210,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4972"
       }
     ],
     "description": [
@@ -2384,7 +2396,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 211,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4973"
       }
     ],
     "description": [
@@ -2879,7 +2893,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 216,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4978"
       }
     ],
     "description": [
@@ -3264,7 +3280,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 212,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4974"
       }
     ],
     "description": [
@@ -3631,7 +3649,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4970"
       }
     ],
     "description": [
@@ -4051,7 +4071,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 213,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4975"
       }
     ],
     "description": [
@@ -4337,7 +4359,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 214,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4976"
       }
     ],
     "description": [
@@ -4623,7 +4647,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 215,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4977"
       }
     ],
     "description": [
@@ -4899,7 +4925,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "cheliax-infernal-inheritance"
+        "book": "cheliax-infernal-inheritance",
+        "page": 217,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4979"
       }
     ],
     "description": [

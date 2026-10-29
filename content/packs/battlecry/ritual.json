@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 92,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=207"
       }
     ],
     "description": [
@@ -642,7 +644,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "battlecry"
+        "book": "battlecry",
+        "page": 94,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=211"
       }
     ],
     "description": [

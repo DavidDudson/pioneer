@@ -4,10 +4,25 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2632",
     "page": 263
   },
+  "action:apothecarys-garden": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=178",
+    "page": 316
+  },
+  "action:blazing-soul": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=165",
+    "page": 314
+  },
   "action:board": {
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3516",
     "page": 212
+  },
+  "action:bottomless-reservoir": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=193",
+    "page": 319
   },
   "action:bullying-press": {
     "book": "gm-core",
@@ -18,6 +33,11 @@
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3479",
     "page": 203
+  },
+  "action:death-gaze": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=142",
+    "page": 312
   },
   "action:deceptive-sidestep": {
     "book": "gm-core",
@@ -34,6 +54,31 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3478",
     "page": 203
   },
+  "action:flowing-footsteps": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=194",
+    "page": 319
+  },
+  "action:grim-specter": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=147",
+    "page": 312
+  },
+  "action:healing-wave": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=167",
+    "page": 315
+  },
+  "action:incandescent-sight": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=162",
+    "page": 314
+  },
+  "action:inextinguishable": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=169",
+    "page": 315
+  },
   "action:influence": {
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2725",
@@ -43,6 +88,46 @@
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2799",
     "page": 219
+  },
+  "action:jet-propulsion": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=163",
+    "page": 314
+  },
+  "action:life-everlasting": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=171",
+    "page": 316
+  },
+  "action:living-death": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=143",
+    "page": 312
+  },
+  "action:monsoon-curtain": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=191",
+    "page": 318
+  },
+  "action:petal-dance": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=182",
+    "page": 317
+  },
+  "action:pierce-the-veil": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=145",
+    "page": 312
+  },
+  "action:righteous-call": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=139",
+    "page": 311
+  },
+  "action:ripples-and-waves": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=195",
+    "page": 319
   },
   "action:run-over": {
     "book": "gm-core",
@@ -63,6 +148,21 @@
     "book": "gm-core",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3520",
     "page": 212
+  },
+  "action:tidal-crash": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=192",
+    "page": 318
+  },
+  "action:tide-of-death": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=146",
+    "page": 312
+  },
+  "action:wind-barrier": {
+    "book": "gm-core",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=126",
+    "page": 310
   },
   "armor:barding-of-the-zephyr": {
     "book": "gm-core",

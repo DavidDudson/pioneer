@@ -1,4 +1,24 @@
 {
+  "action:against-all-odds": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=102",
+    "page": 200
+  },
+  "action:artistic-perfection": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=90",
+    "page": 198
+  },
+  "action:charming": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=88",
+    "page": 198
+  },
+  "action:clean-luck": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=100",
+    "page": 199
+  },
   "action:compose-missive": {
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=1591",
@@ -9,10 +29,65 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=1904",
     "page": 162
   },
+  "action:emotion-conduit": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=94",
+    "page": 199
+  },
+  "action:emotion-surge": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=92",
+    "page": 199
+  },
+  "action:enthralling": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=89",
+    "page": 198
+  },
+  "action:fervent-spell": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=95",
+    "page": 199
+  },
+  "action:fervor": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=93",
+    "page": 199
+  },
   "action:grow": {
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=1905",
     "page": 165
+  },
+  "action:intelligent-relic": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=109",
+    "page": 200
+  },
+  "action:muse": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=87",
+    "page": 198
+  },
+  "action:sands-of-the-hourglass": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=104",
+    "page": 200
+  },
+  "action:temporal-pulse": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=106",
+    "page": 200
+  },
+  "action:time-reversal": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=108",
+    "page": 200
+  },
+  "action:whammy": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Relics.aspx?ID=99",
+    "page": 199
   },
   "armor:arachnid-harness": {
     "book": "treasure-vault",

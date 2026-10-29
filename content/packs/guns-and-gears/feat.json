@@ -1448,7 +1448,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8533"
       }
     ],
     "description": [
@@ -5106,7 +5108,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8529"
       }
     ],
     "description": [
@@ -7567,7 +7571,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8530"
       }
     ],
     "description": [
@@ -8538,7 +8544,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 134,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8528"
       }
     ],
     "description": [
@@ -9514,7 +9522,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8532"
       }
     ],
     "description": [
@@ -11164,7 +11174,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8531"
       }
     ],
     "description": [

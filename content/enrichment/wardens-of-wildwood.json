@@ -184,6 +184,11 @@
     "page": 79,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=7606"
   },
+  "ritual:commune-with-corazal": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=204",
+    "page": 33
+  },
   "spell:bee-mans-summons": {
     "book": "wardens-of-wildwood",
     "page": 80,

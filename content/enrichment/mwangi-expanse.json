@@ -39,6 +39,111 @@
     "page": 122,
     "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=47"
   },
+  "creature:anadi-elder": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1424",
+    "page": 291
+  },
+  "creature:anadi-hunter": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1422",
+    "page": 290
+  },
+  "creature:anadi-sage": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1423",
+    "page": 290
+  },
+  "creature:asanbosam": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1426",
+    "page": 293
+  },
+  "creature:biloko-veteran": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1428",
+    "page": 294
+  },
+  "creature:biloko-warrior": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1427",
+    "page": 294
+  },
+  "creature:charau-ka-acolyte-of-angazhan": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1431",
+    "page": 297
+  },
+  "creature:charau-ka-butcher": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1432",
+    "page": 297
+  },
+  "creature:charau-ka-warrior": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1430",
+    "page": 296
+  },
+  "creature:eloko": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1429",
+    "page": 295
+  },
+  "creature:grootslang": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1433",
+    "page": 298
+  },
+  "creature:kaava-stalker": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1436",
+    "page": 300
+  },
+  "creature:karina": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1437",
+    "page": 301
+  },
+  "creature:knonna": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1434",
+    "page": 299
+  },
+  "creature:maliadi": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1438",
+    "page": 302
+  },
+  "creature:mamlambo": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1439",
+    "page": 303
+  },
+  "creature:pygmy-kaava": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1435",
+    "page": 300
+  },
+  "creature:rompo": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1440",
+    "page": 304
+  },
+  "creature:sie-goluo": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1441",
+    "page": 305
+  },
+  "creature:solar-ibis": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1442",
+    "page": 306
+  },
+  "creature:zinba": {
+    "book": "mwangi-expanse",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=1443",
+    "page": 307
+  },
   "equipment:genealogy-mask": {
     "book": "mwangi-expanse",
     "page": 34,

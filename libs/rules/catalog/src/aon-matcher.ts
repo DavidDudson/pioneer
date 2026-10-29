@@ -16,13 +16,15 @@ const KINDS_BY_PAGE: Readonly<Record<string, readonly ContentKind[]>> = {
   Feats: [ContentKind.Feat],
   Heritages: [ContentKind.Heritage],
   Languages: [ContentKind.Language],
+  MonsterAbilities: [ContentKind.Action],
   Monsters: [ContentKind.Creature],
   NPCs: [ContentKind.Creature],
-  Relics: [ContentKind.Equipment],
+  Relics: [ContentKind.Equipment, ContentKind.Action],
   Rituals: [ContentKind.Ritual],
   Rules: [ContentKind.VariantRule],
   Shields: [ContentKind.Shield],
   Spells: [ContentKind.Spell],
+  Tactics: [ContentKind.Action],
   Traits: [ContentKind.Trait],
   Weapons: [ContentKind.Weapon],
 };
@@ -33,6 +35,23 @@ const KINDS_BY_PAGE: Readonly<Record<string, readonly ContentKind[]>> = {
  * when its own page has no match, so a base item is never made ambiguous by an Equipment row of the same name.
  */
 const EQUIPMENT_FALLBACK_KINDS: readonly ContentKind[] = [ContentKind.Weapon, ContentKind.Armor, ContentKind.Shield];
+
+/**
+ * The other AoN pages a kind falls back to: the Equipment page for items (above), and the Feats page for an action a
+ * feat grants, which AoN prints under the feat of the same name.
+ */
+const FALLBACK_KINDS_BY_PAGE: Readonly<Record<string, readonly ContentKind[]>> = {
+  Equipment: EQUIPMENT_FALLBACK_KINDS,
+  Feats: [ContentKind.Action],
+};
+const FALLBACK_KINDS: ReadonlySet<ContentKind> = new Set(Object.values(FALLBACK_KINDS_BY_PAGE).flat());
+
+/** The kinds whose superseded rows were checked against AoN's own "more recent version" notes. */
+const NEWEST_KINDS: readonly ContentKind[] = new Set([
+  ...EQUIPMENT_FALLBACK_KINDS,
+  ContentKind.Creature,
+  ContentKind.Feat,
+]);
 
 /** The kinds some AoN page holds. An entry of any other kind (effects, class features) has no AoN page to find. */
 const LISTED_KINDS: ReadonlySet<ContentKind> = new Set(Object.values(KINDS_BY_PAGE).flat());
@@ -102,7 +121,7 @@ function indexListing({ entries }: AonListing): ListingIndex {
     const page = pageOf(url);
     const keys = [
       ...(KINDS_BY_PAGE[page] ?? []).map((kind) => indexKey(name, kind)),
-      ...(page === 'Equipment' ? EQUIPMENT_FALLBACK_KINDS.map((kind) => indexKey(name, kind, true)) : []),
+      ...(FALLBACK_KINDS_BY_PAGE[page] ?? []).map((kind) => indexKey(name, kind, true)),
     ];
     for (const key of keys) {
       index.set(key, [...(index.get(key) ?? []), url]);
@@ -141,7 +160,7 @@ function candidatesIn(index: ListingIndex, entry: AonMatchable, fallback: boolea
 /** The candidates on the entry's own pages, else, for a weapon, armor or shield, on the Equipment page. */
 function candidates(index: ListingIndex, entry: AonMatchable): readonly AonUrl[] {
   const own = candidatesIn(index, entry, false);
-  return own.length > 0 || !EQUIPMENT_FALLBACK_KINDS.includes(entry.kind) ? own : candidatesIn(index, entry, true);
+  return own.length > 0 || !FALLBACK_KINDS.has(entry.kind) ? own : candidatesIn(index, entry, true);
 }
 
 /**
@@ -154,9 +173,11 @@ function printedIn(urls: readonly AonUrl[], printed: ReadonlySet<AonUrl> | undef
 }
 
 /**
- * AoN supersedes a page by adding a row with a higher ID (checked on Acid Flask, Celestial Peachwood Sword and Hand
- * Cannon: the old page says "There is a more recent version"). For a weapon, armor or shield with several rows of one
- * AoN page still, the highest ID; rows of different pages stay ambiguous.
+ * AoN supersedes a page by adding a row with a higher ID (checked on Acid Flask, Celestial Peachwood Sword, Hand
+ * Cannon, Banshee Cry Display and Anadi Elder: the old page says "There is a more recent version"). For an entry of
+ * a kind it was checked on with several rows of one AoN page still, the highest ID; rows of different pages stay
+ * ambiguous. A creature whose name carries a parenthetical ("Gurglegut (Level 12)") is one of several rows that differ
+ * by level, not a superseded one, so it stays ambiguous.
  */
 function newest(entry: AonMatchable, urls: readonly AonUrl[]): readonly AonUrl[] {
   const pages = new Set(urls.map((url) => pageOf(url)));
@@ -164,7 +185,8 @@ function newest(entry: AonMatchable, urls: readonly AonUrl[]): readonly AonUrl[]
   if (
     urls.length < 2 ||
     pages.size !== 1 ||
-    !EQUIPMENT_FALLBACK_KINDS.includes(entry.kind) ||
+    !NEWEST_KINDS.includes(entry.kind) ||
+    (entry.kind === ContentKind.Creature && entry.name.includes('(')) ||
     ids.some(({ id }) => !Number.isInteger(id))
   ) {
     return urls;

@@ -89,6 +89,76 @@
     "page": 73,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4345"
   },
+  "creature:brastlewark-sapper-squad": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4745",
+    "page": 70
+  },
+  "creature:devastation-cavalry-brigade": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4749",
+    "page": 82
+  },
+  "creature:fangwood-sentinel-corps": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4748",
+    "page": 82
+  },
+  "creature:golden-erinys-novitiate-circle": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4751",
+    "page": 106
+  },
+  "creature:hellbound-honor-guard": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4746",
+    "page": 70
+  },
+  "creature:hellknight-retrieval-unit": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4742",
+    "page": 58
+  },
+  "creature:iriatykian-outrider-band": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4754",
+    "page": 118
+  },
+  "creature:oprak-firestorm-battalion": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4750",
+    "page": 83
+  },
+  "creature:ort-mob": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4747",
+    "page": 71
+  },
+  "creature:pure-legion-regiment": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4743",
+    "page": 58
+  },
+  "creature:sacristan-scourge": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4755",
+    "page": 118
+  },
+  "creature:shackles-pirate-crew": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4744",
+    "page": 59
+  },
+  "creature:thrune-champion-army": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4752",
+    "page": 106
+  },
+  "creature:twilight-talon-infiltrator-team": {
+    "book": "hellfire-dispatches",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4753",
+    "page": 107
+  },
   "feat:advanced-deific-power": {
     "book": "hellfire-dispatches",
     "page": 49,

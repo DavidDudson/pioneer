@@ -229,6 +229,11 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2388",
     "page": 238
   },
+  "action:inspired-stratagem": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4952",
+    "page": 173
+  },
   "action:interact": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2297",
@@ -243,6 +248,11 @@
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2255",
     "page": 59
+  },
+  "action:leap": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Actions.aspx?ID=2298",
+    "page": 417
   },
   "action:learn-a-spell": {
     "book": "player-core",
@@ -289,6 +299,16 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2409",
     "page": 246
   },
+  "action:patrons-claim": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5019",
+    "page": 191
+  },
+  "action:patrons-presence": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5015",
+    "page": 190
+  },
   "action:perform": {
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2401",
@@ -303,6 +323,11 @@
     "book": "player-core",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2315",
     "page": 419
+  },
+  "action:primal-howl": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4745",
+    "page": 133
   },
   "action:raise-a-shield": {
     "book": "player-core",
@@ -1060,6 +1085,11 @@
     "book": "player-core",
     "page": 290,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2744"
+  },
+  "creature:phantasmal-minion": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2750",
+    "page": 349
   },
   "equipment:alchemists-lab": {
     "book": "player-core",
@@ -1956,6 +1986,11 @@
     "page": 72,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=4512"
   },
+  "feat:bespell-strikes": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=5028",
+    "page": 202
+  },
   "feat:bestial-manifestation": {
     "book": "player-core",
     "page": 80,
@@ -2580,6 +2615,11 @@
     "book": "player-core",
     "page": 116,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=4662"
+  },
+  "feat:divine-weapon": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4663",
+    "page": 117
   },
   "feat:divine-wings": {
     "book": "player-core",
@@ -4596,6 +4636,11 @@
     "page": 117,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=4670"
   },
+  "feat:restorative-strike": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4659",
+    "page": 116
+  },
   "feat:resurrectionist": {
     "book": "player-core",
     "page": 121,
@@ -6001,15 +6046,40 @@
     "page": 390,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=107"
   },
+  "ritual:atone": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=108",
+    "page": 390
+  },
+  "ritual:awaken-animal": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=109",
+    "page": 390
+  },
+  "ritual:binding-circle": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=110",
+    "page": 391
+  },
   "ritual:blight": {
     "book": "player-core",
     "page": 391,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=111"
   },
+  "ritual:call-spirit": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=112",
+    "page": 391
+  },
   "ritual:collective-memories": {
     "book": "player-core",
     "page": 391,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=113"
+  },
+  "ritual:commune": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=114",
+    "page": 301
   },
   "ritual:consecrate": {
     "book": "player-core",
@@ -6031,6 +6101,11 @@
     "page": 393,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=118"
   },
+  "ritual:planar-displacement": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=119",
+    "page": 393
+  },
   "ritual:planar-servitor": {
     "book": "player-core",
     "page": 394,
@@ -6050,6 +6125,11 @@
     "book": "player-core",
     "page": 394,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=123"
+  },
+  "ritual:rune-trap": {
+    "book": "player-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=124",
+    "page": 395
   },
   "ritual:wish": {
     "book": "player-core",

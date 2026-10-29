@@ -31,8 +31,8 @@ const LISTING: AonListing = {
   entries: [
     listed('Power Attack', 'Feats', 1),
     listed('Fireball', 'Spells', 2),
-    listed('Twin', 'Feats', 3),
-    listed('Twin', 'Feats', 4),
+    listed('Twin', 'Spells', 3),
+    listed('Twin', 'Spells', 4),
     listed('Warrior’s Regret', 'Spells', 5),
   ],
 };
@@ -56,7 +56,7 @@ describe('proposeAonMappings', () => {
   });
 
   test('reports two candidates instead of guessing', () => {
-    const twin = entry(ContentKind.Feat, 'Twin');
+    const twin = entry(ContentKind.Spell, 'Twin');
     const result = proposeAonMappings([twin], [LISTING], new Set());
     expect(result.ambiguous).toEqual([twin.slug]);
     expect(result.proposals.size).toBe(0);
@@ -96,8 +96,8 @@ describe('proposeAonMappings name variants and kinds', () => {
       listed("Alchemist's Lab", 'Equipment', 10),
       listed("Alchemist's Lab (Expanded)", 'Equipment', 10),
       listed('Rope', 'Equipment', 11),
-      listed('Twin', 'Feats', 12),
-      listed('Twin', 'Feats', 13),
+      listed('Twin', 'Spells', 12),
+      listed('Twin', 'Spells', 13),
     ],
   };
 
@@ -111,7 +111,7 @@ describe('proposeAonMappings name variants and kinds', () => {
 
   test('counts rows that share a URL as one candidate, and two URLs as ambiguous', () => {
     const lab = entry(ContentKind.Equipment, "Alchemist's Lab");
-    const twin = entry(ContentKind.Feat, 'Twin');
+    const twin = entry(ContentKind.Spell, 'Twin');
     const result = proposeAonMappings([lab, twin], [listing], new Set());
     expect([...result.proposals.keys()]).toEqual([lab.slug]);
     expect(result.ambiguous).toEqual([twin.slug]);
@@ -165,18 +165,18 @@ describe('proposeAonMappings Equipment fallback for weapons, armor and shields',
 });
 
 describe('proposeAonMappings legacy and remaster rows', () => {
-  const legacy = AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=30');
-  const remaster = AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=31');
-  const entries = [listed('Twin', 'Feats', 30), listed('Twin', 'Feats', 31)];
+  const legacy = AonUrl.parse('https://2e.aonprd.com/Spells.aspx?ID=30');
+  const remaster = AonUrl.parse('https://2e.aonprd.com/Spells.aspx?ID=31');
+  const entries = [listed('Twin', 'Spells', 30), listed('Twin', 'Spells', 31)];
 
   test('takes the one row the book prints a page for, whatever its ID', () => {
-    const twin = entry(ContentKind.Feat, 'Twin');
+    const twin = entry(ContentKind.Spell, 'Twin');
     const { proposals } = proposeAonMappings([twin], [{ book: BOOK, entries, printed: new Set([legacy]) }], new Set());
     expect(proposals.get(twin.slug)?.aon).toBe(legacy);
   });
 
   test('stays ambiguous when the book prints both rows or neither', () => {
-    const twin = entry(ContentKind.Feat, 'Twin');
+    const twin = entry(ContentKind.Spell, 'Twin');
     const both = proposeAonMappings([twin], [{ book: BOOK, entries, printed: new Set([legacy, remaster]) }], new Set());
     const neither = proposeAonMappings([twin], [{ book: BOOK, entries }], new Set());
     expect(both.ambiguous).toEqual([twin.slug]);
@@ -226,8 +226,75 @@ describe('proposeAonMappings superseded pages', () => {
   });
 
   test('stays ambiguous for a kind this was not checked on', () => {
-    const twin = entry(ContentKind.Feat, 'Twin');
-    const feats = [listed('Twin', 'Feats', 3), listed('Twin', 'Feats', 4)];
+    const twin = entry(ContentKind.Spell, 'Twin');
+    const feats = [listed('Twin', 'Spells', 3), listed('Twin', 'Spells', 4)];
     expect(proposeAonMappings([twin], [{ book: BOOK, entries: feats }], new Set()).ambiguous).toEqual([twin.slug]);
+  });
+});
+
+describe('proposeAonMappings superseded creatures and feats', () => {
+  test('takes the highest ID of a creature or feat with several rows of one page', () => {
+    const elder = entry(ContentKind.Creature, 'Anadi Elder');
+    const display = entry(ContentKind.Feat, 'Banshee Cry Display');
+    const entries = [
+      listed('Anadi Elder', 'Monsters', 432),
+      listed('Anadi Elder', 'Monsters', 1424),
+      listed('Banshee Cry Display', 'Feats', 3250),
+      listed('Banshee Cry Display', 'Feats', 8533),
+    ];
+    const { proposals } = proposeAonMappings([elder, display], [{ book: BOOK, entries }], new Set());
+    expect(proposals.get(elder.slug)?.aon).toBe(AonUrl.parse('https://2e.aonprd.com/Monsters.aspx?ID=1424'));
+    expect(proposals.get(display.slug)?.aon).toBe(AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=8533'));
+  });
+
+  test('keeps a creature whose parenthetical names its level ambiguous', () => {
+    const gurglegut = entry(ContentKind.Creature, 'Gurglegut (Level 12)');
+    const entries = [listed('Gurglegut', 'Monsters', 4665), listed('Gurglegut', 'Monsters', 4691)];
+    const result = proposeAonMappings([gurglegut], [{ book: BOOK, entries }], new Set());
+    expect(result.ambiguous).toEqual([gurglegut.slug]);
+  });
+});
+
+function aonUrl(page: string, id: number): AonUrl {
+  return AonUrl.parse(`https://2e.aonprd.com/${page}.aspx?ID=${id}`);
+}
+
+describe('proposeAonMappings actions on other AoN pages', () => {
+  const listing: AonListing = {
+    book: BOOK,
+    entries: [
+      listed('Seek and Destroy', 'Tactics', 70),
+      listed('Death Gaze', 'Relics', 71),
+      listed('All-Around Vision', 'MonsterAbilities', 72),
+      listed('Primal Howl', 'Feats', 73),
+      listed('Darkvision', 'Spells', 74),
+      listed('Aid', 'Actions', 75),
+      listed('Aid', 'Feats', 76),
+    ],
+  };
+
+  test('maps an action to the Tactics, Relics and MonsterAbilities pages, and a granted one to its feat', () => {
+    const names = ['Seek and Destroy', 'Death Gaze', 'All-Around Vision', 'Primal Howl'];
+    const actions = names.map((name) => entry(ContentKind.Action, name));
+    const { proposals } = proposeAonMappings(actions, [listing], new Set());
+    expect(actions.map(({ slug }) => proposals.get(slug)?.aon)).toEqual([
+      aonUrl('Tactics', 70),
+      aonUrl('Relics', 71),
+      aonUrl('MonsterAbilities', 72),
+      aonUrl('Feats', 73),
+    ]);
+  });
+
+  test('prefers the Actions page over a feat of the same name, and never falls back to a spell', () => {
+    const aid = entry(ContentKind.Action, 'Aid');
+    const darkvision = entry(ContentKind.Action, 'Darkvision');
+    const result = proposeAonMappings([aid, darkvision], [listing], new Set());
+    expect(result.proposals.get(aid.slug)?.aon).toBe(aonUrl('Actions', 75));
+    expect(result.unmatched).toEqual([darkvision.slug]);
+  });
+
+  test('keeps a feat from matching a Tactics row', () => {
+    const feat = entry(ContentKind.Feat, 'Seek and Destroy');
+    expect(proposeAonMappings([feat], [listing], new Set()).unmatched).toEqual([feat.slug]);
   });
 });

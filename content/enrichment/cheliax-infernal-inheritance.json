@@ -199,6 +199,76 @@
     "page": 176,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5250"
   },
+  "creature:animate-aria": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4966",
+    "page": 204
+  },
+  "creature:cephalophix": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4968",
+    "page": 206
+  },
+  "creature:cerberus": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4967",
+    "page": 205
+  },
+  "creature:enfiron": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4969",
+    "page": 207
+  },
+  "creature:erinys": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4971",
+    "page": 209
+  },
+  "creature:hellknight": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4972",
+    "page": 210
+  },
+  "creature:hellknight-signifer": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4973",
+    "page": 211
+  },
+  "creature:kophos": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4978",
+    "page": 216
+  },
+  "creature:living-effigy": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4974",
+    "page": 212
+  },
+  "creature:munagola": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4970",
+    "page": 208
+  },
+  "creature:shadowbound-mare": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4975",
+    "page": 213
+  },
+  "creature:strix-hunter": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4976",
+    "page": 214
+  },
+  "creature:umbral-shepherd": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4977",
+    "page": 215
+  },
+  "creature:yzobu": {
+    "book": "cheliax-infernal-inheritance",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4979",
+    "page": 217
+  },
   "deity:insight-of-ego-triumphant": {
     "book": "cheliax-infernal-inheritance",
     "page": 50,

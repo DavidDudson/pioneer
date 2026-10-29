@@ -5820,7 +5820,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 202,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=5028"
       }
     ],
     "description": [
@@ -15433,7 +15435,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 117,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=4663"
       }
     ],
     "description": [
@@ -45284,7 +45288,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 116,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=4659"
       }
     ],
     "description": [

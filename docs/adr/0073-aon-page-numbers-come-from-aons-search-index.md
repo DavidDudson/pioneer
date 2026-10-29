@@ -33,6 +33,9 @@ Facts from two requests to `https://elasticsearch.aonprd.com/aon/_search` on 202
 - **Mapping files stay the source of truth** (ADR-0070). `content:pages-propose` copies a page from the table into
   `content/enrichment/<pack>.json` for each mapping that has an AoN URL, never over a page already there. A person
   reviews the diff, and `just content-enrich` writes it onto the pack.
+- **Some entries get no URL on purpose.** A class feature has no page of its own on AoN: every one points at its class
+  page, so we leave it out instead of giving it the class's URL. A creature's own ability, written "(Creature)
+  Ability", and a familiar or eidolon ability have no row either. The matcher never guesses one.
 - **Rights-holder requests win.** If AoN or Paizo asks us to stop, the tool and the tables are removed.
 
 ## Consequences

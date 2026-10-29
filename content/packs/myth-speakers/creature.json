@@ -1945,7 +1945,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "page": 84,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3948"
       }
     ],
     "description": [
@@ -2579,7 +2581,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "page": 85,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3949"
       }
     ],
     "description": [],
@@ -10110,7 +10114,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "page": 86,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3950"
       }
     ],
     "description": [
@@ -18664,7 +18670,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "page": 87,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3951"
       }
     ],
     "description": [
@@ -19417,7 +19425,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "page": 84,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3947"
       }
     ],
     "description": [
@@ -20548,7 +20558,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "page": 88,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3952"
       }
     ],
     "description": [
@@ -21561,7 +21573,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3953"
       }
     ],
     "description": [

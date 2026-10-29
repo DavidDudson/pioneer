@@ -1074,7 +1074,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 246,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4214"
       }
     ],
     "description": [
@@ -1384,7 +1386,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 188,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4262"
       }
     ],
     "description": [
@@ -1935,7 +1939,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 81,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4252"
       }
     ],
     "description": [],
@@ -2257,7 +2263,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 247,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4215"
       }
     ],
     "description": [],
@@ -3148,7 +3156,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 163,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4259"
       }
     ],
     "description": [
@@ -3640,7 +3650,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 249,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4217"
       }
     ],
     "description": [
@@ -4069,7 +4081,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 248,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4216"
       }
     ],
     "description": [
@@ -4458,7 +4472,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 274,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4240"
       }
     ],
     "description": [],
@@ -4788,7 +4804,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 250,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4218"
       }
     ],
     "description": [
@@ -5075,7 +5093,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 37,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4248"
       }
     ],
     "description": [
@@ -5603,7 +5623,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 251,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4219"
       }
     ],
     "description": [
@@ -5888,7 +5910,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 252,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4220"
       }
     ],
     "description": [
@@ -7101,7 +7125,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 282,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4244"
       }
     ],
     "description": [],
@@ -7305,7 +7331,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 254,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4222"
       }
     ],
     "description": [
@@ -7613,7 +7641,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 255,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4223"
       }
     ],
     "description": [
@@ -8066,7 +8096,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 256,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4224"
       }
     ],
     "description": [
@@ -8437,7 +8469,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 257,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4225"
       }
     ],
     "description": [
@@ -8910,7 +8944,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 184,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4261"
       }
     ],
     "description": [
@@ -9356,7 +9392,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 276,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4241"
       }
     ],
     "description": [],
@@ -9805,7 +9843,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 83,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4253"
       }
     ],
     "description": [],
@@ -9989,7 +10029,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 258,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4226"
       }
     ],
     "description": [
@@ -10339,7 +10381,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 259,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4227"
       }
     ],
     "description": [
@@ -10568,7 +10612,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 268,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4237"
       }
     ],
     "description": [
@@ -11016,7 +11062,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 167,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4260"
       }
     ],
     "description": [],
@@ -11575,7 +11623,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 162,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4258"
       }
     ],
     "description": [],
@@ -11788,7 +11838,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 262,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4230"
       }
     ],
     "description": [
@@ -12067,7 +12119,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 283,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4245"
       }
     ],
     "description": [],
@@ -12721,7 +12775,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 278,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4242"
       }
     ],
     "description": [],
@@ -13127,7 +13183,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 263,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4231"
       }
     ],
     "description": [
@@ -13671,7 +13729,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 264,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4232"
       }
     ],
     "description": [
@@ -14165,7 +14225,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 39,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4249"
       }
     ],
     "description": [
@@ -14555,7 +14617,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 265,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4233"
       }
     ],
     "description": [
@@ -15004,7 +15068,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 266,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4234"
       }
     ],
     "description": [
@@ -15431,7 +15497,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 16,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4247"
       }
     ],
     "description": [],
@@ -15653,7 +15721,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 16,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4247"
       }
     ],
     "description": [],
@@ -15864,7 +15934,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 261,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4229"
       }
     ],
     "description": [
@@ -16165,7 +16237,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 148,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4256"
       }
     ],
     "description": [
@@ -16918,7 +16992,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 191,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4263"
       }
     ],
     "description": [],
@@ -17102,7 +17178,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 49,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4251"
       }
     ],
     "description": [],
@@ -17222,7 +17300,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 280,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4243"
       }
     ],
     "description": [],
@@ -17524,7 +17604,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 128,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4254"
       }
     ],
     "description": [
@@ -17917,7 +17999,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 267,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4235"
       }
     ],
     "description": [
@@ -18169,7 +18253,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 267,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4236"
       }
     ],
     "description": [
@@ -18358,7 +18444,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 139,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4255"
       }
     ],
     "description": [],
@@ -18566,7 +18654,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 269,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4238"
       }
     ],
     "description": [
@@ -19124,7 +19214,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 260,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4228"
       }
     ],
     "description": [
@@ -19530,7 +19622,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 155,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4257"
       }
     ],
     "description": [],
@@ -19794,7 +19888,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 41,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4250"
       }
     ],
     "description": [],
@@ -20107,7 +20203,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "gatewalkers"
+        "book": "gatewalkers",
+        "page": 283,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4246"
       }
     ],
     "description": [],

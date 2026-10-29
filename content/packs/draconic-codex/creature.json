@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 42,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4097"
       }
     ],
     "description": [
@@ -988,7 +990,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 42,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4097"
       }
     ],
     "description": [
@@ -2089,7 +2093,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 107,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4114"
       }
     ],
     "description": [
@@ -2688,7 +2694,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 107,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4114"
       }
     ],
     "description": [
@@ -6443,7 +6451,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 111,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4118"
       }
     ],
     "description": [
@@ -7480,7 +7490,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 111,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4118"
       }
     ],
     "description": [
@@ -13983,7 +13995,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 115,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4122"
       }
     ],
     "description": [],
@@ -14573,7 +14587,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 115,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4122"
       }
     ],
     "description": [],
@@ -18575,7 +18591,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 46,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4098"
       }
     ],
     "description": [
@@ -19442,7 +19460,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 46,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4098"
       }
     ],
     "description": [
@@ -20407,7 +20427,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 119,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4126"
       }
     ],
     "description": [],
@@ -21011,7 +21033,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 119,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4126"
       }
     ],
     "description": [],
@@ -24923,7 +24947,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4212"
       }
     ],
     "description": [
@@ -25619,7 +25645,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 50,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4212"
       }
     ],
     "description": [
@@ -26411,7 +26439,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 54,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4099"
       }
     ],
     "description": [
@@ -27011,7 +27041,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 54,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4099"
       }
     ],
     "description": [
@@ -27701,7 +27733,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 123,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4130"
       }
     ],
     "description": [
@@ -28303,7 +28337,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 123,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4130"
       }
     ],
     "description": [
@@ -31791,7 +31827,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 127,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4134"
       }
     ],
     "description": [
@@ -32493,7 +32531,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 127,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4134"
       }
     ],
     "description": [
@@ -37081,7 +37121,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 58,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4100"
       }
     ],
     "description": [
@@ -37781,7 +37823,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 58,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4100"
       }
     ],
     "description": [
@@ -38585,7 +38629,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 62,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4101"
       }
     ],
     "description": [
@@ -39399,7 +39445,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 62,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4101"
       }
     ],
     "description": [
@@ -40328,7 +40376,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 203,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4211"
       }
     ],
     "description": [
@@ -41222,7 +41272,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4213"
       }
     ],
     "description": [
@@ -41873,7 +41925,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 66,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4213"
       }
     ],
     "description": [
@@ -42643,7 +42697,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4141"
       }
     ],
     "description": [
@@ -43265,7 +43321,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4141"
       }
     ],
     "description": [
@@ -47007,7 +47065,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 137,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4145"
       }
     ],
     "description": [
@@ -47833,7 +47893,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 137,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4145"
       }
     ],
     "description": [
@@ -53299,7 +53361,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4102"
       }
     ],
     "description": [
@@ -54018,7 +54082,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 70,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4102"
       }
     ],
     "description": [
@@ -54868,7 +54934,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 74,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4103"
       }
     ],
     "description": [
@@ -55536,7 +55604,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 74,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4103"
       }
     ],
     "description": [
@@ -56296,7 +56366,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 141,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4149"
       }
     ],
     "description": [
@@ -57007,7 +57079,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 141,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4149"
       }
     ],
     "description": [
@@ -61392,7 +61466,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4104"
       }
     ],
     "description": [
@@ -61957,7 +62033,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 78,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4104"
       }
     ],
     "description": [
@@ -62626,7 +62704,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 145,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4153"
       }
     ],
     "description": [
@@ -63311,7 +63391,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 145,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4153"
       }
     ],
     "description": [
@@ -67948,7 +68030,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 149,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4157"
       }
     ],
     "description": [
@@ -68637,7 +68721,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 149,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4157"
       }
     ],
     "description": [
@@ -73018,7 +73104,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4105"
       }
     ],
     "description": [
@@ -73510,7 +73598,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 82,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4105"
       }
     ],
     "description": [
@@ -74094,7 +74184,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 128,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4135"
       }
     ],
     "description": [
@@ -74424,7 +74516,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 129,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4137"
       }
     ],
     "description": [
@@ -74688,7 +74782,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 86,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4106"
       }
     ],
     "description": [
@@ -75193,7 +75289,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 86,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4106"
       }
     ],
     "description": [
@@ -75802,7 +75900,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4107"
       }
     ],
     "description": [
@@ -76401,7 +76501,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4107"
       }
     ],
     "description": [
@@ -77088,7 +77190,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 94,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4108"
       }
     ],
     "description": [
@@ -77686,7 +77790,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 94,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4108"
       }
     ],
     "description": [
@@ -78368,7 +78474,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 153,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4161"
       }
     ],
     "description": [
@@ -78943,7 +79051,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 153,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4161"
       }
     ],
     "description": [
@@ -82974,7 +83084,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 98,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4109"
       }
     ],
     "description": [
@@ -83586,7 +83698,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 98,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4109"
       }
     ],
     "description": [
@@ -84304,7 +84418,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 157,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4165"
       }
     ],
     "description": [
@@ -85072,7 +85188,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 157,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4165"
       }
     ],
     "description": [
@@ -89962,7 +90080,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 161,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4169"
       }
     ],
     "description": [
@@ -90807,7 +90927,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 161,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4169"
       }
     ],
     "description": [
@@ -95990,7 +96112,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 164,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4173"
       }
     ],
     "description": [
@@ -96798,7 +96922,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 164,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4173"
       }
     ],
     "description": [
@@ -101710,7 +101836,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 169,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4177"
       }
     ],
     "description": [
@@ -102465,7 +102593,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 169,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4177"
       }
     ],
     "description": [
@@ -107714,7 +107844,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 173,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4181"
       }
     ],
     "description": [
@@ -108567,7 +108699,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 173,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4181"
       }
     ],
     "description": [
@@ -113140,7 +113274,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 129,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4136"
       }
     ],
     "description": [
@@ -113532,7 +113668,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 177,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4185"
       }
     ],
     "description": [
@@ -114212,7 +114350,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 177,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4185"
       }
     ],
     "description": [
@@ -118062,7 +118202,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 181,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4189"
       }
     ],
     "description": [
@@ -118673,7 +118815,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 181,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4189"
       }
     ],
     "description": [
@@ -122740,7 +122884,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 185,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4193"
       }
     ],
     "description": [
@@ -123517,7 +123663,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 185,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4193"
       }
     ],
     "description": [
@@ -128300,7 +128448,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 189,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4197"
       }
     ],
     "description": [
@@ -129078,7 +129228,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 189,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4197"
       }
     ],
     "description": [
@@ -134118,7 +134270,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 193,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4201"
       }
     ],
     "description": [
@@ -134679,7 +134833,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 193,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4201"
       }
     ],
     "description": [
@@ -138068,7 +138224,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 197,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4205"
       }
     ],
     "description": [
@@ -138726,7 +138884,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 197,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4205"
       }
     ],
     "description": [
@@ -143026,7 +143186,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 102,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4110"
       }
     ],
     "description": [
@@ -143685,7 +143847,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 102,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4110"
       }
     ],
     "description": [
@@ -144435,7 +144599,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 201,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4209"
       }
     ],
     "description": [
@@ -145130,7 +145296,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 201,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4209"
       }
     ],
     "description": [
@@ -149613,7 +149781,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 202,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4210"
       }
     ],
     "description": [

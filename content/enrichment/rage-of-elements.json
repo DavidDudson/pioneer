@@ -19,6 +19,36 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2128",
     "page": 39
   },
+  "action:elemental-familiar-air": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4342",
+    "page": 59
+  },
+  "action:elemental-familiar-earth": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4342",
+    "page": 59
+  },
+  "action:elemental-familiar-fire": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4342",
+    "page": 59
+  },
+  "action:elemental-familiar-metal": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4342",
+    "page": 59
+  },
+  "action:elemental-familiar-water": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4342",
+    "page": 59
+  },
+  "action:elemental-familiar-wood": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=4342",
+    "page": 59
+  },
   "action:elemental-maelstrom": {
     "book": "rage-of-elements",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2129",
@@ -293,6 +323,386 @@
     "book": "rage-of-elements",
     "page": 100,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2598"
+  },
+  "creature:abysium-horror": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2652",
+    "page": 158
+  },
+  "creature:anemos": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2614",
+    "page": 78
+  },
+  "creature:ardande-gardener": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2686",
+    "page": 217
+  },
+  "creature:asp-of-grief": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2640",
+    "page": 150
+  },
+  "creature:avalanche-legion": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2622",
+    "page": 102
+  },
+  "creature:blustering-gale": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2615",
+    "page": 80
+  },
+  "creature:boiling-spring": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2661",
+    "page": 181
+  },
+  "creature:brass-bastion": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2631",
+    "page": 126
+  },
+  "creature:brochmaw": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2632",
+    "page": 127
+  },
+  "creature:capritellix": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2641",
+    "page": 151
+  },
+  "creature:carved-beast": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2675",
+    "page": 208
+  },
+  "creature:coldmire-pond": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2660",
+    "page": 180
+  },
+  "creature:comozant-wyrd": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2616",
+    "page": 81
+  },
+  "creature:crystal-strider": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2625",
+    "page": 104
+  },
+  "creature:cullitox": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2623",
+    "page": 103
+  },
+  "creature:despairing-pall": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2617",
+    "page": 82
+  },
+  "creature:dewdrop-jelly": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2659",
+    "page": 180
+  },
+  "creature:elder-outcrop": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2626",
+    "page": 105
+  },
+  "creature:elemental-thicket": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2679",
+    "page": 210
+  },
+  "creature:faydhaan-shuyookh": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2662",
+    "page": 182
+  },
+  "creature:ferrous-butterfly": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2643",
+    "page": 152
+  },
+  "creature:gennayn": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2687",
+    "page": 226
+  },
+  "creature:gluttonous-geode": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2624",
+    "page": 104
+  },
+  "creature:harvest-regiment": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2683",
+    "page": 214
+  },
+  "creature:ifrit-shuyookh": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2636",
+    "page": 129
+  },
+  "creature:jaathoom-shuyookh": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2620",
+    "page": 84
+  },
+  "creature:jabali-shuyookh": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2627",
+    "page": 106
+  },
+  "creature:jann-shuyookh": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2688",
+    "page": 227
+  },
+  "creature:kinzaruk": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2646",
+    "page": 154
+  },
+  "creature:kizidhar": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2681",
+    "page": 212
+  },
+  "creature:kizidhar-shuyookh": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2682",
+    "page": 213
+  },
+  "creature:lava-otter": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2633",
+    "page": 129
+  },
+  "creature:lithic-locus": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2628",
+    "page": 107
+  },
+  "creature:living-grove": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2674",
+    "page": 207
+  },
+  "creature:living-lodestone": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2649",
+    "page": 155
+  },
+  "creature:living-magma": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2635",
+    "page": 129
+  },
+  "creature:lomori-sprout": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2684",
+    "page": 215
+  },
+  "creature:melomach": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2654",
+    "page": 159
+  },
+  "creature:mercurial": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2645",
+    "page": 153
+  },
+  "creature:metal-scamp": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2644",
+    "page": 153
+  },
+  "creature:metal-wisp": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2642",
+    "page": 152
+  },
+  "creature:moss-sloth": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2671",
+    "page": 206
+  },
+  "creature:munsahir-gatecrasher": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2637",
+    "page": 131
+  },
+  "creature:munsahir-trooper": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2638",
+    "page": 131
+  },
+  "creature:murajau": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2663",
+    "page": 183
+  },
+  "creature:nanoshard-swarm": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2651",
+    "page": 157
+  },
+  "creature:nightwood-guardian": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2685",
+    "page": 216
+  },
+  "creature:nursery-crawler": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2672",
+    "page": 206
+  },
+  "creature:olobigonde": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2664",
+    "page": 184
+  },
+  "creature:ore-louse": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2665",
+    "page": 185
+  },
+  "creature:oregorger": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2653",
+    "page": 158
+  },
+  "creature:painted-stag": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2678",
+    "page": 210
+  },
+  "creature:pelegox-cube": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2657",
+    "page": 162
+  },
+  "creature:pine-pangolin": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2676",
+    "page": 208
+  },
+  "creature:quickiron-plasm": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2647",
+    "page": 154
+  },
+  "creature:rakkatak": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2690",
+    "page": 132
+  },
+  "creature:rust-scarab": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2648",
+    "page": 155
+  },
+  "creature:saltborn-stalkers": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2666",
+    "page": 186
+  },
+  "creature:skymetal-striker": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2650",
+    "page": 156
+  },
+  "creature:snapdrake": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2677",
+    "page": 209
+  },
+  "creature:solar-crow": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2634",
+    "page": 128
+  },
+  "creature:sootsoldiers": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2639",
+    "page": 133
+  },
+  "creature:sootsoldiers-the-radiant-host": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2639",
+    "page": 133
+  },
+  "creature:talos-gadgeteer": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2658",
+    "page": 163
+  },
+  "creature:tantriog": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2667",
+    "page": 187
+  },
+  "creature:twins-of-rowan": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2680",
+    "page": 211
+  },
+  "creature:vault-builder": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2630",
+    "page": 109
+  },
+  "creature:vault-keeper": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2629",
+    "page": 108
+  },
+  "creature:vegetable-lamb": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2669",
+    "page": 204
+  },
+  "creature:veiled-current": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2618",
+    "page": 82
+  },
+  "creature:veldenar": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2621",
+    "page": 85
+  },
+  "creature:whipping-willow": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2673",
+    "page": 207
+  },
+  "creature:wood-scamp": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2670",
+    "page": 205
+  },
+  "creature:wood-wisp": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2668",
+    "page": 204
+  },
+  "creature:zuhra": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2655",
+    "page": 160
+  },
+  "creature:zuhra-shuyookh": {
+    "book": "rage-of-elements",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2656",
+    "page": 161
   },
   "equipment:aboutface-figurehead": {
     "book": "rage-of-elements",

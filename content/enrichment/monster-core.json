@@ -1,4 +1,159 @@
 {
+  "action:all-around-vision": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=49",
+    "page": 358
+  },
+  "action:aquatic-ambush": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=51",
+    "page": 358
+  },
+  "action:at-will-spells": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=52",
+    "page": 358
+  },
+  "action:aura": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=53",
+    "page": 358
+  },
+  "action:change-shape": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=55",
+    "page": 358
+  },
+  "action:constant-spells": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=56",
+    "page": 358
+  },
+  "action:constrict": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=57",
+    "page": 358
+  },
+  "action:coven": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=58",
+    "page": 358
+  },
+  "action:darkvision": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=59",
+    "page": 359
+  },
+  "action:disease": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=60",
+    "page": 359
+  },
+  "action:engulf": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=61",
+    "page": 359
+  },
+  "action:fast-healing": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=62",
+    "page": 359
+  },
+  "action:frightful-presence": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=64",
+    "page": 359
+  },
+  "action:greater-constrict": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=65",
+    "page": 359
+  },
+  "action:lifesense": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=67",
+    "page": 359
+  },
+  "action:light-blindness": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=68",
+    "page": 359
+  },
+  "action:low-light-vision": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=69",
+    "page": 359
+  },
+  "action:poison": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=70",
+    "page": 359
+  },
+  "action:pull": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=71",
+    "page": 359
+  },
+  "action:regeneration": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=72",
+    "page": 360
+  },
+  "action:rend": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=73",
+    "page": 360
+  },
+  "action:scent": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=74",
+    "page": 360
+  },
+  "action:stench": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=76",
+    "page": 360
+  },
+  "action:swallow-whole": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=77",
+    "page": 360
+  },
+  "action:swarm-mind": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=78",
+    "page": 360
+  },
+  "action:telepathy": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=79",
+    "page": 360
+  },
+  "action:throw-rock": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=80",
+    "page": 360
+  },
+  "action:trample": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=81",
+    "page": 360
+  },
+  "action:tremorsense": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=82",
+    "page": 360
+  },
+  "action:void-healing": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=83",
+    "page": 360
+  },
+  "action:wavesense": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=84",
+    "page": 360
+  },
   "creature:aapoph-granitescale": {
     "book": "monster-core",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3184",
@@ -2148,6 +2303,21 @@
     "book": "monster-core",
     "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3181",
     "page": 302
+  },
+  "ritual:angelic-messenger": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=141",
+    "page": 364
+  },
+  "ritual:demonic-pact": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=142",
+    "page": 364
+  },
+  "ritual:diabolic-pact": {
+    "book": "monster-core",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=143",
+    "page": 364
   },
   "weapon:blackaxe": {
     "book": "monster-core",

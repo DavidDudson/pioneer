@@ -1535,7 +1535,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "page": 231,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=86"
       }
     ],
     "description": [
@@ -1619,7 +1621,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "npc-core"
+        "book": "npc-core",
+        "page": 231,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=85"
       }
     ],
     "description": [

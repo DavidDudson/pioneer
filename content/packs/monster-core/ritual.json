@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 364,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=141"
       }
     ],
     "description": [
@@ -127,7 +129,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 364,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=142"
       }
     ],
     "description": [
@@ -251,7 +255,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 364,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=143"
       }
     ],
     "description": [

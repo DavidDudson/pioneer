@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 200,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=102"
       }
     ],
     "description": [
@@ -172,7 +174,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=90"
       }
     ],
     "description": [
@@ -222,7 +226,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=88"
       }
     ],
     "description": [
@@ -326,7 +332,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=100"
       }
     ],
     "description": [
@@ -653,7 +661,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=94"
       }
     ],
     "description": [
@@ -731,7 +741,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=92"
       }
     ],
     "description": [
@@ -971,7 +983,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=89"
       }
     ],
     "description": [
@@ -1075,7 +1089,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=95"
       }
     ],
     "description": [
@@ -1175,7 +1191,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=93"
       }
     ],
     "description": [
@@ -1459,7 +1477,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 200,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=109"
       }
     ],
     "description": [
@@ -1527,7 +1547,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 198,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=87"
       }
     ],
     "description": [
@@ -1591,7 +1613,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 200,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=104"
       }
     ],
     "description": [
@@ -1856,7 +1880,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 200,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=106"
       }
     ],
     "description": [
@@ -2039,7 +2065,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 200,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=108"
       }
     ],
     "description": [
@@ -2143,7 +2171,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "treasure-vault"
+        "book": "treasure-vault",
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Relics.aspx?ID=99"
       }
     ],
     "description": [

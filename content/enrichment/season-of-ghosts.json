@@ -124,6 +124,316 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4074",
     "page": 299
   },
+  "creature:akashti": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4633",
+    "page": 335
+  },
+  "creature:algriever": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4624",
+    "page": 324
+  },
+  "creature:animated-axe": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4684",
+    "page": 208
+  },
+  "creature:argyrzei": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4635",
+    "page": 337
+  },
+  "creature:bakeneko": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4625",
+    "page": 325
+  },
+  "creature:dalgyal-gwishin": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4626",
+    "page": 326
+  },
+  "creature:exorcist": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4681",
+    "page": 194
+  },
+  "creature:false-governor": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4686",
+    "page": 221
+  },
+  "creature:gray-butcher": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4667",
+    "page": 51
+  },
+  "creature:guhdggi": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4630",
+    "page": 330
+  },
+  "creature:gurglegut-level-12": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4691",
+    "page": 262
+  },
+  "creature:heart-eating-vulture": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4672",
+    "page": 115
+  },
+  "creature:heh-shan-bao-level-13": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4653",
+    "page": 352
+  },
+  "creature:hong-meigui": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4687",
+    "page": 228
+  },
+  "creature:hu-ban-niang": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4652",
+    "page": 350
+  },
+  "creature:ijda": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4631",
+    "page": 332
+  },
+  "creature:imprecasia": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4627",
+    "page": 327
+  },
+  "creature:kagekuma": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4632",
+    "page": 334
+  },
+  "creature:kalen-bray": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4677",
+    "page": 145
+  },
+  "creature:kugaptees-centipede": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4680",
+    "page": 189
+  },
+  "creature:kugaptees-drakauthix": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4685",
+    "page": 218
+  },
+  "creature:mago-kai": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4655",
+    "page": 357
+  },
+  "creature:matsuki-shou": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4656",
+    "page": 358
+  },
+  "creature:meokdan": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4628",
+    "page": 328
+  },
+  "creature:mercenary-enforcer": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4682",
+    "page": 196
+  },
+  "creature:mo-douqiu-the-hedonist": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4669",
+    "page": 54
+  },
+  "creature:monk-of-kugaptee": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4676",
+    "page": 135
+  },
+  "creature:noppera-bo-grunt": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4637",
+    "page": 338
+  },
+  "creature:noppera-bo-impersonator-arcane": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4640",
+    "page": 340
+  },
+  "creature:noppera-bo-impersonator-divine": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4640",
+    "page": 340
+  },
+  "creature:noppera-bo-impersonator-martial": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4640",
+    "page": 340
+  },
+  "creature:noppera-bo-impersonator-occult": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4640",
+    "page": 340
+  },
+  "creature:noppera-bo-impersonator-primal": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4640",
+    "page": 340
+  },
+  "creature:noppera-bo-impersonator-skilled": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4640",
+    "page": 340
+  },
+  "creature:noppera-bo-occultist": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4639",
+    "page": 339
+  },
+  "creature:noppera-bo-trickster": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4638",
+    "page": 338
+  },
+  "creature:path-maiden": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4641",
+    "page": 343
+  },
+  "creature:path-maiden-springs-path": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4641",
+    "page": 343
+  },
+  "creature:phantom-boar": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4660",
+    "page": 33
+  },
+  "creature:phantom-gecko": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4664",
+    "page": 39
+  },
+  "creature:phantom-raven": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4661",
+    "page": 33
+  },
+  "creature:phantom-wolf": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4662",
+    "page": 33
+  },
+  "creature:red-hooded-thatchling": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4647",
+    "page": 349
+  },
+  "creature:ren-mei-li": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4657",
+    "page": 360
+  },
+  "creature:rin": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4679",
+    "page": 176
+  },
+  "creature:shimmerthief": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4642",
+    "page": 344
+  },
+  "creature:shinigami": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4643",
+    "page": 345
+  },
+  "creature:shisagishin": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4634",
+    "page": 336
+  },
+  "creature:shrine-caretaker": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4673",
+    "page": 123
+  },
+  "creature:shrine-maiden": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4683",
+    "page": 199
+  },
+  "creature:silsyche": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4644",
+    "page": 346
+  },
+  "creature:sojiruh": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4629",
+    "page": 329
+  },
+  "creature:stingy": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4670",
+    "page": 55
+  },
+  "creature:stone-spider": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4645",
+    "page": 347
+  },
+  "creature:taunting-monks-skull": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4674",
+    "page": 125
+  },
+  "creature:thatchling": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4646",
+    "page": 348
+  },
+  "creature:warty": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4668",
+    "page": 53
+  },
+  "creature:willowshore-waldgeist": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4678",
+    "page": 156
+  },
+  "creature:xin-yue": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4658",
+    "page": 362
+  },
+  "creature:yuni": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4675",
+    "page": 133
+  },
+  "creature:zhi-hui": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4659",
+    "page": 364
+  },
+  "creature:zoudou-the-zealous": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4671",
+    "page": 85
+  },
   "equipment:cape-of-justice": {
     "book": "season-of-ghosts",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4086",
@@ -359,10 +669,40 @@
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=8205",
     "page": 320
   },
+  "ritual:gnaw-at-the-moon": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=233",
+    "page": 310
+  },
   "ritual:last-nights-vigil": {
     "book": "season-of-ghosts",
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=234",
     "page": 310
+  },
+  "ritual:mindscape-shift": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=235",
+    "page": 311
+  },
+  "ritual:open-the-wall-of-ghosts": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=236",
+    "page": 311
+  },
+  "ritual:ransack-the-night": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=237",
+    "page": 311
+  },
+  "ritual:regale-the-lost-ones": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=238",
+    "page": 312
+  },
+  "ritual:sweetest-solstice": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=239",
+    "page": 313
   },
   "ritual:transmigrate": {
     "book": "season-of-ghosts",

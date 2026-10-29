@@ -1,4 +1,29 @@
 {
+  "action:corpse-crenellation": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=36",
+    "page": 227
+  },
+  "action:for-talmandor-for-freedom": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=37",
+    "page": 227
+  },
+  "action:seek-and-destroy": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=34",
+    "page": 227
+  },
+  "action:shadows-in-the-moonlight": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=33",
+    "page": 227
+  },
+  "action:wait-for-it": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=35",
+    "page": 227
+  },
   "archetype:chelaxian-scion": {
     "book": "hells-destiny",
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=384",
@@ -8,6 +33,86 @@
     "book": "hells-destiny",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4954",
     "page": 226
+  },
+  "creature:advodaza": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4821",
+    "page": 234
+  },
+  "creature:aspexia-rugatonn": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4833",
+    "page": 247
+  },
+  "creature:bdellavritra": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4822",
+    "page": 235
+  },
+  "creature:dottari-excruciator-division": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4823",
+    "page": 236
+  },
+  "creature:dream-drowner": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4824",
+    "page": 237
+  },
+  "creature:gorthoklek": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4834",
+    "page": 248
+  },
+  "creature:hellknight-dragoon-squad": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4825",
+    "page": 238
+  },
+  "creature:hellknight-hunter-squad": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4826",
+    "page": 239
+  },
+  "creature:infernal-tide": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4827",
+    "page": 240
+  },
+  "creature:merztorlegon": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4828",
+    "page": 241
+  },
+  "creature:oath-howler": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4829",
+    "page": 242
+  },
+  "creature:ochiastis": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4830",
+    "page": 243
+  },
+  "creature:talmandor": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4835",
+    "page": 250
+  },
+  "creature:threshold-kerulkagon": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4831",
+    "page": 244
+  },
+  "creature:urdun-gravelhands": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4836",
+    "page": 253
+  },
+  "creature:vinculatti": {
+    "book": "hells-destiny",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4832",
+    "page": 245
   },
   "equipment:banner-of-common-cause": {
     "book": "hells-destiny",

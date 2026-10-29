@@ -3993,7 +3993,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "draconic-codex"
+        "book": "draconic-codex",
+        "page": 220,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8104"
       }
     ],
     "description": [
