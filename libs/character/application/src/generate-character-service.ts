@@ -6,6 +6,7 @@ import {
   CharacterPatchField,
   generateCharacter,
   itemContent,
+  runeContent,
   rollPersona,
   Seed,
   slotContent,
@@ -13,14 +14,15 @@ import {
 import type {
   CharacterName,
   GenerateCharacterBody,
+  GenerateLock,
   GeneratedCharacter,
   Persona,
   SlotContent,
 } from '@pioneer/character/domain';
 import { AncestryId, ContentKind } from '@pioneer/rules/sdk';
-import type { ContentSource } from '@pioneer/rules/sdk';
-import { newId } from '@pioneer/shared/kernel';
-import type { Clock, Temporal, UserId } from '@pioneer/shared/kernel';
+import type { ContentSource, SlotKey } from '@pioneer/rules/sdk';
+import { message, newId, ValidationError } from '@pioneer/shared/kernel';
+import type { Clock, FieldIssue, Temporal, UserId } from '@pioneer/shared/kernel';
 
 import type { CharacterRepository } from './character-repository';
 
@@ -40,6 +42,16 @@ function anyAncestry(content: SlotContent): AncestryId {
     throw new Error('No ancestry is loaded, so no character can be generated');
   }
   return AncestryId.parse(ancestry.id);
+}
+
+/** Refuses with a 422 when `unmet` is not empty: one issue at each unmet lock's place in the body. */
+function assertKept(locks: readonly GenerateLock[], unmet: readonly SlotKey[]): void {
+  const issues = locks.flatMap((lock, index): FieldIssue[] =>
+    unmet.includes(lock.slot) ? [{ path: ['locks', index], message: message('character.validation.lockNotKept') }] : [],
+  );
+  if (issues.length > 0) {
+    throw new ValidationError(issues);
+  }
 }
 
 /** What `startingCharacter` needs. */
@@ -82,19 +94,29 @@ export class GenerateCharacterService {
   public async generate(actor: UserId, body: GenerateCharacterBody): Promise<GeneratedCharacter> {
     const registry = await this.#content.registry();
     const content = slotContent(registry);
-    const ancestry = anyAncestry(content);
     const seed = body.seed ?? drawSeed();
     const persona = rollPersona(seed);
     const now = this.#clock.now();
     const start = startingCharacter({
       actor,
       name: body.name ?? persona.name,
-      ancestry,
+      ancestry: anyAncestry(content),
       persona,
       now,
     });
-    const items = itemContent(registry);
-    const { character } = generateCharacter({ start, seed, level: body.level, content, items, now });
+    const locks = body.locks ?? [];
+    const { character, unmet } = generateCharacter({
+      start,
+      seed,
+      level: body.level,
+      content,
+      items: itemContent(registry),
+      runes: runeContent(registry),
+      theme: body.theme,
+      locks,
+      now,
+    });
+    assertKept(locks, unmet);
     const saved = await this.#repository.insert(character, { actor, command: CharacterCommand.GenerateCharacter });
     return { character: saved, seed };
   }

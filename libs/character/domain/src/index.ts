@@ -243,10 +243,9 @@ export {
   CharacterSheet,
   CharacterSort,
   CreateCharacterBody,
-  GeneratedCharacter,
-  GenerateCharacterBody,
   PatchedCharacterSheet,
 } from './character-contract';
+export { GenerateCharacterBody, GeneratedCharacter, GenerateLock } from './generate-character-contract';
 export {
   FeatDisplayChoice,
   FeatDisplayId,
