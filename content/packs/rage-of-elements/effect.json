@@ -143,6 +143,70 @@
     }
   },
   {
+    "id": "0f8fca33-25e6-5ed2-9cec-f159bbb47981",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-ash-strider",
+    "name": "Effect: Ash Strider",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "95bdcc6c-5e22-583e-a9f9-3d807a5ccc81"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You discorporate into ash. Ash lingers around you after your movement, making you "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1",
+        "allowDuplicate": false
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "5350bf0b-dc74-5200-aebd-d356bb4fbaeb",
     "pack": "rage-of-elements",
     "kind": "effect",
@@ -450,6 +514,76 @@
       "category": "equipment",
       "duration": {
         "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "7ac4da74-74b3-5770-8a72-d08b9a9c9087",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-body-of-air",
+    "name": "Effect: Body of Air",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ef053182-ffea-5a8f-b542-acdcc369da5e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body becomes a cloud of living vapor, with the same effects as "
+          },
+          {
+            "type": "ref",
+            "id": "1bf15f4b-9369-5136-b3f1-cd18d01b9233"
+          },
+          {
+            "type": "text",
+            "text": ", so you have a fly Speed of 10 feet. The effect lasts until the end of your next turn, but you can Sustain it up to 5 minutes. Activating your kinetic aura ends it."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "9bd14b32-28b1-5782-a42b-8c0a5e762c33",
+        "allowDuplicate": false
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 10
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
       }
     }
   },
@@ -790,6 +924,70 @@
         "type": "time",
         "count": 1,
         "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6b2b4936-379c-52dc-b7f7-228fb604e812",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-elemental-transformation",
+    "name": "Effect: Elemental Transformation",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "80274d49-65d2-5526-85ec-cc38ccc033fc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are overwhelmed with transformative elemental energy, gaining the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "877e8c19-8f14-5568-8d0b-4b9c520e07ea"
+          },
+          {
+            "type": "text",
+            "text": ", with the same trait as your kinetic element."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6403730c-6b7c-59a6-a401-44019061cacd",
+        "allowDuplicate": false
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
         "expiry": "turn-start"
       }
     }
@@ -1869,6 +2067,56 @@
         "count": 1,
         "unit": "round",
         "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "dac4863a-2b9b-5662-a450-2002e22a0066",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-lightning-dash",
+    "name": "Effect: Lightning Dash",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5b341496-4fe4-50d0-bb92-32f3c3d10718"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For an instant, you transform yourself into a being of pure lightning. You return to your normal form in the final square of the line."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
       }
     }
   },
@@ -3453,6 +3701,56 @@
       "category": "feat",
       "duration": {
         "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "a86502ec-15bf-54cd-bff1-8851b2b85eaf",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-witchwood-seed",
+    "name": "Effect: Witchwood Seed",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "0ee59407-e2ab-5fac-8083-3a34536fd7e6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A malignant seed implanted in your body takes root, and you suffer effects depending on the result of your Fortitude save. This applies to the target of the feat, not to the kineticist."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
         "expiry": "turn-end"
       }
     }
