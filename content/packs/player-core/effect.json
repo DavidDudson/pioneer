@@ -14593,6 +14593,56 @@
     }
   },
   {
+    "id": "b337b5ea-628e-5347-bb3b-5b578b6ea0c7",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-cursed-metamorphosis",
+    "name": "Spell Effect: Cursed Metamorphosis",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9a703ca8-ffd2-5cfd-82c2-b323c835ac03"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are transformed into a harmless animal appropriate to the area, keeping your mind. If you spend all your actions on your turn concentrating on your original form, you can attempt a Will save to end the effect immediately. On a critical failure the transformation is unlimited, body and mind."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "021f0a77-35c6-5ce4-a101-d473a8c6d7f4",
     "pack": "player-core",
     "kind": "effect",
@@ -17029,6 +17079,56 @@
         "unit": "minute",
         "expiry": "turn-start",
         "sustained": true
+      }
+    }
+  },
+  {
+    "id": "758012d6-fa5a-5a16-b67d-dd61eff0c5e5",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-disperse-into-air",
+    "name": "Spell Effect: Disperse into Air",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "419527f8-46c8-5921-95ab-e53ece3b72fb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have transformed into air. You can't be attacked or targeted, you don't take up space, you can't act, and your auras and emanations are suppressed. At the end of the turn, you re-form in any space you can occupy within 15 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
       }
     }
   },
