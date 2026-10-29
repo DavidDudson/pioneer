@@ -4,13 +4,14 @@ import { form, FormField, validateStandardSchema } from '@angular/forms/signals'
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterPatchField, costCoins, ItemQuantity, payCost, purchaseCost } from '@pioneer/character/domain';
 import type { CharacterPatch, ItemContent, KitEntry } from '@pioneer/character/domain';
-import { AsyncButton, AsyncForm, Heading, SelectField, Stack } from '@pioneer/frontier';
+import { AsyncButton, AsyncForm, Heading, Stack } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { coinCounts, KitContents, ShopBill, ShopBillFor } from '@pioneer/rules/ui';
 import type { CoinCount, KitLine } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../../data/character-store';
-import { injectPlaceOptions } from '../inventory/place-options';
+import { injectPlacePicker } from '../inventory/place-picker';
 import { LOOSE } from '../inventory/sheet-inventory';
 import { describeSaveError } from '../sheet-field';
 import { EMPTY_KIT_ORDER, ShopKitOrderForm } from './shop-order-form';
@@ -34,7 +35,7 @@ interface Bill {
  */
 @Component({
   selector: 'pio-shop-kit-order',
-  imports: [AsyncButton, AsyncForm, FormField, Heading, KitContents, SelectField, ShopBill, Stack, TranslocoPipe],
+  imports: [AsyncButton, AsyncForm, FormField, Heading, KitContents, PickerField, ShopBill, Stack, TranslocoPipe],
   templateUrl: './shop-kit-order.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -50,7 +51,7 @@ export class ShopKitOrder {
   protected readonly form = form(this.model, (path) => {
     validateStandardSchema(path, ShopKitOrderForm);
   });
-  protected readonly places = injectPlaceOptions(this.content, signal(undefined));
+  protected readonly places = injectPlacePicker(this.content, signal(undefined));
   protected readonly name: Signal<string> = computed(() => this.kit().name);
   protected readonly billFor = ShopBillFor.Kit;
   /** One kit order shows at a time, for one kit, so its id names the reason. */

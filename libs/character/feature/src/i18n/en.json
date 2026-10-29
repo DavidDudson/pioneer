@@ -201,7 +201,15 @@
         "gp": "Gold (gp)",
         "sp": "Silver (sp)",
         "cp": "Copper (cp)"
-      }
+      },
+      "placeColumns": {
+        "name": "Place",
+        "bulk": "Holds",
+        "items": "Items"
+      },
+      "placeBulk": "{held} of {capacity} Bulk",
+      "placeBulkUnlimited": "{held} Bulk, no limit",
+      "placeItems": "{count, plural, =0 {Empty} one {# item} other {# items}}"
     },
     "skillsHeading": "Skills",
     "languagesHeading": "Languages",

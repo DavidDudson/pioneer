@@ -21,6 +21,7 @@ import {
   TextInput,
   ToggleButton,
 } from '@pioneer/frontier';
+import { Picker } from '@pioneer/frontier/data';
 import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
@@ -28,7 +29,7 @@ import { CharacterStore } from '../../../data/character-store';
 import { sheetField } from '../../sheet-field';
 import { CarryChoice, carryOf, choiceOf, injectCarryOptions } from '../carry-options';
 import { ItemRemove } from '../item-remove/item-remove.component';
-import { injectPlaceOptions } from '../place-options';
+import { injectPlacePicker } from '../place-picker';
 import { LOOSE } from '../sheet-inventory';
 
 /** A name the player gives, or none to go back to the content's. */
@@ -53,7 +54,7 @@ interface InvestLabels {
  */
 @Component({
   selector: 'pio-item-edits',
-  imports: [Grid, InlineField, ItemRemove, NumberInput, Select, Stack, TextInput, ToggleButton, TranslocoPipe],
+  imports: [Grid, InlineField, ItemRemove, NumberInput, Picker, Select, Stack, TextInput, ToggleButton, TranslocoPipe],
   templateUrl: './item-edits.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -91,7 +92,7 @@ export class ItemEdits {
     return item === undefined ? undefined : this.content().get(item.item);
   });
 
-  protected readonly places = injectPlaceOptions(this.content, this.id);
+  protected readonly places = injectPlacePicker(this.content, this.id);
   protected readonly carries = injectCarryOptions(this.#entry);
   /**
    * Whether investing is offered: the item works only invested (the invested trait, or armour with runes), or it is
@@ -140,7 +141,7 @@ export class ItemEdits {
         ...(container === LOOSE ? {} : { container }),
       });
     },
-    format: (value) => this.places().find((option) => option.value === value)?.label ?? '',
+    format: (value) => this.places.rows.all().find((row) => row.value === value)?.label ?? '',
   });
 
   protected readonly carry = sheetField<string | undefined>(this.#holder, {

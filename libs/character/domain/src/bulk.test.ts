@@ -2,15 +2,26 @@ import { describe, expect, test } from 'bun:test';
 
 import { AttributeModifier, BulkCount, BulkWeight } from '@pioneer/rules/sdk';
 
-import { BulkLimit, carriedBulk, coinBulk, Encumbrance, inventoryBulk, LightBulk, lightBulk, wholeBulk } from './bulk';
+import {
+  BulkLimit,
+  carriedBulk,
+  coinBulk,
+  containerLoad,
+  Encumbrance,
+  inventoryBulk,
+  LightBulk,
+  lightBulk,
+  wholeBulk,
+} from './bulk';
 import type { InventoryBulk } from './bulk';
-import { CoinsSchema, InventorySchema } from './inventory';
+import { CoinsSchema, InventoryItemId, InventorySchema } from './inventory';
 import type { Inventory } from './inventory';
 import { ItemFixture, itemFixtureContent, itemFixtureId } from './testing';
 
 const content = itemFixtureContent();
 
 const PACK = '11111111-1111-4111-8111-111111111111';
+const PACK_ID = InventoryItemId.parse(PACK);
 
 let lines = 0;
 
@@ -185,5 +196,36 @@ describe('inventoryBulk', () => {
     expect(against(-5, []).encumberedAfter).toBe(BulkLimit.parse(0));
     expect(against(-5, [line(ItemFixture.Rope, { quantity: 9 })]).encumbrance).toBe(Encumbrance.Unencumbered);
     expect(against(-5, [line(ItemFixture.Longsword)]).encumbrance).toBe(Encumbrance.Encumbered);
+  });
+});
+
+describe('containerLoad', () => {
+  test('is what a container holds, less what it ignores, with its limit and its lines', () => {
+    const inventory = stock([
+      line(ItemFixture.Backpack, { id: PACK }),
+      line(ItemFixture.Anvil, { container: PACK }),
+      line(ItemFixture.Rope, { container: PACK }),
+    ]);
+
+    const load = containerLoad(inventory, content, PACK_ID);
+
+    expect(load?.lines).toBe(2);
+    expect(load?.capacity).toBe(BulkCount.parse(4));
+    expect(load?.held).toBeGreaterThan(0);
+  });
+
+  test('is empty for a container holding nothing', () => {
+    const load = containerLoad(stock([line(ItemFixture.Backpack, { id: PACK })]), content, PACK_ID);
+
+    expect(load?.lines).toBe(0);
+    expect(load?.held).toBe(light(0));
+  });
+
+  test('is undefined for a line that is not there or holds nothing', () => {
+    const inventory = stock([line(ItemFixture.Rope, { id: PACK })]);
+
+    expect(containerLoad(inventory, content, PACK_ID)).toBeUndefined();
+    const missing = InventoryItemId.parse(nextId());
+    expect(containerLoad(inventory, content, missing)).toBeUndefined();
   });
 });

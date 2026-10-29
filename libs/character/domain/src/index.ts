@@ -477,6 +477,9 @@ export {
 export {
   BulkLimit,
   carriedBulk,
+  type ContainerLoad,
+  containerLoad,
+  HeldLines,
   coinBulk,
   Encumbrance,
   type InventoryBulk,

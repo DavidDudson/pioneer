@@ -9,7 +9,7 @@ import {
   id,
   openInventory,
   patchSent,
-  pick,
+  pickRow,
   present,
   ROPE,
   row,
@@ -92,9 +92,7 @@ describe('InventorySection', () => {
   it('takes an item out of its container by sending no container, and shows a refusal in the field', async () => {
     const section = await openInventory();
     const place = field(row(section, 'Climbing rope'), 'Where Climbing rope is');
-    present(place.querySelector<HTMLElement>('button')).click();
-    await settle();
-    await pick(place, '[frInlineEditor] button, button[frInlineEditor], fr-select button', 'Not in a container');
+    await pickRow(place, 'Not in a container');
     const request = await patchSent();
     expect(request.request.body).toStrictEqual({ expectedVersion: 3, patch: { field: 'moveItem', id: ROPE } });
     request.flush(

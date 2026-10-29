@@ -2,10 +2,15 @@
   <fr-stack gap="sm">
     <fr-heading variant="subheading" [level]="4">{{ name() }}</fr-heading>
     <pio-kit-contents [lines]="lines()" />
-    <fr-select-field
+    <fr-picker-field
       [label]="'character.sheet.inventory.place' | transloco"
-      [options]="places()"
+      [rows]="places.rows.shown()"
+      [columns]="places.columns()"
+      [rowValue]="places.value"
+      [rowLabel]="places.label"
       [formField]="form.container"
+      (searched)="places.rows.query.set($event)"
+      (sorted)="places.rows.ordering.set($event)"
     />
     @if (bill(); as bill) {
       <pio-shop-bill

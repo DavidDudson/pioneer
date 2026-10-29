@@ -4,12 +4,13 @@ import { form, FormField, validateStandardSchema } from '@angular/forms/signals'
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterPatchField, costCoins, ItemQuantity, payCost, purchaseCost } from '@pioneer/character/domain';
 import type { CharacterPatch, ItemContent, ItemEntry } from '@pioneer/character/domain';
-import { AsyncButton, AsyncForm, Grid, Heading, NumberField, SelectField, Stack } from '@pioneer/frontier';
+import { AsyncButton, AsyncForm, Grid, Heading, NumberField, Stack } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
 import { coinCounts, ShopBill } from '@pioneer/rules/ui';
 import type { CoinCount } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../../data/character-store';
-import { injectPlaceOptions } from '../inventory/place-options';
+import { injectPlacePicker } from '../inventory/place-picker';
 import { LOOSE } from '../inventory/sheet-inventory';
 import { describeSaveError } from '../sheet-field';
 import { EMPTY_ORDER, ShopOrderForm } from './shop-order-form';
@@ -30,7 +31,7 @@ interface Bill {
  */
 @Component({
   selector: 'pio-shop-order',
-  imports: [AsyncButton, AsyncForm, FormField, Grid, Heading, NumberField, SelectField, ShopBill, Stack, TranslocoPipe],
+  imports: [AsyncButton, AsyncForm, FormField, Grid, Heading, NumberField, PickerField, ShopBill, Stack, TranslocoPipe],
   templateUrl: './shop-order.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -46,7 +47,7 @@ export class ShopOrder {
   protected readonly form = form(this.model, (path) => {
     validateStandardSchema(path, ShopOrderForm);
   });
-  protected readonly places = injectPlaceOptions(this.content, signal(undefined));
+  protected readonly places = injectPlacePicker(this.content, signal(undefined));
   protected readonly name: Signal<string> = computed(() => this.item().name);
   /** One order form shows at a time, for one item, so its id names the reason. */
   protected readonly reasonId: Signal<string> = computed(() => `pio-shop-order-reason-${this.item().id}`);
