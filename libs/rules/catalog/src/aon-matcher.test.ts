@@ -217,12 +217,12 @@ describe('proposeAonMappings other books and plurals', () => {
 });
 
 describe('proposeAonMappings superseded pages', () => {
-  const entries = [listed('Hand Cannon', 'Weapons', 50), listed('Hand Cannon', 'Weapons', 52)];
-
-  test('takes the highest ID of a weapon with several rows of one page', () => {
-    const cannon = entry(ContentKind.Weapon, 'Hand Cannon');
-    const { proposals } = proposeAonMappings([cannon], [{ book: BOOK, entries }], new Set());
-    expect(proposals.get(cannon.slug)?.aon).toBe(AonUrl.parse('https://2e.aonprd.com/Weapons.aspx?ID=52'));
+  test('stays ambiguous for a weapon with several rows of one page: the current row is not always the higher ID', () => {
+    const crossbow = entry(ContentKind.Weapon, 'Repeating Crossbow');
+    const entries = [listed('Repeating Crossbow', 'Weapons', 176), listed('Repeating Crossbow', 'Weapons', 448)];
+    const result = proposeAonMappings([crossbow], [{ book: BOOK, entries }], new Set());
+    expect(result.proposals.size).toBe(0);
+    expect(result.ambiguous).toEqual([crossbow.slug]);
   });
 
   test('stays ambiguous for a kind this was not checked on', () => {
