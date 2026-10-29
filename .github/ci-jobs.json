@@ -1,0 +1,75 @@
+{
+  "check": [
+    { "name": "lint", "id": "lint", "script": "ci:lint", "args": "", "always": true },
+    { "name": "typecheck and build", "id": "build", "script": "ci:build", "args": "" },
+    {
+      "name": "storybook rules 1",
+      "id": "storybook-rules-1",
+      "script": "ci:storybook",
+      "args": "--projects=rules-ui --configuration=shard-1"
+    },
+    {
+      "name": "storybook rules 2",
+      "id": "storybook-rules-2",
+      "script": "ci:storybook",
+      "args": "--projects=rules-ui --configuration=shard-2"
+    },
+    {
+      "name": "storybook rules 3",
+      "id": "storybook-rules-3",
+      "script": "ci:storybook",
+      "args": "--projects=rules-ui --configuration=shard-3"
+    },
+    { "name": "storybook rest", "id": "storybook-rest", "script": "ci:storybook", "args": "--exclude=rules-ui" }
+  ],
+  "test": [
+    {
+      "name": "character sheet page a-e",
+      "id": "character-page-a",
+      "args": "--projects=character-feature --configuration=page-a"
+    },
+    {
+      "name": "character sheet page f-r",
+      "id": "character-page-b",
+      "args": "--projects=character-feature --configuration=page-b"
+    },
+    {
+      "name": "character sheet page s-z",
+      "id": "character-page-c",
+      "args": "--projects=character-feature --configuration=page-c"
+    },
+    { "name": "character rest", "id": "character-rest", "args": "--projects=character-feature --configuration=rest" },
+    {
+      "name": "web ui",
+      "id": "web-ui",
+      "args": "--projects=rules-ui,content-ui,play-ui,frontier,rules-data-access --parallel=2"
+    },
+    {
+      "name": "web rest",
+      "id": "web",
+      "args": "--projects=tag:platform:web --exclude=character-feature,rules-ui,content-ui,play-ui,frontier,rules-data-access --parallel=2"
+    },
+    { "name": "server api", "id": "server-api", "args": "--projects=api --configuration=rest" },
+    {
+      "name": "server api characters 1",
+      "id": "server-api-generate-1",
+      "args": "--projects=api --configuration=generate-1"
+    },
+    {
+      "name": "server api characters 2",
+      "id": "server-api-generate-2",
+      "args": "--projects=api --configuration=generate-2"
+    },
+    {
+      "name": "server api characters 3",
+      "id": "server-api-generate-3",
+      "args": "--projects=api --configuration=generate-3"
+    },
+    {
+      "name": "server api characters 4",
+      "id": "server-api-generate-4",
+      "args": "--projects=api --configuration=generate-4"
+    },
+    { "name": "server rest", "id": "server", "args": "--exclude=tag:platform:web,api" }
+  ]
+}
