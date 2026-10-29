@@ -28,7 +28,7 @@ const FormPreviewMessage = {
 } as const;
 
 /** Words a message key and its parameters in the viewer's language. */
-export type Translate = (key: string, params?: Readonly<Record<string, string | number>>) => string;
+type Translate = (key: string, params?: Readonly<Record<string, string | number>>) => string;
 
 /** The total of a statistic, or undefined when the engine could not work it out. */
 function totalOf(result: StatisticResult | undefined): number | undefined {
