@@ -21,41 +21,65 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Decides what the rest needs. The check and test matrices live in .github/ci-jobs.json; this keeps the entries that
+  # cover a project the change affects (tools/ci-plan-run.ts), so a docs or content-only push runs lint and little else.
+  # A pull request is measured against its base branch, main against its last passing run. Each part of the matrices
+  # keeps its reason: the character feature suite is split in parts because one worker's memory grows with every file
+  # (the sheet page specs, the heaviest, by name); the api's character generation is split in four by the generate-*
+  # configurations, which name the Player Core classes between them (a class added to that test goes in one of them
+  # too); the rules-ui stories took over 5 minutes on a cold cache, so they run in three shards. A new project needs
+  # no entry: the "rest" entries take every project the others do not name.
+  plan:
+    name: Plan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    outputs:
+      base: ${{ steps.plan.outputs.base }}
+      fetch_base: ${{ steps.plan.outputs.fetch_base }}
+      check: ${{ steps.plan.outputs.check }}
+      test: ${{ steps.plan.outputs.test }}
+      run_check: ${{ steps.plan.outputs.run_check }}
+      run_test: ${{ steps.plan.outputs.run_test }}
+      workflows: ${{ steps.plan.outputs.workflows }}
+      infra: ${{ steps.plan.outputs.infra }}
+    defaults:
+      run:
+        shell: nix develop --command bash -euo pipefail {0}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+        with:
+          github_access_token: ${{ github.token }}
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+      - name: Install
+        run: bun install --frozen-lockfile
+      - name: Plan
+        id: plan
+        run: bun tools/ci-plan-run.ts
+        env:
+          GH_TOKEN: ${{ github.token }}
+
   # `bun run check` split by runtime so each job stays under 5 minutes. The ci:* scripts together cover check;
   # a target added to check goes in one of them too.
   check:
     name: Check (${{ matrix.name }})
+    needs: plan
+    if: needs.plan.outputs.run_check == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
       contents: read
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          - { name: lint, id: lint, script: ci:lint, args: '' }
-          - { name: typecheck and build, id: build, script: ci:build, args: '' }
-          # The rules-ui stories alone took over 5 minutes on a cold cache, so they run in three shards (the
-          # shard-* configurations of its test-storybook target); the other projects share one job.
-          - {
-              name: storybook rules 1,
-              id: storybook-rules-1,
-              script: ci:storybook,
-              args: --projects=rules-ui --configuration=shard-1,
-            }
-          - {
-              name: storybook rules 2,
-              id: storybook-rules-2,
-              script: ci:storybook,
-              args: --projects=rules-ui --configuration=shard-2,
-            }
-          - {
-              name: storybook rules 3,
-              id: storybook-rules-3,
-              script: ci:storybook,
-              args: --projects=rules-ui --configuration=shard-3,
-            }
-          - { name: storybook rest, id: storybook-rest, script: ci:storybook, args: --exclude=rules-ui }
+      matrix: ${{ fromJSON(needs.plan.outputs.check) }}
     defaults:
       run:
         # Same toolchain as local: every step runs inside the flake devshell.
@@ -81,6 +105,12 @@ jobs:
             .nx/workspace-data/*.db
           key: nx-${{ runner.os }}-${{ matrix.id }}-${{ github.sha }}
           restore-keys: nx-${{ runner.os }}-${{ matrix.id }}-
+      # nx affected measures against the plan's base commit; only its tree is needed, not its history.
+      - name: Base commit
+        if: needs.plan.outputs.fetch_base == 'true'
+        run: git fetch --no-tags --depth=1 "https://github.com/${GITHUB_REPOSITORY}.git" "$NX_BASE"
+        env:
+          NX_BASE: ${{ needs.plan.outputs.base }}
       - name: Install
         run: bun install --frozen-lockfile
       - name: Check
@@ -89,6 +119,7 @@ jobs:
           # shellcheck disable=SC2086
           bun run "$SCRIPT" $ARGS
         env:
+          NX_BASE: ${{ needs.plan.outputs.base }}
           SCRIPT: ${{ matrix.script }}
           ARGS: ${{ matrix.args }}
           # The Angular compiler (ngc) runs out of its default heap typechecking the web projects.
@@ -100,67 +131,15 @@ jobs:
   # target; a project not named below falls into a "rest" group.
   test:
     name: Check (test ${{ matrix.name }})
+    needs: plan
+    if: needs.plan.outputs.run_test == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
       contents: read
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          # The character suite in one job was cancelled mid-run (a worker's memory grows with every file it runs),
-          # so it runs in parts, each with its own Angular build. The sheet page specs are the heaviest, split by name.
-          - {
-              name: character sheet page a-e,
-              id: character-page-a,
-              args: --projects=character-feature --configuration=page-a,
-            }
-          - {
-              name: character sheet page f-r,
-              id: character-page-b,
-              args: --projects=character-feature --configuration=page-b,
-            }
-          - {
-              name: character sheet page s-z,
-              id: character-page-c,
-              args: --projects=character-feature --configuration=page-c,
-            }
-          - { name: character rest, id: character-rest, args: --projects=character-feature --configuration=rest }
-          - {
-              name: web ui,
-              id: web-ui,
-              args: '--projects=rules-ui,content-ui,play-ui,frontier,rules-data-access --parallel=2',
-            }
-          - {
-              name: web rest,
-              id: web,
-              args: '--projects=tag:platform:web --exclude=character-feature,rules-ui,content-ui,play-ui,frontier,rules-data-access --parallel=2',
-            }
-          # Generating a character for every class is most of the api's test time (the same run hung until the job
-          # timeout), so it runs in four parts: the generate-* configurations of the api's test target, which name the
-          # Player Core classes between them. A class added to that test goes in one of them too.
-          - { name: server api, id: server-api, args: '--projects=api --configuration=rest' }
-          - {
-              name: server api characters 1,
-              id: server-api-generate-1,
-              args: '--projects=api --configuration=generate-1',
-            }
-          - {
-              name: server api characters 2,
-              id: server-api-generate-2,
-              args: '--projects=api --configuration=generate-2',
-            }
-          - {
-              name: server api characters 3,
-              id: server-api-generate-3,
-              args: '--projects=api --configuration=generate-3',
-            }
-          - {
-              name: server api characters 4,
-              id: server-api-generate-4,
-              args: '--projects=api --configuration=generate-4',
-            }
-          - { name: server rest, id: server, args: '--exclude=tag:platform:web,api' }
+      matrix: ${{ fromJSON(needs.plan.outputs.test) }}
     services:
       postgres:
         # Same major/minor as the devshell's postgresql_18.
@@ -204,6 +183,12 @@ jobs:
             .nx/workspace-data/*.db
           key: nx-${{ runner.os }}-test-${{ matrix.id }}-${{ github.sha }}
           restore-keys: nx-${{ runner.os }}-test-${{ matrix.id }}-
+      # nx affected measures against the plan's base commit; only its tree is needed, not its history.
+      - name: Base commit
+        if: needs.plan.outputs.fetch_base == 'true'
+        run: git fetch --no-tags --depth=1 "https://github.com/${GITHUB_REPOSITORY}.git" "$NX_BASE"
+        env:
+          NX_BASE: ${{ needs.plan.outputs.base }}
       - name: Install
         run: bun install --frozen-lockfile
       - name: Test
@@ -212,12 +197,15 @@ jobs:
           # shellcheck disable=SC2086
           bun run ci:test $ARGS
         env:
+          NX_BASE: ${{ needs.plan.outputs.base }}
           ARGS: ${{ matrix.args }}
           # The Angular compiler worker ran out of its default heap compiling several projects at once.
           NODE_OPTIONS: --max-old-space-size=6144
 
   workflows:
     name: Workflow lint
+    needs: plan
+    if: needs.plan.outputs.workflows == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
@@ -242,6 +230,8 @@ jobs:
 
   infra:
     name: OpenTofu
+    needs: plan
+    if: needs.plan.outputs.infra == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:

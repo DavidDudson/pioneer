@@ -73,6 +73,9 @@ is often large and they use a lot of CPU. Run every lint, typecheck or test comm
 lock shared by all workspaces, so only one workspace runs checks at a time (the others queue). Check `uptime` first if
 you are unsure how busy the machine is. `just db-up` for Postgres only when a db test you run needs it. CI runs
 `bun run check` split across parallel jobs (the `ci:*` scripts); a new `check` target goes in one of them too.
+A `plan` job runs first (`tools/ci-plan-run.ts`): it keeps the entries of `.github/ci-jobs.json` that cover a project the
+change affects, and the `ci:*` scripts run `nx affected` against its base, so a change to docs or content runs lint and
+little else. A new project needs no entry; a new job group does.
 
 ### Formatters and linters
 
