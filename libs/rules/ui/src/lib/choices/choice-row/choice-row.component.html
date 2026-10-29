@@ -7,6 +7,15 @@
       <fr-text>{{ name }}</fr-text>
     }
     <fr-badge [tone]="shown().tone">{{ shown().badge.key | transloco: shown().badge.params }}</fr-badge>
+    @if (canLock()) {
+      <fr-toggle-button
+        size="sm"
+        [value]="locked()"
+        [ariaLabel]="Message.Keep | transloco: { choice: (shown().label.key | transloco: shown().label.params) }"
+        (valueChange)="lockChange.emit($event)"
+        >{{ Message.KeepShort | transloco }}</fr-toggle-button
+      >
+    }
   </fr-stack>
   @if (shown().reason; as reason) {
     <fr-text variant="caption" tone="danger">{{ reason.key | transloco: reason.params }}</fr-text>

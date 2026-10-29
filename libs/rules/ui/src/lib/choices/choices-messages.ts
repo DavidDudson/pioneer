@@ -3,6 +3,10 @@ import type { ChoiceState } from './choice-line';
 /** Message keys the choices list renders with, spelled out so the key check sees them. */
 export const ChoicesMessage = {
   None: 'rules.choices.none',
+  /** Names the toggle that keeps a pick when the rest are re-rolled: "Keep Ancestry when re-rolling". */
+  Keep: 'rules.choices.keep',
+  /** The toggle's visible text. */
+  KeepShort: 'rules.choices.keepShort',
 } as const;
 
 /** What each state's badge says. A planned or invalid one at a level above the character's names it. */
