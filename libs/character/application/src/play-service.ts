@@ -21,6 +21,7 @@ import {
   needsResourceMaxima,
   needsRestContent,
   NO_COUNTED,
+  NO_ENVIRONMENT_GROUPS,
   NO_RESOURCES,
   NO_SHIELDS,
   PLAY_COMMANDS,
@@ -29,6 +30,9 @@ import {
   restRecovery,
   turnCommandInputs,
   slotContent,
+  environmentContent,
+  environmentGroups,
+  isEnvironmentCommand,
   isShieldCommand,
   isTurnCommand,
   isWandCommand,
@@ -205,6 +209,9 @@ export class PlayService {
       staff,
       valued,
       effects,
+      environmentGroups: isEnvironmentCommand(command)
+        ? environmentGroups(environmentContent(registry))
+        : NO_ENVIRONMENT_GROUPS,
       shields: isShieldCommand(command) ? shieldsOf(character, registry) : NO_SHIELDS,
       spend: spendLimits(command, {
         play,

@@ -2,6 +2,7 @@ import type { HitPoints } from '@pioneer/rules/sdk';
 
 import { NO_COUNTED } from '../counted-resources';
 import type { CountedMaxima } from '../counted-resources';
+import { NO_ENVIRONMENT_GROUPS } from '../environments';
 import type { PlayLimits } from '../play-state';
 import { NO_RESOURCES } from '../resources';
 import type { ResourceMaxima } from '../resources';
@@ -33,6 +34,7 @@ export function within(
     staff: NO_STAFF,
     valued: new Map(),
     effects: new Map(),
+    environmentGroups: NO_ENVIRONMENT_GROUPS,
     spend: TEST_SPEND,
     shields: NO_SHIELDS,
   };

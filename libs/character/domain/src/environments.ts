@@ -71,6 +71,25 @@ export function environmentContent(registry: ContentRegistry): EnvironmentConten
   );
 }
 
+/** The group of each environment that has one, by id: the environments of a group replace one another. */
+export type EnvironmentGroups = ReadonlyMap<ContentId, Slug>;
+
+export const NO_ENVIRONMENT_GROUPS: EnvironmentGroups = new Map();
+
+export function environmentGroups(content: EnvironmentContent): EnvironmentGroups {
+  return new Map([...content].flatMap(([id, { group }]) => (group === undefined ? [] : [[id, group] as const])));
+}
+
+/** The environments in `environments` that turning on `environment` turns off: the others of its group, if it has one. */
+export function displacedBy(
+  environments: ActiveEnvironments,
+  groups: EnvironmentGroups,
+  environment: ContentId,
+): ActiveEnvironments {
+  const group = groups.get(environment);
+  return group === undefined ? [] : environments.filter((each) => each !== environment && groups.get(each) === group);
+}
+
 /**
  * What an environment the character is in forbids: the restriction's id, the reason the sheet shows, and whose it is.
  * When something lifts it, `liftedBy` holds what does, and the restriction no longer holds.

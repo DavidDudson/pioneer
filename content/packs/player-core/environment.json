@@ -168,6 +168,14 @@
             "not": "item:rune:property:underwater"
           }
         ]
+      },
+      {
+        "key": "RollOption",
+        "option": "terrain:underwater"
+      },
+      {
+        "key": "RollOption",
+        "option": "terrain:water"
       }
     ],
     "externalIds": {
@@ -315,6 +323,7 @@
     ],
     "rules": [],
     "data": {
+      "group": "terrain-difficulty",
       "restrictions": [],
       "consequences": []
     }
@@ -348,6 +357,7 @@
     ],
     "rules": [],
     "data": {
+      "group": "terrain-difficulty",
       "restrictions": [],
       "consequences": []
     }

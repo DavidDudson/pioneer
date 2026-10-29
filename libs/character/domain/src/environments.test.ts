@@ -191,3 +191,52 @@ describe('equippedRules with an environment', () => {
     expect(equippedRules(dry, content, slots).rules).toHaveLength(0);
   });
 });
+
+describe('environments that stack', () => {
+  const MAX = HitPoints.parse(30);
+  const TEMPERATURE = Slug.parse('temperature');
+  const MILD = idAt(1);
+  const SEVERE = idAt(2);
+  const FOREST = idAt(3);
+  const DIFFICULT = idAt(4);
+  const limits = {
+    ...within(MAX),
+    environmentGroups: new Map([
+      [MILD, TEMPERATURE],
+      [SEVERE, TEMPERATURE],
+    ]),
+  };
+  const turnedOn = (...environments: readonly ContentId[]): typeof FRESH_PLAY => {
+    let play = FRESH_PLAY;
+    for (const environment of environments) {
+      play = applyPlayCommand(play, set(environment, true), limits);
+    }
+    return play;
+  };
+
+  test('environments of different groups, or none, are all in at once', () => {
+    const play = turnedOn(MILD, FOREST, DIFFICULT);
+
+    expect(play.environments).toEqual([MILD, FOREST, DIFFICULT]);
+  });
+
+  test('turning on one of a group turns off the others of it, and forgets their clocks', () => {
+    const play = turnedOn(MILD, FOREST, SEVERE);
+
+    expect(play.environments).toEqual([FOREST, SEVERE]);
+    expect(play.exposure.map(({ environment }) => environment)).toEqual([FOREST, SEVERE]);
+  });
+
+  test('turning on the one already on keeps its clock', () => {
+    const play = turnedOn(SEVERE, SEVERE);
+
+    expect(play.environments).toEqual([SEVERE]);
+  });
+
+  test('turning one off leaves the rest', () => {
+    const on = turnedOn(MILD, FOREST);
+    const off = applyPlayCommand(on, set(MILD, false), limits);
+
+    expect(off.environments).toEqual([FOREST]);
+  });
+});

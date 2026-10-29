@@ -70,3 +70,52 @@ describe('GM Core temperature environments', () => {
     expect(EnvironmentData.parse(wind.data).consequences).toEqual([]);
   });
 });
+
+describe('GM Core biome environments', () => {
+  const BIOMES = ['aquatic', 'arctic', 'desert', 'forest', 'mountain', 'plains', 'swamp', 'underground', 'urban'];
+
+  test('has a biome for each GM Core environment, citing pages 90 to 94', () => {
+    for (const biome of BIOMES) {
+      const { kind, sources } = environment(`environment:${biome}`);
+
+      expect(kind).toBe(ContentKind.Environment);
+      expect(sources).toMatchObject([{ kind: 'book', book: 'gm-core' }]);
+    }
+  });
+
+  test('sets the terrain roll option feats read, and is in no group so it stacks with anything', () => {
+    for (const biome of BIOMES) {
+      const entry = environment(`environment:${biome}`);
+
+      expect(entry.rules).toContainEqual({ key: 'RollOption', option: `terrain:${biome}` });
+      expect(EnvironmentData.parse(entry.data).group).toBeUndefined();
+    }
+  });
+
+  test('puts every cold and heat tier in the temperature group, so one replaces another', () => {
+    for (const kind of ['cold', 'heat']) {
+      for (const tier of ['mild', 'severe', 'extreme', 'incredible']) {
+        expect(EnvironmentData.parse(environment(`environment:${tier}-${kind}`).data).group).toBe('temperature');
+      }
+    }
+  });
+});
+
+const byGroup = (slug: string): unknown => {
+  const found = PLAYER_CORE.otherEntries.find((entry) => entry.slug === slug);
+  return found === undefined ? undefined : EnvironmentData.parse(found.data).group;
+};
+
+describe('Player Core terrain environments', () => {
+  test('difficult and greater difficult terrain replace each other, and hazardous terrain stacks with both', () => {
+    expect(byGroup('environment:difficult-terrain')).toBe('terrain-difficulty');
+    expect(byGroup('environment:greater-difficult-terrain')).toBe('terrain-difficulty');
+    expect(byGroup('environment:hazardous-terrain')).toBeUndefined();
+  });
+
+  test('underwater sets the terrain options feats read', () => {
+    const underwater = PLAYER_CORE.otherEntries.find((entry) => entry.slug === 'environment:underwater');
+
+    expect(underwater?.rules).toContainEqual({ key: 'RollOption', option: 'terrain:underwater' });
+  });
+});

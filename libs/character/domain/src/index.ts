@@ -729,6 +729,8 @@ export {
   applyEnvironmentCommand,
   type EnvironmentContent,
   environmentContent,
+  environmentGroups,
+  NO_ENVIRONMENT_GROUPS,
   type RestrictionInPlay,
   restrictionBlocking,
   restrictionsHolding,
