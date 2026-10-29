@@ -14,9 +14,10 @@ env:
   NX_MAX_CACHE_SIZE: 512MB
 
 concurrency:
-  # Each push to main gets its own group: a group holds one pending run, so a shared one dropped every queued
-  # main run when the next merge landed, and main never finished a run.
-  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
+  # A pull request cancels its superseded run. Main shares one group without cancelling: the run in progress finishes,
+  # so main always reports a result, and the one pending slot keeps only the newest push, so merges in quick
+  # succession no longer queue a full run each (a run is about 25 jobs). The commits it skips are covered by the next.
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || 'main' }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
