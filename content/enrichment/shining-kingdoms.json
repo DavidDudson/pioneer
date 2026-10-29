@@ -1,4 +1,29 @@
 {
+  "action:failed-prophet-broken-mindscape": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3811",
+    "page": 181
+  },
+  "action:failed-prophet-greedy-grab": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3811",
+    "page": 181
+  },
+  "action:failed-prophet-taboos": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3811",
+    "page": 181
+  },
+  "action:failed-prophet-this-is-my-reality": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3811",
+    "page": 181
+  },
+  "action:failed-prophet-wealthsense": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3811",
+    "page": 181
+  },
   "archetype:blackjacket": {
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=316",

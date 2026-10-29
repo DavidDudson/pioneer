@@ -1,4 +1,44 @@
 {
+  "action:path-maiden-apostates-shroud": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4641",
+    "page": 343
+  },
+  "action:path-maiden-blasphemous-aura": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4641",
+    "page": 343
+  },
+  "action:path-maiden-corrupting-doubt": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4641",
+    "page": 343
+  },
+  "action:path-maiden-imprisoning-grave": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4641",
+    "page": 343
+  },
+  "action:path-maiden-limited-flight": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4641",
+    "page": 343
+  },
+  "action:path-maiden-scorn-fate": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4641",
+    "page": 343
+  },
+  "action:path-maiden-sour-victory": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4641",
+    "page": 343
+  },
+  "action:path-maiden-vengeful-frenzy": {
+    "book": "season-of-ghosts",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4641",
+    "page": 343
+  },
   "armor:dragon-turtle-armor": {
     "book": "season-of-ghosts",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4059",

@@ -4,6 +4,11 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2901",
     "page": 99
   },
+  "action:valkyrie-tempest-mounted-troop": {
+    "book": "prey-for-death",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3397",
+    "page": 119
+  },
   "archetype:red-mantis-assassin": {
     "book": "prey-for-death",
     "page": 108,
