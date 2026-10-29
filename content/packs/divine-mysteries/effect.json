@@ -3202,6 +3202,67 @@
     }
   },
   {
+    "id": "cec4abb8-3a93-595f-a607-55125d1eae47",
+    "pack": "divine-mysteries",
+    "kind": "effect",
+    "slug": "effect:spell-effect-swarm-form",
+    "name": "Spell Effect: Swarm Form",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "divine-mysteries"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5dae342e-edd4-5ca4-9ca1-13c55c39d8dd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You discorporate into a swarm of Tiny creatures, keeping your size and gaining the swarm trait and resistance 5 to slashing and piercing damage. You also have weakness 5 to area and splash damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["swarm"],
+        "remove": []
+      },
+      {
+        "key": "Resistance",
+        "type": ["slashing", "piercing"],
+        "value": 5
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "6acec7f7-e787-513e-a8d5-51446dca9a32",
     "pack": "divine-mysteries",
     "kind": "effect",

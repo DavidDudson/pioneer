@@ -467,6 +467,78 @@
     }
   },
   {
+    "id": "2262e8b8-0a27-5506-913a-3750fd0d7725",
+    "pack": "wardens-of-wildwood",
+    "kind": "effect",
+    "slug": "effect:effect-disperse-into-petals",
+    "name": "Effect: Disperse Into Petals",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "wardens-of-wildwood"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "679888bc-238b-553f-a46e-8bf5c3046bea"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You merge with the blossoms sprouting from you and disperse into a visible cloud of blossoms and petals. You lose any item bonus to AC, gain resistance to physical damage equal to half your level, immunity to precision damage and a fly Speed of 10 feet. You can remain in this form for up to 1 minute, or up to 1 hour with the first awakening."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "suppress": true,
+        "predicate": ["bonus:type:item"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "floor(@level / 2)"
+      },
+      {
+        "key": "Immunity",
+        "type": ["precision"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 10
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "64d6276b-09a4-5830-8e2c-588936fc0f90",
     "pack": "wardens-of-wildwood",
     "kind": "effect",

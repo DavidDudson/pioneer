@@ -1,5 +1,55 @@
 [
   {
+    "id": "b7a6916c-551c-56a3-afa1-85a340918b8c",
+    "pack": "myth-speakers",
+    "kind": "effect",
+    "slug": "effect:effect-as-a-thousand-soldiers",
+    "name": "Effect: As a Thousand Soldiers",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "myth-speakers"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2c632657-0d0e-5947-a291-69316d32d86d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body transforms into a swarm of bees as you Fly up to twice your Speed. At the end of your movement, you return to your original form."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
     "id": "39c67c07-08a7-50e6-9884-3ddb9fead684",
     "pack": "myth-speakers",
     "kind": "effect",

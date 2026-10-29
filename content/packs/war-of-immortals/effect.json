@@ -5282,6 +5282,64 @@
     }
   },
   {
+    "id": "f2e462f8-e9a0-5064-85e8-ea4d6860badf",
+    "pack": "war-of-immortals",
+    "kind": "effect",
+    "slug": "effect:spell-effect-darkened-forest-form",
+    "name": "Spell Effect: Darkened Forest Form",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "war-of-immortals"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "479b6228-a2a1-521f-af0f-6084758fa4e4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your apparition casts a feral shadow over your form. You polymorph into a form of "
+          },
+          {
+            "type": "ref",
+            "id": "2e1a723b-ad9f-53b0-bee3-21b8401988f0"
+          },
+          {
+            "type": "text",
+            "text": ", gaining all the effects of the chosen form heightened to darkened forest form's rank. Each time you Sustain the spell, you can change to a different shape."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "f6006082-4121-592f-9762-9e7866cddc64",
     "pack": "war-of-immortals",
     "kind": "effect",

@@ -1996,6 +1996,88 @@
     }
   },
   {
+    "id": "c8acab3a-a22c-5d46-8444-8331a540b227",
+    "pack": "dark-archive-remastered",
+    "kind": "effect",
+    "slug": "effect:effect-vessels-form",
+    "name": "Effect: Vessel's Form",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "dark-archive-remastered"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "4a465b05-e1e1-5e50-b844-9eaf71ccb27c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You combine your form with the entity within you. You become Large if you were Medium or smaller, with reach 10 feet, and gain a +2 status bonus to attack and damage rolls, a +1 status bonus on saving throws against spells, 40 temporary Hit Points and a fly Speed equal to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "resizeEquipment": true,
+        "reach": {
+          "override": 10
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "strike-damage"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["item:trait:spell"]
+      },
+      {
+        "key": "TempHP",
+        "value": 40
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "cb79f2a3-20ad-5061-8353-bdda1a3e0113",
     "pack": "dark-archive-remastered",
     "kind": "effect",
