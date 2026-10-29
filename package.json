@@ -28,6 +28,7 @@
     "content:aon-propose": "bun tools/propose-aon.ts",
     "content:creature-actions-propose": "bun tools/propose-creature-actions.ts",
     "content:granted-actions-propose": "bun tools/propose-granted-actions.ts",
+    "content:remaster-audit": "bun tools/audit-remaster.ts",
     "content:seed": "bun apps/api/src/main.ts content-seed",
     "content:prerequisites": "bun tools/enrich-prerequisites.ts",
     "content:enrich": "bun tools/enrich-content.ts",
