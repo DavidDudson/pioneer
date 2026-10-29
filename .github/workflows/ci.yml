@@ -14,10 +14,11 @@ env:
   NX_MAX_CACHE_SIZE: 512MB
 
 concurrency:
-  # Each push to main gets its own group: a group holds one pending run, so a shared one dropped every queued
-  # main run when the next merge landed, and main never finished a run.
-  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  # A newer push supersedes the run before it, on a pull request and on main alike. Main shares one group, so only the
+  # most recent push is ever running or waiting (a run is about 25 jobs); the commits it skips are covered by the run
+  # of the one after.
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || 'main' }}
+  cancel-in-progress: true
 
 jobs:
   # `bun run check` split by runtime so each job stays under 5 minutes. The ci:* scripts together cover check;
