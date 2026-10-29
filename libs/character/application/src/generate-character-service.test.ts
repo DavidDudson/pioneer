@@ -1,9 +1,17 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
-import { CharacterCommand, CharacterLevel, CharacterName, CharacterSort, Seed } from '@pioneer/character/domain';
+import {
+  CharacterCommand,
+  CharacterLevel,
+  CharacterName,
+  CharacterSort,
+  CLASS_SLOT,
+  Seed,
+} from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
+import { ChoiceValue } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
-import { FIRST_VERSION, fixedClock, newId, SortDirection, UserId } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock, newId, SortDirection, UserId, ValidationError } from '@pioneer/shared/kernel';
 
 import { CharacterService } from './character-service';
 import { GenerateCharacterService } from './generate-character-service';
@@ -64,6 +72,20 @@ describe('GenerateCharacterService', () => {
       const archived = await characters.listArchived(amiri, byName);
       expect(archived.map((each) => each.id)).toEqual([mine.id]);
       expect(archived[0]?.version).toBe(FIRST_VERSION);
+    });
+  });
+
+  describe('with locks', () => {
+    const level = CharacterLevel.parse(1);
+    const seed = Seed.parse(1234);
+    const unloaded = ChoiceValue.parse(newId());
+
+    test('refuses a lock the build cannot keep as a 422 naming it, and stores nothing', async () => {
+      const locks = [{ slot: CLASS_SLOT, selection: unloaded }];
+      const refusal: unknown = await service.generate(amiri, { level, seed, locks }).catch((error: unknown) => error);
+      expect(refusal).toBeInstanceOf(ValidationError);
+      expect(refusal).toMatchObject({ issues: [{ path: ['locks', 0] }] });
+      expect(await characters.list(amiri, byName)).toEqual([]);
     });
   });
 });
