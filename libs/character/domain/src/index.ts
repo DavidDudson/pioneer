@@ -766,11 +766,16 @@ export {
   FAVOURED,
   type GenerationTheme,
   GenerationThemeSchema,
+  TRAINS_WEAPON,
+  type WeaponTheme,
+  WeaponThemeSchema,
+  withWeapon,
   NEUTRAL_THEME,
   themeWeight,
   ThemeWeight,
   UNTHEMED,
 } from './generation-theme';
 export { type GearInput, generateGear, itemsValue } from './generate-gear';
+export { weaponAffinity } from './weapon-affinity';
 export { CORE_TREASURE_BY_LEVEL, treasureAt, type TreasureByLevel, TreasureByLevelSchema } from './treasure-by-level';
 export { slotCandidates } from './slot-candidates';
