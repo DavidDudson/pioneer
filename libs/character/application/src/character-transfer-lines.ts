@@ -1,11 +1,16 @@
+import { itemContent } from '@pioneer/character/domain';
 import type { CharacterId, Coins, InventoryItemId } from '@pioneer/character/domain';
 import type { Version } from '@pioneer/shared/kernel';
 
+import { contentOfCharacter } from './character-content';
+import type { CharacterContentSource } from './character-content';
 import type { CharacterRepository } from './character-repository';
 
 /** An inventory line as an offer sees it: whether it is a key item's, and the character's version now. */
 export interface TransferLine {
   readonly keyItem: boolean;
+  /** The player's name for the line, else the item's. */
+  readonly name: string;
   readonly version: Version;
 }
 
@@ -21,9 +26,11 @@ export interface TransferPurse {
  */
 export class CharacterTransferLines {
   readonly #characters: CharacterRepository;
+  readonly #content: CharacterContentSource;
 
-  public constructor(characters: CharacterRepository) {
+  public constructor(characters: CharacterRepository, content: CharacterContentSource) {
     this.#characters = characters;
+    this.#content = content;
   }
 
   /** The character's purse and version; none when the character is gone. */
@@ -42,6 +49,8 @@ export class CharacterTransferLines {
     if (character === undefined || line === undefined) {
       return undefined;
     }
-    return { keyItem: line.keyItem !== undefined, version: character.version };
+    const registry = await contentOfCharacter(this.#content, character).registry();
+    const name = line.name ?? itemContent(registry).get(line.item)?.name ?? line.item;
+    return { keyItem: line.keyItem !== undefined, name, version: character.version };
   }
 }

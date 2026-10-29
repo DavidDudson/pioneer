@@ -31,7 +31,7 @@ describe('CharacterTransferLines', () => {
     const clock = fixedClock('2026-10-17T10:00:00Z');
     const content = fixedContent(new ContentPackBuilder().withId('player-core').withAncestry('human').build());
     const repository = new InMemoryCharacterRepository();
-    lines = new CharacterTransferLines(repository);
+    lines = new CharacterTransferLines(repository, content);
     mordred = await new CharacterService(repository, content, clock).create(amiri, {
       name: CharacterName.parse('Mordred'),
       ancestry: humanAncestryId,
@@ -53,7 +53,15 @@ describe('CharacterTransferLines', () => {
   });
 
   test("describes a plain line with the character's version now", async () => {
-    expect(await lines.describe(mordred.id, plain)).toStrictEqual({ keyItem: false, version: mordred.version });
+    expect(await lines.describe(mordred.id, plain)).toMatchObject({ keyItem: false, version: mordred.version });
+  });
+
+  test("names a line by the player's name, else by the item", async () => {
+    const named = await lines.describe(mordred.id, keyed);
+    const unnamed = await lines.describe(mordred.id, plain);
+
+    expect(named?.name).toBe('Caliburn');
+    expect(unnamed?.name).toBeString();
   });
 
   test("flags a key item's line", async () => {

@@ -4,6 +4,7 @@ import { Link, Page, PageBody, PageHeader, Stack } from '@pioneer/frontier';
 
 import { CampaignStore } from '../../data/campaign-store';
 import { CampaignKeyItemsPanel } from '../campaign-key-items/campaign-key-items.component';
+import { CampaignTransfersPanel } from '../campaign-transfers/campaign-transfers.component';
 
 /**
  * The Party Inventory (ADR-0064): every key item of the campaign and who holds it, filtered by holder. Every member
@@ -11,7 +12,7 @@ import { CampaignKeyItemsPanel } from '../campaign-key-items/campaign-key-items.
  */
 @Component({
   selector: 'pio-campaign-inventory-page',
-  imports: [CampaignKeyItemsPanel, Link, Page, PageBody, PageHeader, Stack, TranslocoPipe],
+  imports: [CampaignKeyItemsPanel, CampaignTransfersPanel, Link, Page, PageBody, PageHeader, Stack, TranslocoPipe],
   templateUrl: './campaign-inventory-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

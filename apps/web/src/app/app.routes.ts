@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import type { Routes } from '@angular/router';
 import { TranslocoService } from '@jsverse/transloco';
-import type { SheetSidePanelLoader } from '@pioneer/character/feature';
+import type { InventoryLineOfferLoader, SheetSidePanelLoader } from '@pioneer/character/feature';
 import { signInRequired } from '@pioneer/identity/data-access';
 import { PREFETCH_WHEN_IDLE } from '@pioneer/shared/web';
 
@@ -19,12 +19,24 @@ export const appRoutes: Routes = [
     data: PREFETCH_WHEN_IDLE,
     // The sheet's side panel searches the rules content, which the character feature may not import.
     loadChildren: async () => {
-      const { characterRoutes, CHARACTER_LIST_EXTRAS, SHEET_SIDE_PANEL } = await import('@pioneer/character/feature');
+      const { characterRoutes, CHARACTER_LIST_EXTRAS, INVENTORY_LINE_OFFER, SHEET_SIDE_PANEL } =
+        await import('@pioneer/character/feature');
       return [
         {
           path: '',
           providers: [
             { provide: CHARACTER_LIST_EXTRAS, useValue: environment.characterListExtras },
+            {
+              provide: INVENTORY_LINE_OFFER,
+              useFactory: (): InventoryLineOfferLoader => {
+                const i18n = inject(TranslocoService);
+                // Offering a line is the campaign context's; the sheet loads its control when a line can be offered.
+                return async () => {
+                  const { loadLineOffer } = await import('@pioneer/campaign/feature');
+                  return loadLineOffer(i18n);
+                };
+              },
+            },
             {
               provide: SHEET_SIDE_PANEL,
               useFactory: (): SheetSidePanelLoader => {

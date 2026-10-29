@@ -141,7 +141,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     flaggedItems: new CharacterFlaggedItems(characterContent),
     keyItems: new CharacterKeyItems(repository, clock),
     keyItemPromotion: new CharacterKeyItemPromotion(repository, characterContent, clock),
-    transferLines: new CharacterTransferLines(repository),
+    transferLines: new CharacterTransferLines(repository, characterContent),
     routes: characterRoutes(service, authenticator)
       .use(pathbuilderImportRoutes(importer, authenticator))
       .use(pioneerFileRoutes(pioneerFiles, authenticator))

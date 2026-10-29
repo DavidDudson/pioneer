@@ -8,6 +8,7 @@ import {
   ItemTransferView,
   OfferCoinsBody,
   OfferItemBody,
+  PendingTransfers,
   TransferAnswerView,
 } from './campaign-item-transfers';
 
@@ -16,6 +17,18 @@ const ByTransfer = z.object({ id: CampaignId, transferId: ItemTransferId });
 
 /** The endpoints for item transfers between a campaign's characters; `CampaignContract` includes them. */
 export const CampaignItemTransferContract = {
+  /**
+   * The campaign's pending item offers that involve a character of the user's, as giver or as recipient, oldest first.
+   * Not a member is a 404. Offers between other members' characters are not listed.
+   */
+  listTransfers: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/campaigns/:id/transfers',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: PendingTransfers,
+  }),
   /**
    * A member offers an inventory line of one of their campaign characters to another character of the campaign. The line
    * stays with the giver until the offer is accepted. A giver who is not the member's, or either character outside the

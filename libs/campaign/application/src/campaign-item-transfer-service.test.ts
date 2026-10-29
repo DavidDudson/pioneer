@@ -6,6 +6,7 @@ import {
   CharacterId,
   OfferedCoinsSchema,
   ReviewedItemId,
+  ReviewedName,
   TransferStatus,
 } from '@pioneer/campaign/domain';
 import type { Campaign, CampaignId } from '@pioneer/campaign/domain';
@@ -63,7 +64,7 @@ describe('CampaignItemTransferService', () => {
           .character({ id: outsider, ownerId: stranger, name: 'Outsider' })
           .character({ id: dormant, ownerId: ezren, name: 'Dormant', archived: true }),
         lines: new InMemoryTransferLines()
-          .hasLine(kyra, longsword, { version: GIVER_VERSION })
+          .hasLine(kyra, longsword, { version: GIVER_VERSION, name: ReviewedName.parse('Longsword') })
           .hasLine(kyra, caliburn, { keyItem: true })
           .hasLine(dormant, dagger, { version: GIVER_VERSION })
           .hasCoins(kyra, { gp: 10, sp: 5 }, GIVER_VERSION)
@@ -216,6 +217,36 @@ describe('CampaignItemTransferService', () => {
 
       expect(same).toBeInstanceOf(ConflictError);
       expect(JSON.stringify(same)).toContain(ItemTransferMessage.SameCharacter);
+    });
+  });
+
+  describe('list', () => {
+    test("shows the giver's owner and the recipient's owner the pending offer, with names", async () => {
+      const offer = await service.offer(ezren, vaults.id, { from: kyra, to: seelah, item: longsword });
+      const shared = {
+        id: offer.id,
+        from: kyra,
+        fromName: 'Kyra',
+        to: seelah,
+        toName: 'Seelah',
+        item: longsword,
+        itemName: 'Longsword',
+      };
+
+      expect(await service.list(ezren, vaults.id)).toStrictEqual([{ ...shared, asGiver: true, asRecipient: false }]);
+      expect(await service.list(merisiel, vaults.id)).toStrictEqual([{ ...shared, asGiver: false, asRecipient: true }]);
+    });
+
+    test('hides an offer between other members, and offers that are no longer pending', async () => {
+      const offer = await service.offer(ezren, vaults.id, { from: kyra, to: seelah, item: longsword });
+      await service.withdraw(ezren, vaults.id, offer.id);
+
+      expect(await service.list(ezren, vaults.id)).toStrictEqual([]);
+      expect(await service.list(amiri, vaults.id)).toStrictEqual([]);
+    });
+
+    test('is a 404 for someone outside the campaign', async () => {
+      expect(await rejection(service.list(stranger, vaults.id))).toBeInstanceOf(NotFoundError);
     });
   });
 });

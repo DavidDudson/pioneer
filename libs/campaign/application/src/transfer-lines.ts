@@ -1,10 +1,12 @@
-import type { CharacterId, OfferedCoins, ReviewedItemId } from '@pioneer/campaign/domain';
+import type { CharacterId, OfferedCoins, ReviewedItemId, ReviewedName } from '@pioneer/campaign/domain';
 import type { Version } from '@pioneer/shared/kernel';
 
 /** What the campaign context needs to know of a character's inventory line before it is offered. */
 export interface OfferableLine {
   /** The line is a campaign's key item, which the GM controls and a member cannot give away. */
   readonly keyItem: boolean;
+  /** The name the line is shown by: the player's own, else the item's. */
+  readonly name: ReviewedName;
   /** The character's version now, kept with the offer so accepting it can tell the giver has changed since. */
   readonly version: Version;
 }
