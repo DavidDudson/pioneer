@@ -11398,6 +11398,2227 @@
     }
   },
   {
+    "id": "7991ac28-bfed-57d6-a7b7-6a774f573311",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-abadar",
+    "name": "Spell Effect: Avatar (Abadar)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Abadar's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 50,
+            "burrow": 30
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "crossbow",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed", "reload-1"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d10",
+                "damageType": "piercing",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      },
+      {
+        "key": "Immunity",
+        "type": ["immobilized"]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "dacc15e4-23e4-58d6-b0c3-d297906de60b",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-achaekek",
+    "name": "Spell Effect: Avatar (Achaekek)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Achaekek's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 70,
+            "climb": 50
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "mantis-claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile", "backswing", "finesse", "reach-15", "versatile-p"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d8",
+                "damageType": "slashing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "spine-volley",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 33,
+              "range": 60,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "piercing",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6a43115c-7ba1-5bc8-9151-2130482a4b93",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-asmodeus",
+    "name": "Spell Effect: Avatar (Asmodeus)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Asmodeus's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 70,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "mace",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "reach-15"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d10",
+                "damageType": "bludgeoning",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "hell-fire",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "fire",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "569a91a1-8d1a-5cbf-b6c0-3cdbeb7850b4",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-calistria",
+    "name": "Spell Effect: Avatar (Calistria)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Calistria's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 30,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "whip",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "disarm", "finesse", "nonlethal", "reach-20"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d4",
+                "damageType": "slashing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "savored-sting",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 33,
+              "range": 60,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "poison",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a82fd475-526c-5995-bd84-b1dec3e1f9b4",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-cayden-cailean",
+    "name": "Spell Effect: Avatar (Cayden Cailean)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Cayden Cailean's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 70,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "rapier",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "deadly-3d8", "reach-15"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "piercing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "ale-splash",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "poison",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "43757fd4-1800-50fd-986c-77809bb59903",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-desna",
+    "name": "Spell Effect: Avatar (Desna)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Desna's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 30,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "starknife",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile", "deadly-3d4", "finesse", "reach-15", "silver", "thrown-60"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d4",
+                "damageType": "piercing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "moonbeam",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed", "silver"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "fire",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "34cc27c3-15b9-5952-80c8-76e66b02f262",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-erastil",
+    "name": "Spell Effect: Avatar (Erastil)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Erastil's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 70,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "longbow",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed", "deadly-3d8"],
+              "modifier": 33,
+              "range": 150,
+              "damage": {
+                "dice": 6,
+                "die": "d8",
+                "damageType": "piercing",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b2050781-451f-59b2-bf41-f4a392502e99",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-gorum",
+    "name": "Spell Effect: Avatar (Gorum)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Gorum's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "greatsword",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "versatile-p", "reach-15"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d12",
+                "damageType": "slashing",
+                "modifier": 6
+              }
+            }
+          ],
+          "traits": []
+        }
+      },
+      {
+        "key": "Immunity",
+        "type": ["immobilized"]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a51da5c6-e411-5020-9c59-817197398242",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-gozreh",
+    "name": "Spell Effect: Avatar (Gozreh)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Gozreh's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "fly": 70,
+            "swim": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "waves",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "reach-15", "shove", "thrown-20"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d8",
+                "damageType": "bludgeoning",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "wind",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed", "versatile-electricity"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "bludgeoning",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "39fb8710-4865-5788-93f5-02cdb817c650",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-iomedae",
+    "name": "Spell Effect: Avatar (Iomedae)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Iomedae's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 70,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "longsword",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "versatile-p", "reach-15"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d8",
+                "damageType": "slashing",
+                "modifier": 6
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a49fd02b-d544-57cd-ba94-d37e73c67008",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-irori",
+    "name": "Spell Effect: Avatar (Irori)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Irori's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 80,
+            "fly": 80
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "unfettered-strike",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile", "versatile-p", "versatile-s", "finesse", "reach-15"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d8",
+                "damageType": "bludgeoning",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "wind-strike",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 33,
+              "range": 60,
+              "damage": {
+                "dice": 6,
+                "die": "d4",
+                "damageType": "bludgeoning",
+                "modifier": 6
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9da64050-4adc-52f3-b192-726eef1b6ad1",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-lamashtu",
+    "name": "Spell Effect: Avatar (Lamashtu)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Lamashtu's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 30,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "falchion",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "forceful", "reach-15"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d10",
+                "damageType": "slashing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "waters-of-lamashtu",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "poison",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f821a518-fa55-52b6-bcda-9051645a39c2",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-nethys",
+    "name": "Spell Effect: Avatar (Nethys)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Nethys's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 70,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "raw-magic",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed", "versatile-cold", "versatile-electricity", "versatile-fire"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "force"
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b9b7b6cc-dc1c-51e7-b58a-f0336715eeae",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-norgorber",
+    "name": "Spell Effect: Avatar (Norgorber)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Norgorber's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 70,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "shortsword",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile", "finesse", "versatile-s", "reach-15"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "piercing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "blackfinger-toss",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "poison",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1c82c072-3ffb-522b-9d69-954b7c964153",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-pharasma",
+    "name": "Spell Effect: Avatar (Pharasma)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Pharasma's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 70,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "dagger",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile", "finesse", "reach-15", "thrown-40"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "slashing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "spiral-blast",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d8",
+                "damageType": "vitality",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "50021a93-f0dc-5c5a-ab38-ab97a1176c19",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-rovagug",
+    "name": "Spell Effect: Avatar (Rovagug)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Rovagug's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 50,
+            "burrow": 30
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "reach-15"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d12",
+                "damageType": "piercing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "leg",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile", "versatile-p", "reach-15"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d8",
+                "damageType": "bludgeoning",
+                "modifier": 6
+              }
+            }
+          ],
+          "traits": []
+        }
+      },
+      {
+        "key": "Immunity",
+        "type": ["immobilized"]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fd352117-05bf-5f22-b16e-7802d92e89d2",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-sarenrae",
+    "name": "Spell Effect: Avatar (Sarenrae)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Sarenrae's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 30,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "scimitar",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "forceful", "nonlethal", "reach-15"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "slashing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "everflame",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed", "nonlethal"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "fire",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ff177eee-f275-51de-b072-f4b63187917e",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-shelyn",
+    "name": "Spell Effect: Avatar (Shelyn)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Shelyn's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 70,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "glaive",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "deadly-3d8", "nonlethal", "reach-20"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d8",
+                "damageType": "slashing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "melody-of-inner-beauty",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed", "nonlethal"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "sonic",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ddc25148-052e-56d8-ba21-fd36e89efaaa",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-torag",
+    "name": "Spell Effect: Avatar (Torag)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Torag's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 50,
+            "burrow": 30
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "warhammer",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "reach-15", "shove"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d8",
+                "damageType": "bludgeoning",
+                "modifier": 6
+              }
+            }
+          ],
+          "traits": []
+        }
+      },
+      {
+        "key": "Immunity",
+        "type": ["immobilized"]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "50c5aa8d-b0d9-5f93-8f05-0619fce56128",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-urgathoa",
+    "name": "Spell Effect: Avatar (Urgathoa)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Urgathoa's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 70,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "scythe",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "deadly-3d10", "trip", "reach-15"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d10",
+                "damageType": "slashing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "pallid-plague",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "void",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "f20f178d-76cb-5c96-b3d2-caa3b12edc97",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-avatar-zon-kuthon",
+    "name": "Spell Effect: Avatar (Zon-Kuthon)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "512e2cb2-1417-5a87-bf87-3de50988af3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Zon-Kuthon's form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "hasHands": true,
+          "size": "huge",
+          "speeds": {
+            "land": 70,
+            "fly": 70
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "armorClass": {
+            "modifier": "25 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 30,
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 35
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "spiked-chain",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "disarm", "trip", "reach-15"],
+              "modifier": 33,
+              "damage": {
+                "dice": 6,
+                "die": "d8",
+                "damageType": "slashing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "midnight-pain",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed", "mental", "nonlethal"],
+              "modifier": 33,
+              "range": 120,
+              "damage": {
+                "dice": 6,
+                "die": "d6",
+                "damageType": "mental",
+                "modifier": 3
+              }
+            }
+          ],
+          "traits": []
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "8000f0d5-84ff-556f-956d-9ed7e21f5cb3",
     "pack": "player-core",
     "kind": "effect",
@@ -18498,6 +20719,993 @@
     }
   },
   {
+    "id": "6e9ec020-d767-5371-9efd-c2a1e12cf4c2",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-insect-form-ant",
+    "name": "Spell Effect: Insect Form (Ant)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 30 feet, climb Speed 30 feet; mandibles 2d6 bludgeoning."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "medium",
+          "speeds": {
+            "land": 30,
+            "climb": 30
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "mandibles",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 2,
+                "die": "d6",
+                "damageType": "bludgeoning"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 13
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 4,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4697e9a2-84b4-5564-a24f-602eeb280e77",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-insect-form-beetle",
+    "name": "Spell Effect: Insect Form (Beetle)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 25 feet; mandibles 2d10 bludgeoning."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "medium",
+          "speeds": {
+            "land": 25
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "mandibles",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 2,
+                "die": "d10",
+                "damageType": "bludgeoning"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 13
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 4,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "1bacec27-0b89-5406-b1c7-6834451eab0b",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-insect-form-centipede",
+    "name": "Spell Effect: Insect Form (Centipede)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 25 feet, climb Speed 25 feet; darkvision; mandibles 1d8 piercing plus 1d4 persistent poison."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "medium",
+          "speeds": {
+            "land": 25,
+            "climb": 25
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "mandibles",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 1,
+                "die": "d8",
+                "damageType": "piercing"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 13
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "mandibles",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 2,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["mandibles-damage"],
+        "diceNumber": "ternary(gte(@item.level, 5), 2, 1)",
+        "dieSize": "d4",
+        "damageType": "poison",
+        "category": "persistent"
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9a569d5e-01de-5449-a4cf-dcd341455ee6",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-insect-form-mantis",
+    "name": "Spell Effect: Insect Form (Mantis)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 40 feet; imprecise scent 30 feet; foreleg 2d8 piercing."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "medium",
+          "speeds": {
+            "land": 40
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 30
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "foreleg",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 2,
+                "die": "d8",
+                "damageType": "piercing"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 13
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "foreleg",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "foreleg",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "foreleg",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 4,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "99274af8-3bcf-5c30-b7bf-39b65c9c774e",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-insect-form-scorpion",
+    "name": "Spell Effect: Insect Form (Scorpion)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 40 feet; darkvision, imprecise tremorsense 60 feet; stinger 1d8 piercing plus 1d4 persistent poison; pincer (agile) 1d6 bludgeoning."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "medium",
+          "speeds": {
+            "land": 40
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            },
+            {
+              "sense": "367b9fa7-8944-5208-9949-9457984b7c59",
+              "acuity": "imprecise",
+              "range": 60
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "stinger",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 1,
+                "die": "d8",
+                "damageType": "piercing"
+              }
+            },
+            {
+              "slug": "pincer",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile"],
+              "damage": {
+                "dice": 1,
+                "die": "d6",
+                "damageType": "bludgeoning"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 13
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "stinger",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              },
+              {
+                "slug": "pincer",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "stinger",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              },
+              {
+                "slug": "pincer",
+                "traits": ["unarmed", "agile", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "stinger",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 2,
+                  "modifier": 2
+                }
+              },
+              {
+                "slug": "pincer",
+                "traits": ["unarmed", "agile", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 2,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["stinger-damage"],
+        "diceNumber": "ternary(gte(@item.level, 5), 2, 1)",
+        "dieSize": "d4",
+        "damageType": "poison",
+        "category": "persistent"
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9be195ac-f2e4-5db5-8380-bc08a532ec47",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-insect-form-spider",
+    "name": "Spell Effect: Insect Form (Spider)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1ecf6743-b3a6-5a1f-beb9-192eaa89ce02"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 25 feet, climb Speed 25 feet; darkvision; fangs 1d6 piercing plus 1d4 persistent poison. Its web is not modelled."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "medium",
+          "speeds": {
+            "land": 25,
+            "climb": 25
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "fangs",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 1,
+                "die": "d6",
+                "damageType": "piercing"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 3,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 13
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "fangs",
+                "modifier": 13,
+                "damage": {
+                  "modifier": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "fangs",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "fangs",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 2,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["fangs-damage"],
+        "diceNumber": "ternary(gte(@item.level, 5), 2, 1)",
+        "dieSize": "d4",
+        "damageType": "poison",
+        "category": "persistent"
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "31a1133a-fdee-537c-b808-bfbea37957d7",
     "pack": "player-core",
     "kind": "effect",
@@ -19126,6 +22334,142 @@
         "type": "time",
         "count": 1,
         "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e6742288-e312-53c2-86b8-e5424eaaeab0",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-metamorphosis",
+    "name": "Spell Effect: Metamorphosis",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "a38c5303-30ba-573f-ba85-624c5dc04dc1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into any form you could choose with a polymorph spell of 8th rank or lower. You gain 40 temporary Hit Points rather than the amount the form normally grants. Apply that spell's effect for the form's other statistics."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 40
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "971143cc-3b1e-56f4-8570-f162ddbecad4",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-migration",
+    "name": "Spell Effect: Migration",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e23d024e-ae69-5014-94ce-275ccbbb3c09"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take on animal forms most fitting your movement and environment: a land, burrow, climb, fly and swim Speed of 40 feet, and immunity to mild, severe and extreme cold and heat. You can't Strike, cast spells, or use most manipulate actions in animal form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 40
+      },
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "upgrade",
+        "value": 40
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 40
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 40
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 40
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
         "expiry": "turn-start"
       }
     }
@@ -21022,6 +24366,106 @@
         "type": "time",
         "count": 10,
         "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "deba9049-8f95-5a00-a262-fae6044e1f81",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-one-with-plants",
+    "name": "Spell Effect: One with Plants",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "57003239-0bcf-5e13-9b4f-8dfd8e31ba40"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become a Large plant, typically a tree, for 8 hours, or merge with a plant for 10 minutes. While transformed, you can't move or affect anything outside the plant."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b6bb0da5-a7b5-59f4-a278-f9b492513a64",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-one-with-stone",
+    "name": "Spell Effect: One with Stone",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "82b08e7f-45f7-5928-ab63-d207273019ee"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become a Large stone for 8 hours, or merge with stone for 10 minutes. While transformed, you can't move or affect anything outside the stone."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
         "expiry": "turn-start"
       }
     }
