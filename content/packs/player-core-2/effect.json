@@ -4129,6 +4129,62 @@
     }
   },
   {
+    "id": "d72a3133-bad4-5201-a5c4-c686f32cee4c",
+    "pack": "player-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-dragon-transformation",
+    "name": "Effect: Dragon Transformation",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "36453db2-611a-50b5-b2f8-81edb0267db3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a ferocious Large dragon, gaining the effects of a 6th-rank dragon form spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "43b68cc1-cc3f-5c35-b3e6-f32f001d3ecd",
+        "allowDuplicate": false
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "b007ceb6-77a5-5c8e-a350-95a9124f3312",
     "pack": "player-core-2",
     "kind": "effect",
@@ -7174,6 +7230,59 @@
     }
   },
   {
+    "id": "27742dce-f0be-59a2-bd29-017127660eb4",
+    "pack": "player-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-long-nosed-form",
+    "name": "Effect: Long-Nosed Form",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "fd8ddeb9-6324-5334-a8d9-881f3055d627"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a specific, curious-looking human form, and remain in it until you Dismiss this effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["human"],
+        "remove": []
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
     "id": "8adfec76-4320-5c25-89e8-f463d8609266",
     "pack": "player-core-2",
     "kind": "effect",
@@ -9204,6 +9313,62 @@
         "type": "time",
         "count": 1,
         "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "76626569-badf-5284-a6f6-12551b0d78c2",
+    "pack": "player-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-rat-form",
+    "name": "Effect: Rat Form",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ac5daa28-6417-5294-b617-8f8dffa25529"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into an innocuous-looking Tiny rat, gaining the effects of a 1st-rank pest form spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "d31d167b-a23c-57cb-a6b6-709a67e21b1d",
+        "allowDuplicate": false
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
         "expiry": "turn-start"
       }
     }
@@ -16110,6 +16275,100 @@
     }
   },
   {
+    "id": "e8fccb28-5b8a-5399-984a-721ac3a436f4",
+    "pack": "player-core-2",
+    "kind": "effect",
+    "slug": "effect:spell-effect-tempest-form",
+    "name": "Spell Effect: Tempest Form",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1a23d936-4d61-5009-9a88-a96af45ce325"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body becomes fluid, as air, water or mist. You gain resistance 10 to physical damage, and a fly Speed of 20 feet as air or mist, or a swim Speed of 20 feet as water."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "tempest-form",
+        "prompt": "Select a form.",
+        "rollOption": "tempest-form",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air"
+          },
+          {
+            "value": "water",
+            "label": "Water"
+          },
+          {
+            "value": "mist",
+            "label": "Mist"
+          }
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 10
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": [
+          {
+            "or": ["tempest-form:air", "tempest-form:mist"]
+          }
+        ]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 20,
+        "predicate": ["tempest-form:water"]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "e60fab45-63dd-5d7c-ae3c-ead711b8ef89",
     "pack": "player-core-2",
     "kind": "effect",
@@ -16159,6 +16418,81 @@
         "count": 1,
         "unit": "round",
         "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "0ca6baf3-11f0-5340-b7f1-24760bdfacab",
+    "pack": "player-core-2",
+    "kind": "effect",
+    "slug": "effect:spell-effect-threefold-aspect",
+    "name": "Spell Effect: Threefold Aspect",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "48a516f5-1166-5ee3-a136-ac29fe4fdec7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You present an authentic version of yourself at another age. You gain a +4 status bonus to Deception checks to pass as the chosen age, and you add your level to them even if you are untrained."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "status",
+        "value": 4,
+        "slug": "threefold-aspect-status-bonus",
+        "predicate": ["option:pass-as-chosen-age"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "proficiency",
+        "value": "ternary(@rank.skill.deception, 0, @level)",
+        "slug": "threefold-aspect-proficiency-bonus",
+        "predicate": ["option:pass-as-chosen-age"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:pass-as-chosen-age",
+        "toggleable": true,
+        "display": {
+          "label": "Threefold Aspect — Pass as Chosen Age"
+        }
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
       }
     }
   },
