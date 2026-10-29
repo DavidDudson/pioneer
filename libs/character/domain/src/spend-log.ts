@@ -1,10 +1,11 @@
-import { ACTION_COUNT, ActionCost, ContentId, UP_TO_MAX } from '@pioneer/rules/sdk';
+import { ACTION_COUNT, ActionCost, ContentId, HitPoints, RollOption, UP_TO_MAX } from '@pioneer/rules/sdk';
 import { Pg, Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ActiveSpellSchema, SpellSpendSchema } from './active-spells';
 import { SlotCountKey, UseCountKey } from './counted-resources';
+import { ActiveEffectSchema, EffectInstanceId } from './effects';
 import { StaffCastSchema } from './staff-commands';
 import { QuickenedAction } from './turn-state';
 
@@ -38,6 +39,16 @@ export type SpendCost = z.infer<typeof SpendCostSchema>;
 export const SpendTime = z.iso.datetime().brand<'SpendTime'>();
 export type SpendTime = z.infer<typeof SpendTime>;
 
+/** The form an active polymorph effect is changed to (Untamed Shift): the effect, the form chosen within it, and the temporary Hit Points it gives. */
+export const FormShiftSchema = z.strictObject({
+  /** The active effect that is changed, which keeps its time left. */
+  effect: EffectInstanceId,
+  to: ContentId,
+  form: RollOption.optional(),
+  tempHp: HitPoints.optional(),
+});
+export type FormShift = z.infer<typeof FormShiftSchema>;
+
 /** What a client asks to spend: what was used, what it costs, and the frequency use it records. */
 export const SpendRequestSchema = z.strictObject({
   id: SpendId,
@@ -56,6 +67,8 @@ export const SpendRequestSchema = z.strictObject({
   attack: z.literal(true).optional(),
   /** The active-spell change it makes: a sustained spell cast, a spell sustained, or a spell dismissed with the Dismiss action. */
   spell: SpellSpendSchema.optional(),
+  /** The form of an active polymorph effect it changes, so undoing the spend puts the old form back. */
+  shift: FormShiftSchema.optional(),
 });
 export type SpendRequest = z.infer<typeof SpendRequestSchema>;
 
@@ -69,6 +82,8 @@ export const SpendEntrySchema = z.strictObject({
   quickened: QuickenedAction,
   /** The active spell a dismissal removed, so undoing the spend puts it back. */
   dismissed: ActiveSpellSchema.optional(),
+  /** The effect a form shift changed, as it was, so undoing the spend puts its form back. */
+  shifted: ActiveEffectSchema.optional(),
 });
 export type SpendEntry = z.infer<typeof SpendEntrySchema>;
 
@@ -127,6 +142,10 @@ export const SpendProblem = {
   SustainLimit: 'sustain-limit',
   /** The character already has as many active spells as it can keep. */
   TooManySpells: 'too-many-spells',
+  /** The effect whose form a shift changes is not on the character. */
+  NoSuchEffect: 'no-such-effect',
+  /** The spell's content does not shift a form, or does not list the form asked for. */
+  ShiftNotAllowed: 'shift-not-allowed',
 } as const;
 export type SpendProblem = ValueOf<typeof SpendProblem>;
 

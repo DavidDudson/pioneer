@@ -1,4 +1,5 @@
 import { SlotCountKey } from '@pioneer/character/domain';
+import type { EffectInstanceId } from '@pioneer/character/domain';
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentKind, spellEffectId } from '@pioneer/rules/sdk';
@@ -33,6 +34,8 @@ export interface FormCast {
   /** The rank it is cast at: the slot's, else the spell's own. */
   readonly rank: SpellRank;
   readonly choices: readonly FormCastChoice[];
+  /** The form the caster is in when the spell changes it, rather than putting one on. */
+  readonly shift: EffectInstanceId | undefined;
 }
 
 /** The name of an effect as the picker words a form: without the content's `Spell Effect:` prefix. */
@@ -58,6 +61,8 @@ function choicesOf(option: EffectOption): readonly FormCastChoice[] {
 export interface FormCaster {
   readonly facts: PredicateFacts;
   readonly focusRank: SpellRank;
+  /** The active effect that is the form the caster is in; undefined in no form. */
+  readonly form: EffectInstanceId | undefined;
 }
 
 interface RankInputs {
@@ -112,5 +117,6 @@ export function formCastOf(
         name: spell.name,
         rank: rankOf({ slot, focus, spell, caster }),
         choices,
+        shift: spell.data.shiftsForm === true ? caster?.form : undefined,
       };
 }

@@ -41,6 +41,8 @@ export interface SpellFields {
   readonly dismissNote?: RichText;
   /** The effects casting it can put on the caster: ids, or ids with the predicate that offers them. */
   readonly effects?: readonly (string | { readonly effect: string; readonly predicate: readonly string[] })[];
+  /** Whether casting it changes the form the caster is in. */
+  readonly shiftsForm?: true;
 }
 
 /** What a test class has beyond its key attribute. */

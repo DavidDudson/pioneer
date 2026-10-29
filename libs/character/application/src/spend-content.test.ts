@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import {
   ActiveSpellId,
+  EffectInstanceId,
   EffectRounds,
   SpellSpendKind,
   SpendCount,
@@ -17,8 +18,11 @@ import { newId } from '@pioneer/shared/kernel';
 
 import { contentRefusal } from './spend-content';
 
-const pack = new ContentPackBuilder()
-  .withId('player-core')
+const effects = new ContentPackBuilder().withId('player-core').withEffect('ape-form', 2).withEffect('bear-form', 2);
+const APE = ContentId.parse(effects.idOf(ContentKind.Effect, 'ape-form'));
+const BEAR = ContentId.parse(effects.idOf(ContentKind.Effect, 'bear-form'));
+
+const pack = effects
   .withFeat('power-attack', { traits: ['attack', 'flourish'] })
   .withFeat('hide')
   .withSpell('fireball', { rank: 3, traditions: [], traits: [] })
@@ -30,6 +34,8 @@ const pack = new ContentPackBuilder()
     traditions: [],
     duration: { type: 'time', count: 1, unit: 'minute', sustained: true },
   })
+  .withSpell('shift', { rank: 1, traditions: [], effects: [APE], shiftsForm: true })
+  .withSpell('morph', { rank: 1, traditions: [], effects: [APE] })
   .withSpell('mirror', { rank: 2, traditions: [], duration: { type: 'sustained' }, dismiss: true })
   .withItem(ContentKind.Weapon, 'longsword', {
     bulk: 1,
@@ -46,6 +52,7 @@ const NO_SPELLS = { activeSpells: [] };
 const TEN_MINUTES = EffectRounds.parse(100);
 const ONE_MINUTE = EffectRounds.parse(10);
 const ACTIVE = ActiveSpellId.parse(newId());
+const EFFECT = EffectInstanceId.parse(newId());
 
 /** The id of the entry of `kind` the pack gave `name`. */
 function idOf(kind: ContentKind, name: string): ContentId {
@@ -159,6 +166,23 @@ describe('contentRefusal for sustained spells', () => {
   test('the Dismiss action is refused for a spell whose content has none', () => {
     const { request: dismiss, active } = dismissing(idOf(ContentKind.Spell, 'barrier'));
     expect(contentRefusal(dismiss, registry, { activeSpells: active })).toBe(SpendProblem.DismissNotAllowed);
+  });
+
+  test('a form shift to a form the spell lists is allowed', () => {
+    const shift = request(idOf(ContentKind.Spell, 'shift'), { shift: { effect: EFFECT, to: APE } });
+    expect(contentRefusal(shift, registry, NO_SPELLS)).toBeUndefined();
+  });
+
+  test('a form shift to a form the spell does not list is refused', () => {
+    const shift = request(idOf(ContentKind.Spell, 'shift'), { shift: { effect: EFFECT, to: BEAR } });
+    expect(contentRefusal(shift, registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
+  });
+
+  test('a form shift by a spell that does not shift forms, or by no spell, is refused', () => {
+    const morph = request(idOf(ContentKind.Spell, 'morph'), { shift: { effect: EFFECT, to: APE } });
+    const hide = request(idOf(ContentKind.Feat, 'hide'), { shift: { effect: EFFECT, to: APE } });
+    expect(contentRefusal(morph, registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
+    expect(contentRefusal(hide, registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
   });
 
   test('dismissing a spell that is not active is left to the play state to refuse', () => {

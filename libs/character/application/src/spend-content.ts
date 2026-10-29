@@ -1,6 +1,6 @@
 import { activeSpellOf, SpellSpendKind, spellContent, SpendProblem, sustainedRounds } from '@pioneer/character/domain';
 import type { ActiveSpell, SpendRequest } from '@pioneer/character/domain';
-import { ContentKind, Trait } from '@pioneer/rules/sdk';
+import { ContentKind, spellEffectId, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 
 const ATTACK = Trait.parse('attack');
@@ -72,6 +72,15 @@ function wrongDismiss({ spell }: SpendRequest, registry: ContentRegistry, active
   return dismissed !== undefined && spellEntryOf(registry, dismissed.spell)?.data.dismiss !== true;
 }
 
+/** Whether the spend shifts a form that the action's content does not: the spell must shift forms, and list the form it shifts to. */
+function wrongShift({ action, shift }: SpendRequest, registry: ContentRegistry): boolean {
+  if (shift === undefined) {
+    return false;
+  }
+  const data = spellEntryOf(registry, action)?.data;
+  return data?.shiftsForm !== true || !(data.effects ?? []).some((listed) => spellEffectId(listed) === shift.to);
+}
+
 /** What a spend's content check reads of the play state: the active spells a sustain or dismissal names. */
 export interface SpendSpells {
   readonly activeSpells: readonly ActiveSpell[];
@@ -94,6 +103,9 @@ export function contentRefusal(
   }
   if (wrongSustain(request, registry)) {
     return SpendProblem.NotSustained;
+  }
+  if (wrongShift(request, registry)) {
+    return SpendProblem.ShiftNotAllowed;
   }
   return wrongDismiss(request, registry, activeSpells) ? SpendProblem.DismissNotAllowed : undefined;
 }

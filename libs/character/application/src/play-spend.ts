@@ -42,6 +42,8 @@ const SPEND_MESSAGES = {
   [SpendProblem.AlreadySustained]: 'character.validation.spendAlreadySustained',
   [SpendProblem.SustainLimit]: 'character.validation.spendSustainLimit',
   [SpendProblem.TooManySpells]: 'character.validation.spendTooManySpells',
+  [SpendProblem.NoSuchEffect]: 'character.validation.spendNoSuchEffect',
+  [SpendProblem.ShiftNotAllowed]: 'character.validation.spendShiftNotAllowed',
 } as const satisfies Record<SpendProblem, string>;
 
 /** What a spend is checked against: the uses the build gives and the content's costs. */

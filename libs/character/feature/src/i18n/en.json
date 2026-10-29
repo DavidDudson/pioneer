@@ -675,7 +675,9 @@
     "spendDismissNotAllowed": "That spell can be dismissed at will, without the Dismiss action.",
     "spendAlreadySustained": "That spell was already sustained this turn.",
     "spendSustainLimit": "That spell has run to the longest it can be sustained.",
-    "spendTooManySpells": "There are too many active spells to add another."
+    "spendTooManySpells": "There are too many active spells to add another.",
+    "spendNoSuchEffect": "That form is no longer on the character.",
+    "spendShiftNotAllowed": "That spell cannot change the character into that form."
   },
   "turn": {
     "started": "Your turn begins.",
