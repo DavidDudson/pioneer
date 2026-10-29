@@ -31,6 +31,7 @@ export {
   PackTitle,
   VariantRuleName,
   PartyCharacterLevel,
+  PartyCharacterOrigin,
   PartyCharacterName,
 } from './campaign-fields';
 export { CampaignInvite, INVITE_LIFETIME, InviteStatus, InviteSummary } from './campaign-invite';

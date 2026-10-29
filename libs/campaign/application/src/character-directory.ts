@@ -1,4 +1,9 @@
-import type { CharacterId, PartyCharacterLevel, PartyCharacterName } from '@pioneer/campaign/domain';
+import type {
+  CharacterId,
+  PartyCharacterLevel,
+  PartyCharacterName,
+  PartyCharacterOrigin,
+} from '@pioneer/campaign/domain';
 import type { UserId } from '@pioneer/shared/kernel';
 
 /** What the campaign context knows of a character: whose it is and how to show it. */
@@ -7,6 +12,9 @@ export interface CharacterSummary {
   readonly ownerId: UserId;
   readonly name: PartyCharacterName;
   readonly level: PartyCharacterLevel;
+  /** The content entries its build picked; undefined while the slot is empty. */
+  readonly ancestry?: PartyCharacterOrigin | undefined;
+  readonly class?: PartyCharacterOrigin | undefined;
   /** Archived by its owner (ADR-0062): still attached, not offered for attaching. */
   readonly archived: boolean;
 }

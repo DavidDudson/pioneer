@@ -16,7 +16,15 @@
   <fr-stack direction="horizontal" align="end" gap="sm" wrap>
     <fr-field>
       <fr-label>{{ 'play.dice.immunityType' | transloco }}</fr-label>
-      <fr-select [options]="options.types()" [(value)]="choice" />
+      <fr-picker
+        [rows]="shown()"
+        [columns]="options.columns()"
+        [rowValue]="rowValue"
+        [rowLabel]="rowLabel"
+        [(value)]="choice"
+        (searched)="query.set($event)"
+        (sorted)="sorting.set($event)"
+      />
     </fr-field>
     <fr-button [disabled]="choice() === undefined" (pressed)="add()">{{
       'play.dice.addImmunity' | transloco

@@ -8,10 +8,16 @@
   @if (showForm()) {
     <fr-async-form [form]="form" [action]="attach" [describeError]="describeAttachError">
       <fr-stack gap="sm">
-        <fr-select-field
+        <fr-picker-field
           [label]="'campaign.party.characterLabel' | transloco"
-          [options]="options()"
+          [rows]="shown()"
+          [columns]="columns()"
+          [rowValue]="rowValue"
+          [rowLabel]="rowLabel"
+          [loading]="loading()"
           [formField]="form.characterId"
+          (searched)="query.set($event)"
+          (sorted)="sorting.set($event)"
         />
         <fr-stack direction="horizontal" justify="start">
           <fr-async-button

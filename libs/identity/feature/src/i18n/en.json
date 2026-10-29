@@ -49,6 +49,11 @@
       "feet": "Feet",
       "metres": "Metres"
     },
+    "localeColumns": {
+      "native": "Language",
+      "english": "In English",
+      "coverage": "Translated"
+    },
     "locales": {
       "en": "English"
     },

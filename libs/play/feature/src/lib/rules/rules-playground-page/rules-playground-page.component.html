@@ -7,7 +7,16 @@
         <fr-stack gap="md">
           <fr-field>
             <fr-label>{{ 'play.rules.schemaLabel' | transloco }}</fr-label>
-            <fr-select [options]="schemas()" [value]="schema()" (valueChange)="choose($event)" />
+            <fr-picker
+              [rows]="schemas()"
+              [columns]="schemaColumns()"
+              [rowValue]="rowValue"
+              [rowLabel]="rowLabel"
+              [value]="schema()"
+              (valueChange)="choose($event)"
+              (searched)="schemaQuery.set($event)"
+              (sorted)="schemaSort.set($event)"
+            />
             <fr-field-hint>{{ 'play.rules.schemaHint' | transloco }}</fr-field-hint>
           </fr-field>
           @if (tool.kind === ToolKind.Formula) {
@@ -73,7 +82,16 @@
             @if (schema() === RulesTool.ContentEntry) {
               <fr-field>
                 <fr-label>{{ 'play.rules.entryKindLabel' | transloco }}</fr-label>
-                <fr-select [options]="entryKinds()" [value]="entryKind()" (valueChange)="chooseEntryKind($event)" />
+                <fr-picker
+                  [rows]="entryKinds()"
+                  [columns]="entryKindColumns()"
+                  [rowValue]="rowValue"
+                  [rowLabel]="rowLabel"
+                  [value]="entryKind()"
+                  (valueChange)="chooseEntryKind($event)"
+                  (searched)="entryKindQuery.set($event)"
+                  (sorted)="entryKindSort.set($event)"
+                />
                 <fr-field-hint>{{ 'play.rules.entryKindHint' | transloco }}</fr-field-hint>
               </fr-field>
             }

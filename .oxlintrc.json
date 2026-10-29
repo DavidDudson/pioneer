@@ -278,7 +278,11 @@
             "sourceTag": "scope:interop",
             "onlyDependOnLibsWithTags": ["scope:interop", "scope:character", "scope:rules", "scope:shared"]
           },
-          { "sourceTag": "scope:campaign", "onlyDependOnLibsWithTags": ["scope:campaign", "scope:shared"] },
+          // The attach picker names a character's ancestry and class from the content bundle.
+          {
+            "sourceTag": "scope:campaign",
+            "onlyDependOnLibsWithTags": ["scope:campaign", "scope:rules", "scope:shared"]
+          },
           // Homebrew packs are content rows: it reads and writes the rules context's pack tables and types.
           {
             "sourceTag": "scope:homebrew",

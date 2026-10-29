@@ -3,21 +3,31 @@
   <fr-page-body>
     <fr-surface>
       <fr-stack gap="md">
-        <fr-select-field
+        <fr-picker-field
           [label]="'identity.settings.uiLocale' | transloco"
           [hint]="'identity.settings.uiLocaleHint' | transloco"
           [error]="uiError()"
-          [options]="locales()"
+          [rows]="uiLocales()"
+          [columns]="localeColumns()"
+          [rowValue]="localeValue"
+          [rowLabel]="localeLabel"
           [value]="shown.ui()"
           (valueChange)="chooseUi($event)"
+          (searched)="uiQuery.set($event)"
+          (sorted)="uiSort.set($event)"
         />
-        <fr-select-field
+        <fr-picker-field
           [label]="'identity.settings.contentLocale' | transloco"
           [hint]="'identity.settings.contentLocaleHint' | transloco"
           [error]="contentError()"
-          [options]="locales()"
+          [rows]="contentLocales()"
+          [columns]="localeColumns()"
+          [rowValue]="localeValue"
+          [rowLabel]="localeLabel"
           [value]="shown.content()"
           (valueChange)="chooseContent($event)"
+          (searched)="contentQuery.set($event)"
+          (sorted)="contentSort.set($event)"
         />
         <fr-segmented-field
           [label]="'identity.settings.distanceUnit' | transloco"

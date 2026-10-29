@@ -1,13 +1,18 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Page, PageBody, PageHeader, SegmentedField, SelectField, Stack, Surface } from '@pioneer/frontier';
+import { Page, PageBody, PageHeader, SegmentedField, Stack, Surface } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
+import type { PickerSort } from '@pioneer/frontier/data';
 import { AccountPreferences } from '@pioneer/identity/data-access';
 import type { Preferences } from '@pioneer/identity/domain';
 import { DistanceUnit, Locale } from '@pioneer/shared/kernel';
 import { LocalePreferences } from '@pioneer/shared/web';
 import { filter, merge } from 'rxjs';
+
+import { localeColumns, localeLabel, localeRows, localeValue, shownLocales } from './locale-picker-table';
+import type { LocaleRow } from './locale-picker-table';
 
 /** Each locale's name, spelled out so the message check sees every key. */
 const LOCALE_NAMES = {
@@ -30,7 +35,7 @@ type PreferenceField = keyof Preferences;
  */
 @Component({
   selector: 'pio-settings-page',
-  imports: [Page, PageBody, PageHeader, SegmentedField, SelectField, Stack, Surface, TranslocoPipe],
+  imports: [Page, PageBody, PageHeader, PickerField, SegmentedField, Stack, Surface, TranslocoPipe],
   templateUrl: './settings-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -42,12 +47,28 @@ export class SettingsPage {
   /** Ticks when the locale changes or the `identity` message scope finishes loading. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
-  protected readonly locales = computed((): readonly SelectOption<Locale>[] => {
+  /** Every locale; the list is short, so the pickers search and sort these in the page. */
+  readonly #locales = computed((): readonly LocaleRow[] => {
     this.#messages();
-    return Object.values(Locale).map((locale) => ({
-      value: locale,
-      label: this.#i18n.translate(LOCALE_NAMES[locale]),
-    }));
+    return localeRows((locale) => this.#i18n.translate(LOCALE_NAMES[locale]));
+  });
+  protected readonly uiQuery = signal('');
+  protected readonly uiSort = signal<PickerSort | undefined>(undefined);
+  protected readonly contentQuery = signal('');
+  protected readonly contentSort = signal<PickerSort | undefined>(undefined);
+  protected readonly uiLocales = computed(() => shownLocales(this.#locales(), this.uiQuery(), this.uiSort()));
+  protected readonly contentLocales = computed(() =>
+    shownLocales(this.#locales(), this.contentQuery(), this.contentSort()),
+  );
+  protected readonly localeValue = localeValue;
+  protected readonly localeLabel = localeLabel;
+  protected readonly localeColumns = computed(() => {
+    this.#messages();
+    return localeColumns({
+      native: this.#i18n.translate('identity.settings.localeColumns.native'),
+      english: this.#i18n.translate('identity.settings.localeColumns.english'),
+      coverage: this.#i18n.translate('identity.settings.localeColumns.coverage'),
+    });
   });
   protected readonly distanceUnits = computed((): readonly SelectOption<DistanceUnit>[] => {
     this.#messages();
