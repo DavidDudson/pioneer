@@ -2517,7 +2517,9 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.Cmj0pI0GPHl7kBUB"
     },
-    "data": {}
+    "data": {
+      "ancestry": "720b0d85-39b7-5eb2-827d-b67d802e5707"
+    }
   },
   {
     "id": "44f35c8d-fd2a-5f8f-992b-3747503aa4ed",
