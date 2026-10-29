@@ -17,8 +17,7 @@ export const ExposureRounds = z.int().min(NONE).max(EXPOSURE_ROUNDS_MAX).brand<'
 export type ExposureRounds = z.infer<typeof ExposureRounds>;
 
 /** How long the character has been in one environment. */
-export const ExposureEntrySchema = z.strictObject({ environment: ContentId, elapsed: ExposureRounds });
-export type ExposureEntry = z.infer<typeof ExposureEntrySchema>;
+const ExposureEntrySchema = z.strictObject({ environment: ContentId, elapsed: ExposureRounds });
 
 /** The time spent in each environment the character is in, which its consequences are measured against. */
 export const ExposureSchema = z.array(ExposureEntrySchema).max(ENVIRONMENTS_MAX).readonly().default([]);

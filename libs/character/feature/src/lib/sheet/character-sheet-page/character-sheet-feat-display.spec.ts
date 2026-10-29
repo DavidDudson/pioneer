@@ -36,7 +36,7 @@ const DISPLAY_PACKS_LOADER: PackContentsLoader = {
 const PACKS = [...TEST_PACKS, DISPLAY_PACKS_LOADER];
 
 /** Player Core's fighter's 1st-level class feat slot: the class and the rule index of its `ChoiceSet`. */
-const FIGHTER_FEAT_1 = `${playerCoreClassId('fighter')}:27`;
+const FIGHTER_FEAT_1 = `${playerCoreClassId('fighter')}:31`;
 
 /** Merisiel as a 1st-level fighter who took Weapon Training. */
 const FIGHTER = {

@@ -40,7 +40,7 @@ export const ACTION_CONTENT_KINDS: readonly ContentKind[] = [
 const ATTACK = Trait.parse('attack');
 
 /** Message keys for why an environment forbids an action. */
-export const EnvironmentReasonMessage = {
+const EnvironmentReasonMessage = {
   /** The reason of the restriction that forbids the action, as the content words it. */
   Blocked: 'character.sheet.environments.blocked',
 } as const;

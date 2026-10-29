@@ -46,7 +46,7 @@ const featId = (name: string): string => present(fighterFeats.otherEntries.find(
 const POWER_ATTACK = featId('Power-attack');
 const SUDDEN_CHARGE = featId('Sudden-charge');
 /** Player Core's fighter's 1st-level class feat slot: the class and the rule index of its `ChoiceSet`. */
-const FIGHTER_FEAT_1 = `${playerCoreClassId('fighter')}:27`;
+const FIGHTER_FEAT_1 = `${playerCoreClassId('fighter')}:31`;
 
 /** Player Core with its feats, for the feats a feature grants. */
 const FEAT_PACKS = cutTo(FEAT_CONTENT_KINDS);

@@ -5,9 +5,9 @@ const PLAYER_CORE = PackId.parse('player-core');
 const SCENT_RANGE = Feet.parse(30);
 
 export const DARKVISION = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('sense:darkvision')));
-export const SCENT = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('sense:scent')));
-export const DWARF = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('ancestry:dwarf')));
-export const PLANT_FORM = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('spell:plant-form')));
+const SCENT = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('sense:scent')));
+const DWARF = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('ancestry:dwarf')));
+const PLANT_FORM = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('spell:plant-form')));
 
 /** Display names for the fixtures' senses and the entries they come from, as a container resolves them. */
 export const SENSE_NAMES: ReadonlyMap<ContentId, string> = new Map([
