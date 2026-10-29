@@ -960,6 +960,8 @@
     },
     "choices": {
       "none": "No choices yet.",
+      "keep": "Keep {choice} when re-rolling",
+      "keepShort": "Keep",
       "state": {
         "open": "Not chosen",
         "filled": "Chosen",

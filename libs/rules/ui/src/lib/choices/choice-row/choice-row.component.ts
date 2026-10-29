@@ -1,13 +1,13 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Badge, BadgeTone, Stack, Text } from '@pioneer/frontier';
+import { Badge, BadgeTone, Stack, Text, ToggleButton } from '@pioneer/frontier';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { ATTRIBUTE_MESSAGES } from '../../attributes/attributes-messages';
 import { ChoiceState } from '../choice-line';
 import type { ChoiceLine } from '../choice-line';
-import { CHOICE_STATE_MESSAGES, INVALID_AT_MESSAGE } from '../choices-messages';
+import { CHOICE_STATE_MESSAGES, ChoicesMessage, INVALID_AT_MESSAGE } from '../choices-messages';
 
 /** A line as rendered: its badge and its pick worked out. */
 interface ShownChoice {
@@ -48,15 +48,27 @@ function shownOf(line: ChoiceLine): ShownChoice {
   };
 }
 
-/** One choice: its label, what is picked, a badge for its state, and an invalid one's reason beneath. */
+/**
+ * One choice: its label, what is picked, a badge for its state, and an invalid one's reason beneath. A chosen one can
+ * carry a toggle that keeps it while the rest are re-rolled.
+ */
 @Component({
   selector: 'pio-choice-row',
-  imports: [Badge, Stack, Text, TranslocoPipe],
+  imports: [Badge, Stack, Text, ToggleButton, TranslocoPipe],
   templateUrl: './choice-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChoiceRow {
   public readonly line = input.required<ChoiceLine>();
+  /** Whether a chosen choice offers the keep toggle. */
+  public readonly lockable = input(false, { transform: booleanAttribute });
+  /** Whether the choice is kept. */
+  public readonly locked = input(false);
+  /** The keep toggle was pressed: the choice is now kept, or not. */
+  public readonly lockChange = output<boolean>();
+
+  protected readonly Message = ChoicesMessage;
+  protected readonly canLock = computed((): boolean => this.lockable() && this.line().state === ChoiceState.Filled);
 
   protected readonly shown = computed((): ShownChoice => shownOf(this.line()));
 }

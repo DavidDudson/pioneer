@@ -32,6 +32,41 @@
     "generateFailed": "Could not generate a character. Try again.",
     "generatedResult": "{name} was generated from seed {seed}. Note the seed to make the same character again.",
     "openSheet": "Open the sheet",
+    "theme": {
+      "attributesLabel": "Favoured attributes",
+      "attributesHint": "Favour attributes to make the picks that raise or use them likelier. Nothing is ruled out.",
+      "weaponLabel": "Weapon",
+      "weaponHint": "Pick a category and a group to equip that weapon and favour the classes and feats that train it.",
+      "categoryLabel": "Weapon category",
+      "groupLabel": "Weapon group",
+      "weaponNone": "No choice",
+      "used": "Made under the theme you chose. The theme is not kept on the character.",
+      "category": {
+        "unarmed": "Unarmed",
+        "simple": "Simple",
+        "martial": "Martial",
+        "advanced": "Advanced"
+      },
+      "group": {
+        "axe": "Axe",
+        "bomb": "Bomb",
+        "bow": "Bow",
+        "brawling": "Brawling",
+        "club": "Club",
+        "crossbow": "Crossbow",
+        "dart": "Dart",
+        "firearm": "Firearm",
+        "flail": "Flail",
+        "hammer": "Hammer",
+        "knife": "Knife",
+        "pick": "Pick",
+        "polearm": "Polearm",
+        "shield": "Shield",
+        "sling": "Sling",
+        "spear": "Spear",
+        "sword": "Sword"
+      }
+    },
     "loadError": "Could not load characters.",
     "summary": "{ancestry} · Level {level}",
     "updated": "Updated",
@@ -47,6 +82,10 @@
     "importSampleFailed": "Could not import the sample character. Try again."
   },
   "sheet": {
+    "reroll": {
+      "action": "Re-roll the rest",
+      "pending": "Re-rolling…"
+    },
     "sidePanel": {
       "title": "Content",
       "open": "Search content"

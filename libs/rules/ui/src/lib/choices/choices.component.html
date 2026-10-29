@@ -4,7 +4,13 @@
   } @else {
     <fr-list gap="xs">
       @for (choice of choices; track choice.key) {
-        <fr-list-item><pio-choice-row [line]="choice" /></fr-list-item>
+        <fr-list-item
+          ><pio-choice-row
+            [line]="choice"
+            [lockable]="lockable()"
+            [locked]="locked().has(choice.key)"
+            (lockChange)="lockChange.emit({ slot: choice.key, locked: $event })"
+        /></fr-list-item>
       }
     </fr-list>
   }

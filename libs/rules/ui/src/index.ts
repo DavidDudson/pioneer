@@ -34,6 +34,7 @@ export { StrikesMessage } from './lib/strikes/strikes-messages';
 export { StatisticsMessage } from './lib/statistics/statistics-messages';
 export { type ChoiceLine, type ChoiceSelection, ChoiceState } from './lib/choices/choice-line';
 export { ChoicesView } from './lib/choices/choices.component';
+export type { ChoiceLockChange } from './lib/choices/choices.component';
 export { LevelTimeline } from './lib/level-timeline/level-timeline.component';
 export {
   type LevelTimelineRow,

@@ -45,7 +45,6 @@ import {
   AttributesView,
   BackgroundPicker,
   BuildSummaryView,
-  ChoicesView,
   ClassFeaturesView,
   HeritagePicker,
 } from '@pioneer/rules/ui';
@@ -58,7 +57,7 @@ import { sheetField } from '../sheet-field';
 import { SheetLevelPlan } from '../sheet-level-plan/sheet-level-plan.component';
 import { injectOriginRows } from '../sheet-origin-rows';
 import { SheetPacks } from '../sheet-packs/sheet-packs.component';
-import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
+import { SheetReroll } from '../sheet-reroll/sheet-reroll.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
 import { SheetState } from '../sheet-state';
 import { rememberTab } from '../sheet-tab';
@@ -86,7 +85,6 @@ function focusField(field: ElementRef<HTMLElement>): void {
     BackgroundPicker,
     BuildSummaryView,
     Button,
-    ChoicesView,
     ClassFeaturesView,
     Grid,
     Heading,
@@ -103,7 +101,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SheetLevelPlan,
     SheetPacks,
     SheetTableRules,
-    SheetPickFields,
+    SheetReroll,
     SheetUnenabledContent,
     Stack,
     Surface,

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
+import { SlotKey } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
 import { ELF_CHOICES } from '../testing/choices-fixtures';
@@ -29,5 +30,21 @@ export const Elf: ChoicesStory = {
     const canvas = within(canvasElement);
     await expect(canvas.getByText('Needs a new choice at level 5')).toBeVisible();
     await expect(canvas.getByText('Kept, not on the character')).toBeVisible();
+  },
+};
+
+/** Chosen choices offer a toggle that keeps them when the rest are re-rolled; the ancestry is kept. */
+export const Lockable: ChoicesStory = {
+  args: { lines: ELF_CHOICES, lockable: true, locked: new Set([SlotKey.parse('ancestry')]) },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('button', { name: 'Keep Ancestry when re-rolling' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+    await expect(canvas.getByRole('button', { name: 'Keep Level 1 boost when re-rolling' })).toHaveAttribute(
+      'aria-pressed',
+      'false',
+    );
   },
 };

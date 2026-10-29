@@ -2,7 +2,7 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { CHARACTER_NAMES } from '@pioneer/character/domain';
+import { CHARACTER_NAMES, FAVOURED, UNTHEMED } from '@pioneer/character/domain';
 import type { GenerateCharacterBody } from '@pioneer/character/domain';
 import { frontierMessages } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
@@ -121,6 +121,34 @@ describe('CharacterListPage', () => {
       harness.detectChanges();
       expect(root.textContent).toContain('seed 4242');
     });
+  });
+
+  it('sends the attributes favoured in the generate form as the theme', async () => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
+        ...provideServerStateTesting(),
+        provideI18n({ en: async () => frontierMessages }),
+      ],
+    });
+    const http = TestBed.inject(HttpTestingController);
+    const harness = await RouterTestingHarness.create('/characters');
+    http.expectOne('/api/characters').flush([]);
+    await harness.fixture.whenStable();
+
+    const root = present(harness.routeNativeElement);
+    const strength = present(root.querySelector<HTMLButtonElement>('pio-generate-character fr-toggle-button button'));
+    strength.click();
+    harness.detectChanges();
+    expect(strength.getAttribute('aria-pressed')).toBe('true');
+    present(root.querySelector<HTMLButtonElement>('pio-generate-character button[type="submit"]')).click();
+    await harness.fixture.whenStable();
+
+    const request = http.expectOne({ method: 'POST', url: '/api/characters/generate' });
+    const { theme } = request.request.body as GenerateCharacterBody;
+    expect(theme?.attributes.str).toBe(FAVOURED);
+    expect(theme?.attributes.dex).toBe(UNTHEMED);
+    expect(theme?.weapon).toBeUndefined();
   });
 
   it('opens the names table in the drawer from the name field', async () => {
