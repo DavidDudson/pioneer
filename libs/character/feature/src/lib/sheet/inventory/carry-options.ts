@@ -1,12 +1,6 @@
-import { computed, inject } from '@angular/core';
-import type { Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { TranslocoService } from '@jsverse/transloco';
 import { CarryState, HANDS_MAX, handsNeeded, isWearable, ONE_HAND } from '@pioneer/character/domain';
 import type { Carry, ItemEntry } from '@pioneer/character/domain';
-import type { SelectOption } from '@pioneer/frontier';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { filter, merge } from 'rxjs';
 
 /** How an item can be carried, as the sheet offers it: held in one hand and in two are apart. */
 export const CarryChoice = {
@@ -26,7 +20,7 @@ const CARRY_OF: Readonly<Record<CarryChoice, Carry>> = {
   [CarryChoice.Dropped]: { state: CarryState.Dropped },
 };
 
-const LABELS: Readonly<Record<CarryChoice, string>> = {
+export const CARRY_LABELS: Readonly<Record<CarryChoice, string>> = {
   [CarryChoice.Worn]: 'character.sheet.inventory.carry.worn',
   [CarryChoice.OneHand]: 'character.sheet.inventory.carry.oneHand',
   [CarryChoice.TwoHands]: 'character.sheet.inventory.carry.twoHands',
@@ -57,18 +51,4 @@ export function carryChoices(entry: ItemEntry | undefined): readonly CarryChoice
   return Object.values(CarryChoice).filter(
     (choice) => (choice !== CarryChoice.Worn || wearable) && (choice !== CarryChoice.OneHand || oneHand),
   );
-}
-
-/**
- * The ways the item of `entry` can be carried, labelled. Re-read when the messages load or the language changes, as
- * the place options are. Call in an injection context.
- */
-export function injectCarryOptions(entry: Signal<ItemEntry | undefined>): Signal<readonly SelectOption<string>[]> {
-  const i18n = inject(TranslocoService);
-  const loaded = i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  const messages = toSignal(merge(i18n.langChanges$, loaded));
-  return computed(() => {
-    messages();
-    return carryChoices(entry()).map((choice) => ({ value: choice, label: i18n.translate(LABELS[choice]) }));
-  });
 }

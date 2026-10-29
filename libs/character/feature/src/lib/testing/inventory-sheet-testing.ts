@@ -148,19 +148,34 @@ export async function typeInto(target: HTMLElement, text: string): Promise<void>
   await settle();
 }
 
-/**
- * Opens the inline picker in `target` and picks the row named `label`, as a press on its row does. The table renders
- * no rows in the page harness (#734), so the pick is made on the picker itself: its own specs press the rows.
- */
-export async function pickRow(target: HTMLElement, label: string): Promise<void> {
+/** Opens the inline editor in `target` and returns the picker it shows. */
+async function openPicker(target: HTMLElement): Promise<Picker<string, object>> {
   present(target.querySelector<HTMLElement>('button')).click();
   await settle();
-  const picker = await vi.waitFor(() => {
+  return vi.waitFor(() => {
     const found = present(opened)
       .fixture.debugElement.queryAll(By.directive(Picker))
       .find((each) => each.nativeElement instanceof Node && target.contains(each.nativeElement));
     return present(found).injector.get<Picker<string, object>>(Picker);
   });
+}
+
+/** Opens the inline picker in `target` and names the rows it offers, in order. */
+export async function rowLabels(target: HTMLElement): Promise<readonly string[]> {
+  const picker = await openPicker(target);
+  return vi.waitFor(() => {
+    const labels = picker.rows().map((each) => picker.rowLabel()(each));
+    expect(labels.length).toBeGreaterThan(0);
+    return labels;
+  });
+}
+
+/**
+ * Opens the inline picker in `target` and picks the row named `label`, as a press on its row does. The table renders
+ * no rows in the page harness (#734), so the pick is made on the picker itself: its own specs press the rows.
+ */
+export async function pickRow(target: HTMLElement, label: string): Promise<void> {
+  const picker = await openPicker(target);
   const choice = present(picker.rows().find((each) => picker.rowLabel()(each) === label));
   picker.value.set(picker.rowValue()(choice));
   picker.committed.emit();

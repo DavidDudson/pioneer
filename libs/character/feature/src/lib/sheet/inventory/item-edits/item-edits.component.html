@@ -41,12 +41,17 @@
       />
     </fr-inline-field>
     <fr-inline-field [label]="'character.sheet.inventory.carryOf' | transloco: { name: name() }" [edit]="carry">
-      <fr-select
+      <fr-picker
         frInlineEditor
         [ariaLabel]="'character.sheet.inventory.carryOf' | transloco: { name: name() }"
-        [options]="carries()"
+        [rows]="carries.rows.shown()"
+        [columns]="carries.columns()"
+        [rowValue]="carries.value"
+        [rowLabel]="carries.label"
         [value]="carry.draft()"
         (valueChange)="carry.change($event)"
+        (searched)="carries.rows.query.set($event)"
+        (sorted)="carries.rows.ordering.set($event)"
         (committed)="carry.flushSoon()"
         (cancelled)="carry.cancel()"
       />

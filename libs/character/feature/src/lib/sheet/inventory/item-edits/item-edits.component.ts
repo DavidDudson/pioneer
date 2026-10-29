@@ -11,23 +11,15 @@ import {
   STOWED,
 } from '@pioneer/character/domain';
 import type { Character, InventoryItem, ItemContent, ItemEntry } from '@pioneer/character/domain';
-import {
-  Grid,
-  InlineField,
-  LocaleFormat,
-  NumberInput,
-  Select,
-  Stack,
-  TextInput,
-  ToggleButton,
-} from '@pioneer/frontier';
+import { Grid, InlineField, LocaleFormat, NumberInput, Stack, TextInput, ToggleButton } from '@pioneer/frontier';
 import { Picker } from '@pioneer/frontier/data';
 import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
 import { sheetField } from '../../sheet-field';
-import { CarryChoice, carryOf, choiceOf, injectCarryOptions } from '../carry-options';
+import { CarryChoice, carryOf, choiceOf } from '../carry-options';
+import { injectCarryPicker } from '../carry-picker';
 import { ItemRemove } from '../item-remove/item-remove.component';
 import { injectPlacePicker } from '../place-picker';
 import { LOOSE } from '../sheet-inventory';
@@ -54,7 +46,7 @@ interface InvestLabels {
  */
 @Component({
   selector: 'pio-item-edits',
-  imports: [Grid, InlineField, ItemRemove, NumberInput, Picker, Select, Stack, TextInput, ToggleButton, TranslocoPipe],
+  imports: [Grid, InlineField, ItemRemove, NumberInput, Picker, Stack, TextInput, ToggleButton, TranslocoPipe],
   templateUrl: './item-edits.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -93,7 +85,7 @@ export class ItemEdits {
   });
 
   protected readonly places = injectPlacePicker(this.content, this.id);
-  protected readonly carries = injectCarryOptions(this.#entry);
+  protected readonly carries = injectCarryPicker(this.#entry);
   /**
    * Whether investing is offered: the item works only invested (the invested trait, or armour with runes), or it is
    * invested already, as armour stays once its last rune is erased or moved, so its slot can be freed.
@@ -154,7 +146,7 @@ export class ItemEdits {
         id: this.id(),
         carry: carryOf(CarryDraft.parse(value)),
       }),
-    format: (value) => this.carries().find((option) => option.value === value)?.label ?? '',
+    format: (value) => this.carries.rows.all().find((row) => row.value === value)?.label ?? '',
   });
   protected readonly invest = sheetField<boolean>(this.#holder, {
     read: () => this.#item()?.invested === true,

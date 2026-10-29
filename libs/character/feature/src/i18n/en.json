@@ -209,7 +209,21 @@
       },
       "placeBulk": "{held} of {capacity} Bulk",
       "placeBulkUnlimited": "{held} Bulk, no limit",
-      "placeItems": "{count, plural, =0 {Empty} one {# item} other {# items}}"
+      "placeItems": "{count, plural, =0 {Empty} one {# item} other {# items}}",
+      "carryColumns": {
+        "name": "Carried",
+        "hands": "Hands",
+        "effect": "Effect",
+        "bulk": "Bulk counted",
+        "handsUsed": "Hands used"
+      },
+      "carryEffect": {
+        "worn": "On the body, so it takes no hand",
+        "oneHand": "Ready to use, in one hand",
+        "twoHands": "Ready to use, in both hands",
+        "stowed": "Put away, in a pack or on the belt",
+        "dropped": "Left behind, so it adds no Bulk"
+      }
     },
     "skillsHeading": "Skills",
     "languagesHeading": "Languages",
