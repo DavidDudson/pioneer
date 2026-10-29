@@ -64,6 +64,21 @@ describe('item transfer routes', () => {
   });
 });
 
+describe('pending transfer list route', () => {
+  test("lists the pending offer to the giver's owner, and a signed-out caller gets 401", async () => {
+    const handler = table();
+    const id = await campaign(handler);
+    const transferId = await offered(handler, id);
+
+    const response = await handler.handle(request('GET', `/campaigns/${id}/transfers`, { as: ezren }));
+    const anonymous = await handler.handle(request('GET', `/campaigns/${id}/transfers`, {}));
+
+    expect(response.status).toBe(200);
+    expect(await response.json()).toMatchObject([{ id: transferId, from: kyra, to: mordred, item: longsword }]);
+    expect(anonymous.status).toBe(401);
+  });
+});
+
 describe('coin transfer routes', () => {
   test('a player offers coins of their character to another, and it comes back pending', async () => {
     const handler = table();

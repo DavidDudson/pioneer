@@ -2,8 +2,8 @@ import { Pg, Uuid } from '@pioneer/shared/kernel';
 import type { Temporal, Version } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { CharacterId } from './campaign-fields';
-import { ReviewedItemId } from './campaign-item-approvals';
+import { CharacterId, PartyCharacterName } from './campaign-fields';
+import { ReviewedItemId, ReviewedName } from './campaign-item-approvals';
 
 /** One transfer offer between two characters of a campaign. */
 export const ItemTransferId = Uuid.brand<'ItemTransferId'>();
@@ -106,3 +106,24 @@ export function isCoinTransfer(transfer: Transfer): transfer is CoinTransfer {
 /** An offer after its recipient answered it. */
 export const TransferAnswerView = z.object({ id: ItemTransferId, status: z.enum(TransferStatus) });
 export type TransferAnswerView = z.output<typeof TransferAnswerView>;
+
+/**
+ * A pending item offer as one of its two owners sees it, with the names the screen reads it by. `asGiver` is set when the
+ * user owns the giver (who may withdraw it), `asRecipient` when they own the recipient (who may accept or decline it).
+ */
+export const PendingTransferView = z.object({
+  id: ItemTransferId,
+  from: CharacterId,
+  fromName: PartyCharacterName,
+  to: CharacterId,
+  toName: PartyCharacterName,
+  item: ReviewedItemId,
+  itemName: ReviewedName,
+  asGiver: z.boolean(),
+  asRecipient: z.boolean(),
+});
+export type PendingTransferView = z.output<typeof PendingTransferView>;
+
+/** The campaign's pending item offers that involve the user's characters, oldest first. */
+export const PendingTransfers = z.array(PendingTransferView);
+export type PendingTransfers = z.output<typeof PendingTransfers>;

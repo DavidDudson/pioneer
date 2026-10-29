@@ -1,0 +1,37 @@
+<fr-list-item>
+  <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+    <fr-stack gap="3xs" grow>
+      <fr-text weight="medium">{{ 'campaign.transfers.offerLine' | transloco: names() }}</fr-text>
+    </fr-stack>
+    @if (transfer().asRecipient) {
+      <fr-async-button
+        size="sm"
+        variant="primary"
+        [action]="accept"
+        [describeError]="describeError"
+        [confirmLabel]="'campaign.transfers.acceptConfirm' | transloco: names()"
+        [pendingLabel]="'campaign.transfers.accepting' | transloco"
+        [successLabel]="'campaign.transfers.accepted' | transloco"
+        >{{ 'campaign.transfers.accept' | transloco }}</fr-async-button
+      >
+      <fr-async-button
+        size="sm"
+        [action]="decline"
+        [describeError]="describeError"
+        [pendingLabel]="'campaign.transfers.declining' | transloco"
+        [successLabel]="'campaign.transfers.declined' | transloco"
+        >{{ 'campaign.transfers.decline' | transloco }}</fr-async-button
+      >
+    }
+    @if (transfer().asGiver) {
+      <fr-async-button
+        size="sm"
+        [action]="withdraw"
+        [describeError]="describeError"
+        [pendingLabel]="'campaign.transfers.withdrawing' | transloco"
+        [successLabel]="'campaign.transfers.withdrawn' | transloco"
+        >{{ 'campaign.transfers.withdraw' | transloco }}</fr-async-button
+      >
+    }
+  </fr-stack>
+</fr-list-item>

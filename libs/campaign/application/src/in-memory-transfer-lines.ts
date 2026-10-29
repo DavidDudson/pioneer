@@ -1,4 +1,4 @@
-import { OfferedCoinsSchema } from '@pioneer/campaign/domain';
+import { OfferedCoinsSchema, ReviewedName } from '@pioneer/campaign/domain';
 import type { CharacterId, ReviewedItemId } from '@pioneer/campaign/domain';
 import { Version } from '@pioneer/shared/kernel';
 
@@ -6,6 +6,7 @@ import { TransferLines } from './transfer-lines';
 import type { OfferableLine, OfferablePurse } from './transfer-lines';
 
 const FIRST_VERSION = Version.parse(1);
+const DEFAULT_NAME = ReviewedName.parse('Item');
 
 /** The coins a test gives a character, as plain counts; the others are none. */
 interface CoinsGiven {
@@ -22,7 +23,7 @@ export class InMemoryTransferLines extends TransferLines {
 
   /** The character has this inventory line; a key item's when `keyItem` is set. */
   public hasLine(character: CharacterId, item: ReviewedItemId, line: Partial<OfferableLine> = {}): this {
-    this.#lines.set(item, { character, line: { keyItem: false, version: FIRST_VERSION, ...line } });
+    this.#lines.set(item, { character, line: { keyItem: false, name: DEFAULT_NAME, version: FIRST_VERSION, ...line } });
     return this;
   }
 

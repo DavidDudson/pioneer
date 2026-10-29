@@ -9,6 +9,7 @@ import type {
   OfferCoinsBody,
   OfferedCoins,
   OfferItemBody,
+  PendingTransfers,
   Transfer,
   TransferAnswerView,
 } from '@pioneer/campaign/domain';
@@ -21,6 +22,7 @@ import type { CampaignRepository } from './campaign-repository';
 import type { CharacterDirectory } from './character-directory';
 import { ItemTransferMessage } from './item-transfer-message';
 import type { ItemTransferRepository } from './item-transfer-repository';
+import { pendingTransferViews } from './pending-transfer-views';
 import type { OfferableLine, OfferablePurse, TransferLines } from './transfer-lines';
 import type { TransferSettlement } from './transfer-settlement';
 
@@ -64,6 +66,16 @@ export class CampaignItemTransferService {
     this.#lines = lines;
     this.#settlement = settlement;
     this.#clock = clock;
+  }
+
+  /**
+   * The campaign's pending item offers that involve a live character of the actor's, as giver or as recipient, oldest
+   * first, with the names to show them by. Not a member: 404. An offer whose line is gone is left out.
+   */
+  public async list(actor: UserId, id: CampaignId): Promise<PendingTransfers> {
+    await this.#viewed(actor, id);
+    const pending = await this.#transfers.listPending(id);
+    return pendingTransferViews(actor, pending, { characters: this.#characters, lines: this.#lines });
   }
 
   /**

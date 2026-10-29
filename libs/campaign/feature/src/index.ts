@@ -4,3 +4,4 @@ export {
   KEY_ITEM_CONTENT_SEARCH,
   type KeyItemContentSearch,
 } from './lib/data/key-item-content-search';
+export { loadLineOffer } from './lib/line-offer-messages';

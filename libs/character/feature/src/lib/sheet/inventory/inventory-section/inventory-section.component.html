@@ -12,6 +12,10 @@
                 [name]="names().get(line.id) ?? ('rules.inventory.unknownItem' | transloco)"
                 [content]="content"
               />
+              <pio-item-offer
+                [id]="line.id"
+                [name]="names().get(line.id) ?? ('rules.inventory.unknownItem' | transloco)"
+              />
               @if (runed(); as runed) {
                 <pio-item-rune-edits
                   [id]="line.id"

@@ -12,6 +12,7 @@ export function campaignItemTransferRoutes(
   auth: RequestAuthenticator,
 ): ContractRouter['app'] {
   return new ContractRouter('campaign-item-transfer-routes')
+    .handleSignedIn(CampaignContract.listTransfers, auth, async ({ actor, params }) => service.list(actor, params.id))
     .handleSignedIn(CampaignContract.offerItem, auth, async ({ actor, params, body }) =>
       service.offer(actor, params.id, body),
     )

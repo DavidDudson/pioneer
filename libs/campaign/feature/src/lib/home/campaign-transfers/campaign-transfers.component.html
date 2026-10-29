@@ -1,0 +1,30 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-heading variant="subheading" [level]="2">{{ 'campaign.transfers.heading' | transloco }}</fr-heading>
+    <fr-async-region [errorMessage]="'campaign.transfers.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="sm">
+          @for (placeholder of placeholders; track placeholder) {
+            <fr-skeleton width="md" />
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template let-transfers [frAsyncData]="store.pending">
+        <fr-stack gap="md">
+          @let waiting = incoming(transfers);
+          @if (waiting > 0) {
+            <fr-message tone="info">{{ 'campaign.transfers.incoming' | transloco: { count: waiting } }}</fr-message>
+          }
+          @if (transfers.length === 0) {
+            <fr-empty-state [icon]="emptyIcon" [title]="'campaign.transfers.none' | transloco" />
+          }
+          <fr-list gap="sm">
+            @for (transfer of transfers; track transfer.id) {
+              <pio-campaign-transfer-row [transfer]="transfer" />
+            }
+          </fr-list>
+        </fr-stack>
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-surface>

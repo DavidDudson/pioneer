@@ -18,6 +18,7 @@ import { sheetSlotContent } from '../../sheet-slot-content';
 import { CoinsEdit } from '../coins-edit/coins-edit.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
 import { injectItemNames } from '../item-names';
+import { ItemOffer } from '../item-offer/item-offer.component';
 import { ItemRuneEdits } from '../item-rune-edits/item-rune-edits.component';
 import { sheetBulk } from '../sheet-bulk';
 import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
@@ -41,6 +42,7 @@ import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
     InventoryView,
     InvestmentsView,
     ItemEdits,
+    ItemOffer,
     ItemRuneEdits,
     Stack,
     TranslocoPipe,
