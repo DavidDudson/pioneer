@@ -546,7 +546,7 @@ export {
   type SubclassOption,
 } from './class-options';
 export { characterActions } from './available-actions';
-export { type ActionContext, actionContext, characterActionContext } from './action-context';
+export { type ActionContext, actionContext, characterActionContext, characterPredicateFacts } from './action-context';
 export {
   chargesHeld,
   type StaffCharges,

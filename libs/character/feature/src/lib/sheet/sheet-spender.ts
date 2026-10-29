@@ -3,6 +3,8 @@ import type { Provider } from '@angular/core';
 import {
   abilityFrequencies,
   abilityUseKey,
+  cantripRank,
+  characterPredicateFacts,
   EffectCommandField,
   EffectInstanceId,
   PlayCommandField,
@@ -25,8 +27,10 @@ import { PlayStore } from '../data/play-store';
 import { ACTION_CONTENT_KINDS, makesAttack, spendCostOf } from './sheet-actions';
 import { sustainedCast } from './sheet-active-list';
 import { formCastOf, FORM_CAST_CONTENT_KINDS } from './sheet-form-cast';
-import type { FormCast, FormCastChoice } from './sheet-form-cast';
+import type { FormCast, FormCastChoice, FormCaster } from './sheet-form-cast';
 import { raisedEdit, shieldIds } from './sheet-shields';
+import { sheetSources } from './sheet-sources';
+import { SheetState } from './sheet-state';
 
 /** What a spend reads: the actions, the spells a sustained cast starts an active spell from, and the effects of a form cast. */
 const SPENDER_CONTENT_KINDS: readonly ContentKind[] = [...ACTION_CONTENT_KINDS, ...FORM_CAST_CONTENT_KINDS];
@@ -86,6 +90,7 @@ export function spendOf(registry: ContentRegistry, request: ActionUse): SpendCom
 export class SheetSpender extends ActionUser {
   readonly #play = inject(PlayStore);
   readonly #registry = injectContentRegistry(SPENDER_CONTENT_KINDS);
+  readonly #sheet = inject(SheetState);
 
   /** The turn as the play state has it; undefined while that loads. */
   public readonly turn = computed((): TurnState | undefined => this.#play.play.data()?.play.turn);
@@ -95,7 +100,7 @@ export class SheetSpender extends ActionUser {
 
   public override async use(request: ActionUse): Promise<void> {
     const registry = this.#registry.data();
-    const cast = registry === undefined ? undefined : formCastOf(registry, request);
+    const cast = registry === undefined ? undefined : formCastOf(registry, request, this.#caster(registry));
     if (cast !== undefined) {
       this.pendingForm.set(cast);
       return;
@@ -105,6 +110,17 @@ export class SheetSpender extends ActionUser {
 
   /** Whether the pending cast is being spent and applied, which can no longer be given up. */
   public readonly casting = signal(false);
+
+  /** What a form cast reads of the open character; undefined while it loads. */
+  #caster(registry: ContentRegistry): FormCaster | undefined {
+    const character = this.#sheet.character();
+    return character === undefined
+      ? undefined
+      : {
+          facts: characterPredicateFacts(character.document, sheetSources(registry, character)),
+          focusRank: cantripRank(character.level),
+        };
+  }
 
   /** Gives up the pending form cast, which spent nothing; a cast being spent is left to finish. */
   public cancelForm(): void {

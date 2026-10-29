@@ -83,6 +83,11 @@ export function actionContext(facts: PredicateFacts, registry: ContentRegistry):
 
 /** The context the character's conditions, items and effects put its actions in. */
 export function characterActionContext(document: CharacterDocument, sources: StatisticSources): ActionContext {
+  return actionContext(characterPredicateFacts(document, sources), sources.registry);
+}
+
+/** The roll options the character's conditions, items and effects set, as predicates test them. */
+export function characterPredicateFacts(document: CharacterDocument, sources: StatisticSources): PredicateFacts {
   const { registry, slots } = sources;
-  return actionContext(equippedGrants(document, itemContent(registry), slots).facts, registry);
+  return equippedGrants(document, itemContent(registry), slots).facts;
 }

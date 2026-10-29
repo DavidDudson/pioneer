@@ -39,8 +39,8 @@ export interface SpellFields {
   readonly dismiss?: true;
   /** What ending it early needs, when it is not the Dismiss action. */
   readonly dismissNote?: RichText;
-  /** The ids of the effects casting it can put on the caster. */
-  readonly effects?: readonly string[];
+  /** The effects casting it can put on the caster: ids, or ids with the predicate that offers them. */
+  readonly effects?: readonly (string | { readonly effect: string; readonly predicate: readonly string[] })[];
 }
 
 /** What a test class has beyond its key attribute. */
