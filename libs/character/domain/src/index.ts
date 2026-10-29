@@ -546,7 +546,13 @@ export {
   type SubclassOption,
 } from './class-options';
 export { characterActions } from './available-actions';
-export { type ActionContext, actionContext, characterActionContext, characterPredicateFacts } from './action-context';
+export {
+  type ActionContext,
+  actionContext,
+  characterActionContext,
+  characterPredicateFacts,
+  isSpellEffectOffered,
+} from './action-context';
 export {
   chargesHeld,
   type StaffCharges,
@@ -676,6 +682,7 @@ export { applySpendCommand, isSpendCommand, spendRefusal, spentStaffOf, turnAllo
 export type { SpendLimits, SpendPlay } from './spend-commands';
 export {
   costAllowed,
+  FormShiftSchema,
   SpendCommandField,
   SpendCommandSchema,
   SpendCostSchema,
@@ -688,7 +695,15 @@ export {
   SpendRequestSchema,
   SpendTime,
 } from './spend-log';
-export type { ActionCostRange, SpendCommand, SpendCost, SpendEntry, SpendLog, SpendRequest } from './spend-log';
+export type {
+  ActionCostRange,
+  FormShift,
+  SpendCommand,
+  SpendCost,
+  SpendEntry,
+  SpendLog,
+  SpendRequest,
+} from './spend-log';
 export { actionCosts, spellCost } from './action-costs';
 export { explorationAction, isExplorationActivity, PERCEPTION, suggestedInitiative } from './exploration-activity';
 export { untypedDamage } from './untyped-damage';

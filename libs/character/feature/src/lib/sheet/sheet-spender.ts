@@ -15,7 +15,14 @@ import {
   SpendKind,
   UseCountKey,
 } from '@pioneer/character/domain';
-import type { SpellSpend, SpendCommand, SpendCost, SpendRequest, TurnState } from '@pioneer/character/domain';
+import type {
+  FormShift,
+  SpellSpend,
+  SpendCommand,
+  SpendCost,
+  SpendRequest,
+  TurnState,
+} from '@pioneer/character/domain';
 import { ActionCost } from '@pioneer/rules/sdk';
 import type { ContentId, ContentKind, ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
 import { ActionUser } from '@pioneer/rules/ui';
@@ -26,6 +33,7 @@ import { injectContentRegistry } from '../data/content-registry-query';
 import { PlayStore } from '../data/play-store';
 import { ACTION_CONTENT_KINDS, makesAttack, spendCostOf } from './sheet-actions';
 import { sustainedCast } from './sheet-active-list';
+import { activeFormOf } from './sheet-effects';
 import { formCastOf, FORM_CAST_CONTENT_KINDS } from './sheet-form-cast';
 import type { FormCast, FormCastChoice, FormCaster } from './sheet-form-cast';
 import { raisedEdit, shieldIds } from './sheet-shields';
@@ -57,9 +65,9 @@ function frequencyOf(registry: ContentRegistry, { line }: ActionUse): SpendPayme
 
 /**
  * The spend using `request` records, or undefined when its cost is not known. Casting a sustained spell also records
- * the active spell it starts, which reads the spell from `registry`.
+ * the active spell it starts, which reads the spell from `registry`, and a form shift records the form it changes.
  */
-export function spendOf(registry: ContentRegistry, request: ActionUse): SpendCommand | undefined {
+export function spendOf(registry: ContentRegistry, request: ActionUse, shift?: FormShift): SpendCommand | undefined {
   const { line, actions } = request;
   const pays = line.payment !== undefined;
   const cost = spendCostOf(line.cost ?? (pays ? ActionCost.Free : undefined), actions);
@@ -77,6 +85,7 @@ export function spendOf(registry: ContentRegistry, request: ActionUse): SpendCom
     ...recorded,
     ...(attacks ? { attack: true as const } : {}),
     ...(cast === undefined ? {} : { spell: cast }),
+    ...(shift === undefined ? {} : { shift }),
   };
 }
 
@@ -119,6 +128,7 @@ export class SheetSpender extends ActionUser {
       : {
           facts: characterPredicateFacts(character.document, sheetSources(registry, character)),
           focusRank: cantripRank(character.level),
+          form: activeFormOf(registry, character.document.play.effects)?.id,
         };
   }
 
@@ -131,8 +141,9 @@ export class SheetSpender extends ActionUser {
 
   /**
    * Casts the pending spell as one edit pair: the spend, which the server refuses when the turn, the slot or the Focus
-   * Points cannot pay, then the form put on the character, with the temporary Hit Points it gives. The cast stays
-   * pending when the spend is refused.
+   * Points cannot pay, then the form put on the character, with the temporary Hit Points it gives. A spell that
+   * shifts the form the character is in is one spend that changes it, so undoing the spend changes it back. The cast
+   * stays pending when the spend is refused.
    */
   public async castForm(choice: FormCastChoice, tempHp: HitPoints | undefined): Promise<void> {
     const cast = this.pendingForm();
@@ -141,25 +152,35 @@ export class SheetSpender extends ActionUser {
     }
     this.casting.set(true);
     try {
-      await this.#spend(cast.request);
-      await this.#play.send({
-        field: EffectCommandField.ApplyEffect,
-        id: EffectInstanceId.parse(newId()),
-        effect: choice.effect,
-        source: SELF,
-        rank: cast.rank,
-        ...(choice.form === undefined ? {} : { form: choice.form }),
-        ...(tempHp === undefined ? {} : { tempHp }),
-      });
+      if (cast.shift === undefined) {
+        await this.#spend(cast.request);
+        await this.#play.send({
+          field: EffectCommandField.ApplyEffect,
+          id: EffectInstanceId.parse(newId()),
+          effect: choice.effect,
+          source: SELF,
+          rank: cast.rank,
+          ...(choice.form === undefined ? {} : { form: choice.form }),
+          ...(tempHp === undefined ? {} : { tempHp }),
+        });
+      } else {
+        await this.#spend(cast.request, {
+          effect: cast.shift,
+          to: choice.effect,
+          ...(choice.form === undefined ? {} : { form: choice.form }),
+          ...(tempHp === undefined ? {} : { tempHp }),
+        });
+      }
       this.pendingForm.set(undefined);
     } finally {
       this.casting.set(false);
     }
   }
 
-  async #spend(request: ActionUse): Promise<void> {
+  /** Spends `request`; with `shift` the same edit also changes the form of an active effect, so undoing the spend changes it back. */
+  async #spend(request: ActionUse, shift?: FormShift): Promise<void> {
     const registry = this.#registry.data();
-    const spend = registry === undefined ? undefined : spendOf(registry, request);
+    const spend = registry === undefined ? undefined : spendOf(registry, request, shift);
     if (spend === undefined) {
       return;
     }

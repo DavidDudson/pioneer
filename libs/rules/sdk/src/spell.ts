@@ -260,6 +260,8 @@ export const SpellData = z
      * lists Plant Form for a character with `feat:plant-shape`).
      */
     effects: z.array(SpellEffectEntry).min(1).max(EFFECTS_MAX).readonly().check(uniqueEffects).optional(),
+    /** Casting it changes the form the caster is already in to one of its `effects`, keeping the time left, rather than putting a form on (Untamed Shift). */
+    shiftsForm: z.literal(true).optional(),
   })
   .check((context) => {
     checkIncreases(context);

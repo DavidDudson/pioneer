@@ -1,12 +1,15 @@
 import type { ActiveSpell } from './active-spells';
 import { heldCount } from './counted-resources';
 import type { SlotCountKey, UseCountKey } from './counted-resources';
+import type { ActiveEffect } from './effects';
 import { applyResourceCommand, ResourceCommandField } from './resource-commands';
 import type { ResourceLimits, ResourcePlay } from './resource-commands';
 import { ResourceCount } from './resource-count';
 import { heldIn, Resource } from './resources';
 import { SpendCommandField, SpendKind, SpendProblem, spendLogged, spendUndone } from './spend-log';
 import type { SpendCommand, SpendCost, SpendCount, SpendEntry, SpendLog, SpendRequest, SpendTime } from './spend-log';
+import { shiftRefusal, shiftSpent, shiftUndoRefusal, shiftUndone } from './spend-shift';
+import type { ShiftPlay } from './spend-shift';
 import { spellRefusal, spellSpent, spellUndoRefusal, spellUndone } from './spend-spells';
 import { StaffCommandField } from './staff-commands';
 import type { StaffCast, StaffCommand } from './staff-commands';
@@ -28,6 +31,8 @@ export type SpendPlay = ResourcePlay & {
   readonly turn: TurnState;
   readonly spendLog: SpendLog;
   readonly activeSpells: readonly ActiveSpell[];
+  readonly effects: readonly ActiveEffect[];
+  readonly hp: ShiftPlay['hp'];
 };
 
 /** Whether `command` spends from the turn or takes a spend back. */
@@ -90,15 +95,15 @@ function requestProblem(play: SpendPlay, request: SpendRequest): SpendProblem | 
   if (paysTwice(request)) {
     return SpendProblem.PaymentConflict;
   }
-  return spellRefusal(play, request) ?? costProblem(turn, request.cost);
+  return spellRefusal(play, request) ?? shiftRefusal(play, request) ?? costProblem(turn, request.cost);
 }
 
-/** Why the spend `entry` can't be taken back: its actions came out of a turn that is over, or its dismissed spell has no room to return. */
+/** Why the spend `entry` can't be taken back: its actions came out of a turn that is over, or its dismissed spell has no room to return, or the effect it shifted is gone. */
 function entryProblem(play: SpendPlay, entry: SpendEntry): SpendProblem | undefined {
   if (entry.cost.kind === SpendKind.Actions && play.turn.phase === TurnPhase.OffTurn) {
     return SpendProblem.OffTurn;
   }
-  return spellUndoRefusal(play, entry);
+  return spellUndoRefusal(play, entry) ?? shiftUndoRefusal(play, entry);
 }
 
 /** Whether a spend that records a staff cast also expends a slot or a Focus Point, which the staff already pays for. */
@@ -233,11 +238,14 @@ function undone(play: SpendPlay, entry: SpendEntry, limits: ResourceLimits): Spe
   const slotted = withSlot(given, { slot: entry.slot, field: ResourceCommandField.RefundSlot }, limits);
   const focused = withFocus(slotted, { focus: entry.focus, field: ResourceCommandField.RegainResource }, limits);
   const refunded = withUse(focused, { use: entry.use, field: ResourceCommandField.RefundUse }, limits);
+  const { effects, temp } = shiftUndone(play, entry);
   return {
     ...refunded,
     turn: withAttack(refundedTo(play.turn, entry), entry, -1),
     spendLog: spendUndone(play.spendLog, entry.id),
     activeSpells: spellUndone(play, entry),
+    effects,
+    hp: { ...play.hp, temp },
   };
 }
 
@@ -249,17 +257,21 @@ function spent(play: SpendPlay, request: SpendRequest, limits: ResourceLimits & 
   const focused = withFocus(slotted, { focus: request.focus, field: ResourceCommandField.SpendResource }, limits);
   const used = withUse(focused, { use: request.use, field: ResourceCommandField.SpendUse }, limits);
   const { activeSpells, dismissed } = spellSpent(play, request);
+  const { effects, temp, shifted } = shiftSpent(play, request);
   const entry: SpendEntry = {
     ...request,
     at: limits.now,
     quickened: taken.quickened,
     ...(dismissed === undefined ? {} : { dismissed }),
+    ...(shifted === undefined ? {} : { shifted }),
   };
   return {
     ...used,
     turn: withAttack(taken.turn, request, 1),
     spendLog: spendLogged(play.spendLog, entry),
     activeSpells,
+    effects,
+    hp: { ...play.hp, temp },
   };
 }
 

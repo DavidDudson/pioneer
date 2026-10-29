@@ -1,3 +1,4 @@
+import { EffectInstanceId } from '@pioneer/character/domain';
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import { ActionCost, ContentId, ContentKind, ContentRegistry, RollOption, SpellRank } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
@@ -34,6 +35,7 @@ const pack = effects
     traditions: [],
     effects: [apeId, { effect: plantId, predicate: ['feat:plant-shape'] }],
   })
+  .withSpell('untamed-shift', { rank: 1, traditions: [], effects: [apeId], shiftsForm: true })
   .withSpell('fireball', { rank: 3, traditions: ['arcane'] });
 const registry = new ContentRegistry();
 registry.register(pack.build());
@@ -52,6 +54,7 @@ function casterWith(...options: string[]): FormCaster {
       new Map(),
     ),
     focusRank: SpellRank.parse(3),
+    form: undefined,
   };
 }
 
@@ -87,6 +90,14 @@ describe(formCastOf, () => {
     const cast = formCastOf(registry, useOf('untamed-form', { focus: true }), casterWith());
     expect(cast?.rank).toBe(3);
     expect(formCastOf(registry, useOf('untamed-form', { slot: 'druid:2' }), casterWith())?.rank).toBe(2);
+  });
+
+  it('shifts the form the caster is in when the spell shifts forms, and puts one on otherwise', () => {
+    const form = EffectInstanceId.parse('11111111-1111-4111-8111-111111111111');
+    const caster = { ...casterWith(), form };
+    expect(formCastOf(registry, useOf('untamed-shift'), caster)?.shift).toBe(form);
+    expect(formCastOf(registry, useOf('untamed-form'), caster)?.shift).toBeUndefined();
+    expect(formCastOf(registry, useOf('untamed-shift'), casterWith())?.shift).toBeUndefined();
   });
 
   it('is no form cast for a spell that lists no effects', () => {

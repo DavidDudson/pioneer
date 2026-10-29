@@ -3,6 +3,7 @@ import {
   applyPlayCommand,
   applyTurnCommand,
   characterCounted,
+  characterPredicateFacts,
   characterFocus,
   characterGrants,
   characterSpellcasting,
@@ -57,6 +58,7 @@ import type {
   TurnOutcome,
 } from '@pioneer/character/domain';
 import { cryptoRandom } from '@pioneer/rules/dice';
+import type { PredicateFacts } from '@pioneer/rules/predicate';
 import type { ContentRegistry, ContentSource, HitPoints } from '@pioneer/rules/sdk';
 import { NotFoundError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
@@ -78,7 +80,7 @@ import type { RestContent } from './play-defaults';
 import { derivedMaxHitPoints } from './play-hit-points';
 import { changesInventory, inventoryAfter } from './play-inventory';
 import { shieldsOf } from './play-shield';
-import { spendLimits } from './play-spend';
+import { shiftsForm, spendLimits } from './play-spend';
 import { checkStaffCast, staffCastOf, takesBackCast } from './play-staff';
 
 /**
@@ -219,6 +221,7 @@ export class PlayService {
         counted,
         points: resources,
         registry,
+        facts: shiftsForm(command) ? await this.#facts(character, registry) : undefined,
         now: this.#clock.now(),
       }),
     };
@@ -228,6 +231,11 @@ export class PlayService {
   /** The slots `character` has over `registry`, with the variant rules in force for it (Dual Class adds a class). */
   async #slotContent(character: Character, registry: ContentRegistry): Promise<SlotContent> {
     return slotContent(registry, await variantRulesOfCharacter(this.#content, character, registry));
+  }
+
+  /** The roll options the character's build sets, which a form shift's predicate reads. */
+  async #facts(character: Character, registry: ContentRegistry): Promise<PredicateFacts> {
+    return characterPredicateFacts(character.document, { slots: await this.#slotContent(character, registry) });
   }
 
   /** Hero points are at most 3; the focus pool comes from the character's focus spells and feats. */
