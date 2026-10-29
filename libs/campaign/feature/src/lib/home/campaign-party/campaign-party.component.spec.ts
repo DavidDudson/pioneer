@@ -2,7 +2,8 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages, Select } from '@pioneer/frontier';
+import { frontierMessages } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -93,10 +94,15 @@ async function open(party: PartyJson): Promise<RouterTestingHarness> {
   return harness;
 }
 
+/** What the spec reads of a row. */
+interface AttachRowShape {
+  readonly characterId: string;
+}
+
 /** The picker's control. */
-function picker(harness: RouterTestingHarness): Select<string> {
-  return harness.fixture.debugElement.query((element) => element.componentInstance instanceof Select)
-    .componentInstance as Select<string>;
+function picker(harness: RouterTestingHarness): PickerField<string, AttachRowShape> {
+  return harness.fixture.debugElement.query((element) => element.componentInstance instanceof PickerField)
+    .componentInstance as PickerField<string, AttachRowShape>;
 }
 
 /** The text of every badge, in document order. */
@@ -156,8 +162,8 @@ describe('CampaignPartyPanel', () => {
     });
     expect(
       picker(harness)
-        .options()
-        .map((option) => option.value),
+        .rows()
+        .map((row) => row.characterId),
     ).toStrictEqual([merisiel.characterId]);
     expect(picker(harness).value()).toBe('');
   });

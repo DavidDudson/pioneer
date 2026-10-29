@@ -9,15 +9,17 @@ import {
   Label,
   LocaleFormat,
   NumberInput,
-  Select,
   Stack,
   Text,
 } from '@pioneer/frontier';
+import { Picker } from '@pioneer/frontier/data';
+import type { PickerSort } from '@pioneer/frontier/data';
 import { DamageAdjustment, DamageAmount } from '@pioneer/rules/sdk';
 import type { DamageAdjustmentTarget } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { DamageTargetOptions } from '../damage-target-options';
+import { shownTargets, targetLabel, targetValue } from '../damage-target-table';
 import { DAMAGE_ADJUSTMENT_TARGET_KEYS } from '../dice-labels';
 
 /** Which list an editor holds; both are a damage type or group with a value. */
@@ -64,7 +66,7 @@ interface ValueRangeParams {
  */
 @Component({
   selector: 'pio-adjustment-editor',
-  imports: [Button, EmptyState, Field, FieldError, Heading, Label, NumberInput, Select, Stack, Text, TranslocoPipe],
+  imports: [Button, EmptyState, Field, FieldError, Heading, Label, NumberInput, Picker, Stack, Text, TranslocoPipe],
   templateUrl: './adjustment-editor.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -77,6 +79,11 @@ export class AdjustmentEditor {
 
   protected readonly keys = computed((): KindKeys => KIND_KEYS[this.kind()]);
   protected readonly choice = signal<DamageAdjustmentTarget | undefined>(undefined);
+  protected readonly query = signal('');
+  protected readonly sorting = signal<PickerSort | undefined>(undefined);
+  protected readonly shown = computed(() => shownTargets(this.options.targets(), this.query(), this.sorting()));
+  protected readonly rowValue = targetValue;
+  protected readonly rowLabel = targetLabel;
   protected readonly value = signal(STARTING_VALUE);
   protected readonly valueComplete = signal(true);
   protected readonly valueMin = VALUE_MIN;

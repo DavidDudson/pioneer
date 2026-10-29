@@ -1,15 +1,23 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, output, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LucideUserPlus } from '@lucide/angular';
 import { CharacterId } from '@pioneer/campaign/domain';
 import type { CampaignId, OwnedCharacter } from '@pioneer/campaign/domain';
-import { AsyncButton, AsyncForm, EmptyState, Heading, Link, SelectField, Stack } from '@pioneer/frontier';
-import type { SelectOption } from '@pioneer/frontier';
+import { AsyncButton, AsyncForm, EmptyState, Heading, Link, Stack } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
+import type { PickerSort } from '@pioneer/frontier/data';
+import { ContentLoader } from '@pioneer/rules/data-access';
+import { AncestryId, ContentKind } from '@pioneer/rules/sdk';
+import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
+import { injectQuery } from '@tanstack/angular-query-experimental';
+import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CampaignStore } from '../../data/campaign-store';
+import { attachColumns, attachLabel, attachRows, attachValue, shownAttachRows } from './campaign-attach-table';
 
 /** What the picker submits; the same schema the server validates with. */
 const AttachForm = z.object({ characterId: CharacterId });
@@ -21,7 +29,7 @@ interface AttachModel {
 /** The user's characters that are in no campaign, to bring one into the open campaign's party. */
 @Component({
   selector: 'pio-campaign-attach-picker',
-  imports: [AsyncButton, AsyncForm, EmptyState, FormField, Heading, Link, SelectField, Stack, TranslocoPipe],
+  imports: [AsyncButton, AsyncForm, EmptyState, FormField, Heading, Link, PickerField, Stack, TranslocoPipe],
   templateUrl: './campaign-attach-picker.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -32,6 +40,9 @@ export class CampaignAttachPicker {
 
   readonly #store = inject(CampaignStore);
   readonly #i18n = inject(TranslocoService);
+  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+  /** Ticks when the language changes or the messages load, so the headers are read again. */
+  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   protected readonly emptyIcon = LucideUserPlus;
   /**
@@ -41,9 +52,55 @@ export class CampaignAttachPicker {
   readonly #attachedHere = signal(false);
   protected readonly showForm = computed(() => this.attachable().length > 0 || this.#attachedHere());
 
-  protected readonly options = computed((): readonly SelectOption<string>[] =>
-    this.attachable().map((character) => ({ value: character.characterId, label: character.name })),
+  /** Every ancestry and class from the official packs, loaded on first use and kept for the session. */
+  readonly #content = inject(ContentLoader);
+  readonly #registry = injectQuery(() => ({
+    queryKey: ['campaign', 'attach-origins'],
+    queryFn: async (): Promise<ContentRegistry> =>
+      this.#content.registry([ContentKind.Ancestry, ContentKind.Class], []),
+    staleTime: Number.POSITIVE_INFINITY,
+  }));
+  protected readonly loading = computed(() => this.#registry.data() === undefined);
+
+  /** A picked ancestry or class by name; empty while the content loads or the slot is unpicked. */
+  readonly #nameOf = computed(() => {
+    const registry = this.#registry.data();
+    const classes = new Map<string, string>(
+      (registry?.packs ?? [])
+        .flatMap((pack) => pack.otherEntries)
+        .flatMap((entry): [string, string][] => (entry.kind === ContentKind.Class ? [[entry.id, entry.name]] : [])),
+    );
+    return (id: string | undefined): string => {
+      if (id === undefined || registry === undefined) {
+        return '';
+      }
+      const ancestry = AncestryId.safeParse(id);
+      return (
+        (ancestry.success ? registry.ancestry(ancestry.data)?.definition.name : undefined) ?? classes.get(id) ?? ''
+      );
+    };
+  });
+
+  protected readonly query = signal('');
+  protected readonly sorting = signal<PickerSort | undefined>(undefined);
+  protected readonly shown = computed(() =>
+    shownAttachRows(
+      attachRows(this.attachable(), (id) => this.#nameOf()(id)),
+      this.query(),
+      this.sorting(),
+    ),
   );
+  protected readonly columns = computed(() => {
+    this.#messages();
+    return attachColumns({
+      name: this.#i18n.translate('campaign.party.columns.name'),
+      ancestry: this.#i18n.translate('campaign.party.columns.ancestry'),
+      class: this.#i18n.translate('campaign.party.columns.class'),
+      level: this.#i18n.translate('campaign.party.columns.level'),
+    });
+  });
+  protected readonly rowValue = attachValue;
+  protected readonly rowLabel = attachLabel;
 
   protected readonly model = signal<AttachModel>({ characterId: '' });
   protected readonly form = form(this.model, (path) => {

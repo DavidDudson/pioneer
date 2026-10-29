@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages, Select } from '@pioneer/frontier';
+import { frontierMessages } from '@pioneer/frontier';
+import { Picker } from '@pioneer/frontier/data';
 import { RANDOM_SOURCE } from '@pioneer/play/ui';
 import { DieFace } from '@pioneer/rules/dice';
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
@@ -59,10 +60,10 @@ export async function press(harness: RouterTestingHarness, label: string): Promi
   await harness.fixture.whenStable();
 }
 
-/** The aria listbox renders in an overlay; set the nth select's model the way a pick would. */
+/** The picker opens a panel; set the nth picker's model the way a pick would. */
 export function pick(harness: RouterTestingHarness, index: number, value: string): void {
-  const selects = harness.fixture.debugElement.queryAll((element) => element.name === 'fr-select');
-  const select = present(selects[index]).injector.get(Select);
+  const selects = harness.fixture.debugElement.queryAll((element) => element.name === 'fr-picker');
+  const select = present(selects[index]).injector.get(Picker);
   select.value.set(value);
   harness.detectChanges();
 }

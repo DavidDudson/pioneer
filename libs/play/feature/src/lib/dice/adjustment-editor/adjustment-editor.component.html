@@ -18,7 +18,15 @@
   <fr-stack direction="horizontal" align="end" gap="sm" wrap>
     <fr-field>
       <fr-label>{{ 'play.dice.adjustmentType' | transloco }}</fr-label>
-      <fr-select [options]="options.targets()" [(value)]="choice" />
+      <fr-picker
+        [rows]="shown()"
+        [columns]="options.columns()"
+        [rowValue]="rowValue"
+        [rowLabel]="rowLabel"
+        [(value)]="choice"
+        (searched)="query.set($event)"
+        (sorted)="sorting.set($event)"
+      />
     </fr-field>
     <fr-field [invalid]="valueInvalid()">
       <fr-label>{{ 'play.dice.adjustmentValue' | transloco }}</fr-label>

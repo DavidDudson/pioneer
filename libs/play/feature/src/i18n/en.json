@@ -26,6 +26,17 @@
     "none": "None.",
     "remove": "Remove",
     "immunityType": "Damage type",
+    "targetColumns": {
+      "name": "Damage",
+      "category": "Category",
+      "includes": "Covers"
+    },
+    "targetCategory": {
+      "group": "Group",
+      "physical": "Physical",
+      "energy": "Energy",
+      "other": "Other"
+    },
     "addImmunity": "Add immunity",
     "removeImmunity": "Remove immunity to {type}",
     "adjustmentType": "Damage type or group",
@@ -41,6 +52,15 @@
     "title": "Rules",
     "description": "Check rules data against Pioneer’s schemas: predicates, selectors, domains, roll options, sources, origins, rule elements and content entries, try a formula with your own reference values, see whether a predicate holds, or derive statistics from their definitions.",
     "schemaLabel": "Schema",
+    "columns": {
+      "name": "Name",
+      "group": "Group",
+      "kind": "Kind"
+    },
+    "group": {
+      "schema": "Schema",
+      "tool": "Tool"
+    },
     "schemaHint": "Changing the schema loads a valid example for it.",
     "jsonLabel": "JSON",
     "jsonHint": "Strings need double quotes, as in any JSON.",
