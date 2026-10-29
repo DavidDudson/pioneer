@@ -17,7 +17,7 @@ import {
   EffectExpiry,
   HitPoints,
 } from '@pioneer/rules/sdk';
-import type { DamageTarget } from '@pioneer/rules/sdk';
+import type { ContentId, DamageTarget } from '@pioneer/rules/sdk';
 
 import { lapsingSpells, spellsAfterTurnEnd } from './active-spells';
 import { airAfterTurn, isSuffocating, SuffocationChecks, suffocationDamage, suffocationDc } from './breath';
@@ -29,6 +29,7 @@ import type { ActiveEffect } from './effects';
 import { applyPlayCommand, PlayCommandField } from './play-state';
 import type { PlayLimits, PlayState } from './play-state';
 import type { RecoveryConditions } from './rest-types';
+import { outOfAir } from './suffocation-unconscious';
 import {
   airLost,
   conditionEnded,
@@ -63,6 +64,8 @@ export interface EndTurnInputs {
   readonly recovery: RecoveryConditions;
   /** The character's Fortitude modifier, read only for a save against suffocation; none counts as 0. */
   readonly fortitude?: () => RollTotal;
+  /** The Unconscious condition of the content, put on a character that runs out of air; none when the content has none. */
+  readonly unconscious?: ContentId | undefined;
 }
 
 /** `outcome` moved on to `play`, with the `events` that led there. */
@@ -244,10 +247,10 @@ function breathing(outcome: TurnOutcome, turn: Turn): TurnOutcome {
     return outcome;
   }
   if (isSuffocating(breath)) {
-    return suffocated(outcome, breath, turn);
+    return outOfAir(suffocated(outcome, breath, turn), turn);
   }
   const air = airAfterTurn(breath.air, current.attacks > NO_ATTACKS);
-  return then(outcome, { ...outcome.play, breath: { ...breath, air } }, [airLost(air)]);
+  return outOfAir(then(outcome, { ...outcome.play, breath: { ...breath, air } }, [airLost(air)]), turn);
 }
 
 /** Sustained spells not sustained this turn end, and the rest must be sustained again next turn. */

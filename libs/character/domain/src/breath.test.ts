@@ -7,6 +7,7 @@ import {
   AttributeModifier,
   AttributeModifiers,
   Attribute,
+  ContentId,
   DegreeOfSuccess,
   HitPoints,
   NO_DEFENCES,
@@ -25,6 +26,8 @@ import {
   suffocationDc,
 } from './breath';
 import type { BreathState } from './breath';
+import { ConditionInstanceId, ConditionDurationKind } from './conditions';
+import { applyCountingCommand } from './counting-commands';
 import { FRESH_PLAY, currentHitPoints } from './play-state';
 import type { PlayState } from './play-state';
 import { within } from './testing';
@@ -38,6 +41,9 @@ const fortitude = (): RollTotal => RollTotal.parse(5);
 const air = (rounds: number): AirRounds => AirRounds.parse(rounds);
 const checks = (count: number): SuffocationChecks => SuffocationChecks.parse(count);
 const faces = (...each: readonly number[]): RandomSource => scriptedRandom(each.map((face) => DieFace.parse(face)));
+
+const UNCONSCIOUS = ContentId.parse('00000000-0000-4000-8000-0000000000d1');
+const INSTANCE = ConditionInstanceId.parse('00000000-0000-4000-8000-0000000003d1');
 
 const INPUTS: EndTurnInputs = {
   limits: { ...within(MAX), effects: new Map() },
@@ -74,8 +80,8 @@ describe('breath commands', () => {
     const set = { field: BreathCommandField.SetBreath, air: air(6), checks: checks(0) } as const;
     const clear = { field: BreathCommandField.ClearBreath } as const;
 
-    expect(applyBreathCommand(set)).toEqual({ air: air(6), checks: checks(0) });
-    expect(applyBreathCommand(clear)).toBeUndefined();
+    expect(applyBreathCommand(set, undefined)).toEqual({ air: air(6), checks: checks(0) });
+    expect(applyBreathCommand(clear, undefined)).toBeUndefined();
     expect(isBreathCommand(set)).toBe(true);
     expect(isBreathCommand({ field: 'damage' })).toBe(false);
   });
@@ -157,5 +163,81 @@ describe('endTurn while holding a breath', () => {
     const { events } = endTurn({ ...holding({ air: air(0), checks: checks(0) }), dead: true }, INPUTS, faces(1));
 
     expect(events.filter(({ kind }) => kind === TurnEventKind.Suffocation)).toEqual([]);
+  });
+});
+
+describe('falling unconscious out of air', () => {
+  const withContent: EndTurnInputs = {
+    ...INPUTS,
+    limits: { ...INPUTS.limits, valued: new Map([[UNCONSCIOUS, false]]) },
+    unconscious: UNCONSCIOUS,
+  };
+  const unconsciousOf = (play: PlayState): readonly ConditionInstanceId[] =>
+    play.conditions.filter(({ condition }) => condition === UNCONSCIOUS).map(({ id }) => id);
+
+  test('the turn end that takes the last air puts Unconscious on the character and remembers which one', () => {
+    const { play } = endTurn(holding({ air: air(1), checks: checks(0) }), withContent, faces(10));
+
+    expect(unconsciousOf(play)).toHaveLength(1);
+    expect(play.breath?.unconscious).toBe(unconsciousOf(play)[0]);
+  });
+
+  test('a save made once out of air puts it on a character that had none, and a second save does not repeat it', () => {
+    const first = endTurn(holding({ air: air(0), checks: checks(0) }), { ...withContent, fortitude }, faces(15));
+    const second = endTurn(first.play, { ...withContent, fortitude }, faces(15));
+
+    expect(unconsciousOf(second.play)).toEqual(unconsciousOf(first.play));
+    expect(unconsciousOf(second.play)).toHaveLength(1);
+  });
+
+  test('a character with air left, or in content without the condition, gets none', () => {
+    const breathing = endTurn(holding({ air: air(5), checks: checks(0) }), withContent, faces(10));
+    const without = endTurn(holding({ air: air(1), checks: checks(0) }), INPUTS, faces(10));
+
+    expect(unconsciousOf(breathing.play)).toEqual([]);
+    expect(without.play.conditions).toEqual([]);
+  });
+
+  test('a dead character gets none', () => {
+    const { play } = endTurn({ ...holding({ air: air(0), checks: checks(0) }), dead: true }, withContent, faces(1));
+
+    expect(play.conditions).toEqual([]);
+  });
+
+  test('breathing again takes off the condition the breath put on, and no other Unconscious', () => {
+    const other = { id: ConditionInstanceId.parse('00000000-0000-4000-8000-0000000003d2'), condition: UNCONSCIOUS };
+    const out = {
+      ...holding({ air: air(0), checks: checks(1), unconscious: INSTANCE }),
+      conditions: [
+        { ...other, duration: { kind: ConditionDurationKind.Unlimited } },
+        { id: INSTANCE, condition: UNCONSCIOUS, duration: { kind: ConditionDurationKind.Unlimited } },
+      ],
+    };
+    const cleared = applyCountingCommand(out, { field: BreathCommandField.ClearBreath }, withContent.limits);
+    const refilled = applyCountingCommand(
+      out,
+      { field: BreathCommandField.SetBreath, air: air(3), checks: checks(0) },
+      withContent.limits,
+    );
+
+    expect(cleared.breath).toBeUndefined();
+    expect(cleared.conditions.map(({ id }) => id)).toEqual([other.id]);
+    expect(refilled.breath).toEqual({ air: air(3), checks: checks(0) });
+    expect(refilled.conditions.map(({ id }) => id)).toEqual([other.id]);
+  });
+
+  test('setting the air to none again keeps the condition', () => {
+    const out = {
+      ...holding({ air: air(0), checks: checks(1), unconscious: INSTANCE }),
+      conditions: [{ id: INSTANCE, condition: UNCONSCIOUS, duration: { kind: ConditionDurationKind.Unlimited } }],
+    };
+    const { breath, conditions } = applyCountingCommand(
+      out,
+      { field: BreathCommandField.SetBreath, air: air(0), checks: checks(2) },
+      withContent.limits,
+    );
+
+    expect(breath).toEqual({ air: air(0), checks: checks(2), unconscious: INSTANCE });
+    expect(conditions).toHaveLength(1);
   });
 });

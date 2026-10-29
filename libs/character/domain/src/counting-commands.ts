@@ -1,8 +1,8 @@
 import { applyActiveSpellCommand, isActiveSpellCommand } from './active-spells';
 import type { ActiveSpell, ActiveSpellCommand } from './active-spells';
-import { applyBreathCommand, isBreathCommand } from './breath';
+import { applyBreathCommand, breathRestored, isBreathCommand } from './breath';
 import type { BreathCommand, BreathState } from './breath';
-import { applyConditionCommand, isConditionCommand } from './conditions';
+import { applyConditionCommand, ConditionCommandField, isConditionCommand } from './conditions';
 import type { ConditionCommand } from './conditions';
 import { isEffectCommand } from './effect-commands';
 import type { EffectCommand } from './effect-commands';
@@ -123,7 +123,12 @@ function applyChoiceCommand<Play extends CountingPlay>(
     return { ...play, exploration: applyExplorationCommand(command) };
   }
   if (isBreathCommand(command)) {
-    return { ...play, breath: applyBreathCommand(command) };
+    const ended = breathRestored(command, play.breath);
+    const conditions =
+      ended === undefined
+        ? play.conditions
+        : applyConditionCommand(play.conditions, { field: ConditionCommandField.RemoveCondition, id: ended });
+    return { ...play, breath: applyBreathCommand(command, play.breath), conditions: [...conditions] };
   }
   if (isEnvironmentCommand(command)) {
     return applyEnvironmentSet(play, command, groups);

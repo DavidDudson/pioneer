@@ -4,6 +4,8 @@ import type { AttributeModifiers } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { ConditionInstanceId } from './conditions';
+
 const AIR_ROUNDS_MAX = 99;
 const CHECKS_MAX = 99;
 const NONE = 0;
@@ -25,6 +27,8 @@ export type SuffocationChecks = z.infer<typeof SuffocationChecks>;
 export const BreathStateSchema = z.strictObject({
   air: AirRounds,
   checks: SuffocationChecks.default(SuffocationChecks.parse(NONE)),
+  /** The Unconscious condition running out of air put on the character, which breathing again takes off. */
+  unconscious: ConditionInstanceId.optional(),
 });
 export type BreathState = z.infer<typeof BreathStateSchema>;
 
@@ -53,9 +57,21 @@ export function isBreathCommand<Command extends { readonly field: unknown }>(
   return command.field === BreathCommandField.SetBreath || command.field === BreathCommandField.ClearBreath;
 }
 
-/** The breath after `command`. */
-export function applyBreathCommand(command: BreathCommand): BreathState | undefined {
-  return command.field === BreathCommandField.SetBreath ? { air: command.air, checks: command.checks } : undefined;
+/** The breath after `command`, which keeps the Unconscious condition it put on while the character is still out of air. */
+export function applyBreathCommand(command: BreathCommand, before: BreathState | undefined): BreathState | undefined {
+  if (command.field === BreathCommandField.ClearBreath) {
+    return undefined;
+  }
+  const unconscious = command.air === NONE ? before?.unconscious : undefined;
+  return { air: command.air, checks: command.checks, ...(unconscious === undefined ? {} : { unconscious }) };
+}
+
+/** The Unconscious condition the breath put on that `command` ends: it is gone once the character has air again. */
+export function breathRestored(
+  command: BreathCommand,
+  before: BreathState | undefined,
+): ConditionInstanceId | undefined {
+  return applyBreathCommand(command, before)?.unconscious === undefined ? before?.unconscious : undefined;
 }
 
 const BASE_AIR = 5;

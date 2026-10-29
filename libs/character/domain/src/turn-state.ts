@@ -70,10 +70,16 @@ export interface EconomyConditions {
 const QUICKENED = Slug.parse('quickened');
 const SLOWED = Slug.parse('slowed');
 const STUNNED = Slug.parse('stunned');
+const UNCONSCIOUS = Slug.parse('unconscious');
 
 function conditionNamed(registry: ContentRegistry, name: Slug): ContentId | undefined {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
   return entries.findLast((entry) => entry.kind === ContentKind.Condition && slugName(entry.slug) === name)?.id;
+}
+
+/** The Unconscious condition of the content, which running out of air puts on a character; the last pack's entry wins. */
+export function unconsciousCondition(registry: ContentRegistry): ContentId | undefined {
+  return conditionNamed(registry, UNCONSCIOUS);
 }
 
 /** The quickened, slowed and stunned conditions of the content; the last pack's entry wins, as in the registry. */
