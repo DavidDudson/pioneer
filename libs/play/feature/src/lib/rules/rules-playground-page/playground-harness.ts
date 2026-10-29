@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
+import { Picker } from '@pioneer/frontier/data';
 import { SlotPicker } from '@pioneer/rules/ui';
 import { kernelMessages } from '@pioneer/shared/kernel';
 import { provideI18n } from '@pioneer/shared/web';
@@ -40,12 +41,34 @@ export async function typeJson(harness: RouterTestingHarness, text: string): Pro
   await harness.fixture.whenStable();
 }
 
+/**
+ * Picks the row named `option` in `picker`, as a press on its row does. The table renders no rows in the page harness
+ * (#734), so the pick is made on the picker itself: its own specs press the rows.
+ */
+async function pickByLabel(
+  harness: RouterTestingHarness,
+  picker: Picker<string, object>,
+  option: string,
+): Promise<void> {
+  const row = present(picker.rows().find((candidate) => picker.rowLabel()(candidate) === option));
+  picker.value.set(picker.rowValue()(row));
+  harness.detectChanges();
+  await harness.fixture.whenStable();
+}
+
+/** The picker of the field labelled `label`. */
+function pickerIn(harness: RouterTestingHarness, label: string): Picker<string, object> {
+  const fields = [...present(harness.routeNativeElement).querySelectorAll<HTMLElement>('fr-field')];
+  const field = present(fields.find((candidate) => candidate.querySelector('fr-label')?.textContent.trim() === label));
+  const match = harness.fixture.debugElement
+    .queryAll(By.directive(Picker))
+    .find((candidate) => candidate.nativeElement instanceof Node && field.contains(candidate.nativeElement));
+  return present(match).injector.get<Picker<string, object>>(Picker);
+}
+
 export async function chooseSchema(harness: RouterTestingHarness, label: string): Promise<void> {
-  present(harness.routeNativeElement?.querySelector('button')).click();
-  await harness.fixture.whenStable();
-  const options = [...document.querySelectorAll<HTMLElement>('[role="option"]')];
-  present(options.find((option) => option.textContent.trim() === label)).click();
-  await harness.fixture.whenStable();
+  const [first] = harness.fixture.debugElement.queryAll(By.directive(Picker));
+  await pickByLabel(harness, present(first).injector.get<Picker<string, object>>(Picker), label);
 }
 
 export async function typeInto(
@@ -71,15 +94,9 @@ export function textAreas(harness: RouterTestingHarness): HTMLTextAreaElement[] 
   return [...present(harness.routeNativeElement).querySelectorAll('textarea')];
 }
 
-/** Opens the select in the field labelled `label` and picks the option `option`. */
+/** Picks the option `option` in the picker of the field labelled `label`. */
 export async function chooseIn(harness: RouterTestingHarness, label: string, option: string): Promise<void> {
-  const fields = [...present(harness.routeNativeElement).querySelectorAll<HTMLElement>('fr-field')];
-  const field = present(fields.find((candidate) => candidate.querySelector('fr-label')?.textContent.trim() === label));
-  present(field.querySelector('button')).click();
-  await harness.fixture.whenStable();
-  const options = [...document.querySelectorAll<HTMLElement>('[role="option"]')];
-  present(options.find((candidate) => candidate.textContent.trim() === option)).click();
-  await harness.fixture.whenStable();
+  await pickByLabel(harness, pickerIn(harness, label), option);
 }
 
 /**

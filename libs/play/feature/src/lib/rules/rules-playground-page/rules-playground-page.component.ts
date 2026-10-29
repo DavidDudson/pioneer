@@ -10,19 +10,20 @@ import {
   Page,
   PageBody,
   PageHeader,
-  Select,
   Skeleton,
   Stack,
   Surface,
   TextArea,
   TextInput,
 } from '@pioneer/frontier';
-import type { SelectOption } from '@pioneer/frontier';
+import { Picker } from '@pioneer/frontier/data';
+import type { PickerSort } from '@pioneer/frontier/data';
 import { ContentKind, REGISTERED_KINDS } from '@pioneer/rules/sdk';
 import type { RegisteredKind } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
+import { RulesSchema } from '../rules-check';
 import {
   CheckStatus,
   checkTool,
@@ -48,6 +49,8 @@ import type { CoreRules } from '../statistic-sources';
 import type { StatisticProficiency } from '../statistics-check';
 import { TOOL_FIELDS } from '../tool-fields';
 import { ToolResult } from '../tool-result/tool-result.component';
+import { rulesPickerColumns, rulesRowLabel, rulesRowValue, shownRulesRows } from './rules-picker-table';
+import type { RulesPickerRow } from './rules-picker-table';
 
 const JSON_ROWS = 12;
 
@@ -73,7 +76,7 @@ type SourceLoad = ValueOf<typeof SourceLoad>;
     Page,
     PageBody,
     PageHeader,
-    Select,
+    Picker,
     Skeleton,
     Stack,
     Surface,
@@ -99,19 +102,50 @@ export class RulesPlaygroundPage {
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Ticks when the locale changes or a message scope (`play`) finishes loading. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
-  protected readonly schemas = computed((): readonly SelectOption<RulesTool>[] => {
+  /** Every schema and tool; the list is short, so the page searches and sorts it. */
+  readonly #schemas = computed((): readonly RulesPickerRow<RulesTool>[] => {
     this.#messages();
+    const schemas: readonly string[] = Object.values(RulesSchema);
     return Object.values(RulesTool).map((tool) => ({
       value: tool,
       label: this.#i18n.translate(RULES_TOOL_KEYS[tool]),
+      group: this.#i18n.translate(schemas.includes(tool) ? 'play.rules.group.schema' : 'play.rules.group.tool'),
     }));
+  });
+  protected readonly schemaQuery = signal('');
+  protected readonly schemaSort = signal<PickerSort | undefined>(undefined);
+  protected readonly schemas = computed(() => shownRulesRows(this.#schemas(), this.schemaQuery(), this.schemaSort()));
+  protected readonly schemaColumns = computed(() => {
+    this.#messages();
+    return rulesPickerColumns<RulesTool>(
+      this.#i18n.translate('play.rules.columns.name'),
+      this.#i18n.translate('play.rules.columns.group'),
+    );
   });
 
   /** Example entries for the content entry mode, one per kind with a schema. */
-  protected readonly entryKinds = computed((): readonly SelectOption<RegisteredKind>[] => {
+  readonly #entryKinds = computed((): readonly RulesPickerRow<RegisteredKind>[] => {
     this.#messages();
-    return REGISTERED_KINDS.map((kind) => ({ value: kind, label: this.#i18n.translate(CONTENT_KIND_KEYS[kind]) }));
+    return REGISTERED_KINDS.map((kind) => ({
+      value: kind,
+      label: this.#i18n.translate(CONTENT_KIND_KEYS[kind]),
+      group: kind,
+    }));
   });
+  protected readonly entryKindQuery = signal('');
+  protected readonly entryKindSort = signal<PickerSort | undefined>(undefined);
+  protected readonly entryKinds = computed(() =>
+    shownRulesRows(this.#entryKinds(), this.entryKindQuery(), this.entryKindSort()),
+  );
+  protected readonly entryKindColumns = computed(() => {
+    this.#messages();
+    return rulesPickerColumns<RegisteredKind>(
+      this.#i18n.translate('play.rules.columns.name'),
+      this.#i18n.translate('play.rules.columns.kind'),
+    );
+  });
+  protected readonly rowValue = rulesRowValue;
+  protected readonly rowLabel = rulesRowLabel;
 
   /** The kind whose example the content entry mode last loaded. */
   protected readonly entryKind = signal<RegisteredKind>(ContentKind.Ancestry);
