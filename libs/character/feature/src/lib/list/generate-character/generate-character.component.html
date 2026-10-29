@@ -19,6 +19,33 @@
           [(tableOpen)]="namesOpen"
         />
       </fr-grid>
+      <fr-stack gap="sm" role="group" [attr.aria-label]="'character.list.theme.attributesLabel' | transloco">
+        <fr-text tone="muted">{{ 'character.list.theme.attributesHint' | transloco }}</fr-text>
+        <fr-stack direction="horizontal" gap="sm" wrap>
+          @for (entry of themeAttributes; track entry.attribute) {
+            <fr-toggle-button [value]="isFavoured(entry.attribute)" (valueChange)="favour(entry.attribute, $event)">
+              {{ entry.label | transloco }}
+            </fr-toggle-button>
+          }
+        </fr-stack>
+      </fr-stack>
+      <fr-stack gap="sm" role="group" [attr.aria-label]="'character.list.theme.weaponLabel' | transloco">
+        <fr-text tone="muted">{{ 'character.list.theme.weaponHint' | transloco }}</fr-text>
+        <fr-stack direction="horizontal" gap="sm" wrap>
+          <fr-select
+            [ariaLabel]="'character.list.theme.categoryLabel' | transloco"
+            [options]="categoryOptions()"
+            [value]="themeChoice().category ?? ''"
+            (valueChange)="chooseCategory($event)"
+          />
+          <fr-select
+            [ariaLabel]="'character.list.theme.groupLabel' | transloco"
+            [options]="groupOptions()"
+            [value]="themeChoice().group ?? ''"
+            (valueChange)="chooseGroup($event)"
+          />
+        </fr-stack>
+      </fr-stack>
       <fr-stack direction="horizontal" justify="end">
         <fr-async-button
           type="submit"
@@ -32,6 +59,9 @@
       @if (result(); as made) {
         <fr-stack gap="xs">
           <fr-text>{{ 'character.list.generatedResult' | transloco: { name: made.name, seed: made.seed } }}</fr-text>
+          @if (made.theme) {
+            <fr-text tone="muted">{{ 'character.list.theme.used' | transloco }}</fr-text>
+          }
           <fr-link [to]="[made.id]">{{ 'character.list.openSheet' | transloco }}</fr-link>
         </fr-stack>
       }
