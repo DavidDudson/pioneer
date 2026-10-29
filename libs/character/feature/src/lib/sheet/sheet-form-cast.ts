@@ -1,6 +1,8 @@
 import { SlotCountKey } from '@pioneer/character/domain';
-import { ContentKind } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry, RollOption, SpellRank } from '@pioneer/rules/sdk';
+import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
+import type { PredicateFacts } from '@pioneer/rules/predicate';
+import { ContentKind, spellEffectId } from '@pioneer/rules/sdk';
+import type { ContentId, ContentRegistry, RollOption, SpellEffectEntry, SpellRank } from '@pioneer/rules/sdk';
 import type { ActionUse } from '@pioneer/rules/ui';
 
 import { slotRank, spellEntries } from './sheet-active-list';
@@ -52,26 +54,63 @@ function choicesOf(option: EffectOption): readonly FormCastChoice[] {
   }));
 }
 
+/** What a cast reads of the caster: the roll options predicates test, and the rank a focus spell is heightened to. */
+export interface FormCaster {
+  readonly facts: PredicateFacts;
+  readonly focusRank: SpellRank;
+}
+
+interface RankInputs {
+  readonly slot: string | undefined;
+  readonly focus: boolean | undefined;
+  readonly spell: { readonly data: { readonly rank: SpellRank } };
+  readonly caster: FormCaster | undefined;
+}
+
+/** The rank a cast is at: its slot's, else the caster's focus rank for a Focus Point cast, else the spell's own. */
+function rankOf({ slot, focus, spell, caster }: RankInputs): SpellRank {
+  const slotted = slotRank(slot === undefined ? undefined : SlotCountKey.parse(slot));
+  if (slotted !== undefined) {
+    return slotted;
+  }
+  return focus === true && caster !== undefined ? caster.focusRank : spell.data.rank;
+}
+
+/** Whether the character is offered `entry`: it has no predicate, or the character's roll options satisfy it. */
+function isOffered(entry: SpellEffectEntry, facts: PredicateFacts | undefined): boolean {
+  if (typeof entry === 'string') {
+    return true;
+  }
+  return facts !== undefined && evaluatePredicate(entry.predicate, facts) === Truth.True;
+}
+
 /**
  * The form cast using `request` would be, when the spell lists effects: the forms its effects offer. Undefined for any
  * other use, which spends at once.
  */
-export function formCastOf(registry: ContentRegistry, request: ActionUse): FormCast | undefined {
+export function formCastOf(
+  registry: ContentRegistry,
+  request: ActionUse,
+  caster: FormCaster | undefined,
+): FormCast | undefined {
   const spell = spellEntries(registry).get(request.line.id);
   const listed = spell?.data.effects;
   if (spell === undefined || listed === undefined) {
     return undefined;
   }
-  const options = effectOptions(registry).filter(({ id }) => listed.includes(id));
+  const offered = new Set(
+    listed.filter((entry) => isOffered(entry, caster?.facts)).map((entry) => spellEffectId(entry)),
+  );
+  const options = effectOptions(registry).filter(({ id }) => offered.has(id));
   const choices = options.flatMap((option) => choicesOf(option));
-  const slot = request.line.payment?.slot;
+  const { slot, focus } = request.line.payment ?? {};
   return choices.length === 0
     ? undefined
     : {
         request,
         spell: spell.id,
         name: spell.name,
-        rank: slotRank(slot === undefined ? undefined : SlotCountKey.parse(slot)) ?? spell.data.rank,
+        rank: rankOf({ slot, focus, spell, caster }),
         choices,
       };
 }

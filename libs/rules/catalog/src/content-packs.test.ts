@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentEntryFile, ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
+import { ContentEntryFile, ContentKind, ContentRegistry, spellEffectId } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
 
 import { contentCatalog } from './index';
@@ -101,7 +101,9 @@ async function spellAndEffectEntries(): Promise<readonly ContentEntry[]> {
 
 /** The effect ids the pack's spells list. */
 function spellEffects(entries: readonly ContentEntry[]): readonly ContentId[] {
-  return entries.flatMap((entry) => (entry.kind === ContentKind.Spell ? (entry.data.effects ?? []) : []));
+  return entries.flatMap((entry) =>
+    entry.kind === ContentKind.Spell ? (entry.data.effects ?? []).map((listed) => spellEffectId(listed)) : [],
+  );
 }
 
 describe('content packs', () => {

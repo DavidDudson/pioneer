@@ -7,6 +7,7 @@ import { ContentText } from './content-text';
 import { DamageTypeSchema } from './damage';
 import { DamageFormula, SpellDamageFormula } from './damage-formula';
 import { RulesMessage } from './messages';
+import { Predicate } from './predicate';
 import { DamageCategorySchema, RichText } from './rich-text';
 import { CastTime, castingFields, SpellArea, SpellDefense, SpellDuration, SpellRange } from './spell-casting';
 import { SPELL_RANK_MAX, SpellRank } from './spell-rank';
@@ -23,7 +24,7 @@ export type DamageKind = ValueOf<typeof DamageKind>;
 const DAMAGE_KINDS = Object.keys(DamageKind).length;
 const DAMAGE_PARTS_MAX = 8;
 const MATERIALS_MAX = 4;
-const EFFECTS_MAX = 16;
+const EFFECTS_MAX = 24;
 
 /** Names a damage part so heightening can add to it (Foundry pf2e's damage record key, `0`). */
 const DamagePartKey = Slug.brand<'DamagePartKey'>();
@@ -221,6 +222,20 @@ function checkDismiss(context: SpellCheck): void {
   }
 }
 
+/** An effect a spell can put on the caster: its id, or its id with the predicate that offers it. */
+const SpellEffectEntry = z.union([ContentId, z.strictObject({ effect: ContentId, predicate: Predicate })]);
+export type SpellEffectEntry = z.infer<typeof SpellEffectEntry>;
+
+/** The id of the effect `entry` lists. */
+export function spellEffectId(entry: SpellEffectEntry): ContentId {
+  return typeof entry === 'string' ? entry : entry.effect;
+}
+
+/** A `.check` for a spell's effects: each effect is listed once, whatever its predicate. */
+function uniqueEffects(context: z.core.ParsePayload<readonly SpellEffectEntry[]>): void {
+  uniqueItems({ ...context, value: context.value.map((entry) => spellEffectId(entry)) });
+}
+
 /**
  * A spell's `data` on the `ContentEntry` envelope, cantrips and focus spells included: they are spells with the
  * `cantrip` or `focus` trait, as in Foundry pf2e. What it does beyond its damage is its description, and the effects
@@ -239,8 +254,12 @@ export const SpellData = z
     dismissNote: RichText.optional(),
     /** It counteracts (Dispel Magic). */
     counteraction: z.boolean().optional(),
-    /** The effects casting it can put on the caster, one per form it offers (Animal Form has one for each animal), so casting can offer the forms. */
-    effects: z.array(ContentId).min(1).max(EFFECTS_MAX).readonly().check(uniqueItems).optional(),
+    /**
+     * The effects casting it can put on the caster, one per form it offers (Animal Form has one for each animal), so
+     * casting can offer the forms. An effect with a predicate is offered only to a character it holds for (Untamed Form
+     * lists Plant Form for a character with `feat:plant-shape`).
+     */
+    effects: z.array(SpellEffectEntry).min(1).max(EFFECTS_MAX).readonly().check(uniqueEffects).optional(),
   })
   .check((context) => {
     checkIncreases(context);

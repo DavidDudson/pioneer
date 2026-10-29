@@ -4,6 +4,7 @@ import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 
 import type { CharacterDocument } from './character-document';
 import type { StatisticSources } from './character-statistics';
+import { characterGrants } from './class-build';
 import { equippedGrants } from './equipped';
 import { itemContent } from './inventory-content';
 
@@ -85,4 +86,12 @@ export function actionContext(facts: PredicateFacts, registry: ContentRegistry):
 export function characterActionContext(document: CharacterDocument, sources: StatisticSources): ActionContext {
   const { registry, slots } = sources;
   return actionContext(equippedGrants(document, itemContent(registry), slots).facts, registry);
+}
+
+/** The roll options the character's build sets (`feat:plant-shape` for a character with the feat), as predicates test them. */
+export function characterPredicateFacts(
+  document: CharacterDocument,
+  sources: Pick<StatisticSources, 'slots'>,
+): PredicateFacts {
+  return characterGrants(document, sources.slots).facts;
 }
