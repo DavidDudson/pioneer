@@ -41,7 +41,15 @@ const CONTENT: EnvironmentContent = new Map([
   [COLD, EnvironmentData.parse({ consequences: [EVERY_TEN_MINUTES, AFTER_FOUR_HOURS] })],
   [SUN, EnvironmentData.parse({ consequences: [] })],
 ]);
-const INPUTS: Omit<PassTimeInputs, 'random'> = { limits: within(MAX), defences: NO_DEFENCES, environments: CONTENT };
+const VALUED_CONDITION = ContentId.parse('00000000-0000-4000-8000-0000000000e4');
+const LIMITS = {
+  ...within(MAX),
+  valued: new Map([
+    [FATIGUED, false],
+    [VALUED_CONDITION, true],
+  ]),
+};
+const INPUTS: Omit<PassTimeInputs, 'random'> = { limits: LIMITS, defences: NO_DEFENCES, environments: CONTENT };
 
 const turnedOn = (...environments: readonly ContentId[]): PlayState => {
   let play = FRESH_PLAY;
@@ -104,6 +112,31 @@ describe('passTime', () => {
     expect(first.play.conditions.map(({ condition }) => condition)).toEqual([FATIGUED]);
     expect(again.play.conditions).toHaveLength(1);
     expect(again.events.some(({ kind }) => kind === TurnEventKind.EnvironmentCondition)).toBe(false);
+  });
+
+  test('puts no condition on that the conditions refuse: a valued one with no value, or one the content lacks', () => {
+    const valued = EnvironmentData.parse({
+      consequences: [{ after: { count: 1, unit: 'hour' }, applies: VALUED_CONDITION }],
+    });
+    const unknown = EnvironmentData.parse({ consequences: [{ after: { count: 1, unit: 'hour' }, applies: FATIGUED }] });
+    const play = turnedOn(SUN);
+
+    const refused = passTime(play, hours(1), {
+      ...INPUTS,
+      environments: new Map([[SUN, valued]]),
+      random: faces(),
+    });
+    const missing = passTime(play, hours(1), {
+      ...INPUTS,
+      limits: within(MAX),
+      environments: new Map([[SUN, unknown]]),
+      random: faces(),
+    });
+
+    expect(refused.play.conditions).toEqual([]);
+    expect(refused.events).toEqual([]);
+    expect(missing.play.conditions).toEqual([]);
+    expect(missing.events).toEqual([]);
   });
 
   test('does nothing to a character in no environment', () => {

@@ -37,8 +37,12 @@ export const WAND_MESSAGES = {
 /** The spend limits handed to edits that don't spend, so no time has to be read for them. */
 const NO_SPEND: SpendLimits = { now: SpendTime.parse('1970-01-01T00:00:00.000Z') };
 
-/** The limits a turn-cycle edit reads: the maximum Hit Points and the effects, and nothing else. */
-export function turnLimits(hitPoints: HitPoints, effects: PlayLimits['effects']): PlayLimits {
+/** The limits a turn-cycle edit reads: the maximum Hit Points, the effects and which conditions are valued, and nothing else. */
+export function turnLimits(
+  hitPoints: HitPoints,
+  effects: PlayLimits['effects'],
+  valued: PlayLimits['valued'],
+): PlayLimits {
   return {
     hitPoints,
     healing: NO_MAX_HIT_POINTS,
@@ -46,7 +50,7 @@ export function turnLimits(hitPoints: HitPoints, effects: PlayLimits['effects'])
     resources: NO_RESOURCES,
     counted: NO_COUNTED,
     staff: NO_STAFF,
-    valued: NO_VALUED,
+    valued,
     effects,
     environmentGroups: NO_ENVIRONMENT_GROUPS,
     shields: NO_SHIELDS,
