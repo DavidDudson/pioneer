@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 176,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3798"
       }
     ],
     "description": [
@@ -291,7 +293,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 177,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3809"
       }
     ],
     "description": [
@@ -649,7 +653,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 179,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3810"
       }
     ],
     "description": [
@@ -1064,7 +1070,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 178,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3822"
       }
     ],
     "description": [
@@ -1693,7 +1701,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 181,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3811"
       }
     ],
     "description": [
@@ -2214,7 +2224,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 182,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3816"
       }
     ],
     "description": [
@@ -2570,7 +2582,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 183,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3817"
       }
     ],
     "description": [],
@@ -2957,7 +2971,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 184,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3818"
       }
     ],
     "description": [
@@ -3369,7 +3385,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 185,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3819"
       }
     ],
     "description": [],
@@ -3675,7 +3693,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 186,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3820"
       }
     ],
     "description": [
@@ -4094,7 +4114,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "shining-kingdoms"
+        "book": "shining-kingdoms",
+        "page": 187,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3821"
       }
     ],
     "description": [

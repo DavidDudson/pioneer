@@ -41,7 +41,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 358,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=49"
       }
     ],
     "description": [
@@ -74,7 +76,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 358,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=51"
       }
     ],
     "description": [
@@ -144,7 +148,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 358,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=52"
       }
     ],
     "description": [
@@ -177,7 +183,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 358,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=53"
       }
     ],
     "description": [
@@ -357,7 +365,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 358,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=55"
       }
     ],
     "description": [
@@ -399,7 +409,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 358,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=56"
       }
     ],
     "description": [
@@ -432,7 +444,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 358,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=57"
       }
     ],
     "description": [
@@ -508,7 +522,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 358,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=58"
       }
     ],
     "description": [
@@ -647,7 +663,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 359,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=59"
       }
     ],
     "description": [
@@ -696,7 +714,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 359,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=60"
       }
     ],
     "description": [
@@ -729,7 +749,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 359,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=61"
       }
     ],
     "description": [
@@ -850,7 +872,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 359,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=62"
       }
     ],
     "description": [
@@ -888,7 +912,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 359,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=64"
       }
     ],
     "description": [
@@ -2709,7 +2735,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 359,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=65"
       }
     ],
     "description": [
@@ -3514,7 +3542,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 359,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=67"
       }
     ],
     "description": [
@@ -3547,7 +3577,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 359,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=68"
       }
     ],
     "description": [
@@ -3596,7 +3628,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 359,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=69"
       }
     ],
     "description": [
@@ -3964,7 +3998,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 359,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=70"
       }
     ],
     "description": [
@@ -4278,7 +4314,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 359,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=71"
       }
     ],
     "description": [
@@ -4398,7 +4436,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=72"
       }
     ],
     "description": [
@@ -4439,7 +4479,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=73"
       }
     ],
     "description": [
@@ -4504,7 +4546,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=74"
       }
     ],
     "description": [
@@ -4790,7 +4834,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=76"
       }
     ],
     "description": [
@@ -4865,7 +4911,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=77"
       }
     ],
     "description": [
@@ -4993,7 +5041,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=78"
       }
     ],
     "description": [
@@ -5026,7 +5076,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=79"
       }
     ],
     "description": [
@@ -5059,7 +5111,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=80"
       }
     ],
     "description": [
@@ -5093,7 +5147,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=81"
       }
     ],
     "description": [
@@ -5144,7 +5200,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=82"
       }
     ],
     "description": [
@@ -6007,7 +6065,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=83"
       }
     ],
     "description": [
@@ -6040,7 +6100,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "monster-core"
+        "book": "monster-core",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/MonsterAbilities.aspx?ID=84"
       }
     ],
     "description": [

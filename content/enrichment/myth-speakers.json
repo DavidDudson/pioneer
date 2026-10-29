@@ -4,6 +4,41 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3993",
     "page": 82
   },
+  "creature:bristled-reef-shark": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3948",
+    "page": 84
+  },
+  "creature:coralclaw": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3949",
+    "page": 85
+  },
+  "creature:iblydan-hind": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3950",
+    "page": 86
+  },
+  "creature:pyrefowl": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3951",
+    "page": 87
+  },
+  "creature:riptide-octopus-swarm": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3947",
+    "page": 84
+  },
+  "creature:speiroikos": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3952",
+    "page": 88
+  },
+  "creature:torcheater": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3953",
+    "page": 89
+  },
   "deity:aerekostes": {
     "book": "myth-speakers",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=699",

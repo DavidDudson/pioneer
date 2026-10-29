@@ -1,43 +1,203 @@
 {
+  "action:alley-oop": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=15",
+    "page": 26
+  },
+  "action:bloody-guillotine": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=27",
+    "page": 28
+  },
+  "action:buckle-cut-blitz": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=16",
+    "page": 26
+  },
   "action:call-follower": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3454",
     "page": 83
+  },
+  "action:coordinating-maneuvers": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=7",
+    "page": 26
+  },
+  "action:cry-havoc": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=28",
+    "page": 28
+  },
+  "action:defensive-retreat": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=1",
+    "page": 25
+  },
+  "action:demoralizing-charge": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=17",
+    "page": 27
   },
   "action:direct-follower": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3453",
     "page": 76
   },
+  "action:double-team": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=8",
+    "page": 26
+  },
+  "action:end-it": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=9",
+    "page": 26
+  },
+  "action:executioners-volley": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=29",
+    "page": 28
+  },
+  "action:gather-to-me": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=2",
+    "page": 25
+  },
   "action:haunting-visage": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3306",
     "page": 72
+  },
+  "action:insta-ballista": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=30",
+    "page": 29
   },
   "action:intercept-attack": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3305",
     "page": 38
   },
+  "action:mirrored-wall": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=22",
+    "page": 27
+  },
+  "action:mountaineering-training": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=3",
+    "page": 25
+  },
+  "action:naval-training": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=4",
+    "page": 25
+  },
+  "action:passage-of-lines": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=5",
+    "page": 25
+  },
+  "action:pincer-attack": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=10",
+    "page": 26
+  },
+  "action:piranha-assault": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=23",
+    "page": 27
+  },
+  "action:pop-drop-and-lock": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=24",
+    "page": 28
+  },
+  "action:protective-screen": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=6",
+    "page": 25
+  },
+  "action:ready-aim-fire": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=25",
+    "page": 28
+  },
   "action:redistribute": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3308",
     "page": 72
+  },
+  "action:reload": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=11",
+    "page": 26
+  },
+  "action:roaring-charge": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=26",
+    "page": 28
+  },
+  "action:sanguine-revitalization": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=31",
+    "page": 29
+  },
+  "action:shields-up": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=12",
+    "page": 26
   },
   "action:sickening-assault": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3309",
     "page": 73
   },
+  "action:slip-and-sizzle": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=18",
+    "page": 27
+  },
+  "action:strike-hard": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=13",
+    "page": 26
+  },
+  "action:stupefying-raid": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=19",
+    "page": 27
+  },
   "action:swarming-assault": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3307",
     "page": 72
   },
+  "action:tactical-takedown": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=14",
+    "page": 26
+  },
+  "action:take-the-high-ground": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=20",
+    "page": 27
+  },
   "action:taunt": {
     "book": "battlecry",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=3304",
     "page": 38
+  },
+  "action:the-bigger-they-are": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=21",
+    "page": 27
+  },
+  "action:valkyries-charge": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Tactics.aspx?ID=32",
+    "page": 29
   },
   "ancestry:jotunborn": {
     "book": "battlecry",
@@ -483,6 +643,256 @@
     "book": "battlecry",
     "page": 137,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3901"
+  },
+  "creature:angelic-chorus": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3898",
+    "page": 172
+  },
+  "creature:animated-army": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3899",
+    "page": 173
+  },
+  "creature:apprentice-magician-clique": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3900",
+    "page": 173
+  },
+  "creature:arboreal-copse": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3901",
+    "page": 173
+  },
+  "creature:archer-regiment": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3902",
+    "page": 174
+  },
+  "creature:archon-bastion": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3903",
+    "page": 174
+  },
+  "creature:boggard-dreadknot": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3904",
+    "page": 175
+  },
+  "creature:boggard-scouting-party": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3905",
+    "page": 175
+  },
+  "creature:charau-ka-shrieker-crew": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3906",
+    "page": 175
+  },
+  "creature:clockwork-infantry": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3907",
+    "page": 176
+  },
+  "creature:clockwork-runner-pack": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3908",
+    "page": 176
+  },
+  "creature:deinonychus-pack": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3909",
+    "page": 175
+  },
+  "creature:dezullon-thicket": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3910",
+    "page": 177
+  },
+  "creature:drake-flight": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3911",
+    "page": 178
+  },
+  "creature:dromaar-company": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3912",
+    "page": 178
+  },
+  "creature:druid-circle": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3913",
+    "page": 179
+  },
+  "creature:dwarf-longshot-squad": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3914",
+    "page": 179
+  },
+  "creature:dwarf-longshot-squad-guns": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3914",
+    "page": 179
+  },
+  "creature:first-class-infantry": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3915",
+    "page": 180
+  },
+  "creature:fleshwarp-amalgam": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3916",
+    "page": 180
+  },
+  "creature:gargoyle-wing": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3917",
+    "page": 181
+  },
+  "creature:giant-ant-army": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3918",
+    "page": 181
+  },
+  "creature:gnome-cannon-corps": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3919",
+    "page": 182
+  },
+  "creature:goblin-rabble": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3920",
+    "page": 182
+  },
+  "creature:halfling-lucky-draw": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3921",
+    "page": 182
+  },
+  "creature:hell-hound-pack": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3922",
+    "page": 183
+  },
+  "creature:hobgoblin-veteran-regiment": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3923",
+    "page": 183
+  },
+  "creature:kobold-trap-squad": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3924",
+    "page": 184
+  },
+  "creature:leukodaemon-plague": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3925",
+    "page": 184
+  },
+  "creature:lich-legion": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3926",
+    "page": 185
+  },
+  "creature:mitflit-vermin-cavalry": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3927",
+    "page": 185
+  },
+  "creature:monk-cadre": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3928",
+    "page": 186
+  },
+  "creature:ofalth-stampede": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3929",
+    "page": 186
+  },
+  "creature:omox-slime-pool": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3930",
+    "page": 186
+  },
+  "creature:orc-raiding-party": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3931",
+    "page": 187
+  },
+  "creature:protean-tumult": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3932",
+    "page": 188
+  },
+  "creature:qadiran-camel-corps": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3933",
+    "page": 189
+  },
+  "creature:ratfolk-shank-squad": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3934",
+    "page": 189
+  },
+  "creature:redcap-brigade": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3935",
+    "page": 189
+  },
+  "creature:scamp-inferno": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3936",
+    "page": 190
+  },
+  "creature:sinswarm": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3937",
+    "page": 191
+  },
+  "creature:skeleton-mob": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3938",
+    "page": 191
+  },
+  "creature:vanth-guardian-flock": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3939",
+    "page": 192
+  },
+  "creature:viking-guard": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3940",
+    "page": 193
+  },
+  "creature:vordine-legion": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3941",
+    "page": 193
+  },
+  "creature:wight-battalion": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3942",
+    "page": 194
+  },
+  "creature:wolf-pack": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3943",
+    "page": 194
+  },
+  "creature:xulgath-army": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3944",
+    "page": 194
+  },
+  "creature:xulgath-dinosaur-cavalry": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3945",
+    "page": 195
+  },
+  "creature:zecui-horde": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3946",
+    "page": 195
   },
   "equipment:abidance-blinders": {
     "book": "battlecry",
@@ -2244,6 +2654,11 @@
     "page": 12,
     "aon": "https://2e.aonprd.com/Heritages.aspx?ID=421"
   },
+  "ritual:antimagic-artifice": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=207",
+    "page": 92
+  },
   "ritual:army-of-shadows": {
     "book": "battlecry",
     "page": 93,
@@ -2258,6 +2673,11 @@
     "book": "battlecry",
     "page": 93,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=210"
+  },
+  "ritual:oil-slicked-walls": {
+    "book": "battlecry",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=211",
+    "page": 94
   },
   "ritual:plague-shot": {
     "book": "battlecry",

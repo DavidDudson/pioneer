@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=188"
       }
     ],
     "description": [
@@ -128,7 +129,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=189"
       }
     ],
     "description": [
@@ -280,7 +282,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=190"
       }
     ],
     "description": [
@@ -431,7 +434,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=191"
       }
     ],
     "description": [
@@ -742,7 +746,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=192"
       }
     ],
     "description": [
@@ -867,7 +872,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "page": 141,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=187"
       }
     ],
     "description": [
@@ -1023,7 +1030,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=193"
       }
     ],
     "description": [
@@ -1186,7 +1194,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=194"
       }
     ],
     "description": [
@@ -1569,7 +1578,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=195"
       }
     ],
     "description": [
@@ -1696,7 +1706,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=196"
       }
     ],
     "description": [
@@ -1872,7 +1883,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=197"
       }
     ],
     "description": [
@@ -2018,7 +2030,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=198"
       }
     ],
     "description": [
@@ -2167,7 +2180,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=199"
       }
     ],
     "description": [
@@ -2338,7 +2352,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "war-of-immortals"
+        "book": "war-of-immortals",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=200"
       }
     ],
     "description": [

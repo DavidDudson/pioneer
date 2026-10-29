@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 349,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=2750"
       }
     ],
     "description": [

@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 188,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=244"
       }
     ],
     "description": [
@@ -506,7 +508,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 190,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=247"
       }
     ],
     "description": [
@@ -1087,7 +1091,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 191,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=250"
       }
     ],
     "description": [
@@ -1736,7 +1742,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 192,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=254"
       }
     ],
     "description": [
@@ -1868,7 +1876,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 193,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=255"
       }
     ],
     "description": [
@@ -2007,7 +2017,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 193,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=256"
       }
     ],
     "description": [
@@ -2902,7 +2914,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 195,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=261"
       }
     ],
     "description": [
@@ -3426,7 +3440,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 196,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=263"
       }
     ],
     "description": [
@@ -4530,7 +4546,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=272"
       }
     ],
     "description": [
@@ -4834,7 +4852,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=271"
       }
     ],
     "description": [

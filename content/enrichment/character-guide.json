@@ -74,6 +74,56 @@
     "page": 73,
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=512"
   },
+  "creature:charming-scoundrel": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=965",
+    "page": 118
+  },
+  "creature:hellknight-armiger": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=967",
+    "page": 120
+  },
+  "creature:hellknight-paravicar": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=968",
+    "page": 121
+  },
+  "creature:pathfinder-field-agent": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=973",
+    "page": 126
+  },
+  "creature:pathfinder-venture-captain": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=974",
+    "page": 127
+  },
+  "creature:privateer-captain": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=966",
+    "page": 119
+  },
+  "creature:rain-scribe": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=971",
+    "page": 124
+  },
+  "creature:tempest-sun-mage": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=972",
+    "page": 125
+  },
+  "creature:veteran-reclaimer": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=970",
+    "page": 123
+  },
+  "creature:virtuous-defender": {
+    "book": "character-guide",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=969",
+    "page": 122
+  },
   "equipment:arcane-scroll-case-of-simplicity": {
     "book": "character-guide",
     "page": 111,

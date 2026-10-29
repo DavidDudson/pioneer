@@ -59,6 +59,11 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2819",
     "page": 161
   },
+  "action:plummeting-roll": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=6134",
+    "page": 164
+  },
   "action:pointed-question": {
     "book": "player-core-2",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=2816",
@@ -6644,6 +6649,16 @@
     "page": 267,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=146"
   },
+  "ritual:fortifying-brew": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=147",
+    "page": 267
+  },
+  "ritual:gathering-call": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=148",
+    "page": 267
+  },
   "ritual:heartbond": {
     "book": "player-core-2",
     "page": 268,
@@ -6668,6 +6683,11 @@
     "book": "player-core-2",
     "page": 270,
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=153"
+  },
+  "ritual:shadow-double": {
+    "book": "player-core-2",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=154",
+    "page": 270
   },
   "ritual:teleportation-circle": {
     "book": "player-core-2",

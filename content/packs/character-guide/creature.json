@@ -188,7 +188,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 118,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=965"
       }
     ],
     "description": [
@@ -445,7 +447,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 120,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=967"
       }
     ],
     "description": [
@@ -691,7 +695,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 121,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=968"
       }
     ],
     "description": [
@@ -1012,7 +1018,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 126,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=973"
       }
     ],
     "description": [
@@ -1382,7 +1390,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 127,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=974"
       }
     ],
     "description": [
@@ -1749,7 +1759,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 119,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=966"
       }
     ],
     "description": [
@@ -2087,7 +2099,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 124,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=971"
       }
     ],
     "description": [
@@ -2622,7 +2636,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 125,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=972"
       }
     ],
     "description": [
@@ -2972,7 +2988,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 123,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=970"
       }
     ],
     "description": [
@@ -3357,7 +3375,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "character-guide"
+        "book": "character-guide",
+        "page": 122,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=969"
       }
     ],
     "description": [

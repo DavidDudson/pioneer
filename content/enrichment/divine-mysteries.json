@@ -820,6 +820,16 @@
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=616",
     "page": 322
   },
+  "deity:lissala": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=565",
+    "page": 318
+  },
+  "deity:lissala-the-order-of-virtue": {
+    "book": "divine-mysteries",
+    "aon": "https://2e.aonprd.com/Deities.aspx?ID=407",
+    "page": 300
+  },
   "deity:lorris": {
     "book": "divine-mysteries",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=477",

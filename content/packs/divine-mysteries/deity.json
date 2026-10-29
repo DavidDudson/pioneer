@@ -31112,7 +31112,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "page": 318,
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=565"
       }
     ],
     "description": [
@@ -31269,7 +31271,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "divine-mysteries"
+        "book": "divine-mysteries",
+        "page": 300,
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=407"
       }
     ],
     "description": [

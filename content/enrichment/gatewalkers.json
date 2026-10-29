@@ -1,4 +1,9 @@
 {
+  "action:spiritual-aid": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8130",
+    "page": 241
+  },
   "archetype:oatia-skysage": {
     "book": "gatewalkers",
     "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=335",
@@ -38,6 +43,251 @@
     "book": "gatewalkers",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4035",
     "page": 235
+  },
+  "creature:amelekana": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4214",
+    "page": 246
+  },
+  "creature:ancient-tupilaq": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4262",
+    "page": 188
+  },
+  "creature:apothecarys-cabinet": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4252",
+    "page": 81
+  },
+  "creature:arctic-bloom": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4215",
+    "page": 247
+  },
+  "creature:blackfrost-guecubu": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4259",
+    "page": 163
+  },
+  "creature:blackfrost-prophet": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4217",
+    "page": 249
+  },
+  "creature:blackfrost-zombie": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4216",
+    "page": 248
+  },
+  "creature:bolan-nogasso": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4240",
+    "page": 274
+  },
+  "creature:capstan-swabbie": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4218",
+    "page": 250
+  },
+  "creature:captain-salah": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4248",
+    "page": 37
+  },
+  "creature:creeping-evil": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4219",
+    "page": 251
+  },
+  "creature:crownbound-constellation": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4220",
+    "page": 252
+  },
+  "creature:deniigi": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4244",
+    "page": 282
+  },
+  "creature:desa-desa": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4222",
+    "page": 254
+  },
+  "creature:dreamscraper": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4223",
+    "page": 255
+  },
+  "creature:elder-thing": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4224",
+    "page": 256
+  },
+  "creature:elder-thing-researcher": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4225",
+    "page": 257
+  },
+  "creature:equendia": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4261",
+    "page": 184
+  },
+  "creature:etward-ritalson": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4241",
+    "page": 276
+  },
+  "creature:ghodrak-the-quick": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4253",
+    "page": 83
+  },
+  "creature:glimmervine": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4226",
+    "page": 258
+  },
+  "creature:gokeki": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4227",
+    "page": 259
+  },
+  "creature:green-monkey": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4237",
+    "page": 268
+  },
+  "creature:ilakni": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4260",
+    "page": 167
+  },
+  "creature:ilverani-sentry": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4258",
+    "page": 162
+  },
+  "creature:immolis": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4230",
+    "page": 262
+  },
+  "creature:innumma": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4245",
+    "page": 283
+  },
+  "creature:kaneepo-the-slim": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4242",
+    "page": 278
+  },
+  "creature:kareq": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4231",
+    "page": 263
+  },
+  "creature:kvernknurr": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4232",
+    "page": 264
+  },
+  "creature:leiko": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4249",
+    "page": 39
+  },
+  "creature:mindmoppet": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4233",
+    "page": 265
+  },
+  "creature:myroga": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4234",
+    "page": 266
+  },
+  "creature:oaksteward-enforcer": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4247",
+    "page": 16
+  },
+  "creature:oaksteward-enforcer-gatehouse": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4247",
+    "page": 16
+  },
+  "creature:ocluai": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4229",
+    "page": 261
+  },
+  "creature:ogmunzorius": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4256",
+    "page": 148
+  },
+  "creature:protosoul": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4263",
+    "page": 191
+  },
+  "creature:quarry-construct": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4251",
+    "page": 49
+  },
+  "creature:sakuachi": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4243",
+    "page": 280
+  },
+  "creature:sickly-eshmok": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4254",
+    "page": 128
+  },
+  "creature:skin-beetle": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4235",
+    "page": 267
+  },
+  "creature:skin-beetle-swarm": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4236",
+    "page": 267
+  },
+  "creature:snowy-owl": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4255",
+    "page": 139
+  },
+  "creature:stone-breasted-owl": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4238",
+    "page": 269
+  },
+  "creature:temagyr": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4228",
+    "page": 260
+  },
+  "creature:the-guest": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4257",
+    "page": 155
+  },
+  "creature:the-looksee-man": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4250",
+    "page": 41
+  },
+  "creature:ulikuq": {
+    "book": "gatewalkers",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4246",
+    "page": 283
   },
   "equipment:cloak-of-devouring-thorns": {
     "book": "gatewalkers",

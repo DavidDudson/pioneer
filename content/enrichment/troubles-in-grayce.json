@@ -24,6 +24,36 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4947",
     "page": 118
   },
+  "creature:automatic-butler": {
+    "book": "troubles-in-grayce",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4770",
+    "page": 120
+  },
+  "creature:durtik": {
+    "book": "troubles-in-grayce",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4771",
+    "page": 121
+  },
+  "creature:gauntling": {
+    "book": "troubles-in-grayce",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4772",
+    "page": 122
+  },
+  "creature:path-river-peeler": {
+    "book": "troubles-in-grayce",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4773",
+    "page": 123
+  },
+  "creature:sangrist": {
+    "book": "troubles-in-grayce",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4774",
+    "page": 124
+  },
+  "creature:sticky-toffee-hound": {
+    "book": "troubles-in-grayce",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4775",
+    "page": 125
+  },
   "equipment:floppy-rag-doll": {
     "book": "troubles-in-grayce",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4942",

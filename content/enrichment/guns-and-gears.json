@@ -4,6 +4,11 @@
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=903",
     "page": 36
   },
+  "action:call-gun": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3269",
+    "page": 141
+  },
   "action:chassis-deflection": {
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=904",
@@ -98,6 +103,11 @@
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Actions.aspx?ID=921",
     "page": 110
+  },
+  "action:spell-woven-shot": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=7437",
+    "page": 141
   },
   "action:spinning-crush": {
     "book": "guns-and-gears",
@@ -1319,6 +1329,11 @@
     "page": 43,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=3109"
   },
+  "feat:banshee-cry-display": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8533",
+    "page": 135
+  },
   "feat:basic-beast-gunner-spellcasting": {
     "book": "guns-and-gears",
     "page": 131,
@@ -1519,6 +1534,11 @@
     "page": 43,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=3107"
   },
+  "feat:coughing-dragon-display": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8529",
+    "page": 134
+  },
   "feat:cover-fire": {
     "book": "guns-and-gears",
     "page": 111,
@@ -1669,6 +1689,11 @@
     "page": 131,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=3232"
   },
+  "feat:expert-fireworks-crafter": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8530",
+    "page": 135
+  },
   "feat:exploit-opening": {
     "book": "guns-and-gears",
     "page": 137,
@@ -1739,6 +1764,11 @@
     "page": 200,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=3284"
   },
+  "feat:firework-technician-dedication": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8528",
+    "page": 134
+  },
   "feat:flesh-wound": {
     "book": "guns-and-gears",
     "page": 117,
@@ -1783,6 +1813,11 @@
     "book": "guns-and-gears",
     "page": 30,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=3076"
+  },
+  "feat:goblin-jubilee-display": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8532",
+    "page": 135
   },
   "feat:greater-augmentation": {
     "book": "guns-and-gears",
@@ -1868,6 +1903,11 @@
     "book": "guns-and-gears",
     "page": 49,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=3112"
+  },
+  "feat:jumping-jenny-display": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=8531",
+    "page": 135
   },
   "feat:just-the-thing": {
     "book": "guns-and-gears",

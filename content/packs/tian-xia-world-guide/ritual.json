@@ -636,7 +636,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "tian-xia-world-guide"
+        "book": "tian-xia-world-guide",
+        "page": 51,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=136"
       }
     ],
     "description": [

@@ -4587,7 +4587,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 93,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4272"
       }
     ],
     "description": [],
@@ -10059,7 +10061,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 88,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4264"
       }
     ],
     "description": [
@@ -10950,7 +10954,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 49,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4273"
       }
     ],
     "description": [
@@ -13608,7 +13614,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 42,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4269"
       }
     ],
     "description": [
@@ -17717,7 +17725,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 89,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4265"
       }
     ],
     "description": [
@@ -19154,7 +19164,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4270"
       }
     ],
     "description": [
@@ -19690,7 +19702,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 35,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4268"
       }
     ],
     "description": [
@@ -22620,7 +22634,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275"
       }
     ],
     "description": [
@@ -23153,7 +23169,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275"
       }
     ],
     "description": [
@@ -23686,7 +23704,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275"
       }
     ],
     "description": [
@@ -26641,7 +26661,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275"
       }
     ],
     "description": [
@@ -27707,7 +27729,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275"
       }
     ],
     "description": [
@@ -28240,7 +28264,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275"
       }
     ],
     "description": [
@@ -28773,7 +28799,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 90,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4275"
       }
     ],
     "description": [
@@ -32820,7 +32848,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4267"
       }
     ],
     "description": [],
@@ -33119,7 +33149,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "page": 22,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4274"
       }
     ],
     "description": [

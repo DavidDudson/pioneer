@@ -159,6 +159,61 @@
     "page": 28,
     "aon": "https://2e.aonprd.com/Classes.aspx?ID=65"
   },
+  "creature:agyra": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3406",
+    "page": 189
+  },
+  "creature:immortal-trickster": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3405",
+    "page": 183
+  },
+  "creature:mythic-gogiteth": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3400",
+    "page": 170
+  },
+  "creature:mythic-griffon": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3403",
+    "page": 173
+  },
+  "creature:mythic-lich": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3402",
+    "page": 172
+  },
+  "creature:mythic-ogre-boss": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3401",
+    "page": 171
+  },
+  "creature:oliphaunt-of-jandelay": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3407",
+    "page": 195
+  },
+  "creature:sublime-breath": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3408",
+    "page": 201
+  },
+  "creature:verex-that-was": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3409",
+    "page": 207
+  },
+  "creature:vulot": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3404",
+    "page": 177
+  },
+  "creature:weaver-of-webs": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3410",
+    "page": 214
+  },
   "equipment:cursed-immaculate-instrument": {
     "book": "war-of-immortals",
     "page": 203,
@@ -1698,6 +1753,63 @@
     "book": "war-of-immortals",
     "page": 59,
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=7233"
+  },
+  "ritual:awaken-curse": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=188"
+  },
+  "ritual:band-of-heroes": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=189"
+  },
+  "ritual:city-of-sin": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=190"
+  },
+  "ritual:create-demiplane": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=191"
+  },
+  "ritual:curse-of-calamity": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=192"
+  },
+  "ritual:embodied-font": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=187",
+    "page": 141
+  },
+  "ritual:freedom": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=193"
+  },
+  "ritual:imprisonment": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=194"
+  },
+  "ritual:kaiju-ward": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=195"
+  },
+  "ritual:oceans-roar": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=196"
+  },
+  "ritual:unbearable-cacophony": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=197"
+  },
+  "ritual:void-harvest": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=198"
+  },
+  "ritual:wild-feast": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=199"
+  },
+  "ritual:world-in-shadow": {
+    "book": "war-of-immortals",
+    "aon": "https://2e.aonprd.com/Rituals.aspx?ID=200"
   },
   "rune:mythic-armor-potency": {
     "book": "war-of-immortals",

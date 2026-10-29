@@ -10,7 +10,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hells-destiny"
+        "book": "hells-destiny",
+        "page": 227,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=36"
       }
     ],
     "description": [
@@ -150,7 +152,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hells-destiny"
+        "book": "hells-destiny",
+        "page": 227,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=37"
       }
     ],
     "description": [
@@ -416,7 +420,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hells-destiny"
+        "book": "hells-destiny",
+        "page": 227,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=34"
       }
     ],
     "description": [
@@ -471,7 +477,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hells-destiny"
+        "book": "hells-destiny",
+        "page": 227,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=33"
       }
     ],
     "description": [
@@ -1521,7 +1529,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "hells-destiny"
+        "book": "hells-destiny",
+        "page": 227,
+        "aon": "https://2e.aonprd.com/Tactics.aspx?ID=35"
       }
     ],
     "description": [

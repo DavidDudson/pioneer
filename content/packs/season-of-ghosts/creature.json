@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 335,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4633"
       }
     ],
     "description": [
@@ -435,7 +437,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 324,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4624"
       }
     ],
     "description": [
@@ -926,7 +930,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 208,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4684"
       }
     ],
     "description": [],
@@ -1328,7 +1334,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 337,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4635"
       }
     ],
     "description": [
@@ -1895,7 +1903,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 325,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4625"
       }
     ],
     "description": [
@@ -2134,7 +2144,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 326,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4626"
       }
     ],
     "description": [
@@ -2556,7 +2568,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 194,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4681"
       }
     ],
     "description": [],
@@ -2915,7 +2929,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 221,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4686"
       }
     ],
     "description": [
@@ -3856,7 +3872,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 51,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4667"
       }
     ],
     "description": [
@@ -4259,7 +4277,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 330,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4630"
       }
     ],
     "description": [
@@ -5018,7 +5038,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 262,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4691"
       }
     ],
     "description": [
@@ -5294,7 +5316,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 115,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4672"
       }
     ],
     "description": [
@@ -5640,7 +5664,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 352,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4653"
       }
     ],
     "description": [
@@ -6274,7 +6300,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 228,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4687"
       }
     ],
     "description": [
@@ -6838,7 +6866,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 350,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4652"
       }
     ],
     "description": [],
@@ -7276,7 +7306,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 332,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4631"
       }
     ],
     "description": [
@@ -7820,7 +7852,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 327,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4627"
       }
     ],
     "description": [
@@ -8320,7 +8354,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 334,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4632"
       }
     ],
     "description": [
@@ -8911,7 +8947,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 145,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4677"
       }
     ],
     "description": [
@@ -9121,7 +9159,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 189,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4680"
       }
     ],
     "description": [
@@ -9452,7 +9492,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 218,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4685"
       }
     ],
     "description": [
@@ -9806,7 +9848,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 357,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4655"
       }
     ],
     "description": [],
@@ -10031,7 +10075,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 358,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4656"
       }
     ],
     "description": [],
@@ -10423,7 +10469,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 328,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4628"
       }
     ],
     "description": [
@@ -10879,7 +10927,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 196,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4682"
       }
     ],
     "description": [],
@@ -11155,7 +11205,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 54,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4669"
       }
     ],
     "description": [
@@ -11581,7 +11633,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 135,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4676"
       }
     ],
     "description": [
@@ -12030,7 +12084,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 338,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4637"
       }
     ],
     "description": [
@@ -12278,7 +12334,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 340,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4640"
       }
     ],
     "description": [
@@ -12637,7 +12695,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 340,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4640"
       }
     ],
     "description": [
@@ -12996,7 +13056,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 340,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4640"
       }
     ],
     "description": [
@@ -13400,7 +13462,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 340,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4640"
       }
     ],
     "description": [
@@ -13759,7 +13823,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 340,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4640"
       }
     ],
     "description": [
@@ -14118,7 +14184,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 340,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4640"
       }
     ],
     "description": [
@@ -14513,7 +14581,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 339,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4639"
       }
     ],
     "description": [
@@ -14992,7 +15062,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 338,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4638"
       }
     ],
     "description": [
@@ -15331,7 +15403,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 343,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4641"
       }
     ],
     "description": [
@@ -15655,7 +15729,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 343,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4641"
       }
     ],
     "description": [
@@ -15976,7 +16052,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 33,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4660"
       }
     ],
     "description": [
@@ -16328,7 +16406,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 39,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4664"
       }
     ],
     "description": [
@@ -16517,7 +16597,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 33,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4661"
       }
     ],
     "description": [
@@ -16828,7 +16910,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 33,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4662"
       }
     ],
     "description": [
@@ -17170,7 +17254,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 349,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4647"
       }
     ],
     "description": [
@@ -17619,7 +17705,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 360,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4657"
       }
     ],
     "description": [
@@ -18273,7 +18361,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 176,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4679"
       }
     ],
     "description": [],
@@ -18497,7 +18587,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 344,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4642"
       }
     ],
     "description": [
@@ -18935,7 +19027,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 345,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4643"
       }
     ],
     "description": [
@@ -19512,7 +19606,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 336,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4634"
       }
     ],
     "description": [
@@ -20180,7 +20276,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 123,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4673"
       }
     ],
     "description": [
@@ -20474,7 +20572,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 199,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4683"
       }
     ],
     "description": [],
@@ -21158,7 +21258,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 346,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4644"
       }
     ],
     "description": [
@@ -21485,7 +21587,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 329,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4629"
       }
     ],
     "description": [
@@ -22018,7 +22122,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 55,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4670"
       }
     ],
     "description": [
@@ -22424,7 +22530,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 347,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4645"
       }
     ],
     "description": [
@@ -22821,7 +22929,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 125,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4674"
       }
     ],
     "description": [
@@ -23103,7 +23213,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 348,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4646"
       }
     ],
     "description": [
@@ -23572,7 +23684,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 53,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4668"
       }
     ],
     "description": [
@@ -23961,7 +24075,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 156,
+        "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4678"
       }
     ],
     "description": [
@@ -24269,7 +24385,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 362,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4658"
       }
     ],
     "description": [
@@ -24805,7 +24923,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 133,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4675"
       }
     ],
     "description": [
@@ -25075,7 +25195,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 364,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4659"
       }
     ],
     "description": [],
@@ -25277,7 +25399,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "season-of-ghosts"
+        "book": "season-of-ghosts",
+        "page": 85,
+        "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4671"
       }
     ],
     "description": [

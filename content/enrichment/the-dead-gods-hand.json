@@ -39,6 +39,121 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5216",
     "page": 142
   },
+  "creature:blostin": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4937",
+    "page": 153
+  },
+  "creature:cherub": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4933",
+    "page": 148
+  },
+  "creature:deravons-ghost": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4932",
+    "page": 129
+  },
+  "creature:elharris": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4938",
+    "page": 154
+  },
+  "creature:garenne": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4927",
+    "page": 70
+  },
+  "creature:greely": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4939",
+    "page": 155
+  },
+  "creature:heart-of-sarnax": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4934",
+    "page": 149
+  },
+  "creature:irabel-of-eiseth": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4940",
+    "page": 157
+  },
+  "creature:jona-clay": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4941",
+    "page": 159
+  },
+  "creature:kalatryx": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4930",
+    "page": 101
+  },
+  "creature:kaltos-orthux": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4925",
+    "page": 33
+  },
+  "creature:krell": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4942",
+    "page": 160
+  },
+  "creature:labella": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4943",
+    "page": 161
+  },
+  "creature:lord-pandelay": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4928",
+    "page": 87
+  },
+  "creature:orthux-guard": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4923",
+    "page": 22
+  },
+  "creature:sanctum-knight": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4935",
+    "page": 150
+  },
+  "creature:shevala-iorae": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4945",
+    "page": 163
+  },
+  "creature:shevala-iorae-recovered": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4945",
+    "page": 163
+  },
+  "creature:shulgurk": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4924",
+    "page": 26
+  },
+  "creature:thorgrim": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/NPCs.aspx?ID=4946",
+    "page": 164
+  },
+  "creature:ugothol-wretch": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4929",
+    "page": 87
+  },
+  "creature:vidileth": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4931",
+    "page": 125
+  },
+  "creature:weary": {
+    "book": "the-dead-gods-hand",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=4936",
+    "page": 151
+  },
   "equipment:aeon-stone-eastern-star": {
     "book": "the-dead-gods-hand",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3055",

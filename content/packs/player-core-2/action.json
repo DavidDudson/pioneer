@@ -1915,7 +1915,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core-2"
+        "book": "player-core-2",
+        "page": 164,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=6134"
       }
     ],
     "description": [

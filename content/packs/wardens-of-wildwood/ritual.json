@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "wardens-of-wildwood"
+        "book": "wardens-of-wildwood",
+        "page": 33,
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=204"
       }
     ],
     "description": [

@@ -74,6 +74,61 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3768",
     "page": 101
   },
+  "creature:aurosrath": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3798",
+    "page": 176
+  },
+  "creature:beiran-frosthunt": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3809",
+    "page": 177
+  },
+  "creature:bibliodaemon": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3810",
+    "page": 179
+  },
+  "creature:corbayrant": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3822",
+    "page": 178
+  },
+  "creature:failed-prophet": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3811",
+    "page": 181
+  },
+  "creature:goldpebble": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3816",
+    "page": 182
+  },
+  "creature:lamp-blighter": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3817",
+    "page": 183
+  },
+  "creature:shroudwing": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3818",
+    "page": 184
+  },
+  "creature:torn-quartet": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3819",
+    "page": 185
+  },
+  "creature:vorvorak": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3820",
+    "page": 186
+  },
+  "creature:walcofinde": {
+    "book": "shining-kingdoms",
+    "aon": "https://2e.aonprd.com/Monsters.aspx?ID=3821",
+    "page": 187
+  },
   "deity:the-tides-of-chaos": {
     "book": "shining-kingdoms",
     "aon": "https://2e.aonprd.com/Deities.aspx?ID=698",
