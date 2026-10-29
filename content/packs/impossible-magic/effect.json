@@ -3695,6 +3695,53 @@
     }
   },
   {
+    "id": "e6311034-b6e7-56a7-af8d-5483f5647ed3",
+    "pack": "impossible-magic",
+    "kind": "effect",
+    "slug": "effect:effect-twin-eidolon",
+    "name": "Effect: Twin Eidolon",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d2a19021-1836-541d-8384-0f721acf9f3e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform to match your eidolon, using your eidolon's statistics other than your own Intelligence, Wisdom and Charisma modifiers, including their evolutions, until your eidolon unmanifests. You can't cast spells your eidolon couldn't, or benefit from magic items that don't benefit your eidolon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
     "id": "fd3d2c1d-7193-5d75-9978-f38bfb2e4e9f",
     "pack": "impossible-magic",
     "kind": "effect",
@@ -4827,6 +4874,61 @@
         "count": 1,
         "unit": "minute",
         "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4fbfa65e-0f96-50cc-8bfe-02233feff1c7",
+    "pack": "impossible-magic",
+    "kind": "effect",
+    "slug": "effect:spell-effect-amalgamizing-leap",
+    "name": "Spell Effect: Amalgamizing Leap",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "5439e142-97e9-5025-8cff-16cf5ed3a0dc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and a target creature are fused together until the end of your next turn. You gain 40 temporary Hit Points, all Speeds and special senses possessed by the target unless you already have better, and your reach increases by 5 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 40
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
       }
     }
   },
@@ -14340,6 +14442,70 @@
     }
   },
   {
+    "id": "ca5e749e-57ee-54df-9c2e-f8b97186c7fa",
+    "pack": "impossible-magic",
+    "kind": "effect",
+    "slug": "effect:spell-effect-juvenile-companion",
+    "name": "Spell Effect: Juvenile Companion",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7c17d67c-e490-52e4-8f5f-e0b2c20ea6c2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your companion becomes its juvenile form. It becomes Tiny if it was larger, its reach is reduced to 0 feet, all its Speeds are halved (to a minimum of 5 feet), and it gains weakness 5 to physical damage. The effect ends if your companion uses a hostile action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "tiny",
+        "resizeEquipment": true,
+        "reach": {
+          "override": 0
+        }
+      },
+      {
+        "key": "Weakness",
+        "type": ["physical"],
+        "value": 5
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "1f9cd765-454c-5bc6-a289-a989bfec6721",
     "pack": "impossible-magic",
     "kind": "effect",
@@ -15174,6 +15340,66 @@
     }
   },
   {
+    "id": "62409aec-17cd-5b09-b57e-e2181dd83a4f",
+    "pack": "impossible-magic",
+    "kind": "effect",
+    "slug": "effect:spell-effect-patrons-protector",
+    "name": "Spell Effect: Patron's Protector",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "82fb4f00-0547-59e3-895f-9696e8cf819a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar is filled with dreadful energy and becomes a powerful protective force. Its AC becomes 28, it becomes Large and gains 20 temporary Hit Points. If it is reduced to 0 Hit Points, the spell ends and it is reduced to 1 Hit Point instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "resizeEquipment": true
+      },
+      {
+        "key": "TempHP",
+        "value": 20
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "bdcb1805-1178-56a7-89ce-88e5521cc6cb",
     "pack": "impossible-magic",
     "kind": "effect",
@@ -15475,6 +15701,66 @@
     }
   },
   {
+    "id": "796afcd0-9f7f-5eb2-84e3-48db4871d4a8",
+    "pack": "impossible-magic",
+    "kind": "effect",
+    "slug": "effect:spell-effect-sudden-swarm",
+    "name": "Spell Effect: Sudden Swarm",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d78ce216-cf12-5765-aafd-114dc4533ef8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar divides into a swarm. It gains immunity to precision damage and to the grappled, prone and restrained conditions, weakness 4 to area and splash damage, and resistance 4 to piercing and slashing damage. It occupies the space of a Large creature and can share spaces with other creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Immunity",
+        "type": ["precision", "grappled", "prone", "restrained"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["piercing", "slashing"],
+        "value": 4
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "d36968f8-4b4f-53c6-ac89-d53dc89a8652",
     "pack": "impossible-magic",
     "kind": "effect",
@@ -15544,6 +15830,239 @@
       "duration": {
         "type": "time",
         "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8caddde6-69a7-5a45-9aef-9672437c24c8",
+    "pack": "impossible-magic",
+    "kind": "effect",
+    "slug": "effect:spell-effect-the-everfull-moon",
+    "name": "Spell Effect: The Everfull Moon",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e2fe26e0-462c-5c62-9498-2ef00ece7246"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Large hybrid wolf battle form with the beast trait, and you can still speak, cast spells and use your hands. You gain a +1 status bonus to saving throws, darkvision, scent as an imprecise sense with a range of 30 feet, a Speed of 40 feet, and jaws and claw unarmed melee attacks at +10 with a damage of 2d8 piercing and 2d6 slashing. Heightened (+2) +20 temporary HP, an additional damage die, +6 to attacks and +2 to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": true,
+          "canSpeak": true,
+          "hasHands": true,
+          "size": "large",
+          "speeds": {
+            "land": 40
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 30
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "jaws",
+              "baseType": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "reach"],
+              "damage": {
+                "dice": 2,
+                "die": "d8",
+                "damageType": "piercing"
+              }
+            },
+            {
+              "slug": "claw",
+              "baseType": "claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile", "reach"],
+              "damage": {
+                "dice": 2,
+                "die": "d6",
+                "damageType": "slashing"
+              }
+            }
+          ],
+          "traits": ["beast"]
+        },
+        "brackets": [
+          {
+            "start": 2,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "modifier": 10,
+                "damage": {
+                  "dice": 2
+                }
+              },
+              {
+                "slug": "claw",
+                "modifier": 10,
+                "damage": {
+                  "dice": 2
+                }
+              }
+            ]
+          },
+          {
+            "start": 4,
+            "armorClass": {
+              "modifier": "20 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "tempHP": 40,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "modifier": 16,
+                "damage": {
+                  "dice": 3
+                }
+              },
+              {
+                "slug": "claw",
+                "modifier": 16,
+                "damage": {
+                  "dice": 3
+                }
+              }
+            ]
+          },
+          {
+            "start": 6,
+            "armorClass": {
+              "modifier": "22 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "tempHP": 60,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "modifier": 22,
+                "damage": {
+                  "dice": 4
+                }
+              },
+              {
+                "slug": "claw",
+                "modifier": 22,
+                "damage": {
+                  "dice": 4
+                }
+              }
+            ]
+          },
+          {
+            "start": 8,
+            "armorClass": {
+              "modifier": "24 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "tempHP": 80,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "modifier": 28,
+                "damage": {
+                  "dice": 5
+                }
+              },
+              {
+                "slug": "claw",
+                "modifier": 28,
+                "damage": {
+                  "dice": 5
+                }
+              }
+            ]
+          },
+          {
+            "start": 10,
+            "armorClass": {
+              "modifier": "26 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "tempHP": 100,
+            "strikes": [
+              {
+                "slug": "jaws",
+                "modifier": 34,
+                "damage": {
+                  "dice": 6
+                }
+              },
+              {
+                "slug": "claw",
+                "modifier": 34,
+                "damage": {
+                  "dice": 6
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
         "unit": "minute",
         "expiry": "turn-start"
       }
@@ -15806,6 +16325,63 @@
         "type": "time",
         "count": 1,
         "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cb78f73b-2952-5474-afeb-ab97c7195a5d",
+    "pack": "impossible-magic",
+    "kind": "effect",
+    "slug": "effect:spell-effect-tiny-wings",
+    "name": "Spell Effect: Tiny Wings",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "82651aa8-c293-5b83-8738-afaec8fc5897"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar sprouts wings and gains a fly Speed of 20 feet. A familiar that already has a fly Speed instead gains a +15-foot status bonus to it."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 20
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
         "expiry": "turn-start"
       }
     }
