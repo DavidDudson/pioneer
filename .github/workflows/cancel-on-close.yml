@@ -1,0 +1,32 @@
+name: Cancel on close
+
+# A pull request that merges (or is closed) has no use for the checks still running or queued on its head: the push to
+# main runs its own. This cancels them, in every workflow. It checks nothing out and only reads the head sha. A pull
+# request from a fork gets a read-only token and cannot cancel, which only leaves its runs to finish.
+on:
+  pull_request:
+    types: [closed]
+
+permissions: {}
+
+jobs:
+  cancel:
+    name: Cancel the pull request's runs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      actions: write
+    steps:
+      - name: Cancel
+        run: |
+          for status in queued in_progress; do
+            ids=$(gh api --paginate "repos/${REPOSITORY}/actions/runs?head_sha=${HEAD_SHA}&status=${status}" \
+              --jq '.workflow_runs[] | select(.event == "pull_request" and (.id | tostring) != env.GITHUB_RUN_ID) | .id')
+            for id in $ids; do
+              gh run cancel "$id" --repo "$REPOSITORY" || true
+            done
+          done
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
