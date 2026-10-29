@@ -8,12 +8,14 @@ import { attributeModifiers } from './attribute-boosts';
 import { Encumbrance, inventoryBulk } from './bulk';
 import type { Character } from './character';
 import { CharacterPatchField } from './character-patch';
+import type { WeaponTheme } from './generation-theme';
 import { CoinAmount, CoinsSchema, InventoryItemId, inventoryRefusal, ItemQuantity } from './inventory';
 import type { Inventory } from './inventory';
 import { handsNeeded, isWearable, itemRefusal } from './inventory-content';
 import type { ItemContent, ItemEntry } from './inventory-content';
 import { CarryState, Hands } from './item-carry';
 import type { Carry } from './item-carry';
+import type { RuneContent } from './item-runes';
 import { seededPicks } from './pick-source';
 import type { PickSource, Seed } from './pick-source';
 import { shuffle } from './picks';
@@ -21,6 +23,7 @@ import { coinsOf, coinsValue, purchaseCost } from './purse';
 import type { SlotContent } from './slot-offer';
 import { CORE_TREASURE_BY_LEVEL, treasureAt } from './treasure-by-level';
 import type { TreasureByLevel } from './treasure-by-level';
+import { etchWeapon } from './weapon-runes';
 
 /** What `generateGear` is asked for: the character to equip, what to read and the table of what it may own. */
 export interface GearInput {
@@ -32,6 +35,10 @@ export interface GearInput {
   readonly now: Temporal.Instant;
   /** What a character of each level may own; the core rules' by default (ADR-0064). */
   readonly treasure?: TreasureByLevel | undefined;
+  /** The weapon to equip, when the character is themed on one: bought if it is on sale, then given its best runes. */
+  readonly weapon?: WeaponTheme | undefined;
+  /** The runes on sale; without them a themed weapon is equipped bare. */
+  readonly runes?: RuneContent | undefined;
 }
 
 /** Where gear is bought: the items on sale, the Strength that limits what can be carried, and the draws. */
@@ -49,6 +56,18 @@ interface Want {
   readonly share: Share;
   /** Whether the item is worn or held as it is used, rather than stowed. */
   readonly used: boolean;
+  /** When given, only the weapons of this theme's group and base are picked from. */
+  readonly only?: WeaponTheme | undefined;
+}
+
+/** Whether `entry` is a weapon of the group and base `theme` names, with no runes of its own so it can take the best. */
+function fitsTheme(entry: ItemEntry, { group, base }: WeaponTheme): boolean {
+  return (
+    entry.kind === ContentKind.Weapon &&
+    entry.data.runes === undefined &&
+    (group === undefined || entry.data.group === group) &&
+    (base === undefined || entry.data.baseItem === base)
+  );
 }
 
 /** The fraction of the coins left one purchase may cost, as its divisor: 3 is a third. */
@@ -166,6 +185,7 @@ function candidates({ character, want }: Buying, cap: CopperValue, shop: Shop): 
     const cost = priceOf(entry);
     return (
       want.kinds.includes(entry.kind) &&
+      (want.only === undefined || fitsTheme(entry, want.only)) &&
       !(want.used && wornWeapon(entry)) &&
       entry.rarity === Rarity.Common &&
       entry.level <= character.document.level &&
@@ -207,6 +227,30 @@ function buy(character: Character, want: Want, shop: Shop): Character {
   return character;
 }
 
+/** The weapon a themed character is armed with, and the runes it may be etched with. */
+interface Armament {
+  readonly weapon: WeaponTheme | undefined;
+  readonly runes: RuneContent | undefined;
+}
+
+/**
+ * `character` with the weapon its theme names bought and held, and etched with the best runes the coins allow; with
+ * the ordinary weapon when no themed one can be bought, or when there is no theme.
+ */
+function armed(character: Character, shop: Shop, themed: Armament): Character {
+  const { weapon, runes } = themed;
+  if (weapon === undefined) {
+    return buy(character, WEAPON, shop);
+  }
+  const bought = buy(character, { ...WEAPON, only: weapon }, shop);
+  const line = bought.document.inventory.items.at(-1);
+  const gained = bought.document.inventory.items.length > character.document.inventory.items.length;
+  if (!gained || line === undefined) {
+    return buy(character, WEAPON, shop);
+  }
+  return runes === undefined ? bought : etchWeapon(bought, line.id, { items: shop.items, runes, now: shop.now });
+}
+
 /** `character` with the coins of its level's budget, less what its items are already worth. */
 function funded(character: Character, shop: Shop, treasure: TreasureByLevel): Character {
   const { document } = character;
@@ -237,12 +281,14 @@ export function generateGear({
   slots,
   now,
   treasure = CORE_TREASURE_BY_LEVEL,
+  weapon,
+  runes,
 }: GearInput): Character {
   const shop: Shop = { items, slots, source: seededPicks(seed), now };
   const wants = [ARMOR, WEAPON, SHIELD, ...Array.from({ length: EXTRAS_MAX }, () => EXTRA)];
   let outfitted = funded(character, shop, treasure);
   for (const want of wants) {
-    outfitted = buy(outfitted, want, shop);
+    outfitted = want === WEAPON ? armed(outfitted, shop, { weapon, runes }) : buy(outfitted, want, shop);
   }
   return purseTrimmed(outfitted, shop);
 }

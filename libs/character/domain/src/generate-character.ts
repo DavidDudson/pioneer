@@ -12,6 +12,7 @@ import { characterSlots } from './character-slot-status';
 import { generateGear } from './generate-gear';
 import type { GenerationTheme } from './generation-theme';
 import type { ItemContent } from './inventory-content';
+import type { RuneContent } from './item-runes';
 import { seededPicks } from './pick-source';
 import type { PickSource, Seed } from './pick-source';
 import { shuffle, weightedShuffle } from './picks';
@@ -33,6 +34,8 @@ export interface GenerateInput {
   readonly items?: ItemContent | undefined;
   /** What a character of each level may own; the core rules' by default. */
   readonly treasure?: TreasureByLevel | undefined;
+  /** The runes on sale, for a weapon theme's weapon to be etched with. */
+  readonly runes?: RuneContent | undefined;
   readonly now: Temporal.Instant;
 }
 
@@ -188,6 +191,7 @@ export function generateCharacter({
   now,
   items,
   treasure,
+  runes,
   theme,
 }: GenerateInput): Generated {
   const source = seededPicks(seed);
@@ -197,5 +201,17 @@ export function generateCharacter({
     extend(root, { ...base, lenient: true, left: undefined }) ?? { character: start, unfilled: [] };
   return items === undefined
     ? built
-    : { ...built, character: generateGear({ character: built.character, seed, items, slots: content, now, treasure }) };
+    : {
+        ...built,
+        character: generateGear({
+          character: built.character,
+          seed,
+          items,
+          slots: content,
+          now,
+          treasure,
+          weapon: theme?.weapon,
+          runes,
+        }),
+      };
 }

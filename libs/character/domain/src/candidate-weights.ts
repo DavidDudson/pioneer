@@ -4,10 +4,11 @@ import type { ChoiceValue } from '@pioneer/rules/sdk';
 import { SlotSubjectKind } from './character-slot';
 import type { CharacterSlot, SlotStatus } from './character-slot';
 import { CLASS_SLOT } from './character-slots';
-import { themeWeight } from './generation-theme';
+import { composeWeights, themeWeight } from './generation-theme';
 import type { GenerationTheme } from './generation-theme';
 import type { Weighted } from './picks';
 import type { SlotContent } from './slot-offer';
+import { weaponAffinity } from './weapon-affinity';
 
 /** A slot with nothing picked. */
 type OpenSlot = Extract<CharacterSlot, { status: typeof SlotStatus.Open }>;
@@ -42,11 +43,19 @@ function attributesOf(slot: OpenSlot, pick: ChoiceValue, content: SlotContent): 
   return slot.subject.kind === SlotSubjectKind.Choice ? featAttributes(content, pick) : [];
 }
 
-/** `picks`, each weighed by the attributes it raises or uses under `theme`: favoured ones come up more often. */
+/** `picks`, each weighed by the attributes it raises or uses under `theme`, and by the weapon it trains or names. */
 export function weighCandidates(
   slot: OpenSlot,
   picks: readonly ChoiceValue[],
   { theme, content }: Themed,
 ): readonly Weighted<ChoiceValue>[] {
-  return picks.map((item) => ({ item, weight: themeWeight(theme, attributesOf(slot, item, content)) }));
+  const { weapon } = theme;
+  return picks.map((item): Weighted<ChoiceValue> => {
+    const attribute = themeWeight(theme, attributesOf(slot, item, content));
+    const weight =
+      weapon === undefined || slot.subject.kind === SlotSubjectKind.Boost
+        ? attribute
+        : composeWeights(attribute, weaponAffinity(content, item, weapon));
+    return { item, weight };
+  });
 }
