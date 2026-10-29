@@ -90,7 +90,29 @@ function ancestryReferences(entries: readonly ContentEntry[]): AncestryReference
   };
 }
 
+/** The spells and effects of the player-core pack, read from their JSON files. */
+async function spellAndEffectEntries(): Promise<readonly ContentEntry[]> {
+  const files = await Promise.all([
+    import('@pioneer/content/packs/player-core/spell.json'),
+    import('@pioneer/content/packs/player-core/effect.json'),
+  ]);
+  return files.flatMap((file) => ContentEntryFile.parse(file.default));
+}
+
+/** The effect ids the pack's spells list. */
+function spellEffects(entries: readonly ContentEntry[]): readonly ContentId[] {
+  return entries.flatMap((entry) => (entry.kind === ContentKind.Spell ? (entry.data.effects ?? []) : []));
+}
+
 describe('content packs', () => {
+  test('every effect a spell lists is an effect entry of the pack', async () => {
+    const entries = await spellAndEffectEntries();
+    const effects = new Set(idsOf(entries, ContentKind.Effect));
+    const listed = spellEffects(entries);
+    expect(listed.length).toBeGreaterThan(0);
+    expect(listed.filter((id) => !effects.has(id))).toStrictEqual([]);
+  });
+
   test('every pinned id is unchanged', async () => {
     const ids = await registryIds();
     expect(ids).toMatchObject(PINNED_IDS);
