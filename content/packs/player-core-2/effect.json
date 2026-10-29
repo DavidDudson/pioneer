@@ -5746,6 +5746,68 @@
     }
   },
   {
+    "id": "4622924e-e130-5c4a-8264-81d02a514f0c",
+    "pack": "player-core-2",
+    "kind": "effect",
+    "slug": "effect:effect-form-of-the-bat",
+    "name": "Effect: Form of the Bat",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cc94d6e3-3d5f-561a-bc97-484b7962c734"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a harmless bat, gaining the effects of a 4th-rank pest form spell, so you have a fly Speed of 20 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "d31d167b-a23c-57cb-a6b6-709a67e21b1d",
+        "allowDuplicate": false
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 20
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "e89fd12b-dca3-529b-b2bc-2d24cb21635b",
     "pack": "player-core-2",
     "kind": "effect",

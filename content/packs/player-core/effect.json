@@ -4578,6 +4578,62 @@
     }
   },
   {
+    "id": "412ecedb-6280-55e2-8246-15db23eaf8ef",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:effect-ritual-reversion",
+    "name": "Effect: Ritual Reversion",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e08dcc4b-e32f-5ab8-8801-186dfe77a925"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take the form of an ordinary specimen of the plant or fungus that most closely resembles you, gaining the effects of one with plants, except that your size remains Small."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "deba9049-8f95-5a00-a262-fae6044e1f81",
+        "allowDuplicate": false
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "0c24399c-0058-5ba2-a984-b832ce9b1678",
     "pack": "player-core",
     "kind": "effect",
@@ -5867,6 +5923,62 @@
       "badge": {
         "type": "counter",
         "value": 5
+      }
+    }
+  },
+  {
+    "id": "be68a260-be8c-50dd-8e22-3340c7bc3b47",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:effect-stonewall",
+    "name": "Effect: Stonewall",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "488e5c06-6c7e-5c16-ab3b-0603ebd78515"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become petrified until the end of the current turn. You don't take any damage from the triggering effect or any other ill effects that couldn't affect stone."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f",
+        "allowDuplicate": false
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
       }
     }
   },
