@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "spore-war"
+        "book": "spore-war",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3700"
       }
     ],
     "description": [

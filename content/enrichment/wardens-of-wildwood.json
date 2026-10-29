@@ -9,6 +9,14 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3595",
     "page": 81
   },
+  "armor:heros-plate": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3720"
+  },
+  "armor:heros-plate-greater": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3720"
+  },
   "consumable:arboreal-wand-rank-2": {
     "book": "wardens-of-wildwood",
     "page": 81,
@@ -189,9 +197,125 @@
     "aon": "https://2e.aonprd.com/Rituals.aspx?ID=204",
     "page": 33
   },
+  "shield:bloodroot-shield": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3610"
+  },
   "spell:bee-mans-summons": {
     "book": "wardens-of-wildwood",
     "page": 80,
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2439"
+  },
+  "weapon:boughshatter": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3627"
+  },
+  "weapon:clear-cutters-axe": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3598"
+  },
+  "weapon:cythbikian-staff": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3612"
+  },
+  "weapon:defoliation-bomb-greater": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3721"
+  },
+  "weapon:defoliation-bomb-lesser": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3721"
+  },
+  "weapon:defoliation-bomb-major": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3721"
+  },
+  "weapon:defoliation-bomb-moderate": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3721"
+  },
+  "weapon:durian-bomb-greater": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3734"
+  },
+  "weapon:durian-bomb-lesser": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3734"
+  },
+  "weapon:durian-bomb-major": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3734"
+  },
+  "weapon:durian-bomb-moderate": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3734"
+  },
+  "weapon:inflammation-flask-greater": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3731"
+  },
+  "weapon:inflammation-flask-lesser": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3731"
+  },
+  "weapon:inflammation-flask-major": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3731"
+  },
+  "weapon:inflammation-flask-moderate": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3731"
+  },
+  "weapon:lance-of-suns-radiance": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3600"
+  },
+  "weapon:nail-bomb-greater": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3722"
+  },
+  "weapon:nail-bomb-lesser": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3722"
+  },
+  "weapon:nail-bomb-major": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3722"
+  },
+  "weapon:nail-bomb-moderate": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3722"
+  },
+  "weapon:spider-satchel-greater": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3732"
+  },
+  "weapon:spider-satchel-lesser": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3732"
+  },
+  "weapon:spider-satchel-major": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3732"
+  },
+  "weapon:spider-satchel-moderate": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3732"
+  },
+  "weapon:tenderizer-grenade-greater": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3736"
+  },
+  "weapon:tenderizer-grenade-lesser": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3736"
+  },
+  "weapon:tenderizer-grenade-major": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3736"
+  },
+  "weapon:tenderizer-grenade-moderate": {
+    "book": "wardens-of-wildwood",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3736"
   }
 }

@@ -1398,5 +1398,9 @@
     "book": "npc-core",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3587",
     "page": 81
+  },
+  "weapon:musket-staff-of-void": {
+    "book": "npc-core",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3588"
   }
 }

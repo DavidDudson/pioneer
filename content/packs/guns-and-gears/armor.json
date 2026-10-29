@@ -207,7 +207,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 40,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3095"
       }
     ],
     "description": [

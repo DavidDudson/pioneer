@@ -287,7 +287,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5229"
       }
     ],
     "description": [
@@ -356,7 +357,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "revenge-of-the-runelords"
+        "book": "revenge-of-the-runelords",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5227"
       }
     ],
     "description": [

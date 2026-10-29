@@ -11,7 +11,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "howl-of-the-wild"
+        "book": "howl-of-the-wild",
+        "page": 49,
+        "aon": "https://2e.aonprd.com/Heritages.aspx?ID=311"
       }
     ],
     "description": [

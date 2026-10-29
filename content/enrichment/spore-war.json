@@ -1,4 +1,8 @@
 {
+  "armor:slithermaws-bane": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3700"
+  },
   "consumable:antifungal-salve-greater": {
     "book": "spore-war",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3747",
@@ -134,10 +138,18 @@
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=7663",
     "page": 81
   },
+  "weapon:apotheosis-knife": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3713"
+  },
   "weapon:castrovels-beacon": {
     "book": "spore-war",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3688",
     "page": 77
+  },
+  "weapon:fiendbreaker": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3698"
   },
   "weapon:morning-glow": {
     "book": "spore-war",
@@ -148,5 +160,13 @@
     "book": "spore-war",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3692",
     "page": 78
+  },
+  "weapon:soulcutter": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3701"
+  },
+  "weapon:wintershot": {
+    "book": "spore-war",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3702"
   }
 }

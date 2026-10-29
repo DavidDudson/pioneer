@@ -11,7 +11,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4001"
       }
     ],
     "description": [
@@ -398,7 +399,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3994"
       }
     ],
     "description": [
@@ -602,7 +604,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4004"
       }
     ],
     "description": [
@@ -735,7 +738,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3998"
       }
     ],
     "description": [
@@ -874,7 +878,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3995"
       }
     ],
     "description": [
@@ -1092,7 +1097,8 @@
     "sources": [
       {
         "kind": "book",
-        "book": "myth-speakers"
+        "book": "myth-speakers",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4006"
       }
     ],
     "description": [

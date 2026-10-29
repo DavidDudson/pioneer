@@ -249,6 +249,11 @@
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1144",
     "page": 86
   },
+  "armor:reinforced-chassis": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3095",
+    "page": 40
+  },
   "background:alkenstar-outlaw": {
     "book": "guns-and-gears",
     "page": 124,
@@ -2634,6 +2639,10 @@
     "page": 152,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=199"
   },
+  "weapon:dragon-mouth-pistol": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=200"
+  },
   "weapon:drake-rifle-acid": {
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1166",
@@ -2892,6 +2901,10 @@
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1172",
     "page": 156
+  },
+  "weapon:three-peaked-tree": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=223"
   },
   "weapon:tigers-claw": {
     "book": "guns-and-gears",

@@ -99,6 +99,10 @@
     "aon": "https://2e.aonprd.com/Feats.aspx?ID=8006",
     "page": 82
   },
+  "shield:shield-of-snakes": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3999"
+  },
   "spell:crown-of-prophets": {
     "book": "myth-speakers",
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2521",
@@ -118,5 +122,29 @@
     "book": "myth-speakers",
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2520",
     "page": 82
+  },
+  "weapon:aerekostes": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4001"
+  },
+  "weapon:hydra-head-club": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3994"
+  },
+  "weapon:hydra-spear": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4004"
+  },
+  "weapon:preordained-spear": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3998"
+  },
+  "weapon:protectors-final-gift": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3995"
+  },
+  "weapon:staff-of-the-ruling-beast": {
+    "book": "myth-speakers",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=4006"
   }
 }
