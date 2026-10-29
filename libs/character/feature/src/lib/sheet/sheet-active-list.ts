@@ -54,7 +54,7 @@ export interface ActiveLists {
 type SpellEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Spell }>;
 
 /** The spells of the registry's packs by id. */
-function spellEntries(registry: ContentRegistry): ReadonlyMap<ContentId, SpellEntry> {
+export function spellEntries(registry: ContentRegistry): ReadonlyMap<ContentId, SpellEntry> {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
   return new Map(entries.flatMap((entry) => (entry.kind === ContentKind.Spell ? [[entry.id, entry] as const] : [])));
 }
@@ -111,7 +111,7 @@ export function activeCount({ activeSpells, effects }: ActiveLists): number {
 }
 
 /** The rank a slot key ends in (`<entry>:<rank>`, `<entry>:<pool>:<rank>`), when it names one. */
-function slotRank(slot: SlotCountKey | undefined): SpellRank | undefined {
+export function slotRank(slot: SlotCountKey | undefined): SpellRank | undefined {
   const parsed = SpellRank.safeParse(Number(slot?.split(':').at(-1)));
   return parsed.success ? parsed.data : undefined;
 }

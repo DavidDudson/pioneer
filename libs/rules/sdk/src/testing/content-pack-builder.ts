@@ -269,7 +269,7 @@ export class ContentPackBuilder {
   /** A spell slugged `spell:<name>`, cast with two actions, its level its rank. */
   public withSpell(
     name: string,
-    { rank, traditions, traits = [], rarity, duration, dismiss, dismissNote }: SpellFields,
+    { rank, traditions, traits = [], rarity, duration, dismiss, dismissNote, effects }: SpellFields,
   ): this {
     const data = {
       rank,
@@ -279,6 +279,7 @@ export class ContentPackBuilder {
       ...(duration === undefined ? {} : { duration }),
       ...(dismiss === undefined ? {} : { dismiss }),
       ...(dismissNote === undefined ? {} : { dismissNote }),
+      ...(effects === undefined ? {} : { effects }),
     };
     this.#entries.push({
       kind: ContentKind.Spell,
@@ -287,6 +288,18 @@ export class ContentPackBuilder {
       level: rank,
       traits,
       ...(rarity === undefined ? {} : { rarity }),
+    });
+    return this;
+  }
+
+  /** A spell effect slugged `effect:<name>` of `level`, lasting until someone ends it, with `rules` as JSON. */
+  public withEffect(name: string, level: number, rules: readonly object[] = []): this {
+    this.#entries.push({
+      kind: ContentKind.Effect,
+      name,
+      data: { category: 'spell', duration: { type: 'unlimited' } },
+      level,
+      rules,
     });
     return this;
   }

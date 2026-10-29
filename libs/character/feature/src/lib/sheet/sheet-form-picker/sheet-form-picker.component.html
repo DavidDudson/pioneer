@@ -1,0 +1,11 @@
+@if (pending(); as cast) {
+  <pio-form-picker
+    [spell]="cast.name"
+    [options]="options()"
+    [preview]="preview()"
+    [confirm]="confirm"
+    [describeError]="describeError"
+    [(picked)]="picked"
+    (cancelled)="cancel()"
+  />
+}
