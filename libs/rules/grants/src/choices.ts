@@ -191,8 +191,9 @@ class ChoiceReader {
       element.rollOption === undefined
         ? undefined
         : optionOf(element.rollOption, pickName(value, this.#context.lookup));
-    const context =
-      option === undefined ? this.#context : { ...this.#context, facts: this.#context.facts.minus(option) };
+    const apart = option === undefined ? this.#context : { ...this.#context, facts: this.#context.facts.minus(option) };
+    // Order Explorer lists an order unless the druid has it, or this very pick joined it: its own option is the way in.
+    const context = isOffered(element, value, apart) ? apart : this.#context;
     const offer = new Offer(() => offeredOptions(element, context));
     if (isOffered(element, value, context)) {
       this.#answer(answeredOf(place, offer, { pick: value, option }));
