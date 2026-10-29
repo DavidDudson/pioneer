@@ -4,6 +4,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { FoundryActorType, isFoundryItemType } from './foundry-document';
 import type { FoundryItemType, FoundryPublication } from './foundry-document';
 import type { ActorDocument, FoundryPack, FoundryRelease, PackDocument } from './foundry-release';
+import { foundrySlug } from './foundry-slug';
 
 /**
  * Foundry's `publication.title` for each book in the registry. A title not here is a book Pioneer does not
@@ -103,6 +104,12 @@ const OGL_BOOKS: ReadonlySet<BookId> = new Set([
   BookId.parse('impossible-lands'),
 ]);
 
+/**
+ * Foundry slugs of documents Pioneer replaces with an entry of its own: `effect-aquatic-combat` is the underwater
+ * environment (Player Core page 437), whose adjustments and restrictions it would double-count.
+ */
+const SUPERSEDED_SLUGS: ReadonlySet<string> = new Set(['effect-aquatic-combat']);
+
 /** Why a document in an item pack is not imported, in the order selection checks. */
 export const SkipReason = {
   /** Not valid JSON, or a field selection reads is missing or malformed. */
@@ -119,6 +126,8 @@ export const SkipReason = {
   UnknownBook: 'unknown-book',
   /** A registered book this run does not target. */
   NotTargeted: 'not-targeted',
+  /** A document a committed Pioneer entry replaces, so importing it as well would apply the same rules twice. */
+  Superseded: 'superseded',
 } as const;
 export type SkipReason = ValueOf<typeof SkipReason>;
 
@@ -171,7 +180,12 @@ function select(entry: PackDocument, targets: ReadonlySet<BookId>): SelectedEntr
     return { pack, path, reason: SkipReason.UnsupportedType, detail: type };
   }
   const book = targetBook(document.system.publication, targets);
-  return typeof book === 'string' ? { ...entry, type, book } : { pack, path, ...book };
+  if (typeof book !== 'string') {
+    return { pack, path, ...book };
+  }
+  return SUPERSEDED_SLUGS.has(foundrySlug(document))
+    ? { pack, path, reason: SkipReason.Superseded, detail: foundrySlug(document) }
+    : { ...entry, type, book };
 }
 
 /** Keeps remaster entries of supported types from the target books; reports every other document and why. */
