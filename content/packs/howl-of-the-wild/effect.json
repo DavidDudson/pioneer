@@ -2525,6 +2525,60 @@
     }
   },
   {
+    "id": "c9df0328-c059-55bd-b996-490f4e66567d",
+    "pack": "howl-of-the-wild",
+    "kind": "effect",
+    "slug": "effect:effect-shore-gift",
+    "name": "Effect: Shore Gift",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "howl-of-the-wild"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c9e679f4-394b-5fa2-9cb5-73fd8c56db90"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You slip off your tail and walk on two feet, gaining a land Speed of 25 feet while you lose your ancestry swim Speed. You can remain in this form indefinitely."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 25
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
     "id": "2533505b-49c8-5bfe-9075-bd990376116b",
     "pack": "howl-of-the-wild",
     "kind": "effect",

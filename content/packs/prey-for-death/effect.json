@@ -705,5 +705,142 @@
         "expiry": "turn-start"
       }
     }
+  },
+  {
+    "id": "46ba125d-58a6-5d01-affa-5ffa9d3f0ba4",
+    "pack": "prey-for-death",
+    "kind": "effect",
+    "slug": "effect:spell-effect-mantis-form",
+    "name": "Spell Effect: Mantis Form",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "prey-for-death"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "41f87652-a081-594b-b6b5-5bb8a10ff31a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into a Large animal battle form that can only be a mantis, with AC = 18 + your level, 15 temporary Hit Points, Athletics +16, and attacks at +16 with a damage bonus of +6, which are the only attacks you can Strike with. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 40 feet; imprecise scent 30 feet; foreleg 2d8 piercing."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false,
+          "size": "large",
+          "speeds": {
+            "land": 40
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 30
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "foreleg",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "reach"],
+              "damage": {
+                "dice": 2,
+                "die": "d8",
+                "damageType": "piercing"
+              }
+            }
+          ],
+          "traits": ["animal"]
+        },
+        "brackets": [
+          {
+            "start": 4,
+            "armorClass": {
+              "modifier": "18 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 16
+              }
+            ],
+            "tempHP": 15,
+            "strikes": [
+              {
+                "slug": "foreleg",
+                "traits": ["unarmed", "reach"],
+                "modifier": 16,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 5,
+            "size": "huge",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 20
+              }
+            ],
+            "tempHP": 20,
+            "strikes": [
+              {
+                "slug": "foreleg",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 18,
+                "damage": {
+                  "dice": 4,
+                  "modifier": 2
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
   }
 ]

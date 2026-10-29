@@ -318,6 +318,74 @@
     }
   },
   {
+    "id": "ed006022-03b0-52e1-a424-9c1ae8a7caa1",
+    "pack": "cheliax-infernal-inheritance",
+    "kind": "effect",
+    "slug": "effect:effect-flock-as-one",
+    "name": "Effect: Flock as One",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "cheliax-infernal-inheritance"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ee491f08-4572-5a7b-8d66-304e619b44c9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and up to 5 willing creatures are remade into Tiny birds. A transformed target has a land Speed of 15 feet and a fly Speed of 40 feet, and can't Strike, cast spells, or use most manipulate actions."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "tiny",
+        "resizeEquipment": true
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "override",
+        "value": 15
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 40
+      }
+    ],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "0c1cb937-cb18-5e13-9de1-f65b4e856e86",
     "pack": "cheliax-infernal-inheritance",
     "kind": "effect",
