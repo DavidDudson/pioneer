@@ -3,7 +3,7 @@ import type { RandomSource } from '@pioneer/rules/dice';
 import { damageTargetOf, statisticContent } from '@pioneer/rules/engine';
 import type { RecoveryInPlay } from '@pioneer/rules/engine';
 import { ConditionTrigger, NO_DEFENCES, Selector } from '@pioneer/rules/sdk';
-import type { DamageTarget } from '@pioneer/rules/sdk';
+import type { ContentId, DamageTarget } from '@pioneer/rules/sdk';
 
 import { characterDefences } from './character-defences';
 import type { CharacterDocument } from './character-document';
@@ -18,7 +18,15 @@ import type { RecoveryConditions } from './rest-types';
 import { endTurn } from './turn-end';
 import { startTurn } from './turn-start';
 import type { TurnOutcome } from './turn-start';
-import { economyConditions, OUT_OF_ENCOUNTER, refilled, TurnCommandField, TurnPhase, turnEnded } from './turn-state';
+import {
+  economyConditions,
+  OUT_OF_ENCOUNTER,
+  refilled,
+  TurnCommandField,
+  TurnPhase,
+  turnEnded,
+  unconsciousCondition,
+} from './turn-state';
 import type { EconomyConditions, TurnCommand } from './turn-state';
 
 /** What the turn cycle reads besides the play state: the limits, and what the build and the content give. */
@@ -32,6 +40,8 @@ export interface TurnCommandInputs {
   readonly easing: RecoveryConditions;
   /** The conditions that change the actions a turn starts with. */
   readonly economy: EconomyConditions;
+  /** The Unconscious condition of the content, which running out of air puts on the character. */
+  readonly unconscious: ContentId | undefined;
   /** The character's Fortitude modifier, worked out only when a save against suffocation needs it. */
   readonly fortitude: () => RollTotal;
   /** What the environments of the content do to a character that stays in them. */
@@ -52,7 +62,13 @@ function started(play: PlayState, inputs: TurnCommandInputs, random: RandomSourc
 function ended(play: PlayState, inputs: TurnCommandInputs, random: RandomSource): TurnOutcome {
   const done = endTurn(
     play,
-    { limits: inputs.limits, defences: inputs.defences, recovery: inputs.easing, fortitude: inputs.fortitude },
+    {
+      limits: inputs.limits,
+      defences: inputs.defences,
+      recovery: inputs.easing,
+      fortitude: inputs.fortitude,
+      unconscious: inputs.unconscious,
+    },
     random,
   );
   return { play: { ...done.play, turn: turnEnded(done.play.turn) }, events: done.events };
@@ -138,6 +154,7 @@ export function turnCommandInputs(
     defences: content === undefined ? NO_DEFENCES : damageTargetOf(characterDefences(document, sources)),
     easing: conditionRecovery(registry, ConditionTrigger.TurnEnd),
     economy: economyConditions(registry),
+    unconscious: unconsciousCondition(registry),
     fortitude: () => fortitudeOf(sources, document),
     environments: environmentContent(registry),
   };
