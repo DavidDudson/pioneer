@@ -1,6 +1,7 @@
+import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { EntrySlug, RollOption } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentId, ContentRegistry, SpellEffectEntry } from '@pioneer/rules/sdk';
 
 import type { CharacterDocument } from './character-document';
 import type { StatisticSources } from './character-statistics';
@@ -94,4 +95,12 @@ export function characterPredicateFacts(
   sources: Pick<StatisticSources, 'slots'>,
 ): PredicateFacts {
   return characterGrants(document, sources.slots).facts;
+}
+
+/** Whether the character, by its roll options `facts`, is offered the effect a spell lists: it has no predicate, or `facts` satisfy it. */
+export function isSpellEffectOffered(entry: SpellEffectEntry, facts: PredicateFacts | undefined): boolean {
+  if (typeof entry === 'string') {
+    return true;
+  }
+  return facts !== undefined && evaluatePredicate(entry.predicate, facts) === Truth.True;
 }

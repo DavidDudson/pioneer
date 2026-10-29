@@ -16,6 +16,7 @@ import type {
   SpendCommand,
   SpendLimits,
 } from '@pioneer/character/domain';
+import type { PredicateFacts } from '@pioneer/rules/predicate';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { message, ValidationError } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
@@ -51,6 +52,8 @@ interface SpendContext {
   readonly counted: CountedMaxima;
   readonly points: ResourceMaxima;
   readonly registry: ContentRegistry;
+  /** The character's roll options, read by a form shift; given only for a spend that shifts a form. */
+  readonly facts?: PredicateFacts | undefined;
 }
 
 /** Refuses with the message for `problem`. */
@@ -67,7 +70,11 @@ function spendOf(command: PlayCommand): SpendCommand | undefined {
 }
 
 /** The problem the content of a spent action has with the spend: its cost, the attack flag or the payment. */
-function contentProblem(command: SpendCommand, play: PlayState, registry: ContentRegistry): SpendProblem | undefined {
+function contentProblem(
+  command: SpendCommand,
+  play: PlayState,
+  { registry, facts }: Pick<SpendContext, 'registry' | 'facts'>,
+): SpendProblem | undefined {
   if (command.field !== SpendCommandField.SpendAction) {
     return undefined;
   }
@@ -75,7 +82,7 @@ function contentProblem(command: SpendCommand, play: PlayState, registry: Conten
   if (range !== undefined && !costAllowed(command.cost, range)) {
     return SpendProblem.CostNotAllowed;
   }
-  return contentRefusal(command, registry, play);
+  return contentRefusal(command, registry, { activeSpells: play.activeSpells, facts });
 }
 
 /**
@@ -84,12 +91,13 @@ function contentProblem(command: SpendCommand, play: PlayState, registry: Conten
  * slot or Focus Point are allowed; an action the content has no entry for, such as a Strike, is checked against the
  * turn alone.
  */
-function checkSpend(play: PlayState, edit: PlayCommand, { counted, points, registry }: SpendContext): void {
+function checkSpend(play: PlayState, edit: PlayCommand, context: SpendContext): void {
+  const { counted, points } = context;
   const command = spendOf(edit);
   if (command === undefined) {
     return;
   }
-  const refused = contentProblem(command, play, registry);
+  const refused = contentProblem(command, play, context);
   if (refused !== undefined) {
     refuse(refused);
   }
@@ -103,6 +111,11 @@ function checkSpend(play: PlayState, edit: PlayCommand, { counted, points, regis
 export interface SpendStamp extends SpendContext {
   readonly play: PlayState;
   readonly now: Temporal.Instant;
+}
+
+/** Whether `command` is a spend that shifts a form, which the character's roll options decide. */
+export function shiftsForm(command: PlayCommand): boolean {
+  return command.field === SpendCommandField.SpendAction && command.shift !== undefined;
 }
 
 /** The limits a play edit reads for spending: the time to stamp with, once a spend passes `checkSpend`. */

@@ -1,5 +1,13 @@
-import { activeSpellOf, SpellSpendKind, spellContent, SpendProblem, sustainedRounds } from '@pioneer/character/domain';
+import {
+  activeSpellOf,
+  isSpellEffectOffered,
+  SpellSpendKind,
+  spellContent,
+  SpendProblem,
+  sustainedRounds,
+} from '@pioneer/character/domain';
 import type { ActiveSpell, SpendRequest } from '@pioneer/character/domain';
+import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentKind, spellEffectId, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 
@@ -72,18 +80,27 @@ function wrongDismiss({ spell }: SpendRequest, registry: ContentRegistry, active
   return dismissed !== undefined && spellEntryOf(registry, dismissed.spell)?.data.dismiss !== true;
 }
 
-/** Whether the spend shifts a form that the action's content does not: the spell must shift forms, and list the form it shifts to. */
-function wrongShift({ action, shift }: SpendRequest, registry: ContentRegistry): boolean {
+/** Whether the spend shifts a form that the action's content does not: the spell must shift forms, and list the form it shifts to, offered to the character by its roll options. */
+function wrongShift(
+  { action, shift }: SpendRequest,
+  registry: ContentRegistry,
+  facts: PredicateFacts | undefined,
+): boolean {
   if (shift === undefined) {
     return false;
   }
   const data = spellEntryOf(registry, action)?.data;
-  return data?.shiftsForm !== true || !(data.effects ?? []).some((listed) => spellEffectId(listed) === shift.to);
+  return (
+    data?.shiftsForm !== true ||
+    !(data.effects ?? []).some((listed) => spellEffectId(listed) === shift.to && isSpellEffectOffered(listed, facts))
+  );
 }
 
 /** What a spend's content check reads of the play state: the active spells a sustain or dismissal names. */
 export interface SpendSpells {
   readonly activeSpells: readonly ActiveSpell[];
+  /** The character's roll options, which a form shift's predicate reads; none refuses a form with a predicate. */
+  readonly facts?: PredicateFacts | undefined;
 }
 
 /**
@@ -93,7 +110,7 @@ export interface SpendSpells {
 export function contentRefusal(
   request: SpendRequest,
   registry: ContentRegistry,
-  { activeSpells }: SpendSpells,
+  { activeSpells, facts }: SpendSpells,
 ): SpendProblem | undefined {
   if (falseAttack(request, registry)) {
     return SpendProblem.AttackNotAllowed;
@@ -104,7 +121,7 @@ export function contentRefusal(
   if (wrongSustain(request, registry)) {
     return SpendProblem.NotSustained;
   }
-  if (wrongShift(request, registry)) {
+  if (wrongShift(request, registry, facts)) {
     return SpendProblem.ShiftNotAllowed;
   }
   return wrongDismiss(request, registry, activeSpells) ? SpendProblem.DismissNotAllowed : undefined;

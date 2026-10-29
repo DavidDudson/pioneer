@@ -1,9 +1,8 @@
-import { SlotCountKey } from '@pioneer/character/domain';
+import { isSpellEffectOffered, SlotCountKey } from '@pioneer/character/domain';
 import type { EffectInstanceId } from '@pioneer/character/domain';
-import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentKind, spellEffectId } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry, RollOption, SpellEffectEntry, SpellRank } from '@pioneer/rules/sdk';
+import type { ContentId, ContentRegistry, RollOption, SpellRank } from '@pioneer/rules/sdk';
 import type { ActionUse } from '@pioneer/rules/ui';
 
 import { slotRank, spellEntries } from './sheet-active-list';
@@ -81,14 +80,6 @@ function rankOf({ slot, focus, spell, caster }: RankInputs): SpellRank {
   return focus === true && caster !== undefined ? caster.focusRank : spell.data.rank;
 }
 
-/** Whether the character is offered `entry`: it has no predicate, or the character's roll options satisfy it. */
-function isOffered(entry: SpellEffectEntry, facts: PredicateFacts | undefined): boolean {
-  if (typeof entry === 'string') {
-    return true;
-  }
-  return facts !== undefined && evaluatePredicate(entry.predicate, facts) === Truth.True;
-}
-
 /**
  * The form cast using `request` would be, when the spell lists effects: the forms its effects offer. Undefined for any
  * other use, which spends at once.
@@ -104,7 +95,7 @@ export function formCastOf(
     return undefined;
   }
   const offered = new Set(
-    listed.filter((entry) => isOffered(entry, caster?.facts)).map((entry) => spellEffectId(entry)),
+    listed.filter((entry) => isSpellEffectOffered(entry, caster?.facts)).map((entry) => spellEffectId(entry)),
   );
   const options = effectOptions(registry).filter(({ id }) => offered.has(id));
   const choices = options.flatMap((option) => choicesOf(option));

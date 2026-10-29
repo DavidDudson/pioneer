@@ -12,15 +12,21 @@ import {
   SlotCountKey,
 } from '@pioneer/character/domain';
 import type { ActiveSpell, SpendRequest } from '@pioneer/character/domain';
-import { ContentId, ContentKind, ContentRegistry, SpellRank } from '@pioneer/rules/sdk';
+import { PredicateFacts } from '@pioneer/rules/predicate';
+import { ContentId, ContentKind, ContentRegistry, RollOption, SpellRank } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { newId } from '@pioneer/shared/kernel';
 
 import { contentRefusal } from './spend-content';
 
-const effects = new ContentPackBuilder().withId('player-core').withEffect('ape-form', 2).withEffect('bear-form', 2);
+const effects = new ContentPackBuilder()
+  .withId('player-core')
+  .withEffect('ape-form', 2)
+  .withEffect('bear-form', 2)
+  .withEffect('plant-form', 5);
 const APE = ContentId.parse(effects.idOf(ContentKind.Effect, 'ape-form'));
 const BEAR = ContentId.parse(effects.idOf(ContentKind.Effect, 'bear-form'));
+const PLANT = ContentId.parse(effects.idOf(ContentKind.Effect, 'plant-form'));
 
 const pack = effects
   .withFeat('power-attack', { traits: ['attack', 'flourish'] })
@@ -34,7 +40,12 @@ const pack = effects
     traditions: [],
     duration: { type: 'time', count: 1, unit: 'minute', sustained: true },
   })
-  .withSpell('shift', { rank: 1, traditions: [], effects: [APE], shiftsForm: true })
+  .withSpell('shift', {
+    rank: 1,
+    traditions: [],
+    effects: [APE, { effect: PLANT, predicate: ['feat:plant-shape'] }],
+    shiftsForm: true,
+  })
   .withSpell('morph', { rank: 1, traditions: [], effects: [APE] })
   .withSpell('mirror', { rank: 2, traditions: [], duration: { type: 'sustained' }, dismiss: true })
   .withItem(ContentKind.Weapon, 'longsword', {
@@ -171,6 +182,13 @@ describe('contentRefusal for sustained spells', () => {
   test('a form shift to a form the spell lists is allowed', () => {
     const shift = request(idOf(ContentKind.Spell, 'shift'), { shift: { effect: EFFECT, to: APE } });
     expect(contentRefusal(shift, registry, NO_SPELLS)).toBeUndefined();
+  });
+
+  test('a form shift to a form with a predicate needs the character to satisfy it', () => {
+    const shift = request(idOf(ContentKind.Spell, 'shift'), { shift: { effect: EFFECT, to: PLANT } });
+    const has = new PredicateFacts([RollOption.parse('feat:plant-shape')], new Map());
+    expect(contentRefusal(shift, registry, { activeSpells: [], facts: has })).toBeUndefined();
+    expect(contentRefusal(shift, registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
   });
 
   test('a form shift to a form the spell does not list is refused', () => {
