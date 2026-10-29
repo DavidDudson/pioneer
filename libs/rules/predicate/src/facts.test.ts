@@ -45,3 +45,20 @@ describe('PredicateFacts.withNamespace', () => {
     expect(verdict(['terrain:forest'], candidate)).toBe(Truth.Unknown);
   });
 });
+
+describe('PredicateFacts.minus', () => {
+  const character = new PredicateFacts(options('self:level:3', 'specialty:alchemy', 'item:level:9'), CORE_NAMESPACES);
+
+  test('drops the option and leaves the facts it came from', () => {
+    const without = character.minus(RollOption.parse('specialty:alchemy'));
+    expect(without.has('specialty:alchemy')).toBe(false);
+    expect(without.has('self:level:3')).toBe(true);
+    expect(character.has('specialty:alchemy')).toBe(true);
+  });
+
+  test('drops it beneath a namespace layer too', () => {
+    const candidate = character.withNamespace(ITEM, options('level:1')).minus(RollOption.parse('specialty:alchemy'));
+    expect(candidate.has('specialty:alchemy')).toBe(false);
+    expect(candidate.has('item:level:1')).toBe(true);
+  });
+});

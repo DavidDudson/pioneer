@@ -98,6 +98,18 @@ export class PredicateFacts {
     return layered;
   }
 
+  /** These facts without `option`, as a choice reads them apart from the roll option its own pick sets. */
+  public minus(option: RollOption): PredicateFacts {
+    const layer = this.#layer;
+    if (layer === undefined) {
+      const kept = [...this.#options].filter((each) => each !== option).map((each) => RollOption.parse(each));
+      return new PredicateFacts(kept, this.#namespaces);
+    }
+    const layered = new PredicateFacts([], this.#namespaces);
+    layered.#layer = { ...layer, base: layer.base.minus(option) };
+    return layered;
+  }
+
   /** Whether `option` is present. Takes plain text because comparisons build options from their operands. */
   public has(option: string): boolean {
     const layer = this.#layer;

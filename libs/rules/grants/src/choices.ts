@@ -171,15 +171,30 @@ class ChoiceReader {
       return;
     }
     const place = this.#place({ element, rule });
-    const offer = new Offer(() => offeredOptions(element, this.#context));
     const value = this.#context.picks.get(place.key);
     if (value === undefined) {
-      this.#open.push(slotOf(place, offer));
-    } else if (isOffered(element, value, this.#context)) {
-      const option =
-        element.rollOption === undefined
-          ? undefined
-          : optionOf(element.rollOption, pickName(value, this.#context.lookup));
+      this.#open.push(slotOf(place, new Offer(() => offeredOptions(element, this.#context))));
+    } else {
+      this.#readPick({ element, place }, value);
+    }
+  }
+
+  /**
+   * A pick is read apart from the roll option it sets itself: Specialty Crafting offers each specialty unless
+   * `feat:specialty-crafting:<specialty>` is set, and a pick would otherwise rule itself out and never settle.
+   */
+  #readPick(
+    { element, place }: { readonly element: ChoiceSetElement; readonly place: SlotPlace },
+    value: ChoiceValue,
+  ): void {
+    const option =
+      element.rollOption === undefined
+        ? undefined
+        : optionOf(element.rollOption, pickName(value, this.#context.lookup));
+    const context =
+      option === undefined ? this.#context : { ...this.#context, facts: this.#context.facts.minus(option) };
+    const offer = new Offer(() => offeredOptions(element, context));
+    if (isOffered(element, value, context)) {
       this.#answer(answeredOf(place, offer, { pick: value, option }));
     } else {
       this.#refuse(slotOf(place, offer), value);
