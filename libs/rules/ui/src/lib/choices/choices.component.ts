@@ -2,6 +2,7 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, input, output } f
 import { TranslocoPipe } from '@jsverse/transloco';
 import { EmptyState, List, ListItem, Skeleton } from '@pioneer/frontier';
 import type { SlotKey } from '@pioneer/rules/sdk';
+import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import type { ChoiceLine } from './choice-line';
 import { ChoiceRow } from './choice-row/choice-row.component';
@@ -40,6 +41,8 @@ export class ChoicesView {
   public readonly lockable = input(false, { transform: booleanAttribute });
   /** The slots that are kept. */
   public readonly locked = input<ReadonlySet<SlotKey>>(new Set());
+  /** Why a choice could not be kept, by slot; each shows beneath its choice. */
+  public readonly problems = input<ReadonlyMap<SlotKey, MessageDescriptor>>(new Map());
   /** A keep toggle was pressed. */
   public readonly lockChange = output<ChoiceLockChange>();
 

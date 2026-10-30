@@ -64,6 +64,8 @@ export class ChoiceRow {
   public readonly lockable = input(false, { transform: booleanAttribute });
   /** Whether the choice is kept. */
   public readonly locked = input(false);
+  /** Why the choice could not be kept, shown beneath it; undefined for none. */
+  public readonly problem = input<MessageDescriptor | undefined>();
   /** The keep toggle was pressed: the choice is now kept, or not. */
   public readonly lockChange = output<boolean>();
 

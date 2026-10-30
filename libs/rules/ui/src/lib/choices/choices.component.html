@@ -9,6 +9,7 @@
             [line]="choice"
             [lockable]="lockable()"
             [locked]="locked().has(choice.key)"
+            [problem]="problems().get(choice.key)"
             (lockChange)="lockChange.emit({ slot: choice.key, locked: $event })"
         /></fr-list-item>
       }

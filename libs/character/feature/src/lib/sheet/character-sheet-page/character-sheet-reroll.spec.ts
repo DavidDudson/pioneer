@@ -74,6 +74,41 @@ describe('CharacterSheetPage re-roll', () => {
     });
   });
 
+  it('shows why a kept pick could not be kept beneath that pick', async () => {
+    const { root } = await openSheet(MERISIEL, { slots: SLOTS, packs: TEST_PACKS });
+    const keep = await vi.waitFor(() =>
+      present(root.querySelector<HTMLButtonElement>('pio-sheet-reroll fr-toggle-button button')),
+    );
+    keep.click();
+    render();
+    present(root.querySelector<HTMLButtonElement>('pio-sheet-reroll fr-async-button button')).click();
+    const http = TestBed.inject(HttpTestingController);
+    const request = await vi.waitFor(() => http.expectOne({ method: 'POST', url: GENERATE_URL }));
+
+    request.flush(
+      {
+        type: 'validation',
+        title: 'Validation failed',
+        status: 422,
+        message: { key: 'problem.validation' },
+        issues: [{ path: ['locks', 0], message: { key: 'character.validation.lockNotKept' } }],
+      },
+      { status: 422, statusText: 'Unprocessable Content' },
+    );
+
+    const choices = present(root.querySelector('pio-sheet-reroll pio-choices'));
+    await vi.waitFor(() => {
+      render();
+      expect(choices.textContent).toContain("That pick can't be kept");
+    });
+    const button = present(root.querySelector('pio-sheet-reroll fr-async-button'));
+    expect(button.textContent).toContain('See the marked picks');
+
+    keep.click();
+    render();
+    expect(choices.textContent).not.toContain("That pick can't be kept");
+  });
+
   it('keeps nothing when no toggle was pressed', async () => {
     const { root } = await openSheet(MERISIEL, { slots: SLOTS, packs: TEST_PACKS });
     await vi.waitFor(() => present(root.querySelector('pio-sheet-reroll fr-toggle-button')));

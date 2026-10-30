@@ -1,6 +1,12 @@
 <fr-stack gap="md">
   <pio-sheet-pick-fields [fields]="picks.choiceFields()" />
-  <pio-choices lockable [lines]="picks.choices()" [locked]="locked()" (lockChange)="keep($event)" />
+  <pio-choices
+    lockable
+    [lines]="picks.choices()"
+    [locked]="locked()"
+    [problems]="problems()"
+    (lockChange)="keep($event)"
+  />
   <fr-stack direction="horizontal" justify="end">
     <fr-async-button
       [action]="reroll"
