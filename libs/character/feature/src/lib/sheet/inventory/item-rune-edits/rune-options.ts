@@ -12,6 +12,7 @@ import type {
   InventoryItemId,
   ItemEntry,
   RunedContent,
+  RuneEntry,
   RuneRef,
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
@@ -53,11 +54,11 @@ export function hasPropertyRoom(item: InventoryItem, entry: ItemEntry | undefine
  * The property runes `item` can take, by name: those for its kind of item it hasn't already. None for a specific
  * item, whose property runes are as printed.
  */
-export function propertyRuneOptions(
+export function propertyRuneEntries(
   { runes }: RunedContent,
   { item, entry }: { readonly item: InventoryItem; readonly entry: ItemEntry | undefined },
   compare: (left: string, right: string) => number,
-): readonly SelectOption<ContentId>[] {
+): readonly RuneEntry[] {
   const runed = runedItemOf(entry);
   if (runed === undefined || isSpecific(entry)) {
     return [];
@@ -65,8 +66,16 @@ export function propertyRuneOptions(
   const etched = itemRunes(item, entry).property;
   return [...runes.values()]
     .filter(({ id, data }) => data.type === RuneType.Property && data.etchedOnto.item === runed && !etched.includes(id))
-    .toSorted((left, right) => compare(left.name, right.name))
-    .map(({ id, name }) => ({ value: id, label: name }));
+    .toSorted((left, right) => compare(left.name, right.name));
+}
+
+/** The property runes `item` can take, by name, as a select offers them. */
+export function propertyRuneOptions(
+  content: RunedContent,
+  slot: { readonly item: InventoryItem; readonly entry: ItemEntry | undefined },
+  compare: (left: string, right: string) => number,
+): readonly SelectOption<ContentId>[] {
+  return propertyRuneEntries(content, slot, compare).map(({ id, name }) => ({ value: id, label: name }));
 }
 
 /** A rune etched onto an item, as the move form names it: `fundamental:potency`, or `property:<id>`. */

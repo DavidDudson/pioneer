@@ -25,23 +25,33 @@
       />
     </fr-inline-field>
     <fr-inline-field [label]="'character.sheet.inventory.placeOf' | transloco: { name: name() }" [edit]="place">
-      <fr-select
+      <fr-picker
         frInlineEditor
         [ariaLabel]="'character.sheet.inventory.placeOf' | transloco: { name: name() }"
-        [options]="places()"
+        [rows]="places.rows.shown()"
+        [columns]="places.columns()"
+        [rowValue]="places.value"
+        [rowLabel]="places.label"
         [value]="place.draft()"
         (valueChange)="place.change($event)"
+        (searched)="places.rows.query.set($event)"
+        (sorted)="places.rows.ordering.set($event)"
         (committed)="place.flushSoon()"
         (cancelled)="place.cancel()"
       />
     </fr-inline-field>
     <fr-inline-field [label]="'character.sheet.inventory.carryOf' | transloco: { name: name() }" [edit]="carry">
-      <fr-select
+      <fr-picker
         frInlineEditor
         [ariaLabel]="'character.sheet.inventory.carryOf' | transloco: { name: name() }"
-        [options]="carries()"
+        [rows]="carries.rows.shown()"
+        [columns]="carries.columns()"
+        [rowValue]="carries.value"
+        [rowLabel]="carries.label"
         [value]="carry.draft()"
         (valueChange)="carry.change($event)"
+        (searched)="carries.rows.query.set($event)"
+        (sorted)="carries.rows.ordering.set($event)"
         (committed)="carry.flushSoon()"
         (cancelled)="carry.cancel()"
       />

@@ -159,7 +159,31 @@
       "move": "Move rune off {name}",
       "moving": "Moving…",
       "unknownRune": "A rune no loaded content has",
-      "failed": "The rune couldn't be changed. Try again."
+      "failed": "The rune couldn't be changed. Try again.",
+      "kind": {
+        "fundamental": "Fundamental",
+        "property": "Property"
+      },
+      "columns": {
+        "name": "Rune",
+        "kind": "Kind",
+        "level": "Level",
+        "effect": "Effect",
+        "price": "Price",
+        "slots": "Property slot",
+        "slotsUsed": "Property slots used"
+      },
+      "targetColumns": {
+        "name": "Item",
+        "kind": "Kind",
+        "slots": "Property slots",
+        "slotsUsed": "Property slots used"
+      },
+      "itemKind": {
+        "weapon": "Weapon",
+        "armor": "Armour",
+        "shield": "Shield"
+      }
     },
     "inventory": {
       "heading": "Inventory",
@@ -201,6 +225,28 @@
         "gp": "Gold (gp)",
         "sp": "Silver (sp)",
         "cp": "Copper (cp)"
+      },
+      "placeColumns": {
+        "name": "Place",
+        "bulk": "Holds",
+        "items": "Items"
+      },
+      "placeBulk": "{held} of {capacity} Bulk",
+      "placeBulkUnlimited": "{held} Bulk, no limit",
+      "placeItems": "{count, plural, =0 {Empty} one {# item} other {# items}}",
+      "carryColumns": {
+        "name": "Carried",
+        "hands": "Hands",
+        "effect": "Effect",
+        "bulk": "Bulk counted",
+        "handsUsed": "Hands used"
+      },
+      "carryEffect": {
+        "worn": "On the body, so it takes no hand",
+        "oneHand": "Ready to use, in one hand",
+        "twoHands": "Ready to use, in both hands",
+        "stowed": "Put away, in a pack or on the belt",
+        "dropped": "Left behind, so it adds no Bulk"
       }
     },
     "skillsHeading": "Skills",

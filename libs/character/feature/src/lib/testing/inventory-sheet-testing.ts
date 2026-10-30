@@ -2,11 +2,13 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import type { TestRequest } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { CharacterId } from '@pioneer/character/domain';
 import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId, KIT_FIXTURE_FILES } from '@pioneer/character/domain/testing';
 import { frontierMessages } from '@pioneer/frontier';
+import { Picker } from '@pioneer/frontier/data';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { expect, onTestFinished, vi } from 'vitest';
@@ -58,6 +60,9 @@ export async function settle(): Promise<void> {
 /** The packs the sheet loads in these tests: the item fixtures and kits of them. */
 export const SHEET_PACKS = [ITEM_FIXTURE_FILES, KIT_FIXTURE_FILES];
 
+/** The sheet the spec opened last, so a pick can reach its pickers. */
+let opened: RouterTestingHarness | undefined = undefined;
+
 /** Answers the sheet's reads of Valeros's play state, packs and variant rules, none of them changed. */
 async function answerServerState(approvals?: object): Promise<void> {
   await answerPlayRead();
@@ -77,6 +82,7 @@ async function openSheet(url: string, character: object, approvals?: object): Pr
     ],
   });
   const harness = await RouterTestingHarness.create(url);
+  opened = harness;
   const host: unknown = harness.fixture.nativeElement;
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('The sheet did not render');
@@ -139,6 +145,40 @@ export async function typeInto(target: HTMLElement, text: string): Promise<void>
   input.value = text;
   input.dispatchEvent(new Event('input'));
   input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true }));
+  await settle();
+}
+
+/** Opens the inline editor in `target` and returns the picker it shows. */
+async function openPicker(target: HTMLElement): Promise<Picker<string, object>> {
+  present(target.querySelector<HTMLElement>('button')).click();
+  await settle();
+  return vi.waitFor(() => {
+    const found = present(opened)
+      .fixture.debugElement.queryAll(By.directive(Picker))
+      .find((each) => each.nativeElement instanceof Node && target.contains(each.nativeElement));
+    return present(found).injector.get<Picker<string, object>>(Picker);
+  });
+}
+
+/** Opens the inline picker in `target` and names the rows it offers, in order. */
+export async function rowLabels(target: HTMLElement): Promise<readonly string[]> {
+  const picker = await openPicker(target);
+  return vi.waitFor(() => {
+    const labels = picker.rows().map((each) => picker.rowLabel()(each));
+    expect(labels.length).toBeGreaterThan(0);
+    return labels;
+  });
+}
+
+/**
+ * Opens the inline picker in `target` and picks the row named `label`, as a press on its row does. The table renders
+ * no rows in the page harness (#734), so the pick is made on the picker itself: its own specs press the rows.
+ */
+export async function pickRow(target: HTMLElement, label: string): Promise<void> {
+  const picker = await openPicker(target);
+  const choice = present(picker.rows().find((each) => picker.rowLabel()(each) === label));
+  picker.value.set(picker.rowValue()(choice));
+  picker.committed.emit();
   await settle();
 }
 

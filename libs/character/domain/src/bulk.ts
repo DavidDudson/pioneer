@@ -1,5 +1,5 @@
 import { BulkWeight, Coin, ContentKind, ItemCount } from '@pioneer/rules/sdk';
-import type { AttributeModifier, Bulk, ContentId, ItemContainer } from '@pioneer/rules/sdk';
+import type { AttributeModifier, Bulk, BulkCount, ContentId, ItemContainer } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -207,5 +207,39 @@ export function inventoryBulk(inventory: Inventory, content: ItemContent, streng
     encumberedAfter,
     maximum,
     encumbrance: encumbranceOf(wholeBulk(carried), encumberedAfter, maximum),
+  };
+}
+
+/** A count of the lines a container holds directly. */
+export const HeldLines = z.int().nonnegative().brand<'HeldLines'>();
+export type HeldLines = z.infer<typeof HeldLines>;
+
+/** What a container holds against what it can: the Bulk inside it, its limit, and how many lines it holds. */
+export interface ContainerLoad {
+  /** The Bulk inside, less what the container ignores, in tenths. */
+  readonly held: LightBulk;
+  /** The whole Bulk it can hold; undefined when it has no limit. */
+  readonly capacity: BulkCount | undefined;
+  /** How many lines of the inventory it holds directly. */
+  readonly lines: HeldLines;
+}
+
+/** What the container `id` holds, or undefined when it is not in `inventory` or its content is not a container. */
+export function containerLoad(
+  inventory: Inventory,
+  content: ItemContent,
+  id: InventoryItemId,
+): ContainerLoad | undefined {
+  const item = inventory.items.find((each) => each.id === id);
+  const entry = item === undefined ? undefined : content.get(item.item);
+  const container = entry === undefined ? undefined : containerOf(entry);
+  if (item === undefined || entry === undefined || container === undefined) {
+    return undefined;
+  }
+  const context = { content, contents: contentsByContainer(inventory.items) };
+  return {
+    held: contentsBulk(context, { item, entry }),
+    capacity: container.capacity,
+    lines: HeldLines.parse(context.contents.get(id)?.length ?? 0),
   };
 }

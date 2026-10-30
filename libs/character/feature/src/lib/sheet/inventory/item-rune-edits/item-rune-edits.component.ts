@@ -5,33 +5,27 @@ import { form, FormField, validateStandardSchema } from '@angular/forms/signals'
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterPatchField, InventoryItemId, RuneEtchingSchema, runedItemOf } from '@pioneer/character/domain';
 import type { Character, InventoryItem, ItemEntry, RunedContent, RuneRef } from '@pioneer/character/domain';
-import {
-  AsyncButton,
-  AsyncForm,
-  Grid,
-  InlineField,
-  LocaleFormat,
-  Select,
-  SelectField,
-  Stack,
-  Text,
-} from '@pioneer/frontier';
-import type { InlineEdit, SelectOption } from '@pioneer/frontier';
+import { AsyncButton, AsyncForm, Grid, InlineField, LocaleFormat, Stack, Text } from '@pioneer/frontier';
+import type { InlineEdit } from '@pioneer/frontier';
+import { Picker, PickerField } from '@pioneer/frontier/data';
 import { ContentId, FundamentalRune, RuneType } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
 import { sheetField } from '../../sheet-field';
+import { PickerRows } from '../picker-rows';
 import { RuneMove } from './rune-move.component';
 import {
   etchedRunes,
   fundamentalRunesFor,
-  gradeChoices,
   hasPropertyRoom,
   printedGrade,
+  propertyRuneEntries,
   propertyRuneOptions,
 } from './rune-options';
+import { gradeRows, propertyRows, RUNE_ORDER, runeColumns, runeRowLabel, runeValue } from './rune-picker';
+import type { RuneRow, RuneWords } from './rune-picker';
 import { describeRuneError, gradeLabel } from './rune-text';
 
 /** No grade etched: the select's value for none, or for what a specific item comes with. */
@@ -58,7 +52,7 @@ interface GradeRow {
   readonly rune: FundamentalRune;
   readonly label: string;
   readonly edit: InlineEdit<string | undefined>;
-  readonly options: readonly SelectOption<string>[];
+  readonly rows: PickerRows<RuneRow>;
 }
 
 /** A property rune etched onto the item, to erase. */
@@ -81,9 +75,9 @@ interface PropertyRow {
     FormField,
     Grid,
     InlineField,
+    Picker,
+    PickerField,
     RuneMove,
-    Select,
-    SelectField,
     Stack,
     Text,
     TranslocoPipe,
@@ -119,6 +113,38 @@ export class ItemRuneEdits {
   /** Whether the item takes runes at all: a weapon, armour or a shield. */
   protected readonly takesRunes = computed(() => runedItemOf(this.#entry()) !== undefined);
 
+  /** "Fundamental" and "Property", re-read when the language changes or the messages load. */
+  readonly #words: Signal<RuneWords> = computed(() => {
+    this.#messages();
+    return {
+      fundamental: this.#i18n.translate('character.sheet.runes.kind.fundamental'),
+      property: this.#i18n.translate('character.sheet.runes.kind.property'),
+    };
+  });
+
+  /** The columns of every rune picker. */
+  protected readonly runeColumns = computed(() => {
+    this.#messages();
+    return runeColumns({
+      name: this.#i18n.translate('character.sheet.runes.columns.name'),
+      kind: this.#i18n.translate('character.sheet.runes.columns.kind'),
+      level: this.#i18n.translate('character.sheet.runes.columns.level'),
+      effect: this.#i18n.translate('character.sheet.runes.columns.effect'),
+      price: this.#i18n.translate('character.sheet.runes.columns.price'),
+      slots: this.#i18n.translate('character.sheet.runes.columns.slots'),
+      slotsUsed: this.#i18n.translate('character.sheet.runes.columns.slotsUsed'),
+    });
+  });
+  protected readonly runeValue = runeValue;
+  protected readonly runeLabel = runeRowLabel;
+
+  readonly #gradePickers: Readonly<Record<FundamentalRune, PickerRows<RuneRow>>> = {
+    [FundamentalRune.Potency]: this.#gradePicker(FundamentalRune.Potency),
+    [FundamentalRune.Striking]: this.#gradePicker(FundamentalRune.Striking),
+    [FundamentalRune.Resilient]: this.#gradePicker(FundamentalRune.Resilient),
+    [FundamentalRune.Reinforcing]: this.#gradePicker(FundamentalRune.Reinforcing),
+  };
+
   readonly #grades: Readonly<Record<FundamentalRune, InlineEdit<string | undefined>>> = {
     [FundamentalRune.Potency]: this.#gradeField(FundamentalRune.Potency),
     [FundamentalRune.Striking]: this.#gradeField(FundamentalRune.Striking),
@@ -133,7 +159,7 @@ export class ItemRuneEdits {
       rune,
       label: this.#i18n.translate(GRADE_LABELS[rune], { name: this.name() }),
       edit: this.#grades[rune],
-      options: this.#gradeOptions(rune, entry),
+      rows: this.#gradePickers[rune],
     }));
   });
 
@@ -145,15 +171,21 @@ export class ItemRuneEdits {
     );
   });
 
-  /** The property runes the item can take, while it has room for one. */
-  protected readonly propertyChoices: Signal<readonly SelectOption<ContentId>[]> = computed(() => {
-    const item = this.#item();
-    const entry = this.#entry();
-    if (item === undefined || !hasPropertyRoom(item, entry)) {
-      return [];
-    }
-    return propertyRuneOptions(this.content(), { item, entry }, (left, right) => this.#format.compare(left, right));
-  });
+  /** The property runes the item can take, while it has room for one, as rows for the picker. */
+  protected readonly propertyPicker = new PickerRows<RuneRow>(
+    computed(() => {
+      const item = this.#item();
+      const entry = this.#entry();
+      if (item === undefined || !hasPropertyRoom(item, entry)) {
+        return [];
+      }
+      const entries = propertyRuneEntries(this.content(), { item, entry }, (left, right) =>
+        this.#format.compare(left, right),
+      );
+      return propertyRows(entries, this.#words());
+    }),
+    RUNE_ORDER,
+  );
 
   /** Whether the item could take a property rune, but its potency rune leaves no room. */
   protected readonly needsPotency = computed(() => {
@@ -202,7 +234,7 @@ export class ItemRuneEdits {
       empty: NONE,
       schema: GradeDraft,
       save: async (value) => this.#saveGrade(rune, GradeDraft.parse(value ?? NONE)),
-      format: (value) => this.#gradeOptions(rune, this.#entry()).find((option) => option.value === value)?.label ?? '',
+      format: (value) => this.#gradePickers[rune].all().find((row) => row.value === value)?.label ?? '',
     });
   }
 
@@ -222,19 +254,22 @@ export class ItemRuneEdits {
     }
   }
 
-  /** None, or a specific item's grade as it comes, then each grade that can be etched. */
-  #gradeOptions(rune: FundamentalRune, entry: ItemEntry | undefined): readonly SelectOption<string>[] {
-    const printed = printedGrade(rune, entry);
-    const none =
-      printed === undefined
-        ? this.#i18n.translate('character.sheet.runes.none')
-        : this.#i18n.translate('character.sheet.runes.asMade', { grade: gradeLabel(this.#i18n, rune, printed) });
-    return [
-      { value: NONE, label: none },
-      ...gradeChoices(rune, entry).map((grade) => ({
-        value: String(grade),
-        label: gradeLabel(this.#i18n, rune, grade),
-      })),
-    ];
+  /** The rows of `rune`'s picker: none, or a specific item's grade as it comes, then each grade that can be etched. */
+  #gradePicker(rune: FundamentalRune): PickerRows<RuneRow> {
+    const all = computed((): readonly RuneRow[] => {
+      this.#messages();
+      const entry = this.#entry();
+      const printed = printedGrade(rune, entry);
+      const none =
+        printed === undefined
+          ? this.#i18n.translate('character.sheet.runes.none')
+          : this.#i18n.translate('character.sheet.runes.asMade', { grade: gradeLabel(this.#i18n, rune, printed) });
+      return gradeRows(
+        this.content(),
+        { rune, entry, none: { value: NONE, label: none }, words: this.#words() },
+        this.#i18n,
+      );
+    });
+    return new PickerRows(all, RUNE_ORDER);
   }
 }
