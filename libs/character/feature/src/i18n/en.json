@@ -508,7 +508,15 @@
     },
     "formPreview": {
       "feet": "{value} feet",
-      "tempHp": "Temporary Hit Points"
+      "tempHp": "Temporary Hit Points",
+      "size": "Size",
+      "strikes": "Strikes",
+      "senses": "Senses",
+      "casting": "Casting spells",
+      "speech": "Speaking",
+      "hands": "Using your hands",
+      "can": "You can",
+      "cannot": "You can't"
     },
     "counted": {
       "slot": "{source} rank {rank} slots",
