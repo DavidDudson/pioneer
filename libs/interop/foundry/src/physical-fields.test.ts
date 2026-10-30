@@ -48,6 +48,8 @@ describe('usageOf', () => {
     ['held-in-two-hands', { type: 'held', hands: 'two' }],
     ['worn', { type: 'worn' }],
     ['worncloak', { type: 'worn', slot: 'cloak' }],
+    ['worn-under-armor', { type: 'worn', slot: 'under-armor' }],
+    ['worn-and-attached-to-two-weapons', { type: 'worn', slot: 'and-attached-to-two-weapons' }],
     ['affixed-to-armor-or-a-weapon', { type: 'affixed', to: 'armor-or-a-weapon' }],
     ['attached-to-crossbow-or-firearm-scope', { type: 'attached', to: 'crossbow-or-firearm-scope' }],
     ['applied-to-a-weapon', { type: 'applied', to: 'a-weapon' }],

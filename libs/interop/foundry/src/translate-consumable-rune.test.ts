@@ -122,6 +122,15 @@ describe('translateKindData: runes', () => {
     });
   });
 
+  test('a rune for monks is etched onto a melee weapon a monk uses', () => {
+    const flurrying = translate([alignment('fLuRrY0000000001', 'Flurrying', 'etched-onto-melee-weapon-monk')]);
+
+    expect(dataIn(flurrying, 'flurrying')).toMatchObject({
+      etchedOnto: { item: 'weapon', restriction: 'monk-melee' },
+    });
+    expect(gapKeys(flurrying)).toEqual([]);
+  });
+
   test('the alignment runes are etched onto a weapon without the opposite rune (Foundry labels them swapped)', () => {
     const alignments = translate([
       alignment('hOlY000000000001', 'Holy', 'etched-onto-weapon-wo-holy-rune'),
