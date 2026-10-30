@@ -3,6 +3,7 @@ import { TranslocoService } from '@jsverse/transloco';
 import { EffectInstanceId, SELF } from '@pioneer/character/domain';
 import type { ActiveEffect } from '@pioneer/character/domain';
 import { ContentId } from '@pioneer/rules/sdk';
+import type { ContentKind } from '@pioneer/rules/sdk';
 import { FormPicker } from '@pioneer/rules/ui';
 import type { FormPickerOption, FormPreview } from '@pioneer/rules/ui';
 import { newId } from '@pioneer/shared/kernel';
@@ -10,11 +11,15 @@ import { newId } from '@pioneer/shared/kernel';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { EQUIPMENT_CONTENT_KINDS } from '../sheet-equipment';
 import { describeSaveError } from '../sheet-field';
+import { FORM_CAST_CONTENT_KINDS } from '../sheet-form-cast';
 import type { FormCastChoice } from '../sheet-form-cast';
 import { sheetFormPreview } from '../sheet-form-preview';
 import { SheetSpender } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
 import { sheetFormTempHp } from '../sheet-statistics';
+
+/** What the preview reads: the content the engine derives the sheet from, and the spells and effects the cast offers, so a choice always resolves. */
+const FORM_PICKER_CONTENT_KINDS: readonly ContentKind[] = [...EQUIPMENT_CONTENT_KINDS, ...FORM_CAST_CONTENT_KINDS];
 
 /**
  * The picker a battle form spell opens when it is cast from the sheet (#525): the forms its effects offer at the rank
@@ -31,7 +36,7 @@ export class SheetFormPicker {
   protected readonly spender = inject(SheetSpender);
   readonly #sheet = inject(SheetState);
   readonly #i18n = inject(TranslocoService);
-  readonly #registry = injectContentRegistry(EQUIPMENT_CONTENT_KINDS);
+  readonly #registry = injectContentRegistry(FORM_PICKER_CONTENT_KINDS);
 
   protected readonly pending = this.spender.pendingForm;
 
@@ -54,6 +59,12 @@ export class SheetFormPicker {
     this.pending()?.choices.find(({ value }) => value === this.picked()),
   );
 
+  /** The instance the picked form is previewed as and applied as, new for each form picked and kept across refetches of the character. */
+  readonly #instance = computed((): EffectInstanceId => {
+    this.#choice();
+    return EffectInstanceId.parse(newId());
+  });
+
   /** The effect the picked form would put on the character, as the sheet would apply it. */
   readonly #candidate = computed((): ActiveEffect | undefined => {
     const choice = this.#choice();
@@ -61,7 +72,7 @@ export class SheetFormPicker {
     return choice === undefined || pending === undefined
       ? undefined
       : {
-          id: EffectInstanceId.parse(newId()),
+          id: this.#instance(),
           effect: ContentId.parse(choice.effect),
           source: SELF,
           rank: pending.rank,
@@ -93,7 +104,7 @@ export class SheetFormPicker {
     if (choice === undefined || registry === undefined || character === undefined || candidate === undefined) {
       return;
     }
-    await this.spender.castForm(choice, sheetFormTempHp(registry, character, candidate));
+    await this.spender.castForm(choice, sheetFormTempHp(registry, character, candidate), candidate.id);
     this.picked.set(undefined);
   };
 
