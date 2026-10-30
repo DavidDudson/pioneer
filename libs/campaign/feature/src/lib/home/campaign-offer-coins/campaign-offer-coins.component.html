@@ -1,0 +1,49 @@
+<fr-disclosure [(open)]="open">
+  <fr-text frDisclosureSummary>{{ 'campaign.transfers.offerCoins' | transloco }}</fr-text>
+  <fr-stack gap="sm">
+    @if (party.isError()) {
+      <fr-message>{{ 'campaign.transfers.partyLoadError' | transloco }}</fr-message>
+    }
+    @if (!party.isPending() && !party.isError() && rows().length === 0 && query() === '') {
+      <fr-text variant="caption" tone="subtle">{{ 'campaign.transfers.noRecipients' | transloco }}</fr-text>
+    } @else {
+      <fr-grid [columns]="4">
+        @for (field of fields; track field.coin) {
+          <fr-stack gap="3xs">
+            <fr-text variant="caption">{{ field.label | transloco }}</fr-text>
+            <fr-number-input
+              [ariaLabel]="field.label | transloco"
+              [min]="0"
+              [max]="purse()[field.coin]"
+              [value]="amounts()[field.coin]"
+              (valueChange)="count(field.coin, $event)"
+            />
+          </fr-stack>
+        }
+      </fr-grid>
+      <fr-picker
+        [rows]="rows()"
+        [columns]="columns()"
+        [rowValue]="rowValue"
+        [rowLabel]="rowLabel"
+        [loading]="party.isPending()"
+        [placeholder]="'campaign.transfers.recipientPlaceholder' | transloco"
+        [(value)]="chosen"
+        (searched)="query.set($event)"
+        (sorted)="sorting.set($event)"
+      />
+      <fr-stack direction="horizontal" justify="start">
+        <fr-async-button
+          size="sm"
+          variant="primary"
+          [action]="offer"
+          [disabled]="idle()"
+          [describeError]="describeError"
+          [pendingLabel]="'campaign.transfers.offering' | transloco"
+          [successLabel]="'campaign.transfers.offered' | transloco"
+          >{{ 'campaign.transfers.offerCoinsTo' | transloco }}</fr-async-button
+        >
+      </fr-stack>
+    }
+  </fr-stack>
+</fr-disclosure>

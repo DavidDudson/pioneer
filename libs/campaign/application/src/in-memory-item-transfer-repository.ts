@@ -17,8 +17,12 @@ export class InMemoryItemTransferRepository extends ItemTransferRepository {
     return this.#actors;
   }
 
-  public override async listPending(campaignId: CampaignId): Promise<readonly ItemTransfer[]> {
-    return (this.#transfers.get(campaignId) ?? [])
+  public override async listPending(campaignId: CampaignId): Promise<readonly Transfer[]> {
+    const all: readonly Transfer[] = [
+      ...(this.#transfers.get(campaignId) ?? []),
+      ...(this.#coins.get(campaignId) ?? []),
+    ];
+    return all
       .filter((each) => each.status === TransferStatus.Pending)
       .toSorted(
         (left, right) => Temporal.Instant.compare(left.createdAt, right.createdAt) || left.id.localeCompare(right.id),

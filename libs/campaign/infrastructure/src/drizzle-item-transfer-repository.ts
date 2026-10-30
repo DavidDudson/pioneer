@@ -5,7 +5,7 @@ import type { CampaignId, CoinTransfer, ItemTransfer, ItemTransferId, Transfer }
 import { ConflictError, message, Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
 import { stampAudit } from '@pioneer/shared/server';
-import { and, asc, eq, isNotNull } from 'drizzle-orm';
+import { and, asc, eq } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 import { campaignItemTransfers } from './campaign-item-transfer.table';
@@ -67,19 +67,15 @@ export class DrizzleItemTransferRepository extends ItemTransferRepository {
     this.#db = db;
   }
 
-  public override async listPending(campaignId: CampaignId): Promise<readonly ItemTransfer[]> {
+  public override async listPending(campaignId: CampaignId): Promise<readonly Transfer[]> {
     const rows = await this.#db
       .select()
       .from(campaignItemTransfers)
       .where(
-        and(
-          eq(campaignItemTransfers.campaignId, campaignId),
-          eq(campaignItemTransfers.status, TransferStatus.Pending),
-          isNotNull(campaignItemTransfers.itemId),
-        ),
+        and(eq(campaignItemTransfers.campaignId, campaignId), eq(campaignItemTransfers.status, TransferStatus.Pending)),
       )
       .orderBy(asc(campaignItemTransfers.createdAt), asc(campaignItemTransfers.id));
-    return rows.map((row) => toTransfer(row));
+    return rows.map((row) => (row.itemId === null ? toCoinTransfer(row) : toTransfer(row)));
   }
 
   public override async insert(actor: UserId, campaignId: CampaignId, transfer: ItemTransfer): Promise<void> {

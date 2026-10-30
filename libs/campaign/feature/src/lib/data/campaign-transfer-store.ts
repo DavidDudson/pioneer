@@ -12,13 +12,13 @@ import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
 import { CampaignStore } from './campaign-store';
 
-/** TanStack Query key for a campaign's pending item offers. */
+/** TanStack Query key for a campaign's pending offers. */
 function transfersKey(id: CampaignId | undefined): readonly unknown[] {
   return ['campaigns', 'transfers', id];
 }
 
 /**
- * The pending item offers of the open campaign that involve the user's characters (ADR-0064), cached by TanStack Query.
+ * The pending offers, of items and of coins, of the open campaign that involve the user's characters (ADR-0064), cached by TanStack Query.
  * There is no live stream (ADR-0018): every answer reads the list again, and the query refetches when the window is
  * focused again.
  */

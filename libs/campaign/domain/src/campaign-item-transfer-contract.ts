@@ -18,7 +18,7 @@ const ByTransfer = z.object({ id: CampaignId, transferId: ItemTransferId });
 /** The endpoints for item transfers between a campaign's characters; `CampaignContract` includes them. */
 export const CampaignItemTransferContract = {
   /**
-   * The campaign's pending item offers that involve a character of the user's, as giver or as recipient, oldest first.
+   * The campaign's pending offers, of items and of coins, that involve a character of the user's, as giver or as recipient, oldest first.
    * Not a member is a 404. Offers between other members' characters are not listed.
    */
   listTransfers: new Endpoint({

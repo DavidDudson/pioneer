@@ -3,31 +3,13 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CampaignContract, CharacterId, CampaignId, ReviewedItemId } from '@pioneer/campaign/domain';
 import type { CampaignParty, PartyCharacter } from '@pioneer/campaign/domain';
 import { AsyncButton, Disclosure, Message, Stack, Text } from '@pioneer/frontier';
-import { Picker, tableSchema } from '@pioneer/frontier/data';
-import type { PickerSort, TableColumn } from '@pioneer/frontier/data';
+import { Picker } from '@pioneer/frontier/data';
+import type { PickerSort } from '@pioneer/frontier/data';
 import { ApiClient } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
 import { transferFailure } from '../../data/transfer-error';
-
-/** Reads a message key in the active language. */
-type Say = (key: string) => string;
-
-/** The picker's columns: who, and how far along. */
-function recipientColumns(say: Say): readonly TableColumn<PartyCharacter>[] {
-  return tableSchema<PartyCharacter>()
-    .addText({ id: 'name', header: say('campaign.transfers.recipientName'), value: (row) => row.name })
-    .addText({ id: 'level', header: say('campaign.transfers.recipientLevel'), value: (row) => row.level })
-    .build();
-}
-
-/** How two characters order by the column asked for: level, else equal (the name breaks the tie). */
-function byColumn(left: PartyCharacter, right: PartyCharacter, sort: PickerSort): number {
-  return sort.column === 'level' ? left.level - right.level : 0;
-}
-
-const rowValue = (row: PartyCharacter): string => row.characterId;
-const rowLabel = (row: PartyCharacter): string => row.name;
+import { otherRecipients, recipientColumns, recipientLabel, recipientValue } from '../recipient-picker';
 
 /**
  * Beside an inventory line of a character in a campaign (ADR-0064): offers the line to another character of the party,
@@ -71,24 +53,17 @@ export class CampaignOfferItem {
   protected readonly columns = computed(() => recipientColumns((key) => this.#i18n.translate(key)));
 
   /** The other live characters of the party whose name holds the search, in the order asked for. */
-  protected readonly rows = computed((): readonly PartyCharacter[] => {
-    const needle = this.query().trim().toLocaleLowerCase();
-    const sort = this.sorting();
-    const others = (this.party.data()?.characters ?? []).filter(
-      (each) =>
-        each.characterId !== this.character() && !each.archived && each.name.toLocaleLowerCase().includes(needle),
-    );
-    if (sort === undefined) {
-      return others;
-    }
-    return others.toSorted((left, right) => {
-      const compared = byColumn(left, right, sort) || left.name.localeCompare(right.name);
-      return sort.descending ? -compared : compared;
-    });
-  });
+  protected readonly rows = computed((): readonly PartyCharacter[] =>
+    otherRecipients({
+      party: this.party.data()?.characters ?? [],
+      giver: this.character(),
+      search: this.query(),
+      sort: this.sorting(),
+    }),
+  );
 
-  protected readonly rowValue = rowValue;
-  protected readonly rowLabel = rowLabel;
+  protected readonly rowValue = recipientValue;
+  protected readonly rowLabel = recipientLabel;
   protected readonly idle = computed((): boolean => this.chosen() === undefined);
 
   protected readonly offer = async (): Promise<void> => {

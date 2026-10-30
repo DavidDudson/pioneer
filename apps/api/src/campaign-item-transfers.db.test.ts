@@ -50,7 +50,7 @@ describe.skipIf(adminUrl === undefined)('campaign item transfers over postgres',
     };
   }
 
-  function coinOffer(): CoinTransfer {
+  function coinOffer(overrides: Partial<CoinTransfer> = {}): CoinTransfer {
     return {
       id: ItemTransferId.parse(newId()),
       from: CharacterId.parse(kyra.id),
@@ -59,6 +59,7 @@ describe.skipIf(adminUrl === undefined)('campaign item transfers over postgres',
       giverVersion: GIVER_VERSION,
       status: TransferStatus.Pending,
       createdAt: clock.now(),
+      ...overrides,
     };
   }
 
@@ -145,18 +146,20 @@ describe.skipIf(adminUrl === undefined)('campaign item transfers over postgres',
     expect(await repository.listPending(campaignId)).toHaveLength(1);
   });
 
-  test('a coin offer is stored beside item offers, which never list it', async () => {
+  test('a coin offer is stored beside item offers and listed with them, oldest first', async () => {
     const first = offer();
+    const coins = coinOffer({ createdAt: clock.now().add({ minutes: 1 }) });
     await repository.insert(amiri, campaignId, first);
-    await repository.insertCoins(amiri, campaignId, coinOffer());
-    await repository.insertCoins(amiri, campaignId, coinOffer());
+    await repository.insertCoins(amiri, campaignId, coins);
+    await repository.insertCoins(amiri, campaignId, coinOffer({ createdAt: clock.now().add({ minutes: 2 }) }));
 
     const pending = await repository.listPending(campaignId);
     const stored = await database.db.execute(
       sql`select count(*)::int as total from campaign_item_transfers where campaign_id = ${campaignId} and item_id is null`,
     );
 
-    expect(pending).toStrictEqual([first]);
+    expect(pending.map((each) => each.id).slice(0, 2)).toStrictEqual([first.id, coins.id]);
+    expect(pending).toHaveLength(3);
     expect(stored[0]).toMatchObject({ total: 2 });
   });
 

@@ -1,4 +1,4 @@
-import { ItemTransferId, TransferStatus } from '@pioneer/campaign/domain';
+import { isCoinTransfer, ItemTransferId, TransferStatus } from '@pioneer/campaign/domain';
 import type {
   Campaign,
   CampaignId,
@@ -69,8 +69,8 @@ export class CampaignItemTransferService {
   }
 
   /**
-   * The campaign's pending item offers that involve a live character of the actor's, as giver or as recipient, oldest
-   * first, with the names to show them by. Not a member: 404. An offer whose line is gone is left out.
+   * The campaign's pending offers, of items and of coins, that involve a live character of the actor's, as giver or as recipient, oldest
+   * first, with the names to show them by. Not a member: 404. An item offer whose line is gone is left out.
    */
   public async list(actor: UserId, id: CampaignId): Promise<PendingTransfers> {
     await this.#viewed(actor, id);
@@ -234,7 +234,7 @@ export class CampaignItemTransferService {
       throw new ConflictError(`Inventory item ${item} is a key item`, message(ItemTransferMessage.KeyItemLine));
     }
     const pending = await this.#transfers.listPending(id);
-    if (pending.some((each) => each.from === from && each.item === item)) {
+    if (pending.some((each) => !isCoinTransfer(each) && each.from === from && each.item === item)) {
       throw new ConflictError(
         `Inventory item ${item} is already on offer`,
         message(ItemTransferMessage.AlreadyOffered),

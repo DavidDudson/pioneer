@@ -1,0 +1,5 @@
+@if (control(); as control) {
+  @if (inputs(); as inputs) {
+    <ng-container [ngComponentOutlet]="control" [ngComponentOutletInputs]="inputs" />
+  }
+}
