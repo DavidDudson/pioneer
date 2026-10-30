@@ -17534,6 +17534,131 @@
     ],
     "rules": [
       {
+        "key": "BattleForm",
+        "form": {
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": true,
+          "size": "large",
+          "armorClass": {
+            "modifier": "18 + @level",
+            "ignoreCheckPenalty": true,
+            "ignoreSpeedReduction": true
+          },
+          "tempHP": 10,
+          "speeds": {
+            "land": 40,
+            "fly": 100
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 60
+            }
+          ],
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 23
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "modifier": 22,
+              "damage": {
+                "dice": 2,
+                "die": "d12",
+                "damageType": "piercing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "claw",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "agile"],
+              "modifier": 22,
+              "damage": {
+                "dice": 3,
+                "die": "d10",
+                "damageType": "slashing",
+                "modifier": 6
+              }
+            },
+            {
+              "slug": "tail",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "reach-10"],
+              "modifier": 22,
+              "damage": {
+                "dice": 3,
+                "die": "d10",
+                "damageType": "bludgeoning",
+                "modifier": 6
+              }
+            }
+          ],
+          "traits": ["dragon"]
+        },
+        "brackets": [
+          {
+            "start": 8,
+            "size": "huge",
+            "armorClass": {
+              "modifier": "21 + @level",
+              "ignoreCheckPenalty": true,
+              "ignoreSpeedReduction": true
+            },
+            "tempHP": 15,
+            "speeds": {
+              "land": 40,
+              "fly": 120
+            },
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 28
+              }
+            ],
+            "strikes": [
+              {
+                "slug": "jaws",
+                "traits": ["unarmed", "reach-10"],
+                "modifier": 28,
+                "damage": {
+                  "modifier": 12
+                }
+              },
+              {
+                "slug": "claw",
+                "traits": ["unarmed", "agile", "reach-10"],
+                "modifier": 28,
+                "damage": {
+                  "modifier": 12
+                }
+              },
+              {
+                "slug": "tail",
+                "traits": ["unarmed", "reach-15"],
+                "modifier": 28,
+                "damage": {
+                  "modifier": 12
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "key": "Resistance",
         "type": ["spirit", "void", "vitality"],
         "value": 10,
