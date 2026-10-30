@@ -3173,6 +3173,207 @@
     }
   },
   {
+    "id": "ab7590c4-0f6a-5358-839d-60a3e517aefb",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:elemental-annihilation-wave",
+    "name": "Elemental Annihilation Wave",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["air", "concentrate", "earth", "fire", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw elemental power from your surroundings, and combining it with your own magical energy, unleash a wave of utter destruction and swirling colors that deals 1d6 fire damage and 3d6 bludgeoning damage with a basic Reflex save. You can replace the air trait with the metal and wood traits when you cast the spell. The number of actions you spend when Casting this Spell determines the area and other parameters."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "(somatic, verbal)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spell is a 30-foot cone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "(material, somatic, verbal)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spell is a 30-foot cone. On a failed saving throw, creatures are pushed 5 feet away from you, and on a critical failure they are pushed 10 feet away and are knocked prone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Two Rounds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you spend 3 actions Casting the Spell, you can avoid finishing the spell and spend another 3 actions on your next turn to empower the spell even further. If you do, the spell is as 3 actions, but the area is a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ", and for 1 round, the elements linger in the cone, racing off into the distance and making approaching you difficult, with the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "e48e01db-df29-5558-b6a3-a78233bae1d1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 3d6 bludgeoning and 1d6 fire, and the distance that enemies are pushed back if you spent 3 actions or 2 rounds increases by 5 feet on a failed save and 10 feet on a critical failure."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.NyxQAazFBdBAqZGX"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "either",
+        "options": [
+          {
+            "type": "actions",
+            "cost": "two"
+          },
+          {
+            "type": "time",
+            "count": 2,
+            "unit": "round"
+          }
+        ]
+      },
+      "area": {
+        "shape": "cone",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "1d6",
+          "damageType": "fire",
+          "kinds": ["damage"]
+        },
+        {
+          "key": "1",
+          "formula": "3d6",
+          "damageType": "bludgeoning",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d6"
+          },
+          {
+            "key": "1",
+            "formula": "1d6"
+          }
+        ]
+      },
+      "variants": [
+        {
+          "time": {
+            "type": "actions",
+            "cost": "two"
+          }
+        },
+        {
+          "time": {
+            "type": "actions",
+            "cost": "three"
+          }
+        },
+        {
+          "name": "Elemental Annihilation Wave (2 Rounds)",
+          "time": {
+            "type": "time",
+            "count": 2,
+            "unit": "round"
+          }
+        }
+      ]
+    }
+  },
+  {
     "id": "4fcdc237-3755-51d5-bced-190102782ef2",
     "pack": "rage-of-elements",
     "kind": "spell",

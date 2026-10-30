@@ -1918,7 +1918,16 @@
       },
       "hitPoints": 240,
       "immunities": ["bleed", "paralyzed", "poison", "sleep"],
-      "weaknesses": [],
+      "weaknesses": [
+        {
+          "type": "area-damage",
+          "value": 10
+        },
+        {
+          "type": "splash-damage",
+          "value": 10
+        }
+      ],
       "resistances": [],
       "speed": 30,
       "skills": [
@@ -2390,7 +2399,16 @@
       },
       "hitPoints": 150,
       "immunities": ["bleed", "paralyzed", "poison", "sleep"],
-      "weaknesses": [],
+      "weaknesses": [
+        {
+          "type": "area-damage",
+          "value": 10
+        },
+        {
+          "type": "splash-damage",
+          "value": 10
+        }
+      ],
       "resistances": [],
       "speed": 25,
       "skills": [
@@ -9265,7 +9283,15 @@
       "immunities": [],
       "weaknesses": [
         {
+          "type": "area-damage",
+          "value": 8
+        },
+        {
           "type": "fire",
+          "value": 8
+        },
+        {
+          "type": "splash-damage",
           "value": 8
         }
       ],
@@ -16886,7 +16912,16 @@
       },
       "hitPoints": 120,
       "immunities": ["bleed", "paralyzed", "poison", "sleep", "swarm-mind", "precision"],
-      "weaknesses": [],
+      "weaknesses": [
+        {
+          "type": "area-damage",
+          "value": 10
+        },
+        {
+          "type": "splash-damage",
+          "value": 10
+        }
+      ],
       "resistances": [
         {
           "type": "bludgeoning",
@@ -19205,7 +19240,16 @@
       },
       "hitPoints": 210,
       "immunities": [],
-      "weaknesses": [],
+      "weaknesses": [
+        {
+          "type": "area-damage",
+          "value": 10
+        },
+        {
+          "type": "splash-damage",
+          "value": 10
+        }
+      ],
       "resistances": [
         {
           "type": "electricity",
@@ -21701,7 +21745,16 @@
       },
       "hitPoints": 240,
       "immunities": ["bleed", "paralyzed", "poison", "sleep"],
-      "weaknesses": [],
+      "weaknesses": [
+        {
+          "type": "area-damage",
+          "value": 10
+        },
+        {
+          "type": "splash-damage",
+          "value": 10
+        }
+      ],
       "resistances": [],
       "speed": 10,
       "skills": [
@@ -23541,7 +23594,15 @@
       "immunities": ["bleed", "paralyzed", "fire", "sleep", "poison"],
       "weaknesses": [
         {
+          "type": "area-damage",
+          "value": 10
+        },
+        {
           "type": "cold",
+          "value": 10
+        },
+        {
+          "type": "splash-damage",
           "value": 10
         }
       ],
@@ -23931,7 +23992,15 @@
       "immunities": ["bleed", "paralyzed", "fire", "sleep", "poison"],
       "weaknesses": [
         {
+          "type": "area-damage",
+          "value": 10
+        },
+        {
           "type": "cold",
+          "value": 10
+        },
+        {
+          "type": "splash-damage",
           "value": 10
         }
       ],
