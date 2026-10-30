@@ -5588,5 +5588,45 @@
     "book": "treasure-vault",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2264",
     "page": 135
+  },
+  "armor:buckle-armor": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Armor.aspx?ID=18",
+    "page": 10
+  },
+  "equipment:purloining-cloak": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2401",
+    "page": 196
+  },
+  "rune:authorized": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1864",
+    "page": 32
+  },
+  "rune:flurrying": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1867",
+    "page": 33
+  },
+  "weapon:atlatl": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=329",
+    "page": 30
+  },
+  "weapon:spraysling": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=340",
+    "page": 31
+  },
+  "weapon:three-section-naginata": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=305",
+    "page": 30
+  },
+  "weapon:taw-launcher": {
+    "book": "treasure-vault",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=342",
+    "page": 31
   }
 }

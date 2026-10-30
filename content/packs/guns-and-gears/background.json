@@ -980,7 +980,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 46,
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=262"
       }
     ],
     "description": [

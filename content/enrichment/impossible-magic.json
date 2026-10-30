@@ -5128,5 +5128,35 @@
     "book": "impossible-magic",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5032",
     "page": 211
+  },
+  "spell:horizon-thunder-sphere": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2732",
+    "page": 144
+  },
+  "spell:inner-radiance-torrent": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2751",
+    "page": 149
+  },
+  "spell:metallic-meteorite-glyph": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2768",
+    "page": 153
+  },
+  "spell:psychic-outburst": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2795",
+    "page": 158
+  },
+  "spell:vampiric-revelry": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2856",
+    "page": 169
+  },
+  "spell:weapon-tide": {
+    "book": "impossible-magic",
+    "aon": "https://2e.aonprd.com/Spells.aspx?ID=2865",
+    "page": 172
   }
 }
