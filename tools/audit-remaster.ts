@@ -27,7 +27,7 @@ const BOOKS: readonly string[] = [
   'high-seas',
   'rival-academies',
 ];
-const CLASSES: readonly RemasterClass[] = ['activation', 'variant', 'missing-kind', 'typo', 'review'];
+const CLASSES: readonly RemasterClass[] = ['activation', 'variant', 'missing-kind', 'non-entry', 'typo', 'review'];
 const JsonArray = z.array(z.unknown()).readonly();
 
 /** The pack names AoN's matcher reads: the name, without its parenthetical, and without its comma suffix. */

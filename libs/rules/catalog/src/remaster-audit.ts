@@ -6,7 +6,7 @@
  */
 
 /** Why a row has no pack entry of its name. */
-export type RemasterClass = 'activation' | 'variant' | 'missing-kind' | 'typo' | 'review';
+export type RemasterClass = 'activation' | 'variant' | 'missing-kind' | 'non-entry' | 'typo' | 'review';
 
 /** An AoN listing row: the page type it sits under and its name. */
 export interface RemasterCandidate {
@@ -18,8 +18,13 @@ export interface RemasterCandidate {
  * The AoN page types with no matching `ContentKind`, so none of their rows can be an entry (#1244). Equipment, Feats,
  * Spells and the like are not here: a row of those has a kind and is either explained by another rule or a gap.
  */
+/** Rows of a book's page furniture, not content: a sidebar, a category index, the book's own source row. */
+const NON_ENTRY_TYPES: ReadonlySet<string> = new Set(['Category Page', 'Sidebar', 'Source']);
+
 const MISSING_KIND_TYPES: ReadonlySet<string> = new Set([
+  'Animal Companion',
   'Apparitions',
+  'Armor Specialization',
   'Arcane Schools',
   'Arcane Thesis',
   'Bloodlines',
@@ -61,6 +66,7 @@ const MISSING_KIND_TYPES: ReadonlySet<string> = new Set([
   'Traits',
   'Vehicles',
   'Ways',
+  'Weapon Critical Specialization',
 ]);
 
 /**
@@ -136,7 +142,7 @@ function isVariant(name: string, packNames: ReadonlySet<string>): boolean {
 
 /**
  * Classifies one row that has no pack entry of its name. `packNames` holds the normalised names of the packs' entries
- * (`normaliseName`). A row is an activation when it is an action row named only by its traits, a missing kind when its
+ * (`normaliseName`). A row is a non-entry when it is page furniture, an activation when it is an action row named only by its traits, a missing kind when its
  * AoN page type has no `ContentKind`, a variant when it is a precious-material grade, a tiered or runed form of a pack
  * entry, or a generic magic item, and a typo when a pack name is one or two edits away.
  */
@@ -146,6 +152,9 @@ export function classifyRemasterCandidate(
 ): RemasterClass {
   if (type === 'Action' && ACTIVATION_NAME.test(name.trim())) {
     return 'activation';
+  }
+  if (NON_ENTRY_TYPES.has(type)) {
+    return 'non-entry';
   }
   if (MISSING_KIND_TYPES.has(type)) {
     return 'missing-kind';

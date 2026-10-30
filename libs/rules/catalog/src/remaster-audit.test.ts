@@ -26,6 +26,11 @@ describe('classifyRemasterCandidate', () => {
     expect(classify('Vehicles', 'Chariot')).toBe('missing-kind');
   });
 
+  test('page furniture is a non-entry', () => {
+    expect(classify('Sidebar', 'Flat Checks')).toBe('non-entry');
+    expect(classify('Source', 'Player Core')).toBe('non-entry');
+  });
+
   test('material grades, tiers, runes and generic magic items are variants', () => {
     expect(classify('Equipment', 'Silver Armor (Low-Grade)')).toBe('variant');
     expect(classify('Equipment', 'Cold Iron')).toBe('variant');
