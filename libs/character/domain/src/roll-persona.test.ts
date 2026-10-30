@@ -12,7 +12,7 @@ describe('rollPersona', () => {
 
   it('names the character from the name table and writes a trait and a flaw', () => {
     const persona = rollPersona(Seed.parse(7));
-    expect(CHARACTER_NAMES.entries).toContain(persona.name);
+    expect(CHARACTER_NAMES.entries.map(String)).toContain(persona.name);
     expect(persona.personality).toHaveLength(2);
   });
 

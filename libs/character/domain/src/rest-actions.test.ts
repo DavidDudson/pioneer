@@ -15,6 +15,7 @@ import type { ActiveCondition } from './conditions';
 import { abilityUseKey, Boundary, slotCountKey } from './counted-resources';
 import type { CountedMaxima } from './counted-resources';
 import { Doomed, Dying, Wounded } from './death-track';
+import { NO_ENVIRONMENT_GROUPS } from './environments';
 import { InventoryItemId } from './inventory';
 import { applyPlayCommand, FRESH_PLAY, PlayCommandField } from './play-state';
 import type { PlayLimits, PlayState } from './play-state';
@@ -63,6 +64,7 @@ const LIMITS: PlayLimits = {
   staff: NO_STAFF,
   valued: new Map(),
   effects: new Map(),
+  environmentGroups: NO_ENVIRONMENT_GROUPS,
   shields: NO_SHIELDS,
   spend: TEST_SPEND,
 };

@@ -76,7 +76,7 @@ describe('passTime', () => {
       within(MAX),
     );
 
-    expect(on.exposure).toEqual([{ environment: COLD, elapsed: 0 }]);
+    expect(on.exposure).toEqual([{ environment: COLD, elapsed: ExposureRounds.parse(0) }]);
     expect(off.exposure).toEqual([]);
   });
 
