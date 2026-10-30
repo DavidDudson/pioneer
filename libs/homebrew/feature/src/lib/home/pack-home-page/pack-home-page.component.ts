@@ -12,15 +12,16 @@ import {
   Page,
   PageBody,
   PageHeader,
-  SelectField,
   Skeleton,
   Stack,
   Surface,
   Text,
 } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
 import type { HomebrewPack } from '@pioneer/homebrew/domain';
 import { PackVisibility } from '@pioneer/rules/sdk';
+import { injectOptionRows } from '@pioneer/rules/ui';
 import { HttpStatus } from '@pioneer/shared/kernel';
 import { ApiError } from '@pioneer/shared/web';
 import { filter, merge } from 'rxjs';
@@ -54,7 +55,7 @@ const VISIBILITY_MESSAGES = {
     PageBody,
     PageHeader,
     PackDependenciesPanel,
-    SelectField,
+    PickerField,
     Skeleton,
     Stack,
     Surface,
@@ -83,6 +84,8 @@ export class PackHomePage {
       label: this.#i18n.translate(VISIBILITY_MESSAGES[visibility]),
     }));
   });
+
+  protected readonly visibility = injectOptionRows(this.visibilityOptions);
 
   /** Why the last change was refused, until the next one. */
   protected readonly visibilityError = signal<string | undefined>(undefined);

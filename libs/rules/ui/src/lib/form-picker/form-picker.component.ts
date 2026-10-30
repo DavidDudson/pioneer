@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, input, model, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { AsyncButton, Button, Select, Stack, Surface, Text } from '@pioneer/frontier';
+import { AsyncButton, Button, Stack, Surface, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
+
+import { OptionPicker } from '../option-picker/option-picker.component';
 
 /** One form the cast offers, as the picker lists it. */
 export interface FormPickerOption {
@@ -45,7 +47,7 @@ const FormPickerMessage = {
  */
 @Component({
   selector: 'pio-form-picker',
-  imports: [AsyncButton, Button, Select, Stack, Surface, Text, TranslocoPipe],
+  imports: [AsyncButton, Button, OptionPicker, Stack, Surface, Text, TranslocoPipe],
   templateUrl: './form-picker.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

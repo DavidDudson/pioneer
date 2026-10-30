@@ -30,7 +30,7 @@ describe(GenerateCharacter, () => {
     });
     const fixture = TestBed.createComponent(GenerateCharacter);
     await fixture.whenStable();
-    const select = (fixture.nativeElement as HTMLElement).querySelector('fr-select button');
+    const select = (fixture.nativeElement as HTMLElement).querySelector('pio-option-picker button');
     expect(select?.textContent).toContain('No choice');
 
     TestBed.inject(TranslocoService).setActiveLang('fr');

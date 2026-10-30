@@ -3,7 +3,8 @@ import type { DebugElement } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages, SelectField } from '@pioneer/frontier';
+import { frontierMessages } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -62,7 +63,7 @@ async function openLoaded(): Promise<RouterTestingHarness> {
 }
 
 function visibilityField(harness: RouterTestingHarness): DebugElement {
-  const [field] = harness.fixture.debugElement.queryAll((each) => each.componentInstance instanceof SelectField);
+  const [field] = harness.fixture.debugElement.queryAll((each) => each.componentInstance instanceof PickerField);
   return present(field);
 }
 
@@ -141,7 +142,7 @@ describe('PackHomePage', () => {
     });
   });
 
-  it('puts the select back on the real visibility when a change fails for any other reason', async () => {
+  it('puts the picker back on the real visibility when a change fails for any other reason', async () => {
     const harness = await openLoaded();
     visibilityField(harness).triggerEventHandler('valueChange', 'public');
     TestBed.inject(HttpTestingController)
@@ -152,7 +153,7 @@ describe('PackHomePage', () => {
         'Could not change who can see this pack. Try again.',
       );
     });
-    const field = visibilityField(harness).componentInstance as SelectField<string>;
+    const field = visibilityField(harness).componentInstance as PickerField<string, object>;
     expect(field.value()).toBe('private');
   });
 
