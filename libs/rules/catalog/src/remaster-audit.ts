@@ -70,10 +70,11 @@ const MISSING_KIND_TYPES: ReadonlySet<string> = new Set([
 ]);
 
 /**
- * An item activation AoN lists as an action has no name of its own: the row's name is its trait list, "(concentrate,
- * manipulate)", whatever the traits are and however they are spelled ("concenctrate").
+ * An item activation AoN lists as an action has no name of its own: the row's name is its trait list and time, however
+ * it is written ("(concentrate, manipulate)", "manipulate", "1 minute (concentrate)", "concenctrate"). A real action
+ * name starts with a capital, so a name with none is a trait list.
  */
-const ACTIVATION_NAME = /^\([a-z, -]+\)$/u;
+const ACTIVATION_NAME = /^[\d\s(),a-z-]+$/u;
 
 /** A precious material, alone or as armor, a shield, a weapon or an object, with its grade: "Silver Armor (Low-Grade)". */
 /** A precious material at the start of a name; what follows must be an item word or a grade. */
