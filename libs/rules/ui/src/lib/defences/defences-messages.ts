@@ -1,5 +1,5 @@
 import { DefenceStatusKind } from '@pioneer/rules/engine';
-import { DamageGroup } from '@pioneer/rules/sdk';
+import { DamageContext, DamageGroup } from '@pioneer/rules/sdk';
 
 /** Message keys the defences panel renders with, spelled out so the key check sees them. */
 export const DefencesMessage = {
@@ -28,6 +28,12 @@ export const DAMAGE_GROUP_MESSAGES: Readonly<Record<DamageGroup, string>> = {
   [DamageGroup.All]: 'rules.defences.group.all',
   [DamageGroup.Physical]: 'rules.defences.group.physical',
   [DamageGroup.Energy]: 'rules.defences.group.energy',
+};
+
+/** Where damage came from, as a weakness or resistance names it. */
+export const DAMAGE_CONTEXT_MESSAGES: Readonly<Record<DamageContext, string>> = {
+  [DamageContext.AreaDamage]: 'rules.defences.context.areaDamage',
+  [DamageContext.SplashDamage]: 'rules.defences.context.splashDamage',
 };
 
 /** The status a line that does not simply apply is marked with. */

@@ -4,13 +4,13 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { Link, List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import { EffectChange, EffectStatusKind } from '@pioneer/rules/engine';
 import type { DamageAdjustmentEffect, EffectStatus, ImmunityEffect } from '@pioneer/rules/engine';
-import { DamageGroupSchema, DamageTypeSchema } from '@pioneer/rules/sdk';
+import { DamageContextSchema, DamageGroupSchema, DamageTypeSchema } from '@pioneer/rules/sdk';
 import type { DamageAdjustmentTarget } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { modifierValue } from '../breakdown/line-words';
 import { ACUITY_MESSAGES } from '../creature-stat-block/creature-stat-block-messages';
-import { DAMAGE_GROUP_MESSAGES, DefencesMessage } from '../defences/defences-messages';
+import { DAMAGE_CONTEXT_MESSAGES, DAMAGE_GROUP_MESSAGES, DefencesMessage } from '../defences/defences-messages';
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
 import { ENTRY_PREVIEWS } from './entry-preview';
 import type { PreviewEffect, StatisticLink } from './entry-preview';
@@ -135,6 +135,10 @@ export class EntryEffectsView {
 
   /** A damage type's name, or a group's; `all` reads as "all damage". */
   #target(target: DamageAdjustmentTarget): string {
+    const context = DamageContextSchema.safeParse(target);
+    if (context.success) {
+      return this.#i18n.translate(DAMAGE_CONTEXT_MESSAGES[context.data]);
+    }
     const group = DamageGroupSchema.safeParse(target);
     if (group.success) {
       return this.#i18n.translate(DAMAGE_GROUP_MESSAGES[group.data]);

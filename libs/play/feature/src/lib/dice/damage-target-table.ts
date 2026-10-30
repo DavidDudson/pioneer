@@ -4,8 +4,17 @@ import type { DamageAdjustmentTarget, DamageType } from '@pioneer/rules/sdk';
 import { RulesTableSchema } from '@pioneer/rules/ui';
 import type { Chip } from '@pioneer/rules/ui';
 
-/** What a damage target's category column says: a group is a group; a type is physical, energy or neither. */
-export const TargetCategory = { Group: 'group', Physical: 'physical', Energy: 'energy', Other: 'other' } as const;
+/**
+ * What a damage target's category column says: a group is a group, an area or splash source is a source; a type is
+ * physical, energy or neither.
+ */
+export const TargetCategory = {
+  Group: 'group',
+  Source: 'source',
+  Physical: 'physical',
+  Energy: 'energy',
+  Other: 'other',
+} as const;
 export type TargetCategory = (typeof TargetCategory)[keyof typeof TargetCategory];
 
 /** One damage type or group to pick, named, with the types a group covers. */

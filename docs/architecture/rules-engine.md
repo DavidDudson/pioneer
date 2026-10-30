@@ -671,8 +671,11 @@ origin chain:
 - Weaknesses and resistances do not stack. Per type or group, the highest unconditional value counts, and the
   others are listed under it as superseded. A conditional one is kept beside it, since it may beat it when it
   applies.
-- A target is one damage type or a group (`physical`, `energy`, `all`), and group membership is
-  `DAMAGE_GROUP_TYPES` in the SDK, never content.
+- A target is one damage type, a group (`physical`, `energy`, `all`) or a source (`area-damage`,
+  `splash-damage`). Group membership is `DAMAGE_GROUP_TYPES` in the SDK, never content. A source target applies to
+  an instance by where it came from: `applyDamage` takes `area` in its options for a roll from an area effect, and an
+  instance has splash when its roll has splash terms of its type. Like any other target, only the highest weakness or
+  resistance that covers an instance counts.
 - The unconditional defences, with conditional ones whose toggles are on, form a `DamageTarget`, so the damage
   pipeline in `libs/rules/dice` takes the character's defences as it takes any creature's.
 - Exceptions travel with the defence: `DamageAdjustment` gains an optional `exceptions` list of damage traits

@@ -5,7 +5,13 @@ import { LocaleFormat, Skeleton, Stack } from '@pioneer/frontier';
 import { DefenceStatusKind } from '@pioneer/rules/engine';
 import type { AdjustmentLine, Defences, DefenceStatus, ImmunityLine, RuleId } from '@pioneer/rules/engine';
 import { formatSummary } from '@pioneer/rules/predicate';
-import { DAMAGE_GROUP_TYPES, DamageGroup, DamageGroupSchema, DamageTypeSchema } from '@pioneer/rules/sdk';
+import {
+  DAMAGE_GROUP_TYPES,
+  DamageContextSchema,
+  DamageGroup,
+  DamageGroupSchema,
+  DamageTypeSchema,
+} from '@pioneer/rules/sdk';
 import type { ContentId, DamageAdjustmentTarget, DamageException, Immunity } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
@@ -15,7 +21,7 @@ import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
 import { DefenceList } from './defence-list/defence-list.component';
-import { DAMAGE_GROUP_MESSAGES, DefencesMessage } from './defences-messages';
+import { DAMAGE_CONTEXT_MESSAGES, DAMAGE_GROUP_MESSAGES, DefencesMessage } from './defences-messages';
 import type { ShownDefence, ShownList, Standing } from './shown-defences';
 
 /** Display names the caller resolved for the entries and slugs the lines name. */
@@ -138,6 +144,10 @@ export class DefencesView {
 
   /** A damage type's name, or a group's with the types it covers; `all` reads as "all damage". */
   #target(target: DamageAdjustmentTarget): string {
+    const context = DamageContextSchema.safeParse(target);
+    if (context.success) {
+      return this.#i18n.translate(DAMAGE_CONTEXT_MESSAGES[context.data]);
+    }
     const group = DamageGroupSchema.safeParse(target);
     if (!group.success) {
       const damageType = DamageTypeSchema.parse(target);
