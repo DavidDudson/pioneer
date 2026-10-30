@@ -6,6 +6,7 @@ import type { ContentRegistry } from '@pioneer/rules/sdk';
 import type { FormPreview, FormPreviewRow } from '@pioneer/rules/ui';
 
 import { withoutForms } from './sheet-effects';
+import { formRows } from './sheet-form-preview-rows';
 import { sheetDerivation, sheetFormTempHp } from './sheet-statistics';
 
 /** The statistics a form is previewed against: Armor Class, then every Speed it can give or take away. */
@@ -73,15 +74,18 @@ export interface FormPreviewInputs {
 
 /**
  * What `candidate`, a polymorph effect, would change on the sheet: the statistics it sets to another value, each with
- * the character's number as it stands beside the form's, and the temporary Hit Points it would give. The candidate is
+ * the character's own number, outside any form, beside the form's, and the temporary Hit Points it would give, then
+ * its size, Strikes, senses and what it stops the character doing. The candidate is
  * worked out by the engine as it is for the sheet, on the character without the form it is in now, which the
  * candidate replaces. A statistic the form leaves as it is does not show.
  */
 export function sheetFormPreview({ registry, character, candidate, translate }: FormPreviewInputs): FormPreview {
   const { play } = character.document;
-  const morphed = withPlay(character, { ...play, effects: [...withoutForms(registry, play.effects), candidate] });
+  const base = withoutForms(registry, play.effects);
+  const own = withPlay(character, { ...play, effects: [...base] });
+  const morphed = withPlay(character, { ...play, effects: [...base, candidate] });
   const comparison: Comparison = {
-    own: sheetDerivation(registry, character),
+    own: sheetDerivation(registry, own),
     form: sheetDerivation(registry, morphed),
     registry,
     translate,
@@ -91,5 +95,6 @@ export function sheetFormPreview({ registry, character, candidate, translate }: 
     tempHp === undefined || tempHp === 0
       ? []
       : [{ name: translate(FormPreviewMessage.TempHp), own: String(play.hp.temp), form: String(tempHp) }];
-  return { rows: [...PREVIEWED.flatMap((selector) => rowOf(selector, comparison)), ...temp] };
+  const rest = formRows({ registry, own, morphed, translate: (key) => translate(key) });
+  return { rows: [...PREVIEWED.flatMap((selector) => rowOf(selector, comparison)), ...temp, ...rest] };
 }
