@@ -130,6 +130,7 @@ export { SummaryCell } from './lib/picker-cells/summary-cell/summary-cell.compon
 export { FeatPicker } from './lib/feat-picker/feat-picker.component';
 export { FeatPickerColumn, type FeatPickerRow } from './lib/feat-picker/feat-picker-row';
 export type {
+  SingleSpellCostLine,
   SpellCostLine,
   SpellDetailLine,
   SpellEffectLine,

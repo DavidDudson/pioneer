@@ -1,16 +1,20 @@
 <fr-stack gap="3xs">
-  @let cost = fields().cost;
-  @if (cost.kind === 'time') {
-    <fr-text variant="caption">{{ cost.text }}</fr-text>
-  } @else {
-    <fr-text>
-      <fr-glyph [label]="costs[cost.cost].label | transloco">{{ costs[cost.cost].glyph | transloco }}</fr-glyph>
-      @if (cost.upTo; as upTo) {
-        {{ Message.CostTo | transloco }}
-        <fr-glyph [label]="costs[upTo].label | transloco">{{ costs[upTo].glyph | transloco }}</fr-glyph>
+  <fr-text [variant]="costOptions().length === 1 && costOptions()[0]?.kind === 'time' ? 'caption' : 'body'">
+    @for (cost of costOptions(); track $index) {
+      @if (!$first) {
+        {{ Message.Or | transloco }}
       }
-    </fr-text>
-  }
+      @if (cost.kind === 'time') {
+        {{ cost.text }}
+      } @else {
+        <fr-glyph [label]="costs[cost.cost].label | transloco">{{ costs[cost.cost].glyph | transloco }}</fr-glyph>
+        @if (cost.upTo; as upTo) {
+          {{ Message.CostTo | transloco }}
+          <fr-glyph [label]="costs[upTo].label | transloco">{{ costs[upTo].glyph | transloco }}</fr-glyph>
+        }
+      }
+    }
+  </fr-text>
   <fr-description-list gap="3xs">
     @for (row of rows(); track row.key) {
       <fr-description-item [term]="row.term | transloco"

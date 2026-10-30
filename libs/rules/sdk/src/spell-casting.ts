@@ -31,7 +31,7 @@ const SpellTimeCount = Pg.smallint().positive().brand<'SpellTimeCount'>();
 const SpellTime = { count: SpellTimeCount, unit: SpellTimeUnitSchema };
 
 /** A casting time in action glyphs, or in time for longer castings and rituals. */
-export const CastTimeType = { Actions: 'actions', Time: 'time' } as const;
+export const CastTimeType = { Actions: 'actions', Time: 'time', Either: 'either' } as const;
 export type CastTimeType = ValueOf<typeof CastTimeType>;
 
 /** The most actions a variable casting time can take. */
@@ -43,6 +43,9 @@ function isFewerActions(fewest: ActionCost, most: ActionCost): boolean {
   const to = ACTION_COUNT[most];
   return from !== undefined && to !== undefined && from < to;
 }
+
+/** A casting time offers two ways at most: actions or time. */
+const CAST_OPTIONS_MAX = 2;
 
 /**
  * "[two-actions]", or with `upTo` a range the caster picks from ("[one-action] to [three-actions]", Heal); "10
@@ -58,9 +61,20 @@ const ActionsCastTime = z
   })
   .refine(({ cost, upTo }) => upTo === undefined || isFewerActions(cost, upTo), CAST_UP_TO);
 
+const TimedCastTime = z.strictObject({ type: z.literal(CastTimeType.Time), ...SpellTime });
+
+/** One way of casting: in actions or in time. */
+export const SingleCastTime = z.discriminatedUnion('type', [ActionsCastTime, TimedCastTime]);
+export type SingleCastTime = z.infer<typeof SingleCastTime>;
+
+/** A casting time, or one of several the caster picks from ("[two-actions] or 2 rounds", Psychic Outburst). */
 export const CastTime = z.discriminatedUnion('type', [
   ActionsCastTime,
-  z.strictObject({ type: z.literal(CastTimeType.Time), ...SpellTime }),
+  TimedCastTime,
+  z.strictObject({
+    type: z.literal(CastTimeType.Either),
+    options: z.array(SingleCastTime).min(2).max(CAST_OPTIONS_MAX).readonly(),
+  }),
 ]);
 
 export const SpellRangeType = {

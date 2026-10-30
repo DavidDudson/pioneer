@@ -14,11 +14,21 @@ describe('castTimeOf', () => {
     ['10 minutes', { type: 'time', count: 10, unit: 'minute' }],
     ['1 day', { type: 'time', count: 1, unit: 'day' }],
     ['1 week', { type: 'time', count: 1, unit: 'week' }],
+    [
+      '2 to 2 rounds',
+      {
+        type: 'either',
+        options: [
+          { type: 'actions', cost: 'two' },
+          { type: 'time', count: 2, unit: 'round' },
+        ],
+      },
+    ],
   ])('%p', (text, expected) => {
     expect(castTimeOf(text)).toEqual(expected);
   });
 
-  test.each(['2 to 2 rounds', '4 to 5', 'varies'])('%p does not map', (text) => {
+  test.each(['4 to 5', '4 to 2 rounds', 'varies'])('%p does not map', (text) => {
     expect(castTimeOf(text)).toBeUndefined();
   });
 });

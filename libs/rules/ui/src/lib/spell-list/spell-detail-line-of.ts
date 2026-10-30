@@ -1,8 +1,14 @@
 import type { SpellAtRank, SpellCast } from '@pioneer/rules/engine';
 import { CastTimeType, targetValues } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import type { ContentId, SingleCastTime } from '@pioneer/rules/sdk';
 
-import type { SpellCostLine, SpellDetailLine, SpellFieldsLine, SpellVariantLine } from './spell-detail-line';
+import type {
+  SingleSpellCostLine,
+  SpellCostLine,
+  SpellDetailLine,
+  SpellFieldsLine,
+  SpellVariantLine,
+} from './spell-detail-line';
 import { SPELL_TIME_UNIT_MESSAGES } from './spell-list-messages';
 import { areaText, defenceText, durationText, effectLines, rangeText, targetsText } from './spell-text';
 import type { Translate } from './spell-text';
@@ -14,10 +20,16 @@ export interface SpellIdentity {
   readonly tags: readonly string[];
 }
 
-function costOf(time: SpellCast['time'], translate: Translate): SpellCostLine {
+function singleCostOf(time: SingleCastTime, translate: Translate): SingleSpellCostLine {
   return time.type === CastTimeType.Actions
     ? { kind: 'actions', cost: time.cost, upTo: time.upTo }
     : { kind: 'time', text: translate(SPELL_TIME_UNIT_MESSAGES[time.unit], { count: time.count }) };
+}
+
+function costOf(time: SpellCast['time'], translate: Translate): SpellCostLine {
+  return time.type === CastTimeType.Either
+    ? { kind: 'either', options: time.options.map((option) => singleCostOf(option, translate)) }
+    : singleCostOf(time, translate);
 }
 
 function fieldsOf(cast: SpellCast, translate: Translate): SpellFieldsLine {
