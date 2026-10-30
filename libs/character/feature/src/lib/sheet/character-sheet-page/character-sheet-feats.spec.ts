@@ -6,8 +6,8 @@ import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { openFeatTable } from '../../testing/feat-table-testing';
 import { classFeatSlotKey } from '../../testing/class-feat-slots';
+import { openFeatTable } from '../../testing/feat-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { cutTo, TEST_PACKS } from '../../testing/test-packs';
