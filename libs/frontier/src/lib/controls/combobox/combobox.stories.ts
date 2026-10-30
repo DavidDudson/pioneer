@@ -5,6 +5,7 @@ import { expect, waitFor, within } from 'storybook/test';
 
 import { succeedSlowly } from '../../testing/story-actions';
 import { pressKeys } from '../../testing/story-keyboard';
+import { BadgeTone } from '../../text/badge/badge.component';
 import type { SelectOption } from '../select/select.component';
 import { Combobox } from './combobox.component';
 import type { ComboboxOption } from './combobox.component';
@@ -104,6 +105,31 @@ const DESCRIBED: readonly ComboboxOption<string>[] = [
     description: "Prerequisites can't be checked: an animal companion",
   },
 ];
+
+const TAGGED: readonly ComboboxOption<string>[] = [
+  {
+    value: 'fireball',
+    label: 'Fireball',
+    tags: [{ label: 'Spell', tone: BadgeTone.Info }, { label: 'Level 3' }, { label: 'fire', tone: BadgeTone.Warning }],
+  },
+  {
+    value: 'power-attack',
+    label: 'Power Attack',
+    tags: [{ label: 'Feat', tone: BadgeTone.Info }, { label: 'Level 1' }],
+  },
+];
+
+/** Options enriched with tags under the name: the kind, the level, the traits. Opened, so axe sees them. */
+export const Tagged: ComboboxStory = {
+  args: { options: TAGGED },
+  play: async ({ canvasElement, userEvent }) => {
+    await userEvent.click(within(canvasElement).getByRole('combobox'));
+    await userEvent.keyboard('{ArrowDown}');
+    await waitFor(async () => {
+      await expect(within(canvasElement).getByRole('option', { name: /Fireball/u })).toBeVisible();
+    });
+  },
+};
 
 /** Options that say more under their label; one is shown but can't be picked, saying why. Opened, so axe sees them. */
 export const Described: ComboboxStory = {

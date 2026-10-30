@@ -18,6 +18,7 @@ import {
 } from '@angular/core';
 import { injectDebouncer } from '@tanstack/angular-pacer';
 
+import { Badge, BadgeTone } from '../../text/badge/badge.component';
 import { Control } from '../control';
 import { injectOptionVirtualizer, optionOffset } from '../option-virtualizer';
 import { SEARCH_DEBOUNCE } from '../search-input/search-input.component';
@@ -30,15 +31,24 @@ import {
   comboboxListboxClasses,
   comboboxOptionClasses,
   comboboxOptionDescriptionClasses,
+  comboboxOptionTagsClasses,
   comboboxPopupClasses,
 } from './combobox.variants';
 
+/** A small badge under an option's name: what kind it is, its level, a trait. */
+export interface ComboboxTag {
+  readonly label: string;
+  readonly tone?: BadgeTone;
+}
+
 /**
- * A combobox option: a select option that may say more under its label (why it can't be picked, what it needs), and
- * may be shown but not picked. A disabled option is still reached with the arrow keys, so its description is read out.
+ * A combobox option: a select option that may say more under its label (why it can't be picked, what it needs), may
+ * carry tags for what the name alone cannot say, and may be shown but not picked. A disabled option is still reached
+ * with the arrow keys, so its description is read out.
  */
 export interface ComboboxOption<TValue extends string> extends SelectOption<TValue> {
   readonly disabled?: boolean;
+  readonly tags?: readonly ComboboxTag[];
 }
 
 /**
@@ -56,7 +66,7 @@ export interface ComboboxOption<TValue extends string> extends SelectOption<TVal
  */
 @Component({
   selector: 'fr-combobox',
-  imports: [AriaCombobox, ComboboxPopup, ComboboxStatus, ComboboxWidget, Listbox, Option],
+  imports: [AriaCombobox, Badge, ComboboxPopup, ComboboxStatus, ComboboxWidget, Listbox, Option],
   templateUrl: './combobox.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
@@ -118,6 +128,8 @@ export class Combobox<TValue extends string> extends Control {
   protected readonly listboxClasses = comboboxListboxClasses;
   protected readonly optionClasses = comboboxOptionClasses;
   protected readonly descriptionClasses = comboboxOptionDescriptionClasses;
+  protected readonly tagsClasses = comboboxOptionTagsClasses;
+  protected readonly neutral = BadgeTone.Neutral;
   protected readonly translate = optionOffset;
 
   protected readonly field = viewChild<string, ElementRef<HTMLInputElement>>('combobox', { read: ElementRef });

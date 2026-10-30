@@ -16,3 +16,5 @@ export const comboboxOptionClasses = cva([
 export const comboboxStatusClasses = cva('block px-sm py-sm')();
 /** An option's description: its own line under the label, smaller and quieter. */
 export const comboboxOptionDescriptionClasses = cva('block text-caption text-fg-subtle')();
+/** An option's tags: a wrapping row of badges under the name. */
+export const comboboxOptionTagsClasses = cva('mt-3xs flex flex-wrap gap-2xs')();
