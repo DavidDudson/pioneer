@@ -14,6 +14,7 @@ const EMPTY_TREE = '4b825dc642cb6eb9a060e54bf8d69288fbee4904';
 const WORKFLOW_FILES = ['.github/', 'flake.nix', 'flake.lock'];
 const INFRA_FILES = ['infra/', 'flake.nix', 'flake.lock'];
 const EDGE_PROJECT = 'edge';
+const SHOWN_OUTPUT = 500;
 
 interface GitResult {
   readonly code: number;
@@ -73,7 +74,7 @@ function affectedBy(base: string): AffectedIn {
       ...(exclude === undefined ? [] : [`--exclude=${exclude}`]),
     ];
     const child = Bun.spawn(
-      ['bunx', 'nx', 'show', 'projects', '--affected', `--base=${base}`, '--head=HEAD', ...flags],
+      ['bunx', 'nx', 'show', 'projects', '--affected', `--base=${base}`, '--head=HEAD', '--json', ...flags],
       {
         stdout: 'pipe',
         stderr: 'inherit',
@@ -87,9 +88,13 @@ function affectedBy(base: string): AffectedIn {
   };
 }
 
+/** The project names Nx printed. Nothing affected prints `[]`, so output without a list is an error, not no projects. */
 function parseProjects(stdout: string): readonly string[] {
   const start = stdout.indexOf('[');
-  return start === -1 ? [] : (JSON.parse(stdout.slice(start)) as string[]);
+  if (start === -1) {
+    throw new Error(`nx show projects printed no project list: ${JSON.stringify(stdout.slice(0, SHOWN_OUTPUT))}`);
+  }
+  return JSON.parse(stdout.slice(start)) as string[];
 }
 
 const matrixOf = (entries: readonly JobEntry[]): string => JSON.stringify({ include: entries });
