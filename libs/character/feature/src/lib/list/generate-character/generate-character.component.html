@@ -44,6 +44,12 @@
             [value]="themeChoice().group ?? ''"
             (valueChange)="chooseGroup($event)"
           />
+          <fr-select
+            [ariaLabel]="'character.list.theme.baseLabel' | transloco"
+            [options]="baseOptions()"
+            [value]="themeChoice().base ?? ''"
+            (valueChange)="chooseBase($event)"
+          />
         </fr-stack>
       </fr-stack>
       <fr-stack direction="horizontal" justify="end">

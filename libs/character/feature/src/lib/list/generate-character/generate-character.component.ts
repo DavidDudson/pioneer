@@ -26,6 +26,7 @@ import { CharacterGenerator } from '../../data/character-generator';
 import { GenerateCharacterFields, GenerateCharacterForm } from '../../data/generate-character-form';
 import { NO_THEME_CHOICE, themeOfChoice } from '../../data/generation-theme-choice';
 import type { GenerationThemeChoice } from '../../data/generation-theme-choice';
+import { WeaponBaseOptions } from '../../data/weapon-bases';
 import { RollTableInput } from '../../roll-table/roll-table-input.component';
 import { THEME_ATTRIBUTES, WEAPON_CATEGORY_MESSAGES, WEAPON_GROUP_MESSAGES } from './generate-theme';
 
@@ -85,6 +86,7 @@ const DEFAULT_LEVEL = CHARACTER_LEVEL_MIN;
 export class GenerateCharacter {
   readonly #generator = inject(CharacterGenerator);
   readonly #i18n = inject(TranslocoService);
+  readonly #weaponBases = inject(WeaponBaseOptions);
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Changes when the language changes or the messages load, so the select labels are read again. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
@@ -102,6 +104,11 @@ export class GenerateCharacter {
   protected readonly groupOptions = computed(() => {
     this.#messages();
     return this.#options(WEAPON_GROUP_MESSAGES);
+  });
+  protected readonly baseOptions = computed(() => {
+    this.#messages();
+    const none: SelectOption<string> = { value: '', label: this.#i18n.translate('character.list.theme.weaponNone') };
+    return [none, ...this.#weaponBases.bases().map(({ base, name }) => ({ value: base, label: name }))];
   });
   protected readonly result = signal<MadeCharacter | undefined>(undefined);
 
@@ -131,11 +138,25 @@ export class GenerateCharacter {
   }
 
   protected chooseCategory(category: string | undefined): void {
-    this.themeChoice.update((choice) => ({ ...choice, category: keyOf(WEAPON_CATEGORY_MESSAGES, category) }));
+    this.themeChoice.update((choice) => ({
+      ...choice,
+      category: keyOf(WEAPON_CATEGORY_MESSAGES, category),
+      base: undefined,
+    }));
   }
 
   protected chooseGroup(group: string | undefined): void {
-    this.themeChoice.update((choice) => ({ ...choice, group: keyOf(WEAPON_GROUP_MESSAGES, group) }));
+    this.themeChoice.update((choice) => ({ ...choice, group: keyOf(WEAPON_GROUP_MESSAGES, group), base: undefined }));
+  }
+
+  /** A base fixes the category and group its weapons share; with no base chosen those stay as they were. */
+  protected chooseBase(picked: string | undefined): void {
+    const chosen = this.#weaponBases.bases().find(({ base }) => base === picked);
+    this.themeChoice.update((choice) =>
+      chosen === undefined
+        ? { ...choice, base: undefined }
+        : { ...choice, category: chosen.category, group: chosen.group, base: chosen.base },
+    );
   }
 
   /** The options of a weapon select: no choice first, then each value named by its message. */
