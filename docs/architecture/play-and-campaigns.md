@@ -435,10 +435,13 @@ Holding the breath (Aquatic Combat, "Drowning and Suffocating") is its own play 
 rounds of air left (5 plus the Constitution modifier when held) and the saves against suffocation made. The
 `setBreath` edit sets it as it is and `clearBreath` ends it, so holding, losing air and breathing again are each undone
 by the edit that restores the breath before. Ending a turn spends a round of air, or two when the character attacked
-that turn; casting a spell, speaking or a critical hit is told to the sheet (Lose a round, Speak or cast). Out of air,
-the character is suffocating: at each turn end it rolls a Fortitude save against DC 20, 5 more each time. A failure
-takes 1d10 damage, a 1d10 more each time, and a critical failure is death. The sheet says the character is unconscious,
-but the Unconscious condition is not added for it.
+or cast a spell that turn: attacks are counted in the turn state, and a spend of a spell is logged with `cast`
+(`spend-log.ts`), which the turn end reads. Speaking and being critically hit are not in the play state (a critical hit
+is an incoming attack, and speech is not an action the sheet spends), so they stay manual: Lose a round and Speak or
+cast, which also override what was detected. Out of air, the character is suffocating: it gets the Unconscious
+condition at once, whether the air ran out at a turn end or the breath was set to none by hand, with a turn-log event
+for the former. At each turn end it rolls a Fortitude save (the sheet's `save:fortitude` total) against DC 20, 5 more
+each time. A failure takes 1d10 damage, a 1d10 more each time, and a critical failure is death.
 
 Environment consequences are read when time passes, not at turn end. Play state keeps `exposure`, the rounds spent in
 each environment the character is in: it starts at none when an environment is turned on and is dropped when it is

@@ -12,6 +12,7 @@ import {
   HitPoints,
   NO_DEFENCES,
 } from '@pioneer/rules/sdk';
+import { newId } from '@pioneer/shared/kernel';
 
 import {
   AirRounds,
@@ -30,6 +31,8 @@ import { ConditionInstanceId, ConditionDurationKind } from './conditions';
 import { applyCountingCommand } from './counting-commands';
 import { FRESH_PLAY, currentHitPoints } from './play-state';
 import type { PlayState } from './play-state';
+import { SpendEntrySchema } from './spend-log';
+import type { SpendEntry } from './spend-log';
 import { within } from './testing';
 import { endTurn } from './turn-end';
 import type { EndTurnInputs } from './turn-end';
@@ -50,6 +53,18 @@ const INPUTS: EndTurnInputs = {
   defences: NO_DEFENCES,
   recovery: new Map(),
 };
+
+/** An action spent this turn: a spell cast when `extra` says it casts. */
+function spendOf(extra: { readonly cast?: true }): SpendEntry {
+  return SpendEntrySchema.parse({
+    id: newId(),
+    action: UNCONSCIOUS,
+    cost: { kind: 'actions', count: 2 },
+    at: '2026-10-26T10:00:00.000Z',
+    quickened: 0,
+    ...extra,
+  });
+}
 
 /** A character holding its breath with `breath`, on its turn after `attacks` attacks. */
 function holding(breath: BreathState, attacks = 0): PlayState {
@@ -125,6 +140,14 @@ describe('endTurn while holding a breath', () => {
     const { play } = endTurn(holding({ air: air(5), checks: checks(0) }, 1), INPUTS, faces(10));
 
     expect(Number(play.breath?.air)).toBe(3);
+  });
+
+  test('loses two rounds when the character cast a spell this turn, and one for any other action', () => {
+    const breath = { air: air(5), checks: checks(0) };
+    const cast = endTurn({ ...holding(breath), spendLog: [spendOf({ cast: true })] }, INPUTS, faces(10));
+    const other = endTurn({ ...holding(breath), spendLog: [spendOf({})] }, INPUTS, faces(10));
+
+    expect([Number(cast.play.breath?.air), Number(other.play.breath?.air)]).toEqual([3, 4]);
   });
 
   test('leaves a character breathing freely alone', () => {

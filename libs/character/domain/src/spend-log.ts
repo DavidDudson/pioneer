@@ -75,6 +75,8 @@ export const SpendRequestSchema = z.strictObject({
   focus: z.literal(true).optional(),
   /** Whether it is an attack, which moves the multiple attack penalty on and undoing the spend moves it back. */
   attack: z.literal(true).optional(),
+  /** Whether it casts a spell, which costs a character holding its breath an extra round of air at the end of the turn. */
+  cast: z.literal(true).optional(),
   /** The active-spell change it makes: a sustained spell cast, a spell sustained, or a spell dismissed with the Dismiss action. */
   spell: SpellSpendSchema.optional(),
   /** The form of an active polymorph effect it changes, so undoing the spend puts the old form back. */
