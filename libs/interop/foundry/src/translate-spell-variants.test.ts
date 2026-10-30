@@ -60,6 +60,24 @@ describe('translateKindData: spell variants', () => {
     expect(KIND_DATA[ContentKind.Spell].safeParse(data).error).toBeUndefined();
   });
 
+  test("a spell with no casting time of its own takes the first variant's", () => {
+    const sphere = spell('sPhErE0000000001', 'Thunder Sphere', {
+      level: { value: 1 },
+      time: { value: '' },
+      overlays: {
+        o1: { overlayType: 'override', sort: 1, system: { range: { value: '30 feet' }, time: { value: '2' } } },
+        o2: { overlayType: 'override', sort: 2, system: { range: { value: '60 feet' }, time: { value: '3' } } },
+      },
+    });
+    const data = dataIn(translate([sphere]), 'thunder-sphere');
+
+    expect(data).toMatchObject({
+      time: { type: 'actions', cost: 'two' },
+      variants: [{ time: { cost: 'two' } }, { time: { cost: 'three' } }],
+    });
+    expect(KIND_DATA[ContentKind.Spell].safeParse(data).error).toBeUndefined();
+  });
+
   test('what a variant cannot carry is reported: its traits, and a range it blanks that the spell has', () => {
     const result = translate([heal]);
 
