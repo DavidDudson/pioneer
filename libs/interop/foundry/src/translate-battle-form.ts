@@ -10,7 +10,7 @@ export type { FoundrySenses } from './translate-senses';
 
 /**
  * Foundry's `BattleForm` as Pioneer's: the form's `overrides` become `form`, each of its `brackets` (`start` rank and
- * `value`) a heightened change, and the name-keyed records (skills, senses, Strikes) lists. Fields Pioneer does not
+ * `value`) a heightened change, each of its `variants` (a `predicate` and the statistics it changes) a variant, and the name-keyed records (skills, senses, Strikes) lists. Fields Pioneer does not
  * read stay where they are, so the element fails and is kept for the backlog.
  */
 
@@ -126,6 +126,16 @@ function statistics(raw: unknown, context: SenseContext): unknown {
   );
 }
 
+/** A variant: its `predicate` kept, the statistics it changes translated as a form's are. */
+function variant(raw: unknown, context: SenseContext): unknown {
+  if (!isFields(raw)) {
+    return raw;
+  }
+  const { predicate, ...rest } = raw;
+  const changes = statistics(rest, context);
+  return { predicate, ...(isFields(changes) ? changes : {}) };
+}
+
 function bracket(raw: unknown, context: SenseContext): unknown {
   if (!isFields(raw) || !isFields(raw['value'])) {
     return raw;
@@ -146,7 +156,7 @@ function withBattleForm(raw: unknown, context: SenseContext): unknown {
   if (!isFields(raw) || raw['key'] !== RuleElementKey.BattleForm || !isFields(raw['overrides'])) {
     return raw;
   }
-  const { overrides, brackets, hasHands, ...rest } = raw;
+  const { overrides, brackets, variants, hasHands, ...rest } = raw;
   const statistic = statistics(overrides, context);
   const form = {
     ...BATTLE_FORM_LIMITS,
@@ -157,6 +167,7 @@ function withBattleForm(raw: unknown, context: SenseContext): unknown {
     ...rest,
     form,
     ...(Array.isArray(brackets) ? { brackets: brackets.map((item) => bracket(item, context)) } : {}),
+    ...(Array.isArray(variants) ? { variants: variants.map((item) => variant(item, context)) } : {}),
   };
 }
 
