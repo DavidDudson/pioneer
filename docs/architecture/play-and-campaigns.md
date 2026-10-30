@@ -391,6 +391,9 @@ A polymorph effect need not be a battle form. One with the trait and ordinary ru
 restricts no section; it is exclusive with every other polymorph effect, battle form or not. The header names it like
 any form, and the Exploration tab says the appearance there is the character's own, not the form's. Only a polymorph
 effect is cast at a rank; the server refuses a rank on any other.
+A form whose `ChoiceSet` choice is gated on `{ gte: [parent:origin:item:level, N] }` is offered only from rank N: the
+add picker lists it once the rank reaches N (`formRanks` in `libs/character/domain`), and the server refuses it below N,
+or with no rank (the `rank` problem). Only a plain `gte` on that fact is read; the rule engine itself never sees it.
 
 Humanoid Form is the committed example. It picks a size (`CreatureSize`, with the reach of that size), adds the
 `humanoid` trait and offers two toggles: passing as a humanoid (the Deception bonuses) and a sense. The sense is a

@@ -47,7 +47,7 @@ export const EffectProblem = {
   Full: 'full',
   /** A formula badge needs its rolled value, and an effect with a counter or no badge takes none; a counter stays within its bounds. */
   Badge: 'badge',
-  /** A spell rank is cast at, which only a polymorph effect is; any other effect takes none. */
+  /** A spell rank is cast at, which only a polymorph effect is; any other effect takes none. A form needs its rank. */
   Rank: 'rank',
 } as const;
 export type EffectProblem = ValueOf<typeof EffectProblem>;
@@ -64,6 +64,12 @@ function badgeFits(terms: EffectBadgeTerms | undefined, value: EffectBadgeValue)
   return terms.type === EffectBadgeType.Formula || withinBounds(terms, value);
 }
 
+/** Whether the rank an effect is cast at reaches the lowest its form can be picked at; a form with no lowest always does. */
+function formReached(form: RollOption | undefined, rank: SpellRank | undefined, terms: EffectTerms): boolean {
+  const lowest = form === undefined ? undefined : terms.formRanks?.get(form);
+  return lowest === undefined || (rank !== undefined && rank >= lowest);
+}
+
 function problemOfApply(
   effects: readonly ActiveEffect[],
   command: Extract<EffectCommand, { field: typeof EffectCommandField.ApplyEffect }>,
@@ -78,6 +84,9 @@ function problemOfApply(
     return EffectProblem.Badge;
   }
   if (command.rank !== undefined && terms.polymorph !== true) {
+    return EffectProblem.Rank;
+  }
+  if (!formReached(command.form, command.rank, terms)) {
     return EffectProblem.Rank;
   }
   return effects.length >= EFFECTS_MAX ? EffectProblem.Full : undefined;
