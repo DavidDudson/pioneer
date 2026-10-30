@@ -49,7 +49,7 @@ export function battleFormInPlay({ rules, facts }: ModifierInputs): FormInPlay |
         id: ruleIdOf(rule),
         label: labelOf(rule),
         origin: rule.origin,
-        form: heightened(element, rule.itemLevel),
+        form: heightened(element, rule.itemLevel, facts),
       });
     }
   }

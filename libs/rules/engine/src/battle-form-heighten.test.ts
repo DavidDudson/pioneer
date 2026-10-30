@@ -1,11 +1,14 @@
 import { describe, expect, test } from 'bun:test';
 
-import { BattleFormElement, Level } from '@pioneer/rules/sdk';
+import { PredicateFacts } from '@pioneer/rules/predicate';
+import { BattleFormElement, Level, RollOption } from '@pioneer/rules/sdk';
+import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { assert, integer, property } from 'fast-check';
 
 import { heightened } from './battle-form-heighten';
 
 const RANK_MAX = 10;
+const NO_FACTS = new PredicateFacts([], CORE_NAMESPACES);
 
 const SPEAR = { slug: 'spear', category: 'unarmed', damage: { dice: 2, die: 'd8', damageType: 'piercing' } };
 const FORM = BattleFormElement.parse({
@@ -52,19 +55,19 @@ function count(list: readonly unknown[] | undefined): number {
 }
 
 function at(rank: number): Form {
-  return heightened(FORM, Level.parse(rank));
+  return heightened(FORM, Level.parse(rank), NO_FACTS);
 }
 
 describe('heightened', () => {
   test('without a rank, or below the first bracket, it is the base form', () => {
-    expect(heightened(FORM, undefined)).toEqual(FORM.form);
+    expect(heightened(FORM, undefined, NO_FACTS)).toEqual(FORM.form);
     expect(at(4)).toEqual(FORM.form);
   });
 
   test('a form with no brackets is its base form at any rank', () => {
     const unheightened = BattleFormElement.parse({ key: 'BattleForm', form: { speeds: { land: 25 } } });
 
-    expect(heightened(unheightened, Level.parse(RANK_MAX))).toEqual(unheightened.form);
+    expect(heightened(unheightened, Level.parse(RANK_MAX), NO_FACTS)).toEqual(unheightened.form);
   });
 
   test('a bracket lays its statistics over the form: scalars replace, lists merge by name', () => {
@@ -111,5 +114,46 @@ describe('heightened: properties', () => {
         expect(count(high.strikes)).toBe(count(low.strikes));
       }),
     );
+  });
+});
+
+/** The facts of a character with these roll options. */
+function facts(...options: string[]): PredicateFacts {
+  return new PredicateFacts(
+    options.map((option) => RollOption.parse(option)),
+    CORE_NAMESPACES,
+  );
+}
+
+describe('heightened variants', () => {
+  const DRAGON = BattleFormElement.parse({
+    key: 'BattleForm',
+    form: { speeds: { land: 40, fly: 100 }, resistances: [{ type: 'fire', value: 10 }] },
+    variants: [
+      { predicate: ['dragon-form:brine'], speeds: { swim: 60 }, resistances: [{ type: 'bludgeoning', value: 10 }] },
+      { predicate: ['dragon-form:magma'], speeds: { burrow: 20 }, resistances: [{ type: 'fire', value: 15 }] },
+    ],
+  });
+
+  test('a variant whose predicate holds lays its changes over the form', () => {
+    const form = heightened(DRAGON, undefined, facts('dragon-form:brine'));
+
+    expect(plain(form.speeds)).toEqual({ land: 40, fly: 100, swim: 60 });
+    expect(plain(form.resistances)).toEqual([
+      { type: 'fire', value: 10 },
+      { type: 'bludgeoning', value: 10 },
+    ]);
+  });
+
+  test('a variant overlays the resistance of the same type rather than adding another', () => {
+    const form = heightened(DRAGON, undefined, facts('dragon-form:magma'));
+
+    expect(plain(form.speeds)).toEqual({ land: 40, fly: 100, burrow: 20 });
+    expect(plain(form.resistances)).toEqual([{ type: 'fire', value: 15 }]);
+  });
+
+  test('with no pick, or a pick no variant names, the form is the base form', () => {
+    expect(heightened(DRAGON, undefined, NO_FACTS)).toEqual(DRAGON.form);
+    expect(heightened(DRAGON, undefined, facts('dragon-form:sky'))).toEqual(DRAGON.form);
   });
 });
