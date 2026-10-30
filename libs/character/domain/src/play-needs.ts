@@ -7,6 +7,7 @@ import { PlayCommandField } from './play-state';
 import type { PlayCommand } from './play-state';
 import { isRestCommand } from './rest-types';
 import { isSpendCommand } from './spend-commands';
+import { SpendCommandField } from './spend-log';
 import { isToggleCommand } from './toggle-commands';
 
 /** Whether `command` reads or moves Hit Points, and so needs the maximum the engine derives. Temp Hit Points and the death track don't. */
@@ -172,6 +173,9 @@ export function needsRestContent(command: PlayCommand): boolean {
 export function needsEffectContent(command: PlayCommand): boolean {
   if (command.field === PlayCommandField.UseConsumable) {
     return command.effect !== undefined;
+  }
+  if (command.field === SpendCommandField.SpendAction) {
+    return command.apply !== undefined;
   }
   return (
     isEffectCommand(command) &&

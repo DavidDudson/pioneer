@@ -1,4 +1,4 @@
-import { ACTION_COUNT, ActionCost, ContentId, HitPoints, RollOption, UP_TO_MAX } from '@pioneer/rules/sdk';
+import { ACTION_COUNT, ActionCost, ContentId, HitPoints, RollOption, SpellRank, UP_TO_MAX } from '@pioneer/rules/sdk';
 import { Pg, Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -49,6 +49,16 @@ export const FormShiftSchema = z.strictObject({
 });
 export type FormShift = z.infer<typeof FormShiftSchema>;
 
+/** The form a spend puts on the character (casting a form spell): the instance, the form's effect, the rank cast, the form chosen within it, and the temporary Hit Points it gives. */
+export const FormApplySchema = z.strictObject({
+  id: EffectInstanceId,
+  effect: ContentId,
+  rank: SpellRank,
+  form: RollOption.optional(),
+  tempHp: HitPoints.optional(),
+});
+export type FormApply = z.infer<typeof FormApplySchema>;
+
 /** What a client asks to spend: what was used, what it costs, and the frequency use it records. */
 export const SpendRequestSchema = z.strictObject({
   id: SpendId,
@@ -69,6 +79,8 @@ export const SpendRequestSchema = z.strictObject({
   spell: SpellSpendSchema.optional(),
   /** The form of an active polymorph effect it changes, so undoing the spend puts the old form back. */
   shift: FormShiftSchema.optional(),
+  /** The form it puts on the character, in the same edit, so a failed cast never spends without the form. */
+  apply: FormApplySchema.optional(),
 });
 export type SpendRequest = z.infer<typeof SpendRequestSchema>;
 

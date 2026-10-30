@@ -1,4 +1,5 @@
-import { ContentId, ContentKind, ContentRegistry, ActionCost } from '@pioneer/rules/sdk';
+import { EffectInstanceId } from '@pioneer/character/domain';
+import { ContentId, ContentKind, ContentRegistry, ActionCost, SpellRank } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import type { ActionUse } from '@pioneer/rules/ui';
 import { newId } from '@pioneer/shared/kernel';
@@ -41,5 +42,12 @@ describe(spendOf, () => {
     const none = new ContentRegistry();
     const action = ContentId.parse(newId());
     expect(spendOf(none, useOf(action))).toBeDefined();
+  });
+});
+
+describe('spendOf with a form', () => {
+  it('carries the form a cast puts on the character, so the cast is one spend', () => {
+    const apply = { id: EffectInstanceId.parse(newId()), effect: BARRIER, rank: SpellRank.parse(2) };
+    expect(spendOf(registry, useOf(BARRIER, 'wizard:2'), { apply })).toMatchObject({ apply });
   });
 });

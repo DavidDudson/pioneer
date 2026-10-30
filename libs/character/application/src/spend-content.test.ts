@@ -208,6 +208,23 @@ describe('contentRefusal for sustained spells', () => {
     expect(contentRefusal(hide, registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
   });
 
+  test('putting on a form the spell lists is allowed, and one it does not list is refused', () => {
+    const spell = idOf(ContentKind.Spell, 'morph');
+    const apply = (effect: ContentId): SpendRequest =>
+      request(spell, { apply: { id: EFFECT, effect, rank: SpellRank.parse(2) } });
+    expect(contentRefusal(apply(APE), registry, NO_SPELLS)).toBeUndefined();
+    expect(contentRefusal(apply(BEAR), registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
+  });
+
+  test('putting on a form with a predicate needs the character to satisfy it', () => {
+    const plant = request(idOf(ContentKind.Spell, 'shift'), {
+      apply: { id: EFFECT, effect: PLANT, rank: SpellRank.parse(2) },
+    });
+    const has = new PredicateFacts([RollOption.parse('feat:plant-shape')], new Map());
+    expect(contentRefusal(plant, registry, { ...NO_SPELLS, facts: has })).toBeUndefined();
+    expect(contentRefusal(plant, registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
+  });
+
   test('a form shift of an effect that is not a polymorph one is refused', () => {
     const shift = request(idOf(ContentKind.Spell, 'shift'), { shift: { effect: EFFECT, to: APE } });
     const boon: ActiveEffect = { ...SHAPED, effect: BEAR };

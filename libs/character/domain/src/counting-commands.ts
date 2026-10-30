@@ -157,7 +157,14 @@ export function applyCountingCommand<Play extends CountingPlay>(
     return applyRestCommand(play, command, limits).play;
   }
   if (isSpendCommand(command)) {
-    return { ...play, ...applySpendCommand(play, command, { ...resourceLimits(limits), ...limits.spend }) };
+    return {
+      ...play,
+      ...applySpendCommand(play, command, {
+        ...resourceLimits(limits),
+        ...limits.spend,
+        effects: limits.effects,
+      }),
+    };
   }
   if (
     isToggleCommand(command) ||

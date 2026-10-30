@@ -679,9 +679,10 @@ export {
 } from './shield-commands';
 export type { Block, ShieldCommand, ShieldContent, ShieldDamage, ShieldStats } from './shield-commands';
 export { applySpendCommand, isSpendCommand, spendRefusal, spentStaffOf, turnAllows } from './spend-commands';
-export type { SpendLimits, SpendPlay } from './spend-commands';
+export type { SpendEffects, SpendLimits, SpendPlay } from './spend-commands';
 export {
   costAllowed,
+  FormApplySchema,
   FormShiftSchema,
   SpendCommandField,
   SpendCommandSchema,
@@ -697,6 +698,7 @@ export {
 } from './spend-log';
 export type {
   ActionCostRange,
+  FormApply,
   FormShift,
   SpendCommand,
   SpendCost,

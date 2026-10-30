@@ -13,6 +13,7 @@ import {
   isExplorationCommand,
   PlayCommandField,
   SELF,
+  SpendCommandField,
   StaffProblem,
   staffProblem,
 } from '@pioneer/character/domain';
@@ -76,16 +77,21 @@ export function checkStaff(command: PlayCommand, staff: StaffLimits): void {
   }
 }
 
-/** The effect a consumable puts on the character, as the edit that applies it; undefined for any other command. */
-function consumableEffect(command: PlayCommand): EffectCommand | undefined {
-  return isConsumableCommand(command) && command.effect !== undefined
-    ? { field: EffectCommandField.ApplyEffect, ...command.effect, source: SELF }
+/** The effect a consumable or a form spell puts on the character, as the edit that applies it; undefined for any other command. */
+function spentEffect(command: PlayCommand): EffectCommand | undefined {
+  if (isConsumableCommand(command)) {
+    return command.effect === undefined
+      ? undefined
+      : { field: EffectCommandField.ApplyEffect, ...command.effect, source: SELF };
+  }
+  return command.field === SpendCommandField.SpendAction && command.apply !== undefined
+    ? { field: EffectCommandField.ApplyEffect, ...command.apply, source: SELF }
     : undefined;
 }
 
 /** Refuses an effect edit the content or the character's effects rule out. */
 export function checkEffect(play: PlayState, command: PlayCommand, content: EffectContent): void {
-  const edit = consumableEffect(command) ?? command;
+  const edit = spentEffect(command) ?? command;
   const problem = isEffectCommand(edit) ? effectProblem(play.effects, edit, content) : undefined;
   if (problem !== undefined) {
     throw new ValidationError([{ path: ['command'], message: message(EFFECT_MESSAGES[problem]) }]);

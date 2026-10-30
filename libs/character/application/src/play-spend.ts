@@ -113,9 +113,11 @@ export interface SpendStamp extends SpendContext {
   readonly now: Temporal.Instant;
 }
 
-/** Whether `command` is a spend that shifts a form, which the character's roll options decide. */
+/** Whether `command` is a spend that changes the form the character is in, by a shift or by putting one on, which the character's roll options decide. */
 export function shiftsForm(command: PlayCommand): boolean {
-  return command.field === SpendCommandField.SpendAction && command.shift !== undefined;
+  return (
+    command.field === SpendCommandField.SpendAction && (command.shift !== undefined || command.apply !== undefined)
+  );
 }
 
 /** The limits a play edit reads for spending: the time to stamp with, once a spend passes `checkSpend`. */
