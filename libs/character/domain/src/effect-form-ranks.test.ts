@@ -28,7 +28,13 @@ const LARGE = RollOption.parse('humanoid-form:large');
 const SMALL = RollOption.parse('humanoid-form:small');
 const EFFECT = idOf('humanoid-form');
 const CONTENT: EffectContent = new Map([
-  [EFFECT, { ...effectTerms({ duration: { type: 'unlimited' } }, true), formRanks: formRanks(HUMANOID_FORM) }],
+  [
+    EFFECT,
+    {
+      ...effectTerms({ category: 'spell', duration: { type: 'unlimited' } }, true),
+      formRanks: formRanks(HUMANOID_FORM),
+    },
+  ],
 ]);
 
 /** Why applying the effect with `form` at `rank` is refused, if it is. */
