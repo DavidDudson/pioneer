@@ -1,1 +1,3 @@
-<fr-glyph [label]="Message.Level | transloco: { level: shown() }">{{ shown() }}</fr-glyph>
+@if (shown(); as level) {
+  <fr-glyph [label]="Message.Level | transloco: { level }">{{ level }}</fr-glyph>
+}

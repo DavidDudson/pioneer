@@ -88,11 +88,11 @@ export class RulesTableSchema<TRow extends RowData> extends TableSchema<TRow> {
     });
   }
 
-  /** A level number. */
-  public addLevel(options: CellColumn<TRow, number>): this {
+  /** A level number; a row with no level shows nothing and sorts first. */
+  public addLevel(options: CellColumn<TRow, number | undefined>): this {
     return this.addComponent({
       ...options,
-      sortValue: options.value,
+      sortValue: (row) => options.value(row) ?? NOTHING,
       component: LevelCell,
       inputs: (row) => ({ level: options.value(row) }),
     });

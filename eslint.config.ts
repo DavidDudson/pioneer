@@ -38,6 +38,20 @@ const config: Linter.Config[] = defineConfig([
       '@angular-eslint/template/no-call-expression': 'off',
     },
   },
+  {
+    // ADR-0054: features pick with a table picker. The dropdowns stay in frontier for a future short list.
+    files: ['**/*.html'],
+    ignores: ['libs/frontier/**'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: '[name=/^fr-select(-field)?$/]',
+          message: 'Dropdowns are not used in features (ADR-0054). Use `pio-option-picker` or `fr-picker-field`.',
+        },
+      ],
+    },
+  },
 ]);
 
 export default config;

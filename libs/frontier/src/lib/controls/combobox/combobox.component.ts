@@ -61,8 +61,7 @@ export interface ComboboxOption<TValue extends string> extends SelectOption<TVal
  * matches as `options`, with `loading` while they load (skeleton rows).
  * Options are virtualised (TanStack Virtual on the listbox's own scroll), so
  * hundreds stay cheap. `committed` fires on a pick, or Enter on a closed
- * list; Escape puts the picked label back and fires `cancelled`. In a form
- * use `fr-combobox-field`.
+ * list; Escape puts the picked label back and fires `cancelled`.
  */
 @Component({
   selector: 'fr-combobox',
