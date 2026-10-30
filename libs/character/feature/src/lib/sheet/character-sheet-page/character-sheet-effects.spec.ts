@@ -196,14 +196,14 @@ describe('CharacterSheetPage effects', () => {
   });
 
   it('offers a form only from the rank its spell needs', async () => {
-    const { root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
+    const { harness, root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
     await vi.waitFor(() => {
       expect(textOf(effectsOf(root))).toContain('No effects');
     });
 
-    await pick(root, 0, 'Spell Effect: Humanoid Form');
+    await pick({ harness, root }, 0, 'Spell Effect: Humanoid Form');
     await expect(offered(root, 1)).resolves.toStrictEqual(['Small Humanoid', 'Medium Humanoid']);
-    await pick(root, 2, 'Rank 5');
+    await pick({ harness, root }, 2, 'Rank 5');
     await expect(offered(root, 1)).resolves.toStrictEqual(['Small Humanoid', 'Medium Humanoid', 'Large Humanoid']);
   });
 
