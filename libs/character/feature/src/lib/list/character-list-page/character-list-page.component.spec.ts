@@ -151,6 +151,28 @@ describe('CharacterListPage', () => {
     expect(theme?.weapon).toBeUndefined();
   });
 
+  it('offers a weapon base beside the category and group', async () => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
+        ...provideServerStateTesting(),
+        provideI18n({ en: async () => frontierMessages }),
+      ],
+    });
+    const http = TestBed.inject(HttpTestingController);
+    const harness = await RouterTestingHarness.create('/characters');
+    http.expectOne('/api/characters').flush([]);
+    await harness.fixture.whenStable();
+
+    const root = present(harness.routeNativeElement);
+    const selects = [...root.querySelectorAll('pio-generate-character fr-select button')];
+    expect(selects.map((select) => select.getAttribute('aria-label'))).toStrictEqual([
+      'Weapon category',
+      'Weapon group',
+      'Weapon base',
+    ]);
+  });
+
   it('opens the names table in the drawer from the name field', async () => {
     TestBed.configureTestingModule({
       providers: [
