@@ -29,6 +29,7 @@ export const TurnEventKind = {
   PersistentDamage: 'persistentDamage',
   FlatCheck: 'flatCheck',
   AirLost: 'airLost',
+  FellUnconscious: 'fellUnconscious',
   Suffocation: 'suffocation',
   EnvironmentDamage: 'environmentDamage',
   EnvironmentCondition: 'environmentCondition',
@@ -48,6 +49,7 @@ export const TurnMessage = {
   FlatCheckPassed: 'character.turn.flatCheckPassed',
   FlatCheckFailed: 'character.turn.flatCheckFailed',
   AirLost: 'character.turn.airLost',
+  FellUnconscious: 'character.turn.fellUnconscious',
   SuffocationSaved: 'character.turn.suffocationSaved',
   SuffocationFailed: 'character.turn.suffocationFailed',
   SuffocationDied: 'character.turn.suffocationDied',
@@ -113,6 +115,12 @@ export const TurnEventSchema = z.discriminatedUnion('kind', [
     message: MessageDescriptorSchema,
   }),
   z.object({ kind: z.literal(TurnEventKind.AirLost), air: AirRounds, message: MessageDescriptorSchema }),
+  z.object({
+    kind: z.literal(TurnEventKind.FellUnconscious),
+    condition: ContentId,
+    instance: ConditionInstanceId,
+    message: MessageDescriptorSchema,
+  }),
   z.object({
     kind: z.literal(TurnEventKind.Suffocation),
     /** Which save against suffocation this is, the first being 1. */
@@ -217,6 +225,16 @@ export function flatCheck(
 /** The turn ended with `air` rounds of breath left. */
 export function airLost(air: AirRounds): TurnEvent {
   return { kind: TurnEventKind.AirLost, air, message: message(TurnMessage.AirLost, { air }) };
+}
+
+/** The character ran out of air and fell unconscious: the content's `condition` went on as `instance`. */
+export function fellUnconscious(condition: ContentId, instance: ConditionInstanceId): TurnEvent {
+  return {
+    kind: TurnEventKind.FellUnconscious,
+    condition,
+    instance,
+    message: message(TurnMessage.FellUnconscious),
+  };
 }
 
 /** Time in `environment` made the character take the damage `roll` rolled, which `damage` shows applied to its defences. */

@@ -33,6 +33,7 @@ const content = fixedContent(
       kind: StatisticKind.Value,
     })
     .withProficiencyBonus(PLAYER_CORE_PROFICIENCY_BONUS)
+    .withCondition('unconscious')
     .build(),
 );
 
@@ -89,5 +90,18 @@ describe('PlayService breath', () => {
     });
 
     expect(ended.play.breath).toStrictEqual({ air: AirRounds.parse(4), checks: SuffocationChecks.parse(0) });
+  });
+
+  test('setting the air to none puts Unconscious on the character at once, and breathing again takes it off', async () => {
+    const out = await play.patch(amiri, kyra.id, { expectedRevision: FIRST_VERSION, command: hold(0) });
+    const instance = out.play.breath?.unconscious;
+
+    expect(out.play.conditions).toHaveLength(1);
+    expect(out.play.conditions.map(({ id }) => id)).toEqual([instance]);
+
+    const breathing = await play.patch(amiri, kyra.id, { expectedRevision: out.revision, command: hold(5) });
+
+    expect(breathing.play.conditions).toEqual([]);
+    expect(breathing.play.breath?.unconscious).toBeUndefined();
   });
 });

@@ -4,6 +4,8 @@ import {
   characterPredicateFacts,
   characterStatisticInputs,
   NO_STAFF,
+  outOfAir,
+  unconsciousCondition,
   effectContent,
   needsEffectContent,
   NO_EFFECTS,
@@ -23,6 +25,7 @@ import {
   slotContent,
   environmentContent,
   environmentGroups,
+  isBreathCommand,
   isEnvironmentCommand,
   isShieldCommand,
   isTurnCommand,
@@ -213,7 +216,18 @@ export class PlayService {
         now: this.#clock.now(),
       }),
     };
-    return applyPlayCommand(play, command, limits);
+    return PlayService.#fallenUnconscious(command, applyPlayCommand(play, command, limits), { limits, registry });
+  }
+
+  /** `play` after `command`, with Unconscious on a character that setting its breath left out of air; other edits as they are. */
+  static #fallenUnconscious(
+    command: PlayCommand,
+    play: PlayState,
+    { limits, registry }: { readonly limits: PlayLimits; readonly registry: ContentRegistry },
+  ): PlayState {
+    return isBreathCommand(command)
+      ? outOfAir({ play, events: [] }, { limits, unconscious: unconsciousCondition(registry) }).play
+      : play;
   }
 
   /** The roll options the character's build sets, which a form shift's predicate reads. */
