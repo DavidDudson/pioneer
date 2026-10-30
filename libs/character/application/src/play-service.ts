@@ -1,22 +1,13 @@
 import {
-  abilityFrequencies,
   applyPlayCommand,
   applyTurnCommand,
-  characterCounted,
   characterPredicateFacts,
-  characterFocus,
-  characterGrants,
-  characterSpellcasting,
   characterStatisticInputs,
-  itemContent,
   NO_STAFF,
-  staffLimits,
   effectContent,
   needsEffectContent,
   NO_EFFECTS,
   conditionValued,
-  itemActivations,
-  itemWands,
   needsConditionContent,
   needsMaxHitPoints,
   needsResourceMaxima,
@@ -26,7 +17,6 @@ import {
   NO_RESOURCES,
   NO_SHIELDS,
   PLAY_COMMANDS,
-  resourceMaxima,
   restHealing,
   restRecovery,
   turnCommandInputs,
@@ -49,10 +39,7 @@ import type {
   PlayCommand,
   PlayEdit,
   PlayLimits,
-  SlotContent,
   PlayState,
-  ResourceMaxima,
-  CountedMaxima,
   StaffLimits,
   TurnCommand,
   TurnOutcome,
@@ -75,6 +62,7 @@ import {
   checkStaff,
   isDailyPreparations,
 } from './play-checks';
+import { countedOf, resourceMaximaOf, slotsOf, staffOf } from './play-content-limits';
 import { NO_MAX_HIT_POINTS, NO_REST, NO_VALUED, turnLimits } from './play-defaults';
 import type { RestContent } from './play-defaults';
 import { derivedMaxHitPoints } from './play-hit-points';
@@ -148,22 +136,22 @@ export class PlayService {
       return undefined;
     }
     const registry = await this.#contentOf(character).registry();
-    const counted = isWandCommand(command) ? await this.#counted(character) : NO_COUNTED;
-    const slots = await this.#slotContent(character, registry);
+    const counted = isWandCommand(command) ? await countedOf(this.#content, character) : NO_COUNTED;
+    const slots = await slotsOf(this.#content, character, registry);
     return inventoryAfter({ character, play, registry, slots, counted, now: this.#clock.now() }, command);
   }
 
   /** The staves a play edit reads: daily preparations prepares one, and a staff cast is checked, which gives its cost. */
   async #staffLimits(character: Character, play: PlayState, command: PlayCommand): Promise<StaffLimits> {
-    const prepared = isDailyPreparations(command) ? await this.#staff(character) : NO_STAFF;
+    const prepared = isDailyPreparations(command) ? await staffOf(this.#content, character) : NO_STAFF;
     checkStaff(command, prepared);
     const cast = staffCastOf(play, command);
     if (cast === undefined) {
       return prepared;
     }
     const registry = await this.#contentOf(character).registry();
-    const slots = await this.#slotContent(character, registry);
-    const counted = await this.#counted(character);
+    const slots = await slotsOf(this.#content, character, registry);
+    const counted = await countedOf(this.#content, character);
     const undoing = takesBackCast(command, cast);
     return { ...prepared, castCost: checkStaffCast(cast, { character, play, registry, slots, counted, undoing }) };
   }
@@ -194,8 +182,8 @@ export class PlayService {
     const hitPoints = needsMaxHitPoints(command)
       ? await derivedMaxHitPoints(this.#content, character, play)
       : NO_MAX_HIT_POINTS;
-    const resources = needsResourceMaxima(command) ? await this.#resourceMaxima(character) : NO_RESOURCES;
-    const counted = needsResourceMaxima(command) ? await this.#counted(character) : NO_COUNTED;
+    const resources = needsResourceMaxima(command) ? await resourceMaximaOf(this.#content, character) : NO_RESOURCES;
+    const counted = needsResourceMaxima(command) ? await countedOf(this.#content, character) : NO_COUNTED;
     const staff = await this.#staffLimits(character, play, command);
     const valued = needsConditionContent(command) ? await this.#valued(character) : NO_VALUED;
     checkCondition(play, command, valued);
@@ -228,46 +216,15 @@ export class PlayService {
     return applyPlayCommand(play, command, limits);
   }
 
-  /** The slots `character` has over `registry`, with the variant rules in force for it (Dual Class adds a class). */
-  async #slotContent(character: Character, registry: ContentRegistry): Promise<SlotContent> {
-    return slotContent(registry, await variantRulesOfCharacter(this.#content, character, registry));
-  }
-
   /** The roll options the character's build sets, which a form shift's predicate reads. */
   async #facts(character: Character, registry: ContentRegistry): Promise<PredicateFacts> {
-    return characterPredicateFacts(character.document, { slots: await this.#slotContent(character, registry) });
-  }
-
-  /** Hero points are at most 3; the focus pool comes from the character's focus spells and feats. */
-  async #resourceMaxima(character: Character): Promise<ResourceMaxima> {
-    const registry = await this.#contentOf(character).registry();
-    const slots = await this.#slotContent(character, registry);
-    const entries = characterSpellcasting(characterGrants(character.document, slots));
-    return resourceMaxima(characterFocus(entries, slots.spells, character.document.level).pool);
-  }
-
-  /** Spell slots by entry and rank, and ability uses, as the build and the content give them. */
-  async #counted(character: Character): Promise<CountedMaxima> {
-    const registry = await this.#contentOf(character).registry();
-    const grants = characterGrants(character.document, await this.#slotContent(character, registry));
-    return characterCounted(grants, abilityFrequencies(registry), {
-      items: character.document.inventory.items,
-      activations: itemActivations(registry),
-      wands: itemWands(registry),
-    });
-  }
-
-  /** The staves, highest spell rank and expendable slots daily preparations reads to prepare a staff. */
-  async #staff(character: Character): Promise<StaffLimits> {
-    const registry = await this.#contentOf(character).registry();
-    const grants = characterGrants(character.document, await this.#slotContent(character, registry));
-    return staffLimits(grants, character.document.inventory.items, itemContent(registry));
+    return characterPredicateFacts(character.document, { slots: await slotsOf(this.#content, character, registry) });
   }
 
   /** What Rest heals, from the Constitution modifier and level the build gives. */
   async #healing(character: Character): Promise<HitPoints> {
     const registry = await this.#contentOf(character).registry();
-    const slots = await this.#slotContent(character, registry);
+    const slots = await slotsOf(this.#content, character, registry);
     return restHealing(characterStatisticInputs(registry, character.document, slots));
   }
 
