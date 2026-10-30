@@ -105,7 +105,7 @@ describe('a spend that shifts a form', () => {
   });
 });
 
-function cast(apply: FormApply): SpendAction {
+function castOf(apply: FormApply): SpendAction {
   return { ...spendOf(FIRST, actions(2)), apply };
 }
 
@@ -129,7 +129,7 @@ describe('a spend that applies a form', () => {
   test('puts the form on the character with the spend, and its temporary Hit Points', () => {
     const play = applyPlayCommand(
       playIn(OWN_TURN),
-      cast({ id: FORM, effect: BEAR, rank, form: GRIZZLY, tempHp: HitPoints.parse(5) }),
+      castOf({ id: FORM, effect: BEAR, rank, form: GRIZZLY, tempHp: HitPoints.parse(5) }),
       withForms,
     );
     expect(play.effects).toStrictEqual([
@@ -140,13 +140,32 @@ describe('a spend that applies a form', () => {
   });
 
   test('ends the form the character was in', () => {
-    const play = applyPlayCommand(playWith(BEAR_FORM), cast({ id: OTHER, effect: PLANT, rank }), withForms);
+    const play = applyPlayCommand(playWith(BEAR_FORM), castOf({ id: OTHER, effect: PLANT, rank }), withForms);
     expect(play.effects.map(({ id }) => id)).toStrictEqual([OTHER]);
+  });
+
+  test('takes the form and its temporary Hit Points off again when the spend is undone', () => {
+    const cast = applyPlayCommand(
+      playIn(OWN_TURN),
+      castOf({ id: FORM, effect: BEAR, rank, tempHp: HitPoints.parse(5) }),
+      withForms,
+    );
+    const play = applyPlayCommand(cast, { field: PlayCommandField.UndoSpend, id: spendId(FIRST) }, withForms);
+    expect(play.effects).toStrictEqual([]);
+    expect(play.hp.temp).toBe(HitPoints.parse(0));
+    expect(play.spendLog).toStrictEqual([]);
+  });
+
+  test('is undone even when the form has already ended', () => {
+    const cast = applyPlayCommand(playIn(OWN_TURN), castOf({ id: FORM, effect: BEAR, rank }), withForms);
+    const ended: PlayState = { ...cast, effects: [] };
+    const play = applyPlayCommand(ended, { field: PlayCommandField.UndoSpend, id: spendId(FIRST) }, withForms);
+    expect(play.spendLog).toStrictEqual([]);
   });
 
   test('is refused with a form shift in the same spend', () => {
     const both: SpendAction = {
-      ...cast({ id: OTHER, effect: PLANT, rank }),
+      ...castOf({ id: OTHER, effect: PLANT, rank }),
       shift: { effect: FORM, to: PLANT },
     };
     expect(spendRefusal(playWith(BEAR_FORM), both, REFUSAL_LIMITS)).toBe(SpendProblem.ShiftNotAllowed);

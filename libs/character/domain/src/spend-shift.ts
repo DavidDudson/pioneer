@@ -1,7 +1,7 @@
 import { HitPoints } from '@pioneer/rules/sdk';
 
 import { EffectCommandField } from './effect-commands';
-import { applyEffectEdit } from './effect-ending';
+import { applyEffectEdit, endEffects } from './effect-ending';
 import type { EffectPlay } from './effect-ending';
 import { SELF } from './effects';
 import type { ActiveEffect, EffectContent } from './effects';
@@ -110,11 +110,16 @@ export function shiftUndoRefusal({ effects }: ShiftPlay, { shift, shifted }: Spe
   return effects.some(({ id }) => id === shift.effect) ? undefined : SpendProblem.NoSuchEffect;
 }
 
-/** `play`'s active effects and temporary Hit Points after the spend `entry` is taken back: the shifted effect has its old form, and the time it has left now. */
+/** `play`'s active effects and temporary Hit Points after the spend `entry` is taken back: the shifted effect has its old form, and the time it has left now, or the form the spend put on the character, and the temporary Hit Points it gave, is gone (and stays gone when it already ended). */
 export function shiftUndone(
-  { effects, hp }: ShiftPlay,
-  { shift, shifted }: SpendEntry,
+  play: ShiftPlay,
+  { shift, shifted, apply }: SpendEntry,
 ): Pick<ShiftChange, 'effects' | 'temp'> {
+  if (apply !== undefined) {
+    const ended = endEffects(play, [apply.id]);
+    return { effects: ended.effects, temp: ended.hp.temp };
+  }
+  const { effects, hp } = play;
   const target = shift === undefined ? undefined : effects.find(({ id }) => id === shift.effect);
   if (shift === undefined || shifted === undefined || target === undefined) {
     return { effects, temp: hp.temp };
