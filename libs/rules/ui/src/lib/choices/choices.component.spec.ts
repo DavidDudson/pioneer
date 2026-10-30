@@ -1,11 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { SlotKey } from '@pioneer/rules/sdk';
+import { message } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
 import { ELF_CHOICES } from '../testing/choices-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import type { ChoiceLine } from './choice-line';
+import { ChoicesMessage } from './choices-messages';
 import { ChoicesView } from './choices.component';
 import type { ChoiceLockChange } from './choices.component';
 
@@ -106,5 +108,21 @@ describe(ChoicesView, () => {
     expect(loose?.getAttribute('aria-pressed')).toBe('false');
     kept?.click();
     expect(changes).toStrictEqual([{ slot: ancestry, locked: false }]);
+  });
+
+  it('shows why a choice could not be kept beneath that choice only', async () => {
+    TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
+    const fixture: ComponentFixture<ChoicesView> = TestBed.createComponent(ChoicesView);
+    fixture.componentRef.setInput('lines', ELF_CHOICES);
+    fixture.componentRef.setInput('lockable', true);
+    fixture.componentRef.setInput(
+      'problems',
+      new Map([[SlotKey.parse('ancestry'), message(ChoicesMessage.Keep, { choice: 'the ancestry' })]]),
+    );
+    await fixture.whenStable();
+
+    const [ancestry, background] = rows(fixture.nativeElement as HTMLElement);
+    expect(ancestry).toContain('Keep the ancestry when re-rolling');
+    expect(background).not.toContain('Keep the ancestry when re-rolling');
   });
 });

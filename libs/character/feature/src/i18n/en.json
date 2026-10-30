@@ -87,7 +87,8 @@
     },
     "reroll": {
       "action": "Re-roll the rest",
-      "pending": "Re-rolling…"
+      "pending": "Re-rolling…",
+      "problems": "Some kept picks can't be kept. See the marked picks."
     },
     "sidePanel": {
       "title": "Content",

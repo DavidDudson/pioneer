@@ -20,4 +20,7 @@
   @if (shown().reason; as reason) {
     <fr-text variant="caption" tone="danger">{{ reason.key | transloco: reason.params }}</fr-text>
   }
+  @if (problem(); as kept) {
+    <fr-text variant="caption" tone="danger">{{ kept.key | transloco: kept.params }}</fr-text>
+  }
 </fr-stack>
