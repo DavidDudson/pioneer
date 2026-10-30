@@ -16,7 +16,7 @@ import {
   reachOf,
   TEXT_MAX,
 } from './spell-reach';
-import { rankChanges, variantsOf } from './spell-variants';
+import { firstVariantTime, rankChanges, variantsOf } from './spell-variants';
 import { plainWords } from './translate-action';
 
 /**
@@ -65,7 +65,9 @@ type FoundrySpellSystem = z.infer<typeof FoundrySpellSystem>;
 
 /** What casting takes; undefined when the casting time does not map. */
 function castingOf(system: FoundrySpellSystem, log: GapLog): object | undefined {
-  const time = castTimeOf(system.time.value);
+  const text =
+    system.time.value.trim() === '' ? (firstVariantTime(system.overlays) ?? system.time.value) : system.time.value;
+  const time = castTimeOf(text);
   if (time === undefined) {
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'time.value', raw: system.time.value });
     return undefined;

@@ -173,3 +173,19 @@ export function variantsOf(overlays: unknown, spell: VariantSpell, log: GapLog):
     .flatMap(([id, overlay]) => variantOf({ id, overlay }, spell, log) ?? []);
   return variants.length === 0 ? undefined : variants;
 }
+
+/**
+ * The casting time of a spell whose own is blank because its variants set it (Horizon Thunder Sphere's 2 or 3 actions):
+ * the first variant's, in Foundry's order, since that is the spell's cheapest casting. undefined when none sets one.
+ */
+export function firstVariantTime(overlays: unknown): string | undefined {
+  const parsed = FoundryOverlays.safeParse(overlays);
+  if (!parsed.success) {
+    return undefined;
+  }
+  const times = Object.values(parsed.data)
+    .toSorted((left, right) => (left.sort ?? 0) - (right.sort ?? 0))
+    .filter(({ overlayType }) => overlayType === OVERRIDE)
+    .map(({ system }) => FoundryText.safeParse(system['time']).data?.value.trim() ?? '');
+  return times.find((time) => time !== '');
+}
