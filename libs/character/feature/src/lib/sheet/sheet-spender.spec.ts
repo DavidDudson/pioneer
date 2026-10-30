@@ -51,3 +51,15 @@ describe('spendOf with a form', () => {
     expect(spendOf(registry, useOf(BARRIER, 'wizard:2'), { apply })).toMatchObject({ apply });
   });
 });
+
+describe('spendOf for breath', () => {
+  it('marks a spell cast, which costs a character holding its breath an extra round', () => {
+    expect(spendOf(registry, useOf(BARRIER, 'wizard:2'))).toMatchObject({ cast: true });
+  });
+
+  it('does not mark an action that is no spell', () => {
+    const action = ContentId.parse(newId());
+
+    expect(spendOf(registry, useOf(action))).not.toHaveProperty('cast');
+  });
+});

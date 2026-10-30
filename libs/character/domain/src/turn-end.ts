@@ -249,7 +249,8 @@ function breathing(outcome: TurnOutcome, turn: Turn): TurnOutcome {
   if (isSuffocating(breath)) {
     return outOfAir(suffocated(outcome, breath, turn), turn);
   }
-  const air = airAfterTurn(breath.air, current.attacks > NO_ATTACKS);
+  const exerted = current.attacks > NO_ATTACKS || outcome.play.spendLog.some(({ cast }) => cast === true);
+  const air = airAfterTurn(breath.air, exerted);
   return outOfAir(then(outcome, { ...outcome.play, breath: { ...breath, air } }, [airLost(air)]), turn);
 }
 

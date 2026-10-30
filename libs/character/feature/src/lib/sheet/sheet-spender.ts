@@ -31,7 +31,7 @@ import { newId } from '@pioneer/shared/kernel';
 import { injectContentRegistry } from '../data/content-registry-query';
 import { PlayStore } from '../data/play-store';
 import { ACTION_CONTENT_KINDS, makesAttack, spendCostOf } from './sheet-actions';
-import { sustainedCast } from './sheet-active-list';
+import { spellEntries, sustainedCast } from './sheet-active-list';
 import { activeFormOf } from './sheet-effects';
 import { formCastOf, FORM_CAST_CONTENT_KINDS } from './sheet-form-cast';
 import type { FormCast, FormCastChoice, FormCaster } from './sheet-form-cast';
@@ -81,6 +81,7 @@ export function spendOf(registry: ContentRegistry, request: ActionUse, form: For
   }
   const recorded = pays ? paymentOf(line.payment) : frequencyOf(registry, request);
   const attacks = line.attack === true || makesAttack(registry, line.id);
+  const casts = spellEntries(registry).has(line.id);
   const cast = sustainedCast(registry, line.id, recorded.slot);
   return {
     field: PlayCommandField.SpendAction,
@@ -89,6 +90,7 @@ export function spendOf(registry: ContentRegistry, request: ActionUse, form: For
     cost,
     ...recorded,
     ...(attacks ? { attack: true as const } : {}),
+    ...(casts ? { cast: true as const } : {}),
     ...(cast === undefined ? {} : { spell: cast }),
     ...form,
   };
