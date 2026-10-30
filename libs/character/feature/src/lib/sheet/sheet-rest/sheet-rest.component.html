@@ -14,14 +14,14 @@
           </fr-stack>
           @if (choosingStaff()) {
             <fr-stack direction="horizontal" align="center" gap="sm" wrap>
-              <fr-select
+              <pio-option-picker
                 [ariaLabel]="'character.sheet.rest.staffPick' | transloco"
                 [options]="staffChoices()"
                 [value]="staffPicked()"
                 (valueChange)="pickStaff($event)"
               />
               @if (slotChoices().length > 0) {
-                <fr-select
+                <pio-option-picker
                   [ariaLabel]="'character.sheet.rest.slotPick' | transloco"
                   [options]="slotChoices()"
                   [value]="slotPicked()"

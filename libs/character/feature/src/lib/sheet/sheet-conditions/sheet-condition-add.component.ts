@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, Component, computed, input, signal } from '@an
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ConditionInstanceId, PlayCommandField, UNLIMITED } from '@pioneer/character/domain';
 import type { PlayCommand } from '@pioneer/character/domain';
-import { AsyncButton, NumberInput, Select, Stack } from '@pioneer/frontier';
+import { AsyncButton, NumberInput, Stack } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { ConditionValue, ContentId } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
+import { OptionPicker } from '../option-picker/option-picker.component';
 import { CONDITION_VALUE_MAX } from '../sheet-conditions';
 import type { ConditionOption } from '../sheet-conditions';
 
@@ -18,7 +19,7 @@ const FIRST_VALUE = 1;
  */
 @Component({
   selector: 'pio-sheet-condition-add',
-  imports: [AsyncButton, NumberInput, Select, Stack, TranslocoPipe],
+  imports: [OptionPicker, AsyncButton, NumberInput, Stack, TranslocoPipe],
   templateUrl: './sheet-condition-add.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

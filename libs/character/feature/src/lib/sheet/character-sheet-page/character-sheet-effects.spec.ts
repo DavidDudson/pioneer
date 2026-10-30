@@ -5,8 +5,10 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
+import { pickerCount, pickRow } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
+import type { OpenSheet } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 
@@ -42,16 +44,12 @@ function buttonOf(root: HTMLElement, name: string): HTMLButtonElement {
   return present([...effectsOf(root).querySelectorAll('button')].find((button) => textOf(button) === name));
 }
 
-/** Picks the option named `name` in the select with `index` among the effects' selects. */
-async function pick(root: HTMLElement, index: number, name: string): Promise<void> {
-  present(effectsOf(root).querySelectorAll<HTMLElement>('fr-select button')[index]).click();
-  await TestBed.inject(ApplicationRef).whenStable();
-  const option = await vi.waitFor(() =>
-    present(
-      [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) => each.textContent.trim() === name),
-    ),
-  );
-  option.click();
+/** What a pick reaches: the harness holding the sheet and its root. */
+type SheetView = Pick<OpenSheet, 'harness' | 'root'>;
+
+/** Picks the option named `name` in the picker with `index` among the effects' pickers. */
+async function pick(sheet: SheetView, index: number, name: string): Promise<void> {
+  pickRow(sheet.harness, effectsOf(sheet.root), { matches: (label) => label === name, index });
   await TestBed.inject(ApplicationRef).whenStable();
 }
 
@@ -64,9 +62,9 @@ async function answerAllies(allies: object): Promise<void> {
 }
 
 /** Waits for the party's picker, which renders once the read of the party is in. */
-async function partyShown(root: HTMLElement): Promise<void> {
+async function partyShown({ harness, root }: SheetView): Promise<void> {
   await vi.waitFor(() => {
-    expect(effectsOf(root).querySelectorAll('fr-select')).toHaveLength(3);
+    expect(pickerCount(harness, effectsOf(root))).toBe(3);
   });
 }
 
@@ -143,15 +141,15 @@ describe('CharacterSheetPage effects', () => {
   });
 
   it('applies a polymorph effect with the form chosen and the rank it is cast at', async () => {
-    const { root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
+    const { harness, root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
     await vi.waitFor(() => {
       expect(textOf(effectsOf(root))).toContain('No effects');
     });
 
-    await pick(root, 0, 'Spell Effect: Plant Form');
+    await pick({ harness, root }, 0, 'Spell Effect: Plant Form');
     expect(buttonOf(root, 'Apply').disabled).toBe(true);
-    await pick(root, 1, 'Arboreal');
-    await pick(root, 2, 'Rank 6');
+    await pick({ harness, root }, 1, 'Arboreal');
+    await pick({ harness, root }, 2, 'Rank 6');
     expect(buttonOf(root, 'Apply').disabled).toBe(false);
     buttonOf(root, 'Apply').click();
 
@@ -181,15 +179,15 @@ describe('CharacterSheetPage effects', () => {
   });
 
   it('applies the effect picked from an ally, who needs a name', async () => {
-    const { root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
+    const { harness, root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
     await vi.waitFor(() => {
       expect(textOf(effectsOf(root))).toContain('No effects');
     });
     expect(buttonOf(root, 'Apply').disabled).toBe(true);
 
-    await pick(root, 0, 'Effect: Consult the Spirits');
+    await pick({ harness, root }, 0, 'Effect: Consult the Spirits');
     expect(buttonOf(root, 'Apply').disabled).toBe(false);
-    await pick(root, 1, 'An ally');
+    await pick({ harness, root }, 1, 'An ally');
     await answerAllies({ allies: [] });
     expect(buttonOf(root, 'Apply').disabled).toBe(true);
     const name = present(effectsOf(root).querySelector<HTMLInputElement>('input'));
@@ -212,21 +210,21 @@ describe('CharacterSheetPage effects', () => {
   });
 
   it('applies the effect from a character in the campaign, recording who', async () => {
-    const { root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
+    const { harness, root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
     await vi.waitFor(() => {
       expect(textOf(effectsOf(root))).toContain('No effects');
     });
-    await pick(root, 0, 'Effect: Consult the Spirits');
-    await pick(root, 1, 'An ally');
+    await pick({ harness, root }, 0, 'Effect: Consult the Spirits');
+    await pick({ harness, root }, 1, 'An ally');
     await answerAllies({
       campaign: 'Abomination Vaults',
       allies: [{ characterId: SEONI, name: 'Seoni' }],
     });
-    await partyShown(root);
+    await partyShown({ harness, root });
     expect(buttonOf(root, 'Apply').disabled).toBe(true);
     expect(effectsOf(root).querySelector('input')).toBeNull();
 
-    await pick(root, 2, 'Seoni');
+    await pick({ harness, root }, 2, 'Seoni');
     expect(buttonOf(root, 'Apply').disabled).toBe(false);
     buttonOf(root, 'Apply').click();
 
@@ -240,16 +238,16 @@ describe('CharacterSheetPage effects', () => {
   });
 
   it('types the name of someone outside the party', async () => {
-    const { root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
+    const { harness, root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
     await vi.waitFor(() => {
       expect(textOf(effectsOf(root))).toContain('No effects');
     });
-    await pick(root, 0, 'Effect: Consult the Spirits');
-    await pick(root, 1, 'An ally');
+    await pick({ harness, root }, 0, 'Effect: Consult the Spirits');
+    await pick({ harness, root }, 1, 'An ally');
     await answerAllies({ campaign: 'Abomination Vaults', allies: [{ characterId: SEONI, name: 'Seoni' }] });
-    await partyShown(root);
+    await partyShown({ harness, root });
 
-    await pick(root, 2, 'Someone else');
+    await pick({ harness, root }, 2, 'Someone else');
 
     expect(buttonOf(root, 'Apply').disabled).toBe(true);
     expect(effectsOf(root).querySelector('input')).not.toBeNull();

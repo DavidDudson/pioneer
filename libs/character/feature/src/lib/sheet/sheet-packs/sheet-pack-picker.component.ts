@@ -4,12 +4,15 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LucidePackagePlus } from '@lucide/angular';
 import { EnablePackBody } from '@pioneer/character/domain';
 import type { PackCandidate } from '@pioneer/character/domain';
-import { AsyncButton, AsyncForm, EmptyState, Heading, Link, SelectField, Stack } from '@pioneer/frontier';
+import { AsyncButton, AsyncForm, EmptyState, Heading, Link, Stack } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
 import type { ContentPackId } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
 
 import { CharacterPackStore } from '../../data/character-pack-store';
+import { PickerRows } from '../inventory/picker-rows';
+import { optionColumns, optionLabel, optionOrder, optionValue } from '../option-picker/option-rows';
 
 interface EnableModel {
   readonly packId: string;
@@ -18,7 +21,7 @@ interface EnableModel {
 /** The packs the owner may read that the character does not use, to enable one, with the packs it extends. */
 @Component({
   selector: 'pio-sheet-pack-picker',
-  imports: [AsyncButton, AsyncForm, EmptyState, FormField, Heading, Link, SelectField, Stack, TranslocoPipe],
+  imports: [AsyncButton, AsyncForm, EmptyState, FormField, Heading, Link, PickerField, Stack, TranslocoPipe],
   templateUrl: './sheet-pack-picker.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -44,6 +47,13 @@ export class SheetPackPicker {
       label: pack.private ? this.#i18n.translate('character.packs.privateOption', { title: pack.title }) : pack.title,
     })),
   );
+
+  protected readonly rows = new PickerRows(this.options, optionOrder<string>());
+  protected readonly columns = computed(() =>
+    optionColumns<string>(this.#i18n.translate('character.sheet.optionColumns.name')),
+  );
+  protected readonly rowValue = optionValue<string>;
+  protected readonly rowLabel = optionLabel;
 
   protected readonly model = signal<EnableModel>({ packId: '' });
   protected readonly form = form(this.model, (path) => {

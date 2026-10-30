@@ -1,6 +1,6 @@
 <fr-stack gap="xs">
   <fr-text weight="semibold">{{ 'character.sheet.initiative.heading' | transloco }}</fr-text>
-  <fr-select
+  <pio-option-picker
     [ariaLabel]="'character.sheet.initiative.label' | transloco"
     [options]="options()"
     [value]="current()?.selector"

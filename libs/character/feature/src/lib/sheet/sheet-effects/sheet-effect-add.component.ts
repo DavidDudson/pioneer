@@ -11,7 +11,7 @@ import {
   SELF,
 } from '@pioneer/character/domain';
 import type { ActiveEffect, CampaignAlly, EffectSource, PlayCommand } from '@pioneer/character/domain';
-import { AsyncButton, Select, Stack, TextInput } from '@pioneer/frontier';
+import { AsyncButton, Stack, TextInput } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { RANDOM_SOURCE } from '@pioneer/play/ui';
 import { ContentId, RollOption, SPELL_RANK_MAX, SpellRank } from '@pioneer/rules/sdk';
@@ -19,6 +19,7 @@ import type { HitPoints } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
 import { injectCharacterAllies } from '../../data/character-allies-query';
+import { OptionPicker } from '../option-picker/option-picker.component';
 import type { EffectOption } from '../sheet-effects';
 
 /** The message each source of an effect is worded with. */
@@ -39,7 +40,7 @@ const ALLY_OTHER = 'other';
  */
 @Component({
   selector: 'pio-sheet-effect-add',
-  imports: [AsyncButton, Select, Stack, TextInput, TranslocoPipe],
+  imports: [AsyncButton, OptionPicker, Stack, TextInput, TranslocoPipe],
   templateUrl: './sheet-effect-add.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

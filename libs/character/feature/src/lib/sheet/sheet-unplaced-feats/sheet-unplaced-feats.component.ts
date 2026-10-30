@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import type { Signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterPatchField, unplacedFeatBreaks } from '@pioneer/character/domain';
-import { AsyncButton, Badge, BadgeTone, Heading, List, ListItem, Select, Stack, Text } from '@pioneer/frontier';
+import { AsyncButton, Badge, BadgeTone, Heading, List, ListItem, Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import type { ContentId, SlotKey } from '@pioneer/rules/sdk';
 import { ContentPreview } from '@pioneer/rules/ui';
@@ -10,6 +10,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
+import { OptionPicker } from '../option-picker/option-picker.component';
 import { sheetEntry } from '../sheet-entry-previews';
 import { FEAT_CONTENT_KINDS, sheetFeats } from '../sheet-feats';
 import { slotsOpenTo } from '../sheet-unplaced-feat-slots';
@@ -30,7 +31,7 @@ interface UnplacedFeatRow {
  */
 @Component({
   selector: 'pio-sheet-unplaced-feats',
-  imports: [AsyncButton, Badge, ContentPreview, Heading, List, ListItem, Select, Stack, Text, TranslocoPipe],
+  imports: [OptionPicker, AsyncButton, Badge, ContentPreview, Heading, List, ListItem, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-unplaced-feats.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

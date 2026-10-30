@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { ExplorationCommandField } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion, Select, Skeleton, Stack, Text } from '@pioneer/frontier';
+import { AsyncData, AsyncPending, AsyncRegion, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentId } from '@pioneer/rules/sdk';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
+import { OptionPicker } from '../option-picker/option-picker.component';
 import { EXPLORATION_CONTENT_KINDS, explorationOptions } from '../sheet-exploration-activity';
 
 /** The choice that clears the activity: a select shows an empty value as its placeholder, and an id is never this. */
@@ -18,7 +19,7 @@ const NONE = 'none';
  */
 @Component({
   selector: 'pio-sheet-exploration-activity',
-  imports: [AsyncData, AsyncPending, AsyncRegion, Select, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [OptionPicker, AsyncData, AsyncPending, AsyncRegion, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-exploration-activity.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
