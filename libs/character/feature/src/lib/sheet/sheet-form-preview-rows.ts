@@ -63,14 +63,15 @@ function strikesRow({ registry, own, morphed, translate }: FormRowInputs): reado
   return differing(translate(RowMessage.Strikes), listed(names(own)), listed(names(morphed)));
 }
 
-function sensesRow({ registry, morphed, translate }: FormRowInputs): readonly FormPreviewRow[] {
-  const inForm = sheetSenses(registry, morphed);
+function sensesRow({ registry, own, morphed, translate }: FormRowInputs): readonly FormPreviewRow[] {
+  const inForm = sheetSenses(registry, morphed).senses;
   const names = (senses: readonly { readonly sense: ContentId }[]): string | undefined =>
     listed(senses.map(({ sense }) => entryName(registry, sense)));
   // A form without senses of its own leaves the character's, so only a form that lists some is a change.
-  return inForm.own.length === 0
-    ? []
-    : differing(translate(RowMessage.Senses), names(inForm.own), names(inForm.senses));
+  const formListsSenses = inForm.some(({ fromForm }) => fromForm === true);
+  return formListsSenses
+    ? differing(translate(RowMessage.Senses), names(sheetSenses(registry, own).senses), names(inForm))
+    : [];
 }
 
 function limitsRows({ registry, morphed, translate }: FormRowInputs): readonly FormPreviewRow[] {

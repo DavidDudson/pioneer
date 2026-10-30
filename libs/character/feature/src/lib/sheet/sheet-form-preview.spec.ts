@@ -40,9 +40,10 @@ function formOf(id: EffectInstanceId): ActiveEffect {
   return { id, effect: APE, source: SELF, rank: SpellRank.parse(4) };
 }
 
-/** A cleric holding a Hunter's Blade, with `effects` active. */
-function clericWith(...effects: ActiveEffect[]): Character {
-  const cleric = new CharacterBuilder().picking('ancestry', ELF).picking('class', playerCoreClassId('cleric')).build();
+/** A cleric of `ancestry` (none sees nothing beyond the ordinary) holding a Hunter's Blade, with `effects` active. */
+function clericOf(ancestry: ContentId | undefined, effects: ActiveEffect[]): Character {
+  const builder = new CharacterBuilder().picking('class', playerCoreClassId('cleric'));
+  const cleric = (ancestry === undefined ? builder : builder.picking('ancestry', ancestry)).build();
   const items = [
     { id: BLADE, item: itemFixtureId(ItemFixture.HuntersBlade), quantity: 1, carry: { state: 'held', hands: 1 } },
   ];
@@ -54,6 +55,11 @@ function clericWith(...effects: ActiveEffect[]): Character {
     createdAt,
     updatedAt,
   });
+}
+
+/** An elf cleric, with `effects` active. */
+function clericWith(...effects: ActiveEffect[]): Character {
+  return clericOf(ELF, effects);
 }
 
 async function registryOf(): Promise<ContentRegistry> {
@@ -137,6 +143,22 @@ describe(sheetFormPreview, () => {
     const senses = rows.find(({ name }) => name === 'character.sheet.formPreview.senses');
     expect(senses?.form).toMatch(/Darkvision/u);
     expect(senses?.form).toMatch(/Scent/u);
+  });
+
+  it('previews the senses a form gives a character who has none of their own', async () => {
+    const registry = await registryOf();
+    const dragon: ActiveEffect = { ...formOf(CANDIDATE_ID), effect: DRAGON, rank: SpellRank.parse(6) };
+
+    const { rows } = sheetFormPreview({
+      registry,
+      character: clericOf(undefined, []),
+      candidate: dragon,
+      translate: (key) => key,
+    });
+
+    const senses = rows.find(({ name }) => name === 'character.sheet.formPreview.senses');
+    expect(senses?.own).toBe('');
+    expect(senses?.form).toMatch(/Darkvision/u);
   });
 
   it('previews what a form takes away: casting and speech, not the hands it keeps', async () => {
