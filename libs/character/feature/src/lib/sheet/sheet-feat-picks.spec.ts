@@ -9,12 +9,12 @@ import type { ContentRegistry, PackContents, PackContentsLoader } from '@pioneer
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { beforeAll, describe, expect, it } from 'vitest';
 
+import { classFeatSlotKey } from '../testing/class-feat-slots';
 import {
   PREBUILD_TIMEOUT,
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from '../testing/provide-server-state-testing';
-import { classFeatSlotKey } from '../testing/class-feat-slots';
 import { cutTo } from '../testing/test-packs';
 import { featFieldsOf, plannedFeatFieldsOf } from './sheet-feat-picks';
 import type { FeatPickSources } from './sheet-feat-picks';
