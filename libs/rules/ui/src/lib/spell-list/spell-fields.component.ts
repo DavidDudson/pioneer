@@ -3,7 +3,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { DescriptionItem, DescriptionList, Glyph, Stack, Text } from '@pioneer/frontier';
 
 import { ACTION_COST_MESSAGES } from '../rich-text/rich-text-messages';
-import type { SpellFieldsLine } from './spell-detail-line';
+import type { SingleSpellCostLine, SpellFieldsLine } from './spell-detail-line';
 import { SpellFieldLabel, SpellListMessage } from './spell-list-messages';
 
 /** One labelled value: the term is a message key. */
@@ -45,5 +45,10 @@ export class SpellFields {
 
   protected readonly Message = SpellListMessage;
   protected readonly costs = ACTION_COST_MESSAGES;
+  /** The ways of casting the caster picks from; one for most spells. */
+  protected readonly costOptions = computed((): readonly SingleSpellCostLine[] => {
+    const { cost } = this.fields();
+    return cost.kind === 'either' ? cost.options : [cost];
+  });
   protected readonly rows = computed((): readonly FieldRow[] => rowsOf(this.fields()));
 }

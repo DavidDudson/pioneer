@@ -5,7 +5,7 @@ import type { ContentKind } from './content-kind';
 import { ActionCost, AreaShape } from './rich-text';
 import type { Selector } from './selector';
 import { CastTimeType, SpellDurationType, SpellRangeType, SpellTimeUnit } from './spell-casting';
-import type { SingleDuration, SingleRange } from './spell-casting';
+import type { SingleCastTime, SingleDuration, SingleRange } from './spell-casting';
 import { TargetKind } from './spell-targets';
 import { Trait } from './trait';
 import { Feet } from './units';
@@ -121,13 +121,19 @@ export function rangeBands({ range }: SpellFields): readonly RangeBand[] {
   return [...new Set(ranges.map((each) => singleBand(each)))];
 }
 
-export function castActions({ time }: SpellFields): readonly CastActions[] {
+function singleCastActions(time: SingleCastTime): readonly CastActions[] {
   if (time.type !== CastTimeType.Actions) {
     return [CastActions.Time];
   }
   const from = ACTION_ORDER.indexOf(time.cost);
   const to = time.upTo === undefined ? from : ACTION_ORDER.indexOf(time.upTo);
   return from === -1 ? [time.cost] : ACTION_ORDER.slice(from, to + 1);
+}
+
+/** The action counts a spell can be cast in, or `time`; each option's when the caster picks one. */
+export function castActions({ time }: SpellFields): readonly CastActions[] {
+  const times = time.type === CastTimeType.Either ? time.options : [time];
+  return [...new Set(times.flatMap((each) => singleCastActions(each)))];
 }
 
 export function targetValues({ targets }: Pick<SpellFields, 'targets'>): readonly TargetValue[] {

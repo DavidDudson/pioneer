@@ -23,6 +23,9 @@ const LIST_MAX = 16;
 /** How many ranks a form can be heightened to: spell ranks 2 to 10, with room for the rank it starts at. */
 const BRACKETS_MAX = 10;
 
+/** How many variants a form can have: one for each kind of dragon, with room for more. */
+const VARIANTS_MAX = 64;
+
 /** The ways a form can move, as Foundry pf2e names them. */
 export const FormMovement = { Land: 'land', Burrow: 'burrow', Climb: 'climb', Fly: 'fly', Swim: 'swim' } as const;
 export type FormMovement = ValueOf<typeof FormMovement>;
@@ -104,14 +107,24 @@ const flagFields = {
   keepsOwnUnarmed: z.boolean().optional(),
 };
 
-/** A heightened form's changes from `start`: the spell rank (or higher) at which they apply. */
-export const BattleFormBracket = z.strictObject({
-  start: SpellRank,
+/** What a bracket or a variant changes in the form: its statistics, Strikes and traits. */
+const changeFields = {
   ...statisticFields,
   strikes: z.array(FormStrike).max(LIST_MAX).readonly().optional(),
   traits: z.array(Trait).max(LIST_MAX).readonly().optional(),
-});
+};
+
+/** A heightened form's changes from `start`: the spell rank (or higher) at which they apply. */
+export const BattleFormBracket = z.strictObject({ start: SpellRank, ...changeFields });
 export type BattleFormBracket = z.infer<typeof BattleFormBracket>;
+
+/**
+ * A form's changes while its `predicate` holds, laid over the form as a bracket is: a dragon's breath type, speeds and
+ * resistances follow the kind of dragon the character chose, so each kind is a variant that a roll option of the pick
+ * turns on.
+ */
+export const BattleFormVariant = z.strictObject({ predicate: Predicate, ...changeFields });
+export type BattleFormVariant = z.infer<typeof BattleFormVariant>;
 
 /**
  * A battle form, as Foundry pf2e's `BattleForm` defines it (ADR-0008): the statistics a polymorph spell or feature
@@ -128,6 +141,7 @@ export const BattleFormElement = z.strictObject({
     ...flagFields,
   }),
   brackets: z.array(BattleFormBracket).max(BRACKETS_MAX).readonly().optional(),
+  variants: z.array(BattleFormVariant).max(VARIANTS_MAX).readonly().optional(),
   ...ruleElementBase,
 });
 export type BattleFormElement = z.infer<typeof BattleFormElement>;

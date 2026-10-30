@@ -1763,10 +1763,6 @@
       "pack": "treasure-vault",
       "slug": "effect:effect-ancestral-geometry",
       "foundry": "Compendium.pf2e.equipment-effects.Item.oI7DVO9uKNG4zGtZ",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
       "gaps": [
         {
           "type": "rule",
@@ -1778,79 +1774,8 @@
             "slug": "ancestral-geometry",
             "value": "@item.badge.value"
           }
-        },
-        {
-          "type": "field",
-          "reason": "invalid-data",
-          "field": "badge.formula",
-          "raw": {
-            "category": "equipment",
-            "duration": {
-              "type": "time",
-              "count": 1,
-              "unit": "day",
-              "expiry": "turn-start"
-            },
-            "badge": {
-              "type": "formula",
-              "formula": "2d20kh1"
-            }
-          }
         }
-      ],
-      "document": {
-        "_id": "oI7DVO9uKNG4zGtZ",
-        "name": "Effect: Ancestral Geometry",
-        "type": "effect",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Treasure Vault (Remastered)",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 1
-          },
-          "traits": {
-            "value": []
-          },
-          "description": {
-            "value": "<p>Granted by @UUID[Compendium.pf2e.equipment-srd.Item.Ancestral Geometry]</p>\n<p>Roll 2d20 and record the highest result. Then roll 1d6 and note a type of saving throw: 1–2 Fortitude, 3–4 Reflex, and 5–6 Will.</p>"
-          },
-          "rules": [
-            {
-              "key": "GrantItem",
-              "uuid": "Compendium.pf2e.equipment-effects.Item.Effect: Ancestral Geometry (Save Type)"
-            },
-            {
-              "key": "SubstituteRoll",
-              "removeAfterRoll": "if-enabled",
-              "selector": "{actor|flags.system.ancestralGeometry}",
-              "slug": "ancestral-geometry",
-              "value": "@item.badge.value"
-            }
-          ],
-          "badge": {
-            "evaluate": true,
-            "reevaluate": null,
-            "type": "formula",
-            "value": "2d20kh1"
-          },
-          "duration": {
-            "expiry": "turn-start",
-            "sustained": false,
-            "unit": "days",
-            "value": 1
-          },
-          "start": {
-            "initiative": null,
-            "value": 0
-          },
-          "tokenIcon": {
-            "show": false
-          }
-        }
-      }
+      ]
     },
     {
       "type": "entry",
@@ -5868,22 +5793,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "equipment:ancestral-geometry",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.PSKFnWMq5daOJa1R",
-      "gaps": [
-        {
-          "type": "link",
-          "entry": "treasure-vault/effect:effect-ancestral-geometry",
-          "element": {
-            "type": "ref",
-            "id": "3d3c36b5-a1ad-5fe0-b45f-13a1baff2c4e"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:beastmasters-sigil",
       "foundry": "Compendium.pf2e.equipment-srd.Item.JWFR4O5V06UUvx6W",
       "gaps": [
@@ -7446,71 +7355,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "rune:flurrying",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.GNX0BNOoCSOYPedi",
-      "leftOut": {
-        "reason": "no-kind-data",
-        "detail": ""
-      },
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unmapped-value",
-          "field": "usage",
-          "raw": "etched-onto-melee-weapon-monk"
-        }
-      ],
-      "document": {
-        "_id": "GNX0BNOoCSOYPedi",
-        "name": "Flurrying",
-        "type": "equipment",
-        "system": {
-          "publication": {
-            "title": "Pathfinder Treasure Vault (Remastered)",
-            "license": "ORC",
-            "remaster": true
-          },
-          "level": {
-            "value": 7
-          },
-          "traits": {
-            "value": ["magical"],
-            "rarity": "common"
-          },
-          "description": {
-            "value": "<p>When you make a Flurry of Blows using the etched weapon and your first Strike reduces a creature to 0 Hit Points, you can make your second Strike with an echo of the weapon, increasing the reach to 30 feet.</p>\n<p><strong>Activate</strong> <span class=\"action-glyph\">2</span> (concentrate, force)</p>\n<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> The weapon casts a @UUID[Compendium.pf2e.spells-srd.Item.Spiritual Armament] spell. The ghostly weapon looks like the etched weapon. Use your normal attack bonus and damage for the weapon instead of the damage listed in the spell, but use your Wisdom modifier instead of Strength when determining damage. You can choose to make a Flurry of Blows instead of a Strike when the <em>spiritual armament</em> attacks; this still counts as your flourish for the turn. You can Sustain this activation in the same manner as the spell.</p>"
-          },
-          "rules": [],
-          "baseItem": null,
-          "bulk": {
-            "value": 0
-          },
-          "containerId": null,
-          "hardness": 0,
-          "hp": {
-            "max": 0,
-            "value": 0
-          },
-          "material": {
-            "grade": null,
-            "type": null
-          },
-          "price": {
-            "value": {
-              "gp": 360
-            }
-          },
-          "quantity": 1,
-          "size": "med",
-          "usage": {
-            "value": "etched-onto-melee-weapon-monk"
-          }
-        }
-      }
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "shield:sapling-shield-greater",
       "foundry": "Compendium.pf2e.equipment-srd.Item.QR7rqHMuU72NA47A",
       "gaps": [
@@ -7994,18 +7838,6 @@
             "group": "club",
             "traits": ["finesse", "monk", "parry", "sweep"]
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "weapon:celestial-staff",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.S1ALL8osqV1pOtf3",
-      "gaps": [
-        {
-          "type": "enricher",
-          "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
         }
       ]
     },

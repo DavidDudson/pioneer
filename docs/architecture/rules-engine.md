@@ -738,8 +738,9 @@ traits) and the flags `canCast`, `canSpeak`, `hasHands` and `keepsOwnUnarmed`. E
 its `start` spell rank, so a heightened form is data. A value is a number or a formula over the character
 (`18 + @level`). Records in Foundry (skills, senses, Strikes) are lists here, and a Strike's `slug` names it. A weakness
 or resistance may name a damage trait (`water`, `holy`) as well as a damage type; the engine decides what it matches.
-The importer reads the element in full; one that depends on a pick (Dragon Form's damage type and speeds), a formula
-over `@item`, or a Strike without a damage type stays in the backlog.
+The importer reads the element in full; one that depends on a pick (Dragon Form's dragon: burrow, climb and swim speeds,
+breath resistance and extra jaws damage), a formula over `@item`, or a Strike without a damage type stays in the
+backlog.
 The engine applies the replaced statistics, Strikes, temporary Hit Points, defences, traits and restrictions.
 
 #### Replaced statistics

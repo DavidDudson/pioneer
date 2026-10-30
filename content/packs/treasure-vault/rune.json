@@ -644,6 +644,130 @@
     }
   },
   {
+    "id": "b6ad857f-61ad-511d-8962-6fad308991df",
+    "pack": "treasure-vault",
+    "kind": "rune",
+    "slug": "rune:flurrying",
+    "name": "Flurrying",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you make a Flurry of Blows using the etched weapon and your first Strike reduces a creature to 0 Hit Points, you can make your second Strike with an echo of the weapon, increasing the reach to 30 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate, force)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The weapon casts a "
+          },
+          {
+            "type": "ref",
+            "id": "e0681ca0-8a1d-5d21-a033-813e782d04b5"
+          },
+          {
+            "type": "text",
+            "text": " spell. The ghostly weapon looks like the etched weapon. Use your normal attack bonus and damage for the weapon instead of the damage listed in the spell, but use your Wisdom modifier instead of Strength when determining damage. You can choose to make a Flurry of Blows instead of a Strike when the "
+          },
+          {
+            "type": "text",
+            "text": "spiritual armament",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attacks; this still counts as your flourish for the turn. You can Sustain this activation in the same manner as the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GNX0BNOoCSOYPedi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "flurrying",
+          "name": "Flurrying",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon",
+        "restriction": "monk-melee"
+      }
+    }
+  },
+  {
     "id": "d6d8fd69-4121-5784-ad5d-231c4eb86d96",
     "pack": "treasure-vault",
     "kind": "rune",

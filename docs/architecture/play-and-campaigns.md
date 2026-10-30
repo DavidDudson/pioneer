@@ -395,6 +395,16 @@ A form whose `ChoiceSet` choice is gated on `{ gte: [parent:origin:item:level, N
 add picker lists it once the rank reaches N (`formRanks` in `libs/character/domain`), and the server refuses it below N,
 or with no rank (the `rank` problem). Only a plain `gte` on that fact is read; the rule engine itself never sees it.
 
+A form spell lists the forms it offers in its `effects`, each optionally behind a predicate on the character's roll
+options (Untamed Form lists the Insect Form and Dragon Form effects only for `feat:insect-shape` and
+`feat:dragon-shape`). Casting it opens the form picker: it offers the forms the character satisfies and previews each
+beside the character's own numbers (`sheetFormPreview`): size, Strikes, senses and what the form takes away (casting,
+speech, hands). Confirming spends the slot and puts the form on in one edit (`apply` on the spend). A spell with
+`shiftsForm` (Untamed Shift) instead changes the form the character is in to another of its `effects`, keeping the time
+left and swapping the temporary Hit Points. The server checks both against the spell's content (`contentRefusal`): the
+form must be listed and offered, and a shift must change a polymorph effect on the character. The general apply-effect
+edit is not a cast and is not checked this way; it is how a player or GM adds any effect to the sheet.
+
 Humanoid Form is the committed example. It picks a size (`CreatureSize`, with the reach of that size), adds the
 `humanoid` trait and offers two toggles: passing as a humanoid (the Deception bonuses) and a sense. The sense is a
 toggle with suboptions rather than a second choice, because an active form keeps one chosen roll option.

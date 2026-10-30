@@ -58,9 +58,27 @@ function timeOf(text: string): object | undefined {
   return unit === undefined ? undefined : { count: Number(groups?.['count']), unit };
 }
 
-/** A casting time: action glyphs ("2", "reaction", "1 to 3"), or time ("10 minutes", "1 day"). */
-export function castTimeOf(text: string): object | undefined {
-  const value = words(text);
+/** "2 to 2 rounds": Foundry's wording for 2 actions or 2 rounds, the caster's pick. */
+const ACTIONS_OR_TIME = /^(?<actions>\d) to (?<count>\d+) (?<unit>round|minute|hour|day|week|month|year)s?$/u;
+
+/** Either casting time of "2 to 2 rounds": that many actions, or that many of the unit. */
+function actionsOrTimeOf(value: string): object | undefined {
+  const groups = ACTIONS_OR_TIME.exec(value)?.groups;
+  const cost = ACTION_COSTS.get(groups?.['actions'] ?? '');
+  const time = timeOf(`${groups?.['count']} ${groups?.['unit']}`);
+  return cost === undefined || time === undefined
+    ? undefined
+    : {
+        type: CastTimeType.Either,
+        options: [
+          { type: CastTimeType.Actions, cost },
+          { type: CastTimeType.Time, ...time },
+        ],
+      };
+}
+
+/** A casting time in action glyphs ("2", "reaction", "1 to 3") or in time ("10 minutes", "1 day"). */
+function singleCastTimeOf(value: string): object | undefined {
   const cost = ACTION_COSTS.get(value);
   if (cost !== undefined) {
     return { type: CastTimeType.Actions, cost };
@@ -73,6 +91,12 @@ export function castTimeOf(text: string): object | undefined {
   }
   const time = timeOf(value);
   return time && { type: CastTimeType.Time, ...time };
+}
+
+/** A casting time: actions, time, or actions or time ("2 to 2 rounds"). */
+export function castTimeOf(text: string): object | undefined {
+  const value = words(text);
+  return actionsOrTimeOf(value) ?? singleCastTimeOf(value);
 }
 
 /** "30 feet", "1,000 feet". */
