@@ -12,8 +12,8 @@ import {
 } from '@pioneer/campaign/domain';
 import type { Campaign, CampaignId } from '@pioneer/campaign/domain';
 import { CampaignBuilder } from '@pioneer/campaign/domain/testing';
-import { ConflictError, fixedClock, newId, NotFoundError, Temporal, UserId, Version } from '@pioneer/shared/kernel';
-import { rejection } from '@pioneer/shared/kernel/testing';
+import { ConflictError, newId, NotFoundError, Temporal, UserId, Version } from '@pioneer/shared/kernel';
+import { ManualClock, rejection } from '@pioneer/shared/kernel/testing';
 
 import { CampaignItemTransferService } from './campaign-item-transfer-service';
 import { InMemoryCampaignPartyRepository } from './in-memory-campaign-party-repository';
@@ -47,8 +47,10 @@ describe('CampaignItemTransferService', () => {
   let settlement: InMemoryTransferSettlement;
   let service: CampaignItemTransferService;
   let vaults: Campaign;
+  let clock: ManualClock;
 
   beforeEach(async () => {
+    clock = new ManualClock('2026-10-17T10:00:00Z');
     const campaigns = new InMemoryCampaignRepository();
     const party = new InMemoryCampaignPartyRepository(campaigns);
     transfers = new InMemoryItemTransferRepository();
@@ -72,7 +74,7 @@ describe('CampaignItemTransferService', () => {
           .hasCoins(dormant, { gp: 1 }, GIVER_VERSION),
         settlement,
       },
-      fixedClock('2026-10-17T10:00:00Z'),
+      clock,
     );
     vaults = await campaigns.insert(new CampaignBuilder().ranBy(amiri).withPlayer(ezren).withPlayer(merisiel).build());
     const attachedAt = Temporal.Instant.from('2026-10-10T10:00:00Z');
@@ -241,6 +243,7 @@ describe('CampaignItemTransferService', () => {
 
     test('shows a coin offer beside an item one, oldest first, with its coins', async () => {
       const item = await service.offer(ezren, vaults.id, { from: kyra, to: seelah, item: longsword });
+      clock.advance(Temporal.Duration.from({ minutes: 1 }));
       const coins = OfferedCoinsSchema.parse({ gp: 4, sp: 2 });
       const purse = await service.offerCoins(ezren, vaults.id, { from: kyra, to: seelah, coins });
 
