@@ -53826,7 +53826,8 @@
         { "effect": "1bacec27-0b89-5406-b1c7-6834451eab0b", "predicate": ["feat:insect-shape"] },
         { "effect": "9a569d5e-01de-5449-a4cf-dcd341455ee6", "predicate": ["feat:insect-shape"] },
         { "effect": "99274af8-3bcf-5c30-b7bf-39b65c9c774e", "predicate": ["feat:insect-shape"] },
-        { "effect": "9be195ac-f2e4-5db5-8380-bc08a532ec47", "predicate": ["feat:insect-shape"] }
+        { "effect": "9be195ac-f2e4-5db5-8380-bc08a532ec47", "predicate": ["feat:insect-shape"] },
+        { "effect": "43b68cc1-cc3f-5c35-b3e6-f32f001d3ecd", "predicate": ["feat:dragon-shape"] }
       ],
       "traditions": [],
       "damage": []
@@ -54036,7 +54037,8 @@
         { "effect": "1bacec27-0b89-5406-b1c7-6834451eab0b", "predicate": ["feat:insect-shape"] },
         { "effect": "9a569d5e-01de-5449-a4cf-dcd341455ee6", "predicate": ["feat:insect-shape"] },
         { "effect": "99274af8-3bcf-5c30-b7bf-39b65c9c774e", "predicate": ["feat:insect-shape"] },
-        { "effect": "9be195ac-f2e4-5db5-8380-bc08a532ec47", "predicate": ["feat:insect-shape"] }
+        { "effect": "9be195ac-f2e4-5db5-8380-bc08a532ec47", "predicate": ["feat:insect-shape"] },
+        { "effect": "43b68cc1-cc3f-5c35-b3e6-f32f001d3ecd", "predicate": ["feat:dragon-shape"] }
       ],
       "shiftsForm": true,
       "traditions": [],
