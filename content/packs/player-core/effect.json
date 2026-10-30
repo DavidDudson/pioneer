@@ -17534,21 +17534,179 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "dragon-form",
+        "choices": [
+          {
+            "value": "adamantine",
+            "label": "Adamantine Dragon"
+          },
+          {
+            "value": "barrage",
+            "label": "Barrage Dragon"
+          },
+          {
+            "value": "bog",
+            "label": "Bog Dragon"
+          },
+          {
+            "value": "brine",
+            "label": "Brine Dragon"
+          },
+          {
+            "value": "cinder",
+            "label": "Cinder Dragon"
+          },
+          {
+            "value": "cloud",
+            "label": "Cloud Dragon"
+          },
+          {
+            "value": "conspirator",
+            "label": "Conspirator Dragon"
+          },
+          {
+            "value": "coral",
+            "label": "Coral Dragon"
+          },
+          {
+            "value": "crystal",
+            "label": "Crystal Dragon"
+          },
+          {
+            "value": "delight",
+            "label": "Delight Dragon"
+          },
+          {
+            "value": "despair",
+            "label": "Despair Dragon"
+          },
+          {
+            "value": "diabolic",
+            "label": "Diabolic Dragon"
+          },
+          {
+            "value": "empyreal",
+            "label": "Empyreal Dragon"
+          },
+          {
+            "value": "executor",
+            "label": "Executor Dragon"
+          },
+          {
+            "value": "forest",
+            "label": "Forest Dragon"
+          },
+          {
+            "value": "fortune",
+            "label": "Fortune Dragon"
+          },
+          {
+            "value": "horned",
+            "label": "Horned Dragon"
+          },
+          {
+            "value": "magma",
+            "label": "Magma Dragon"
+          },
+          {
+            "value": "mirage",
+            "label": "Mirage Dragon"
+          },
+          {
+            "value": "mocking",
+            "label": "Mocking Dragon"
+          },
+          {
+            "value": "oath",
+            "label": "Oath Dragon"
+          },
+          {
+            "value": "omen",
+            "label": "Omen Dragon"
+          },
+          {
+            "value": "phase",
+            "label": "Phase Dragon"
+          },
+          {
+            "value": "requiem",
+            "label": "Requiem Dragon"
+          },
+          {
+            "value": "resurrection",
+            "label": "Resurrection Dragon"
+          },
+          {
+            "value": "rime",
+            "label": "Rime Dragon"
+          },
+          {
+            "value": "rune",
+            "label": "Rune Dragon"
+          },
+          {
+            "value": "sage",
+            "label": "Sage Dragon"
+          },
+          {
+            "value": "sea",
+            "label": "Sea Dragon"
+          },
+          {
+            "value": "sky",
+            "label": "Sky Dragon"
+          },
+          {
+            "value": "sovereign",
+            "label": "Sovereign Dragon"
+          },
+          {
+            "value": "stormcrown",
+            "label": "Stormcrown Dragon"
+          },
+          {
+            "value": "time",
+            "label": "Time Dragon"
+          },
+          {
+            "value": "umbral",
+            "label": "Umbral Dragon"
+          },
+          {
+            "value": "underworld",
+            "label": "Underworld Dragon"
+          },
+          {
+            "value": "vizier",
+            "label": "Vizier Dragon"
+          },
+          {
+            "value": "vorpal",
+            "label": "Vorpal Dragon"
+          },
+          {
+            "value": "wailing",
+            "label": "Wailing Dragon"
+          },
+          {
+            "value": "whisper",
+            "label": "Whisper Dragon"
+          },
+          {
+            "value": "wish",
+            "label": "Wish Dragon"
+          }
+        ],
+        "prompt": "Select a dragon.",
+        "rollOption": "dragon-form"
+      },
+      {
         "key": "BattleForm",
         "form": {
-          "canCast": false,
-          "canSpeak": false,
-          "hasHands": true,
-          "size": "large",
-          "armorClass": {
-            "modifier": "18 + @level",
-            "ignoreCheckPenalty": true,
-            "ignoreSpeedReduction": true
-          },
-          "tempHP": 10,
           "speeds": {
-            "land": 40,
-            "fly": 100
+            "fly": 100,
+            "land": 40
           },
           "senses": [
             {
@@ -17560,87 +17718,108 @@
               "range": 60
             }
           ],
-          "skills": [
-            {
-              "skill": "skill:athletics",
-              "modifier": 23
-            }
-          ],
           "strikes": [
             {
-              "slug": "jaws",
-              "ability": "str",
-              "category": "unarmed",
-              "traits": ["unarmed"],
-              "modifier": 22,
-              "damage": {
-                "dice": 2,
-                "die": "d12",
-                "damageType": "piercing",
-                "modifier": 6
-              }
-            },
-            {
               "slug": "claw",
-              "ability": "str",
+              "baseType": "claw",
               "category": "unarmed",
               "traits": ["unarmed", "agile"],
-              "modifier": 22,
               "damage": {
                 "dice": 3,
                 "die": "d10",
-                "damageType": "slashing",
-                "modifier": 6
+                "damageType": "slashing"
+              }
+            },
+            {
+              "slug": "jaws",
+              "baseType": "jaws",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "damage": {
+                "dice": 2,
+                "die": "d12",
+                "damageType": "piercing"
               }
             },
             {
               "slug": "tail",
-              "ability": "str",
               "category": "unarmed",
               "traits": ["unarmed", "reach-10"],
-              "modifier": 22,
               "damage": {
                 "dice": 3,
                 "die": "d10",
-                "damageType": "bludgeoning",
-                "modifier": 6
+                "damageType": "bludgeoning"
               }
             }
           ],
-          "traits": ["dragon"]
+          "traits": ["dragon"],
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": true
         },
         "brackets": [
           {
-            "start": 8,
-            "size": "huge",
+            "start": 6,
             "armorClass": {
-              "modifier": "21 + @level",
-              "ignoreCheckPenalty": true,
-              "ignoreSpeedReduction": true
+              "modifier": "18 + @level"
             },
-            "tempHP": 15,
-            "speeds": {
-              "land": 40,
-              "fly": 120
+            "size": "large",
+            "skills": [
+              {
+                "skill": "skill:athletics",
+                "modifier": 23
+              }
+            ],
+            "tempHP": 10,
+            "strikes": [
+              {
+                "slug": "claw",
+                "modifier": 22,
+                "damage": {
+                  "modifier": 6
+                }
+              },
+              {
+                "slug": "jaws",
+                "modifier": 22,
+                "damage": {
+                  "modifier": 6
+                }
+              },
+              {
+                "slug": "tail",
+                "modifier": 22,
+                "damage": {
+                  "modifier": 6
+                }
+              }
+            ]
+          },
+          {
+            "start": 8,
+            "armorClass": {
+              "modifier": "21 + @level"
             },
+            "size": "huge",
             "skills": [
               {
                 "skill": "skill:athletics",
                 "modifier": 28
               }
             ],
+            "tempHP": 15,
             "strikes": [
               {
-                "slug": "jaws",
-                "traits": ["unarmed", "reach-10"],
+                "slug": "claw",
+                "traits": ["unarmed", "agile", "reach-10"],
                 "modifier": 28,
                 "damage": {
                   "modifier": 12
                 }
               },
               {
-                "slug": "claw",
-                "traits": ["unarmed", "agile", "reach-10"],
+                "slug": "jaws",
+                "traits": ["unarmed", "reach-10"],
                 "modifier": 28,
                 "damage": {
                   "modifier": 12
@@ -17654,15 +17833,416 @@
                   "modifier": 12
                 }
               }
+            ],
+            "speeds": {
+              "fly": 120
+            }
+          }
+        ],
+        "variants": [
+          {
+            "predicate": ["dragon-form:adamantine"],
+            "speeds": {
+              "burrow": 20
+            },
+            "resistances": [
+              {
+                "type": "bludgeoning",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:barrage"],
+            "resistances": [
+              {
+                "type": "force",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:bog"],
+            "speeds": {
+              "swim": 60
+            },
+            "resistances": [
+              {
+                "type": "acid",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:brine"],
+            "speeds": {
+              "swim": 60
+            },
+            "resistances": [
+              {
+                "type": "bludgeoning",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:cinder"],
+            "resistances": [
+              {
+                "type": "fire",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:cloud"],
+            "resistances": [
+              {
+                "type": "electricity",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:conspirator"],
+            "speeds": {
+              "climb": 40
+            },
+            "resistances": [
+              {
+                "type": "poison",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:coral"],
+            "speeds": {
+              "swim": 60
+            },
+            "resistances": [
+              {
+                "type": "bludgeoning",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:crystal"],
+            "resistances": [
+              {
+                "type": "piercing",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:delight"],
+            "resistances": [
+              {
+                "type": "spirit",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:despair"],
+            "resistances": [
+              {
+                "type": "sonic",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:diabolic"],
+            "resistances": [
+              {
+                "type": "fire",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:empyreal"],
+            "resistances": [
+              {
+                "type": "spirit",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:executor"],
+            "resistances": [
+              {
+                "type": "sonic",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:forest"],
+            "resistances": [
+              {
+                "type": "piercing",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:fortune"],
+            "resistances": [
+              {
+                "type": "force",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:horned"],
+            "speeds": {
+              "swim": 60
+            },
+            "resistances": [
+              {
+                "type": "poison",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:magma"],
+            "speeds": {
+              "burrow": 20
+            },
+            "resistances": [
+              {
+                "type": "fire",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:mirage"],
+            "speeds": {
+              "climb": 40
+            },
+            "resistances": [
+              {
+                "type": "mental",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:mocking"],
+            "resistances": [
+              {
+                "type": "bludgeoning",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:oath"],
+            "resistances": [
+              {
+                "type": "spirit",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:omen"],
+            "resistances": [
+              {
+                "type": "mental",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:phase"],
+            "resistances": [
+              {
+                "type": "force",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:requiem"],
+            "speeds": {
+              "swim": 60
+            },
+            "resistances": [
+              {
+                "type": "spirit",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:resurrection"],
+            "resistances": [
+              {
+                "type": "void",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:rime"],
+            "speeds": {
+              "swim": 60
+            },
+            "resistances": [
+              {
+                "type": "cold",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:rune"],
+            "resistances": [
+              {
+                "type": "fire",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:sage"],
+            "resistances": [
+              {
+                "type": "mental",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:sea"],
+            "speeds": {
+              "swim": 60
+            },
+            "resistances": [
+              {
+                "type": "bludgeoning",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:sky"],
+            "resistances": [
+              {
+                "type": "electricity",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:sovereign"],
+            "resistances": [
+              {
+                "type": "mental",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:stormcrown"],
+            "resistances": [
+              {
+                "type": "electricity",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:time"],
+            "resistances": [
+              {
+                "type": "force",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:umbral"],
+            "resistances": [
+              {
+                "type": "void",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:underworld"],
+            "speeds": {
+              "burrow": 20
+            },
+            "resistances": [
+              {
+                "type": "fire",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:vizier"],
+            "speeds": {
+              "swim": 60
+            },
+            "resistances": [
+              {
+                "type": "fire",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:vorpal"],
+            "resistances": [
+              {
+                "type": "void",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:wailing"],
+            "resistances": [
+              {
+                "type": "sonic",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:whisper"],
+            "resistances": [
+              {
+                "type": "mental",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "predicate": ["dragon-form:wish"],
+            "speeds": {
+              "climb": 40
+            },
+            "resistances": [
+              {
+                "type": "mental",
+                "value": 10
+              }
             ]
           }
         ]
-      },
-      {
-        "key": "Resistance",
-        "type": ["spirit", "void", "vitality"],
-        "value": 10,
-        "predicate": ["parent:spellcasting:tradition:divine", "dragon-form-tradition:divine"]
       },
       {
         "key": "Resistance",
@@ -17675,6 +18255,12 @@
         "type": ["mental"],
         "value": 10,
         "predicate": ["parent:spellcasting:tradition:occult", "dragon-form-tradition:occult"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spirit", "void", "vitality"],
+        "value": 10,
+        "predicate": ["parent:spellcasting:tradition:divine", "dragon-form-tradition:divine"]
       }
     ],
     "externalIds": {
@@ -24863,6 +25449,26 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "overstuff",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "overstuff"
+      },
       {
         "key": "FlatModifier",
         "selectors": ["land-speed"],
