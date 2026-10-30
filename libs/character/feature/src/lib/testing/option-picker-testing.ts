@@ -17,6 +17,12 @@ export function pickerCount(harness: RouterTestingHarness, scope: HTMLElement): 
   return pickersIn(harness, scope).length;
 }
 
+/** The labels the `index`th picker of `scope` offers (the first by default), in order. */
+export function rowLabels(harness: RouterTestingHarness, scope: HTMLElement, index = 0): readonly string[] {
+  const picker = present(pickersIn(harness, scope)[index]);
+  return picker.rows().map((each) => picker.rowLabel()(each));
+}
+
 /** Which row to pick: the one whose label `matches`, in the `index`th picker (the first by default). */
 export interface PickTarget {
   readonly matches: (label: string) => boolean;
