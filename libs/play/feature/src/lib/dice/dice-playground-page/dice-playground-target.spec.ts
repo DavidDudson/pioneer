@@ -124,10 +124,25 @@ describe('DicePlaygroundPage with a target', () => {
     expect(removes?.length).toBe(1);
   });
 
+  it('applies a weakness to area damage only when the roll is from an area effect', async () => {
+    const harness = await openPlayground([3, 4, 3, 4]);
+    await typeExpression(harness, '2d6[fire]');
+    await press(harness, 'Apply to a target');
+    pick(harness, 1, 'area-damage');
+    await press(harness, 'Add weakness');
+    await press(harness, 'Roll');
+    expect(present(harness.routeNativeElement).textContent).not.toMatch(/Weakness \d+ to/u);
+
+    await press(harness, 'Area effect');
+    await press(harness, 'Roll');
+    expect(present(harness.routeNativeElement).textContent).toMatch(/Weakness \d+ to/u);
+  });
+
   it('only offers a critical hit with a target', async () => {
     const harness = await openPlayground([2]);
     expect(button(harness, 'Critical hit').disabled).toBe(true);
     await press(harness, 'Apply to a target');
     expect(button(harness, 'Critical hit').disabled).toBe(false);
+    expect(button(harness, 'Area effect').disabled).toBe(false);
   });
 });
