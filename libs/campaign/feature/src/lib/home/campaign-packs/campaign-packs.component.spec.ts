@@ -3,7 +3,8 @@ import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages, Select } from '@pioneer/frontier';
+import { frontierMessages } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -111,12 +112,19 @@ async function open(packs: PacksJson): Promise<RouterTestingHarness> {
 }
 
 /** The pack picker's control. */
-function picker(harness: RouterTestingHarness): Select<string> {
+function picker(harness: RouterTestingHarness): PickerField<string, object> {
   const host = harness.fixture.debugElement.query(By.css('pio-campaign-pack-picker'));
-  return host.query(By.directive(Select)).componentInstance as Select<string>;
+  return host.query(By.directive(PickerField)).componentInstance as PickerField<string, object>;
 }
 
-/** Picks `packId` in the picker, the way choosing it from the overlay listbox would. */
+/** The label of the first pack the picker offers. */
+function labelOf(harness: RouterTestingHarness): string | undefined {
+  const control = picker(harness);
+  const [first] = control.rows();
+  return first === undefined ? undefined : control.rowLabel()(first);
+}
+
+/** Picks `packId` in the picker, as pressing its row would. */
 function pick(harness: RouterTestingHarness, packId: string): void {
   picker(harness).value.set(packId);
   harness.detectChanges();
@@ -161,8 +169,8 @@ describe('CampaignPacksPanel', () => {
     });
     expect(
       picker(harness)
-        .options()
-        .map((option) => option.value),
+        .rows()
+        .map((row) => picker(harness).rowValue()(row)),
     ).toStrictEqual([secret.packId]);
     expect(picker(harness).value()).toBe('');
   });
@@ -171,7 +179,7 @@ describe('CampaignPacksPanel', () => {
     const harness = await open({ manageable: true, enabled: [core], candidates: [secret] });
     const http = TestBed.inject(HttpTestingController);
     const root = present(harness.routeNativeElement);
-    expect(picker(harness).options()[0]?.label).toBe('Amiri’s Secrets (private)');
+    expect(labelOf(harness)).toBe('Amiri’s Secrets (private)');
 
     pick(harness, secret.packId);
     present(buttons(root, 'Enable pack')[0]).click();
@@ -215,8 +223,8 @@ describe('CampaignPacksPanel', () => {
     expect(root.ownerDocument.activeElement).toBe(button);
     expect(
       picker(harness)
-        .options()
-        .map((option) => option.value),
+        .rows()
+        .map((row) => picker(harness).rowValue()(row)),
     ).toStrictEqual([feats.packId]);
   });
 

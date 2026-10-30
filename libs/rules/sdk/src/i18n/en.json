@@ -1338,6 +1338,11 @@
       "additionalSkills": "+{{count}} of your choice",
       "proficiency": "{{statistic}}: {{rank}}"
     },
+    "optionPicker": {
+      "column": {
+        "name": "Name"
+      }
+    },
     "slotPicker": {
       "column": {
         "name": "Name",

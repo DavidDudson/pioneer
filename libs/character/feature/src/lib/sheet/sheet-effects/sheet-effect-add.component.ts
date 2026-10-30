@@ -16,10 +16,10 @@ import type { SelectOption } from '@pioneer/frontier';
 import { RANDOM_SOURCE } from '@pioneer/play/ui';
 import { ContentId, RollOption, SPELL_RANK_MAX, SpellRank } from '@pioneer/rules/sdk';
 import type { HitPoints } from '@pioneer/rules/sdk';
+import { OptionPicker } from '@pioneer/rules/ui';
 import { newId } from '@pioneer/shared/kernel';
 
 import { injectCharacterAllies } from '../../data/character-allies-query';
-import { OptionPicker } from '../option-picker/option-picker.component';
 import type { EffectOption } from '../sheet-effects';
 
 /** The message each source of an effect is worded with. */

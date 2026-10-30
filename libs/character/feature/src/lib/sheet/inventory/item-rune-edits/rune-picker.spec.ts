@@ -13,10 +13,10 @@ import {
 } from '@pioneer/character/domain/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { FundamentalRune, RuneType } from '@pioneer/rules/sdk';
+import { shownRows } from '@pioneer/rules/ui';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it } from 'vitest';
 
-import { shownRows } from '../picker-rows';
 import { propertyRuneEntries, runeKey } from './rune-options';
 import { etchedRows, gradeRows, propertyRows, RUNE_ORDER, slotsOf } from './rune-picker';
 

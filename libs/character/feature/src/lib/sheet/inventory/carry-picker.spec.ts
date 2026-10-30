@@ -1,11 +1,11 @@
 import type { ItemEntry } from '@pioneer/character/domain';
 import { ItemFixture, itemFixtureContent, itemFixtureId } from '@pioneer/character/domain/testing';
 import { BulkWeight } from '@pioneer/rules/sdk';
+import { shownRows } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
 
 import { CarryChoice } from './carry-options';
 import { bulkCarried, CARRY_ORDER, carryRows } from './carry-picker';
-import { shownRows } from './picker-rows';
 
 const content = itemFixtureContent();
 

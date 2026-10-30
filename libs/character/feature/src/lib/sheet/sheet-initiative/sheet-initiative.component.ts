@@ -4,9 +4,9 @@ import { PERCEPTION } from '@pioneer/character/domain';
 import { Button, ButtonVariant, Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { Selector } from '@pioneer/rules/sdk';
+import { OptionPicker } from '@pioneer/rules/ui';
 
 import { PlayStore } from '../../data/play-store';
-import { OptionPicker } from '../option-picker/option-picker.component';
 import { defaultInitiative, initiativeChoices } from '../sheet-initiative';
 import type { InitiativeChoice } from '../sheet-initiative';
 import { SheetRolls } from '../sheet-rolls';

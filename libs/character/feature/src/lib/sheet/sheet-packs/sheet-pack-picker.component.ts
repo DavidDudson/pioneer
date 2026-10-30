@@ -8,11 +8,10 @@ import { AsyncButton, AsyncForm, EmptyState, Heading, Link, Stack } from '@pione
 import type { SelectOption } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import type { ContentPackId } from '@pioneer/rules/sdk';
+import { injectOptionRows } from '@pioneer/rules/ui';
 import { ApiError } from '@pioneer/shared/web';
 
 import { CharacterPackStore } from '../../data/character-pack-store';
-import { PickerRows } from '../inventory/picker-rows';
-import { optionColumns, optionLabel, optionOrder, optionValue } from '../option-picker/option-rows';
 
 interface EnableModel {
   readonly packId: string;
@@ -48,12 +47,7 @@ export class SheetPackPicker {
     })),
   );
 
-  protected readonly rows = new PickerRows(this.options, optionOrder<string>());
-  protected readonly columns = computed(() =>
-    optionColumns<string>(this.#i18n.translate('character.sheet.optionColumns.name')),
-  );
-  protected readonly rowValue = optionValue<string>;
-  protected readonly rowLabel = optionLabel;
+  protected readonly table = injectOptionRows(this.options);
 
   protected readonly model = signal<EnableModel>({ packId: '' });
   protected readonly form = form(this.model, (path) => {

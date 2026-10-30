@@ -240,3 +240,9 @@ export { ActionsViewKind } from './lib/actions/actions-list';
 export { ActionsView } from './lib/actions/actions.component';
 export { StatBlockLayout, type StatBlockCreature } from './lib/creature-stat-block/creature-stat-block';
 export { CreatureStatBlockView } from './lib/creature-stat-block/creature-stat-block.component';
+
+// Option picker
+export { OptionPicker } from './lib/option-picker/option-picker.component';
+export { injectOptionColumns, injectOptionRows } from './lib/option-picker/inject-option-rows';
+export { optionLabel, optionValue } from './lib/option-picker/option-rows';
+export { PickerRows, shownRows, type RowOrder } from './lib/option-picker/picker-rows';

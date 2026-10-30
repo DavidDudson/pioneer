@@ -1,8 +1,10 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
+import { Picker } from '@pioneer/frontier/data';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
@@ -83,6 +85,30 @@ function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
   return [...root.querySelectorAll('button')].filter((candidate) => candidate.textContent.trim().startsWith(label));
 }
 
+/** The page the spec opened last, so a pick can reach its pickers. */
+let opened: RouterTestingHarness | undefined = undefined;
+
+/**
+ * The picker inside `host`. The table renders no rows in the page harness, so a spec reads and picks on the picker
+ * itself: its own specs press the rows.
+ */
+function pickerIn(host: string): Picker<string, object> {
+  const found = present(opened).fixture.debugElement.query(By.css(host)).query(By.directive(Picker));
+  return found.injector.get<Picker<string, object>>(Picker);
+}
+
+/** The labels a picker offers, in order. */
+function labelsOf(picker: Picker<string, object>): readonly string[] {
+  return picker.rows().map((row) => picker.rowLabel()(row));
+}
+
+/** Picks the row labelled `label` in the picker. */
+function pickLabel(picker: Picker<string, object>, label: string): void {
+  const row = present(picker.rows().find((each) => picker.rowLabel()(each) === label));
+  picker.value.set(picker.rowValue()(row));
+  present(opened).detectChanges();
+}
+
 /** Opens the campaign home as its GM or as a player, answering the key items load with `items`. */
 async function open(items: object, gm: boolean): Promise<HTMLElement> {
   TestBed.configureTestingModule({
@@ -93,6 +119,7 @@ async function open(items: object, gm: boolean): Promise<HTMLElement> {
     ],
   });
   const harness = await RouterTestingHarness.create(`/campaigns/${id}/inventory`);
+  opened = harness;
   const host: unknown = harness.fixture.nativeElement;
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('The page did not render');
@@ -134,14 +161,8 @@ function twoKeyItems(): object {
 }
 
 /** Picks `label` in the holder filter. */
-async function filterBy(root: HTMLElement, label: string): Promise<void> {
-  present(root.querySelector<HTMLElement>('pio-campaign-key-item-filter fr-select button')).click();
-  const option = await vi.waitFor(() =>
-    present(
-      [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) => each.textContent.trim() === label),
-    ),
-  );
-  option.click();
+function filterBy(label: string): void {
+  pickLabel(pickerIn('pio-campaign-key-item-filter'), label);
 }
 
 describe('CampaignKeyItemsPanel', () => {
@@ -149,13 +170,13 @@ describe('CampaignKeyItemsPanel', () => {
     const root = await open(twoKeyItems(), false);
     expect(root.textContent).toContain('Excalibur');
 
-    await filterBy(root, 'Kyra');
+    filterBy('Kyra');
     await vi.waitFor(() => {
       expect(root.textContent).not.toContain('Excalibur');
     });
     expect(root.textContent).toContain('Caliburn');
 
-    await filterBy(root, 'Party stash');
+    filterBy('Party stash');
     await vi.waitFor(() => {
       expect(root.textContent).not.toContain('Caliburn');
     });
@@ -165,7 +186,7 @@ describe('CampaignKeyItemsPanel', () => {
   it('says no key item is held when the filter keeps none', async () => {
     const root = await open(keyItems('kyra', false), false);
 
-    await filterBy(root, 'Party stash');
+    filterBy('Party stash');
 
     await vi.waitFor(() => {
       expect(root.textContent).toContain('No key items for this holder.');
@@ -246,18 +267,10 @@ describe('CampaignKeyItemsPanel', () => {
     const root = await open(keyItems('kyra'), true);
     const http = TestBed.inject(HttpTestingController);
 
-    present(root.querySelector<HTMLElement>('pio-campaign-key-item-holder fr-select button')).click();
-    const option = await vi.waitFor(() =>
-      present(
-        [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) =>
-          each.textContent.includes('Mordred'),
-        ),
-      ),
-    );
-    expect(
-      [...document.querySelectorAll<HTMLElement>('[role="option"]')].some((each) => each.textContent.includes('Kyra')),
-    ).toBe(false);
-    option.click();
+    const holder = pickerIn('pio-campaign-key-item-holder');
+    expect(labelsOf(holder)).toContain('Mordred');
+    expect(labelsOf(holder)).not.toContain('Kyra');
+    pickLabel(holder, 'Mordred');
 
     await vi.waitFor(() => {
       expect(present(buttons(root, 'Give Caliburn')[0]).disabled).toBe(false);

@@ -1,8 +1,8 @@
 import type { SelectOption } from '@pioneer/frontier';
 import type { TableColumn } from '@pioneer/frontier/data';
-import { RulesTableSchema } from '@pioneer/rules/ui';
 
-import type { RowOrder } from '../inventory/picker-rows';
+import { RulesTableSchema } from '../picker-cells/rules-table-schema';
+import type { RowOrder } from './picker-rows';
 
 /** How a short list of options is searched and sorted: by label. */
 export function optionOrder<TValue extends string>(): RowOrder<SelectOption<TValue>> {

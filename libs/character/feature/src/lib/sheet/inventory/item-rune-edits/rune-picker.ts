@@ -12,9 +12,8 @@ import type { TableColumn } from '@pioneer/frontier/data';
 import { RuneType } from '@pioneer/rules/sdk';
 import type { FundamentalRune, Price, RichText, RunedItem } from '@pioneer/rules/sdk';
 import { ItemTableSchema } from '@pioneer/rules/ui';
-import type { Chip } from '@pioneer/rules/ui';
+import type { Chip, RowOrder } from '@pioneer/rules/ui';
 
-import type { RowOrder } from '../picker-rows';
 import { gradeChoices } from './rune-options';
 import { gradeLabel, runeLabel } from './rune-text';
 

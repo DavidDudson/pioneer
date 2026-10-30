@@ -1,11 +1,15 @@
 <fr-stack gap="sm">
   <fr-heading variant="label" [level]="4">{{ 'campaign.keyItems.form.propertyRunes' | transloco }}</fr-heading>
-  <fr-combobox
-    [options]="options()"
-    [loading]="loading()"
+  <fr-picker
+    [ariaLabel]="'campaign.keyItems.form.propertyRunes' | transloco"
     [placeholder]="'campaign.keyItems.form.runePlaceholder' | transloco"
+    [rows]="options()"
+    [columns]="columns()"
+    [rowValue]="rowValue"
+    [rowLabel]="rowLabel"
+    [loading]="loading()"
+    [(value)]="picked"
     (searched)="find($event)"
-    (valueChange)="add($event)"
   />
   <fr-list gap="xs">
     @for (rune of runes(); track rune.rune) {

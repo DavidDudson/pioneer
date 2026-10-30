@@ -6,7 +6,7 @@ import { CharacterPatchField, costCoins, ItemQuantity, payCost, purchaseCost } f
 import type { CharacterPatch, ItemContent, ItemEntry } from '@pioneer/character/domain';
 import { AsyncButton, AsyncForm, Grid, Heading, NumberField, Stack } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
-import { coinCounts, ShopBill } from '@pioneer/rules/ui';
+import { ShopBill, coinCounts } from '@pioneer/rules/ui';
 import type { CoinCount } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../../data/character-store';
