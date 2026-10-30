@@ -69,3 +69,22 @@ describe('touches', () => {
     expect(touches(['docs/architecture/rules-engine.md'], ['.github/', 'infra/'])).toBe(false);
   });
 });
+
+const affectedNames: AffectedIn = async () => ['a', 'b'];
+
+describe('selectJobs arguments', () => {
+  test('names the affected projects in place of the filter, keeping the other flags', async () => {
+    const selected = await selectJobs(
+      [entry('web', '--projects=tag:platform:web --exclude=c --parallel=2 --configuration=rest')],
+      affectedNames,
+    );
+
+    expect(selected.map(({ args }) => args)).toStrictEqual(['--parallel=2 --configuration=rest --projects=a,b']);
+  });
+
+  test('leaves an entry with no filter as it is', async () => {
+    const selected = await selectJobs([entry('all', '')], affectedNames);
+
+    expect(selected.map(({ args }) => args)).toStrictEqual(['']);
+  });
+});
