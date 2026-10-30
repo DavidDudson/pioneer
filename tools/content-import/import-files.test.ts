@@ -33,6 +33,8 @@ interface GmCoreBacklog {
   readonly fields: ReadonlySet<string>;
   readonly count: number;
   readonly leftOut: number;
+  /** The entries whose `effect` field names an effect no pack has. */
+  readonly effectGaps: readonly string[];
 }
 
 async function gmCoreBacklog(): Promise<GmCoreBacklog> {
@@ -46,6 +48,10 @@ async function gmCoreBacklog(): Promise<GmCoreBacklog> {
     fields: new Set(fields),
     count: fields.length,
     leftOut: entries.filter(({ leftOut }) => leftOut !== undefined).length,
+    effectGaps: entries
+      .filter(({ gaps }) => gaps.some((gap) => gap.type === BacklogGapType.Field && gap.field === 'effect'))
+      .map(({ slug }) => String(slug))
+      .toSorted(),
   };
 }
 
@@ -55,7 +61,20 @@ describe('content/import/gm-core.json', () => {
     const { fields, count } = await gmCoreBacklog();
 
     expect(count).toBeLessThan(46);
-    expect(fields).toEqual(new Set(['description.frequency']));
+    expect(fields).toEqual(new Set(['description.frequency', 'effect']));
+  });
+
+  // Foundry's equipment effects for these five consumables are in no pack yet; a sixth must not join them.
+  test('lists the consumables whose effect no pack has', async () => {
+    const { effectGaps } = await gmCoreBacklog();
+
+    expect(effectGaps).toEqual([
+      'consumable:gecko-potion',
+      'consumable:potion-of-cold-resistance-greater',
+      'consumable:potion-of-cold-resistance-lesser',
+      'consumable:potion-of-cold-resistance-moderate',
+      'consumable:stone-fist-elixir',
+    ]);
   });
 
   test('leaves nothing out of the pack', async () => {
