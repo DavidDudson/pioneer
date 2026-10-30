@@ -647,10 +647,12 @@ export {
   turnEnded,
   TurnPhase,
   TurnStateSchema,
+  unconsciousCondition,
   type EconomyConditions,
   type TurnCommand,
   type TurnState,
 } from './turn-state';
+export { outOfAir } from './suffocation-unconscious';
 export {
   afterConsumable,
   ConsumableCommandField,

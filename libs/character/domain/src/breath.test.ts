@@ -166,6 +166,11 @@ describe('endTurn while holding a breath', () => {
   });
 });
 
+/** The events that say the character fell unconscious. */
+function fell(events: readonly { readonly kind: string }[]): readonly unknown[] {
+  return events.filter(({ kind }) => kind === TurnEventKind.FellUnconscious);
+}
+
 describe('falling unconscious out of air', () => {
   const withContent: EndTurnInputs = {
     ...INPUTS,
@@ -180,6 +185,13 @@ describe('falling unconscious out of air', () => {
 
     expect(unconsciousOf(play)).toHaveLength(1);
     expect(play.breath?.unconscious).toBe(unconsciousOf(play)[0]);
+  });
+
+  test('the turn log says so, naming the condition and which one, and only the turn it fell', () => {
+    const first = endTurn(holding({ air: air(1), checks: checks(0) }), withContent, faces(10));
+    const second = endTurn(first.play, { ...withContent, fortitude }, faces(15));
+    expect(fell(first.events)).toMatchObject([{ condition: UNCONSCIOUS, instance: first.play.breath?.unconscious }]);
+    expect(fell(second.events)).toEqual([]);
   });
 
   test('a save made once out of air puts it on a character that had none, and a second save does not repeat it', () => {

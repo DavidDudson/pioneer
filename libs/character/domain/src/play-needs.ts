@@ -1,5 +1,5 @@
 import { isActiveSpellCommand } from './active-spells';
-import { isBreathCommand } from './breath';
+import { BreathCommandField, isBreathCommand } from './breath';
 import { isEffectCommand } from './effect-commands';
 import { isEnvironmentCommand } from './environments';
 import { isExplorationCommand } from './exploration-commands';
@@ -117,6 +117,9 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
 /** Whether `command` adds or changes a condition, and so needs to know which conditions the content has and which carry a value. */
 // oxlint-disable-next-line complexity -- a case for each play command, with the toggle edit told apart first
 export function needsConditionContent(command: PlayCommand): boolean {
+  if (isBreathCommand(command)) {
+    return command.field === BreathCommandField.SetBreath;
+  }
   if (
     isRestCommand(command) ||
     isToggleCommand(command) ||
@@ -124,8 +127,7 @@ export function needsConditionContent(command: PlayCommand): boolean {
     isActiveSpellCommand(command) ||
     isSpendCommand(command) ||
     isExplorationCommand(command) ||
-    isEnvironmentCommand(command) ||
-    isBreathCommand(command)
+    isEnvironmentCommand(command)
   ) {
     return false;
   }

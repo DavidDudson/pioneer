@@ -5,6 +5,7 @@ import { isSuffocating } from './breath';
 import { ConditionInstanceId, conditionProblem, UNLIMITED } from './conditions';
 import { applyPlayCommand, PlayCommandField } from './play-state';
 import type { PlayLimits } from './play-state';
+import { fellUnconscious } from './turn-events';
 import type { TurnOutcome } from './turn-start';
 
 /** What falling unconscious out of air reads: the limits the condition is added within, and the content's condition. */
@@ -40,5 +41,8 @@ export function outOfAir(outcome: TurnOutcome, { limits, unconscious }: Unconsci
     return outcome;
   }
   const added = applyPlayCommand(play, command, limits);
-  return { play: { ...added, breath: { ...breath, unconscious: id } }, events: outcome.events };
+  return {
+    play: { ...added, breath: { ...breath, unconscious: id } },
+    events: [...outcome.events, fellUnconscious(unconscious, id)],
+  };
 }
