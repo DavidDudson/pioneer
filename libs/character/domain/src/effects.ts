@@ -28,6 +28,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CharacterId } from './character-fields';
+import { formRanks } from './effect-form-ranks';
 
 /** The most effects a character has active at once, however many sources they come from. */
 export const EFFECTS_MAX = 64;
@@ -146,6 +147,8 @@ export interface EffectTerms {
   readonly badge: EffectBadgeTerms | undefined;
   /** Whether it has the polymorph trait, so a newer polymorph effect replaces it. */
   readonly polymorph?: boolean;
+  /** The lowest rank each form of its choice can be picked at; a form without an entry has no lowest. */
+  readonly formRanks?: ReadonlyMap<RollOption, SpellRank>;
 }
 
 /** The effects the content has, by id. */
@@ -218,7 +221,15 @@ export function effectContent(registry: ContentRegistry): EffectContent {
   return new Map(
     entries.flatMap((entry) =>
       entry.kind === ContentKind.Effect
-        ? [[entry.id, effectTerms(entry.data, isPolymorphEntry(entry.traits, entry.rules))] as const]
+        ? [
+            [
+              entry.id,
+              {
+                ...effectTerms(entry.data, isPolymorphEntry(entry.traits, entry.rules)),
+                formRanks: formRanks(entry.rules),
+              },
+            ] as const,
+          ]
         : [],
     ),
   );

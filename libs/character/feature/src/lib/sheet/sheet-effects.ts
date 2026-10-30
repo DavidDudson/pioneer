@@ -1,4 +1,4 @@
-import { effectContent, EffectSourceKind, isPolymorphEntry, steppedBadge } from '@pioneer/character/domain';
+import { effectContent, EffectSourceKind, formRanks, isPolymorphEntry, steppedBadge } from '@pioneer/character/domain';
 import type {
   ActiveEffect,
   EffectBadgeValue,
@@ -34,10 +34,11 @@ export interface EffectOption {
   readonly forms: readonly FormChoice[];
 }
 
-/** One form an effect offers: the roll option its choice sets, and its name. */
+/** One form an effect offers: the roll option its choice sets, its name, and the lowest rank it is offered at. */
 interface FormChoice {
   readonly option: RollOption;
   readonly label: string;
+  readonly lowestRank: SpellRank | undefined;
 }
 
 /** Where an effect came from, as the sheet words it. */
@@ -91,7 +92,11 @@ function formChoicesOf(entry: EffectEntry): readonly FormChoice[] {
       return [];
     }
     const { rollOption } = rule;
-    return rule.choices.map(({ value, label }) => ({ option: RollOption.parse(`${rollOption}:${value}`), label }));
+    const lowest = formRanks(entry.rules);
+    return rule.choices.map(({ value, label }) => {
+      const option = RollOption.parse(`${rollOption}:${value}`);
+      return { option, label, lowestRank: lowest.get(option) };
+    });
   });
 }
 

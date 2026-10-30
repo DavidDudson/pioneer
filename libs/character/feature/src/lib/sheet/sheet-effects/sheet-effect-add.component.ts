@@ -84,10 +84,13 @@ export class SheetEffectAdd {
   protected readonly pickedOption = computed((): EffectOption | undefined =>
     this.options().find(({ id }) => id === this.picked()),
   );
-  /** The forms the picked effect offers, as a select reads them. */
-  protected readonly forms = computed((): readonly SelectOption<string>[] =>
-    (this.pickedOption()?.forms ?? []).map(({ option, label }) => ({ value: option, label })),
-  );
+  /** The forms the picked effect offers at the rank chosen, as a select reads them. */
+  protected readonly forms = computed((): readonly SelectOption<string>[] => {
+    const rank = Number(this.rank() ?? this.pickedOption()?.rankFloor);
+    return (this.pickedOption()?.forms ?? [])
+      .filter(({ lowestRank }) => lowestRank === undefined || rank >= lowestRank)
+      .map(({ option, label }) => ({ value: option, label }));
+  });
   /** The ranks the picked polymorph effect can be cast at, from its own up to the tenth. */
   protected readonly ranks = computed((): readonly SelectOption<string>[] => {
     const option = this.pickedOption();
@@ -115,6 +118,14 @@ export class SheetEffectAdd {
     this.form.set(undefined);
     const floor = this.options().find((each) => each.id === id)?.rankFloor;
     this.rank.set(floor === undefined ? undefined : String(floor));
+  };
+
+  /** Sets the rank, and drops the form chosen when the new rank no longer offers it. */
+  protected readonly setRank = (rank: string | undefined): void => {
+    this.rank.set(rank);
+    if (!this.forms().some(({ value }) => value === this.form())) {
+      this.form.set(undefined);
+    }
   };
 
   protected readonly setSource = (kind: EffectSourceKind | undefined): void => {

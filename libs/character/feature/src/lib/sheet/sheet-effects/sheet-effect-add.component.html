@@ -20,7 +20,7 @@
       [ariaLabel]="'character.sheet.effects.rankPick' | transloco"
       [options]="ranks()"
       [value]="rank()"
-      (valueChange)="rank.set($event)"
+      (valueChange)="setRank($event)"
     />
   }
   <pio-option-picker

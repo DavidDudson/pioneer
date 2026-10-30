@@ -53,6 +53,23 @@ async function pick(sheet: SheetView, index: number, name: string): Promise<void
   await TestBed.inject(ApplicationRef).whenStable();
 }
 
+/** The names the select with `index` among the effects' selects offers, closed again. */
+async function offered(root: HTMLElement, index: number): Promise<string[]> {
+  await vi.waitFor(() => {
+    expect(document.querySelectorAll('[role="option"]')).toHaveLength(0);
+  });
+  present(effectsOf(root).querySelectorAll<HTMLElement>('fr-select button')[index]).click();
+  await TestBed.inject(ApplicationRef).whenStable();
+  const names = await vi.waitFor(() => {
+    const found = [...document.querySelectorAll<HTMLElement>('[role="option"]')];
+    expect(found).not.toHaveLength(0);
+    return found.map((each) => each.textContent.trim());
+  });
+  present(effectsOf(root).querySelectorAll<HTMLElement>('fr-select button')[index]).click();
+  await TestBed.inject(ApplicationRef).whenStable();
+  return names;
+}
+
 /** Answers the read of the party, which the picker makes once an ally is the source. */
 async function answerAllies(allies: object): Promise<void> {
   await vi.waitFor(() => {
@@ -176,6 +193,18 @@ describe('CharacterSheetPage effects', () => {
       expect(textOf(effectsOf(root))).toContain('Flytrap form');
     });
     expect(textOf(effectsOf(root))).toContain('Rank 6');
+  });
+
+  it('offers a form only from the rank its spell needs', async () => {
+    const { root } = await openSheet(undefined, { play: playWith([]), packs: PACKS });
+    await vi.waitFor(() => {
+      expect(textOf(effectsOf(root))).toContain('No effects');
+    });
+
+    await pick(root, 0, 'Spell Effect: Humanoid Form');
+    await expect(offered(root, 1)).resolves.toStrictEqual(['Small Humanoid', 'Medium Humanoid']);
+    await pick(root, 2, 'Rank 5');
+    await expect(offered(root, 1)).resolves.toStrictEqual(['Small Humanoid', 'Medium Humanoid', 'Large Humanoid']);
   });
 
   it('applies the effect picked from an ally, who needs a name', async () => {
