@@ -189,7 +189,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 183,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1221"
       }
     ],
     "description": [
@@ -241,7 +243,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "guns-and-gears"
+        "book": "guns-and-gears",
+        "page": 183,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1221"
       }
     ],
     "description": [

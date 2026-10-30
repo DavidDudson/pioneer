@@ -19383,7 +19383,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 144,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2732"
       }
     ],
     "description": [
@@ -23730,7 +23732,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 149,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2751"
       }
     ],
     "description": [
@@ -26023,7 +26027,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 153,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2768"
       }
     ],
     "description": [
@@ -29706,7 +29712,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 158,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2795"
       }
     ],
     "description": [
@@ -38715,7 +38723,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 169,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2856"
       }
     ],
     "description": [
@@ -40011,7 +40021,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "impossible-magic"
+        "book": "impossible-magic",
+        "page": 172,
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=2865"
       }
     ],
     "description": [

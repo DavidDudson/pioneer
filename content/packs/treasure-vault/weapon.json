@@ -1706,6 +1706,66 @@
     }
   },
   {
+    "id": "8ccb563e-22bb-54be-98e1-b1e671d4f055",
+    "pack": "treasure-vault",
+    "kind": "weapon",
+    "slug": "weapon:atlatl",
+    "name": "Atlatl",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["propulsive"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault",
+        "page": 30,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=329"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Atlatls are long, narrow pieces of shaped wood or antler used as levers to hurl darts faster and farther than would otherwise be possible. An atlatl uses darts as ammunition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ka49l6JYNi41tgVi"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 2
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "dart",
+      "baseItem": "atlatl",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 60,
+      "reload": 1,
+      "ammunition": {
+        "type": "dart",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "4bfe5084-44df-5bff-99a1-8c30501354da",
     "pack": "treasure-vault",
     "kind": "weapon",
@@ -19056,6 +19116,66 @@
     }
   },
   {
+    "id": "f4285840-0b1c-52eb-b44b-8d5e7729a864",
+    "pack": "treasure-vault",
+    "kind": "weapon",
+    "slug": "weapon:spraysling",
+    "name": "Spraysling",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["halfling", "propulsive", "scatter-5"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault",
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=340"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A spraysling is similar to a standard sling but with a wider cup fitted with a thin blade affixed to the cup's edges. When used to make an attack with a specially prepared packet of spray pellets, the razor slices open the packet and the weapon launches a cluster of stinging pellets."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XguFCTUBh1yqJXd1"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "sling",
+      "baseItem": "spraysling",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "range": 20,
+      "reload": 1,
+      "ammunition": {
+        "type": "sling-bullets",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "d97c9796-3cd0-5a03-840c-784f94b9444d",
     "pack": "treasure-vault",
     "kind": "weapon",
@@ -22348,6 +22468,66 @@
     }
   },
   {
+    "id": "eda3895e-d96b-5a3d-aad8-afd1d28245ec",
+    "pack": "treasure-vault",
+    "kind": "weapon",
+    "slug": "weapon:taw-launcher",
+    "name": "Taw Launcher",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["conrasu", "deadly-d10", "modular"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault",
+        "page": 31,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=342"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This complex device is a crossbow and fires small wooden bullets known as taws. A system of blades within the launcher can rapidly reshape a taw as it's loaded, allowing the launcher to fire taws of different shapes, such as fléchettes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wbJPWXKzQBKYZ74s"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": 1,
+      "category": "advanced",
+      "group": "crossbow",
+      "baseItem": "taw-launcher",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "bludgeoning"
+      },
+      "range": 100,
+      "reload": 1,
+      "ammunition": {
+        "type": "bolts",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
     "id": "7b9e8fee-bd41-5140-8359-ac131ad15cd5",
     "pack": "treasure-vault",
     "kind": "weapon",
@@ -22405,6 +22585,60 @@
       "usage": {
         "type": "held",
         "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8cd33e5e-8b86-5d04-8041-062791686e74",
+    "pack": "treasure-vault",
+    "kind": "weapon",
+    "slug": "weapon:three-section-naginata",
+    "name": "Three-Section Naginata",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["deadly-d8", "forceful", "sweep", "versatile-b"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault",
+        "page": 30,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=305"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A fusion of a naginata and sansetsukon, this three-section weapon has a sweeping, curved blade along each of the outer sections. Though difficult for anyone but an expert weapon master to use effectively, the three-section naginata can be wielded at devastating speed to slice or smash apart a foe."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Brs4linGy3GAod5y"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": 2,
+      "category": "advanced",
+      "group": "flail",
+      "baseItem": "three-section-naginata",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
       }
     }
   },
