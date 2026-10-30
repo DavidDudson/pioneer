@@ -61,11 +61,13 @@ const actionRange: Arbitrary<object> = constantFrom(
   { type: CastTimeType.Actions, cost: ActionCost.Two, upTo: ActionCost.Three },
 );
 const spellTime = { count: positive, unit: spellTimeUnit };
-const castTime: Arbitrary<object> = oneof(
-  record({ type: constant(CastTimeType.Actions), cost: actionCost }),
-  actionRange,
-  record({ type: constant(CastTimeType.Time), ...spellTime }),
-);
+const actionsCastTime = record({ type: constant(CastTimeType.Actions), cost: actionCost });
+const timedCastTime = record({ type: constant(CastTimeType.Time), ...spellTime });
+const eitherCastTime = record({
+  type: constant(CastTimeType.Either),
+  options: tuple(actionsCastTime, timedCastTime),
+});
+const castTime: Arbitrary<object> = oneof(actionsCastTime, actionRange, timedCastTime, eitherCastTime);
 
 /** Whole and half miles. */
 const miles: Arbitrary<number> = integer({ min: 1, max: MILES_MAX * 2 }).map((halves) => halves / 2);

@@ -8,6 +8,8 @@ describe('translateKindData: effect badges', () => {
   test.each([
     ['(1 + floor(@item.origin.level / 4))d4', '(1 + floor(@item.origin.level / 4))d4'],
     ['(@actor.flags.system.consumeFear)d8', '(@flag.consumeFear)d8'],
+    ['2d20kh1', '2d20kh1'],
+    ['2d20kl1', '2d20kl1'],
     [
       '(ternary(gte(@actor.flags.system.corrosiveBody.rank,9),5,3))d6',
       '(ternary(gte(@flag.corrosiveBody.rank,9),5,3))d6',

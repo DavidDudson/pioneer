@@ -13,16 +13,20 @@ const DAMAGE_FORMULA_LENGTH_MAX = 200;
 const DICE_D = /(?<=[\d)])d(?=\d)/gu;
 const AS_PRODUCT = '*';
 
+/** A keep modifier after a dice term (`kh1`, `kl`), blanked out of a formula that allows one. */
+const KEEP_DICE = /(?<=\d)k[hl]\d*/gu;
+
 type DamageFormulaSchema = z.core.$ZodBranded<z.ZodString, 'DamageFormula'>;
 
 /** Damage formula text whose references may read `scopes`; each problem is a field issue at its position. */
-function damageFormula(scopes?: ReadonlySet<ReferenceScope>): DamageFormulaSchema {
+function damageFormula(scopes?: ReadonlySet<ReferenceScope>, keeps = false): DamageFormulaSchema {
   return z
     .string()
     .min(1)
     .max(DAMAGE_FORMULA_LENGTH_MAX)
     .check((context) => {
-      const masked = context.value.replaceAll(DICE_D, AS_PRODUCT);
+      const product = context.value.replaceAll(DICE_D, AS_PRODUCT);
+      const masked = keeps ? product.replaceAll(KEEP_DICE, (match) => ' '.repeat(match.length)) : product;
       context.issues.push(...formulaIssues(FormulaText.parse(masked), scopes));
     })
     .brand<'DamageFormula'>();
@@ -42,3 +46,7 @@ export type DamageFormula = z.infer<typeof DamageFormula>;
 export const SpellDamageFormula = damageFormula(
   new Set([ReferenceScope.Actor, ReferenceScope.Item, ReferenceScope.Spellcasting]),
 );
+
+/** A value an effect badge rolls: a damage formula whose dice may keep the highest or lowest (`2d20kh1`). */
+export const RolledFormula = damageFormula(undefined, true);
+export type RolledFormula = z.infer<typeof RolledFormula>;

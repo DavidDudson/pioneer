@@ -1,9 +1,14 @@
 import type { ActionCost, ContentId, SpellRank, TargetValue } from '@pioneer/rules/sdk';
 
-/** What casting costs: action glyphs (a variable cost runs from `cost` to `upTo`), or a time counted in minutes or longer. */
-export type SpellCostLine =
+/** One way of casting: action glyphs (a variable cost runs from `cost` to `upTo`), or a time worded. */
+export type SingleSpellCostLine =
   | { readonly kind: 'actions'; readonly cost: ActionCost; readonly upTo: ActionCost | undefined }
   | { readonly kind: 'time'; readonly text: string };
+
+/** What casting costs: one way, or several the caster picks from ("2 actions or 2 rounds"). */
+export type SpellCostLine =
+  | SingleSpellCostLine
+  | { readonly kind: 'either'; readonly options: readonly SingleSpellCostLine[] };
 
 /** One part of a spell's damage or healing, worded: "6d6 fire", "2d8 healing". */
 export interface SpellEffectLine {

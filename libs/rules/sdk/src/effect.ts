@@ -4,7 +4,7 @@ import * as z from 'zod';
 
 import { AUTO_APPLY_NEEDS_EVENT, triggerFields } from './action';
 import { ContentText } from './content-text';
-import { DamageFormula } from './damage-formula';
+import { RolledFormula } from './damage-formula';
 import { RulesMessage } from './messages';
 import { DurationCount, DurationUnitSchema } from './rich-text';
 
@@ -75,7 +75,7 @@ const CounterBadge = z
 /** A value rolled when the effect is applied ("1d4"), dice and a formula as damage writes them. */
 const FormulaBadge = z.strictObject({
   type: z.literal(EffectBadgeType.Formula),
-  formula: DamageFormula,
+  formula: RolledFormula,
   reevaluate: z.enum(BadgeReevaluation).optional(),
 });
 

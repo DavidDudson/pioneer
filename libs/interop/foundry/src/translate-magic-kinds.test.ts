@@ -131,11 +131,28 @@ describe('translateKindData: spells', () => {
 
   test('a casting time that does not map leaves the spell without data', () => {
     const result = translate([
-      spell('tImE000000000001', 'Timeless', { level: { value: 1 }, time: { value: '2 to 2 rounds' } }),
+      spell('tImE000000000001', 'Timeless', { level: { value: 1 }, time: { value: 'varies' } }),
     ]);
 
     expect(dataIn(result, 'timeless')).toBeUndefined();
     expect(gapKeys(result)).toEqual(['unmapped-value time.value']);
+  });
+
+  test('a casting time of actions or rounds maps to a choice', () => {
+    const result = translate([
+      spell('eItHeR0000000001', 'Either', { level: { value: 1 }, time: { value: '2 to 2 rounds' } }),
+    ]);
+
+    expect(dataIn(result, 'either')).toMatchObject({
+      time: {
+        type: 'either',
+        options: [
+          { type: 'actions', cost: 'two' },
+          { type: 'time', count: 2, unit: 'round' },
+        ],
+      },
+    });
+    expect(gapKeys(result)).toEqual([]);
   });
 
   test('a passive defence is `against` it; a save DC is its save selector', () => {

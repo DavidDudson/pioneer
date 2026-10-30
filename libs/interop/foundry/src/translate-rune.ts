@@ -75,6 +75,7 @@ const ETCHINGS: ReadonlyMap<string, EtchedOnto> = new Map([
   ['armor', { item: RunedItem.Armor }],
   ['a-shield', { item: RunedItem.Shield }],
   ['melee-weapon', { item: RunedItem.Weapon, restriction: 'melee' }],
+  ['melee-weapon-monk', { item: RunedItem.Weapon, restriction: 'monk-melee' }],
   ['thrown-weapon', { item: RunedItem.Weapon, restriction: 'thrown' }],
   ['bludgeoning-weapon', { item: RunedItem.Weapon, restriction: 'bludgeoning' }],
   ['slashing-melee-weapon', { item: RunedItem.Weapon, restriction: 'slashing-melee' }],

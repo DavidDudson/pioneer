@@ -86,7 +86,7 @@ export { DamageKind, HeighteningType, SpellData, spellEffectId } from './spell';
 export type { Heightening, SpellDamage, SpellEffectEntry, SpellVariant } from './spell';
 export { DamageFormula, SpellDamageFormula } from './damage-formula';
 export { CastTimeType, SpellDurationEnd, SpellDurationType, SpellRangeType, SpellTimeUnit } from './spell-casting';
-export { TurnOwner } from './spell-casting';
+export { SingleCastTime, TurnOwner } from './spell-casting';
 export { TargetCountWord, TargetKind, TargetQualifier, TargetWithin, TargetYou } from './spell-targets';
 export { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 export { uniqueItems } from './unique-items';

@@ -191,6 +191,9 @@ const TARGETED: readonly (readonly [string, UsageType])[] = [
 /** Foundry's prefix for a worn item's slot: `worncloak`. */
 const WORN = 'worn';
 
+/** What joins a slot's words to the prefix: `worn-under-armor` is worn in the slot `under-armor`, `worncloak` in `cloak`. */
+const LEADING_HYPHEN = /^-/u;
+
 /** A held or bare usage, which names nothing else. */
 function simpleUsage(usage: string): object | undefined {
   const hands = HELD.get(usage);
@@ -217,7 +220,7 @@ export function usageOf(usage: string, log: GapLog): object | undefined {
     return { type, to: usage.slice(prefix.length) };
   }
   if (usage.startsWith(WORN) && usage.length > WORN.length) {
-    return { type: UsageType.Worn, slot: usage.slice(WORN.length) };
+    return { type: UsageType.Worn, slot: usage.slice(WORN.length).replace(LEADING_HYPHEN, '') };
   }
   report(log, { reason: KindDataGapReason.UnmappedValue, field: 'usage', raw: usage });
   return undefined;
