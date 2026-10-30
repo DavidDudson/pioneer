@@ -5,7 +5,7 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
-import { pickerCount, pickRow } from '../../testing/option-picker-testing';
+import { pickerCount, pickRow, rowLabels } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
 import type { OpenSheet } from '../../testing/sheet-page-harness';
@@ -53,21 +53,9 @@ async function pick(sheet: SheetView, index: number, name: string): Promise<void
   await TestBed.inject(ApplicationRef).whenStable();
 }
 
-/** The names the select with `index` among the effects' selects offers, closed again. */
-async function offered(root: HTMLElement, index: number): Promise<string[]> {
-  await vi.waitFor(() => {
-    expect(document.querySelectorAll('[role="option"]')).toHaveLength(0);
-  });
-  present(effectsOf(root).querySelectorAll<HTMLElement>('fr-select button')[index]).click();
-  await TestBed.inject(ApplicationRef).whenStable();
-  const names = await vi.waitFor(() => {
-    const found = [...document.querySelectorAll<HTMLElement>('[role="option"]')];
-    expect(found).not.toHaveLength(0);
-    return found.map((each) => each.textContent.trim());
-  });
-  present(effectsOf(root).querySelectorAll<HTMLElement>('fr-select button')[index]).click();
-  await TestBed.inject(ApplicationRef).whenStable();
-  return names;
+/** The names the picker with `index` among the effects' pickers offers. */
+function offered(sheet: SheetView, index: number): readonly string[] {
+  return rowLabels(sheet.harness, effectsOf(sheet.root), index);
 }
 
 /** Answers the read of the party, which the picker makes once an ally is the source. */
@@ -202,9 +190,9 @@ describe('CharacterSheetPage effects', () => {
     });
 
     await pick({ harness, root }, 0, 'Spell Effect: Humanoid Form');
-    await expect(offered(root, 1)).resolves.toStrictEqual(['Small Humanoid', 'Medium Humanoid']);
+    expect(offered({ harness, root }, 1)).toStrictEqual(['Small Humanoid', 'Medium Humanoid']);
     await pick({ harness, root }, 2, 'Rank 5');
-    await expect(offered(root, 1)).resolves.toStrictEqual(['Small Humanoid', 'Medium Humanoid', 'Large Humanoid']);
+    expect(offered({ harness, root }, 1)).toStrictEqual(['Small Humanoid', 'Medium Humanoid', 'Large Humanoid']);
   });
 
   it('applies the effect picked from an ally, who needs a name', async () => {
