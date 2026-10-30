@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { DefenceStatusKind } from '@pioneer/rules/engine';
 import { Size } from '@pioneer/rules/sdk';
-import { assert, integer, property } from 'fast-check';
+import { assert, constantFrom, integer, property } from 'fast-check';
 
 import { chosen, druidWith, formRulesOf, viewOf } from './testing/battle-forms';
 import type { FormView } from './testing/battle-forms';
@@ -204,6 +204,52 @@ describe('Player Core: Animal Form, the druid’s own statistic when it is highe
           const own = viewOf([], chosen(), character);
           const form = viewOf(formRulesOf('effect:spell-effect-animal-form-bear', rank), chosen(), character);
           const said = says(rank);
+
+          expect(form.total('ac')).toBe(Math.max(said.ac + LEVEL, own.total('ac')));
+          expect(form.total('skill:athletics')).toBe(Math.max(said.athletics, own.total('skill:athletics')));
+          const best = Math.max(said.attack, ...attacks(own));
+
+          expect(attacks(form)).toEqual(attacks(form).map(() => best));
+        },
+      ),
+    );
+  });
+});
+
+/** What Plant Form says by spell rank (Player Core, 5th rank and its 6th rank heightened entry). */
+const PLANT_FORM_SAYS = new Map<number, AnimalFormSays>([
+  [5, { ac: 19, athletics: 19, attack: 17 }],
+  [6, { ac: 22, athletics: 22, attack: 21 }],
+]);
+
+function plantSays(rank: number): AnimalFormSays {
+  const found = PLANT_FORM_SAYS.get(rank);
+  if (found === undefined) {
+    throw new Error(`Plant Form has no entry for rank ${rank}`);
+  }
+  return found;
+}
+
+const PLANT_RANK_MIN = 5;
+const PLANT_RANK_MAX = 6;
+const PLANT_FORMS = ['arboreal', 'flytrap'] as const;
+
+describe('Player Core: Plant Form, the druid’s own statistic when it is higher', () => {
+  test('Armor Class, Athletics and the unarmed attack are the better of the form’s and her own, at every rank', () => {
+    assert(
+      property(
+        integer({ min: STRENGTH_MIN, max: STRENGTH_MAX }),
+        integer({ min: PLANT_RANK_MIN, max: PLANT_RANK_MAX }),
+        constantFrom(...PLANT_FORMS),
+        (strength, rank, name) => {
+          const character = druidWith(strength);
+          const own = viewOf([], chosen(), character);
+          const form = viewOf(
+            formRulesOf('effect:spell-effect-plant-form', rank),
+            chosen(`plant-form:${name}`),
+            character,
+          );
+          const said = plantSays(rank);
 
           expect(form.total('ac')).toBe(Math.max(said.ac + LEVEL, own.total('ac')));
           expect(form.total('skill:athletics')).toBe(Math.max(said.athletics, own.total('skill:athletics')));
