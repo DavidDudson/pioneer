@@ -128,7 +128,7 @@ export function applyTurnCommand(play: PlayState, command: TurnCommand, { inputs
   }
 }
 
-const FORTITUDE = Selector.parse('fortitude');
+const FORTITUDE = Selector.parse('save:fortitude');
 const NO_MODIFIER = RollTotal.parse(0);
 
 /** The character's Fortitude modifier; none when the content has no Fortitude statistic or it has no value. */
