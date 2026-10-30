@@ -5,7 +5,6 @@ import {
   abilityUseKey,
   cantripRank,
   characterPredicateFacts,
-  EffectInstanceId,
   PlayCommandField,
   SlotCountKey,
   SpendCount,
@@ -14,6 +13,7 @@ import {
   UseCountKey,
 } from '@pioneer/character/domain';
 import type {
+  EffectInstanceId,
   FormApply,
   FormShift,
   SpellSpend,
@@ -151,7 +151,7 @@ export class SheetSpender extends ActionUser {
    * gives, so a cast never spends without the form. A spell that shifts the form the character is in is one spend that changes it, so undoing the spend changes it back. The cast
    * stays pending when the spend is refused.
    */
-  public async castForm(choice: FormCastChoice, tempHp: HitPoints | undefined): Promise<void> {
+  public async castForm(choice: FormCastChoice, tempHp: HitPoints | undefined, id: EffectInstanceId): Promise<void> {
     const cast = this.pendingForm();
     if (cast === undefined) {
       return;
@@ -165,7 +165,7 @@ export class SheetSpender extends ActionUser {
       await this.#spend(
         cast.request,
         cast.shift === undefined
-          ? { apply: { id: EffectInstanceId.parse(newId()), effect: choice.effect, rank: cast.rank, ...chosen } }
+          ? { apply: { id, effect: choice.effect, rank: cast.rank, ...chosen } }
           : { shift: { effect: cast.shift, to: choice.effect, ...chosen } },
       );
       this.pendingForm.set(undefined);
