@@ -108,22 +108,39 @@ export const TransferAnswerView = z.object({ id: ItemTransferId, status: z.enum(
 export type TransferAnswerView = z.output<typeof TransferAnswerView>;
 
 /**
- * A pending item offer as one of its two owners sees it, with the names the screen reads it by. `asGiver` is set when the
- * user owns the giver (who may withdraw it), `asRecipient` when they own the recipient (who may accept or decline it).
+ * What every pending offer shows, whatever it carries: both sides by name and which of them the user owns. `asGiver` is
+ * set when the user owns the giver (who may withdraw it), `asRecipient` when they own the recipient (who may accept or
+ * decline it).
  */
-export const PendingTransferView = z.object({
+const PendingOffer = z.object({
   id: ItemTransferId,
   from: CharacterId,
   fromName: PartyCharacterName,
   to: CharacterId,
   toName: PartyCharacterName,
-  item: ReviewedItemId,
-  itemName: ReviewedName,
   asGiver: z.boolean(),
   asRecipient: z.boolean(),
 });
+
+/** A pending item offer as one of its two owners sees it, with the names the screen reads it by. */
+export const PendingItemTransferView = PendingOffer.extend({
+  kind: z.literal('item'),
+  item: ReviewedItemId,
+  itemName: ReviewedName,
+});
+export type PendingItemTransferView = z.output<typeof PendingItemTransferView>;
+
+/** A pending coin offer as one of its two owners sees it, with the coins per denomination. */
+export const PendingCoinTransferView = PendingOffer.extend({
+  kind: z.literal('coins'),
+  coins: OfferedCoinsSchema,
+});
+export type PendingCoinTransferView = z.output<typeof PendingCoinTransferView>;
+
+/** A pending offer of either kind; `kind` tells which. */
+export const PendingTransferView = z.discriminatedUnion('kind', [PendingItemTransferView, PendingCoinTransferView]);
 export type PendingTransferView = z.output<typeof PendingTransferView>;
 
-/** The campaign's pending item offers that involve the user's characters, oldest first. */
+/** The campaign's pending offers, of items and of coins, that involve the user's characters, oldest first. */
 export const PendingTransfers = z.array(PendingTransferView);
 export type PendingTransfers = z.output<typeof PendingTransfers>;

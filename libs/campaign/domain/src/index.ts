@@ -84,6 +84,8 @@ export {
   OfferedCoinsSchema,
   OfferItemBody,
   isCoinTransfer,
+  PendingCoinTransferView,
+  PendingItemTransferView,
   PendingTransfers,
   PendingTransferView,
   TransferAnswerView,

@@ -145,9 +145,9 @@
     "alreadyAnswered": "The recipient has already answered that offer.",
     "lineGone": "The giver no longer has that item.",
     "recipientFull": "The recipient has no room for that item.",
-    "heading": "Item offers",
-    "loadError": "Could not load the item offers.",
-    "none": "No item offers waiting.",
+    "heading": "Offers",
+    "loadError": "Could not load the offers.",
+    "none": "No offers waiting.",
     "incoming": "{count, plural, one {You have an offer to answer.} other {You have # offers to answer.}}",
     "offerLine": "{item}: {giver} offers it to {recipient}",
     "accept": "Accept",
@@ -164,6 +164,20 @@
     "answerFailed": "Could not answer the offer. Try again.",
     "offer": "Offer",
     "offerTo": "Offer {item} to",
+    "offerCoins": "Offer coins",
+    "offerCoinsTo": "Offer coins to",
+    "coin": {
+      "pp": "{count, number} pp",
+      "gp": "{count, number} gp",
+      "sp": "{count, number} sp",
+      "cp": "{count, number} cp"
+    },
+    "coinLabel": {
+      "pp": "Platinum (pp)",
+      "gp": "Gold (gp)",
+      "sp": "Silver (sp)",
+      "cp": "Copper (cp)"
+    },
     "recipientPlaceholder": "Pick a character",
     "recipientName": "Character",
     "recipientLevel": "Level",

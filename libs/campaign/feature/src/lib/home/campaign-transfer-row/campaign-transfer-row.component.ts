@@ -4,9 +4,10 @@ import type { PendingTransferView } from '@pioneer/campaign/domain';
 import { AsyncButton, ListItem, Stack, Text } from '@pioneer/frontier';
 
 import { CampaignTransferStore } from '../../data/campaign-transfer-store';
+import { coinsText } from '../../data/coin-text';
 import { transferFailure } from '../../data/transfer-error';
 
-/** The names the offer line and the accept confirmation say. */
+/** The names the offer line and the accept confirmation say; `item` is the item's name or the coins, as a short list. */
 interface OfferNames {
   readonly item: string;
   readonly giver: string;
@@ -14,8 +15,8 @@ interface OfferNames {
 }
 
 /**
- * One pending offer: the item, who offers it and to whom. The recipient's owner accepts, which names the item and the
- * giver and asks for a second press since the item moves for good, or declines; the giver's owner withdraws.
+ * One pending offer: the item or coins, who offers it and to whom. The recipient's owner accepts, which names what moves
+ * and the giver and asks for a second press since it moves for good, or declines; the giver's owner withdraws.
  */
 @Component({
   selector: 'pio-campaign-transfer-row',
@@ -29,11 +30,15 @@ export class CampaignTransferRow {
   readonly #store = inject(CampaignTransferStore);
   readonly #i18n = inject(TranslocoService);
 
-  protected readonly names = computed((): OfferNames => ({
-    item: this.transfer().itemName,
-    giver: this.transfer().fromName,
-    recipient: this.transfer().toName,
-  }));
+  protected readonly names = computed((): OfferNames => {
+    const transfer = this.transfer();
+    const say = (key: string, params: Readonly<Record<string, number>>): string => this.#i18n.translate(key, params);
+    return {
+      item: transfer.kind === 'coins' ? coinsText(transfer.coins, say, this.#i18n.getActiveLang()) : transfer.itemName,
+      giver: transfer.fromName,
+      recipient: transfer.toName,
+    };
+  });
 
   protected readonly accept = async (): Promise<void> => this.#store.accept(this.transfer().id);
   protected readonly decline = async (): Promise<void> => this.#store.decline(this.transfer().id);

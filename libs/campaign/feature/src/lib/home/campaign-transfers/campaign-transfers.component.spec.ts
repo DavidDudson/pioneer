@@ -35,6 +35,7 @@ const seelah = '2a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e63';
 const longsword = '3b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e01';
 const incoming = {
   id: '4c1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e01',
+  kind: 'item',
   from: seelah,
   fromName: 'Seelah',
   to: kyra,
@@ -53,6 +54,18 @@ const outgoing = {
   toName: 'Seelah',
   asGiver: true,
   asRecipient: false,
+};
+
+const coins = {
+  id: '4c1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e03',
+  kind: 'coins',
+  from: seelah,
+  fromName: 'Seelah',
+  to: kyra,
+  toName: 'Kyra',
+  coins: { pp: 0, gp: 4, sp: 2, cp: 0 },
+  asGiver: false,
+  asRecipient: true,
 };
 
 function present<TValue>(value: TValue | null | undefined): TValue {
@@ -105,7 +118,7 @@ async function open(transfers: readonly object[]): Promise<Opened> {
   });
   const root = present(harness.routeNativeElement);
   await vi.waitFor(() => {
-    expect(root.textContent).toMatch(/Longsword|No item offers waiting/u);
+    expect(root.textContent).toMatch(/Longsword|4 gp|No offers waiting/u);
   });
   return { root, http };
 }
@@ -121,6 +134,19 @@ describe('CampaignTransfersPanel', () => {
     expect(buttons(root, 'Withdraw')).toHaveLength(1);
   });
 
+  it('shows a coin offer by its coins, with the same answers', async () => {
+    const { root, http } = await open([coins]);
+
+    expect(root.textContent).toContain('4 gp, 2 sp: Seelah offers it to Kyra');
+    expect(buttons(root, 'Decline')).toHaveLength(1);
+
+    present(buttons(root, 'Accept')[0]).click();
+    await vi.waitFor(() => {
+      expect(root.textContent).toContain('Accept 4 gp, 2 sp from Seelah? Press again');
+    });
+    http.expectNone(`/api/campaigns/${id}/transfers/${coins.id}/accept`);
+  });
+
   it('announces how many offers wait for an answer, politely', async () => {
     const { root } = await open([incoming, outgoing]);
 
@@ -131,7 +157,7 @@ describe('CampaignTransfersPanel', () => {
   it('says nothing waits, and announces nothing, when there are no offers', async () => {
     const { root } = await open([]);
 
-    expect(root.textContent).toContain('No item offers waiting.');
+    expect(root.textContent).toContain('No offers waiting.');
     expect(root.querySelector('[role="status"]')).toBeNull();
   });
 

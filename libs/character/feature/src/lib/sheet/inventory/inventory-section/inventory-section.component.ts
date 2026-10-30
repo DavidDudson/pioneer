@@ -15,6 +15,7 @@ import { CharacterStore } from '../../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../../data/content-registry-query';
 import { sheetEntryPreviews } from '../../sheet-entry-previews';
 import { sheetSlotContent } from '../../sheet-slot-content';
+import { CoinOffer } from '../coin-offer/coin-offer.component';
 import { CoinsEdit } from '../coins-edit/coins-edit.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
 import { injectItemNames } from '../item-names';
@@ -37,6 +38,7 @@ import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
     AsyncPending,
     AsyncRegion,
     BulkView,
+    CoinOffer,
     CoinsEdit,
     Heading,
     InventoryView,

@@ -5,6 +5,7 @@ import {
   CampaignMemberId,
   CharacterId,
   OfferedCoinsSchema,
+  PartyCharacterName,
   ReviewedItemId,
   ReviewedName,
   TransferStatus,
@@ -226,15 +227,37 @@ describe('CampaignItemTransferService', () => {
       const shared = {
         id: offer.id,
         from: kyra,
-        fromName: 'Kyra',
+        fromName: PartyCharacterName.parse('Kyra'),
         to: seelah,
-        toName: 'Seelah',
+        toName: PartyCharacterName.parse('Seelah'),
+        kind: 'item' as const,
         item: longsword,
-        itemName: 'Longsword',
+        itemName: ReviewedName.parse('Longsword'),
       };
 
       expect(await service.list(ezren, vaults.id)).toStrictEqual([{ ...shared, asGiver: true, asRecipient: false }]);
       expect(await service.list(merisiel, vaults.id)).toStrictEqual([{ ...shared, asGiver: false, asRecipient: true }]);
+    });
+
+    test('shows a coin offer beside an item one, oldest first, with its coins', async () => {
+      const item = await service.offer(ezren, vaults.id, { from: kyra, to: seelah, item: longsword });
+      const coins = OfferedCoinsSchema.parse({ gp: 4, sp: 2 });
+      const purse = await service.offerCoins(ezren, vaults.id, { from: kyra, to: seelah, coins });
+
+      const listed = await service.list(merisiel, vaults.id);
+
+      expect(listed.map((each) => each.id)).toStrictEqual([item.id, purse.id]);
+      expect(listed[1]).toStrictEqual({
+        id: purse.id,
+        kind: 'coins',
+        from: kyra,
+        fromName: PartyCharacterName.parse('Kyra'),
+        to: seelah,
+        toName: PartyCharacterName.parse('Seelah'),
+        coins,
+        asGiver: false,
+        asRecipient: true,
+      });
     });
 
     test('hides an offer between other members, and offers that are no longer pending', async () => {

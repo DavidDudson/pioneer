@@ -27,7 +27,7 @@ function incomingCount(transfers: PendingTransfers): number {
 }
 
 /**
- * The pending item offers that involve the viewer's characters (ADR-0064): the ones to answer, with accept and decline,
+ * The pending offers, of items and of coins, that involve the viewer's characters (ADR-0064): the ones to answer, with accept and decline,
  * and the ones made, with withdraw. A line says how many wait for an answer, which screen readers announce when it
  * changes. The list is read again after each answer and when the window is focused again (ADR-0018 has no stream).
  */

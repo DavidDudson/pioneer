@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import type { Routes } from '@angular/router';
 import { TranslocoService } from '@jsverse/transloco';
-import type { InventoryLineOfferLoader, SheetSidePanelLoader } from '@pioneer/character/feature';
+import type { InventoryLineOfferLoader, PurseOfferLoader, SheetSidePanelLoader } from '@pioneer/character/feature';
 import { signInRequired } from '@pioneer/identity/data-access';
 import { PREFETCH_WHEN_IDLE } from '@pioneer/shared/web';
 
@@ -19,7 +19,7 @@ export const appRoutes: Routes = [
     data: PREFETCH_WHEN_IDLE,
     // The sheet's side panel searches the rules content, which the character feature may not import.
     loadChildren: async () => {
-      const { characterRoutes, CHARACTER_LIST_EXTRAS, INVENTORY_LINE_OFFER, SHEET_SIDE_PANEL } =
+      const { characterRoutes, CHARACTER_LIST_EXTRAS, INVENTORY_LINE_OFFER, PURSE_OFFER, SHEET_SIDE_PANEL } =
         await import('@pioneer/character/feature');
       return [
         {
@@ -34,6 +34,17 @@ export const appRoutes: Routes = [
                 return async () => {
                   const { loadLineOffer } = await import('@pioneer/campaign/feature');
                   return loadLineOffer(i18n);
+                };
+              },
+            },
+            {
+              provide: PURSE_OFFER,
+              useFactory: (): PurseOfferLoader => {
+                const i18n = inject(TranslocoService);
+                // Offering coins is the campaign context's; the sheet loads its control when the purse holds some.
+                return async () => {
+                  const { loadPurseOffer } = await import('@pioneer/campaign/feature');
+                  return loadPurseOffer(i18n);
                 };
               },
             },
