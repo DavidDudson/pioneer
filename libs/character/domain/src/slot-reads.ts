@@ -16,7 +16,8 @@ import type { LanguageReads } from './language-levels';
 import type { PreparedReads } from './prepared-spells';
 import { skillContent } from './skill-content';
 import type { SkillContent } from './skill-content';
-import type { GrantsAt, SkillReads } from './skill-training';
+import type { GrantsAt } from './skill-grants';
+import type { SkillReads } from './skill-training';
 import { spellContent } from './spell-content';
 import type { SpellContent } from './spell-content';
 

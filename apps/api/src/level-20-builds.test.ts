@@ -1,11 +1,20 @@
 import { describe, expect, test } from 'bun:test';
 
-import { characterSlots, slotContent, SlotStatus } from '@pioneer/character/domain';
+import {
+  characterSlots,
+  exactSkillGrants,
+  skillGrantsAt,
+  skillReads,
+  slotContent,
+  SlotStatus,
+} from '@pioneer/character/domain';
 import { contentCatalog } from '@pioneer/rules/catalog';
-import { ContentRegistry } from '@pioneer/rules/sdk';
+import { ContentRegistry, Level } from '@pioneer/rules/sdk';
 
 import { level20Builds } from './level-20-build';
 import { deriveSheet, failedSelectors, unfillableSlots } from './level-20-derive';
+
+const LEVEL_MAX = 20;
 
 /** Time to load every pack and fill a build for every class. */
 const BUILD_TIMEOUT_MS = 60_000;
@@ -38,6 +47,18 @@ describe('level 20 builds', () => {
         const statistics = deriveSheet(registry, slots, document);
         expect(statistics.size).toBeGreaterThan(0);
         expect(failedSelectors(statistics)).toEqual([]);
+      },
+      BUILD_TIMEOUT_MS,
+    );
+
+    test(
+      'reads the skill ranks and trainers of every level as resolving that level gives',
+      () => {
+        const reads = skillReads(document, slots);
+        const bisected = skillGrantsAt(reads.grantsAt);
+        for (let level = 1; level <= LEVEL_MAX; level += 1) {
+          expect(bisected(Level.parse(level))).toEqual(exactSkillGrants(reads.grantsAt, Level.parse(level)));
+        }
       },
       BUILD_TIMEOUT_MS,
     );

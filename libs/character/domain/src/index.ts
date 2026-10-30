@@ -212,6 +212,7 @@ export { originContent } from './origin-content';
 export type { AncestryOption, BackgroundOption, HeritageOption, OriginContent } from './origin-content';
 export { CharacterLanguages, characterLanguages, SheetLanguage } from './character-languages';
 export { type SkillContent, skillContent, type SkillOption } from './skill-content';
+export { exactSkillGrants, skillGrantsAt } from './skill-grants';
 export { type SkillSlot, SkillSlotKind, skillSlots } from './skill-training';
 export { type RepeatQuery, repeatedTrainings } from './skill-repeats';
 export { skillsTrainedTwice } from './skill-twice';

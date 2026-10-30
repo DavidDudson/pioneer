@@ -1,4 +1,4 @@
-import { slotContent } from '@pioneer/character/domain';
+import { buildRanks, characterSlots, slotContent } from '@pioneer/character/domain';
 import { contentCatalog } from '@pioneer/rules/catalog';
 import { ContentRegistry } from '@pioneer/rules/sdk';
 import { benchmark } from '@pioneer/shared/bench';
@@ -20,3 +20,28 @@ for (const { name, document } of level20Builds(registry)) {
     run: (built) => deriveSheet(registry, slots, built),
   });
 }
+
+const ROGUE = 'Rogue';
+/* About 7 and 20 ms on a dev machine; a budget a bench run on a shared runner stays under, and a return to a grant resolution per level does not. */
+const RANKS_BUDGET_MS = 12;
+const SLOTS_BUDGET_MS = 30;
+const rogue = level20Builds(registry).find((build) => build.name === ROGUE);
+if (rogue === undefined) {
+  throw new Error(`The catalog has no ${ROGUE} to bench`);
+}
+
+// A rogue trains seven skills and increases one at every level from 2nd, so its grants differ at nearly every level.
+// Each run is given a new document and build, as the grants and boosts read from them are kept.
+benchmark({
+  name: 'character: level 20 Rogue skill ranks',
+  budgetMs: RANKS_BUDGET_MS,
+  prepare: () => ({ ...rogue.document, build: { ...rogue.document.build } }),
+  run: (document) => buildRanks(document, slots),
+});
+
+benchmark({
+  name: 'character: level 20 Rogue slots',
+  budgetMs: SLOTS_BUDGET_MS,
+  prepare: () => ({ ...rogue.document, build: { ...rogue.document.build } }),
+  run: (document) => characterSlots(document, slots),
+});

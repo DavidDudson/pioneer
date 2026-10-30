@@ -174,10 +174,24 @@ function boostSet(document: CharacterDocument, { level, source, boosts }: BoostO
 }
 
 /**
+ * Boost sets already read, by content and build: they read the build's picks alone, never the level, and a build is
+ * never changed in place, so a document at another level (the plan, read level by level) has the same ones.
+ */
+const BOOST_SETS = new WeakMap<BoostContent, WeakMap<CharacterDocument['build'], readonly BoostSet[]>>();
+
+/**
  * Every set of boosts the character has up to 20th level, lowest level first: its ancestry's, background's and
  * class's at 1st level, once each is picked, and four free boosts at 1st, 5th, 10th, 15th and 20th.
  */
 export function boostSets(document: CharacterDocument, content: BoostContent): readonly BoostSet[] {
+  const byBuild = BOOST_SETS.get(content) ?? new WeakMap<CharacterDocument['build'], readonly BoostSet[]>();
+  BOOST_SETS.set(content, byBuild);
+  const known = byBuild.get(document.build) ?? readBoostSets(document, content);
+  byBuild.set(document.build, known);
+  return known;
+}
+
+function readBoostSets(document: CharacterDocument, content: BoostContent): readonly BoostSet[] {
   const ancestry = pickedId(document, ANCESTRY_SLOT);
   const background = pickedId(document, BACKGROUND_SLOT);
   const characterClass = pickedId(document, CLASS_SLOT);
