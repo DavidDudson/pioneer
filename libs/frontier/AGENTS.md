@@ -157,8 +157,9 @@ otherwise, and say why in the PR when you don't.
   - **One of 2-3 options:** `fr-segmented` (`fr-segmented-field` in forms),
     every option visible as a button group.
   - **One of 4 or more:** `fr-picker` (`fr-picker-field`, `/data`), a table that opens
-    inline, with a search box and sortable columns. It replaces `fr-select` and
-    `fr-combobox` (ADR-0054), which stay until their callers have moved.
+    inline, with a search box and sortable columns. It replaces `fr-select`
+    (ADR-0054), which stays until its callers have moved. `fr-combobox` stays only for
+    the content search, a typed name lookup whose options carry `tags`.
     Columns come from `tableSchema<Row>()`; the feature runs the query from
     `(searched)`, the order from `(sorted)` and the next rows from `(loadMore)`,
     and passes the rows back. Scroll to load more, never numbered pages. A short

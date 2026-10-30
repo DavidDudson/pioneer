@@ -13,7 +13,7 @@ import { GlobalSearchSession } from './global-search-session';
 
 const PACK: ContentPack = new ContentPackBuilder()
   .withId('search-session-test')
-  .withFeat('power-attack', { level: 1, traits: [] })
+  .withFeat('power-attack', { level: 1, traits: ['fighter', 'flourish'] })
   .withFeat('attack-of-opportunity', { level: 1, traits: [] })
   .withFeat('toughness', {
     level: 1,
@@ -26,7 +26,7 @@ const LOADER: PackContentsLoader = {
   load: async () => packContentsFromFiles(PACK.manifest, [PACK.otherEntries]),
 };
 
-const SHELL_MESSAGES = { 'shell.search.kind.feat': 'Feat' };
+const SHELL_MESSAGES = { 'shell.search.kind.feat': 'Feat', 'shell.search.level': 'Level {{level}}' };
 const NAMES_FOR_ATTACK = ['Attack-of-opportunity', 'Power-attack'];
 
 interface Started {
@@ -86,7 +86,11 @@ describe(GlobalSearchSession, () => {
     await listsNames(started, NAMES_FOR_ATTACK);
     expect(started.session.words()).toBe('attack');
     expect(started.delivery.requests).not.toContain('search');
-    expect(started.session.options().map((option) => option.description)).toStrictEqual(['Feat', 'Feat']);
+    const tagged = started.session.options().map((option) => option.tags?.map((tag) => tag.label));
+    expect(tagged).toStrictEqual([
+      ['Feat', 'Level 1'],
+      ['Feat', 'Level 1', 'fighter', 'flourish'],
+    ]);
   });
 
   it('adds the server matches below the names once typing goes quiet, and never moves the ones listed', async () => {

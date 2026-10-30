@@ -35,8 +35,11 @@ Alternatives considered:
 - **The list loads as it scrolls.** `loadMore` fires once when the end of the loaded rows is near and `hasMore`;
   the caller appends and shows `loadingMore`. No pages. Rows are virtualised inside the panel, with a sticky header,
   and a narrow screen scrolls the table inside the panel, not the page.
-- **`fr-picker` replaces `fr-select` and `fr-combobox`**, which are removed once their callers have moved. A short
-  fixed list is a picker whose caller holds all the rows and filters them in `searched`.
+- **`fr-picker` replaces `fr-select`**, which is removed once its callers have moved. A short fixed list is a picker
+  whose caller holds all the rows and filters them in `searched`.
+- **`fr-combobox` stays for the content search** (the shell's global search and the sheet's side panel). Those are
+  typed searches for a name, not a pick from a table to compare: a dropdown list suits them. Its options carry `tags`
+  (the kind, the level, the traits) so a result says what it is. `fr-combobox-field` is removed with `fr-select-field`.
 
 ## Consequences
 

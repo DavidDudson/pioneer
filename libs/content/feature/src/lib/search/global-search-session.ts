@@ -1,10 +1,11 @@
 import { computed, inject, Injectable, linkedSignal, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { LocaleFormat } from '@pioneer/frontier';
-import type { ComboboxOption } from '@pioneer/frontier/data';
+import { BadgeTone, LocaleFormat } from '@pioneer/frontier';
+import type { ComboboxOption, ComboboxTag } from '@pioneer/frontier/data';
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
+import { RARITY_TONES } from '@pioneer/rules/ui';
 
 import { BROWSE_KINDS } from '../browser/browse-kinds';
 import { injectBrowseSearch, searchFromQuery } from '../browser/browse-search';
@@ -26,6 +27,9 @@ const KIND_MESSAGES: Readonly<Partial<Record<ContentKind, string>>> = {
   [ContentKind.Treasure]: 'shell.search.kind.treasure',
   [ContentKind.Weapon]: 'shell.search.kind.weapon',
 };
+
+/** Most traits an option shows; the rest are one open away. */
+const TRAITS_SHOWN = 3;
 
 /** What the list is made from: the words typed, the entries their names match and what the server found for them. */
 interface Incoming {
@@ -88,11 +92,23 @@ export class GlobalSearchSession {
       if (entry === undefined) {
         return [];
       }
-      const kind = KIND_MESSAGES[entry.kind];
-      const option: ComboboxOption<ContentId> = { value: entry.id, label: entry.name };
-      return [kind === undefined ? option : { ...option, description: this.#i18n.translate(kind) }];
+      return [{ value: entry.id, label: entry.name, tags: this.#tagsOf(entry) }];
     });
   });
+  /** What the name alone cannot say: the kind, the level when it has one, and the first traits, toned by rarity. */
+  #tagsOf(entry: ContentEntry): readonly ComboboxTag[] {
+    const kind = KIND_MESSAGES[entry.kind];
+    const level = 'level' in entry && typeof entry.level === 'number' ? entry.level : undefined;
+    const tone = RARITY_TONES[entry.rarity];
+    return [
+      ...(kind === undefined ? [] : [{ label: this.#i18n.translate(kind), tone: BadgeTone.Info }]),
+      ...(level === undefined
+        ? []
+        : [{ label: this.#i18n.translate('shell.search.level', { level: this.#format.number(level) }) }]),
+      ...entry.traits.slice(0, TRAITS_SHOWN).map((trait): ComboboxTag => ({ label: trait, tone })),
+    ];
+  }
+
   /** Skeleton rows only while there is nothing to list yet and the server may still have something. */
   public readonly loading = computed(
     () => this.#typed().trim() !== '' && this.options().length === 0 && this.#server.isFetching(),

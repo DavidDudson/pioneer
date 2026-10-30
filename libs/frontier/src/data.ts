@@ -39,7 +39,7 @@ export type {
 } from './lib/data/table-view/table-view.types';
 export { VirtualItem } from './lib/data/virtual-list/virtual-item.directive';
 export { VirtualEstimate, VirtualList } from './lib/data/virtual-list/virtual-list.component';
-export { Combobox, type ComboboxOption } from './lib/controls/combobox/combobox.component';
+export { Combobox, type ComboboxOption, type ComboboxTag } from './lib/controls/combobox/combobox.component';
 export { ComboboxField } from './lib/forms/combobox-field/combobox-field.component';
 export { Picker, type PickerSort } from './lib/controls/picker/picker.component';
 export { PickerField } from './lib/forms/picker-field/picker-field.component';

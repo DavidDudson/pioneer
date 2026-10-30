@@ -59,6 +59,13 @@
             @if (option.description !== undefined) {
               <span [class]="descriptionClasses">{{ option.description }}</span>
             }
+            @if (option.tags !== undefined && option.tags.length > 0) {
+              <span [class]="tagsClasses">
+                @for (tag of option.tags; track $index) {
+                  <fr-badge [tone]="tag.tone ?? neutral">{{ tag.label }}</fr-badge>
+                }
+              </span>
+            }
           </div>
         }
       }

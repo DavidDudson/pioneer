@@ -37,6 +37,7 @@
     "search": {
       "label": "Search the content",
       "placeholder": "Search content (press /)",
+      "level": "Level {{level}}",
       "kind": {
         "action": "Action",
         "armor": "Armor",
