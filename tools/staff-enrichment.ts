@@ -9,7 +9,10 @@ import * as z from 'zod';
 
 /** `entry` with `staff` on its data; a kind that holds no staff is returned as it is. */
 function withStaff(entry: ContentEntry, staff: StaffSpells): ContentEntry {
-  if (entry.kind === ContentKind.Weapon || entry.kind === ContentKind.Equipment) {
+  if (entry.kind === ContentKind.Weapon) {
+    return { ...entry, data: { ...entry.data, staff } };
+  }
+  if (entry.kind === ContentKind.Equipment) {
     return { ...entry, data: { ...entry.data, staff } };
   }
   return entry;
