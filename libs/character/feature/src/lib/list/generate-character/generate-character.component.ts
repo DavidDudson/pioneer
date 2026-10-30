@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, model, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, max, min, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN, CHARACTER_NAMES } from '@pioneer/character/domain';
@@ -19,6 +20,7 @@ import {
 } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import type { Attribute, WeaponCategory, WeaponGroup } from '@pioneer/rules/sdk';
+import { filter, merge } from 'rxjs';
 
 import { CharacterGenerator } from '../../data/character-generator';
 import { GenerateCharacterFields, GenerateCharacterForm } from '../../data/generate-character-form';
@@ -83,6 +85,9 @@ const DEFAULT_LEVEL = CHARACTER_LEVEL_MIN;
 export class GenerateCharacter {
   readonly #generator = inject(CharacterGenerator);
   readonly #i18n = inject(TranslocoService);
+  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
+  /** Changes when the language changes or the messages load, so the select labels are read again. */
+  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   /** Whether the names table is open in the page's drawer; the page binds it. */
   public readonly namesOpen = model(false);
@@ -90,8 +95,14 @@ export class GenerateCharacter {
   protected readonly names = CHARACTER_NAMES;
   protected readonly themeAttributes = THEME_ATTRIBUTES;
   protected readonly themeChoice = signal<GenerationThemeChoice>(NO_THEME_CHOICE);
-  protected readonly categoryOptions = computed(() => this.#options(WEAPON_CATEGORY_MESSAGES));
-  protected readonly groupOptions = computed(() => this.#options(WEAPON_GROUP_MESSAGES));
+  protected readonly categoryOptions = computed(() => {
+    this.#messages();
+    return this.#options(WEAPON_CATEGORY_MESSAGES);
+  });
+  protected readonly groupOptions = computed(() => {
+    this.#messages();
+    return this.#options(WEAPON_GROUP_MESSAGES);
+  });
   protected readonly result = signal<MadeCharacter | undefined>(undefined);
 
   protected readonly model = signal<GenerateModel>({ level: DEFAULT_LEVEL, seed: '', name: '' });
