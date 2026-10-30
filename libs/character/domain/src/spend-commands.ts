@@ -1,14 +1,14 @@
 import type { ActiveSpell } from './active-spells';
 import { heldCount } from './counted-resources';
 import type { SlotCountKey, UseCountKey } from './counted-resources';
-import type { ActiveEffect } from './effects';
+import type { ActiveEffect, EffectContent } from './effects';
 import { applyResourceCommand, ResourceCommandField } from './resource-commands';
 import type { ResourceLimits, ResourcePlay } from './resource-commands';
 import { ResourceCount } from './resource-count';
 import { heldIn, Resource } from './resources';
 import { SpendCommandField, SpendKind, SpendProblem, spendLogged, spendUndone } from './spend-log';
 import type { SpendCommand, SpendCost, SpendCount, SpendEntry, SpendLog, SpendRequest, SpendTime } from './spend-log';
-import { shiftRefusal, shiftSpent, shiftUndoRefusal, shiftUndone } from './spend-shift';
+import { formApplied, shiftRefusal, shiftSpent, shiftUndoRefusal, shiftUndone } from './spend-shift';
 import type { ShiftPlay } from './spend-shift';
 import { spellRefusal, spellSpent, spellUndoRefusal, spellUndone } from './spend-spells';
 import { StaffCommandField } from './staff-commands';
@@ -25,6 +25,9 @@ const ONE_QUICKENED = QuickenedAction.parse(1);
 export interface SpendLimits {
   readonly now: SpendTime;
 }
+
+/** What a spend reads to be applied: the resource limits, the time, and the effects the content has, for a form it puts on the character. */
+export type SpendEffects = ResourceLimits & SpendLimits & { readonly effects: EffectContent };
 
 /** The part of a play state a spend reads and writes: the turn it takes from, the log, and the uses a frequency touches. */
 export type SpendPlay = ResourcePlay & {
@@ -91,6 +94,9 @@ function requestProblem(play: SpendPlay, request: SpendRequest): SpendProblem | 
   const { turn, spendLog } = play;
   if (spendLog.some(({ id }) => id === request.id)) {
     return SpendProblem.AlreadySpent;
+  }
+  if (request.apply !== undefined && request.shift !== undefined) {
+    return SpendProblem.ShiftNotAllowed;
   }
   if (paysTwice(request)) {
     return SpendProblem.PaymentConflict;
@@ -250,7 +256,7 @@ function undone(play: SpendPlay, entry: SpendEntry, limits: ResourceLimits): Spe
 }
 
 /** `play` after `request` is taken from the turn and logged, with its frequency use spent. */
-function spent(play: SpendPlay, request: SpendRequest, limits: ResourceLimits & SpendLimits): SpendPlay {
+function spent(play: SpendPlay, request: SpendRequest, limits: SpendEffects): SpendPlay {
   const taken = spentFrom(play.turn, request);
   const paid = withStaff(play, { staff: request.staff, field: StaffCommandField.CastStaff }, limits);
   const slotted = withSlot(paid, { slot: request.slot, field: ResourceCommandField.SpendSlot }, limits);
@@ -265,7 +271,7 @@ function spent(play: SpendPlay, request: SpendRequest, limits: ResourceLimits & 
     ...(dismissed === undefined ? {} : { dismissed }),
     ...(shifted === undefined ? {} : { shifted }),
   };
-  return {
+  const logged: SpendPlay = {
     ...used,
     turn: withAttack(taken.turn, request, 1),
     spendLog: spendLogged(play.spendLog, entry),
@@ -273,6 +279,7 @@ function spent(play: SpendPlay, request: SpendRequest, limits: ResourceLimits & 
     effects,
     hp: { ...play.hp, temp },
   };
+  return formApplied(logged, request, limits.effects);
 }
 
 /**
@@ -280,11 +287,7 @@ function spent(play: SpendPlay, request: SpendRequest, limits: ResourceLimits & 
  * with what it took, and the use, given back. A command the turn refuses leaves `play` as it was, so the edit is never
  * partly applied. Out of an encounter nothing is counted, so a spend only logs.
  */
-export function applySpendCommand(
-  play: SpendPlay,
-  command: SpendCommand,
-  limits: ResourceLimits & SpendLimits,
-): SpendPlay {
+export function applySpendCommand(play: SpendPlay, command: SpendCommand, limits: SpendEffects): SpendPlay {
   if (spendRefusal(play, command, limits) !== undefined) {
     return play;
   }

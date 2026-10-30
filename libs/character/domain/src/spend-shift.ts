@@ -1,6 +1,10 @@
 import { HitPoints } from '@pioneer/rules/sdk';
 
-import type { ActiveEffect } from './effects';
+import { EffectCommandField } from './effect-commands';
+import { applyEffectEdit } from './effect-ending';
+import type { EffectPlay } from './effect-ending';
+import { SELF } from './effects';
+import type { ActiveEffect, EffectContent } from './effects';
 import { SpendProblem } from './spend-log';
 import type { SpendEntry, SpendRequest } from './spend-log';
 
@@ -28,6 +32,29 @@ function withForm(effect: ActiveEffect, to: Pick<ActiveEffect, 'effect' | 'form'
     ...(to.form === undefined ? {} : { form: to.form }),
     ...(to.tempHp === undefined ? {} : { tempHp: to.tempHp }),
   };
+}
+
+/** `play` with the form the spend `request` puts on the character applied, as the sheet's own apply-effect edit would: it ends the polymorph effect before it and raises the temporary Hit Points. */
+export function formApplied<Play extends EffectPlay>(
+  play: Play,
+  { apply }: SpendRequest,
+  content: EffectContent,
+): Play {
+  return apply === undefined
+    ? play
+    : applyEffectEdit(
+        play,
+        {
+          field: EffectCommandField.ApplyEffect,
+          id: apply.id,
+          effect: apply.effect,
+          source: SELF,
+          rank: apply.rank,
+          ...(apply.form === undefined ? {} : { form: apply.form }),
+          ...(apply.tempHp === undefined ? {} : { tempHp: apply.tempHp }),
+        },
+        content,
+      );
 }
 
 /** Why the form shift `request` makes is refused, or undefined when it is allowed: the effect it changes must be on the character. */

@@ -87,6 +87,25 @@ function shiftsNonForm(shift: FormShift, registry: ContentRegistry, active: read
   return target !== undefined && effectContent(registry).get(target.effect)?.polymorph !== true;
 }
 
+/** Whether the spell `action` lists the form `to` among its effects, and offers it to the character by its roll options `facts`. */
+function listsForm(
+  { action, to }: { readonly action: ContentId; readonly to: ContentId },
+  registry: ContentRegistry,
+  facts: PredicateFacts | undefined,
+): boolean {
+  const effects = spellEntryOf(registry, action)?.data.effects ?? [];
+  return effects.some((listed) => spellEffectId(listed) === to && isSpellEffectOffered(listed, facts));
+}
+
+/** Whether the spend puts on the character a form that the action's content does not list, or does not offer the character. */
+function wrongApply(
+  { action, apply }: SpendRequest,
+  registry: ContentRegistry,
+  facts: PredicateFacts | undefined,
+): boolean {
+  return apply !== undefined && !listsForm({ action, to: apply.effect }, registry, facts);
+}
+
 /** Whether the spend shifts a form that the action's content does not: the effect must be a polymorph one, the spell must shift forms, and list the form it shifts to, offered to the character by its roll options. */
 function wrongShift(
   { action, shift }: SpendRequest,
@@ -99,10 +118,8 @@ function wrongShift(
   if (shiftsNonForm(shift, registry, activeEffects)) {
     return true;
   }
-  const data = spellEntryOf(registry, action)?.data;
   return (
-    data?.shiftsForm !== true ||
-    !(data.effects ?? []).some((listed) => spellEffectId(listed) === shift.to && isSpellEffectOffered(listed, facts))
+    spellEntryOf(registry, action)?.data.shiftsForm !== true || !listsForm({ action, to: shift.to }, registry, facts)
   );
 }
 
@@ -133,7 +150,7 @@ export function contentRefusal(
   if (wrongSustain(request, registry)) {
     return SpendProblem.NotSustained;
   }
-  if (wrongShift(request, registry, { facts, activeEffects })) {
+  if (wrongApply(request, registry, facts) || wrongShift(request, registry, { facts, activeEffects })) {
     return SpendProblem.ShiftNotAllowed;
   }
   return wrongDismiss(request, registry, activeSpells) ? SpendProblem.DismissNotAllowed : undefined;

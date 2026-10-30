@@ -1,16 +1,16 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentId, HitPoints, RollOption } from '@pioneer/rules/sdk';
+import { ContentId, HitPoints, RollOption, SpellRank } from '@pioneer/rules/sdk';
 
 import { EffectInstanceId, EffectRounds, SELF } from './effects';
-import type { ActiveEffect } from './effects';
+import type { ActiveEffect, EffectTerms } from './effects';
 import { applyPlayCommand, PlayCommandField } from './play-state';
 import type { PlayLimits, PlayState } from './play-state';
 import { ResourceCount } from './resource-count';
 import { Resource } from './resources';
 import { spendRefusal } from './spend-commands';
 import { SpendCommandField, SpendProblem } from './spend-log';
-import type { FormShift, SpendCommand } from './spend-log';
+import type { FormApply, FormShift, SpendCommand } from './spend-log';
 import { actions, OWN_TURN, playIn, Serial, spendId, spendOf } from './spend-log-testing';
 import type { SpendAction } from './spend-log-testing';
 import { TEST_SPEND, within } from './testing';
@@ -102,5 +102,53 @@ describe('a spend that shifts a form', () => {
     const gone: PlayState = { ...shifted, effects: [{ ...BEAR_FORM, id: OTHER }] };
     const undo: SpendCommand = { field: SpendCommandField.UndoSpend, id: spendId(FIRST) };
     expect(spendRefusal(gone, undo, REFUSAL_LIMITS)).toBe(SpendProblem.NoSuchEffect);
+  });
+});
+
+function cast(apply: FormApply): SpendAction {
+  return { ...spendOf(FIRST, actions(2)), apply };
+}
+
+describe('a spend that applies a form', () => {
+  const terms: EffectTerms = {
+    remaining: undefined,
+    expiry: undefined,
+    sustained: false,
+    badge: undefined,
+    polymorph: true,
+  };
+  const withForms = {
+    ...LIMITS,
+    effects: new Map<ContentId, EffectTerms>([
+      [BEAR, terms],
+      [PLANT, terms],
+    ]),
+  };
+  const rank = SpellRank.parse(2);
+
+  test('puts the form on the character with the spend, and its temporary Hit Points', () => {
+    const play = applyPlayCommand(
+      playIn(OWN_TURN),
+      cast({ id: FORM, effect: BEAR, rank, form: GRIZZLY, tempHp: HitPoints.parse(5) }),
+      withForms,
+    );
+    expect(play.effects).toStrictEqual([
+      { id: FORM, effect: BEAR, source: SELF, rank, form: GRIZZLY, tempHp: HitPoints.parse(5) },
+    ]);
+    expect(play.hp.temp).toBe(HitPoints.parse(5));
+    expect(play.spendLog).toHaveLength(1);
+  });
+
+  test('ends the form the character was in', () => {
+    const play = applyPlayCommand(playWith(BEAR_FORM), cast({ id: OTHER, effect: PLANT, rank }), withForms);
+    expect(play.effects.map(({ id }) => id)).toStrictEqual([OTHER]);
+  });
+
+  test('is refused with a form shift in the same spend', () => {
+    const both: SpendAction = {
+      ...cast({ id: OTHER, effect: PLANT, rank }),
+      shift: { effect: FORM, to: PLANT },
+    };
+    expect(spendRefusal(playWith(BEAR_FORM), both, REFUSAL_LIMITS)).toBe(SpendProblem.ShiftNotAllowed);
   });
 });
