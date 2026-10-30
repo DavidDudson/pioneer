@@ -1,8 +1,9 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { GeneratedCharacter } from '@pioneer/character/domain';
+import { GeneratedCharacter, Seed } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { fixtureOwnerId } from '@pioneer/character/domain/testing';
+import { Level } from '@pioneer/rules/sdk';
 import { fixedClock } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -17,8 +18,8 @@ import { seedOfficialContent } from './content';
 
 /** Time to seed every official pack and generate characters on a shared runner. */
 const SETUP_TIMEOUT_MS = 60_000;
-const SEED = 4242;
-const LEVEL = 3;
+const SEED = Seed.parse(4242);
+const LEVEL = Level.parse(3);
 
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-27T10:00:00Z');

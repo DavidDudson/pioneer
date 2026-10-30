@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind, contentPackFromContents, EnvironmentData } from '@pioneer/rules/sdk';
+import { ContentKind, contentPackFromContents, EnvironmentData, RollOption, Slug } from '@pioneer/rules/sdk';
 import type { ContentEntry } from '@pioneer/rules/sdk';
 
 import { gmCorePack, playerCorePack } from './json-packs';
@@ -87,7 +87,7 @@ describe('GM Core biome environments', () => {
     for (const biome of BIOMES) {
       const entry = environment(`environment:${biome}`);
 
-      expect(entry.rules).toContainEqual({ key: 'RollOption', option: `terrain:${biome}` });
+      expect(entry.rules).toContainEqual({ key: 'RollOption', option: RollOption.parse(`terrain:${biome}`) });
       expect(EnvironmentData.parse(entry.data).group).toBeUndefined();
     }
   });
@@ -95,7 +95,9 @@ describe('GM Core biome environments', () => {
   test('puts every cold and heat tier in the temperature group, so one replaces another', () => {
     for (const kind of ['cold', 'heat']) {
       for (const tier of ['mild', 'severe', 'extreme', 'incredible']) {
-        expect(EnvironmentData.parse(environment(`environment:${tier}-${kind}`).data).group).toBe('temperature');
+        expect(EnvironmentData.parse(environment(`environment:${tier}-${kind}`).data).group).toBe(
+          Slug.parse('temperature'),
+        );
       }
     }
   });
@@ -116,6 +118,6 @@ describe('Player Core terrain environments', () => {
   test('underwater sets the terrain options feats read', () => {
     const underwater = PLAYER_CORE.otherEntries.find((entry) => entry.slug === 'environment:underwater');
 
-    expect(underwater?.rules).toContainEqual({ key: 'RollOption', option: 'terrain:underwater' });
+    expect(underwater?.rules).toContainEqual({ key: 'RollOption', option: RollOption.parse('terrain:underwater') });
   });
 });
