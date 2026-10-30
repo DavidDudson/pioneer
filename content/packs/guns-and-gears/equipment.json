@@ -178,6 +178,137 @@
     }
   },
   {
+    "id": "1e7213fd-0af3-5180-bdfc-8d0ac83cb00c",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:blazons-of-shared-power",
+    "name": "Blazons of Shared Power",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These brass emblems come in a variety of designs, usually customized to the purchaser to reflect the heraldry of a family or guild. "
+          },
+          {
+            "type": "text",
+            "text": "Blazons of shared power",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " come in sets of three. When you invest the blazons, you wear one of the three on your chest, and you attach the others to a pair of one-handed weapons, choosing one as the primary weapon and one as the secondary weapon. These weapons can be either melee weapons or ranged weapons. As long as you're wielding both the primary weapon and the secondary weapon, the secondary weapon gains the benefit of the fundamental runes on the primary weapon. A weapon can only have a single blazon of shared power attached to it at a time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.P8hf8WT6oRxYmfLB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 52
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "and-attached-to-two-weapons"
+      }
+    }
+  },
+  {
+    "id": "77ba3923-3d48-5121-a5a0-bf6c059653e9",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:blazons-of-shared-power-greater",
+    "name": "Blazons of Shared Power (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These brass emblems come in a variety of designs, usually customized to the purchaser to reflect the heraldry of a family or guild. "
+          },
+          {
+            "type": "text",
+            "text": "Blazons of shared power",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " come in sets of three. When you invest the blazons, you wear one of the three on your chest, and you attach the others to a pair of one-handed weapons, choosing one as the primary weapon and one as the secondary weapon. These weapons can be either melee weapons or ranged weapons. As long as you're wielding both the primary weapon and the secondary weapon, the secondary weapon gains the benefit of the fundamental runes on the primary weapon. A weapon can only have a single blazon of shared power attached to it at a time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A set of "
+          },
+          {
+            "type": "text",
+            "text": "greater blazons of shared power",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " also replicates property runes from the primary weapon, so long as the secondary weapon meets all the prerequisites for a given rune and isn't a specific weapon. The secondary weapon gains the benefits of those runes. All of its own runes are suppressed. When you invest the blazons, you can elect for them to transfer only fundamental runes, in which case they function as standard "
+          },
+          {
+            "type": "text",
+            "text": "blazons of shared power",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZR3Kekd3hrWmAv6d"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1350
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "and-attached-to-two-weapons"
+      }
+    }
+  },
+  {
     "id": "3f6dc465-7c9b-5198-bc1c-72e599257d84",
     "pack": "guns-and-gears",
     "kind": "equipment",

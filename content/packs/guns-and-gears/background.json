@@ -970,6 +970,69 @@
     }
   },
   {
+    "id": "9f7dd5f5-2818-5737-a926-21cd156e01b1",
+    "pack": "guns-and-gears",
+    "kind": "background",
+    "slug": "background:discarded-duplicate",
+    "name": "Discarded Duplicate",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Someone created you for a specific purpose. Some important person, be they a storied royal, a contentious politician, or a stark military leader, needed a body double for their most dangerous appearances. Using a mixture of fringe science and magic, you were commissioned and trained to emulate this person in every way, and have stood in for them in countless deadly circumstances. You may or may not know the reason behind your decommissioning, but whoever discarded you didn't finish you off. Now, the world is yours to explore—but \"you\" may have a bold or brutish reputation, or the individual you were duplicating may be long dead. Regardless of the fate of this individual, your way of life has changed drastically."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and the GM can work out how to incorporate your previous life into your story. The GM can keep this knowledge "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " even from you, or you or another character know what happened. You and the GM can also leave the information unspecified and fill it in later."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain three free attribute boosts. You choose two, and the GM chooses one based on the attributes of the character you were built to duplicate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.7fCZTzmv5I2dI4sr"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "con", "dex", "int", "str", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
     "id": "8a46845c-827a-5bb7-8647-634db3eb5f40",
     "pack": "guns-and-gears",
     "kind": "background",

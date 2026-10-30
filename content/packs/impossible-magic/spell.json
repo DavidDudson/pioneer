@@ -19372,6 +19372,210 @@
     }
   },
   {
+    "id": "fccb5278-2a29-5d6e-a312-3069f396a0db",
+    "pack": "impossible-magic",
+    "kind": "spell",
+    "slug": "spell:horizon-thunder-sphere",
+    "name": "Horizon Thunder Sphere",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["attack", "concentrate", "electricity", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gather magical energy into your palm, forming a concentrated ball of electricity that crackles and rumbles like impossibly distant thunder. Make a ranged spell attack roll against your target's AC. On a success, you deal 3d6 electricity damage. On a critical success, the target takes double damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. The number of actions you spend when Casting this Spell determines its range as well as other parameters."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " This spell has a range of 30 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " This spell has a range of 60 feet and deals half damage on a failure (but not a critical failure) as the electricity lashes out and jolts the target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Two Rounds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you spend 3 actions Casting the Spell, you can avoid finishing the spell and spend another 2 actions on your next turn to empower the spell even further. You can take other actions before finishing this spell, but the spell is lost if you Cast another Spell in between. After attacking the target, whether you hit or miss, the ball of lightning explodes, dealing (@item.rank*2)d6[electricity] damage to all other creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " around the target (basic Reflex save). Additionally, you spark with electricity for 1 minute, dealing (@item.rank)[electricity] damage to creatures that Grapple you or that hit you with an unarmed Strike or a non-reach melee weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial damage on a hit, as well as the burst damage for 2-round casting time, each increase by 2d6, and the damage creatures take if they Grapple or hit you while you're in your sparking state increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.8Uzc9WKqRr755S5d"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "either",
+        "options": [
+          {
+            "type": "actions",
+            "cost": "two"
+          },
+          {
+            "type": "time",
+            "count": 2,
+            "unit": "round"
+          }
+        ]
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "3d6",
+          "damageType": "electricity",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "2d6"
+          }
+        ]
+      },
+      "variants": [
+        {
+          "time": {
+            "type": "actions",
+            "cost": "two"
+          },
+          "range": {
+            "type": "feet",
+            "feet": 30
+          }
+        },
+        {
+          "time": {
+            "type": "actions",
+            "cost": "three"
+          },
+          "range": {
+            "type": "feet",
+            "feet": 60
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "3d6",
+              "damageType": "electricity",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "time": {
+            "type": "time",
+            "count": 2,
+            "unit": "round"
+          },
+          "range": {
+            "type": "feet",
+            "feet": 60
+          },
+          "defense": {
+            "save": {
+              "statistic": "save:reflex",
+              "basic": true
+            }
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "3d6",
+              "damageType": "electricity",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "bed0f5f6-bbc8-5ff4-9521-c3cae0dd2a45",
     "pack": "impossible-magic",
     "kind": "spell",
@@ -23515,6 +23719,214 @@
     }
   },
   {
+    "id": "8bc752c0-b299-592a-8d5d-c4e56e06c293",
+    "pack": "impossible-magic",
+    "kind": "spell",
+    "slug": "spell:inner-radiance-torrent",
+    "name": "Inner Radiance Torrent",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "force", "light", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gradually merge several kinds of energy into your cupped hands before firing off a storm of bolts and beams that deal 4d4 force damage to all creatures in a 60-foot line. Creatures in the area must attempt a basic Reflex save. On a critical failure, they're also "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. The number of actions you spend when Casting this Spell determines the area. If the line passes through an area of magical darkness or targets a creature affected by magical darkness, "
+          },
+          {
+            "type": "text",
+            "text": "inner radiance torrent",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attempts to counteract the darkness."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " The line is 60 feet long."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " The line is 120 feet long."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Two Rounds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you spend 3 actions casting the spell, you can avoid finishing the spell and spend another 2 actions on your next turn to empower the spell even further. You can take other actions before finishing this spell, but the spell is lost if you Cast another Spell in between. The line is 120 feet long, the damage dealt by this spell increases by 4d4, and you enter a shining state for 1 minute, causing you to glow with light and deal (max(2,@item.rank)-1)[force] damage to creatures that end their turn adjacent to you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial damage, as well as the additional damage for the 2-round casting time, each increase by 2d4, and the damage to adjacent creatures dealt while in your shining state increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.eSEmqOBuywoJ6tYd"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "either",
+        "options": [
+          {
+            "type": "actions",
+            "cost": "two"
+          },
+          {
+            "type": "time",
+            "count": 2,
+            "unit": "round"
+          }
+        ]
+      },
+      "area": {
+        "shape": "line",
+        "size": 60
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "4d4",
+          "damageType": "force",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "2d4"
+          }
+        ]
+      },
+      "variants": [
+        {
+          "time": {
+            "type": "actions",
+            "cost": "two"
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "4d4",
+              "damageType": "force",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "time": {
+            "type": "actions",
+            "cost": "three"
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "4d4",
+              "damageType": "force",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Inner Radiance Torrent (2 Rounds)",
+          "time": {
+            "type": "time",
+            "count": 2,
+            "unit": "round"
+          },
+          "damage": [
+            {
+              "key": "0",
+              "formula": "8d4",
+              "damageType": "force",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "0",
+                "formula": "4d4"
+              }
+            ]
+          }
+        }
+      ],
+      "counteraction": true
+    }
+  },
+  {
     "id": "846b8373-6608-503d-b7f4-7a5e0f011d4a",
     "pack": "impossible-magic",
     "kind": "spell",
@@ -25597,6 +26009,142 @@
           }
         ]
       }
+    }
+  },
+  {
+    "id": "98b4febf-d6f4-5184-9d76-a6d73ae8da39",
+    "pack": "impossible-magic",
+    "kind": "spell",
+    "slug": "spell:metallic-meteorite-glyph",
+    "name": "Metallic Meteorite Glyph",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "metal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You mark a creature with a temporary rune that calls a devastating meteor to spawn and seek them out. The meteor collides with the target, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d12",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a basic Reflex save. The number of actions you spend when Casting this Spell determines other parameters."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " The rune appears on 1 creature in range, and the meteor targets that creature. The rune fades away after the meteor falls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " Runes appear on up to 3 different creatures within range, and a meteor targets each of these creatures. The rune fades away after the meteor falls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Two Rounds If you spend 3 actions casting the spell, you can avoid finishing the spell and spend another 2 actions on your next turn to empower the spell even further. You can take other actions before finishing this spell, but the spell is lost if you Cast another Spell in between. The spell acts as the 3-action version, but the glyphs remain on the targets for 1 minute. A creature that has a glyph on it at the end of its turn is targeted by another smaller meteor that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d12",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (basic Reflex save)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.moTWtlU84IScjnCh"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "either",
+        "options": [
+          {
+            "type": "actions",
+            "cost": "two"
+          },
+          {
+            "type": "time",
+            "count": 2,
+            "unit": "round"
+          }
+        ]
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "zshvno2zgzqdbkzs",
+          "formula": "8d12",
+          "damageType": "bludgeoning",
+          "kinds": ["damage"]
+        }
+      ]
     }
   },
   {
@@ -29144,6 +29692,219 @@
       },
       "traditions": ["arcane", "occult", "primal"],
       "damage": []
+    }
+  },
+  {
+    "id": "0e81ab82-7562-5167-8b43-be359e9849b8",
+    "pack": "impossible-magic",
+    "kind": "spell",
+    "slug": "spell:psychic-outburst",
+    "name": "Psychic Outburst",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Psychic energy filters through your mind and explodes outward, dealing mental damage to creatures in the area with a basic Will save. The number of actions you spend when Casting this Spell determines the damage and other parameters."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " The spell deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d10",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": "The spell deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d10",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. Creatures that fail their save are pushed 10 feet away from you (or 20 feet on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Two Rounds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you spend 3 actions Casting the Spell, you can avoid finishing the spell and spend another 2 actions on your next turn to empower the spell even further. You can take other actions before finishing this spell, but the spell is lost if you Cast another Spell in between. The area increases to a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 40
+          },
+          {
+            "type": "text",
+            "text": ", deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d10",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, and targets only enemies. Creatures that fail their save are pushed 10 feet away from you (20 feet on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Y1glh4WNHAlpTwH3"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "either",
+        "options": [
+          {
+            "type": "actions",
+            "cost": "two"
+          },
+          {
+            "type": "time",
+            "count": 2,
+            "unit": "round"
+          }
+        ]
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 20
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": true
+        }
+      },
+      "traditions": ["occult"],
+      "damage": [],
+      "variants": [
+        {
+          "time": {
+            "type": "actions",
+            "cost": "two",
+            "upTo": "three"
+          },
+          "damage": [
+            {
+              "key": "ri7kl4zmfycgdymg",
+              "formula": "6d10",
+              "damageType": "mental",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "ri7kl4zmfycgdymg",
+                "formula": "1d10"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Psychic Outburst (Two-Round)",
+          "damage": [
+            {
+              "key": "gvyv5cfxc6wqw5mf",
+              "formula": "8d10",
+              "damageType": "mental",
+              "kinds": ["damage"]
+            }
+          ],
+          "heightening": {
+            "type": "interval",
+            "interval": 1,
+            "damage": [
+              {
+                "key": "gvyv5cfxc6wqw5mf",
+                "formula": "1d10"
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -37943,6 +38704,198 @@
     }
   },
   {
+    "id": "b4e4a2ca-a26c-5685-91e2-8786673327b7",
+    "pack": "impossible-magic",
+    "kind": "spell",
+    "slug": "spell:vampiric-revelry",
+    "name": "Vampiric Revelry",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["concentrate", "death", "manipulate", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You steal the blood and life force of other creatures around you and sometimes share their energies with your allies. You deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to living enemies in the area with a basic Fortitude save. The number of actions you spend when Casting this Spell determines the area and other parameters."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain temporary Hit Points equal to half the damage a single creature takes from this spell; calculate these temporary Hit Points using the creature that took the most damage. Any temporary Hit Points gained through this spell are lost after 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " The spell is a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " The spell is a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": ". In addition to granting temporary Hit Points to yourself, you grant the same number of temporary Hit Points to all allies in the emanation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Two Rounds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you spend 3 actions casting the spell, you can avoid finishing the spell and spend another 2 actions on your next turn to empower the spell even further. You can take other actions before finishing this spell, but the spell is lost if you Cast another Spell in between. The spell's area increases to a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", and the temporary Hit Points gained equal the highest damage a single creature took from the spell. After dealing damage, you can then teleport up to 60 feet to a location you can see. You can then grant all allies in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " the same number of temporary Hit Points you gained."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.sbhjhvWaqyXJKvpH"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "either",
+        "options": [
+          {
+            "type": "actions",
+            "cost": "two"
+          },
+          {
+            "type": "time",
+            "count": 2,
+            "unit": "round"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": [
+        {
+          "key": "soehh7ersi07tjwc",
+          "formula": "12d6",
+          "damageType": "void",
+          "kinds": ["damage"]
+        }
+      ],
+      "variants": [
+        {
+          "area": {
+            "shape": "emanation",
+            "size": 20
+          },
+          "damage": [
+            {
+              "key": "soehh7ersi07tjwc",
+              "formula": "12d6",
+              "damageType": "void",
+              "kinds": ["damage"]
+            }
+          ]
+        },
+        {
+          "name": "Vampiric Revelry (Two Round)",
+          "area": {
+            "shape": "emanation",
+            "size": 30
+          },
+          "damage": [
+            {
+              "key": "soehh7ersi07tjwc",
+              "formula": "12d6",
+              "damageType": "void",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "767bad4e-a9b9-5862-8cf0-f727a3b46957",
     "pack": "impossible-magic",
     "kind": "spell",
@@ -39044,6 +39997,214 @@
       "traditions": ["arcane", "divine", "occult", "primal"],
       "damage": [],
       "dismiss": true
+    }
+  },
+  {
+    "id": "08d39459-1fe7-58af-ac38-b7ba3605f8ad",
+    "pack": "impossible-magic",
+    "kind": "spell",
+    "slug": "spell:weapon-tide",
+    "name": "Weapon Tide",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a wave of weapons that travel along the ground. Choose bludgeoning, piercing, or slashing. The wave deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage of the chosen type to creatures in the area with a basic Reflex save. The number of actions you spend when Casting this Spell determines the area and other parameters."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " The spell is a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": "The spell is a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", and the area becomes difficult terrain for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Two Rounds",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you spend 3 actions casting the spell, you can avoid finishing the spell and spend another 2 actions on your next turn to empower the spell even further. You can take other actions before finishing this spell, but the spell is lost if you Cast another Spell in between. The spell is a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. The area also becomes difficult terrain and hazardous terrain for 1 minute as weapons continue to sporadically shoot from the ground. Any creature that moves into or ends its turn in one of these squares takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (of the same damage type chosen when you Cast the Spell). A creature can take this damage only once per turn."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial damage increases by 4d6, and the damage of the hazardous terrain increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.IV76q50T2pZemxAl"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "either",
+        "options": [
+          {
+            "type": "actions",
+            "cost": "two"
+          },
+          {
+            "type": "time",
+            "count": 2,
+            "unit": "round"
+          }
+        ]
+      },
+      "area": {
+        "shape": "cone",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "divine"],
+      "damage": [
+        {
+          "key": "fzo5orcyaqq1epcn",
+          "formula": "4d6",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "fzo5orcyaqq1epcn",
+            "formula": "4d6"
+          }
+        ]
+      },
+      "variants": [
+        {
+          "name": "Weapon Tide (two rounds)",
+          "damage": [
+            {
+              "key": "fzo5orcyaqq1epcn",
+              "formula": "6d6",
+              "kinds": ["damage"]
+            }
+          ]
+        }
+      ]
     }
   },
   {

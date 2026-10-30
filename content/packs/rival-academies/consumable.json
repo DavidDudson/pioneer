@@ -1819,6 +1819,67 @@
     }
   },
   {
+    "id": "a708bf75-6daa-5cca-87f3-082b5c1b68f5",
+    "pack": "rival-academies",
+    "kind": "consumable",
+    "slug": "consumable:fake-blood-pack",
+    "name": "Fake Blood Pack",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rival-academies"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Adventurers have found a number of uses for these animal blood–filled bladders, which were originally used in theatrical productions. Whenever you take slashing or piercing damage with the fake blood pack under your clothes or armor, roll a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 11
+          },
+          {
+            "type": "text",
+            "text": ". On a success, the blood pack is punctured. You or an ally can puncture the hidden pack intentionally with an Interact action. When faking an injury, a punctured blood pack grants a +2 item bonus to relevant Deception checks, such as to "
+          },
+          {
+            "type": "ref",
+            "id": "1ee7b671-dd18-5950-a4db-fbd4f8dae832"
+          },
+          {
+            "type": "text",
+            "text": " about being injured, for 4 hours after the pack has been punctured or until the blood is washed off, whichever comes first. Abilities that trigger when a creature deals bleed damage, that determine if a creature is bleeding, or are otherwise based on bleed damage don't trigger or apply for blood from a fake blood pack, which might mean creatures with such abilities automatically realize the ruse."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2VS3S2E3dbqvGifH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "worn",
+        "slot": "under-armor"
+      }
+    }
+  },
+  {
     "id": "0a06fda7-630a-5d9d-9d5a-b05b43d2b1c7",
     "pack": "rival-academies",
     "kind": "consumable",

@@ -53,6 +53,68 @@
     }
   },
   {
+    "id": "3d3c36b5-a1ad-5fe0-b45f-13a1baff2c4e",
+    "pack": "treasure-vault",
+    "kind": "effect",
+    "slug": "effect:effect-ancestral-geometry",
+    "name": "Effect: Ancestral Geometry",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3bf25684-b410-52a6-82a4-99a2a7390fb9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Roll 2d20 and record the highest result. Then roll 1d6 and note a type of saving throw: 1–2 Fortitude, 3–4 Reflex, and 5–6 Will."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "10aaba23-4ee4-5dd5-8d3e-a04e7ff26359"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.oI7DVO9uKNG4zGtZ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "formula",
+        "formula": "2d20kh1"
+      }
+    }
+  },
+  {
     "id": "10aaba23-4ee4-5dd5-8d3e-a04e7ff26359",
     "pack": "treasure-vault",
     "kind": "effect",
