@@ -20620,6 +20620,7 @@
         "option": "option:humanoid-form-sense",
         "toggleable": true,
         "value": false,
+        "predicate": [{ "gte": ["parent:origin:item:level", 3] }],
         "display": {
           "label": "Humanoid Form — Sense"
         },

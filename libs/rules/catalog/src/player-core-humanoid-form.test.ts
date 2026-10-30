@@ -93,10 +93,10 @@ describe('Player Core: Humanoid Form in the grants', () => {
   const effect = humanoidForm();
   const toggleAt = (option: string): ToggleKey => toggleKeyOf(effect.id, RuleIndex.parse(toggleIndex(effect, option)));
 
-  function resolved(toggles: ToggleStates): GrantResolution {
+  function resolved(toggles: ToggleStates, rank = RANK): GrantResolution {
     return resolveGrants({
       roots: [
-        { entry: effect.id, hop: { kind: OriginHopKind.Effect, effect: effect.id, rank: SpellRank.parse(RANK) } },
+        { entry: effect.id, hop: { kind: OriginHopKind.Effect, effect: effect.id, rank: SpellRank.parse(rank) } },
       ],
       lookup: lookupOf([effect]),
       level: Level.parse(10),
@@ -116,15 +116,25 @@ describe('Player Core: Humanoid Form in the grants', () => {
     expect(facts.has('option:pass-as-humanoid')).toBe(false);
   });
 
-  test('turning on passing as a humanoid, and a sense, sets their roll options', () => {
+  test('turning on passing as a humanoid, and a sense at rank 3, sets their roll options', () => {
     const { facts } = resolved(
       new Map([
         [toggleAt('option:pass-as-humanoid'), { on: true, suboption: undefined }],
         [toggleAt('option:humanoid-form-sense'), { on: true, suboption: Slug.parse('darkvision') }],
       ]),
+      3,
     );
 
     expect(facts.has('option:pass-as-humanoid')).toBe(true);
     expect(facts.has('option:humanoid-form-sense:darkvision')).toBe(true);
+  });
+
+  test('a sense is not offered below rank 3, even switched on', () => {
+    const { facts, toggles } = resolved(
+      new Map([[toggleAt('option:humanoid-form-sense'), { on: true, suboption: Slug.parse('darkvision') }]]),
+    );
+
+    expect(toggles.map(({ option }) => option)).not.toContain('option:humanoid-form-sense');
+    expect(facts.has('option:humanoid-form-sense:darkvision')).toBe(false);
   });
 });

@@ -1,15 +1,7 @@
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { Domain, RuleElementKey, RuleIndex, ToggleKey } from '@pioneer/rules/sdk';
-import type {
-  ContentId,
-  Origin,
-  Predicate,
-  RollOption,
-  RollOptionElement,
-  RuleElement,
-  Slug,
-} from '@pioneer/rules/sdk';
+import { Domain, OriginHopKind, RollOption, RuleElementKey, RuleIndex, ToggleKey } from '@pioneer/rules/sdk';
+import type { ContentId, Origin, Predicate, RollOptionElement, RuleElement, Slug } from '@pioneer/rules/sdk';
 
 import type { GrantEntry } from './grant-entry';
 import { optionOf } from './option-of';
@@ -46,6 +38,17 @@ export interface EntryOptions {
 /** The domain every roll sees; options in any other domain only reach rolls in it, never grant predicates. */
 const ALL_DOMAIN = Domain.parse('all');
 
+/** The fact an effect cast at a rank sets for its own elements; Foundry writes it `parent:origin:item:level`. */
+const ORIGIN_RANK = 'parent:origin:item:level';
+
+/** The facts an entry's own elements are read against: the round's, and the rank an effect was cast at. */
+function factsFor(origin: Origin, facts: PredicateFacts): PredicateFacts {
+  const [hop] = origin.hops;
+  return hop?.kind === OriginHopKind.Effect && hop.rank !== undefined
+    ? facts.plus([RollOption.parse(`${ORIGIN_RANK}:${hop.rank}`)])
+    : facts;
+}
+
 /**
  * The toggle of rule `rule` on entry `entry`. The entry is on the character once, so the pair names one toggle
  * however the entry got there.
@@ -71,7 +74,7 @@ class OptionReader {
 
   public constructor(origin: Origin, facts: PredicateFacts, states: ToggleStates) {
     this.#origin = origin;
-    this.#facts = facts;
+    this.#facts = factsFor(origin, facts);
     this.#states = states;
   }
 
