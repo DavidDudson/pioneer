@@ -160,6 +160,17 @@ describe('translateKindData: backgrounds', () => {
     ]);
   });
 
+  test('a background of three free boosts keeps all three', () => {
+    const duplicate = {
+      ...ACOLYTE,
+      id: 'dUpLiCaTe0000001',
+      name: 'Discarded Duplicate',
+      system: { boosts: { '0': { value: ALL }, '1': { value: ALL }, '2': { value: ALL } } },
+    };
+
+    expect(dataIn(translate([duplicate]), 'discarded-duplicate')).toEqual({ boosts: [ALL, ALL, ALL] });
+  });
+
   test("a background's skill feat outside the import is reported", () => {
     expect(gapKeys(translate([ACOLYTE]))).toEqual(['unresolved-reference items']);
   });
