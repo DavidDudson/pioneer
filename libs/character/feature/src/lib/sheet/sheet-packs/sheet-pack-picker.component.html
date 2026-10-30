@@ -8,10 +8,15 @@
   @if (showForm()) {
     <fr-async-form [form]="form" [action]="enable" [describeError]="describeEnableError">
       <fr-stack gap="sm">
-        <fr-select-field
+        <fr-picker-field
           [label]="'character.packs.packLabel' | transloco"
-          [options]="options()"
+          [rows]="rows.shown()"
+          [columns]="columns()"
+          [rowValue]="rowValue"
+          [rowLabel]="rowLabel"
           [formField]="form.packId"
+          (searched)="rows.query.set($event)"
+          (sorted)="rows.ordering.set($event)"
         />
         <fr-stack direction="horizontal" justify="start">
           <fr-async-button

@@ -3,7 +3,7 @@
   <ng-template [frAsyncData]="playQuery">
     <fr-stack gap="xs">
       <fr-text>{{ 'character.sheet.exploration.activity.hint' | transloco }}</fr-text>
-      <fr-select
+      <pio-option-picker
         [ariaLabel]="'character.sheet.exploration.activity.label' | transloco"
         [options]="choices()"
         [value]="picked()"

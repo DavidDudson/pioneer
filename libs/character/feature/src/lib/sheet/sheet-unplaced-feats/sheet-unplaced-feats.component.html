@@ -15,7 +15,7 @@
             </fr-stack>
             <fr-stack direction="horizontal" align="center" gap="xs">
               @if (row.slots.length > 0) {
-                <fr-select
+                <pio-option-picker
                   [options]="row.slots"
                   [ariaLabel]="'character.sheet.unplacedFeats.moveNamed' | transloco: { name }"
                   [placeholder]="'character.sheet.unplacedFeats.move' | transloco"

@@ -1,11 +1,13 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import type { RouterTestingHarness } from '@angular/router/testing';
 import { SheetMode } from '@pioneer/character/domain';
 import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
+import { pickRow } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -29,15 +31,8 @@ function pickerOf(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('pio-sheet-exploration-activity'));
 }
 
-async function choose(root: HTMLElement, label: string): Promise<void> {
-  present(pickerOf(root).querySelector<HTMLElement>('fr-select button')).click();
-  await TestBed.inject(ApplicationRef).whenStable();
-  const option = await vi.waitFor(() =>
-    present(
-      [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) => each.textContent.trim() === label),
-    ),
-  );
-  option.click();
+async function choose(harness: RouterTestingHarness, root: HTMLElement, label: string): Promise<void> {
+  pickRow(harness, pickerOf(root), { matches: (each) => each === label });
   await TestBed.inject(ApplicationRef).whenStable();
 }
 
@@ -63,12 +58,12 @@ describe('CharacterSheetPage exploration activity', () => {
   });
 
   it('sends the activity picked at the revision last read, and shows what the server answers', async () => {
-    const { root } = await openSheet(MERISIEL, { play: playWith(undefined), packs: PACKS });
+    const { harness, root } = await openSheet(MERISIEL, { play: playWith(undefined), packs: PACKS });
     await vi.waitFor(() => {
       expect(textOf(pickerOf(root))).toContain('None');
     });
 
-    await choose(root, 'Avoid Notice');
+    await choose(harness, root, 'Avoid Notice');
 
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });
@@ -84,12 +79,12 @@ describe('CharacterSheetPage exploration activity', () => {
   });
 
   it('clears the activity when None is picked', async () => {
-    const { root } = await openSheet(MERISIEL, { play: playWith(AVOID_NOTICE), packs: PACKS });
+    const { harness, root } = await openSheet(MERISIEL, { play: playWith(AVOID_NOTICE), packs: PACKS });
     await vi.waitFor(() => {
       expect(textOf(pickerOf(root))).toContain('Avoid Notice');
     });
 
-    await choose(root, 'None');
+    await choose(harness, root, 'None');
 
     await vi.waitFor(() => {
       const request = TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: PLAY_URL });

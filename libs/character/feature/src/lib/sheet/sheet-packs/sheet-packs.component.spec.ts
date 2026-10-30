@@ -1,7 +1,7 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Select } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
 import { describe, expect, it, vi } from 'vitest';
 
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
@@ -69,12 +69,19 @@ async function open(packs: PacksJson): Promise<OpenSheet> {
 }
 
 /** The pack picker's control. */
-function picker({ harness }: OpenSheet): Select<string> {
+function picker({ harness }: OpenSheet): PickerField<string, object> {
   const host = harness.fixture.debugElement.query(By.css('pio-sheet-pack-picker'));
-  return host.query(By.directive(Select)).componentInstance as Select<string>;
+  return host.query(By.directive(PickerField)).componentInstance as PickerField<string, object>;
 }
 
-/** Picks `packId` in the picker, the way choosing it from the overlay listbox would. */
+/** The label of the first pack the picker offers. */
+function labelOf(sheet: OpenSheet): string | undefined {
+  const control = picker(sheet);
+  const [first] = control.rows();
+  return first === undefined ? undefined : control.rowLabel()(first);
+}
+
+/** Picks `packId` in the picker, as pressing its row would. */
 function pick(sheet: OpenSheet, packId: string): void {
   picker(sheet).value.set(packId);
   sheet.harness.detectChanges();
@@ -134,15 +141,15 @@ describe('SheetPacks', () => {
     });
     expect(
       picker(sheet)
-        .options()
-        .map((option) => option.value),
+        .rows()
+        .map((row) => picker(sheet).rowValue()(row)),
     ).toStrictEqual([secret.packId]);
     expect(picker(sheet).value()).toBe('');
   });
 
   it('marks a private pack in the picker', async () => {
     const sheet = await open({ decidedBy: 'character', manageable: true, enabled: [core], candidates: [secret] });
-    expect(picker(sheet).options()[0]?.label).toBe('Amiri’s Secrets (private)');
+    expect(labelOf(sheet)).toBe('Amiri’s Secrets (private)');
   });
 
   it('says why a pack that cannot be used was refused', async () => {
@@ -195,8 +202,8 @@ describe('SheetPacks', () => {
     expect(root.ownerDocument.activeElement).toBe(button);
     expect(
       picker(sheet)
-        .options()
-        .map((option) => option.value),
+        .rows()
+        .map((row) => picker(sheet).rowValue()(row)),
     ).toStrictEqual([feats.packId]);
   });
 

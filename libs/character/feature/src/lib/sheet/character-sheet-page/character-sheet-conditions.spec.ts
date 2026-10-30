@@ -5,6 +5,7 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
+import { pickRow } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -149,22 +150,13 @@ describe('CharacterSheetPage conditions', () => {
   });
 
   it('adds the condition picked, with a value only when it carries one', async () => {
-    const { root } = await openSheet(undefined, { play: afflictedWith([]), packs: PACKS });
+    const { harness, root } = await openSheet(undefined, { play: afflictedWith([]), packs: PACKS });
     await vi.waitFor(() => {
       expect(textOf(conditionsOf(root))).toContain('No conditions');
     });
     expect(buttonOf(root, 'Add').disabled).toBe(true);
 
-    present(conditionsOf(root).querySelector<HTMLElement>('fr-select button')).click();
-    await TestBed.inject(ApplicationRef).whenStable();
-    const option = await vi.waitFor(() =>
-      present(
-        [...document.querySelectorAll<HTMLElement>('[role="option"]')].find(
-          (each) => each.textContent.trim() === 'Blinded',
-        ),
-      ),
-    );
-    option.click();
+    pickRow(harness, conditionsOf(root), { matches: (label) => label === 'Blinded' });
     await TestBed.inject(ApplicationRef).whenStable();
     expect(buttonOf(root, 'Add').disabled).toBe(false);
     buttonOf(root, 'Add').click();

@@ -4,6 +4,7 @@ import { SheetMode } from '@pioneer/character/domain';
 import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId, playerCoreClassId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { pickRow } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -152,7 +153,7 @@ describe('CharacterSheetPage rest actions', () => {
         coins: { pp: 0, gp: 0, sp: 0, cp: 0 },
       },
     };
-    const { root } = await openSheet(bardWithStaff, {
+    const { harness, root } = await openSheet(bardWithStaff, {
       tab: SheetMode.Downtime,
       play: playOf(0, 0),
       packs: [...PACKS, ITEM_FIXTURE_FILES],
@@ -167,13 +168,7 @@ describe('CharacterSheetPage rest actions', () => {
     });
     expect(textOf(restOf(root))).not.toMatch(/gets \d+ charges?/u);
 
-    present(restOf(root).querySelector<HTMLElement>('fr-select button')).click();
-    const option = await vi.waitFor(() =>
-      present(
-        [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) => textOf(each) !== 'No staff'),
-      ),
-    );
-    option.click();
+    pickRow(harness, restOf(root), { matches: (label) => label !== 'No staff' });
 
     await vi.waitFor(() => {
       expect(textOf(restOf(root))).toMatch(/gets 1 charge/u);

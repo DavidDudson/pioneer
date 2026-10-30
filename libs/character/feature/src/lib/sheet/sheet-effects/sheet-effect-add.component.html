@@ -1,5 +1,5 @@
 <fr-stack direction="horizontal" align="center" gap="sm" wrap>
-  <fr-select
+  <pio-option-picker
     [ariaLabel]="'character.sheet.effects.pick' | transloco"
     [placeholder]="'character.sheet.effects.pick' | transloco"
     [options]="choices()"
@@ -7,7 +7,7 @@
     (valueChange)="choose($event)"
   />
   @if (forms().length > 0) {
-    <fr-select
+    <pio-option-picker
       [ariaLabel]="'character.sheet.effects.formPick' | transloco"
       [placeholder]="'character.sheet.effects.formPick' | transloco"
       [options]="forms()"
@@ -16,21 +16,21 @@
     />
   }
   @if (ranks().length > 0) {
-    <fr-select
+    <pio-option-picker
       [ariaLabel]="'character.sheet.effects.rankPick' | transloco"
       [options]="ranks()"
       [value]="rank()"
       (valueChange)="rank.set($event)"
     />
   }
-  <fr-select
+  <pio-option-picker
     [ariaLabel]="'character.sheet.effects.source' | transloco"
     [options]="sources()"
     [value]="sourceKind()"
     (valueChange)="setSource($event)"
   />
   @if (isAlly() && hasParty()) {
-    <fr-select
+    <pio-option-picker
       [ariaLabel]="'character.sheet.effects.allyPick' | transloco"
       [placeholder]="'character.sheet.effects.allyPick' | transloco"
       [options]="allyOptions()"

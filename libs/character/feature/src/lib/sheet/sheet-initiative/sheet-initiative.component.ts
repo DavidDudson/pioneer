@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, inject, output, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { PERCEPTION } from '@pioneer/character/domain';
-import { Button, ButtonVariant, Select, Stack, Text } from '@pioneer/frontier';
+import { Button, ButtonVariant, Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { Selector } from '@pioneer/rules/sdk';
 
 import { PlayStore } from '../../data/play-store';
+import { OptionPicker } from '../option-picker/option-picker.component';
 import { defaultInitiative, initiativeChoices } from '../sheet-initiative';
 import type { InitiativeChoice } from '../sheet-initiative';
 import { SheetRolls } from '../sheet-rolls';
@@ -23,7 +24,7 @@ function modifierText(total: number): string {
  */
 @Component({
   selector: 'pio-sheet-initiative',
-  imports: [Button, Select, Stack, Text, TranslocoPipe],
+  imports: [OptionPicker, Button, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-initiative.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
