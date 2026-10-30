@@ -33,6 +33,7 @@
     },
     "targetCategory": {
       "group": "Group",
+      "source": "Source",
       "physical": "Physical",
       "energy": "Energy",
       "other": "Other"
@@ -251,5 +252,9 @@
     "all": "All damage",
     "physical": "Physical",
     "energy": "Energy"
+  },
+  "damageContext": {
+    "areaDamage": "Area damage",
+    "splashDamage": "Splash damage"
   }
 }

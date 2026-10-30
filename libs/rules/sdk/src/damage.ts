@@ -49,8 +49,16 @@ export const DAMAGE_GROUP_TYPES: Readonly<
   ],
 };
 
-/** What a weakness or resistance applies to: one damage type, or a group (`resistance 5 physical`). */
-export const DamageAdjustmentTarget = { ...DamageType, ...DamageGroup } as const;
+/**
+ * Where damage came from, which a weakness or resistance can name instead of a type (`weakness 5 to area damage`):
+ * area damage is from an area effect, splash damage is the splash of an attack.
+ */
+export const DamageContext = { AreaDamage: 'area-damage', SplashDamage: 'splash-damage' } as const;
+export type DamageContext = ValueOf<typeof DamageContext>;
+export const DamageContextSchema = z.enum(DamageContext);
+
+/** What a weakness or resistance applies to: a damage type, a group (`resistance 5 physical`) or a source. */
+export const DamageAdjustmentTarget = { ...DamageType, ...DamageGroup, ...DamageContext } as const;
 export type DamageAdjustmentTarget = ValueOf<typeof DamageAdjustmentTarget>;
 export const DamageAdjustmentTargetSchema = z.enum(DamageAdjustmentTarget);
 

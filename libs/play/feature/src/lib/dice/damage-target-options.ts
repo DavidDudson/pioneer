@@ -2,7 +2,7 @@ import { computed, inject, Injectable } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { DAMAGE_TYPE_KEYS } from '@pioneer/play/ui';
-import { DamageGroup, DamageType } from '@pioneer/rules/sdk';
+import { DamageContext, DamageGroup, DamageType } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { categoryOf, categoryOfGroup, damageTargetColumns, TargetCategory, typesOf } from './damage-target-table';
@@ -12,6 +12,7 @@ import { DAMAGE_ADJUSTMENT_TARGET_KEYS } from './dice-labels';
 /** Each category's name, spelled out so the message check sees every key. */
 const CATEGORY_KEYS: Readonly<Record<TargetCategory, string>> = {
   [TargetCategory.Group]: 'play.dice.targetCategory.group',
+  [TargetCategory.Source]: 'play.dice.targetCategory.source',
   [TargetCategory.Physical]: 'play.dice.targetCategory.physical',
   [TargetCategory.Energy]: 'play.dice.targetCategory.energy',
   [TargetCategory.Other]: 'play.dice.targetCategory.other',
@@ -57,6 +58,12 @@ export class DamageTargetOptions {
       category: categoryOfGroup(value),
       includes: typesOf(value).map((type) => this.#i18n.translate(DAMAGE_TYPE_KEYS[type])),
     }));
-    return [...groups, ...this.types()];
+    const sources = Object.values(DamageContext).map((value): DamageTargetRow => ({
+      value,
+      label: this.#i18n.translate(DAMAGE_ADJUSTMENT_TARGET_KEYS[value]),
+      category: TargetCategory.Source,
+      includes: [],
+    }));
+    return [...groups, ...sources, ...this.types()];
   });
 }

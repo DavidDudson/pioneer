@@ -3250,6 +3250,11 @@
         "key": "Resistance",
         "type": ["slashing", "piercing"],
         "value": 5
+      },
+      {
+        "key": "Weakness",
+        "type": ["area-damage", "splash-damage"],
+        "value": 5
       }
     ],
     "data": {

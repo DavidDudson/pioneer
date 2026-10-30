@@ -15748,6 +15748,11 @@
         "key": "Resistance",
         "type": ["piercing", "slashing"],
         "value": 4
+      },
+      {
+        "key": "Weakness",
+        "type": ["area-damage", "splash-damage"],
+        "value": 4
       }
     ],
     "data": {

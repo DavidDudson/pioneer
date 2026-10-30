@@ -129,6 +129,8 @@ export {
   DamageAdjustment,
   DamageAdjustmentTarget,
   DamageAdjustmentTargetSchema,
+  DamageContext,
+  DamageContextSchema,
   DamageGroup,
   DamageGroupSchema,
   DamageType,

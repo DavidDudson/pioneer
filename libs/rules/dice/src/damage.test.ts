@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { DamageAdjustment, DamageGroup, DamageType, Immunity } from '@pioneer/rules/sdk';
+import { DamageAdjustment, DamageContext, DamageGroup, DamageType, Immunity } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 import { applyDamage, NO_DEFENCES } from './damage';
@@ -210,5 +210,46 @@ describe('applyDamage', () => {
       weaknesses: [adjustment(DamageType.Slashing, 5), adjustment(DamageType.Vitality, 5)],
     });
     expect(applyDamage(roll('1d8[slashing]+1d6[poison]', [3, 6]), zombie).taken).toBe(amount(8));
+  });
+
+  describe('weakness and resistance by source', () => {
+    const swarm = target({
+      weaknesses: [adjustment(DamageContext.AreaDamage, 4), adjustment(DamageContext.SplashDamage, 3)],
+      resistances: [adjustment(DamageType.Piercing, 4)],
+    });
+
+    test('a weakness to area damage applies to a roll from an area effect only', () => {
+      const area = applyDamage(roll('2d6[fire]', [3, 4]), swarm, { critical: false, area: true });
+      expect(area.taken).toBe(amount(11));
+      expect(area.immediate[0]?.lines).toEqual([
+        message(DiceMessage.DamageWeakness, { value: 4, target: 'areaDamage' }),
+      ]);
+      expect(applyDamage(roll('2d6[fire]', [3, 4]), swarm).taken).toBe(amount(7));
+    });
+
+    test('a weakness to splash damage applies once to an instance that has splash', () => {
+      const splashed = applyDamage(roll('1d8[acid]+2[splash,acid]', [3]), swarm);
+      expect(splashed.taken).toBe(amount(8));
+      expect(splashed.immediate[0]?.lines).toContainEqual(
+        message(DiceMessage.DamageWeakness, { value: 3, target: 'splashDamage' }),
+      );
+      expect(applyDamage(roll('1d8[acid]', [3]), swarm).taken).toBe(amount(3));
+    });
+
+    test('only the highest weakness of an instance counts, whatever it names', () => {
+      const result = applyDamage(roll('1d8[acid]+2[splash,acid]', [3]), swarm, { critical: false, area: true });
+      expect(result.taken).toBe(amount(9));
+    });
+
+    test('a resistance to area damage removes up to its value from an area roll only', () => {
+      const guarded = target({ resistances: [adjustment(DamageContext.AreaDamage, 5)] });
+      expect(applyDamage(roll('1d8[fire]', [7]), guarded, { critical: false, area: true }).taken).toBe(amount(2));
+      expect(applyDamage(roll('1d8[fire]', [7]), guarded).taken).toBe(amount(7));
+    });
+
+    test('a swarm still resists the types it names beside its weakness to area damage', () => {
+      const result = applyDamage(roll('1d8[piercing]', [7]), swarm, { critical: false, area: true });
+      expect(result.taken).toBe(amount(7));
+    });
   });
 });

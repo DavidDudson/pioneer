@@ -741,6 +741,10 @@
         "physical": "physical",
         "energy": "energy"
       },
+      "context": {
+        "areaDamage": "area damage",
+        "splashDamage": "splash damage"
+      },
       "status": {
         "conditional": "Conditional",
         "superseded": "Superseded",

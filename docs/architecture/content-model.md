@@ -762,7 +762,7 @@ flowchart LR
   creatures' traits, languages and senses add to the `core-rules` vocabulary as an item's do. What the stat block has no
   home for goes to the backlog with its field and raw value: a `details` or `saveDetail` note, `attributes.allSaves`,
   a resistance's `doubleVs`, a weakness or resistance to a material or a kind of damage that is not a damage type
-  (`cold-iron`, `splash-damage`), and focus `resources`. The coverage report adds the creatures per role and level.
+  (`cold-iron`), and focus `resources`. The coverage report adds the creatures per role and level.
   The actor's embedded items make the rest of the stat block: `melee` items are `strikes` (the printed bonus, damage
   parts parsed from `4d12+19`, `reach-30` and `range-increment-60` as `reach` and `increment`, and the attack effects
   named from Foundry's lang table or the ability they point at); `action` items are `abilities` (cost, trigger,
@@ -812,8 +812,9 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
 - **Defences.** A `Resistance`, `Weakness` or `Immunity` takes its `type` as a list, with Foundry's `all-damage` as the
   `all` group; a formula `value`, `exceptions` and a predicate are read as for any element. A type picked by a
   `ChoiceSet` (`{item|flags...}`), a `custom` type with its own `definition`, a type that is a damage trait rather
-  than a damage type (`holy`, `unholy`, `silver`, `area-damage`), `doubleVs`, `mode`, a value read from the actor's
-  flags and the `exceptions` of an `Immunity` have no Pioneer meaning yet and stay in the backlog.
+  than a damage type (`holy`, `unholy`, `silver`), `doubleVs`, `mode`, a value read from the actor's flags and the
+  `exceptions` of an `Immunity` have no Pioneer meaning yet and stay in the backlog. `area-damage` and `splash-damage`
+  are targets, as the damage types are.
 - **Item alterations.** An `ItemAlteration` reaches the items its `itemType` (`item:type:spell`) and the statements of
   its predicate that read only the item (`item:slug:...`, `item:equipped`) pick out, as `items`; the rest of the
   predicate stays the element's. Only the `traits`, `hardness` and `ac-bonus` properties with a literal value are

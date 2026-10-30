@@ -1,9 +1,11 @@
-import { DAMAGE_GROUP_TYPES, DamageGroup, DamageType, DamageTypeSchema, Immunity } from '@pioneer/rules/sdk';
-import type { DamageAdjustment, DamageAdjustmentTarget, DamageTarget } from '@pioneer/rules/sdk';
+import { DamageType, DamageTypeSchema, Immunity } from '@pioneer/rules/sdk';
+import type { DamageTarget } from '@pioneer/rules/sdk';
 import { message, MessageDescriptorSchema } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { resist, weaken } from './damage-adjustments';
+import type { Applied, Source } from './damage-adjustments';
 import { DamageCategory } from './expression';
 import type { Term } from './expression';
 import { DiceMessage } from './messages';
@@ -47,9 +49,11 @@ export type DamageApplication = z.infer<typeof DamageApplication>;
 export interface DamageOptions {
   /** A critical success doubles the damage, persistent included, splash not. */
   readonly critical: boolean;
+  /** The roll is from an area effect, so a weakness or resistance to area damage applies. */
+  readonly area?: boolean;
 }
 
-const NOT_CRITICAL: DamageOptions = { critical: false };
+const NOT_CRITICAL: DamageOptions = { critical: false, area: false };
 const CRITICAL_MULTIPLIER = 2;
 const ZERO = RollTotal.parse(0);
 const NONE = DamageTotal.parse(0);
@@ -111,12 +115,6 @@ function pool(roll: RollResult): readonly Pooled[] {
   return pools;
 }
 
-/** Damage after one rule, and the line saying what the rule did (none when it did nothing). */
-interface Applied {
-  readonly amount: DamageTotal;
-  readonly lines: readonly MessageDescriptor[];
-}
-
 /** An instance as dealt: its share of the roll, doubled on a critical, splash added undoubled. */
 interface Dealt extends Applied {
   readonly rolled: DamageTotal;
@@ -150,68 +148,6 @@ function dealt(pooled: Pooled, doubling: Doubling): Dealt {
   return { rolled, precision: doubleIf(precision, doubling), amount: DamageTotal.parse(doubled + splash), lines };
 }
 
-/** Whether a weakness or resistance naming `target` applies to an instance made of `types` (none: untyped). */
-function covers(target: DamageAdjustmentTarget, types: readonly DamageType[]): boolean {
-  if (target === DamageGroup.All) {
-    return true;
-  }
-  if (target === DamageGroup.Physical || target === DamageGroup.Energy) {
-    const group = DAMAGE_GROUP_TYPES[target];
-    return types.some((type) => group.includes(type));
-  }
-  return types.includes(target);
-}
-
-/** The highest of `adjustments` that applies: only one weakness or resistance counts per instance. */
-function highest(adjustments: readonly DamageAdjustment[], types: readonly DamageType[]): DamageAdjustment | undefined {
-  return adjustments
-    .filter((adjustment) => covers(adjustment.type, types))
-    .toSorted((left, right) => right.value - left.value)[0];
-}
-
-/** The highest applicable weakness adds its value once, if the instance deals any damage. */
-function weaken(amount: DamageTotal, types: readonly DamageType[], target: DamageTarget): Applied {
-  const weakness = amount > 0 ? highest(target.weaknesses, types) : undefined;
-  if (weakness === undefined) {
-    return { amount, lines: [] };
-  }
-  return {
-    amount: DamageTotal.parse(amount + weakness.value),
-    lines: [message(DiceMessage.DamageWeakness, { value: weakness.value, target: weakness.type })],
-  };
-}
-
-/** What a resistance can reach in an instance: the types it counts as, and how much of it is precision. */
-interface Exposure {
-  readonly types: readonly DamageType[];
-  /** The precision share; resistance to precision stops no more than this, as in Foundry. */
-  readonly precision: DamageTotal;
-}
-
-/** How much `resistance` would stop of `amount`. */
-function preventing(resistance: DamageAdjustment, amount: DamageTotal, exposure: Exposure): DamageTotal {
-  const reach = resistance.type === DamageType.Precision ? exposure.precision : amount;
-  return DamageTotal.parse(Math.min(resistance.value, amount, reach));
-}
-
-/** The applicable resistance that stops the most removes up to its value. */
-function resist(amount: DamageTotal, exposure: Exposure, target: DamageTarget): Applied {
-  const resistance =
-    amount > 0
-      ? target.resistances
-          .filter((candidate) => covers(candidate.type, exposure.types))
-          .toSorted((left, right) => preventing(right, amount, exposure) - preventing(left, amount, exposure))[0]
-      : undefined;
-  if (resistance === undefined) {
-    return { amount, lines: [] };
-  }
-  const prevented = preventing(resistance, amount, exposure);
-  return {
-    amount: DamageTotal.parse(amount - prevented),
-    lines: [message(DiceMessage.DamageResistance, { value: resistance.value, target: resistance.type, prevented })],
-  };
-}
-
 /** What immunities leave of an instance: nothing if immune to its type, less its precision share if immune to precision. */
 function immunise(pooled: Pooled, dealtNow: Dealt, target: DamageTarget): Applied {
   if (pooled.type !== undefined && target.immunities.includes(Immunity.parse(pooled.type))) {
@@ -234,17 +170,24 @@ function typesOf(pooled: Pooled, precisionLeft: boolean): readonly DamageType[] 
   return precisionLeft ? [...own, DamageType.Precision] : own;
 }
 
+/** What a roll does to its instances: whether a critical doubles them, and whether it is from an area effect. */
+interface Dealing {
+  readonly doubling: Doubling;
+  readonly area: boolean;
+}
+
 /** Deals one instance, then immunities, the highest weakness and the highest resistance adjust it. */
-function deal(pooled: Pooled, target: DamageTarget, doubling: Doubling): DamageInstance {
+function deal(pooled: Pooled, target: DamageTarget, { doubling, area }: Dealing): DamageInstance {
   const dealtNow = dealt(pooled, doubling);
   const type = pooled.type === undefined ? {} : { type: pooled.type };
   const immune = immunise(pooled, dealtNow, target);
   const precisionLeft = target.immunities.includes(PRECISION) ? NONE : dealtNow.precision;
   const types = typesOf(pooled, precisionLeft > 0);
-  const weakened = weaken(immune.amount, types, target);
+  const source: Source = { area, splash: pooled.splash > 0 };
+  const weakened = weaken(immune.amount, { types, source }, target);
   // Resistance to precision stops no more than the precision share, unless the instance is all precision.
   const precisionCap = pooled.type === DamageType.Precision ? weakened.amount : precisionLeft;
-  const resisted = resist(weakened.amount, { types, precision: precisionCap }, target);
+  const resisted = resist(weakened.amount, { types, source, precision: precisionCap }, target);
   return {
     ...type,
     rolled: dealtNow.rolled,
@@ -279,11 +222,11 @@ function doublingFor(critical: boolean, target: DamageTarget): Doubling {
 export function applyDamage(
   roll: RollResult,
   target: DamageTarget,
-  { critical }: DamageOptions = NOT_CRITICAL,
+  { critical, area = false }: DamageOptions = NOT_CRITICAL,
 ): DamageApplication {
   const pools = pool(roll);
-  const doubling = doublingFor(critical, target);
-  const immediate = pools.filter((pooled) => !pooled.persistent).map((pooled) => deal(pooled, target, doubling));
-  const persistent = pools.filter((pooled) => pooled.persistent).map((pooled) => deal(pooled, target, doubling));
+  const dealing: Dealing = { doubling: doublingFor(critical, target), area };
+  const immediate = pools.filter((pooled) => !pooled.persistent).map((pooled) => deal(pooled, target, dealing));
+  const persistent = pools.filter((pooled) => pooled.persistent).map((pooled) => deal(pooled, target, dealing));
   return { critical, immediate, persistent, taken: sum(immediate), persistentTaken: sum(persistent) };
 }

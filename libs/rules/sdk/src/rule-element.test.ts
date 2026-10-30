@@ -87,6 +87,7 @@ const examples: object[] = [
   { key: 'Immunity', type: ['critical-hits'], predicate: ['self:effect:fortification'] },
   { key: 'Weakness', type: ['fire', 'energy'], value: 5 },
   { key: 'Weakness', type: ['vitality'], value: 'floor(@item.level / 2) + 2' },
+  { key: 'Weakness', type: ['area-damage', 'splash-damage'], value: 5 },
   { key: 'Resistance', type: ['physical'], value: 5, exceptions: ['adamantine'] },
   {
     key: 'Resistance',
@@ -249,7 +250,7 @@ describe('RuleElement', () => {
     ]);
   });
 
-  test('a weakness or resistance names damage types or groups, never a material', () => {
+  test('a weakness or resistance names damage types, groups or sources, never a material', () => {
     expect(issues({ key: 'Weakness', type: ['cold-iron'], value: 5 })).toMatchObject([{ path: ['type', 0] }]);
   });
 
