@@ -15,6 +15,8 @@ describe('classifyRemasterCandidate', () => {
     expect(classify('Action', '(concentrate)')).toBe('activation');
     expect(classify('Action', '(concenctrate, manipulate)')).toBe('activation');
     expect(classify('Action', '(aura, concentrate, fire)')).toBe('activation');
+    expect(classify('Action', 'manipulate')).toBe('activation');
+    expect(classify('Action', '1 minute (concentrate, manipulate)')).toBe('activation');
   });
 
   test('a named action row is not an activation', () => {
