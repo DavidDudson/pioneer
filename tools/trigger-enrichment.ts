@@ -11,7 +11,10 @@ function withEvent(entry: ContentEntry, triggerEvent: TriggerEvent): ContentEntr
   if (entry.kind === ContentKind.Action) {
     return { ...entry, data: { ...entry.data, triggerEvent } };
   }
-  if ((entry.kind === ContentKind.Feat || entry.kind === ContentKind.ClassFeature) && entry.data.action !== undefined) {
+  if (entry.kind === ContentKind.Feat && entry.data.action !== undefined) {
+    return { ...entry, data: { ...entry.data, action: { ...entry.data.action, triggerEvent } } };
+  }
+  if (entry.kind === ContentKind.ClassFeature && entry.data.action !== undefined) {
     return { ...entry, data: { ...entry.data, action: { ...entry.data.action, triggerEvent } } };
   }
   return entry;

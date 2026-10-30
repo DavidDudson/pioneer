@@ -1,8 +1,9 @@
 # Git hooks (prek). Install with `just hooks`. Every hook is a local system
 # command using the devshell or node_modules, so no third-party hook repos
 # are fetched (see bunfig.toml for the supply-chain policy). Hooks only see
-# staged files; whole-project checks (knip, typecheck, tests) stay in
-# `just check` and CI.
+# staged files, except typecheck, which checks the whole project that owns them
+# (a type error in a spec or a tool is invisible to the formatters and linters).
+# Whole-repo checks (knip, dependants' typecheck, tests) stay in `just check` and CI.
 default_install_hook_types = ["pre-commit", "commit-msg"]
 
 # ---- Format first: fixes files, so the commit fails and you re-stage -------
@@ -106,6 +107,20 @@ entry = "gitleaks git --pre-commit --staged --redact --no-banner"
 pass_filenames = false
 always_run = true
 priority = 10
+
+# ---- Types: after the fixers, so it checks the files as they will be committed ----
+
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "typecheck"
+name = "typecheck (owning projects)"
+language = "system"
+# The Nx projects that own the staged files, and the tools when one is staged. Nx caches an unchanged project.
+entry = "bun tools/staged-typecheck.ts"
+files = "\\.(ts|html)$"
+priority = 20
 
 # ---- Commit message ---------------------------------------------------------
 

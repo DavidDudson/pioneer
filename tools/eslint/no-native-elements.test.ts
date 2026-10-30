@@ -77,12 +77,14 @@ tester.run('no-native-elements', noNativeElements, {
       code: `<${name}></${name}>`,
       errors: [{ messageId: 'banned' }],
     })),
-    ...[
-      ['list/list-item/list-item.component.html', 'li'],
-      ['list/description-list/description-list.component.html', 'dl'],
-      ['list/description-item/description-item.component.html', 'dt'],
-      ['list/description-item/description-item.component.html', 'dd'],
-    ].map(([path, name]) => ({
+    ...(
+      [
+        ['list/list-item/list-item.component.html', 'li'],
+        ['list/description-list/description-list.component.html', 'dl'],
+        ['list/description-item/description-item.component.html', 'dt'],
+        ['list/description-item/description-item.component.html', 'dd'],
+      ] as const
+    ).map(([path, name]) => ({
       filename: frontier(path),
       code: `<${name}></${name}>`,
       errors: [{ messageId: 'banned' }],
