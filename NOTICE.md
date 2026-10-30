@@ -50,6 +50,12 @@ Pioneer imports those books whole (`mwangi-expanse`, `secrets-of-magic`, `rage-o
 Only Open Game Content is used; Product Identity is not. Section 15 of the licence is reproduced on the Legal page
 for each such book. Adding a book to `OGL_BOOKS` means adding its Section 15 notice there too.
 
+A few items in an ORC book are still Open Game Content, reprinted from a pre-remaster work: Treasure Vault's Atlatl,
+Authorized, Buckle Armor, Purloining Cloak, Spraysling, Taw Launcher and Three-Section Naginata, which Foundry marks
+`OGL`. They stay in the book's ORC pack, each entry carrying `license: OGL`, and are listed in `OGL_ENTRIES`
+(`libs/interop/foundry/src/select-entries.ts`). Adding one means adding the Section 15 notice of its work on the Legal
+page too.
+
 ## Foundry pf2e system data
 
 Official content packs are imported once from the data in the

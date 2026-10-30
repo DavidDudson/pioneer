@@ -25,6 +25,12 @@ function item(name: string, type: string, publication?: object): object {
   return { _id: `${name}Id`, name, type, img: 'icon.webp', system: { publication, rules: [] } };
 }
 
+function vault(name: string, license: string, isRemaster: boolean): string {
+  return JSON.stringify(
+    item(name, 'weapon', { title: 'Pathfinder Treasure Vault (Remastered)', license, remaster: isRemaster }),
+  );
+}
+
 const remaster = (title: string): object => ({ title, license: 'ORC', remaster: true });
 
 const files: Record<string, unknown> = {
@@ -208,6 +214,43 @@ describe('selectEntries', () => {
       );
 
       expect(skipped.find(({ path }) => path.endsWith('old.json'))?.reason).toBe(SkipReason.Legacy);
+    });
+  });
+
+  describe('an OGL item in an ORC book', () => {
+    const treasureVault = BookId.parse('treasure-vault');
+
+    test('is kept, marked OGL, even when Foundry flags it pre-remaster', () => {
+      const { selected } = selectEntries(
+        release({
+          'packs/pf2e/equipment/atlatl.json': vault('Atlatl', 'OGL', true),
+          'packs/pf2e/equipment/buckle-armor.json': vault('Buckle Armor', 'OGL', false),
+        }),
+        new Set([treasureVault]),
+      );
+
+      expect(selected.map(({ book, license }) => [book, license])).toEqual([
+        [treasureVault, 'OGL'],
+        [treasureVault, 'OGL'],
+      ]);
+    });
+
+    test('is skipped when it is not one of the listed items', () => {
+      const { skipped } = selectEntries(
+        release({ 'packs/pf2e/equipment/other.json': vault('Other Thing', 'OGL', true) }),
+        new Set([treasureVault]),
+      );
+
+      expect(skipped.find(({ path }) => path.endsWith('other.json'))?.reason).toBe(SkipReason.NotOrc);
+    });
+
+    test('is a plain ORC entry when Foundry marks the listed item ORC', () => {
+      const { selected } = selectEntries(
+        release({ 'packs/pf2e/equipment/atlatl.json': vault('Atlatl', 'ORC', true) }),
+        new Set([treasureVault]),
+      );
+
+      expect(selected.map(({ license }) => license)).toEqual([undefined]);
     });
   });
 

@@ -3,6 +3,7 @@ import * as z from 'zod';
 import { ContentId, EntrySlug, PackId } from './content-id';
 import { ContentText } from './content-text';
 import { DisplayHints, ExternalIds, RaritySchema } from './entry-fields';
+import { ContentLicenseSchema } from './license';
 import { RichText } from './rich-text';
 import { RuleElements } from './rule-element';
 import { SourceRef } from './source-ref';
@@ -29,6 +30,8 @@ export const envelope = {
   rules: RuleElements.readonly(),
   display: DisplayHints.optional(),
   externalIds: ExternalIds.optional(),
+  /** The licence of this entry when it is not its pack's: an Open Game Content item in an ORC book (NOTICE.md). */
+  license: ContentLicenseSchema.optional(),
   /** Entries this one replaces, such as the legacy entry a remaster one supersedes. */
   supersedes: z.array(ContentId).max(SUPERSEDES_MAX).readonly().optional(),
 };
