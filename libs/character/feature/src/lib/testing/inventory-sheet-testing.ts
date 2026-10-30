@@ -182,19 +182,6 @@ export async function pickRow(target: HTMLElement, label: string): Promise<void>
   await settle();
 }
 
-/** Clicks `opener` in `target` and then the option labelled `label`. */
-export async function pick(target: HTMLElement, opener: string, label: string): Promise<void> {
-  present(target.querySelector<HTMLElement>(opener)).click();
-  await settle();
-  const option = await vi.waitFor(() =>
-    present(
-      [...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) => each.textContent.trim() === label),
-    ),
-  );
-  option.click();
-  await settle();
-}
-
 export async function patchSent(): Promise<TestRequest> {
   return vi.waitFor(() =>
     TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
