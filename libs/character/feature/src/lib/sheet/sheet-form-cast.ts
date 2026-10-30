@@ -1,13 +1,15 @@
 import { isSpellEffectOffered, SlotCountKey } from '@pioneer/character/domain';
 import type { EffectInstanceId } from '@pioneer/character/domain';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { ContentKind, spellEffectId } from '@pioneer/rules/sdk';
+import { ContentKind, spellEffectId, Trait } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, RollOption, SpellRank } from '@pioneer/rules/sdk';
 import type { ActionUse } from '@pioneer/rules/ui';
 
 import { slotRank, spellEntries } from './sheet-active-list';
 import { effectOptions } from './sheet-effects';
 import type { EffectOption } from './sheet-effects';
+
+const CANTRIP = Trait.parse('cantrip');
 
 /** What a battle form spell's effect is called in the content, before the name of the form. */
 const EFFECT_PREFIX = 'Spell Effect: ';
@@ -67,17 +69,18 @@ export interface FormCaster {
 interface RankInputs {
   readonly slot: string | undefined;
   readonly focus: boolean | undefined;
-  readonly spell: { readonly data: { readonly rank: SpellRank } };
+  readonly spell: { readonly traits: readonly Trait[]; readonly data: { readonly rank: SpellRank } };
   readonly caster: FormCaster | undefined;
 }
 
-/** The rank a cast is at: its slot's, else the caster's focus rank for a Focus Point cast, else the spell's own. */
+/** The rank a cast is at: its slot's, else the caster's focus rank for a Focus Point cast or a cantrip, else the spell's own. */
 function rankOf({ slot, focus, spell, caster }: RankInputs): SpellRank {
   const slotted = slotRank(slot === undefined ? undefined : SlotCountKey.parse(slot));
   if (slotted !== undefined) {
     return slotted;
   }
-  return focus === true && caster !== undefined ? caster.focusRank : spell.data.rank;
+  const heightened = focus === true || spell.traits.includes(CANTRIP);
+  return heightened && caster !== undefined ? caster.focusRank : spell.data.rank;
 }
 
 /**

@@ -109,14 +109,15 @@ export class SheetSpender extends ActionUser {
   /** The turn as the play state has it; undefined while that loads. */
   public readonly turn = computed((): TurnState | undefined => this.#play.play.data()?.play.turn);
 
-  /** The cast of a battle form spell waiting for its form to be picked; nothing is spent until it is. */
+  /** The cast of a battle form spell waiting for its form to be picked; nothing is spent until it is. Another cast waits until it is done. */
   public readonly pendingForm = signal<FormCast | undefined>(undefined);
 
   public override async use(request: ActionUse): Promise<void> {
     const registry = this.#registry.data();
     const cast = registry === undefined ? undefined : formCastOf(registry, request, this.#caster(registry));
     if (cast !== undefined) {
-      this.pendingForm.set(cast);
+      // One form cast waits at a time: a second use is ignored until the first is confirmed or cancelled.
+      this.pendingForm.update((pending) => pending ?? cast);
       return;
     }
     await this.#spend(request);

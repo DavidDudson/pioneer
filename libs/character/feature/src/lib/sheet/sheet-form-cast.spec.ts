@@ -36,6 +36,7 @@ const pack = effects
     effects: [apeId, { effect: plantId, predicate: ['feat:plant-shape'] }],
   })
   .withSpell('untamed-shift', { rank: 1, traditions: [], effects: [apeId], shiftsForm: true })
+  .withSpell('shape-cantrip', { rank: 1, traditions: [], traits: ['cantrip'], effects: [apeId] })
   .withSpell('fireball', { rank: 3, traditions: ['arcane'] });
 const registry = new ContentRegistry();
 registry.register(pack.build());
@@ -90,6 +91,11 @@ describe(formCastOf, () => {
     const cast = formCastOf(registry, useOf('untamed-form', { focus: true }), casterWith());
     expect(cast?.rank).toBe(3);
     expect(formCastOf(registry, useOf('untamed-form', { slot: 'druid:2' }), casterWith())?.rank).toBe(2);
+  });
+
+  it('is cast at the caster’s cantrip rank for a cantrip, which has no slot', () => {
+    expect(formCastOf(registry, useOf('shape-cantrip'), casterWith())?.rank).toBe(3);
+    expect(formCastOf(registry, useOf('shape-cantrip'), undefined)?.rank).toBe(1);
   });
 
   it('shifts the form the caster is in when the spell shifts forms, and puts one on otherwise', () => {
