@@ -49,10 +49,12 @@ describe('CharacterSheetPage languages with no slot', () => {
     const { root } = await openSheet(carrying([ELVEN]), { packs: PACKS });
 
     await vi.waitFor(() => {
-      expect(textOf(languagesSection(root))).toContain('Languages with no slot');
+      const section = textOf(languagesSection(root));
+
+      expect(section).toContain('Languages with no slot');
+      expect(section).toContain('Elven');
+      expect(section).toContain('No language slot has room for this language');
     });
-    expect(textOf(languagesSection(root))).toContain('Elven');
-    expect(textOf(languagesSection(root))).toContain('No language slot has room for this language');
   });
 
   it('counts it in the sheet header with the other rule breaks', async () => {
