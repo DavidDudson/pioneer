@@ -31,7 +31,7 @@ export interface PlaceRow {
 }
 
 /** What a column header says, in the active language. */
-export interface PlaceHeaders {
+interface PlaceHeaders {
   readonly name: string;
   readonly bulk: string;
   readonly items: string;
@@ -48,7 +48,7 @@ export const PLACE_ORDER: RowOrder<PlaceRow> = {
 };
 
 /** The columns of a place picker: the name, what it holds against its limit as a chip, and how many items. */
-export function placeColumns(
+function placeColumns(
   headers: PlaceHeaders,
   chips: {
     readonly bulk: (row: PlaceRow) => readonly Chip[];
@@ -62,8 +62,8 @@ export function placeColumns(
     .build();
 }
 
-export const placeValue = (row: PlaceRow): string => row.value;
-export const placeLabel = (row: PlaceRow): string => row.label;
+const placeValue = (row: PlaceRow): string => row.value;
+const placeLabel = (row: PlaceRow): string => row.label;
 
 /** Which item is being placed, and what the loose place is called. */
 export interface PlaceScope {

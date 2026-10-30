@@ -28,7 +28,7 @@ export interface CarryRow {
 }
 
 /** What a column header says, in the active language. */
-export interface CarryHeaders {
+interface CarryHeaders {
   readonly name: string;
   readonly hands: string;
   readonly effect: string;
@@ -78,7 +78,7 @@ export const CARRY_ORDER: RowOrder<CarryRow> = {
 };
 
 /** The columns of a carry picker: the way, the hands it takes as a meter, what it does, and the Bulk it adds. */
-export function carryColumns(headers: CarryHeaders, handsLabel: string): readonly TableColumn<CarryRow>[] {
+function carryColumns(headers: CarryHeaders, handsLabel: string): readonly TableColumn<CarryRow>[] {
   return new ItemTableSchema<CarryRow>()
     .addText({ id: 'name', header: headers.name, value: (row) => row.label, width: 'md' })
     .addCount({
@@ -100,8 +100,8 @@ export function carryColumns(headers: CarryHeaders, handsLabel: string): readonl
     .build();
 }
 
-export const carryValue = (row: CarryRow): string => row.value;
-export const carryLabel = (row: CarryRow): string => row.label;
+const carryValue = (row: CarryRow): string => row.value;
+const carryLabel = (row: CarryRow): string => row.label;
 
 /** A carry picker's rows, columns and the functions it reads them with. */
 export interface CarryPicker {
