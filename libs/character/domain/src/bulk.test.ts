@@ -6,6 +6,7 @@ import {
   BulkLimit,
   carriedBulk,
   coinBulk,
+  HeldLines,
   containerLoad,
   Encumbrance,
   inventoryBulk,
@@ -209,7 +210,7 @@ describe('containerLoad', () => {
 
     const load = containerLoad(inventory, content, PACK_ID);
 
-    expect(load?.lines).toBe(2);
+    expect(load?.lines).toBe(HeldLines.parse(2));
     expect(load?.capacity).toBe(BulkCount.parse(4));
     expect(load?.held).toBeGreaterThan(0);
   });
@@ -217,7 +218,7 @@ describe('containerLoad', () => {
   test('is empty for a container holding nothing', () => {
     const load = containerLoad(stock([line(ItemFixture.Backpack, { id: PACK })]), content, PACK_ID);
 
-    expect(load?.lines).toBe(0);
+    expect(load?.lines).toBe(HeldLines.parse(0));
     expect(load?.held).toBe(light(0));
   });
 

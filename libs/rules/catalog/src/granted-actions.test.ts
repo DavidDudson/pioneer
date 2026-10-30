@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { AonUrl, BookId, ContentKind, EntrySlug } from '@pioneer/rules/sdk';
+import { AonUrl, BookId, ContentKind, EntrySlug, PageNumber } from '@pioneer/rules/sdk';
 import type { EnrichmentMapping } from '@pioneer/rules/sdk';
 
 import { proposeGrantedActions } from './granted-actions';
@@ -9,7 +9,7 @@ import type { ActionGranter } from './granted-actions';
 const FEAT_PAGE: EnrichmentMapping = {
   book: BookId.parse('war-of-immortals'),
   aon: AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=1'),
-  page: 40,
+  page: PageNumber.parse(40),
 };
 const OTHER_PAGE: EnrichmentMapping = { ...FEAT_PAGE, aon: AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=2') };
 const SLUG = EntrySlug.parse('action:break-the-suns-legs');
