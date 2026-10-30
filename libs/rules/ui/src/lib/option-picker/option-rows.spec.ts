@@ -1,8 +1,8 @@
 import type { SelectOption } from '@pioneer/frontier';
 import { describe, expect, it } from 'vitest';
 
-import { shownRows } from '../inventory/picker-rows';
 import { optionColumns, optionLabel, optionOrder, optionValue } from './option-rows';
+import { shownRows } from './picker-rows';
 
 const options: readonly SelectOption<string>[] = [
   { value: 'staff', label: 'Staff of Fire' },

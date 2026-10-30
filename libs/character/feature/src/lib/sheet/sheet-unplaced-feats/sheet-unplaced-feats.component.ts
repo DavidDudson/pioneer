@@ -5,12 +5,11 @@ import { CharacterPatchField, unplacedFeatBreaks } from '@pioneer/character/doma
 import { AsyncButton, Badge, BadgeTone, Heading, List, ListItem, Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import type { ContentId, SlotKey } from '@pioneer/rules/sdk';
-import { ContentPreview } from '@pioneer/rules/ui';
+import { ContentPreview, OptionPicker } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
-import { OptionPicker } from '../option-picker/option-picker.component';
 import { sheetEntry } from '../sheet-entry-previews';
 import { FEAT_CONTENT_KINDS, sheetFeats } from '../sheet-feats';
 import { slotsOpenTo } from '../sheet-unplaced-feat-slots';

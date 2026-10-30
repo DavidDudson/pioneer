@@ -4,8 +4,10 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LucidePackagePlus } from '@lucide/angular';
 import { EnabledPackId } from '@pioneer/campaign/domain';
 import type { CampaignId, PackCandidate } from '@pioneer/campaign/domain';
-import { AsyncButton, AsyncForm, EmptyState, Heading, Link, SelectField, Stack } from '@pioneer/frontier';
+import { AsyncButton, AsyncForm, EmptyState, Heading, Link, Stack } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
+import { PickerField } from '@pioneer/frontier/data';
+import { injectOptionRows } from '@pioneer/rules/ui';
 import { ApiError } from '@pioneer/shared/web';
 import * as z from 'zod';
 
@@ -21,7 +23,7 @@ interface EnableModel {
 /** The packs the GM may read and has not enabled, to enable one, with the packs it extends, in the open campaign. */
 @Component({
   selector: 'pio-campaign-pack-picker',
-  imports: [AsyncButton, AsyncForm, EmptyState, FormField, Heading, Link, SelectField, Stack, TranslocoPipe],
+  imports: [AsyncButton, AsyncForm, EmptyState, FormField, Heading, Link, PickerField, Stack, TranslocoPipe],
   templateUrl: './campaign-pack-picker.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -47,6 +49,8 @@ export class CampaignPackPicker {
       label: pack.private ? this.#i18n.translate('campaign.packs.privateOption', { title: pack.title }) : pack.title,
     })),
   );
+
+  protected readonly table = injectOptionRows(this.options);
 
   protected readonly model = signal<EnableModel>({ packId: '' });
   protected readonly form = form(this.model, (path) => {

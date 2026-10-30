@@ -6,13 +6,11 @@ import { containerLoad, InventoryItemId } from '@pioneer/character/domain';
 import type { Inventory, ItemContent } from '@pioneer/character/domain';
 import { LocaleFormat } from '@pioneer/frontier';
 import type { TableColumn } from '@pioneer/frontier/data';
-import { RulesTableSchema } from '@pioneer/rules/ui';
-import type { Chip } from '@pioneer/rules/ui';
+import { PickerRows, RulesTableSchema } from '@pioneer/rules/ui';
+import type { Chip, RowOrder } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
-import { PickerRows } from './picker-rows';
-import type { RowOrder } from './picker-rows';
 import { containerOptions, LOOSE } from './sheet-inventory';
 
 /** Tenths in a Bulk: what `containerLoad` counts in. */

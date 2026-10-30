@@ -15,11 +15,11 @@ import {
 } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import type { ContentKind } from '@pioneer/rules/sdk';
+import { OptionPicker } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
-import { OptionPicker } from '../option-picker/option-picker.component';
 import { FEAT_CONTENT_KINDS } from '../sheet-feats';
 import { describeSaveError } from '../sheet-field';
 import { sheetPreparedSlots, SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';

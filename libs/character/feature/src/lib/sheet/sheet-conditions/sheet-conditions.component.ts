@@ -4,7 +4,7 @@ import { PlayCommandField } from '@pioneer/character/domain';
 import type { PlayCommand } from '@pioneer/character/domain';
 import { AsyncButton, AsyncData, AsyncPending, AsyncRegion, Badge, Skeleton, Stack, Text } from '@pioneer/frontier';
 import { ConditionValue } from '@pioneer/rules/sdk';
-import { ENTRY_PREVIEWS, ContentPreview } from '@pioneer/rules/ui';
+import { ContentPreview, ENTRY_PREVIEWS } from '@pioneer/rules/ui';
 import type { EntryPreviews } from '@pioneer/rules/ui';
 
 import { injectContentRegistry } from '../../data/content-registry-query';

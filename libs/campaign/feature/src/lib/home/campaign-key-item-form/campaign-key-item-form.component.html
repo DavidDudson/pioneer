@@ -3,33 +3,56 @@
   <fr-async-form [form]="form" [action]="create" [describeError]="describeError">
     <fr-stack gap="sm">
       <fr-text-field [label]="'campaign.keyItems.form.name' | transloco" [formField]="form.name" />
-      <fr-combobox-field
+      <fr-picker-field
         [label]="'campaign.keyItems.form.base' | transloco"
         [placeholder]="'campaign.keyItems.form.basePlaceholder' | transloco"
-        [options]="baseOptions()"
+        [rows]="baseOptions()"
+        [columns]="baseColumns()"
+        [rowValue]="baseValue"
+        [rowLabel]="baseLabel"
         [loading]="loading()"
         [formField]="form.base"
         (searched)="find($event)"
       />
-      <fr-select-field
+      <fr-picker-field
         [label]="'campaign.keyItems.form.potency' | transloco"
-        [options]="gradeOptions()"
+        [rows]="potency.rows.shown()"
+        [columns]="potency.columns()"
+        [rowValue]="potency.value"
+        [rowLabel]="potency.label"
         [formField]="form.potency"
+        (searched)="potency.rows.query.set($event)"
+        (sorted)="potency.rows.ordering.set($event)"
       />
-      <fr-select-field
+      <fr-picker-field
         [label]="'campaign.keyItems.form.striking' | transloco"
-        [options]="gradeOptions()"
+        [rows]="striking.rows.shown()"
+        [columns]="striking.columns()"
+        [rowValue]="striking.value"
+        [rowLabel]="striking.label"
         [formField]="form.striking"
+        (searched)="striking.rows.query.set($event)"
+        (sorted)="striking.rows.ordering.set($event)"
       />
-      <fr-select-field
+      <fr-picker-field
         [label]="'campaign.keyItems.form.resilient' | transloco"
-        [options]="gradeOptions()"
+        [rows]="resilient.rows.shown()"
+        [columns]="resilient.columns()"
+        [rowValue]="resilient.value"
+        [rowLabel]="resilient.label"
         [formField]="form.resilient"
+        (searched)="resilient.rows.query.set($event)"
+        (sorted)="resilient.rows.ordering.set($event)"
       />
-      <fr-select-field
+      <fr-picker-field
         [label]="'campaign.keyItems.form.reinforcing' | transloco"
-        [options]="reinforcingOptions()"
+        [rows]="reinforcing.rows.shown()"
+        [columns]="reinforcing.columns()"
+        [rowValue]="reinforcing.value"
+        [rowLabel]="reinforcing.label"
         [formField]="form.reinforcing"
+        (searched)="reinforcing.rows.query.set($event)"
+        (sorted)="reinforcing.rows.ordering.set($event)"
       />
       <pio-campaign-key-item-runes [(runes)]="property" />
       <fr-text-area-field [label]="'campaign.keyItems.form.notes' | transloco" [rows]="3" [formField]="form.notes" />

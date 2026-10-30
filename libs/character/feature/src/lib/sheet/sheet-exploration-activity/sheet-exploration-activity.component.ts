@@ -4,10 +4,10 @@ import { ExplorationCommandField } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentId } from '@pioneer/rules/sdk';
+import { OptionPicker } from '@pioneer/rules/ui';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
-import { OptionPicker } from '../option-picker/option-picker.component';
 import { EXPLORATION_CONTENT_KINDS, explorationOptions } from '../sheet-exploration-activity';
 
 /** The choice that clears the activity: a select shows an empty value as its placeholder, and an id is never this. */

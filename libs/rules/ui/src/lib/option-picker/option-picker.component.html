@@ -1,0 +1,12 @@
+<fr-picker
+  [ariaLabel]="ariaLabel()"
+  [placeholder]="placeholder()"
+  [rows]="table.rows.shown()"
+  [columns]="table.columns()"
+  [rowValue]="table.value"
+  [rowLabel]="table.label"
+  [value]="value()"
+  (valueChange)="value.set($event)"
+  (searched)="table.rows.query.set($event)"
+  (sorted)="table.rows.ordering.set($event)"
+/>

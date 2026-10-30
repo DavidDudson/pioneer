@@ -1,9 +1,9 @@
 import { InventoryItemId, InventorySchema } from '@pioneer/character/domain';
 import type { Inventory } from '@pioneer/character/domain';
 import { ItemFixture, itemFixtureContent, itemFixtureId } from '@pioneer/character/domain/testing';
+import { shownRows } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
 
-import { shownRows } from './picker-rows';
 import { PLACE_ORDER, placeRows } from './place-picker';
 
 const content = itemFixtureContent();

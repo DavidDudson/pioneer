@@ -9,12 +9,12 @@ import { AsyncButton, AsyncForm, Grid, InlineField, LocaleFormat, Stack, Text } 
 import type { InlineEdit } from '@pioneer/frontier';
 import { Picker, PickerField } from '@pioneer/frontier/data';
 import { ContentId, FundamentalRune, RuneType } from '@pioneer/rules/sdk';
+import { PickerRows } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
 import { sheetField } from '../../sheet-field';
-import { PickerRows } from '../picker-rows';
 import { RuneMove } from './rune-move.component';
 import {
   etchedRunes,

@@ -2,9 +2,10 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import type { KeyPropertyRune, ReviewedRuneId } from '@pioneer/campaign/domain';
-import { AsyncButton, AsyncForm, Heading, SelectField, Stack, TextAreaField, TextField } from '@pioneer/frontier';
+import { AsyncButton, AsyncForm, Heading, Stack, TextAreaField, TextField } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
-import { ComboboxField } from '@pioneer/frontier/data';
+import { PickerField } from '@pioneer/frontier/data';
+import { injectOptionColumns, injectOptionRows, optionLabel, optionValue } from '@pioneer/rules/ui';
 
 import { CampaignKeyItemStore } from '../../data/campaign-key-item-store';
 import { KEY_ITEM_CONTENT_SEARCH } from '../../data/key-item-content-search';
@@ -30,10 +31,9 @@ import { CampaignKeyItemRunes } from '../campaign-key-item-runes/campaign-key-it
     AsyncButton,
     AsyncForm,
     CampaignKeyItemRunes,
-    ComboboxField,
+    PickerField,
     FormField,
     Heading,
-    SelectField,
     Stack,
     TextAreaField,
     TextField,
@@ -59,6 +59,14 @@ export class CampaignKeyItemForm {
   );
   protected readonly gradeOptions = computed(() => this.#grades(RUNE_GRADES));
   protected readonly reinforcingOptions = computed(() => this.#grades(REINFORCING_GRADES));
+  /** The base item is searched at the source; each grade is a short list held whole. */
+  protected readonly baseColumns = injectOptionColumns<ReviewedRuneId>();
+  protected readonly baseValue = optionValue<ReviewedRuneId>;
+  protected readonly baseLabel = optionLabel;
+  protected readonly potency = injectOptionRows(this.gradeOptions);
+  protected readonly striking = injectOptionRows(this.gradeOptions);
+  protected readonly resilient = injectOptionRows(this.gradeOptions);
+  protected readonly reinforcing = injectOptionRows(this.reinforcingOptions);
 
   protected async find(words: string): Promise<void> {
     this.loading.set(true);

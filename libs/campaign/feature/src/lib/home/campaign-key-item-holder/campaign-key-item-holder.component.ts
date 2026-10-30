@@ -2,8 +2,9 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, signal } f
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterId } from '@pioneer/campaign/domain';
 import type { KeyItemView } from '@pioneer/campaign/domain';
-import { AsyncButton, Select, Stack } from '@pioneer/frontier';
+import { AsyncButton, Stack } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
+import { OptionPicker } from '@pioneer/rules/ui';
 
 import { CampaignKeyItemStore } from '../../data/campaign-key-item-store';
 import { CampaignStore } from '../../data/campaign-store';
@@ -15,7 +16,7 @@ import { CampaignStore } from '../../data/campaign-store';
  */
 @Component({
   selector: 'pio-campaign-key-item-holder',
-  imports: [AsyncButton, Select, Stack, TranslocoPipe],
+  imports: [AsyncButton, OptionPicker, Stack, TranslocoPipe],
   templateUrl: './campaign-key-item-holder.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

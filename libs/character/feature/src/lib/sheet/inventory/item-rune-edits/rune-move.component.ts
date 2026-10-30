@@ -8,12 +8,12 @@ import type { InventoryItem, RunedContent, RuneRef } from '@pioneer/character/do
 import { AsyncButton, AsyncForm, Stack } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import { RunedItem } from '@pioneer/rules/sdk';
+import { PickerRows } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
 import { injectItemNames } from '../item-names';
-import { PickerRows } from '../picker-rows';
 import { etchedRunes, runeKey, runeOfKey, transferTargets } from './rune-options';
 import {
   etchedRows,

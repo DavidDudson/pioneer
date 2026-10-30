@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, model } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import type { KeyItemView } from '@pioneer/campaign/domain';
-import { Select } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
+import { OptionPicker } from '@pioneer/rules/ui';
 
 import { ALL_HOLDERS, holderChoices, STASH_HOLDER } from '../../data/key-item-filter';
 
 /** Narrows the Party Inventory to the key items one character holds, or to those in the party stash. */
 @Component({
   selector: 'pio-campaign-key-item-filter',
-  imports: [Select, TranslocoPipe],
+  imports: [OptionPicker, TranslocoPipe],
   templateUrl: './campaign-key-item-filter.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

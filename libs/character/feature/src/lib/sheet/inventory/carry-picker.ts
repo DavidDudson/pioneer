@@ -7,13 +7,11 @@ import type { ItemEntry } from '@pioneer/character/domain';
 import type { TableColumn } from '@pioneer/frontier/data';
 import { BulkWeight, ContentKind } from '@pioneer/rules/sdk';
 import type { Bulk } from '@pioneer/rules/sdk';
-import { ItemTableSchema } from '@pioneer/rules/ui';
-import type { Chip } from '@pioneer/rules/ui';
+import { ItemTableSchema, PickerRows } from '@pioneer/rules/ui';
+import type { Chip, RowOrder } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
 import { CARRY_LABELS, CarryChoice, carryChoices } from './carry-options';
-import { PickerRows } from './picker-rows';
-import type { RowOrder } from './picker-rows';
 
 /** One way to carry an item: its name, the hands it takes, what it does and the Bulk it adds. */
 export interface CarryRow {
