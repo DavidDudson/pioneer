@@ -1,20 +1,11 @@
 import type { ChoiceSlot, ContentLookup } from '@pioneer/rules/grants';
 import { evaluatePredicate, PredicateFacts, Truth } from '@pioneer/rules/predicate';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
-import {
-  Attribute,
-  ContentId,
-  ContentKind,
-  Level,
-  NamespaceKind,
-  RollOption,
-  RollOptionNamespace,
-  RuleElementKey,
-} from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, Level, NamespaceKind, RollOptionNamespace, RuleElementKey } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentLevel, ContentText, RichText, SlotKey } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
-import { attributeModifiers } from './attribute-boosts';
+import { attributeOptionsAt } from './attribute-options';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
 import { dedicationWait, dedicationWaits, featsPicked, NO_DEDICATION_LOCK, slotsInOrder } from './dedication-lock';
@@ -22,6 +13,7 @@ import type { DedicationWait } from './dedication-lock';
 import { FeatPickProblem } from './feat-content';
 import type { FeatContent, FeatRead } from './feat-content';
 import { rankOptions } from './language-levels';
+import { bisected } from './level-bisect';
 import { grantedSkillRanks } from './skill-raises';
 import { skillSlots, slotSkillRanks, withSkillPicks } from './skill-training';
 import { skillReads } from './slot-reads';
@@ -58,22 +50,8 @@ function prerequisiteStatus(feat: FeatRead | undefined, facts: PredicateFacts): 
  */
 const PREREQUISITE_NAMESPACES: readonly RollOptionNamespace[] = [RollOptionNamespace.parse('attribute')];
 
-const ATTRIBUTES: readonly Attribute[] = Object.values(Attribute);
-
 function prerequisiteNamespaces(namespaces: NamespaceTable): NamespaceTable {
   return new Map([...namespaces, ...PREREQUISITE_NAMESPACES.map((each) => [each, NamespaceKind.Known] as const)]);
-}
-
-/**
- * `attribute:<attribute>:mod:<n>` for each modifier at `level`, as Foundry writes them. A negative one can't be written
- * as a roll option, and no prerequisite asks for one, so it sets none: a minimum then reads as not met.
- */
-function attributeOptions(document: CharacterDocument, content: SlotContent, level: Level): RollOption[] {
-  const modifiers = attributeModifiers({ ...document, level }, content.boosts);
-  return ATTRIBUTES.flatMap((attribute) => {
-    const modifier = modifiers.get(attribute);
-    return modifier < 0 ? [] : [RollOption.parse(`attribute:${attribute}:mod:${modifier}`)];
-  });
 }
 
 /**
@@ -120,11 +98,12 @@ function factsByLevel(document: CharacterDocument, content: SlotContent): (level
   const skills = skillReads(document, content);
   const slots = skillSlots(document, skills);
   const namespaces = prerequisiteNamespaces(content.namespaces);
+  const attributes = attributeOptionsAt(document, content);
   const facts = new Map<Level, PredicateFacts>();
   const read = (level: Level): PredicateFacts => {
     const resolution = skills.grantsAt(level);
     const ranks = withSkillPicks(grantedSkillRanks(resolution), slotSkillRanks(slots, level));
-    const options = [...resolution.rollOptions, ...rankOptions(ranks), ...attributeOptions(document, content, level)];
+    const options = [...resolution.rollOptions, ...rankOptions(ranks), ...attributes(level)];
     return new PredicateFacts(options, namespaces);
   };
   return (level) => {
@@ -134,15 +113,28 @@ function factsByLevel(document: CharacterDocument, content: SlotContent): (level
   };
 }
 
+/** The keys of the feat slots the character has at each level, a set that only grows with the level. */
+function featSlotsAt(document: CharacterDocument, content: SlotContent): (level: Level) => ReadonlySet<SlotKey> {
+  const { grantsAt } = skillReads(document, content);
+  return bisected(
+    (level) => {
+      const resolution = grantsAt(level);
+      const slots = [...resolution.open, ...resolution.answered].filter((slot) => isFeatSlot(slot, content.lookup));
+      return new Set(slots.map(({ key }) => key));
+    },
+    (left, right) => left.size === right.size && [...left].every((key) => right.has(key)),
+    { first: Level.parse(CHARACTER_LEVEL_MIN), last: Level.parse(CHARACTER_LEVEL_MAX) },
+  );
+}
+
 /** Each feat slot the character has up to 20th level, by the lowest level it opens at. */
 function featSlotLevelsOf(document: CharacterDocument, content: SlotContent): ReadonlyMap<SlotKey, Level> {
-  const { grantsAt } = skillReads(document, content);
+  const slotsAt = featSlotsAt(document, content);
   const levels = new Map<SlotKey, Level>();
   for (const level of levelsUp()) {
-    const resolution = grantsAt(level);
-    for (const slot of [...resolution.open, ...resolution.answered]) {
-      if (!levels.has(slot.key) && isFeatSlot(slot, content.lookup)) {
-        levels.set(slot.key, level);
+    for (const key of slotsAt(level)) {
+      if (!levels.has(key)) {
+        levels.set(key, level);
       }
     }
   }

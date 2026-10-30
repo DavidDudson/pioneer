@@ -1,4 +1,3 @@
-import type { GrantResolution } from '@pioneer/rules/grants';
 import { Attribute, ContentId, Level, Proficiency, SkillCount, SlotKey } from '@pioneer/rules/sdk';
 import type { AttributeModifier, ChoiceValue, Selector } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
@@ -9,7 +8,9 @@ import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MIN } from './character-fields';
 import { CLASS_SLOT } from './character-slots';
 import type { SkillContent, SkillOption } from './skill-content';
-import { duplicateTrainings, grantedSkillRanks, higher, RANKS, trainingEntries } from './skill-raises';
+import { skillGrantsAt } from './skill-grants';
+import type { GrantsAt } from './skill-grants';
+import { duplicateTrainings, higher, RANKS } from './skill-raises';
 import { trainedSkills } from './skill-trained';
 import type { TrainedSkill } from './skill-trained';
 
@@ -49,19 +50,6 @@ export interface SkillSlot {
   /** For a trained skill slot, the skills it can't offer because the character is trained already, with their sources. */
   readonly trained: readonly TrainedSkill[];
 }
-
-/** A value read once for each level it is asked at. */
-function byLevel<TValue>(read: (level: Level) => TValue): (level: Level) => TValue {
-  const known = new Map<Level, TValue>();
-  return (level) => {
-    const value = known.get(level) ?? read(level);
-    known.set(level, value);
-    return value;
-  };
-}
-
-/** The character's grants at a level, over every pick it holds. */
-export type GrantsAt = (level: Level) => GrantResolution;
 
 const MASTER_FROM = Level.parse(7);
 const LEGENDARY_FROM = Level.parse(15);
@@ -203,8 +191,9 @@ function readPick(
 export function skillSlots(document: CharacterDocument, reads: SkillReads): readonly SkillSlot[] {
   const picked = new Map<Selector, Proficiency>();
   const pickedBy = new Map<Selector, readonly SlotKey[]>();
-  const grantedAt = byLevel((level) => grantedSkillRanks(reads.grantsAt(level)));
-  const entriesAt = byLevel((level) => trainingEntries(reads.grantsAt(level)));
+  const grantsAt = skillGrantsAt(reads.grantsAt);
+  const grantedAt = (level: Level): ReadonlyMap<Selector, Proficiency> => grantsAt(level).ranks;
+  const entriesAt = (level: Level): ReadonlyMap<Selector, readonly ContentId[]> => grantsAt(level).entries;
   return skillSlotPlaces(document, reads).map(({ key, level, kind }): SkillSlot => {
     const ranks = grantedAt(level);
     const rankOf = (selector: Selector): Proficiency | undefined => higher(ranks.get(selector), picked.get(selector));
