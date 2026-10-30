@@ -24,7 +24,7 @@ export type DamageKind = ValueOf<typeof DamageKind>;
 const DAMAGE_KINDS = Object.keys(DamageKind).length;
 const DAMAGE_PARTS_MAX = 8;
 const MATERIALS_MAX = 4;
-const EFFECTS_MAX = 24;
+const EFFECTS_MAX = 32;
 
 /** Names a damage part so heightening can add to it (Foundry pf2e's damage record key, `0`). */
 const DamagePartKey = Slug.brand<'DamagePartKey'>();
