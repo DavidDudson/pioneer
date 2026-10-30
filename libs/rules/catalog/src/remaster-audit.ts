@@ -6,7 +6,7 @@
  */
 
 /** Why a row has no pack entry of its name. */
-export type RemasterClass = 'activation' | 'variant' | 'missing-kind' | 'typo' | 'review';
+export type RemasterClass = 'activation' | 'variant' | 'missing-kind' | 'non-entry' | 'typo' | 'review';
 
 /** An AoN listing row: the page type it sits under and its name. */
 export interface RemasterCandidate {
@@ -18,8 +18,13 @@ export interface RemasterCandidate {
  * The AoN page types with no matching `ContentKind`, so none of their rows can be an entry (#1244). Equipment, Feats,
  * Spells and the like are not here: a row of those has a kind and is either explained by another rule or a gap.
  */
+/** Rows of a book's page furniture, not content: a sidebar, a category index, the book's own source row. */
+const NON_ENTRY_TYPES: ReadonlySet<string> = new Set(['Category Page', 'Sidebar', 'Source']);
+
 const MISSING_KIND_TYPES: ReadonlySet<string> = new Set([
+  'Animal Companion',
   'Apparitions',
+  'Armor Specialization',
   'Arcane Schools',
   'Arcane Thesis',
   'Bloodlines',
@@ -27,6 +32,7 @@ const MISSING_KIND_TYPES: ReadonlySet<string> = new Set([
   'Class Kits',
   'Class Sample Builds',
   'Companions',
+  'Curse',
   'Curses',
   'Diseases',
   'Doctrines',
@@ -35,6 +41,7 @@ const MISSING_KIND_TYPES: ReadonlySet<string> = new Set([
   'Eidolons',
   'Epithets',
   'Familiar Abilities',
+  'Hazard',
   'Hazards',
   "Hunter's Edges",
   'Hybrid Studies',
@@ -42,7 +49,11 @@ const MISSING_KIND_TYPES: ReadonlySet<string> = new Set([
   'Implements',
   'Innovations',
   'Instincts',
+  'Creature Adjustment',
+  'Creature Family',
+  'Follower',
   'Item Curses',
+  'Kineticist Element',
   'Languages',
   'Lessons',
   'Methodologies',
@@ -52,6 +63,7 @@ const MISSING_KIND_TYPES: ReadonlySet<string> = new Set([
   'Patron Themes',
   'Planes',
   'Rackets',
+  'Runesmith Rune',
   'Relic Gifts',
   'Research Fields',
   'Rules',
@@ -61,13 +73,15 @@ const MISSING_KIND_TYPES: ReadonlySet<string> = new Set([
   'Traits',
   'Vehicles',
   'Ways',
+  'Weapon Critical Specialization',
 ]);
 
 /**
- * An item activation AoN lists as an action has no name of its own: the row's name is its trait list, "(concentrate,
- * manipulate)", whatever the traits are and however they are spelled ("concenctrate").
+ * An item activation AoN lists as an action has no name of its own: the row's name is its trait list and time, however
+ * it is written ("(concentrate, manipulate)", "manipulate", "1 minute (concentrate)", "concenctrate"). A real action
+ * name starts with a capital, so a name with none is a trait list.
  */
-const ACTIVATION_NAME = /^\([a-z, -]+\)$/u;
+const ACTIVATION_NAME = /^[\d\s(),a-z-]+$/u;
 
 /** A precious material, alone or as armor, a shield, a weapon or an object, with its grade: "Silver Armor (Low-Grade)". */
 /** A precious material at the start of a name; what follows must be an item word or a grade. */
@@ -136,7 +150,7 @@ function isVariant(name: string, packNames: ReadonlySet<string>): boolean {
 
 /**
  * Classifies one row that has no pack entry of its name. `packNames` holds the normalised names of the packs' entries
- * (`normaliseName`). A row is an activation when it is an action row named only by its traits, a missing kind when its
+ * (`normaliseName`). A row is a non-entry when it is page furniture, an activation when it is an action row named only by its traits, a missing kind when its
  * AoN page type has no `ContentKind`, a variant when it is a precious-material grade, a tiered or runed form of a pack
  * entry, or a generic magic item, and a typo when a pack name is one or two edits away.
  */
@@ -146,6 +160,9 @@ export function classifyRemasterCandidate(
 ): RemasterClass {
   if (type === 'Action' && ACTIVATION_NAME.test(name.trim())) {
     return 'activation';
+  }
+  if (NON_ENTRY_TYPES.has(type)) {
+    return 'non-entry';
   }
   if (MISSING_KIND_TYPES.has(type)) {
     return 'missing-kind';

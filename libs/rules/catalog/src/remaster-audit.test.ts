@@ -15,6 +15,8 @@ describe('classifyRemasterCandidate', () => {
     expect(classify('Action', '(concentrate)')).toBe('activation');
     expect(classify('Action', '(concenctrate, manipulate)')).toBe('activation');
     expect(classify('Action', '(aura, concentrate, fire)')).toBe('activation');
+    expect(classify('Action', 'manipulate')).toBe('activation');
+    expect(classify('Action', '1 minute (concentrate, manipulate)')).toBe('activation');
   });
 
   test('a named action row is not an activation', () => {
@@ -24,6 +26,11 @@ describe('classifyRemasterCandidate', () => {
   test('a page type with no content kind is a missing kind', () => {
     expect(classify('Traits', 'Aquadynamic')).toBe('missing-kind');
     expect(classify('Vehicles', 'Chariot')).toBe('missing-kind');
+  });
+
+  test('page furniture is a non-entry', () => {
+    expect(classify('Sidebar', 'Flat Checks')).toBe('non-entry');
+    expect(classify('Source', 'Player Core')).toBe('non-entry');
   });
 
   test('material grades, tiers, runes and generic magic items are variants', () => {
