@@ -8,6 +8,8 @@ import { ItemQuantity } from './inventory';
 import type { InventoryItemId } from './inventory';
 import type { ItemContent } from './inventory-content';
 import type { RuneContent, RuneEntry } from './item-runes';
+import type { PickSource } from './pick-source';
+import { shuffle } from './picks';
 import { coinsOf, coinsValue, purchaseCost } from './purse';
 import { RuneAction } from './rune-edits';
 import type { RuneEdit } from './rune-edits';
@@ -27,6 +29,11 @@ export interface RuneShop {
   readonly items: ItemContent;
   readonly runes: RuneContent;
   readonly now: Temporal.Instant;
+}
+
+/** What a weapon is etched from: what its runes are bought from, and the draws that pick its property runes. */
+export interface EtchShop extends RuneShop {
+  readonly source: PickSource;
 }
 
 /** What one rune of `entry` costs; undefined when it has no price. */
@@ -75,12 +82,56 @@ function allowed(character: Character, edit: RuneEdit, shop: RuneShop): boolean 
   return runeRefusal(shop, character.document.inventory, edit) === undefined;
 }
 
+/** A property rune to etch onto the weapon `id`. */
+interface PropertyEtching {
+  readonly id: InventoryItemId;
+  readonly entry: RuneEntry;
+}
+
+/** `character` with the property rune of `etching` etched and paid for, or as it was when it is refused or unaffordable. */
+function withPropertyRune(character: Character, { id, entry }: PropertyEtching, shop: RuneShop): Character {
+  const cost = priceOf(entry);
+  const left = coinsValue(character.document.inventory.coins);
+  const rune = RuneEtchingSchema.parse({ type: RuneType.Property, rune: entry.id });
+  if (
+    cost === undefined ||
+    cost > Math.floor(left / SHARE) ||
+    !allowed(character, { action: RuneAction.Etch, id, rune }, shop)
+  ) {
+    return character;
+  }
+  const paid = coinsOf(CopperValue.parse(left - cost));
+  return character
+    .apply({ field: CharacterPatchField.EtchRune, id, rune }, shop.now)
+    .apply({ field: CharacterPatchField.SetCoins, coins: paid }, shop.now);
+}
+
 /**
- * `character` with the best fundamental runes it can afford etched onto its weapon `id`: potency, then striking, each
- * at the highest grade of a common rune its level allows and half the coins left cover. The runes are paid for from
- * its purse. A rune the inventory refuses is left off.
+ * `character` with property runes etched onto its weapon `id`, picked at random from the common runes for a weapon
+ * its level allows, until the room its potency rune leaves is full. Each costs at most half the coins left; one the
+ * inventory refuses is skipped.
  */
-export function etchWeapon(character: Character, id: InventoryItemId, shop: RuneShop): Character {
+function withPropertyRunes(character: Character, id: InventoryItemId, shop: EtchShop): Character {
+  const offered = [...shop.runes.values()].filter(
+    (entry) =>
+      entry.data.type === RuneType.Property &&
+      entry.data.etchedOnto.item === RunedItem.Weapon &&
+      entry.rarity === Rarity.Common &&
+      entry.level <= character.document.level,
+  );
+  let runed = character;
+  for (const entry of shuffle(shop.source, offered)) {
+    runed = withPropertyRune(runed, { id, entry }, shop);
+  }
+  return runed;
+}
+
+/**
+ * `character` with the best runes it can afford etched onto its weapon `id`: potency, then striking, each at the
+ * highest grade of a common rune its level allows and half the coins left cover, then property runes picked at random
+ * to fill the room potency leaves. The runes are paid for from its purse. A rune the inventory refuses is left off.
+ */
+export function etchWeapon(character: Character, id: InventoryItemId, shop: EtchShop): Character {
   let runed = character;
   for (const rune of WEAPON_RUNES) {
     const left = coinsValue(runed.document.inventory.coins);
@@ -96,5 +147,5 @@ export function etchWeapon(character: Character, id: InventoryItemId, shop: Rune
         .apply({ field: CharacterPatchField.SetCoins, coins: paid }, shop.now);
     }
   }
-  return runed;
+  return withPropertyRunes(runed, id, shop);
 }

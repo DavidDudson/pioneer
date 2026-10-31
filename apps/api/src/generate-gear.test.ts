@@ -6,19 +6,22 @@ import {
   CharacterLevel,
   CharacterPatchField,
   CORE_TREASURE_BY_LEVEL,
+  CORE_RULE_LIMITS,
   coinsValue,
   generateCharacter,
   generateGear,
   handsInUse,
   inventoryBulk,
   inventoryViolations,
+  itemRunes,
   itemsValue,
+  propertyRoom,
   Seed,
   treasureAt,
 } from '@pioneer/character/domain';
 import type { Character, ItemContent } from '@pioneer/character/domain';
 import { Attribute, ContentKind } from '@pioneer/rules/sdk';
-import type { AttributeModifier } from '@pioneer/rules/sdk';
+import type { AttributeModifier, ContentId } from '@pioneer/rules/sdk';
 import { fixedClock } from '@pioneer/shared/kernel';
 import { assert, constantFrom, integer, property } from 'fast-check';
 
@@ -112,6 +115,61 @@ describe('generated gear', () => {
       ),
       { numRuns: PROPERTY_RUNS },
     );
+  });
+});
+
+describe('a themed weapon etched with runes', () => {
+  const THEME_LEVEL = CharacterLevel.parse(15);
+  const SEEDS = [1, 2, 3, 4, 5, 6, 7, 8];
+  const MISSING_RUNE_LEVEL = 99;
+
+  /** The property runes on one weapon, and how many its potency rune leaves room for. */
+  interface WeaponRunes {
+    readonly names: readonly ContentId[];
+    readonly room: number;
+  }
+
+  /** The level of each rune in `names`; a rune the content lacks is level 99, so it fails the level check. */
+  function levelsOf(names: readonly ContentId[]): readonly number[] {
+    return names.map((name) => runed.runes.get(name)?.level ?? MISSING_RUNE_LEVEL);
+  }
+
+  /** The property runes on the weapons `className` is armed with at `THEME_LEVEL`, for each seed. */
+  function propertyRunesFor(className: string): readonly WeaponRunes[] {
+    return SEEDS.flatMap((seed) => {
+      const blank = blankIn(content, className).apply({ field: CharacterPatchField.Level, value: THEME_LEVEL }, now);
+      const character = generateGear({
+        character: blank,
+        seed: Seed.parse(seed),
+        items,
+        slots: content,
+        now,
+        weapon: { category: 'martial', group: 'sword' },
+        runes: runed.runes,
+      });
+      return character.document.inventory.items
+        .filter((line) => items.get(line.item)?.kind === ContentKind.Weapon && line.runes !== undefined)
+        .map((line) => ({
+          names: line.runes?.property ?? [],
+          room: propertyRoom(itemRunes(line, items.get(line.item)), CORE_RULE_LIMITS),
+        }));
+    });
+  }
+
+  test('carries property runes, no more than its potency rune leaves room for', () => {
+    const weapons = propertyRunesFor('Fighter');
+    expect(weapons.some(({ names }) => names.length > NONE)).toBe(true);
+    for (const { names, room } of weapons) {
+      expect(names.length).toBeLessThanOrEqual(room);
+    }
+  });
+
+  test('carries only property runes no higher in level than the character', () => {
+    for (const { names } of propertyRunesFor('Fighter')) {
+      for (const level of levelsOf(names)) {
+        expect(level).toBeLessThanOrEqual(THEME_LEVEL);
+      }
+    }
   });
 });
 

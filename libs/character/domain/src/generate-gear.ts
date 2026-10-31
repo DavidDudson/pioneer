@@ -248,7 +248,9 @@ function armed(character: Character, shop: Shop, themed: Armament): Character {
   if (!gained || line === undefined) {
     return buy(character, WEAPON, shop);
   }
-  return runes === undefined ? bought : etchWeapon(bought, line.id, { items: shop.items, runes, now: shop.now });
+  return runes === undefined
+    ? bought
+    : etchWeapon(bought, line.id, { items: shop.items, runes, now: shop.now, source: shop.source });
 }
 
 /** `character` with the coins of its level's budget, less what its items are already worth. */
