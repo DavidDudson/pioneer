@@ -9,6 +9,8 @@ export const ButtonVariant = {
   Secondary: 'secondary',
   Ghost: 'ghost',
   Danger: 'danger',
+  /** A text roll or value button: border and text in the accent, on a muted accent background. */
+  OutlineSubtle: 'outline-subtle',
   /** Looks like the text it sits in; e.g. an inline-edit read view. Sized by its content. */
   Inline: 'inline',
   /** A standalone on/off button, filled with the accent when on. Features use `fr-toggle-button`. */
@@ -51,6 +53,10 @@ const buttonVariants = cva(
         secondary:
           'justify-center border border-line-default bg-surface-base font-medium text-fg-default hover:bg-surface-sunken',
         ghost: 'justify-center font-medium text-fg-default hover:bg-surface-sunken',
+        'outline-subtle': [
+          'justify-center font-medium border border-accent-line bg-accent-subtle text-accent-fg',
+          'hover:border-accent-solid hover:text-accent-fg',
+        ].join(' '),
         danger:
           'justify-center bg-danger-solid font-medium text-danger-on-solid hover:bg-danger-solid-hover active:bg-danger-solid-active',
         inline:

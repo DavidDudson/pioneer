@@ -44,6 +44,9 @@ export const Ghost: ButtonStory = { args: { variant: ButtonVariant.Ghost } };
 
 export const Danger: ButtonStory = { args: { variant: ButtonVariant.Danger, label: 'Delete character' } };
 
+/** A text roll button: the formula or modifier is the label, in one colour on a muted background. */
+export const OutlineSubtle: ButtonStory = { args: { variant: ButtonVariant.OutlineSubtle, label: '5d5 + 10' } };
+
 export const Inline: ButtonStory = { args: { variant: ButtonVariant.Inline, label: 'Valeros' } };
 
 export const Disabled: ButtonStory = { args: { variant: ButtonVariant.Primary, disabled: true } };

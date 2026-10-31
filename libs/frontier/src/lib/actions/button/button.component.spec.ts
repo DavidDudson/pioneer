@@ -52,6 +52,7 @@ const VARIANT_CLASSES: Record<ButtonVariant, VariantClasses> = {
     has: ['bg-danger-solid', 'text-danger-on-solid', 'hover:bg-danger-solid-hover', 'active:bg-danger-solid-active'],
     lacks: ['text-accent-on-solid'],
   },
+  'outline-subtle': { has: ['border-accent-line', 'bg-accent-subtle', 'text-accent-fg'], lacks: ['bg-surface-base'] },
   inline: { has: ['text-start', 'min-h-touch'], lacks: [] },
   toggle: { has: ['border-line-default', 'aria-pressed:border-accent-solid'], lacks: [] },
   segment: { has: ['w-full', 'aria-pressed:bg-accent-solid'], lacks: ['border'] },

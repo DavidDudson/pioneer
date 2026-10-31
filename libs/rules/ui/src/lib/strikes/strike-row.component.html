@@ -28,7 +28,12 @@
           </fr-stack>
         </fr-disclosure>
       </fr-stack>
-      <pio-statistic-roll [name]="row().name" [kind]="attackKind" [statistic]="attack.statistic" />
+      <pio-statistic-roll
+        [name]="row().name"
+        [kind]="attackKind"
+        [statistic]="attack.statistic"
+        [entryNames]="entryNames()"
+      />
       <pio-use-buttons [line]="row().use" />
     </fr-stack>
   } @else {

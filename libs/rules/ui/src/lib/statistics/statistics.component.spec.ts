@@ -253,6 +253,16 @@ describe(StatisticsView, () => {
       expect(labels).toStrictEqual(checks);
     });
 
+    it('labels the roll button with the signed modifier it rolls, never an icon', async () => {
+      const host = await renderWithRoller([]);
+      const check = FIGHTER_STATISTICS.find(({ kind }) => kind === StatisticKind.Check);
+
+      const button = present(host.querySelector<HTMLButtonElement>(`button[aria-label="Roll ${check?.name}"]`));
+
+      expect(textOf(button)).toBe('+10');
+      expect(button.querySelector('svg, fr-icon')).toBeNull();
+    });
+
     it('hands the roller the statistic it was pressed on', async () => {
       const rolled: RollableStatistic[] = [];
       const host = await renderWithRoller(rolled);
