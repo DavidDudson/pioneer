@@ -63,16 +63,26 @@ export const SHEET_PACKS = [ITEM_FIXTURE_FILES, KIT_FIXTURE_FILES];
 /** The sheet the spec opened last, so a pick can reach its pickers. */
 let opened: RouterTestingHarness | undefined = undefined;
 
-/** Answers the sheet's reads of Valeros's play state, packs and variant rules, none of them changed. */
-async function answerServerState(approvals?: object): Promise<void> {
+/** What the sheet reads once it opens beyond its character. */
+interface SheetReads {
+  /** The rule-breaking items the campaign approved; none when omitted. */
+  readonly approvals?: object | undefined;
+  /** Whether the tab reads the rule limits; the Downtime tab does not. */
+  readonly limits?: boolean;
+}
+
+/** Answers the sheet's reads of Valeros's play state, packs and variant rules, none of them changed, and of its rule limits unless `limits` is off (a tab without the table rules never asks). */
+async function answerServerState({ approvals, limits = true }: SheetReads): Promise<void> {
   await answerPlayRead();
   await answerPacksRead();
   await answerVariantRulesRead();
-  await answerRuleLimitsRead(undefined, approvals);
+  if (limits) {
+    await answerRuleLimitsRead(undefined, approvals);
+  }
 }
 
 /** Opens Valeros's sheet at `url` with the item fixtures and kits loaded, once his character has loaded. */
-async function openSheet(url: string, character: object, approvals?: object): Promise<HTMLElement> {
+async function openSheet(url: string, character: object, reads: SheetReads = {}): Promise<HTMLElement> {
   await prebuildServerStateTesting(SHEET_PACKS);
   TestBed.configureTestingModule({
     providers: [
@@ -96,7 +106,7 @@ async function openSheet(url: string, character: object, approvals?: object): Pr
       .expectOne(`/api/characters/${id}`)
       .flush({ character, slots: [], languages: { known: [], open: 0 } });
   });
-  await answerServerState(approvals);
+  await answerServerState(reads);
   return present(harness.routeNativeElement);
 }
 
@@ -106,7 +116,7 @@ export async function openInventory(
   rows: number = VALEROS.inventory.items.length,
   approvals?: object,
 ): Promise<HTMLElement> {
-  const sheet = await openSheet(`/characters/${id}/exploration`, character, approvals);
+  const sheet = await openSheet(`/characters/${id}/exploration`, character, { approvals });
   const section = present(sheet.querySelector<HTMLElement>('pio-inventory-section'));
   await vi.waitFor(async () => {
     await settle();
@@ -190,7 +200,7 @@ export async function patchSent(): Promise<TestRequest> {
 
 /** Opens Valeros's sheet, with `query` in the URL when given, and waits for the shop to list what it offers. */
 export async function openShop(query = ''): Promise<HTMLElement> {
-  const sheet = await openSheet(`/characters/${id}/downtime${query}`, VALEROS);
+  const sheet = await openSheet(`/characters/${id}/downtime${query}`, VALEROS, { limits: false });
   const shop = present(sheet.querySelector<HTMLElement>('pio-shop'));
   await vi.waitFor(async () => {
     await settle();

@@ -10,7 +10,7 @@ import { rulesMessages } from '@pioneer/rules/sdk';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pioneer/shared/web';
 
-import { characterCrumb } from './crumbs';
+import { characterCrumb, sectionCrumb } from './crumbs';
 import { CharacterGenerator } from './data/character-generator';
 import { CharacterStore } from './data/character-store';
 import { firstSectionPath } from './sheet/sheet-sections';
@@ -85,6 +85,7 @@ export const characterRoutes: Routes = [
               { path: '', pathMatch: 'full', redirectTo: firstSectionPath(SheetMode.Plan) },
               {
                 path: ':section',
+                data: { [CRUMB]: sectionCrumb },
                 loadComponent: async () => {
                   const { SheetPlanTab } = await import('./sheet/sheet-plan-tab/sheet-plan-tab.component');
                   return SheetPlanTab;
@@ -100,6 +101,7 @@ export const characterRoutes: Routes = [
               { path: '', pathMatch: 'full', redirectTo: firstSectionPath(SheetMode.Encounter) },
               {
                 path: ':section',
+                data: { [CRUMB]: sectionCrumb },
                 loadComponent: async () => {
                   const { SheetEncounterTab } =
                     await import('./sheet/sheet-encounter-tab/sheet-encounter-tab.component');
@@ -116,6 +118,7 @@ export const characterRoutes: Routes = [
               { path: '', pathMatch: 'full', redirectTo: firstSectionPath(SheetMode.Exploration) },
               {
                 path: ':section',
+                data: { [CRUMB]: sectionCrumb },
                 loadComponent: async () => {
                   const { SheetExplorationTab } =
                     await import('./sheet/sheet-exploration-tab/sheet-exploration-tab.component');
@@ -132,6 +135,7 @@ export const characterRoutes: Routes = [
               { path: '', pathMatch: 'full', redirectTo: firstSectionPath(SheetMode.Downtime) },
               {
                 path: ':section',
+                data: { [CRUMB]: sectionCrumb },
                 loadComponent: async () => {
                   const { SheetDowntimeTab } = await import('./sheet/sheet-downtime-tab/sheet-downtime-tab.component');
                   return SheetDowntimeTab;
