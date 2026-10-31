@@ -18348,6 +18348,843 @@
         "flag": "dragon-breath"
       },
       {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "description",
+        "mode": "override",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You exhale deadly magical energy in a "
+              },
+              {
+                "type": "template",
+                "shape": "cone",
+                "size": 30
+              },
+              {
+                "type": "text",
+                "text": ", dealing "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "10d6"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage to each creature in the area with a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:reflex",
+                "basic": true
+              },
+              {
+                "type": "text",
+                "text": " against your spell DC. Once activated, Dragon Breath can't be used again for 1d4 rounds."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:adamantine",
+              "dragon-form:barrage",
+              "dragon-form:bog",
+              "dragon-form:cinder",
+              "dragon-form:cloud",
+              "dragon-form:crystal",
+              "dragon-form:delight",
+              "dragon-form:despair",
+              "dragon-form:diabolic",
+              "dragon-form:empyreal",
+              "dragon-form:executor",
+              "dragon-form:forest",
+              "dragon-form:fortune",
+              "dragon-form:magma",
+              "dragon-form:mocking",
+              "dragon-form:phase",
+              "dragon-form:rime",
+              "dragon-form:rune",
+              "dragon-form:sea",
+              "dragon-form:sky",
+              "dragon-form:umbral",
+              "dragon-form:underworld",
+              "dragon-form:vizier"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "description",
+        "mode": "override",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You exhale deadly magical energy in a "
+              },
+              {
+                "type": "template",
+                "shape": "line",
+                "size": 100
+              },
+              {
+                "type": "text",
+                "text": ", dealing "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "10d6"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage to each creature in the area with a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:reflex",
+                "basic": true
+              },
+              {
+                "type": "text",
+                "text": " against your spell DC. Once activated, Dragon Breath can't be used again for 1d4 rounds."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "or": ["dragon-form:brine", "dragon-form:coral", "dragon-form:stormcrown"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "description",
+        "mode": "override",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You exhale deadly magical energy in a "
+              },
+              {
+                "type": "template",
+                "shape": "cone",
+                "size": 30
+              },
+              {
+                "type": "text",
+                "text": ", dealing "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "10d6"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage to each creature in the area with a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "basic": true
+              },
+              {
+                "type": "text",
+                "text": " against your spell DC. Once activated, Dragon Breath can't be used again for 1d4 rounds."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "or": ["dragon-form:conspirator", "dragon-form:horned", "dragon-form:resurrection", "dragon-form:wailing"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "description",
+        "mode": "override",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You exhale deadly magical energy in a "
+              },
+              {
+                "type": "template",
+                "shape": "cone",
+                "size": 30
+              },
+              {
+                "type": "text",
+                "text": ", dealing "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "10d6"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage to each creature in the area with a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:will",
+                "basic": true
+              },
+              {
+                "type": "text",
+                "text": " against your spell DC. Once activated, Dragon Breath can't be used again for 1d4 rounds."
+              }
+            ]
+          }
+        ],
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:mirage",
+              "dragon-form:oath",
+              "dragon-form:omen",
+              "dragon-form:sage",
+              "dragon-form:sovereign",
+              "dragon-form:time",
+              "dragon-form:vorpal",
+              "dragon-form:whisper",
+              "dragon-form:wish"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "description",
+        "mode": "override",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You exhale deadly magical energy in a "
+              },
+              {
+                "type": "template",
+                "shape": "line",
+                "size": 100
+              },
+              {
+                "type": "text",
+                "text": ", dealing "
+              },
+              {
+                "type": "damage",
+                "instances": [
+                  {
+                    "formula": "10d6"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " damage to each creature in the area with a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:will",
+                "basic": true
+              },
+              {
+                "type": "text",
+                "text": " against your spell DC. Once activated, Dragon Breath can't be used again for 1d4 rounds."
+              }
+            ]
+          }
+        ],
+        "predicate": ["dragon-form:requiem"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "bludgeoning",
+        "predicate": [
+          {
+            "nor": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          },
+          {
+            "or": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "force",
+        "predicate": [
+          {
+            "nor": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          },
+          {
+            "or": ["dragon-form:barrage", "dragon-form:fortune", "dragon-form:phase", "dragon-form:time"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "acid",
+        "predicate": [
+          {
+            "nor": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          },
+          "dragon-form:bog"
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "fire",
+        "predicate": [
+          {
+            "nor": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          },
+          {
+            "or": [
+              "dragon-form:cinder",
+              "dragon-form:diabolic",
+              "dragon-form:magma",
+              "dragon-form:rune",
+              "dragon-form:underworld",
+              "dragon-form:vizier"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "electricity",
+        "predicate": [
+          {
+            "nor": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          },
+          {
+            "or": ["dragon-form:cloud", "dragon-form:sky", "dragon-form:stormcrown"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "poison",
+        "predicate": [
+          {
+            "nor": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          },
+          {
+            "or": ["dragon-form:conspirator", "dragon-form:horned"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "piercing",
+        "predicate": [
+          {
+            "nor": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          },
+          {
+            "or": ["dragon-form:crystal", "dragon-form:forest"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "spirit",
+        "predicate": [
+          {
+            "nor": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          },
+          {
+            "or": ["dragon-form:delight", "dragon-form:empyreal", "dragon-form:oath", "dragon-form:requiem"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "sonic",
+        "predicate": [
+          {
+            "nor": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          },
+          {
+            "or": ["dragon-form:despair", "dragon-form:executor", "dragon-form:wailing"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "mental",
+        "predicate": [
+          {
+            "nor": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          },
+          {
+            "or": [
+              "dragon-form:mirage",
+              "dragon-form:omen",
+              "dragon-form:sage",
+              "dragon-form:sovereign",
+              "dragon-form:whisper",
+              "dragon-form:wish"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "void",
+        "predicate": [
+          {
+            "nor": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          },
+          {
+            "or": ["dragon-form:resurrection", "dragon-form:umbral", "dragon-form:vorpal"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "cold",
+        "predicate": [
+          {
+            "nor": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          },
+          "dragon-form:rime"
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "primal",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:adamantine",
+              "dragon-form:bog",
+              "dragon-form:brine",
+              "dragon-form:cinder",
+              "dragon-form:cloud",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:horned",
+              "dragon-form:magma",
+              "dragon-form:rime",
+              "dragon-form:stormcrown"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "arcane",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:barrage",
+              "dragon-form:fortune",
+              "dragon-form:mirage",
+              "dragon-form:phase",
+              "dragon-form:rune",
+              "dragon-form:sea",
+              "dragon-form:time",
+              "dragon-form:underworld",
+              "dragon-form:vorpal",
+              "dragon-form:wailing",
+              "dragon-form:wish"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "occult",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:conspirator",
+              "dragon-form:despair",
+              "dragon-form:mocking",
+              "dragon-form:omen",
+              "dragon-form:sage",
+              "dragon-form:sovereign",
+              "dragon-form:umbral",
+              "dragon-form:vizier",
+              "dragon-form:whisper"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "traits",
+        "mode": "add",
+        "value": "divine",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:delight",
+              "dragon-form:diabolic",
+              "dragon-form:empyreal",
+              "dragon-form:executor",
+              "dragon-form:oath",
+              "dragon-form:requiem",
+              "dragon-form:resurrection",
+              "dragon-form:sky"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "bludgeoning",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "force",
+        "predicate": [
+          {
+            "or": ["dragon-form:barrage", "dragon-form:fortune", "dragon-form:phase", "dragon-form:time"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "acid",
+        "predicate": ["dragon-form:bog"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "fire",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:cinder",
+              "dragon-form:diabolic",
+              "dragon-form:magma",
+              "dragon-form:rune",
+              "dragon-form:underworld",
+              "dragon-form:vizier"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "electricity",
+        "predicate": [
+          {
+            "or": ["dragon-form:cloud", "dragon-form:sky", "dragon-form:stormcrown"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "poison",
+        "predicate": [
+          {
+            "or": ["dragon-form:conspirator", "dragon-form:horned"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "piercing",
+        "predicate": [
+          {
+            "or": ["dragon-form:crystal", "dragon-form:forest"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "spirit",
+        "predicate": [
+          {
+            "or": ["dragon-form:delight", "dragon-form:empyreal", "dragon-form:oath", "dragon-form:requiem"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "sonic",
+        "predicate": [
+          {
+            "or": ["dragon-form:despair", "dragon-form:executor", "dragon-form:wailing"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "mental",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:mirage",
+              "dragon-form:omen",
+              "dragon-form:sage",
+              "dragon-form:sovereign",
+              "dragon-form:whisper",
+              "dragon-form:wish"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "void",
+        "predicate": [
+          {
+            "or": ["dragon-form:resurrection", "dragon-form:umbral", "dragon-form:vorpal"]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "cold",
+        "predicate": ["dragon-form:rime"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:dragon-breath-dragon-form"],
+        "property": "damage-dice",
+        "mode": "add",
+        "value": "ternary(gte(@item.level, 8), 4, 0)"
+      },
+      {
         "key": "DamageDice",
         "selectors": ["jaws-damage"],
         "diceNumber": 2,

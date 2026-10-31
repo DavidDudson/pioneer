@@ -197,7 +197,7 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const unresolved: UnresolvedKey[] = [];
   const references = context.references ?? NO_REFERENCES;
   const { kept, dropped } = withoutDropped(entry, raws);
-  const shaped = withGrantedItems(withChoiceObjects(kept), references).map((raw) =>
+  const shaped = withChoiceObjects(withGrantedItems(kept, references)).map((raw) =>
     shapeRule(raw, context, unresolved),
   );
   const declared = declaredFlags(shaped);
